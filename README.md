@@ -5,4 +5,4 @@
 - **RNN**
   - [Overview](https://github.com/mqyqingfeng/Blog/issues/316)
     - **LSTM**
-      - [Introduction](https://github.com/mqyqingfeng/Blog/issues/317)
+      - [Introduction](LSTM.md)
