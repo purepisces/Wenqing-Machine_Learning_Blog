@@ -4,4 +4,4 @@
 
 - **RNN**
   - **Standard RNN** [Introduction](LSTM.md)
-  - **LSTM** [Introduction](LSTM.md)
+  - **LSTM** [Introduction](RNN/LSTM.md)
