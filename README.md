@@ -3,5 +3,5 @@
 ## NLP Topics
 
 - **RNN**
-  - [Overview](https://github.com/mqyqingfeng/Blog/issues/316)
-    - **LSTM** [Introduction](LSTM.md)
+  - **Standard RNN** [Introduction](LSTM.md)
+  - **LSTM** [Introduction](LSTM.md)
