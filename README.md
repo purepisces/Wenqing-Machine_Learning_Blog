@@ -1,7 +1,8 @@
 # Wenqing's Blog
 
-## NLP
+## NLP Topics
 
-1. [RNN](https://github.com/mqyqingfeng/Blog/issues/316)
-1.1. [LSTM](https://github.com/mqyqingfeng/Blog/issues/317)
-
+- **RNN**
+  - [Overview](https://github.com/mqyqingfeng/Blog/issues/316)
+    - **LSTM**
+      - [Introduction](https://github.com/mqyqingfeng/Blog/issues/317)
