@@ -2,9 +2,16 @@
 
 ## NLP Topics
 
-### Basic Neural Network Models
+### Basic Neural Network Concepts
 - **MLP (Multi-Layer Perceptron)**
   - [Overview](MLP.md)
+- **Activation Functions**
+  - [Overview](activation-functions.md)
+  - [ReLU](ReLU.md)
+  - [Sigmoid](sigmoid.md)
+  - [Tanh](tanh.md)
+  - [Softmax](softmax.md)
+
 ### Sequence Models
 - [Overview](sequence-models-overview.md)
 - [Model Comparisons: CNN vs. RNN vs. Transformer](model-comparison.md)
@@ -23,5 +30,3 @@
     - [Overview](T5.md)
 
 ### Word Representations
-- **Embedding** 
-  - [Overview](embedding.md)
