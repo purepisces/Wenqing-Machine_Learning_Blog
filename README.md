@@ -15,8 +15,9 @@
     - [Overview](GPT.md)
   - **T5 (Text-to-Text Transfer Transformer)**
     - [Overview](T5.md)
+- **Model Comparisons**
+  - [CNN vs. RNN vs. Transformer](comparison.md)
 
 ### Word Representations
 - **Embedding** 
   - [Overview](embedding.md)
-
