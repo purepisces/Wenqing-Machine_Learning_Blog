@@ -3,6 +3,8 @@
 ## NLP Topics
 
 ### Basic Neural Network Concepts
+- **Feed Forward Neural Network (FFNN)**
+  - [Overview](FFNN.md)
 - **MLP (Multi-Layer Perceptron)**
   - [Overview](MLP.md)
 - **Activation Functions**
