@@ -5,8 +5,8 @@
 ### Basic Neural Network Concepts
 - **Feed Forward Neural Network (FFNN)**
   - [Overview](FFNN.md)
-- **MLP (Multi-Layer Perceptron)**
-  - [Overview](MLP.md)
+  - **MLP (Multi-Layer Perceptron)**
+    - [Overview](MLP.md)
 - **Activation Functions**
   - [Overview](activation-functions.md)
   - [ReLU](ReLU.md)
