@@ -5,4 +5,4 @@
 - **RNN**
   - **Standard RNN** [Introduction](LSTM.md)
   - **LSTM** [Introduction](RNN/LSTM.md)
-- **Embedding** [Overview](Embedding.md)
+- **Embedding** [Overview](embedding.md)
