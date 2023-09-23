@@ -2,6 +2,9 @@
 
 ## NLP Topics
 
+### Basic Neural Network Models
+- **MLP (Multi-Layer Perceptron)**
+  - [Overview](MLP.md)
 ### Sequence Models
 - [Overview](sequence-models-overview.md)
 - [Model Comparisons: CNN vs. RNN vs. Transformer](model-comparison.md)
