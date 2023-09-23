@@ -30,3 +30,5 @@
     - [Overview](T5.md)
 
 ### Word Representations
+- **Embedding** 
+  - [Overview](embedding.md)
