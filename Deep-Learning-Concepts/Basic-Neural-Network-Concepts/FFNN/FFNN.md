@@ -60,10 +60,11 @@ Total Parameters((weights + biases):
 
 
 
+![](image.png)
 
 
-
-
+Reference:
+https://youtube.com/watch?v=jTzJ9zjC8nU
 
 
 
