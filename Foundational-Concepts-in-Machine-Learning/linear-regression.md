@@ -6,10 +6,10 @@ Machine learning has a myriad of applications, and one of its primary tasks is *
 $y = \beta_0 + \beta_1x_1 + ... + \beta_nx_n + \epsilon$
 
 Where:
-- $y$: Dependent variable.
-- $x_1, ..., x_n$: Independent variables.
-- $\beta_0, ..., \beta_n$: Coefficients.
-- $\epsilon$: Error term.
+- $y$: Dependent (or response) variable we aim to predict.
+- $x_1, ..., x_n$: Independent (or predictor) variables that influence the prediction.
+- $\beta_0, ..., \beta_n$: Coefficients that represent the weight or impact of corresponding independent variables
+- $\epsilon$: Error term that represents the difference between the observed and predicted value.
 
 ## Objective:
 Minimize the squared differences between observed and predicted values.
