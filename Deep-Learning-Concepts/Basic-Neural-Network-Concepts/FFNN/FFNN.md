@@ -53,8 +53,8 @@ Considering two adjacent layers in a network:
 - Layer $L-1$ with $N$ neurons
 - Layer $L$ with $M$ neurons
 - Assuming each neuron in $L$ is connected to every neuron in $L-1$
-  
-Total Parameters((weights + biases):
+
+  Total Parameters((weights + biases):
   $N \times M (weights) + M (biases) = N \times M + M$(since Each neuron in layer $L$ get a different bias)
 
 ## Reference:
