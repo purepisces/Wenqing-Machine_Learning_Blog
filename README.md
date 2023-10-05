@@ -5,8 +5,23 @@
   - [Overview](linear-regression.md)
 - **Logistic Regression**
   - [Overview](logistic-regression.md)
+- **Optimization Algorithms**
+  - [Overview](optimization-overview.md)
+  - **Gradient Descent**
+    - [Overview](gradient-descent.md)
+    - **Batch Gradient Descent**
+      - [Overview](batch-gradient-descent.md)
+    - **Stochastic Gradient Descent (SGD)**
+      - [Overview](stochastic-gradient-descent.md)
+    - **Mini-Batch Gradient Descent**
+      - [Overview](mini-batch-gradient-descent.md)
+  - **Advanced Optimization Algorithms**
+    - [Momentum](momentum.md)
+    - [Adam](adam.md)
+    - [RMSProp](RMSProp.md)
+    - [AdaGrad](adagrad.md)
 
-## NLP Topics
+## Deep Learning Concepts
 
 ### Basic Neural Network Concepts
 - **Feed Forward Neural Network (FFNN)**
@@ -19,10 +34,8 @@
   - [Sigmoid](sigmoid.md)
   - [Tanh](tanh.md)
   - [Softmax](softmax.md)
-
 ### Sequence Models
 - [Overview](sequence-models-overview.md)
-- [Model Comparisons: CNN vs. RNN vs. Transformer](model-comparison.md)
 - **RNN (Recurrent Neural Networks)**
   - [Standard RNN](RNN.md)
   - [LSTM (Long Short-Term Memory)](RNN/LSTM.md)
@@ -36,6 +49,7 @@
     - [Overview](GPT.md)
   - **T5 (Text-to-Text Transfer Transformer)**
     - [Overview](T5.md)
+- [Model Comparisons: CNN vs. RNN vs. Transformer](model-comparison.md)
 
 ### Word Representations
 - **Embedding** 
