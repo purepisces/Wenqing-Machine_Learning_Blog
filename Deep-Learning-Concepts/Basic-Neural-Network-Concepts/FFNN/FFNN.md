@@ -6,6 +6,8 @@ An FFNN comprises multiple layers: input, one or more hidden layers, and an outp
 Given a known input vector `x` and weights throughout the network, we can compute the output vector `ŷ`.
 
 ## Basic Structure:
+<img src="FFNN.png" width="500" height="350" alt="Feedforward Neural Network Diagram">
+
 - **Input Layer**:
   - The number of neurons typically corresponds to the size of the input data.
     - Example: For images of 28x28 pixels (like in the MNIST dataset), the input layer has 28×28=784 neurons, one per pixel.
@@ -55,16 +57,9 @@ Considering two adjacent layers in a network:
 Total Parameters((weights + biases):
   $N \times M (weights) + M (biases) = N \times M + M$(since Each neuron in layer $L$ get a different bias)
 
+## Reference:
+- [Watch the video on YouTube](https://youtube.com/watch?v=jTzJ9zjC8nU)
 
-
-
-
-
-![](image.png)
-
-
-Reference:
-https://youtube.com/watch?v=jTzJ9zjC8nU
 
 
 
