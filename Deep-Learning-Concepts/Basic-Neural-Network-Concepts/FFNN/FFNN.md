@@ -42,7 +42,7 @@ Within each neuron, the output is derived by first taking a weighted sum of its 
 
 ### Parameter Counting
 
-**Fully Connected Networks**: These are networks where each neuron connects to every other neuron in the subsequent layer. In cnn, we only have some of these weights are non-zero and most of them are 0, which means each neuron is connected only to a few other neurons in the previous layer. This is a special case.
+**Fully Connected Networks**: These are networks where each neuron connects to every other neuron in the subsequent layer. Convolutional Neural Network (CNN) is a type of FFNN, however, in CNN we only have some of these weights are non-zero and most of them are 0, which means each neuron is connected only to a few other neurons in the previous layer. This is a special case.
 
 **For the First Hidden Layer**:
 - **Weights**: Each neuron in the first hidden layer is connected to every neuron (or input feature) in the input layer. Thus, if there are `n` neurons in the input layer, a neuron in the first hidden layer will have `n` weights associated with it.
