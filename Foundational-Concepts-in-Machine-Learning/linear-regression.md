@@ -47,3 +47,5 @@ $\left[ \sum_i 2x_i (\alpha x_i + \beta - y_i), \ 2\sum_i (\alpha x_i + \beta - 
 
 <img src="gradient.png" width="400" height="350" alt="gradient">
 
+Finnaly, plugging the value of $\alpha$ and $\beta$ in $g(x)$.
+
