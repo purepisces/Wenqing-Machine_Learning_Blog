@@ -3,6 +3,8 @@
 ## Foundational Concepts in Machine Learning
 - **Linear Regression**
   - [Overview](linear-regression.md)
+- **Logistic Regression**
+  - [Overview](logistic-regression.md)
 
 ## NLP Topics
 
