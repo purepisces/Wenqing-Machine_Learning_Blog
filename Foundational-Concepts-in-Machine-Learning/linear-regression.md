@@ -3,46 +3,47 @@
 Machine learning has a myriad of applications, and one of its primary tasks is **prediction**. Linear regression predicts a dependent variable using one or more independent variables. It assumes a linear relationship between them.
 
 ## Model:
+for linear regression with multiple predictors is:
 $y = \beta_0 + \beta_1x_1 + ... + \beta_nx_n + \epsilon$
 
 Where:
 - $y$: Dependent (or response) variable we aim to predict.
 - $x_1, ..., x_n$: Independent (or predictor) variables that influence the prediction.
-- $\beta_0, ..., \beta_n$: Coefficients that represent the weight or impact of corresponding independent variables
+- $\beta_0, ..., \beta_n$: $\beta_0$ is the intercept, while $\beta_1, ..., \beta_n$ are coefficients indicating the impact of their respective independent variables.
 - $\epsilon$: Error term that represents the difference between the observed and predicted value.
 
 ## Objective:
-Minimize the squared differences between observed and predicted values.
+Minimize the sum of the squared differences between the observed and predicted values:
+
 $\text{Min} \ \sum_i (\beta_0 + \beta_1 x_{i1} + ... + \beta_n x_{in} - y_i)^2$
 
 ## Simple Linear Regression: An Example
 
 Consider a scenario where:
-- $x$ represents the independent variable (e.g., height).
-- $y$ represents the dependent variable we want to predict (e.g., weight).
+- $x$ represents an independent variable, such as height.
+- $y$ denotes the dependent variable we aim to predict, like weight.
   
-We can express it as:
-$y = g(x)$
+Our objective is to find a function $g$ such that $y = g(x)$. Given a training dataset with values for both $x$ and $y$, our task is to determine this function $g$. This process of finding the right function $g$ is termed **regression**. 
 
-In many cases, we have a training dataset comprising both $x$ and $y$ values. Our goal is to infer the function $g$. This task of finding the right function $g$ is termed **regression**.
-And the easiest way to do this is to assume that this function g is a linear function g(x) = alpha x+beta. Hence the name linear regression. Alpha is the slope of this line and beta is the intercept.
+> Note: Regression: Now refers broadly to any method of modeling and analyzing several variables, when the focus is on the relationship between a dependent variable and one or more independent variables.
+>
+> 
+For simplicity, we can assume that $g$ is a linear function:
 
-To do linear regression, we just need to pick the alpha and beta that makes this line fit the data as much as possible.
+$g(x) = \alpha x + \beta$
 
-One way to quantify the fit of a line to a bunch of data points is to consider where the point in the training data set is and where it should be according to this line. Take the square of the difference and then take the sum over all data points.
+In this equation:
+- $\alpha$ is the slope of this line
+- $\beta$ is the intercept.
+<img src="gx.png" width="400" height="350" alt="gx">
+
+For an optimal model, our task is to choose values for $\alpha$ and $\beta$ that minimize the squared differences between actual data points and their predicted counterparts. Formally, this minimization problem can be stated as:
 
 $\text{Min} \ \sum_i (\alpha x_i + \beta - y_i)^2$
-To find optimal values for $\alpha$ and $\beta$, we compute the gradient of the above expression, set it to zero, and solve for both $\alpha$ and $\beta$. The gradient is given by:
+
+The necessary condition for a minimum is setting the gradient to zero:
+
 $\left[ \sum_i 2x_i (\alpha x_i + \beta - y_i), \ 2\sum_i (\alpha x_i + \beta - y_i) \right] = 0$
 
-
-## Assumptions:
-- Linearity between variables.
-- Observations are independent.
-- Constant error variance.
-- In multiple regression, predictors aren't highly correlated.
-- Errors are normally distributed.
-
-## Use Cases:
-Linear regression is used in various fields and for tasks like predicting sales, estimating growth trends, and as part of more complex machine learning processes.
+<img src="gradient.png" width="400" height="350" alt="gradient">
 
