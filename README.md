@@ -2,7 +2,7 @@
 
 ## Foundational Concepts in Machine Learning
 - **Linear Regression**
-  - [Overview](linear-regression.md)
+  - [Overview](Foundational-Concepts-in-Machine-Learning/linear-regression.md)
 - **Logistic Regression**
   - [Overview](logistic-regression.md)
 - **Optimization Algorithms**
