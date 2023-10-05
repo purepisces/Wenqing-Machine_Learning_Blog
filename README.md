@@ -1,5 +1,9 @@
 # Wenqing's Blog
 
+## Foundational Concepts in Machine Learning
+- **Linear Regression**
+  - [Overview](linear-regression.md)
+
 ## NLP Topics
 
 ### Basic Neural Network Concepts
