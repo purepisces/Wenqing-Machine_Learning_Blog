@@ -6,6 +6,10 @@
   - [Covariance](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/covariance.md)
   - [Joint Variability](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/joint-variability.md)
   - [Deviation](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/deviation.md)
+  - [Bessel’s Correction](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/bessels-correction.md)
+  - [Degrees of Freedom](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/degrees-of-freedom.md)
+- **Model Evaluation**
+  - [Underfitting (High Bias) & Overfitting (High Variance)](Foundational-Concepts-in-Machine-Learning/model-evaluation/underfitting-overfitting.md)
 - **Linear Regression**
   - [Overview](Foundational-Concepts-in-Machine-Learning/Linear-Regression/linear-regression.md)
   - **Assumptions of Linear Regression**
