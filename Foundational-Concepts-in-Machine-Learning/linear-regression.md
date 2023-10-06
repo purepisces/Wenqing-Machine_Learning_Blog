@@ -19,7 +19,9 @@ Where:
 ## Objective:
 Minimize the sum of the squared differences(residuals) between the observed and predicted values:
 
-$\text{Min} \ \sum_i (\beta_0 + \beta_1 x_{i1} + ... + \beta_n x_{in} - y_i)^2$
+Sum of squared errors (SSE): $\text{Min} \ \sum_i (\beta_0 + \beta_1 x_{i1} + ... + \beta_n x_{in} - y_i)^2$
+
+This SSE serves as the loss function that we aim to minimize in linear regression.
 
 <img src="residual.png" width="400" height="350" alt="residual">
 
