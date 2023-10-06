@@ -33,6 +33,10 @@ Where:
 ## Interpreting Variance
 The units of variance are squared, e.g., if you are measuring weights, then a variance might have units like $kg^2$. This makes direct interpretation challenging, which is why the standard deviation is often preferred.
 ## Standard Deviation
+Deviation refers to the difference between an observed value and a central value, often the mean. 
+
+$Deviation (x_i) = x_i - \bar{X}$
+
 The standard deviation is the square root of the variance. It allows for interpretations in the same units as the original data:
 
 Standard Deviation = $\sqrt{\text{Variance}} \$
@@ -45,9 +49,6 @@ Since the units are the same as our data, we can plot it onto our graph, here is
 - The mean value of 16 kg is represented by a red column.
 - Actual data points or scatter plot are shown by the blue circles
 - The standard deviation is usually plotted above and below the mean to show data spread. So, the line above the mean represents 16 + 5.3, and below represents 16 - 5.3.
-
-
-
 
 ## Interpreting Standard Deviation
 
