@@ -2,6 +2,9 @@
 
 Machine learning has a myriad of applications, and one of its primary tasks is **prediction**. Linear regression predicts a dependent variable using one or more independent variables. It assumes a linear relationship between them.
 
+> Note: **Linear Regression** is the overall process or method used to understand and quantify the relationship between variables.
+> 
+> **Linear Regression Model** is the specific mathematical representation of that relationship. 
 ## Model:
 for linear regression with multiple predictors is:
 $y = \beta_0 + \beta_1x_1 + ... + \beta_nx_n + \epsilon$
@@ -27,8 +30,8 @@ Our objective is to find a function $g$ such that $y = g(x)$. Given a training d
 
 > Note: Regression: Now refers broadly to any method of modeling and analyzing several variables, when the focus is on the relationship between a dependent variable and one or more independent variables.
 >
-> 
-For simplicity, we can assume that $g$ is a linear function:
+
+For simplicity, we can assume that $g$ is a linear regression model:
 
 $g(x) = \alpha x + \beta$
 
@@ -47,5 +50,4 @@ $\left[ \sum_i 2x_i (\alpha x_i + \beta - y_i), \ 2\sum_i (\alpha x_i + \beta - 
 
 <img src="gradient.png" width="400" height="350" alt="gradient">
 
-Finnaly, plugging the value of $\alpha$ and $\beta$ in $g(x)$.
-
+After determining the values of $\alpha$ and $\beta$ from the image, we can insert them into the equation $g(x)$ to obtain the specific linear regression model.
