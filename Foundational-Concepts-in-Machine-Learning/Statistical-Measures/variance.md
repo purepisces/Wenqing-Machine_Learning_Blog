@@ -14,6 +14,12 @@ Where:
 - $n$ is the number of data points.
 - $x_i$ represents each data point in the dataset.
 - $\mu$ is the mean (average) of the dataset.
+
+
+  <img src="variance-numerator.png" width="500" height="350" alt="variance-numerator">
+  
+  <img src="variance-denominator.png" width="500" height="350" alt="variance-denominator">
+
   
 Note: Subtracting one from the denominator, known as Bessel’s correction, corrects the bias when estimating population variance from a sample. This correction is necessary because using $n$ as the divisor would typically underestimate the actual variance when applied to a sample.
 ### Population Variance
@@ -35,7 +41,8 @@ The standard deviation is the square root of the variance. It allows for interpr
 Standard Deviation = $\sqrt{\text{Variance}} \$
 
 For instance, if our variance for weights was calculated to be 28.4 kg^2, the standard deviation is $\sqrt{28.4 \text{ kg}^2}$, which equals 5.3 kg.
-Since the units are the same as out data, we can plot it onto our graph, here is our graph.
+Since the units are the same as out data, we can plot it onto our graph, here is our graph:
+
 <img src="standard_deviation.png" width="500" height="350" alt="standard_deviation">
 
 - The mean value of 16 kg is represented by a red column.
