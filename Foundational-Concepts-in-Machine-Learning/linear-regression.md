@@ -17,9 +17,12 @@ Where:
 - $\epsilon$: Error term that represents the difference between the observed and predicted value.
 
 ## Objective:
-Minimize the sum of the squared differences between the observed and predicted values:
+Minimize the sum of the squared differences(residuals) between the observed and predicted values:
 
 $\text{Min} \ \sum_i (\beta_0 + \beta_1 x_{i1} + ... + \beta_n x_{in} - y_i)^2$
+
+<img src="residual.png" width="400" height="350" alt="residual">
+
 
 ## Simple Linear Regression: An Example
 
