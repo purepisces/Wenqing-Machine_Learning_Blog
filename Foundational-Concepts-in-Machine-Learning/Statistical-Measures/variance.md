@@ -69,10 +69,7 @@ Variance plays a crucial role in various aspects of statistics and machine learn
 ## Example
 
 Suppose you have a dataset of daily stock returns for a particular company over a year. You calculate the variance of these returns to assess how much the returns fluctuated from the average return during that period. A high variance might indicate a volatile stock, while a low variance suggests a more stable one.
-
 ## Conclusion
-
-Variance is a critical statistical measure that quantifies the spread or dispersion of data. It helps in understanding the variability and risk associated with data points in a dataset. In various fields, including finance and machine learning, variance plays a vital role in decision-making and analysis.
-
-Reference:
-https://www.youtube.com/watch?v=x0rmUXWtSS8
+Variance and standard deviation quantify data spread, with the latter providing a more intuitive measure. Both are pivotal in fields like finance and machine learning for risk and model assessment.
+## Reference:
+- [Watch the video on YouTube](https://www.youtube.com/watch?v=x0rmUXWtSS8)
