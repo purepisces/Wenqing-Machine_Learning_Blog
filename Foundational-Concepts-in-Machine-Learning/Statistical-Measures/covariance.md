@@ -6,7 +6,7 @@ Covariance is a fundamental statistical concept that measures the degree to whic
 
 The covariance between two random variables, X and Y, is calculated using the following formula:
 
-$\text{Cov}(X, Y) = \frac{\sum_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{n-1}$
+$\text{Cov}(X, Y) = \frac{\sum\limits_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{n-1}$
 
 Where:
 - $\text{Cov}(X, Y)$ is the covariance between X and Y.
