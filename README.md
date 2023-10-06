@@ -39,6 +39,9 @@
     - [Adam](adam.md)
     - [RMSProp](RMSProp.md)
     - [AdaGrad](adagrad.md)
+- **Dimensionality Reduction**
+  - [Principal Component Analysis (PCA)](Foundational-Concepts-in-Machine-Learning/dimensionality-reduction/pca.md)
+
 
 ## Deep Learning Concepts
 
