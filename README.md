@@ -2,7 +2,7 @@
 
 ## Foundational Concepts in Machine Learning
 - **Statistical Measures**
-  - [Variance&Standard Deviations](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/variance&standarDeviation.md)
+  - [Variance&Standard Deviation](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/variance&standarDeviation.md)
   - [Covariance](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/covariance.md)
   - [Joint Variability](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/joint-variability.md)
   - [Deviation](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/deviation.md)
