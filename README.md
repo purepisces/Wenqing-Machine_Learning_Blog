@@ -8,7 +8,7 @@
   - [Bessel’s Correction](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/bessels-correction.md)
   - [Degrees of Freedom](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/degrees-of-freedom.md)
 - **Model Evaluation**
-  - [Underfitting (High Bias) & Overfitting (High Variance)](Foundational-Concepts-in-Machine-Learning/model-evaluation/underfitting-overfitting.md)
+  - [Underfitting (High Bias) & Overfitting (High Variance)](Foundational-Concepts-in-Machine-Learning/Model-Evaluation/underfitting-overfitting.md)
 - **Linear Regression**
   - [Overview](Foundational-Concepts-in-Machine-Learning/Linear-Regression/linear-regression.md)
   - **Assumptions of Linear Regression**
