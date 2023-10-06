@@ -2,6 +2,9 @@
 
 Variance is the average of the squared differences from the mean, it quantifies data spread or dispersion and is crucial in assessing data variability in statistics and machine learning. Often, to interpret the variance value in the same unit as the data, researchers use the standard deviation, which is the square root of the variance.
 
+
+
+
 ## Variance Formula
 The variance of a dataset can be calculated differently based on whether we are dealing with a sample or an entire population:
 ### Sample Variance
@@ -15,10 +18,10 @@ Where:
 - $x_i$ represents each data point in the dataset.
 - $\mu$ is the mean (average) of the dataset.
 
+<img src="variance_numerator.png" width="350" height="250" alt="variance_numerator"> <img src="variance_denominator.png" width="350" height="250" alt="variance_denominator">
 
-  <img src="variance_numerator.png" width="500" height="350" alt="variance_numerator">
+
   
-  <img src="variance_denominator.png" width="500" height="350" alt="variance_denominator">
 
   
 Note: Subtracting one from the denominator, known as Bessel’s correction, corrects the bias when estimating population variance from a sample. This correction is necessary because using $n$ as the divisor would typically underestimate the actual variance when applied to a sample.
@@ -43,7 +46,7 @@ Standard Deviation = $\sqrt{\text{Variance}} \$
 For instance, if our variance for weights was calculated to be 28.4 kg^2, the standard deviation is $\sqrt{28.4 \text{ kg}^2}$, which equals 5.3 kg.
 Since the units are the same as out data, we can plot it onto our graph, here is our graph:
 
-<img src="standard_deviation.png" width="500" height="350" alt="standard_deviation">
+<img src="standard_deviation.png" width="450" height="300" alt="standard_deviation">
 
 - The mean value of 16 kg is represented by a red column.
 - Actual data points or scatter plot are shown by the blue circles
