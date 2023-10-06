@@ -8,6 +8,12 @@ In the context of linear regression, the assumption of linearity implies that th
 
 Linear regression aims to fit a straight line (or a hyperplane in multiple regression) to the data points. If the underlying relationship between the variables is inherently non-linear, then a linear model may not provide a good fit, leading to inaccurate predictions and misleading insights.
 
+
+> Note: A line is a hyperplane in 2-dimensional space, and a plane is a hyperplane in 3-dimensional space. The term "hyperplane" is a generalization that describes a subspace of one dimension less than its ambient space. Example for ambient space: If you have a line or a plane inside a 3-dimensional space (like the space we're familiar with in our physical world), then that 3D space is the "ambient space" for the line or plane.
+>
+> Note: simple linear regression involves predicting a response variable based on a single predictor variable, multiple regression predicts a response based on two or more predictors. Simple Linear Regression: $Y = \beta_0 + \beta_1X_1$ Multiple Regression:$Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + ... + \beta_pX_p$
+>
+
 ## How to Check for Linearity?
 
 1. **Scatter Plots**: A simple scatter plot of the dependent variable against each independent variable can provide a visual check. A roughly straight-line pattern suggests a linear relationship.
