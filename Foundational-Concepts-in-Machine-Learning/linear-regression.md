@@ -6,7 +6,8 @@ Machine learning has a myriad of applications, and one of its primary tasks is *
 > 
 > **Linear Regression Model** is the specific mathematical representation of that relationship. 
 ## Model:
-for linear regression with multiple predictors is:
+For linear regression with multiple predictors:
+
 $y = \beta_0 + \beta_1x_1 + ... + \beta_nx_n + \epsilon$
 
 Where:
