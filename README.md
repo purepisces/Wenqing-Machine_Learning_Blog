@@ -3,6 +3,18 @@
 ## Foundational Concepts in Machine Learning
 - **Linear Regression**
   - [Overview](Foundational-Concepts-in-Machine-Learning/linear-regression.md)
+  - **Assumptions of Linear Regression**
+    - [Linearity](linearity.md)
+    - [Homoscedasticity (Constant Variance)](homoscedasticity.md) 
+    - [Normal Distribution of Errors](normal-distribution.md)
+    - [No Multicollinearity](no-multicollinearity.md)
+    - [Non-Random Residuals (Independence of Errors)](non-random-residuals.md)
+    - [No Multicollinearity](no-multicollinearity.md)
+  - **Performance Metrics for Linear Regression** 
+    - [R-squared](r-squared.md) 
+    - [Prediction Interval](prediction-interval.md) 
+    - [Standard Error of the Estimate](standard-error-estimate.md) 
+    - [Statistical Significance](statistical-significance.md) 
 - **Logistic Regression**
   - [Overview](logistic-regression.md)
 - **Optimization Algorithms**
