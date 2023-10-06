@@ -2,7 +2,7 @@
 
 ## Foundational Concepts in Machine Learning
 - **Linear Regression**
-  - [Overview](Foundational-Concepts-in-Machine-Learning/linear-regression.md)
+  - [Overview](Foundational-Concepts-in-Machine-Learning/Linear-Regression/linear-regression.md)
   - **Assumptions of Linear Regression**
     - [Linearity](linearity.md)
     - [Homoscedasticity (Constant Variance)](homoscedasticity.md) 
