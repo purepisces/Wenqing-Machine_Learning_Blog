@@ -16,9 +16,9 @@ Where:
 - $\mu$ is the mean (average) of the dataset.
 
 
-  <img src="variance-numerator.png" width="500" height="350" alt="variance-numerator">
+  <img src="variance_numerator.png" width="500" height="350" alt="variance_numerator">
   
-  <img src="variance-denominator.png" width="500" height="350" alt="variance-denominator">
+  <img src="variance_denominator.png" width="500" height="350" alt="variance_denominator">
 
   
 Note: Subtracting one from the denominator, known as Bessel’s correction, corrects the bias when estimating population variance from a sample. This correction is necessary because using $n$ as the divisor would typically underestimate the actual variance when applied to a sample.
