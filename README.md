@@ -9,7 +9,6 @@
     - [Normal Distribution of Errors](normal-distribution.md)
     - [No Multicollinearity](no-multicollinearity.md)
     - [Non-Random Residuals (Independence of Errors)](non-random-residuals.md)
-    - [No Multicollinearity](no-multicollinearity.md)
   - **Performance Metrics for Linear Regression** 
     - [R-squared](r-squared.md) 
     - [Prediction Interval](prediction-interval.md) 
