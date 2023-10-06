@@ -8,7 +8,7 @@
     - [Homoscedasticity (Constant Variance)](homoscedasticity.md) 
     - [Normal Distribution of Errors](normal-distribution.md)
     - [No Multicollinearity](no-multicollinearity.md)
-    - [Non-Random Residuals (Independence of Errors)](non-random-residuals.md)
+    - [Independence of Errors(Non-Random Residuals)](independence-of-errors.md)
   - **Performance Metrics for Linear Regression** 
     - [R-squared](r-squared.md) 
     - [Prediction Interval](prediction-interval.md) 
