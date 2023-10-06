@@ -38,14 +38,14 @@ Where:
 - $\mu$ is the mean (average) of the dataset.
 
 ## Interpreting Variance
-The units of variance are squared, e.g., if you are measuring weights, then a variance might have units like kg^2. This makes direct interpretation challenging, which is why the standard deviation is often preferred.
+The units of variance are squared, e.g., if you are measuring weights, then a variance might have units like $kg^2$. This makes direct interpretation challenging, which is why the standard deviation is often preferred.
 ## Standard Deviation
 The standard deviation is the square root of the variance. It allows for interpretations in the same units as the original data:
 
 Standard Deviation = $\sqrt{\text{Variance}} \$
 
-For instance, if our variance for weights was calculated to be 28.4 kg^2, the standard deviation is $\sqrt{28.4 \text{ kg}^2}$, which equals 5.3 kg.
-Since the units are the same as out data, we can plot it onto our graph, here is our graph:
+For instance, if our variance for weights was calculated to be 28.4 $kg^2$, the standard deviation is $\sqrt{28.4 \text{ kg}^2}$, which equals 5.3 kg.
+Since the units are the same as our data, we can plot it onto our graph, here is our graph:
 
 <img src="standard_deviation.png" width="450" height="300" alt="standard_deviation">
 
@@ -80,3 +80,6 @@ Suppose you have a dataset of daily stock returns for a particular company over 
 ## Conclusion
 
 Variance is a critical statistical measure that quantifies the spread or dispersion of data. It helps in understanding the variability and risk associated with data points in a dataset. In various fields, including finance and machine learning, variance plays a vital role in decision-making and analysis.
+
+Reference:
+https://www.youtube.com/watch?v=x0rmUXWtSS8
