@@ -4,11 +4,11 @@
 - **Linear Regression**
   - [Overview](Foundational-Concepts-in-Machine-Learning/Linear-Regression/linear-regression.md)
   - **Assumptions of Linear Regression**
-    - [Linearity](linearity.md)
-    - [Homoscedasticity (Constant Variance)](homoscedasticity.md) 
-    - [Normal Distribution of Errors](normal-distribution.md)
-    - [No Multicollinearity](no-multicollinearity.md)
-    - [Independence of Errors(Non-Random Residuals)](independence-of-errors.md)
+    - [Linearity](Foundational-Concepts-in-Machine-Learning/Linear-Regression/linearity.md)
+    - [Homoscedasticity (Constant Variance)](Foundational-Concepts-in-Machine-Learning/Linear-Regression/homoscedasticity.md) 
+    - [Normal Distribution of Errors](Foundational-Concepts-in-Machine-Learning/Linear-Regression/normal-distribution.md)
+    - [No Multicollinearity](Foundational-Concepts-in-Machine-Learning/Linear-Regression/no-multicollinearity.md)
+    - [Independence of Errors(Non-Random Residuals)](Foundational-Concepts-in-Machine-Learning/Linear-Regression/independence-of-errors.md)
   - **Performance Metrics for Linear Regression** 
     - [R-squared](r-squared.md) 
     - [Prediction Interval](prediction-interval.md) 
