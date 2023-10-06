@@ -1,6 +1,12 @@
 # Wenqing's Blog
 
 ## Foundational Concepts in Machine Learning
+- **Statistical Measures**
+  - [Variance](variance.md)
+  - [Covariance](covariance.md)
+  - [Standard Deviations](standard-deviations.md)
+  - [Joint Variability](joint-variability.md)
+  - [Deviation](deviation.md)
 - **Linear Regression**
   - [Overview](Foundational-Concepts-in-Machine-Learning/Linear-Regression/linear-regression.md)
   - **Assumptions of Linear Regression**
