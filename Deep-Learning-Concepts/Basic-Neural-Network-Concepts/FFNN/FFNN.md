@@ -24,8 +24,8 @@ Given a known input vector `x` and weights throughout the network, we can comput
 >
 ## Intricacies of Neurons:
 ### Understanding Weights and Biases
-- **Weights (often denoted as \(w\) or \(W\))**: These are the multipliers applied to input values, representing the importance of the connection between neurons.
-- **Bias (often denoted as \(b\) or \(B\))**: This is an offset added to the weighted sum of inputs. Conceptually, it's similar to the intercept in a linear regression equation.
+- **Weights (often denoted as $w$ or $W$)**: These are the multipliers applied to input values, representing the importance of the connection between neurons.
+- **Bias (often denoted as $b$ or $B$)**: This is an offset added to the weighted sum of inputs. Conceptually, it's similar to the intercept in a linear regression equation.
 
 ### Inside a Neuron: Two-Step Transformation
 
@@ -35,7 +35,7 @@ Within each neuron, the output is derived by first taking a weighted sum of its 
     - Formula: $z = w_1x_1 + w_2x_2 + ... + w_nx_n + b$
 3. **Non-linear Activation**: The linear sum $z$ undergoes a non-linear transformation through an activation function, enabling the network to learn complex patterns.
    - Common functions: ReLU, Sigmoid, Tanh, Softmax
-   - Neuron's Output: After processing the result $z$ through the activation function $f$, we obtain the neuron's output, denoted as \( a \). This is expressed mathematically as: $a = f(z)$
+   - Neuron's Output: After processing the result $z$ through the activation function $f$, we obtain the neuron's output, denoted as $a$. This is expressed mathematically as: $a = f(z)$
   
    
 **Significance**: By cascading these transformations across layers, neural networks can represent highly sophisticated functions. Training adjusts the neuron's weights and biases, optimizing them to reduce the disparity between predicted outputs and actual data, typically utilizing optimization algorithms like gradient descent.
