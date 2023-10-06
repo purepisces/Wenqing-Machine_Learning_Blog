@@ -1,6 +1,20 @@
 # Covariance
 
-Covariance is a fundamental statistical concept that measures the degree to which two random variables change together. It is a measure of the relationship between two variables and helps us understand whether they tend to increase or decrease simultaneously. In the context of machine learning and statistics, understanding covariance is essential, as it plays a crucial role in various analyses, including linear regression, principal component analysis (PCA), and more.
+Imagine we counted the number of green apples in 5 different grocery stores and we also counted the number of red apples in the same 5 grocery stores. Then we estimated the mean and variance for two different types of apples counted in the same five grocery store. 
+
+
+<img src="apple-mean-variance.png" width="450" height="300" alt="apple-mean-variance">
+
+
+
+
+
+
+
+Since these measurements were taken from the same cells(or the same grocery stores), we can look at them in pairs. Here is the graph:
+
+
+
 
 ## Formula for Covariance
 
