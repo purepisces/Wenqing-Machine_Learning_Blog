@@ -4,6 +4,7 @@
 - **Statistical Measures**
   - [Variance&Standard Deviation](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/variance&standarDeviation.md)
   - [Covariance](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/covariance.md)
+  - [Correlation](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/correlation.md)
   - [Joint Variability](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/joint-variability.md)
   - [Bessel’s Correction](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/bessels-correction.md)
   - [Degrees of Freedom](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/degrees-of-freedom.md)
