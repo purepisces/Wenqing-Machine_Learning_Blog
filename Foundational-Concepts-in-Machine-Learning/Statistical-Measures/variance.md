@@ -13,7 +13,7 @@ For a sample (e.g., weights of six sampled dogs in kg):
 $\text{Variance} (s^2) = \frac{1}{n-1} \sum\limits_{i=1}^{n} (x_i - \mu)^2 \$
 
 Where:
-- $s^2$ represents the variance.
+- $s^2$ represents the sample variance.
 - $n$ is the number of data points.
 - $x_i$ represents each data point in the dataset.
 - $\mu$ is the mean (average) of the dataset.
@@ -32,7 +32,7 @@ For an entire population:
 $\text{Variance} (\sigma^2) = \frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \mu)^2 \$
 
 Where:
-- $\sigma^2$ represents the variance.
+- $\sigma^2$ represents the population variance.
 - $n$ is the number of data points.
 - $x_i$ represents each data point in the dataset.
 - $\mu$ is the mean (average) of the dataset.
