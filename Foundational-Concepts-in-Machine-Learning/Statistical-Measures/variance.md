@@ -17,6 +17,7 @@ Where:
 - $n$ is the number of data points.
 - $x_i$ represents each data point in the dataset.
 - $\mu$ is the mean (average) of the dataset.
+  
 
 <img src="variance_numerator.png" width="350" height="250" alt="variance_numerator"> <img src="variance_denominator.png" width="350" height="250" alt="variance_denominator">
 
