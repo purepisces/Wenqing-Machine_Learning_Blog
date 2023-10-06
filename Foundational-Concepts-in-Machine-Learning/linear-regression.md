@@ -61,15 +61,3 @@ After determining the values of $\alpha$ and $\beta$ from the image, we can inse
 ## Reference:
 - [YouTube Video 1](https://www.youtube.com/watch?v=CtsRRUddV2s)
 - [YouTube Video 2](https://www.youtube.com/watch?v=3dhcmeOTZ_Q&t=1s)
-
-###Futher improvement:
-1. add assumption part for linear regression and look these terms
-Constant variance
-normally distribution
-homoscedasticity 
-non-random residuals 
-2. add perform metrics for linear regression and look these terms
-   r^2
-   prediction interval
-   standard error of the estimate
-   statistic significance 
