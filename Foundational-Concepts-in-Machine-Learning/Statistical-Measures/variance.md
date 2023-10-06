@@ -2,9 +2,6 @@
 
 Variance is the average of the squared differences from the mean, it quantifies data spread or dispersion and is crucial in assessing data variability in statistics and machine learning. Often, to interpret the variance value in the same unit as the data, researchers use the standard deviation, which is the square root of the variance.
 
-
-
-
 ## Variance Formula
 The variance of a dataset can be calculated differently based on whether we are dealing with a sample or an entire population:
 ### Sample Variance
@@ -18,14 +15,10 @@ Where:
 - $x_i$ represents each data point in the dataset.
 - $\mu$ is the mean (average) of the dataset.
   
+> Note: Subtracting one from the denominator, known as Bessel’s correction, corrects the bias when estimating population variance from a sample. This correction is necessary because using $n$ as the divisor would typically underestimate the actual variance when applied to a sample.
+>
 
 <img src="variance_numerator.png" width="350" height="250" alt="variance_numerator"> <img src="variance_denominator.png" width="350" height="250" alt="variance_denominator">
-
-
-  
-
-  
-Note: Subtracting one from the denominator, known as Bessel’s correction, corrects the bias when estimating population variance from a sample. This correction is necessary because using $n$ as the divisor would typically underestimate the actual variance when applied to a sample.
 ### Population Variance
 For an entire population:
 
