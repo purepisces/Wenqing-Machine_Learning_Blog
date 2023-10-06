@@ -51,3 +51,6 @@ $\left[ \sum_i 2x_i (\alpha x_i + \beta - y_i), \ 2\sum_i (\alpha x_i + \beta - 
 <img src="gradient.png" width="400" height="350" alt="gradient">
 
 After determining the values of $\alpha$ and $\beta$ from the image, we can insert them into the equation $g(x)$ to obtain the specific linear regression model.
+
+## Reference:
+- [Watch the video on YouTube](https://www.youtube.com/watch?v=CtsRRUddV2s)
