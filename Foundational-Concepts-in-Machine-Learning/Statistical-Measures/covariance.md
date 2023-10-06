@@ -10,19 +10,19 @@ $\text{Cov}(X, Y) = \frac{\sum\limits_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{
 
 Where:
 - $\text{Cov}(X, Y)$ is the covariance between X and Y.
-- \(X_i\) and \(Y_i\) are individual data points from the datasets X and Y, respectively.
-- \(\bar{X}\) and \(\bar{Y}\) are the means (average values) of X and Y, respectively.
-- n is the number of data points.
+- $X_i$ and $Y_i$ are individual data points from the datasets X and Y, respectively.
+- $\bar{X}$ and $\bar{Y}$ are the means (average values) of X and Y, respectively.
+- $n$ is the number of data points.
 
 ## Interpretation of Covariance
 
 The sign of the covariance indicates the nature of the relationship between two variables:
 
-- If \(\text{Cov}(X, Y) > 0\), it suggests a positive relationship. This means that as one variable increases, the other tends to increase as well.
+- If $\text{Cov}(X, Y) > 0$, it suggests a positive relationship. This means that as one variable increases, the other tends to increase as well.
 
-- If \(\text{Cov}(X, Y) < 0\), it indicates a negative relationship. This means that as one variable increases, the other tends to decrease.
+- If $\text{Cov}(X, Y) < 0$, it indicates a negative relationship. This means that as one variable increases, the other tends to decrease.
 
-- If \(\text{Cov}(X, Y) = 0\), it implies no linear relationship between the variables. However, it's essential to note that a covariance of zero does not necessarily mean there is no relationship; it only means there is no linear relationship.
+- If $\text{Cov}(X, Y) = 0$, it implies no linear relationship between the variables. However, it's essential to note that a covariance of zero does not necessarily mean there is no relationship; it only means there is no linear relationship.
 
 ## Importance in Machine Learning
 
