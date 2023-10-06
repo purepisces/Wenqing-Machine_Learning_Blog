@@ -1,10 +1,23 @@
-# Variance
+# Variance and Standard Deviation
 
-Variance is a fundamental statistical measure that quantifies the spread or dispersion of a dataset. It provides insight into how much individual data points deviate from the dataset's mean (average). In machine learning and statistics, variance is a critical concept used to assess the variability or volatility of data.
+Variance is the average of the squared differences from the mean, it quantifies data spread or dispersion and is crucial in assessing data variability in statistics and machine learning. Often, to interpret the variance value in the same unit as the data, researchers use the standard deviation, which is the square root of the variance.
 
-## Formula
+## Variance Formula
+The variance of a dataset can be calculated differently based on whether we are dealing with a sample or an entire population:
+### Sample Variance
+For a sample (e.g., weights of six sampled dogs in kg):
 
-The variance of a dataset with 'n' data points is typically calculated using the following formula:
+$\text{Variance} (s^2) = \frac{1}{n-1} \sum\limits_{i=1}^{n} (x_i - \mu)^2 \$
+
+Where:
+- $s^2$ represents the variance.
+- $n$ is the number of data points.
+- $x_i$ represents each data point in the dataset.
+- $\mu$ is the mean (average) of the dataset.
+  
+Note: Subtracting one from the denominator, known as Bessel’s correction, corrects the bias when estimating population variance from a sample. This correction is necessary because using $n$ as the divisor would typically underestimate the actual variance when applied to a sample.
+### Population Variance
+For an entire population:
 
 $\text{Variance} (\sigma^2) = \frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \mu)^2 \$
 
@@ -14,11 +27,30 @@ Where:
 - $x_i$ represents each data point in the dataset.
 - $\mu$ is the mean (average) of the dataset.
 
-## Interpretation
+## Interpreting Variance
+The units of variance are squared, e.g., if you are measuring weights, then a variance might have units like kg^2. This makes direct interpretation challenging, which is why the standard deviation is often preferred.
+## Standard Deviation
+The standard deviation is the square root of the variance. It allows for interpretations in the same units as the original data:
 
-1. **Large Variance**: A high variance indicates that the data points in the dataset are widely spread out from the mean. In other words, there is a significant amount of variability or dispersion in the data.
+Standard Deviation = $\sqrt{\text{Variance}} \$
 
-2. **Small Variance**: A low variance suggests that the data points are closely clustered around the mean. In this case, there is less variability or dispersion in the data.
+For instance, if our variance for weights was calculated to be 28.4 kg^2, the standard deviation is $\sqrt{28.4 \text{ kg}^2}$, which equals 5.3 kg.
+Since the units are the same as out data, we can plot it onto our graph, here is our graph.
+<img src="standard_deviation.png" width="500" height="350" alt="standard_deviation">
+
+- The mean value of 16 kg is represented by a red column.
+- Actual data points or scatter plot are shown by the blue circles
+- The standard deviation is usually plotted above and below the mean to show data spread. So, the line above the mean represents 16 + 5.3, and below represents 16 - 5.3.
+
+
+
+
+## Interpreting Standard Deviation
+
+
+1. **Large Standard Deviation**:  A large standard deviation indicates high variability from the mean, indicates that the data points in the dataset are widely spread out from the mean. In other words, there is a significant amount of variability or dispersion in the data.
+
+2. **Small Standard Deviation**: A small standard deviation indicates low variability from the mean, suggests that the data points are closely clustered around the mean. In this case, there is less variability or dispersion in the data.
 
 ## Use Cases
 
