@@ -59,7 +59,8 @@ $\left[ \sum_i 2x_i (\alpha x_i + \beta - y_i), \ 2\sum_i (\alpha x_i + \beta - 
 After determining the values of $\alpha$ and $\beta$ from the image, we can insert them into the equation $g(x)$ to obtain the specific linear regression model.
 
 ## Reference:
-- [Watch the video on YouTube](https://www.youtube.com/watch?v=CtsRRUddV2s)
+- [YouTube Video 1](https://www.youtube.com/watch?v=CtsRRUddV2s)
+- [YouTube Video 2](https://www.youtube.com/watch?v=3dhcmeOTZ_Q&t=1s)
 
 ###Futher improvement:
 1. add assumption part for linear regression and look these terms
