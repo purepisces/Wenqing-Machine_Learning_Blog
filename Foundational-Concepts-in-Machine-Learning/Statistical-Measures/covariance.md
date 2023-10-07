@@ -88,10 +88,7 @@ In other words, the negative value for the left high point is cancelled out by t
 
 So we see that covariance = 0 when there is no relationship between gene X and gene Y.
 
-
 <img src="zero-coviance-all.png" width="350" height="200" alt="zero-coviance-all"> 
-
-
 
 
 ## Interpretation of Covariance
@@ -100,38 +97,46 @@ So we see that covariance = 0 when there is no relationship between gene X and g
 
 Even though covariance is hard to interpret, it is a computational stepping stone to more interesting things.
 
+Why covariance is hard to interpret?
+
+Let's go all the way back to looking at just Gene X and calculate the covatiance between Gene X and itself.
+
+Then $\text{Cov}(X, Y) = \frac{\sum\limits_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{n-1}$ = $\text{Cov}(X, X) = \frac{\sum\limits_{i=1}^{n} (X_i - \bar{X})(X_i - \bar{X})}{n-1}$ =  = \frac{\sum\limits_{i=1}^{n} (X_i - \bar{X})^2 {n-1}$ Which is the formula for estimating variance.
+
+In other words, the covariance for Gene X with itself is the same thing as the estimated variance for Gene X. then the coviance for Gene Xby calculation is 102, since the covariance value is positive, we know that the relationship between gene x and itself has a positive slope.
+
+<img src="genex-coviance.png" width="350" height="200" alt="genex-coviance"> 
+
+When we multiply the data by 2, the relative positions of the data did not change, and each dot still falls on the same straight line with positive slope. The only thing that changed was the scale that the data is on. however, when we do the math, we get covariance = 408, which is 4 times what we got before.
+
+<img src="scalegenex-coviance.png" width="350" height="200" alt="scalegenex-coviance"> 
+
+Thus, we see that the covariance value changes even when the relationship does not. **In other words, covariance values are sensitive to the scale of the data, and this makes them difficult to interpret. The sensitivity to scale also prevents the covariance value from telling us if the data are close to the dotted line that represents the relationship or far from it.**
+
+In this example, the covariance on the left, when each point is on the dotted line, is 102, and the covariance on the right, when the data are relatively far from the dotted line, is 381. So in this case, when the data are far from the line, the covariance is larger.
+
+<img src="coviance-compare1.png" width="350" height="200" alt="coviance-compare1"> 
+
+Now, let's just change the scale on the right-hand side and recalculate the coviance, and now the covariance is less for the data that does not fall on the line.
 
 
-The sign of the covariance indicates the nature of the relationship between two variables:
+<img src="coviance-compare2.png" width="350" height="200" alt="coviance-compare2"> 
+
+Then there was something to describe relationships that wasn't sensitive to the scale of the data, calculating covariance is the first step in calculating correlation. **Correlation describes relationships and is not sensitive to the scale of the data.**
+
+
+**The coviance values itself is difficult to interpret. However, it is useful for calculating correlations and in other computational settings.**
+
+**Coviance values are used as stepping stones in a wide variety of analyses. For example, covariance values were used for Principal Component Analysis(PCA) and are still used in other settings as computational stepping stones to other, more interesting things.**
+
+<img src="PCA.png" width="350" height="200" alt="PCA"> 
+
+
+
+In summary, the sign of the covariance indicates the nature of the relationship between two variables:
 
 - If $\text{Cov}(X, Y) > 0$, it suggests a positive relationship. This means that as one variable increases, the other tends to increase as well.
 
 - If $\text{Cov}(X, Y) < 0$, it indicates a negative relationship. This means that as one variable increases, the other tends to decrease.
 
 - If $\text{Cov}(X, Y) = 0$, it implies no linear relationship between the variables. However, it's essential to note that a covariance of zero does not necessarily mean there is no relationship; it only means there is no linear relationship.
-
-## Importance in Machine Learning
-
-Covariance is particularly relevant in machine learning for the following reasons:
-
-1. **Linear Regression**: In linear regression analysis, covariance is used to determine the relationship between independent and dependent variables. It helps in estimating the coefficients of the regression equation.
-
-2. **Principal Component Analysis (PCA)**: PCA involves calculating the covariance matrix of the data to find the principal components. Covariance information is crucial for dimensionality reduction and feature selection.
-
-3. **Multivariate Analysis**: When dealing with multiple variables or features, understanding the covariance between them can help identify which variables are related and should be considered together.
-
-4. **Risk and Portfolio Management**: In finance, covariance is used to measure the relationship between different assets' returns. It is essential for portfolio diversification and risk assessment.
-
-## Limitations
-
-Covariance has some limitations:
-
-1. **Scale Dependence**: Covariance is sensitive to the scale of the variables. Changing the units or scales of the variables can affect the covariance value. To address this, the correlation coefficient is often used, which is a standardized version of covariance.
-
-2. **Lack of Interpretability**: The magnitude of covariance does not provide a clear measure of the strength of the relationship between variables. Correlation, which ranges from -1 to 1, is often used for this purpose.
-
-3. **Assumes Linearity**: Covariance primarily measures linear relationships between variables. It may not capture nonlinear dependencies.
-
-## Conclusion
-
-Covariance is a valuable statistical tool for understanding the relationship between two variables. In machine learning and statistics, it is used to analyze data, build regression models, and make decisions about dimensionality reduction. While it has its limitations, it remains a fundamental concept in data analysis and modeling.
