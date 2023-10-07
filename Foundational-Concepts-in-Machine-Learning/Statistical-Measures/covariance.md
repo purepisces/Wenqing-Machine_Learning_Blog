@@ -4,31 +4,23 @@ Covariance, a statistical measure, provides insights into how two variables chan
 
 ## Visualizing Covariance Through Paired Measurements
 
-Imagine we counted the number of green apples in 5 different grocery stores and we also counted the number of red apples in the same 5 grocery stores. Then we estimated the mean and variance(just for a simple review of variance) for two different types of apples counted in the same five grocery store:
+Imagine counting green and red apples in 5 different grocery stores, and estimating their mean and variance.
 
 <img src="apple-mean-variance.png" width="450" height="300" alt="apple-mean-variance">
 
 > Note: For further explanation, I will use Gene $X$ and Gene $Y$ instead of green apple and red apple. 
 >
 
-Since these measurements were taken from the same cells(or the same grocery stores), we can look at them in pairs. Here is the graph:
+When measurements are taken in pairs, like the Gene counts from the same cells, we can plot each pair as a single dot, combining values on the $x$ and $y$-axes. 
 
-<img src="pair.png" width="450" height="300" alt="pair">
+<img src="pair.png" width="450" height="300" alt="pair"> <img src="plot-pair.png" width="450" height="300" alt="plot-pair">
 
-In this graph, both measurements are less than their respective mean values.
 
-Since these measurements were taken in pairs, the question is:
-"Do the measurements, taken as pairs, tell us something that the individual measurements do not?"
+In the left graph, both measurements are less than their respective mean values.
 
-Covariance is one way to try to answer this question.
+**Covariance helps answer: "Do paired measurements reveal something that individual measurements do not?"**
 
-Since the measurements came from the same cells(or grocery stores), we can plot each pair as a single dot by combing the values on the $x$ and $y$-axes. 
-
-<img src="plot-pair.png" width="450" height="300" alt="plot-pair">
-
-Now, generally speaking, we see that cells with relatively low values for Gene $X$ also have relatively low values for Gene $Y$, cells with relatively high values for  Gene $X$ also have relatively high values for Gene $Y$.
-
-This relationship, low measurements for both genes in some cells and high measurements for both genes in other cells, can be summarized with this line. Note: the line that represents this particular relationship has a positive slope, and it reflects the positive trend where the values for Gene $X$ and Gene $Y$ increase together.
+In the right graph, a visible trend shows that cells with lower values for Gene $X$ tend to have lower values for Gene $Y$, and vice versa for higher values. This relationship is represented by a line with a positive slope, indicating a positive trend where Gene $X$ and Gene $Y$ values increase together.
 
 <img src="relationship-line.png" width="450" height="300" alt="relationship-line">
 
@@ -45,7 +37,7 @@ This relationship, low measurements for both genes in some cells and high measur
 
 
 
-The other main idea behind covariance is kind of a bummer, covariance, in and of itself, is not very interesting. What I mean by that is you will never calculate covariance and be done for the day. Instead covariance is a computational stepping stone to something that is interesting, like correlation. Let's talk about how covariance is calculated.
+The other main idea behind covariance is while covariance provides insights into the relationship between two variables, it's often not the final metric of interest due to its scale sensitivity and interpretational challenges. It's primarily used as a computational stepping stone to derive more insightful metrics, such as correlation.
  ## Calculating Covariance: The Formula
 
 The covariance between two random variables, X and Y, is calculated using the following formula:
