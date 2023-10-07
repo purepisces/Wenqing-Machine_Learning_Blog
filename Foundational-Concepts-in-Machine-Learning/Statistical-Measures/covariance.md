@@ -115,7 +115,7 @@ Thus, we see that the covariance value changes even when the relationship does n
 
 In this example, the covariance on the left, when each point is on the dotted line, is 102, and the covariance on the right, when the data are relatively far from the dotted line, is 381. So in this case, when the data are far from the line, the covariance is larger.
 
-<img src="coviance-compare1.png" width="350" height="200" alt="coviance-compare1"> 
+<img src="covariance-compare1.png" width="350" height="200" alt="covariance-compare1"> 
 
 Now, let's just change the scale on the right-hand side and recalculate the coviance, and now the covariance is less for the data that does not fall on the line.
 
