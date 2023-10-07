@@ -89,7 +89,7 @@ In other words, the negative value for the left high point is cancelled out by t
 So we see that covariance = 0 when there is no relationship between gene X and gene Y.
 
 
-<img src="zero-coviance-summary.png" width="350" height="200" alt="zero-coviance-summary"> 
+<img src="zero-coviance-all.png" width="350" height="200" alt="zero-coviance-all"> 
 
 
 
