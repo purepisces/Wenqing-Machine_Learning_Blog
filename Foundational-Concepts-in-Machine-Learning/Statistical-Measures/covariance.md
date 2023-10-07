@@ -1,17 +1,40 @@
 # Covariance
 
-Imagine we counted the number of green apples in 5 different grocery stores and we also counted the number of red apples in the same 5 grocery stores. Then we estimated the mean and variance for two different types of apples counted in the same five grocery store. 
-
+Imagine we counted the number of green apples in 5 different grocery stores and we also counted the number of red apples in the same 5 grocery stores. Then we estimated the mean and variance for two different types of apples counted in the same five grocery store:
 
 <img src="apple-mean-variance.png" width="450" height="300" alt="apple-mean-variance">
 
-
-
-
-
-
-
 Since these measurements were taken from the same cells(or the same grocery stores), we can look at them in pairs. Here is the graph:
+
+<img src="pair.png" width="450" height="300" alt="pair">
+
+In this graph, both measurements are less than their respective mean values.
+
+Since these measurements were taken in pairs, the question is:
+"Do the measurements, taken as pairs, tell us something that the individual measurements do not?"
+
+Covariance is one way to try to answer this question.
+
+Since the measurements came from the same cells(or grocery stores), we can plot each pair as a single dot by combing the values on the x and y-axes. 
+
+<img src="plot-pair.png" width="450" height="300" alt="plot-pair">
+
+Now, generally speaking, we see that cells with relatively low values for gene X also have relatively low values for gene Y, cells with relatively high values for gene X also have relatively high values for gene Y.
+
+This relationship, low measurements for both genes in some cells and high measurements for both genes in other cells, can be summarized with this line. Note: the line that represents this particular relationship has a positive slope, and it reflects the positive trend where the values for gene x and gene y increase together.
+
+<img src="relationship-line.png" width="450" height="300" alt="relationship-line">
+
+
+- **The main idea behind covariance is that it can classify three types of relationships.**:
+  - Relationships with positive trends
+  - Relationships with negative trends
+  - Times when there is no relationship because there is no trend
+
+
+The other main idea behind covariance is kind of a bummer, covariance, in and of itself, is not very interesting. What I mean by that is you will never calculate covariance and be done for the day. Instead covariance is a computational stepping stone to something that is interesting, like correlation.
+
+
 
 
 
