@@ -112,11 +112,11 @@ Then $\text{Cov}(X, X) = \frac{\sum\limits_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{
 
 In other words, the covariance for Gene $X$ with itself is the same thing as the estimated variance for Gene $X$. Then the covariance for Gene $X$ by calculation is 102, since the covariance value is positive, we know that the relationship between Gene $X$ and itself has a positive slope.
 
-<img src="genex-covariance.png" width="350" height="200" alt="genex-covariance"> 
+<img src="genex-covariance.png" width="450" height="300" alt="genex-covariance"> 
 
 When we multiply the data by 2, the relative positions of the data did not change, and each dot still falls on the same straight line with positive slope. The only thing that changed was the scale that the data is on. However, when we do the math, we get covariance = 408, which is 4 times what we got before.
 
-<img src="scalegenex-covariance.png" width="350" height="200" alt="scalegenex-covariance"> 
+<img src="scalegenex-covariance.png" width="450" height="300" alt="scalegenex-covariance"> 
 
 Thus, we see that the covariance value changes even when the relationship does not. **In other words, covariance values are sensitive to the scale of the data, and this makes them difficult to interpret. The sensitivity to scale also prevents the covariance value from telling us if the data are close to the dotted line that represents the relationship or far from it.**
 
