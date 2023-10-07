@@ -1,7 +1,7 @@
 # Wenqing's Blog
 
 ## Foundational Concepts in Machine Learning
-- **Linear Algebra Concepts**
+- **Linear Algebra**
   - [Singular Value Decomposition (SVD)](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/svd.md)
   - [Eigenvector](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/eigenvector.md)
   - [Singular Vector](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/singular-vector.md)
