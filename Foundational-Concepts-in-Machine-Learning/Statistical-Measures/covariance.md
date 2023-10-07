@@ -1,6 +1,6 @@
 # Covariance
 
-Covariance, a statistical measure, provides insights into how two variables change together. Imagine counting green and red apples in grocery stores, or observing the expression of Genes X and Y in a biological context. Can the paired measurements reveal something unique about their relationship? Let’s explore!
+Covariance, a statistical measure, provides insights into how two variables change together.
 
 ## Visualizing Covariance Through Paired Measurements
 
