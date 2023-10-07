@@ -4,6 +4,9 @@ Imagine we counted the number of green apples in 5 different grocery stores and 
 
 <img src="apple-mean-variance.png" width="450" height="300" alt="apple-mean-variance">
 
+> Note: For further explanation, I will use Genes X and Genes Y instead of green apple and red apple. 
+>
+
 Since these measurements were taken from the same cells(or the same grocery stores), we can look at them in pairs. Here is the graph:
 
 <img src="pair.png" width="450" height="300" alt="pair">
