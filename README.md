@@ -1,6 +1,13 @@
 # Wenqing's Blog
 
 ## Foundational Concepts in Machine Learning
+- **Linear Algebra Concepts**
+  - [Singular Value Decomposition (SVD)](Foundational-Concepts-in-Machine-Learning/Dimensionality-Reduction/svd.md)
+  - [Eigenvector](Foundational-Concepts-in-Machine-Learning/Dimensionality-Reduction/eigenvector.md)
+  - [Singular Vector](Foundational-Concepts-in-Machine-Learning/Dimensionality-Reduction/singular-vector.md)
+  - [Eigenvalue](Foundational-Concepts-in-Machine-Learning/Dimensionality-Reduction/eigenvalue.md)
+  - [Singular Value](Foundational-Concepts-in-Machine-Learning/Dimensionality-Reduction/singular-value.md)
+
 - **Statistical Measures**
   - [Variance&Standard Deviation](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/variance&standarDeviation.md)
   - [Covariance](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/covariance.md)
@@ -41,8 +48,7 @@
     - [RMSProp](RMSProp.md)
     - [AdaGrad](adagrad.md)
 - **Dimensionality Reduction**
-  - [Principal Component Analysis (PCA)](Foundational-Concepts-in-Machine-Learning/dimensionality-reduction/pca.md)
-
+  - [Principal Component Analysis (PCA)](Foundational-Concepts-in-Machine-Learning/Dimensionality-Reduction/pca.md)
 
 ## Deep Learning Concepts
 
