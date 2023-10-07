@@ -61,39 +61,39 @@ So we see that when the values for gene x and gene y are both less or greater th
 
 <img src="quadrant.png" width="350" height="200" alt="quadrant"> 
 
-Ultimately, we end up with a covariance = 116. Since the covariance value 116 is positive, it means that the slope of the relationship between Gene X and Gene Y is positive. In other words, ** when the coviance values is positive, we classify the trend as positive.**
+Ultimately, we end up with a covariance = 116. Since the covariance value 116 is positive, it means that the slope of the relationship between Gene X and Gene Y is positive. In other words, ** when the covariance values is positive, we classify the trend as positive.**
 
-<img src="positive-coviance-value.png" width="350" height="200" alt="positive-coviance-value"> 
+<img src="positive-covariance-value.png" width="350" height="200" alt="positive-covariance-value"> 
 
-For negative coviance value:
+For negative covariance value:
 
-<img src="negative-coviance-value.png" width="350" height="200" alt="negative-coviance-value"> 
+<img src="negative-covariance-value.png" width="350" height="200" alt="negative-covariance-value"> 
 
 For calculating the covariance when there is no trend:
 1. when every value for Gene X corresponds to the same value for Gene Y, the covariance = 0.
 
-<img src="zero-coviance-value1.png" width="350" height="200" alt="zero-coviance-value1"> 
+<img src="zero-covariance-value1.png" width="350" height="200" alt="zero-covariance-value1"> 
 
 2. when every value for Gene Y corresponds to the same value for Gene X, the covariance = 0.
 
- <img src="zero-coviance-value2.png" width="350" height="200" alt="zero-coviance-value2"> 
+ <img src="zero-covariance-value2.png" width="350" height="200" alt="zero-covariance-value2"> 
 
  3. Even though there are multiple values for Genes X and Y, there is still no trend because as Gene X increases, Gene Y increases and decreases.
 
 <img src="last-case.png" width="350" height="200" alt="last-case"> 
 
-In other words, the negative value for the left high point is cancelled out by the positive value of left low point. Thus the coviance is 0.
+In other words, the negative value for the left high point is cancelled out by the positive value of left low point. Thus the covariance is 0.
 
-<img src="zero-coviance-value3.png" width="350" height="200" alt="zero-coviance-value3"> 
+<img src="zero-covariance-value3.png" width="350" height="200" alt="zero-covariance-value3"> 
 
 So we see that covariance = 0 when there is no relationship between gene X and gene Y.
 
-<img src="zero-coviance-all.png" width="350" height="200" alt="zero-coviance-all"> 
+<img src="zero-covariance-all.png" width="350" height="200" alt="zero-covariance-all"> 
 
 
 ## Interpretation of Covariance
 
-**Note, the coviance value itself isn't very easy to interpret and depends on the context. For example, the covariance value does not tell us if the slope of the line representing the relationship is steep or not steep. It just tells us the slope is positive. More importantly, the coviance value doesn't tell us if the points are relatively close to the dotted line or relatively far from the dotted line. Again, it just tells us  that the slope of the relationship is positive.**
+**Note, the covariance value itself isn't very easy to interpret and depends on the context. For example, the covariance value does not tell us if the slope of the line representing the relationship is steep or not steep. It just tells us the slope is positive. More importantly, the covariance value doesn't tell us if the points are relatively close to the dotted line or relatively far from the dotted line. Again, it just tells us  that the slope of the relationship is positive.**
 
 Even though covariance is hard to interpret, it is a computational stepping stone to more interesting things.
 
@@ -103,13 +103,13 @@ Let's go all the way back to looking at just Gene X and calculate the covatiance
 
 Then $\text{Cov}(X, Y) = \frac{\sum\limits_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{n-1}$ = $\text{Cov}(X, X) = \frac{\sum\limits_{i=1}^{n} (X_i - \bar{X})(X_i - \bar{X})}{n-1}$ =  = \frac{\sum\limits_{i=1}^{n} (X_i - \bar{X})^2 {n-1}$ Which is the formula for estimating variance.
 
-In other words, the covariance for Gene X with itself is the same thing as the estimated variance for Gene X. then the coviance for Gene Xby calculation is 102, since the covariance value is positive, we know that the relationship between gene x and itself has a positive slope.
+In other words, the covariance for Gene X with itself is the same thing as the estimated variance for Gene X. then the covariance for Gene Xby calculation is 102, since the covariance value is positive, we know that the relationship between gene x and itself has a positive slope.
 
-<img src="genex-coviance.png" width="350" height="200" alt="genex-coviance"> 
+<img src="genex-covariance.png" width="350" height="200" alt="genex-covariance"> 
 
 When we multiply the data by 2, the relative positions of the data did not change, and each dot still falls on the same straight line with positive slope. The only thing that changed was the scale that the data is on. however, when we do the math, we get covariance = 408, which is 4 times what we got before.
 
-<img src="scalegenex-coviance.png" width="350" height="200" alt="scalegenex-coviance"> 
+<img src="scalegenex-covariance.png" width="350" height="200" alt="scalegenex-covariance"> 
 
 Thus, we see that the covariance value changes even when the relationship does not. **In other words, covariance values are sensitive to the scale of the data, and this makes them difficult to interpret. The sensitivity to scale also prevents the covariance value from telling us if the data are close to the dotted line that represents the relationship or far from it.**
 
@@ -117,17 +117,17 @@ In this example, the covariance on the left, when each point is on the dotted li
 
 <img src="covariance-compare1.png" width="350" height="200" alt="covariance-compare1"> 
 
-Now, let's just change the scale on the right-hand side and recalculate the coviance, and now the covariance is less for the data that does not fall on the line.
+Now, let's just change the scale on the right-hand side and recalculate the covariance, and now the covariance is less for the data that does not fall on the line.
 
 
-<img src="coviance-compare2.png" width="350" height="200" alt="coviance-compare2"> 
+<img src="covariance-compare2.png" width="350" height="200" alt="covariance-compare2"> 
 
 Then there was something to describe relationships that wasn't sensitive to the scale of the data, calculating covariance is the first step in calculating correlation. **Correlation describes relationships and is not sensitive to the scale of the data.**
 
 
-**The coviance values itself is difficult to interpret. However, it is useful for calculating correlations and in other computational settings.**
+**The covariance values itself is difficult to interpret. However, it is useful for calculating correlations and in other computational settings.**
 
-**Coviance values are used as stepping stones in a wide variety of analyses. For example, covariance values were used for Principal Component Analysis(PCA) and are still used in other settings as computational stepping stones to other, more interesting things.**
+**covariance values are used as stepping stones in a wide variety of analyses. For example, covariance values were used for Principal Component Analysis(PCA) and are still used in other settings as computational stepping stones to other, more interesting things.**
 
 <img src="PCA.png" width="350" height="200" alt="PCA"> 
 
