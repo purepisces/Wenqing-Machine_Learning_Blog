@@ -140,3 +140,6 @@ In summary, the sign of the covariance indicates the nature of the relationship 
 - If $\text{Cov}(X, Y) < 0$, it indicates a negative relationship. This means that as one variable increases, the other tends to decrease.
 
 - If $\text{Cov}(X, Y) = 0$, it implies no linear relationship between the variables. However, it's essential to note that a covariance of zero does not necessarily mean there is no relationship; it only means there is no linear relationship.
+
+## Reference:
+- [Watch the video on YouTube](https://www.youtube.com/watch?v=qtaqvPAeEJY)
