@@ -1,6 +1,6 @@
 # Covariance
 
-Imagine we counted the number of green apples in 5 different grocery stores and we also counted the number of red apples in the same 5 grocery stores. Then we estimated the mean and variance for two different types of apples counted in the same five grocery store:
+Imagine we counted the number of green apples in 5 different grocery stores and we also counted the number of red apples in the same 5 grocery stores. Then we estimated the mean and variance(just for a simple review of variance) for two different types of apples counted in the same five grocery store:
 
 <img src="apple-mean-variance.png" width="450" height="300" alt="apple-mean-variance">
 
@@ -149,8 +149,6 @@ In summary, the sign of the covariance indicates the nature of the relationship 
 
 ## Further improve
 covariance values were used for Principal Component Analysis(PCA) why? 
-we estimated the mean and variance for two different types of apples counted in the same five grocery store:
-What is the variance here?
 
 In other words, the negative value for the left high point is cancelled out by the positive value of left low point. Thus the coviance is 0. But if not cancelled???????
 
