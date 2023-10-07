@@ -2,11 +2,11 @@
 
 ## Foundational Concepts in Machine Learning
 - **Linear Algebra Concepts**
-  - [Singular Value Decomposition (SVD)](Foundational-Concepts-in-Machine-Learning/Dimensionality-Reduction/svd.md)
-  - [Eigenvector](Foundational-Concepts-in-Machine-Learning/Dimensionality-Reduction/eigenvector.md)
-  - [Singular Vector](Foundational-Concepts-in-Machine-Learning/Dimensionality-Reduction/singular-vector.md)
-  - [Eigenvalue](Foundational-Concepts-in-Machine-Learning/Dimensionality-Reduction/eigenvalue.md)
-  - [Singular Value](Foundational-Concepts-in-Machine-Learning/Dimensionality-Reduction/singular-value.md)
+  - [Singular Value Decomposition (SVD)](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/svd.md)
+  - [Eigenvector](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/eigenvector.md)
+  - [Singular Vector](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/singular-vector.md)
+  - [Eigenvalue](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/eigenvalue.md)
+  - [Singular Value](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/singular-value.md)
 
 - **Statistical Measures**
   - [Variance&Standard Deviation](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/variance&standarDeviation.md)
