@@ -101,7 +101,7 @@ Why covariance is hard to interpret?
 
 Let's go all the way back to looking at just Gene X and calculate the covatiance between Gene X and itself.
 
-Then $\text{Cov}(X, Y) = \frac{\sum\limits_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{n-1}$ = $\text{Cov}(X, X) = \frac{\sum\limits_{i=1}^{n} (X_i - \bar{X})(X_i - \bar{X})}{n-1}$ =  = \frac{\sum\limits_{i=1}^{n} (X_i - \bar{X})^2 {n-1}$ Which is the formula for estimating variance.
+Then $\text{Cov}(X, X) = \frac{\sum\limits_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{n-1} = \frac{\sum\limits_{i=1}^{n} (X_i - \bar{X})(X_i - \bar{X})}{n-1} = \frac{\sum\limits_{i=1}^{n} (X_i - \bar{X})(X_i - \bar{X})^2}{n-1}$ $ Which is the formula for estimating variance.
 
 In other words, the covariance for Gene X with itself is the same thing as the estimated variance for Gene X. then the covariance for Gene Xby calculation is 102, since the covariance value is positive, we know that the relationship between gene x and itself has a positive slope.
 
