@@ -1,5 +1,9 @@
 # Covariance
 
+Covariance, a statistical measure, provides insights into how two variables change together. Imagine counting green and red apples in grocery stores, or observing the expression of Genes X and Y in a biological context. Can the paired measurements reveal something unique about their relationship? Let’s explore!
+
+## Visualizing Covariance Through Paired Measurements
+
 Imagine we counted the number of green apples in 5 different grocery stores and we also counted the number of red apples in the same 5 grocery stores. Then we estimated the mean and variance(just for a simple review of variance) for two different types of apples counted in the same five grocery store:
 
 <img src="apple-mean-variance.png" width="450" height="300" alt="apple-mean-variance">
@@ -42,7 +46,7 @@ This relationship, low measurements for both genes in some cells and high measur
 
 
 The other main idea behind covariance is kind of a bummer, covariance, in and of itself, is not very interesting. What I mean by that is you will never calculate covariance and be done for the day. Instead covariance is a computational stepping stone to something that is interesting, like correlation. Let's talk about how covariance is calculated.
- ## Formula for Covariance
+ ## Calculating Covariance: The Formula
 
 The covariance between two random variables, X and Y, is calculated using the following formula:
 
@@ -134,8 +138,6 @@ Then there was something to describe relationships that wasn't sensitive to the 
 
 <img src="PCA.png" width="350" height="200" alt="PCA"> 
 
-
-
 In summary, the sign of the covariance indicates the nature of the relationship between two variables:
 
 - If $\text{Cov}(X, Y) > 0$, it suggests a positive relationship. This means that as one variable increases, the other tends to increase as well.
@@ -144,11 +146,13 @@ In summary, the sign of the covariance indicates the nature of the relationship 
 
 - If $\text{Cov}(X, Y) = 0$, it implies no linear relationship between the variables. However, it's essential to note that a covariance of zero does not necessarily mean there is no relationship; it only means there is no linear relationship.
 
+## Limitations
+
+Consider a case, where the points are(2,5),(2,-2),(4,3),(4,-3), by calculation $\text{Cov}(X, Y) < 0$. However, If we look at these points, we can see that when x increases from 2 to 4, Y has instances of both increasing and decreasing. This is a nuanced situation because while the covariance is negative, indicating a general tendency towards a negative relationship, the actual data points do not show a consistent negative linear relationship. This highlights an important point: **covariance gives a general direction of the relationship between two variables but does not describe the exact relationship between individual data points.** So, while the general guideline about the sign of covariance indicating the direction of the relationship holds, it is crucial to remember that it doesn’t capture the intricacies of the relationship between the variables, especially when the relationship is not strictly linear or when there are multiple values of Y for a single value of X.
+
+
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=qtaqvPAeEJY)
 
 ## Further improve
 covariance values were used for Principal Component Analysis(PCA) why? 
-
-In other words, the negative value for the left high point is cancelled out by the positive value of left low point. Thus the coviance is 0. But if not cancelled???????
-
