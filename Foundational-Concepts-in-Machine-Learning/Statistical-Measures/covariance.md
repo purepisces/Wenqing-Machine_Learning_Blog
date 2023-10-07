@@ -122,12 +122,12 @@ Thus, we see that the covariance value changes even when the relationship does n
 
 In this example, the covariance on the left, when each point is on the dotted line, is 102, and the covariance on the right, when the data are relatively far from the dotted line, is 381. So in this case, when the data are far from the line, the covariance is larger.
 
-<img src="covariance-compare1.png" width="350" height="200" alt="covariance-compare1"> 
+<img src="covariance-compare1.png" width="450" height="300" alt="covariance-compare1"> 
 
 Now, let's just change the scale on the right-hand side and recalculate the covariance, and now the covariance is less for the data that does not fall on the line.
 
 
-<img src="covariance-compare2.png" width="350" height="200" alt="covariance-compare2"> 
+<img src="covariance-compare2.png" width="450" height="300" alt="covariance-compare2"> 
 
 The lucky thing is there was something to describe relationships that wasn't sensitive to the scale of the data, calculating covariance is the first step in calculating correlation. **Correlation describes relationships and is not sensitive to the scale of the data.**
 
