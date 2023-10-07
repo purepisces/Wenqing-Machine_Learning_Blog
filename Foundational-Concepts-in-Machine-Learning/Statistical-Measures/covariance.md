@@ -32,14 +32,14 @@ This relationship, low measurements for both genes in some cells and high measur
   - Times when there is no relationship because there is no trend
 
 
-The other main idea behind covariance is kind of a bummer, covariance, in and of itself, is not very interesting. What I mean by that is you will never calculate covariance and be done for the day. Instead covariance is a computational stepping stone to something that is interesting, like correlation.
+<img src="positive-trend.png" width="350" height="200" alt="positive-trend"> <img src="negative-trend.png" width="350" height="200" alt="negative-trend">
+
+<img src="no-trend1.png" width="350" height="200" alt="no-trend1"> <img src="no-trend2.png" width="350" height="200" alt="no-trend2">
 
 
 
-
-
-
-## Formula for Covariance
+The other main idea behind covariance is kind of a bummer, covariance, in and of itself, is not very interesting. What I mean by that is you will never calculate covariance and be done for the day. Instead covariance is a computational stepping stone to something that is interesting, like correlation. Let's talk about how covariance is calculated.
+ ## Formula for Covariance
 
 The covariance between two random variables, X and Y, is calculated using the following formula:
 
@@ -50,6 +50,12 @@ Where:
 - $X_i$ and $Y_i$ are individual data points from the datasets X and Y, respectively.
 - $\bar{X}$ and $\bar{Y}$ are the means (average values) of X and Y, respectively.
 - $n$ is the number of data points.
+
+To get an intuitive sense for how covariance is calculated, let’s go back to the mean value for gene x and extend the green line to the top of the graph, and then extend the red line that represents the mean for gene y to the edge of the graph. Now let's focus on the left-most data point.
+
+<img src="left-most1.png" width="350" height="200" alt="left-most1"> <img src="left-most2.png" width="350" height="200" alt="left-most2">
+
+
 
 ## Interpretation of Covariance
 
