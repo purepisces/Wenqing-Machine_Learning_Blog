@@ -55,9 +55,52 @@ To get an intuitive sense for how covariance is calculated, let’s go back to t
 
 <img src="left-most1.png" width="350" height="200" alt="left-most1"> <img src="left-most2.png" width="350" height="200" alt="left-most2">
 
+Now let's plug in the gene x measurement for this cell and the mean value for gene x, which is $(x-\bar{X})$ is negative since it is to the left of the mean, similarly let's plug in the gene y measurement for this same cell and the mean value for gene y, which is $(y-\bar{Y})$ , which is also negative since it is below the mean. since both difference are negative, multiplying them together gives us a positive value.
+
+So we see that when the values for gene x and gene y are both less or greater than their respective means, we end up with positive values. In summary, data in these two quadrants contribute positive values to the total variance.
+
+<img src="quadrant.png" width="350" height="200" alt="quadrant"> 
+
+Ultimately, we end up with a covariance = 116. Since the covariance value 116 is positive, it means that the slope of the relationship between Gene X and Gene Y is positive. In other words, ** when the coviance values is positive, we classify the trend as positive.**
+
+<img src="positive-coviance-value.png" width="350" height="200" alt="positive-coviance-value"> 
+
+For negative coviance value:
+
+<img src="negative-coviance-value.png" width="350" height="200" alt="negative-coviance-value"> 
+
+For calculating the covariance when there is no trend:
+1. when every value for Gene X corresponds to the same value for Gene Y, the covariance = 0.
+
+<img src="zero-coviance-value1.png" width="350" height="200" alt="zero-coviance-value1"> 
+
+2. when every value for Gene Y corresponds to the same value for Gene X, the covariance = 0.
+
+ <img src="zero-coviance-value2.png" width="350" height="200" alt="zero-coviance-value2"> 
+
+ 3. Even though there are multiple values for Genes X and Y, there is still no trend because as Gene X increases, Gene Y increases and decreases.
+
+<img src="last-case.png" width="350" height="200" alt="last-case"> 
+
+In other words, the negative value for the left high point is cancelled out by the positive value of left low point. Thus the coviance is 0.
+
+<img src="zero-coviance-value3.png" width="350" height="200" alt="zero-coviance-value3"> 
+
+So we see that covariance = 0 when there is no relationship between gene X and gene Y.
+
+
+<img src="zero-coviance-summary.png" width="350" height="200" alt="zero-coviance-summary"> 
+
+
 
 
 ## Interpretation of Covariance
+
+**Note, the coviance value itself isn't very easy to interpret and depends on the context. For example, the covariance value does not tell us if the slope of the line representing the relationship is steep or not steep. It just tells us the slope is positive. More importantly, the coviance value doesn't tell us if the points are relatively close to the dotted line or relatively far from the dotted line. Again, it just tells us  that the slope of the relationship is positive.**
+
+Even though covariance is hard to interpret, it is a computational stepping stone to more interesting things.
+
+
 
 The sign of the covariance indicates the nature of the relationship between two variables:
 
