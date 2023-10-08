@@ -38,7 +38,7 @@
     - [Standard Error of the Estimate](standard-error-estimate.md) 
     - [Statistical Significance](statistical-significance.md) 
 - **Logistic Regression**
-  - [Overview](logistic-regression.md)
+  - [Overview](Foundational-Concepts-in-Machine-Learning/Logistic-Regression/logistic-regression.md)
 - **Optimization Algorithms**
   - [Overview](optimization-overview.md)
   - **Gradient Descent**
