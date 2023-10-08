@@ -5,7 +5,7 @@
   - [Determinants](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/determinants.md)
   - [Linear Transformations](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/linear-transformations.md)
   - [Linear Systems](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/linear-systems.md)
-  - [Chang Of Bias](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/chang-of-bias.md)
+  - [Chang Of Basis](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/chang-of-basis.md)
   - [Eigenvector](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/eigenvector.md)
   - [Singular Vector](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/singular-vector.md)
   - [Eigenvalue](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/eigenvalue.md)
