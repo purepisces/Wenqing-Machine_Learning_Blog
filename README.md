@@ -33,7 +33,8 @@
     - [No Multicollinearity](Foundational-Concepts-in-Machine-Learning/Linear-Regression/no-multicollinearity.md)
     - [Independence of Errors(Non-Random Residuals)](Foundational-Concepts-in-Machine-Learning/Linear-Regression/independence-of-errors.md)
   - **Performance Metrics for Linear Regression** 
-    - [R-squared](r-squared.md) 
+    - [R-squared](r-squared.md)
+    - [P-values](p-values.md) 
     - [Prediction Interval](prediction-interval.md) 
     - [Standard Error of the Estimate](standard-error-estimate.md) 
     - [Statistical Significance](statistical-significance.md) 
