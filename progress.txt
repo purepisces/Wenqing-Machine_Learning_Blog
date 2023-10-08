@@ -1,7 +1,8 @@
 ffnn.md✅
 linear-regression.md✅
 variance&standarDeviation.md✅
-Covariance.md ✅❌ need further improvement for pca
+Covariance.md ❌ need further improvement for pca
+Linearity.md❌ need further improvement for why the product of the standard deviations of x and y is normalization? Which is correlated to correlation.
 
 
 (Derivative):
