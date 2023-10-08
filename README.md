@@ -5,7 +5,7 @@
   - [Determinants](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/determinants.md)
   - [Linear Transformations](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/linear-transformations.md)
   - [Linear Systems](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/linear-systems.md)
-  - [Chang Of Basis](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/chang-of-basis.md)
+  - [Change Of Basis](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/chang-of-basis.md)
   - [Eigenvector](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/eigenvector.md)
   - [Singular Vector](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/singular-vector.md)
   - [Eigenvalue](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/eigenvalue.md)
@@ -13,6 +13,7 @@
   - [Singular Value Decomposition (SVD)](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/svd.md)
 
 - **Statistical Measures**
+  - [P-values](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/p-values.md) 
   - [Variance&Standard Deviation](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/variance&standarDeviation.md)
   - [Covariance](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/covariance.md)
   - [Correlation](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/correlation.md)
