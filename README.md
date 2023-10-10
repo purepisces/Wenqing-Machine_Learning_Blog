@@ -1,4 +1,4 @@
-# Wenqing's Blog
+# Wenqing's Machine Learning Blog
 
 ## Foundational Concepts in Machine Learning
 - **Linear Algebra**
