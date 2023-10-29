@@ -11,6 +11,8 @@ No! Drug B may have failed for a lot of different reasons: the person may have t
 There are a lot of weird, random thing that can happen when doing a test, and this means that we need to try each drug on more than just one person each.
 
 And for the following test results, it would seem unrealistic to suppose that these results were just random chance and that there is no real difference between Drug A and Drug B.
+
+
 <img src="unrealistic.png" width="500" height="350" alt="unrealistic">
 
 
@@ -24,10 +26,15 @@ In practice, a commonly used threshold is 0.05. It means if there is no differen
 
 Let’s make an example to illustrate this sentence.
 Imagine we give the same drug drug A to two different groups, now any differences in the results are 100% attributable to weird random things, like a rare allergy in one person, or a strong placebo effect in another. In this case, the p-value would be 0.9, which is way larger than 0.05. Thus, we would say that we fail to see a difference between the two groups. If we repeated this same experiment a lot of times, most of the time, we would get similarly large p-values.
-[Insert graph]
+
+<img src="large_p_value.png" width="500" height="350" alt="large_p_value">
+
 
 However, every once in a while, all of the people with rare allergies might end up in the group on the left and all of the people with the strong placebo reactions might end up in the group on the right. As a result, the p-value for this specific run of the experiment is 0.01, since the results are pretty different. Thus, in this case, we would say that the two groups are different, even though they both took the same drug. Getting a small p-value when there is no difference is called a false positive.
-[Insert graph]
+
+<img src="false_positive.png" width="500" height="350" alt="false_positive">
+
+
 A 0.05 threshold for p-values means that 5% of the experiments, where the only differences come from weird random things, will generate a p-value smaller than 0.05. In other words, if there is no difference between drug A and drug B, 5% time we do the experiment, we’ll get a p-value less than 0.05, aka a False Positive.
 Note: if it is extremely important that we are correct when we say the drugs are different, then we can use a smaller threshold, like 0.00001. Using a threshold of 0.00001 means we would only get a false positive once every 100,000 experiments. Likewise, if it’s not that important(for example, if we’re trying to decide if the ice-cream truck will arrive on time), then we can use a larger threshold, like 0.2. Using a threshold of 0.2 means we are willing to get a False Positive 2 times out of 10. That said, the most common threshold is 0.05 because trying to reduce the number of false positives below 5% often costs more than it is worth.
 
