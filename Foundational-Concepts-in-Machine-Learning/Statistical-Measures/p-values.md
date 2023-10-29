@@ -20,6 +20,11 @@ Reasons for Drug B's failure could vary:
 
 Hence, testing on more individuals is necessary.
 
+And for the following test results, it would seem unrealistic to suppose that these results were just random chance and that there is no real difference between Drug A and Drug B.
+
+
+ ![Unrealistic Result](unrealistic.png)
+
 ## The Role of P-Values
 
 P-values, ranging between 0 and 1, help quantify the confidence in whether Drug A is different from Drug B. A p-value close to 0 indicates a higher confidence in a difference.
@@ -37,11 +42,10 @@ P-values, ranging between 0 and 1, help quantify the confidence in whether Drug 
 
 1. **Identical Drug, Different Outcomes:**
 
-   ![Unrealistic Result](unrealistic.png)
-
    With a p-value of 0.9, no significant difference is found. However, sometimes due to random variances like allergies or placebo effects, a smaller p-value (e.g., 0.01) might be observed falsely indicating a difference.
+    ![large_p_value](large_p_value.png)
 
-2. **False Positives:**
+3. **False Positives:**
 
    ![False Positive Example](false_positive.png)
 
