@@ -40,16 +40,17 @@ P-values, ranging between 0 and 1, help quantify the confidence in whether Drug 
 
 ### Understanding through Examples
 
-1. **Identical Drug, Different Outcomes:**
+   Imagine we give the same drug drug A to two different groups, now any differences in the results are 100% attributable to weird random things, like a rare allergy in one person, or a strong placebo effect in another. In this case, the p-value would be 0.9, which is way larger than 0.05. Thus, we would say that we fail to see a difference between the two groups. If we repeated this same experiment a lot of times, most of the time, we would get similarly large p-values.
 
-   With a p-value of 0.9, no significant difference is found. However, sometimes due to random variances like allergies or placebo effects, a smaller p-value (e.g., 0.01) might be observed falsely indicating a difference.
     ![large_p_value](large_p_value.png)
 
-3. **False Positives:**
+However, every once in a while, all of the people with rare allergies might end up in the group on the left and all of the people with the strong placebo reactions might end up in the group on the right. As a result, the p-value for this specific run of the experiment is 0.01, since the results are pretty different. Thus, in this case, we would say that the two groups are different, even though they both took the same drug. Getting a small p-value when there is no difference is called a false positive.
+
 
    ![False Positive Example](false_positive.png)
 
-   A low p-value like 0.01 in identical groups indicates a false positive.
+   A 0.05 threshold for p-values means that 5% of the experiments, where the only differences come from weird random things, will generate a p-value smaller than 0.05. In other words, if there is no difference between drug A and drug B, 5% time we do the experiment, we’ll get a p-value less than 0.05, aka a False Positive.
+
 
 ## P-Value in Our Experiment
 
