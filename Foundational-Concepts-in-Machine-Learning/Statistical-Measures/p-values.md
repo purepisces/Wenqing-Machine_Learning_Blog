@@ -11,9 +11,7 @@ No! Drug B may have failed for a lot of different reasons: the person may have t
 There are a lot of weird, random thing that can happen when doing a test, and this means that we need to try each drug on more than just one person each.
 
 And for the following test results, it would seem unrealistic to suppose that these results were just random chance and that there is no real difference between Drug A and Drug B.
-[Insert graph]
-
-
+<img src="unrealistic.png" width="500" height="350" alt="unrealistic">
 
 
 Given that no study is perfect and there are always a few random things that happen, how confident can we be that drug A is superior?  That’s where the p-value come in.
