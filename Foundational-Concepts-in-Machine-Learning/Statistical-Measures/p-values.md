@@ -66,3 +66,5 @@ Hypothesis testing tries to determine if two conditions (like drugs) are the sam
 
 **In summary**, a small p-value doesn't imply a large difference in effect between Drug A and Drug B.
 
+## Reference:
+- [Watch the video on YouTube](https://www.youtube.com/watch?v=vemZtEM63GY)
