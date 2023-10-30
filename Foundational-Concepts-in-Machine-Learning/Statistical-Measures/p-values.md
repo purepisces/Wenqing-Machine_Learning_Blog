@@ -66,6 +66,9 @@ Hypothesis testing tries to determine if two conditions (like drugs) are the sam
 
 > Note: Why Reject the Null Hypothesis?
 > Reasoning: If something (like the observed difference in test scores) only has a 1% chance of occurring under a certain assumption (the null hypothesis), and yet it does occur, it casts doubt on that assumption. It suggests that maybe the assumption (the null hypothesis of no difference) is incorrect.
+> 
+> p-value Definition: The p-value is the probability of obtaining an effect at least as extreme as the one in your sample data, assuming the null hypothesis is true.
+> Interpretation: A small p-value (typically ≤ 0.05) indicates that the observed data would be highly unlikely under the null hypothesis. In simpler terms, if the p-value is low, it suggests that the observed data (or more extreme) is rare if the null hypothesis is true.
 >
 
 ## Reference:
