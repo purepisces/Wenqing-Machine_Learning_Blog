@@ -66,5 +66,9 @@ Hypothesis testing tries to determine if two conditions (like drugs) are the sam
 
 **In summary**, a small p-value doesn't imply a large difference in effect between Drug A and Drug B.
 
+> Note: Why Reject the Null Hypothesis?
+> Reasoning: If something (like the observed difference in test scores) only has a 1% chance of occurring under a certain assumption (the null hypothesis), and yet it does occur, it casts doubt on that assumption. It suggests that maybe the assumption (the null hypothesis of no difference) is incorrect.
+>
+
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=vemZtEM63GY)
