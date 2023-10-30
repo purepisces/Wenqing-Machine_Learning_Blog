@@ -70,6 +70,10 @@ Hypothesis testing tries to determine if two conditions (like drugs) are the sam
 > p-value Definition: The p-value is the probability of obtaining an effect at least as extreme as the one in your sample data, assuming the null hypothesis is true.
 > Interpretation: A small p-value (typically ≤ 0.05) indicates that the observed data would be highly unlikely under the null hypothesis. In simpler terms, if the p-value is low, it suggests that the observed data (or more extreme) is rare if the null hypothesis is true.
 >
+> Decision Rule
+If p-value ≤ α: Reject the null hypothesis.
+Interpretation: The evidence is strong enough to conclude that the effect observed (or a more extreme effect) is not likely to have occurred just by chance, hence the null hypothesis is unlikely to be true.
+>
 
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=vemZtEM63GY)
