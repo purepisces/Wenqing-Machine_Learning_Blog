@@ -7,29 +7,27 @@ Linear algebra is a foundational pillar for understanding machine learning algor
 
 The determinant is a scalar value that can be computed from the elements of a square matrix. It provides important information about the matrix, including whether the matrix is invertible and the volume scaling factor of the linear transformation it represents.
 
-The determinant of a matrix \( \mathbf{A} \) is often denoted as \( \text{det}(\mathbf{A}) \) or \( |\mathbf{A}| \).
+The determinant of a matrix $( \mathbf{A} \)$ is often denoted as $( \text{det}(\mathbf{A}) \)$ or $( |\mathbf{A}| \)$.
 
 ## Properties of Determinants
 
 Determinants have several key properties:
 
 - **Uniqueness**: Every square matrix has exactly one determinant.
-- **Multiplicative**: The determinant of a product of matrices is the product of their determinants: \( \text{det}(\mathbf{AB}) = \text{det}(\mathbf{A}) \cdot \text{det}(\mathbf{B}) \).
-- **Inversion**: A matrix \( \mathbf{A} \) is invertible if and only if \( \text{det}(\mathbf{A}) \neq 0 \).
-- **Transpose**: The determinant of a matrix and its transpose are the same: \( \text{det}(\mathbf{A}) = \text{det}(\mathbf{A}^T) \).
+- **Multiplicative**: The determinant of a product of matrices is the product of their determinants: $( \text{det}(\mathbf{AB}) = \text{det}(\mathbf{A}) \cdot \text{det}(\mathbf{B}) \)$.
+- **Inversion**: A matrix $( \mathbf{A} \)$ is invertible if and only if $( \text{det}(\mathbf{A}) \neq 0 \)$.
+- **Transpose**: The determinant of a matrix and its transpose are the same: $( \text{det}(\mathbf{A}) = \text{det}(\mathbf{A}^T) \)$.
 - **Linear Transformations**: Swapping two rows or two columns changes the sign of the determinant.
 
 ## Calculating a Determinant
 
 For a 2x2 matrix, the determinant is calculated as follows:
 
-\[
-\begin{vmatrix}
+$\begin{vmatrix}
 a & b \\
 c & d
 \end{vmatrix}
-= ad - bc
-\]
+= ad - bc$
 
 For larger matrices, the determinant is typically computed using techniques such as Laplace's expansion, which breaks down the determinant into a sum of determinants of smaller matrices.
 
