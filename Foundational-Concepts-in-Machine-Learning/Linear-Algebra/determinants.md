@@ -23,11 +23,11 @@ Determinants have several key properties:
 
 For a 2x2 matrix, the determinant is calculated as follows:
 
-$\begin{vmatrix}
+$$\begin{vmatrix}
 a & b \\
 c & d
 \end{vmatrix}
-= ad - bc$
+= ad - bc$$
 
 For larger matrices, the determinant is typically computed using techniques such as Laplace's expansion, which breaks down the determinant into a sum of determinants of smaller matrices.
 
