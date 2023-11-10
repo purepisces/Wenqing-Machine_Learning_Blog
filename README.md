@@ -24,6 +24,7 @@
 - **Model Evaluation**
   - [Underfitting (High Bias) & Overfitting (High Variance)](Foundational-Concepts-in-Machine-Learning/Model-Evaluation/underfitting-overfitting.md)
   - [AUC (Area Under Curve)](Foundational-Concepts-in-Machine-Learning/Model-Evaluation/AUC.md)
+  - [Confusion Matrix](Foundational-Concepts-in-Machine-Learning/Model-Evaluation/confusion-matrix.md)
   - [Precision, Recall and F1 score](Foundational-Concepts-in-Machine-Learning/Model-Evaluation/precision-recall-f1score.md)
 
 - **Linear Regression**
