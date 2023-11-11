@@ -95,5 +95,5 @@ Lastly, our confidence in our inferences depends on the amount of data we have c
 <img src="confidence.png" width="450" height="300" alt="confidence">
 
 ## Reference:
-- [YouTube Video 1](https://www.youtube.com/watch?v=xZ_z8KWkhXE)
+- [YouTube Video](https://www.youtube.com/watch?v=xZ_z8KWkhXE)
 
