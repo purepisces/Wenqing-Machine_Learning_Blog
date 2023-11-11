@@ -69,7 +69,7 @@ So far we’ve seen that when the slope of the line is negative, the strongest r
 ## Correlation Calculation
 
 - **Formula**:
-$\text{correlation} = \frac{\text{Covariance}(\text{Gene X}, \text{Gene Y})}{\sqrt{\text{Variance}(\text{Gene X})} \times \sqrt{\text{Variance}(\text{Gene Y})}}$
+$\text{correlation} = \frac{\text{Covariance}(\text{Gene X}, \text{Gene Y})}{\sqrt{\text{Variance}(\text{Gene X})} \times \sqrt{\text{Variance}(\text{Gene Y})}} = \frac{\sum (X_i - \overline{X})(Y_i - \overline{Y})}{\sqrt{\sum (X_i - \overline{X})^2 \sum (Y_i - \overline{Y})^2}}$
 
 <img src="Covariance of Gene X and Y.png" width="300" height="300" alt="Covariance of Gene X and Y"> <img src="Variance-Gene-X.png" width="300" height="300" alt="Variance-Gene-X"> <img src="Variance-Gene-Y.png" width="300" height="300" alt="Variance-Gene-Y">
 
