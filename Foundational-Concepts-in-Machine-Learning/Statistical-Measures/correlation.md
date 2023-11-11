@@ -24,7 +24,9 @@ If we had a lot of data, we could have a lot of confidence in the guess because 
 <img src="small-p-value.png" width="450" height="300" alt="small-p-value">
 
 Just like before, as long as a straight line goes through all of the data and the slope of the line is negative, correlation = -1 when the slope is large and when the slope is small.
+
 <img src="slope-large.png" width="450" height="300" alt="slope-large">
+
 <img src="slope-small.png" width="450" height="300" alt="slope-small">
 
 So far we’ve seen that when the slope of the line is negative, the strongest relationship has correlation = -1 and when the slope of the line is positive, the strongest relationship has correlation = 1.
