@@ -84,14 +84,13 @@ Even though correlation values are way easier to interpret than covariance value
 
 <img src="Interpret.png" width="450" height="300" alt="interpret">
 
-The good news is that R^2, which is related to correlation, solves this problem. Another awesome thing about R^2 is that it can quantify relationships that are more complicated than simple straight lines.
+The good news is that $R^{2}$, which is related to correlation, solves this problem. Another awesome thing about R^2 is that it can quantify relationships that are more complicated than simple straight lines.
 
 ## Conclusion
 In summary, correlation quantifies the strength of relationships, weak relationship will have a small correlation value, moderate relationship will have moderate correlation value and strong relationship will have large correlation value.
 Insert strength-relationship graph
 Correlation values go from -1, which is the strongest linear relationship with a negative slope to 1, which is the strongest linear relationship with a positive slope. In both cases, if a straight line can not go through all of the data, then we will get correlation values closer to 0 and the worse the fit, the closer the correlation values get to 0. And when there is no relationship that we can represent with a straight line, correlation = 0.
-Lastly, our confidence in our inferences depends on the amount of data we have collected and the p-value.
+Lastly, our confidence in our inferences depends on the amount of data we have collected and the p-value. The more data we have, the smaller the p-value and the more confidence we have our inferences.
 
 <img src="confidence.png" width="450" height="300" alt="confidence">
 
-The more data we have, the smaller the p-value and the more confidence we have our inferences.
