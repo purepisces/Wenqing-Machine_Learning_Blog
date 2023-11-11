@@ -1,11 +1,41 @@
-# Understanding Correlation
+# Correlation
 
-We can quantify the strength of the relationship with correlation. In other words, these data, with a relatively weak relationship, have a small correlation value, and the data with a moderate relationship have a moderate correlation value and the data with a  strong relationship have a relatively large correlation value.
-The maximum value for correlation is 1. Correlation = 1 is when a straight line with a positive slope can go though the centre of every data point. That means if someone gave us a value for gene x, then we would guess that gene Y had a value in a very very narrow range.
+## Understanding Correlation
 
-Note: Correlation does not depend on the scale of the data. In fact, I intentionally omitted putting numbers on the axes because they do not affect correlation at all. In other words, regardless of the scale of the data, correlation = 1 when a straight line with a positive slope can go through all of the data. That means that correlation can equal 1 when the slope is large and when the slope is small. Note: when a straight line with positive slope goes through the data, correlation = 1 regardless of how much data we have. For example, if only had 2 data points, then we can draw a straight line with a positive slope by just connecting the two dots and then correlation = 1 and that makes the relationship appear strong but we should not have any confidence in predictions made with this line because we have so little data.
+Correlation quantifies the strength of relationships between variables. It ranges from -1 (strong negative relationship) to +1 (strong positive relationship).
+
+### Key Concepts
+
+- **Correlation Value**: Indicates the strength of the relationship.
+  - Small Value: Weak relationship.
+  - Moderate Value: Moderate relationship.
+  - Large Value: Strong relationship.
+- **Maximum Correlation**: The value of 1 indicates a perfect positive linear relationship. Correlation = 1 is when a straight line with a positive slope can go though the centre of every data point. That means if someone gave us a value for gene x, then we would guess that gene Y had a value in a very very narrow range.
+- **Scale Independence**: Correlation does not depend on the scale of data.
+- **P-Value**: A measure of confidence in the correlation. A small p-value indicates a low probability of the observed correlation occurring by chance.
+
+## Scale Independence in Correlation
+
+### Key Principle
+
+- Correlation is independent of the data scale. This means that the actual numerical values or units of the data do not affect the correlation coefficient.
+
+### Characteristics of Correlation
+
+- **Correlation = 1**: Achieved when a straight line with a positive slope can pass through all data points.
+  - **Slope Variability**: This condition holds true regardless of whether the slope of the line is steep or gentle.
+  - **Data Scale Irrelevance**: The scale of the data does not influence this correlation value.
+
+### Data Quantity and Correlation
+
+- **Impact of Data Quantity**: The amount of data impacts the confidence in the correlation, but not the correlation value itself.
+  - **Example of Minimal Data**: With just two data points, drawing a straight line with a positive slope will result in a correlation of 1. However, this high correlation should be interpreted with caution due to the limited data.
+
+### Caution with Small Data Sets
+
+- **Limited Data Interpretation**: A high correlation value (like 1) derived from a very small dataset may not be reliable for making predictions or inferences. More data points generally provide a more robust basis for correlation analysis.
+
 To understand why we should have low confidence in correlations made with a small datasets, is because the probability that wen can draw a straight line through the same number of randomly placed points gets smaller and smaller with each additional point.
-
 When we’re talking about correlation, we’re only talking about using straight lines. For correlation, a p-value tells us the probability that randomly drawn dots will result in a similarly strong relationship, or stronger. Thus, the smaller the p-value, the more confidence we have in the predictions we make with the line. In this case, the p-value is crazy small(2.2x10^-16) which means that the probability of random data creating a similarly strong, or stronger relationship is crazy small(2.2x10^-16).
 
 <img src="p-value.png" width="450" height="300" alt="p-value">
