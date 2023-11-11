@@ -51,7 +51,7 @@ The covariance can be any value between positive and negative infinity, dependin
 When the data all fall on a straight line with a positive or negative slope, then the covariance and the product of the square roots of the variance terms are the same and division gives us 1 or -1, depending on the slope. When the data do not all fall on a straight line with a positive or negative slope, then the covariance accounts for less of the variance in the data, and the correlation is closer to 0.
 So for this graph where the correlation is 0.9 we can quantify our confidence in this relationship with a p-value. The smaller the p-value, the more confidence we can have in the guesses we make. In this case, the p-value is 0.03, which means there is 3% chance that random data could produce a similarly strong relationship, or stronger.
 
-<img src="3%-pvalue.png" width="450" height="300" alt="3%-pvalue">
+<img src="3-pvalue.png" width="450" height="300" alt="3-pvalue">
 
 
 Even though correlation values are way easier to interpret than covariance values, they are still not super easy to interpret. For example, it’s not super obvious that this relationship, where correlation = 0.9, is twice as good at making prediction as this relationship, where correlation = 0.64.
