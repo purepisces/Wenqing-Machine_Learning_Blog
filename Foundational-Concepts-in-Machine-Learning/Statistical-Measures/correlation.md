@@ -1,4 +1,4 @@
-Correlation
+# Understanding Correlation
 
 We can quantify the strength of the relationship with correlation. In other words, these data, with a relatively weak relationship, have a small correlation value, and the data with a moderate relationship have a moderate correlation value and the data with a  strong relationship have a relatively large correlation value.
 The maximum value for correlation is 1. Correlation = 1 is when a straight line with a positive slope can go though the centre of every data point. That means if someone gave us a value for gene x, then we would guess that gene Y had a value in a very very narrow range.
@@ -13,8 +13,7 @@ When we’re talking about correlation, we’re only talking about using straigh
 
 The maximum value for correlation, 1, occurs whenever you can draw a straight line with a positive slope that goes through all of the data and our confidence in how useful the relationship is depends on how much data we have.
 
-<img src="max-correlation.png" width="450" height="300" alt="max-correlation">
-<img src="most-confidence.png" width="450" height="300" alt="most-confidence">
+<img src="max-correlation.png" width="400" height="300" alt="max-correlation"> <img src="most-confidence.png" width="400" height="300" alt="most-confidence">
 
 
 When a straight line with a negative slope can go through the centre of every data point, then the correlation = -1. Since a straight line can go through all of the data points, correlation = -1 implies that there is a strong relationship in the data.
@@ -25,9 +24,7 @@ If we had a lot of data, we could have a lot of confidence in the guess because 
 
 Just like before, as long as a straight line goes through all of the data and the slope of the line is negative, correlation = -1 when the slope is large and when the slope is small.
 
-<img src="slope-large.png" width="450" height="300" alt="slope-large">
-
-<img src="slope-small.png" width="450" height="300" alt="slope-small">
+<img src="slope-large.png" width="400" height="300" alt="slope-large"> <img src="slope-small.png" width="400" height="300" alt="slope-small">
 
 So far we’ve seen that when the slope of the line is negative, the strongest relationship has correlation = -1 and when the slope of the line is positive, the strongest relationship has correlation = 1.
 
@@ -45,9 +42,7 @@ If you know how to calculate variance and covariance, calculating correlation is
 
 If this were the data, then correlation = Covariance(Gene X, Gene Y)/根号下Variance(Gene X) * 根号下Variance(Gene Y)
 
-<img src="Covariance of Gene X and Y.png" width="450" height="300" alt="Covariance of Gene X and Y">
-<img src="Variance-Gene-X.png" width="450" height="300" alt="Variance-Gene-X">
-<img src="Variance-Gene-Y.png" width="450" height="300" alt="Variance-Gene-Y">
+<img src="Covariance of Gene X and Y.png" width="300" height="300" alt="Covariance of Gene X and Y"> <img src="Variance-Gene-X.png" width="300" height="300" alt="Variance-Gene-X"> <img src="Variance-Gene-Y.png" width="300" height="300" alt="Variance-Gene-Y">
 
 The covariance can be any value between positive and negative infinity, depending on whether the slope of the line that represents the relationship is positive or negative, how far the data are spread out around the means and the scale of the data. Thus, when we calculate correlation, the denominator squeezes the covariance to be a number from -1 to 1. In other words, the denominator ensures that the scale of the data does not effect the correlation value, and this makes correlations much easier to interpret.
 When the data all fall on a straight line with a positive or negative slope, then the covariance and the product of the square roots of the variance terms are the same and division gives us 1 or -1, depending on the slope. When the data do not all fall on a straight line with a positive or negative slope, then the covariance accounts for less of the variance in the data, and the correlation is closer to 0.
