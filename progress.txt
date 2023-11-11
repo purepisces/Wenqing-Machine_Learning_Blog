@@ -4,7 +4,7 @@ variance&standarDeviation.md✅
 Covariance.md ❌ need further improvement for pca
 Linearity.md❌ need further improvement for why the product of the standard deviations of x and y is normalization? Which is correlated to correlation.
 p_values.md✅
-
+Correlation.md✅
 
 (Derivative):
  (Partial Derivative):
