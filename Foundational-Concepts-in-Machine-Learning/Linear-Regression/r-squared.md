@@ -49,7 +49,7 @@ Now we’ll walk through an example where we calculate things one step at a time
 
 Another example, in this example we’re comparing two possibly uncorrelated variables on the y-axis we have mouse weight again, but on the x-axis we now have time spend sniffing a rock. Then by doing the math we see that R^2 = 6%. Thus there is only 6% less variation around the line than the mean or we can say that the sniff/weight relationship accounts for 6% of the total variation. This means that hardly any of the variation in the data is explained by the sniff/weight relationship.
 
-<img src="r-squared-6%.png" alt="r-squared-6" width="400" height="300"/>
+<img src="r-squared-6.png" alt="r-squared-6" width="400" height="300"/>
 
 Now when someone says, “The statistically significant R^2 was 0.9” you can think to yourself “Very good! The relationship between the two variables explains 90% of the variation in the data!” And when someone else says “ The statistically significant R^2 was 0.01…” You can think to yourself… “Dag! Who cares if that relationship is significant, it only accounts for 1% of the variation of the data. Something else must explain the remaining 99%.”
 
