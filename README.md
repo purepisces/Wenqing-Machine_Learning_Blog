@@ -14,7 +14,8 @@
   - [Singular Value Decomposition (SVD)](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/svd.md)
 
 - **Statistical Measures**
-  - [P-values](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/p-values.md) 
+  - [P-values](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/p-values.md)
+  - [Statistical Significance](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/statistical-significance.md) 
   - [Variance&Standard Deviation](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/variance&standarDeviation.md)
   - [Covariance](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/covariance.md)
   - [Correlation](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/correlation.md)
