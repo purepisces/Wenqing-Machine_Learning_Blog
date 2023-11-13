@@ -33,13 +33,13 @@
 
 
 4. **Quantifying the Improvement with R²**
-   - R² = (Var(mean) - Var(line)) / Var(mean).
+   - $R² = \frac{(Var(mean) - Var(line))}{Var(mean)}$
    - Ranges from 0 to 1, with higher values indicating better predictions.
 
 
  <img src="quantify-R-square.png" alt="quantify R square" width="400" height="300"/>
 
-The equation for R² = Var(mean) - Var(line)/Var(mean)
+The equation is $R² = \frac{(Var(mean) - Var(line))}{Var(mean)}$
  
  <img src="Var(mean).png" alt="Var(mean)" width="300" height="200"/>  <img src="Var(line).png" alt="Var(line)" width="300" height="200"/>
 
