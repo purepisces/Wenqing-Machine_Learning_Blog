@@ -90,7 +90,9 @@ With R², it is easy to see that the first correlation is twice as good as the s
   
 That said R² does not indicate the direction of the correlation because squared numbers are never negative.
 If the direction of the correlation isn’t obvious, you can say, “ the two variables were positively(or negatively) correlated with R² = .…
+
 R² main ideas
+
 R² is the percentage of variation explained by the relationship between two variables.
 If someone gives you a value for plain old R, square it!
 
