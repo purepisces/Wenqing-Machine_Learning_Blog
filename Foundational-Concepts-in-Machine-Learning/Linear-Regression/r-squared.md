@@ -78,6 +78,7 @@ You can think to yourself…
 “0.5 times 0.5 = 0.25. The relationship accounts for 25% of the variation in the data. That’s good if there are a million other things accounting for the remaining 75%, bad if there is only one thing.”
 
 I like R² more than just plain old R because it is easier to interpret. Here’s an example for how much better is R = 0.7 than R = 0.5? 
+
 Well, if we convert those numbers to R^2, we see that:
 R² = 0.7^2 = 0.5 50% of the original variation is explained
 R² = 0.5^2 = 0.25 25% of the original variation is explained
