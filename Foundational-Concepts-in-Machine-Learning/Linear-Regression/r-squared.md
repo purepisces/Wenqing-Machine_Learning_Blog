@@ -35,12 +35,22 @@ Does the line fit the data better than the mean? If so, how much better? By eye,
  <img src="quantify-R-square.png" alt="quantify R square" width="400" height="300"/>
 
 The equation for R squared = Var(mean) - Var(line)/Var(mean)
+
+ <img src="Var(line).png" alt="Var(line)" width="300" height="200"/>
+ 
+ <img src="Var(mean).png" alt="Var(mean)" width="300" height="200"/>
+
+
+
 R squared range from 0 to 1, since the variation around the line will never be greater than the variation around the mean and it will never be less than 0. This division also makes r squared a percentage.
 Now we’ll walk through an example where we calculate things one step at a time. The result is 0.81 which means there is 81% less variation around the line than the mean or the size/weight relationship accounts for 81% of the total variation. This means that most of the variation in the data is explained by the size/weight relationship.
 
 <img src="example-r-squared.png" alt="example-r-squared" width="400" height="300"/>
 
 Another example, in this example we’re comparing two possibly uncorrelated variables on the y-axis we have mouse weight again, but on the x-axis we now have time spend sniffing a rock. Then by doing the math we see that R^2 = 6%. Thus there is only 6% less variation around the line than the mean or we can say that the sniff/weight relationship accounts for 6% of the total variation. This means that hardly any of the variation in the data is explained by the sniff/weight relationship.
+
+<img src="r-squared-6%.png" alt="r-squared-6%" width="400" height="300"/>
+
 Now when someone says, “The statistically significant R^2 was 0.9” you can think to yourself “Very good! The relationship between the two variables explains 90% of the variation in the data!” And when someone else says “ The statistically significant R^2 was 0.01…” You can think to yourself… “Dag! Who cares if that relationship is significant, it only accounts for 1% of the variation of the data. Something else must explain the remaining 99%.”
 
 What about plain old R? How is it related to R^2?
