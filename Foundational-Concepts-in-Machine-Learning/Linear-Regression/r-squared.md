@@ -13,11 +13,13 @@ Why should we care about R^2?
 -It’s easy and intuitive to calculate 
 Let’s start with an example, here we’re plotting mouse weight on the y-axis with high weights towards the top and low weights towards the bottom and mouse identification numbers on the x-axis with ID numbers one through seven. We can calculate the mean or average of the mouse weights and plot it as a line that spans the graph. We can calculate the variation of the data around this mean as the sum of the squared differences of the weight for each mouse I where I is an individual mouse represented by a red dot and the mean. The variation of the data = sum(weight for mouse I - mean)^2. The difference between each data point is squared so that points below the mean don’t cancel out points above the mean.
 
-Insert variation of ID graph
+<img src="variation-of-ID.png" alt="variation-of-ID" width="400" height="300"/>
+
 
 Now, what if, instead of ordering our mice by their ID#, we ordered them by their size? All we have done is reorder the data on the X-axis. The mean and variation are the exact same as before. The distances between the dots and the line have not changed(just their order).
 
-Insert variation of Size graph
+<img src="variation-of-Size.png" alt="variation-of-Size" width="400" height="300"/>
+
 
 
 Here’s the question: Given that we know a mouse’s size, is the mean weight the best way to predict mouse weight? No, we can do way better. All we have to do is fit a line to the data. Now we can predict weight with our line. You tell me you have a large mouse, I can look at my line and make a good guess about the weight.
