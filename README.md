@@ -14,10 +14,10 @@
   - [Singular Value Decomposition (SVD)](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/svd.md)
 
 - **Statistical Measures**
-  - Standard Deviation vs Standard Error & Margin of Error
-  - Statistical Inference
-  - Confidence Intervals
-  - Statistical Power
+  - [Standard Deviation vs Standard Error & Margin of Error](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Standard-Deviation-vs-Standard-Error-Margin-of-Error.md)
+  - [Statistical Inference](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Statistical-Inference.md)
+  - [Confidence Intervals](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Confidence-Intervals.md)
+  - [Statistical Power](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Statistical-Power.md)
   - [P-values](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/p-values.md)
   - [Statistical Significance](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/statistical-significance.md) 
   - [Variance&Standard Deviation](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/variance&standarDeviation.md)
