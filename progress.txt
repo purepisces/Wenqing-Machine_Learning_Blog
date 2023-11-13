@@ -6,6 +6,7 @@ Linearity.md❌ need further improvement for why the product of the standard dev
 p_values.md✅
 Correlation.md✅
 r-squared.md✅
+statistical-significance.md✅
 
 (Derivative):
  (Partial Derivative):
