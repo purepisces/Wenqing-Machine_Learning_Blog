@@ -17,6 +17,18 @@ Statistical significance is a crucial concept in statistical analysis, indicatin
 - **Misinterpretation of P-Value**: A low p-value does not prove that the null hypothesis is false; it merely suggests that the data is unlikely under the null hypothesis.
 
 - **Effect Size**: A p-value does not measure the size or importance of an effect.
+> Note:
+Definition: Effect size is a quantitative measure of the magnitude of the experimental effect. Unlike the p-value, the effect size tells you how large the effect is. For example, in a medical study, the effect size could represent the difference in recovery rates between a treatment group and a control group.
+
+>Misleading P-Values: You can have a very low p-value (indicating statistical significance) with a very small effect size. This is common in large studies where even trivial differences can be statistically significant due to the large sample size.
+
+>Importance of Effect Size: Knowing the effect size is crucial for understanding the practical implications of the results. For instance, a medical treatment that produces a statistically significant improvement in symptoms (low p-value) might have such a small effect size that it is not clinically meaningful.
+
+>Example
+>In a study comparing two educational methods, you might find a statistically significant difference (e.g., p = 0.03) in test scores between students taught by Method A and Method B. However, if the effect size is small (e.g., a mean difference of 1 point on a 100-point scale), this statistically significant difference may not be educationally relevant or meaningful.
+
+>Understanding the difference between p-value and effect size is fundamental in research and data analysis. While p-values can indicate whether an effect exists, effect sizes are necessary to understand the practical implications of that effect. Both are important in drawing conclusions from data, but they serve different roles in the interpretation of research findings.
+>
 
 ## Example: Understanding P-Values
 
