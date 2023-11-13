@@ -37,10 +37,10 @@
     - [Independence of Errors(Non-Random Residuals)](Foundational-Concepts-in-Machine-Learning/Linear-Regression/independence-of-errors.md)
   - **Performance Metrics for Linear Regression** 
     - [R-squared](Foundational-Concepts-in-Machine-Learning/Linear-Regression/r-squared.md)
-    - [P-values](p-values.md) 
+    - [P-values](p-values.md)
+    - [Statistical Significance](statistical-significance.md) 
     - [Prediction Interval](prediction-interval.md) 
     - [Standard Error of the Estimate](standard-error-estimate.md) 
-    - [Statistical Significance](statistical-significance.md) 
 - **Logistic Regression**
   - [Overview](Foundational-Concepts-in-Machine-Learning/Logistic-Regression/logistic-regression.md)
 - **Optimization Algorithms**
