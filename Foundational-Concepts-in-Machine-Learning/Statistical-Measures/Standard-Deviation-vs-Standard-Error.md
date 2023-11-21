@@ -24,4 +24,4 @@ The standard deviation quantifies the variation within a set of measurements. Th
 In almost all cases, you should plot the standard deviation, since graphs are usually intended to describe the data that you measured.
 
 ## Reference:
-- [Watch the video on YouTube](https://www.youtube.com/watch?v=vemZtEM63GY)
+- [Watch the video on YouTube](https://www.youtube.com/watch?v=A82brFpdr9g)
