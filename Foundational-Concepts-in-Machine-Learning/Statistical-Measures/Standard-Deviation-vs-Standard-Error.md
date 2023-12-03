@@ -56,6 +56,17 @@ There are 3 common error bars.
 -These are related to standard errors
 
 
+1. **Standard deviations**
+   - These tell you how the data is distributed around the mean.
+   - Big standard deviations tell you that some of the data points were pretty far from the mean.
+   - In most cases, this is what you should use in your graphs since it tells us about your data. The data points that you collected yourself.
+2. **Standard errors**
+   - These tell you how the mean is distributed.
+3. **Confidence intervals**
+   - These are related to standard errors.
+
+
+
 ## Normal Distribution
 
 Let’s start with a normal distribution
