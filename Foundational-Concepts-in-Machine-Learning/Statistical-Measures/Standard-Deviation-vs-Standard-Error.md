@@ -27,19 +27,19 @@ Plotting all 5 means on the same number line, we observe the mean of these means
 In almost all cases, you should plot the standard deviation, since graphs are usually intended to describe the data that you measured.
 
 
-
-
 # Standard Error
 
 ## Error Bars
 First let’s talk about error bars, which are very related to standard error.
 For example, we collected measurements from three examples labeled A/B/C and plotted a scatter plot. Then we can calculate the averages for the 3 datasets, and plot them as green horizontal bars approximately midway between the data points. After that we can calculate the standard deviation and add those to the graph, which is the red error bars.
 
+
 <img src="error_bar.png" alt="error_bar" width="400" height="300"/>
 
 ## Dynamite Graph
 
 In manuscripts and presentations, people usually don’t show actual data, instead, it shows the mean and standard deviation. This is called a dynamite graph. That’s because each column of the graph look like an igniter on a stick of dynamite.
+
 
 <img src="dynamite_graph.png" alt="dynamite_graph" width="400" height="300"/>
 
@@ -54,6 +54,7 @@ There are 3 common error bars.
 -These tell you how the mean is distributed. Not just the data, but the means.(This will become clear when I draw some pictures)
 3. confidence intervals
 -These are related to standard errors
+
 
 ## Normal Distribution
 
