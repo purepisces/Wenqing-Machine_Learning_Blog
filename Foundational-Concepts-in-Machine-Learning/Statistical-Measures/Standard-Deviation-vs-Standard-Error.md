@@ -115,12 +115,6 @@ In this case, we calculate the standard error of the means.we plot it as the bla
 <img src="bootstrapping.png" alt="bootstrapping" width="400" height="300"/>
 
 
-
-
-
-
-
-
-
 ## Reference:
-- [Watch the video on YouTube](https://www.youtube.com/watch?v=A82brFpdr9g)
+- [Watch the video1 on YouTube](https://www.youtube.com/watch?v=A82brFpdr9g)
+- [Watch the video2 on YouTube](https://www.youtube.com/watch?v=XNgt7F6FqDU)
