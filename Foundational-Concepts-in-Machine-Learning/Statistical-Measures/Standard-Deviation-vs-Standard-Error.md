@@ -45,23 +45,12 @@ In manuscripts and presentations, people usually don’t show actual data, inste
 
 ## Common Error Bars
 
-There are 3 common error bars.
-1. standard deviations
--These tell you how the data is distributed around the mean
--Big standard deviations tell you that some of the data points were pretty far from the mean
--In most cases, this is what you should use in your graphs since it tells us about your data. The data points that you collected yourself.
-2. Standard errors
--These tell you how the mean is distributed. Not just the data, but the means.(This will become clear when I draw some pictures)
-3. confidence intervals
--These are related to standard errors
-
-
 1. **Standard deviations**
    - These tell you how the data is distributed around the mean.
    - Big standard deviations tell you that some of the data points were pretty far from the mean.
    - In most cases, this is what you should use in your graphs since it tells us about your data. The data points that you collected yourself.
 2. **Standard errors**
-   - These tell you how the mean is distributed.
+   - These tell you how the mean is distributed. Not just the data, but the means.
 3. **Confidence intervals**
    - These are related to standard errors.
 
