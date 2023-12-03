@@ -34,8 +34,7 @@ For example, we collected measurements from three examples labeled A/B/C and plo
 
 In manuscripts and presentations, people usually don’t show actual data, instead, it shows the mean and standard deviation. This is called a dynamite graph. That’s because each column of the graph look like an igniter on a stick of dynamite.
 
-Insert dynamite_graph graph
-
+<img src="dynamite_graph.png" alt="dynamite_graph" width="400" height="300"/>
 
 There are 3 common error bars.
 1. standard deviations
@@ -50,23 +49,24 @@ There are 3 common error bars.
 Let’s start with a normal distribution
 In this case, imagine we weighted a lot of mice and plotted a distribution of differences from the mean. Y axis is the proportion of mice we measured, and the x-axis is the difference from the mean. Most of the mice had weights close to the average. A few mice weighted much less than the average mouse and a few other mice weighted much more than the average mouse.
 
-Insert normal_distribution graph
-
+<img src="normal_distribution.png" alt="normal_distribution" width="400" height="300"/>
 
 Usually you can’t afford measure the weight of all the mice, so we just take a sample. In this example, we’re just assume we took five measurements from the population rather than measuring all the mice. Since most mice have weights close to average, most of our samples are close to 0. Now calculate the mean and standard deviation from our sample. In this case, the mean is -0.2 and the standard deviation is 1.923. We can plot this mean and standard deviation on a graph by adding or subtracting standard deviations around the mean.
 
 1 standard deviation on each side of the mean is supposed to cover about 68% of the data.
 2 standard deviation on each side of the mean is supposed to cover about 95% of the data.
 
-Insert mean_std graph
+<img src="mean_std.png" alt="mean_std" width="400" height="300"/>
 
 Now we take another 5 measurements and calculate the mean and standard deviation using these 5 values. Then we plot the mean and the standard deviation on each sides. Then we take another five measurements, this is the first sample or first measurement with relatively extreme values. However, this one measure does not take the mean away from 0. That means the means are relatively close to each other compared to the raw data. This is because for a mean to be way far from the middle, most, if not all of the raw data points would have to be clustered way far away from the middle. For example, in a sample of purple dots, all dots from a group far from the centre. This could happen, but very rarely.
 
-Insert purple graph
+<img src="purple.png" alt="purple" width="400" height="300"/>
 
 Much more likely is that most of the points are close to zero, with only one or two points far away.
 So far, we’ve shown that you can calculate the standard deviations of each sample. But now that we have three means, we can also calculate the standard deviation of the means. Because 1 standard deviation will cover 68% of the values(and 2 will cover 95% of the values) the standard deviation of the means won’t be as big as the standard deviations of the data. Here in the graph, we plot the means of the means and also the standard deviation of the means. Note that the standard deviations here are much smaller than the standard deviations we got for individual samples.
-Insert std_of_means graph
+
+<img src="std_of_means.png" alt="std_of_means" width="400" height="300"/>
+
 
 The standard deviation of the mean is called the standard error. The standard error gives you a sense of how spread out the means would be if you sampled five independent measurements. This gives us a sense of how much variation we can expect in our “means” if we took a bunch of independent 5 measurement samples.
 
@@ -78,14 +78,18 @@ Let’s review how to calculate the standard error of the mean.
 
 The standard error is less than the sample standard deviations because means aren’t as dispersed. 
 
-Insert calculate_standard_error_mean graph
+
+<img src="calculate_standard_error_mean.png" alt="calculate_standard_error_mean" width="400" height="300"/>
+
 
 So far, we have shown how to find the standard error of the mean, but there are other standard errors.
 For example, we can also take the standard deviation of the standard deviations. This is called the standard error of the standard deviations. (I guess to avoid a tongue twister). It tells us how the standard deviations of multiple samples are dispersed. You can calculate the standard deviation of any statistic(i.e. median, mode. Percentiles etc.) that you calculate for multiple samples.
 
 You get the “standard error of…” what ever that statistic is.
 
-Insert calculate_standard_error_other graph
+
+<img src="calculate_standard_error_other.png" alt="calculate_standard_error_other" width="400" height="300"/>
+
 
 To summarize what we’ve said so far, we know that standard error is simply the standard deviation of multiple means taken from the same population. So there is a population, and we can take a bunch of different samples from it, all we have to do to find the standard error is to find the standard deviation of the means of each sample.
 
@@ -107,7 +111,8 @@ Go to step 1 and repeat until you have a lot of means/medians etc
 Calculate the standard deviation of the means/medians etc.
 
 In this case, we calculate the standard error of the means.we plot it as the black line in the graph
-Insert bootstrapping graph
+
+<img src="bootstrapping.png" alt="bootstrapping" width="400" height="300"/>
 
 
 
