@@ -123,17 +123,76 @@ Yes!
 	-it’s easy to make a computer do the work
 
 Here is a bootstrapping example:
+
 Pick a random measurement
+
 Write down the value
+
 Go to step 1 until you have 5 measurements
+
 Calculate the mean/median/mode/etc on your sample
+
 Go to step 1 and repeat until you have a lot of means/medians etc
+
 Calculate the standard deviation of the means/medians etc.
 
 In this case, we calculate the standard error of the means.we plot it as the black line in the graph
 
 <img src="bootstrapping.png" alt="bootstrapping" width="400" height="300"/>
 
+
+
+## Bootstrapping
+
+Well, at this point, you might wondering can we calculate standard errors without spending a lot of time/money on doing the experiment a bunch of times?
+Yes!
+-In rare cases, there is a formula you can use to estimate it.
+	-The standard error of the mean is one case(If the standard error of the mean is 1, the formula for it is very simple. It’s just the standard deviation divided by the square root of the sample size)
+	-There aren’t many other cases
+-You van use “bootstrapping” for everything else!
+	-it’s conceptually very simple
+	-it’s easy to make a computer do the work
+
+Here is a bootstrapping example:
+
+Pick a random measurement
+
+Write down the value
+
+Go to step 1 until you have 5 measurements
+
+Calculate the mean/median/mode/etc on your sample
+
+Go to step 1 and repeat until you have a lot of means/medians etc
+
+Calculate the standard deviation of the means/medians etc.
+
+In this case, we calculate the standard error of the means.we plot it as the black line in the graph
+
+<img src="bootstrapping.png" alt="bootstrapping" width="400" height="300"/>
+
+## Bootstrapping
+
+At this point, you might be wondering if it's possible to calculate standard errors without repeating the experiment multiple times. The answer is yes!
+
+### Methods for Estimating Standard Errors
+- **Rare Cases with Formulas**: 
+  - Example: The **standard error of the mean**. If the standard error of the mean is 1, the formula is simply the standard deviation divided by the square root of the sample size.
+  - Note: Formulas like this are not common.
+- **Bootstrapping**:
+  - Conceptually simple.
+  - Easily automated on a computer.
+
+### Bootstrapping Example
+
+1. **Pick a random measurement.**
+2. **Write down the value.**
+3. **Repeat Steps 1 and 2** until you have 5 measurements.
+4. **Calculate the mean/median/mode/etc** on your sample.
+5. **Repeat Steps 1-4** until you have a substantial number of means/medians, etc.
+6. **Calculate the standard deviation** of these means/medians, etc.
+
+In this case, we calculate the standard error of the means and represent it with a black line in the graph below.
 
 ## Reference:
 - [Watch the video1 on YouTube](https://www.youtube.com/watch?v=A82brFpdr9g)
