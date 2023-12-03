@@ -111,65 +111,6 @@ You get the “standard error of…” what ever that statistic is.
 
 To summarize what we’ve said so far, we know that standard error is simply the standard deviation of multiple means taken from the same population. So there is a population, and we can take a bunch of different samples from it, all we have to do to find the standard error is to find the standard deviation of the means of each sample.
 
-## Bootstrapping
-
-Well, at this point, you might wondering can we calculate standard errors without spending a lot of time/money on doing the experiment a bunch of times?
-Yes!
--In rare cases, there is a formula you can use to estimate it.
-	-The standard error of the mean is one case(If the standard error of the mean is 1, the formula for it is very simple. It’s just the standard deviation divided by the square root of the sample size)
-	-There aren’t many other cases
--You van use “bootstrapping” for everything else!
-	-it’s conceptually very simple
-	-it’s easy to make a computer do the work
-
-Here is a bootstrapping example:
-
-Pick a random measurement
-
-Write down the value
-
-Go to step 1 until you have 5 measurements
-
-Calculate the mean/median/mode/etc on your sample
-
-Go to step 1 and repeat until you have a lot of means/medians etc
-
-Calculate the standard deviation of the means/medians etc.
-
-In this case, we calculate the standard error of the means.we plot it as the black line in the graph
-
-<img src="bootstrapping.png" alt="bootstrapping" width="400" height="300"/>
-
-
-
-## Bootstrapping
-
-Well, at this point, you might wondering can we calculate standard errors without spending a lot of time/money on doing the experiment a bunch of times?
-Yes!
--In rare cases, there is a formula you can use to estimate it.
-	-The standard error of the mean is one case(If the standard error of the mean is 1, the formula for it is very simple. It’s just the standard deviation divided by the square root of the sample size)
-	-There aren’t many other cases
--You van use “bootstrapping” for everything else!
-	-it’s conceptually very simple
-	-it’s easy to make a computer do the work
-
-Here is a bootstrapping example:
-
-Pick a random measurement
-
-Write down the value
-
-Go to step 1 until you have 5 measurements
-
-Calculate the mean/median/mode/etc on your sample
-
-Go to step 1 and repeat until you have a lot of means/medians etc
-
-Calculate the standard deviation of the means/medians etc.
-
-In this case, we calculate the standard error of the means.we plot it as the black line in the graph
-
-<img src="bootstrapping.png" alt="bootstrapping" width="400" height="300"/>
 
 ## Bootstrapping
 
@@ -193,6 +134,9 @@ At this point, you might be wondering if it's possible to calculate standard err
 6. **Calculate the standard deviation** of these means/medians, etc.
 
 In this case, we calculate the standard error of the means and represent it with a black line in the graph below.
+
+<img src="bootstrapping.png" alt="bootstrapping" width="400" height="300"/>
+
 
 ## Reference:
 - [Watch the video1 on YouTube](https://www.youtube.com/watch?v=A82brFpdr9g)
