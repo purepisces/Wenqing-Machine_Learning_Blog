@@ -8,6 +8,7 @@ Correlation.md✅
 r-squared.md✅
 statistical-significance.md✅
 Standard-Deviation-vs-Standard-Error.md✅
+Confidence-Intervals.md✅
 
 (Derivative):
  (Partial Derivative):
