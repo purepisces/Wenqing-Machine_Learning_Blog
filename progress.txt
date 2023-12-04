@@ -7,6 +7,7 @@ p_values.md✅
 Correlation.md✅
 r-squared.md✅
 statistical-significance.md✅
+Standard-Deviation-vs-Standard-Error.md✅
 
 (Derivative):
  (Partial Derivative):
