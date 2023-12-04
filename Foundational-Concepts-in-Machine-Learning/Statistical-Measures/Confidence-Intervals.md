@@ -37,7 +37,7 @@ We can see that the area left of 20 so values less than 20 or outside of our 95%
 
 Here’s another example of a visual statistical test. In this case, we’re going to compare two samples. Here we’ve weighed female mice and now we have a sample of male mice we’ve already done the bootstrapping on that sample and here in the figure we just show the means from that bootstrapping, because the 95% confidence intervals do not overlap. We know that there is a statistically significant difference in the weights of female and male mice. That is to say we know that the p-value is less than 0.05 just by looking at the picture.
 
-<img src="another-visual-statistical-test.png" width="450" height="300" alt="another-visual-statistical-test">
+<img src="another-visual-statistical-tests.png" width="450" height="300" alt="another-visual-statistical-tests">
 
 There is one caveat to that and to illustrate that caveat I’ve shifted the means a little bit over to the left so that now the confidence intervals overlap. If the confidence intervals overlap, there is still a chance that the means are significantly different from each other. So in this case, you still have to do the t-test. But when the confidence intervals do not overlap then you can rest assured that there’s a statistically significant difference between those two means.
 
