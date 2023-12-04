@@ -61,3 +61,6 @@ Here’s another example of a visual statistical test. In this case, we’re goi
 There is one caveat to that and to illustrate that caveat I’ve shifted the means a little bit over to the left so that now the confidence intervals overlap. If the confidence intervals overlap, there is still a chance that the means are significantly different from each other. So in this case, you still have to do the t-test. But when the confidence intervals do not overlap then you can rest assured that there’s a statistically significant difference between those two means.
 
 <img src="one-caveat.png" width="450" height="300" alt="one-caveat">
+
+## Reference:
+- [Watch the video1 on YouTube](https://www.youtube.com/watch?v=TqOeMYtOc1w)
