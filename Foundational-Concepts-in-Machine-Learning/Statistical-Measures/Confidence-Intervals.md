@@ -63,4 +63,4 @@ There is one caveat to that and to illustrate that caveat I’ve shifted the mea
 <img src="one-caveat.png" width="450" height="300" alt="one-caveat">
 
 ## Reference:
-- [Watch the video1 on YouTube](https://www.youtube.com/watch?v=TqOeMYtOc1w)
+- [Watch the video on YouTube](https://www.youtube.com/watch?v=TqOeMYtOc1w)
