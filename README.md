@@ -84,6 +84,9 @@
   - [Softmax](softmax.md)
 ### Sequence Models
 - [Overview](sequence-models-overview.md)
+- **Language Model Evaluation Metrics**
+  - [Perplexity](Deep-Learning-Concepts/Sequence-Models/Language-Model-Evaluation-Metrics/perplexity.md)
+  - [Other relevant metrics...]
 - **RNN (Recurrent Neural Networks)**
   - [Standard RNN](RNN.md)
   - [LSTM (Long Short-Term Memory)](RNN/LSTM.md)
