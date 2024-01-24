@@ -35,6 +35,7 @@
 
 - **Linear Regression**
   - [Overview](Foundational-Concepts-in-Machine-Learning/Linear-Regression/linear-regression.md)
+  - [Least Squares](Foundational-Concepts-in-Machine-Learning/Linear-Regression/least-squares.md)
   - **Assumptions of Linear Regression**
     - [Linearity](Foundational-Concepts-in-Machine-Learning/Linear-Regression/linearity.md)
     - [Homoscedasticity (Constant Variance)](Foundational-Concepts-in-Machine-Learning/Linear-Regression/homoscedasticity.md) 
