@@ -55,7 +55,7 @@
 - **Optimization Algorithms**
   - [Overview](optimization-overview.md)
   - **Gradient Descent**
-    - [Overview](gradient-descent.md)
+    - [Overview](Foundational-Concepts-in-Machine-Learning/Optimization-Algorithms/gradient-descent.md)
     - **Batch Gradient Descent**
       - [Overview](batch-gradient-descent.md)
     - **Stochastic Gradient Descent (SGD)**
