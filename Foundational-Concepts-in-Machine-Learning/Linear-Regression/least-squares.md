@@ -10,17 +10,17 @@ We can measure how well this line fits the data by seeing how close it is to the
 
 <img src="calculate_distance1.png" width="400" height="350" alt="calculate_distance1">
 
-However, if we simply make $(b-y1)+(b-y2)+(b-y3)+(b-y4)+(b-y5)+…$, $(b-y4)$ and $(b-y5)$ the value will be negative, which will subtract form total and make the overall fit appear better than it really is.
+However, if we simply make $(b-y_1)+(b-y_2)+(b-y_3)+(b-y_4)+(b-y_5)+…$, $(b-y_4)$ and $(b-y_5)$ the value will be negative, which will subtract form total and make the overall fit appear better than it really is.
 Back in the day, when they first working this out, they probably tried taking the absolute value of everything and then discovered that it made the math pretty tricky.
 
 <img src="calculate_distance2.png" width="400" height="350" alt="calculate_distance2">
 
 So they ended up squaring each term. Squaring ensures that each term is positive.
-Here is the equation that shows the total distance the data points have from the horizontal line. (b-y1)^2 + (b-y2)^2+(b-y3)^2+(b-y4)^2+…+ = 24.62, this is our measure of how well this line fits the data. It’s called the “sum of squared residual”, because the residuals are the differences between the real data and the line, and we are summing the square of these values.
+Here is the equation that shows the total distance the data points have from the horizontal line. $(b-y_1)^2 + (b-y_2)^2+(b-y_3)^2+(b-y_4)^2+…+ = 24.62$, this is our measure of how well this line fits the data. It’s called the “sum of squared residual”, because the residuals are the differences between the real data and the line, and we are summing the square of these values.
 
 <img src="calculate_distance3.png" width="400" height="350" alt="calculate_distance3">
 To find that sweet spot, let’s start with the generic line equation, which is y = a*x+b. a is the slope of the line, and b is the y-intercept of the line. We want to find the optimal values for a and b so that we minimize the sum of squared residuals.
-In more general math terms, sum of squared residuals = ((a*x1+b)-y1)^2+((a*x2+b)-y2)^2+… which is calculating the distance between the line and the observed value.
+In more general math terms, sum of squared residuals = $((a*x1+b)-y_1)^2+((a*x2+b)-y_2)^2+…$ which is calculating the distance between the line and the observed value.
 
 <img src="SSR.png" width="400" height="350" alt="SSR">
 
