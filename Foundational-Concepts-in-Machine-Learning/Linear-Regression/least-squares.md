@@ -9,7 +9,8 @@ A horizontal line that cuts through the average y value of our data is probably 
 We can measure how well this line fits the data by seeing how close it is to the data points.
 
 <img src="calculate_distance1.png" width="400" height="350" alt="calculate_distance1">
-However, if we simply make (b-y1)+(b-y2)+(b-y3)+(b-y4)+(b-y5)+…, (b-y4) and (b-y5) the value will be negative, which will subtract form total and make the overall fit appear better than it really is.
+
+However, if we simply make $(b-y1)+(b-y2)+(b-y3)+(b-y4)+(b-y5)+…$, $(b-y4)$ and $(b-y5)$ the value will be negative, which will subtract form total and make the overall fit appear better than it really is.
 Back in the day, when they first working this out, they probably tried taking the absolute value of everything and then discovered that it made the math pretty tricky.
 
 <img src="calculate_distance2.png" width="400" height="350" alt="calculate_distance2">
