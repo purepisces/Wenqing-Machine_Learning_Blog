@@ -20,7 +20,7 @@ Here is the equation that shows the total distance the data points have from the
 
 <img src="calculate_distance3.png" width="400" height="350" alt="calculate_distance3">
 To find that sweet spot, let’s start with the generic line equation, which is y = a*x+b. a is the slope of the line, and b is the y-intercept of the line. We want to find the optimal values for a and b so that we minimize the sum of squared residuals.
-In more general math terms, sum of squared residuals = $((a*x1+b)-y_1)^2+…$, $((a*x1+b)-y_1)^2+((a*x2+b)-y_2)^2+…$ which is calculating the distance between the line and the observed value.
+In more general math terms, sum of squared residuals = $((a*x_1+b)-y_1)^2$, $((a*x1+b)-y_1)^2+((a*x2+b)-y_2)^2+…$ which is calculating the distance between the line and the observed value.
 
 <img src="SSR.png" width="400" height="350" alt="SSR">
 
