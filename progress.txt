@@ -10,13 +10,10 @@ statistical-significance.md✅
 Standard-Deviation-vs-Standard-Error.md✅
 Confidence-Intervals.md✅
 
-(Derivative):
- (Partial Derivative):
+logistic regression
+t-sne
 implicit function
 scalar function
-Gradient
-Derivative
-Partial derivative
 Directional Derivative:
 
 
