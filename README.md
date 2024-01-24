@@ -49,6 +49,8 @@
     - [Standard Error of the Estimate](standard-error-estimate.md) 
 - **Logistic Regression**
   - [Overview](Foundational-Concepts-in-Machine-Learning/Logistic-Regression/logistic-regression.md)
+- **T-SNE**
+  - [Overview](Foundational-Concepts-in-Machine-Learning/t-sne.md)
 - **Optimization Algorithms**
   - [Overview](optimization-overview.md)
   - **Gradient Descent**
