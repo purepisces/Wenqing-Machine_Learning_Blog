@@ -19,8 +19,8 @@ So they ended up squaring each term. Squaring ensures that each term is positive
 Here is the equation that shows the total distance the data points have from the horizontal line. $(b-y_1)^2 + (b-y_2)^2+(b-y_3)^2+(b-y_4)^2+…+ = 24.62$, this is our measure of how well this line fits the data. It’s called the “sum of squared residual”, because the residuals are the differences between the real data and the line, and we are summing the square of these values.
 
 <img src="calculate_distance3.png" width="400" height="350" alt="calculate_distance3">
-To find that sweet spot, let’s start with the generic line equation, which is y = a*x+b. a is the slope of the line, and b is the y-intercept of the line. We want to find the optimal values for a and b so that we minimize the sum of squared residuals.
-In more general math terms, sum of squared residuals = $((a*x_1+b)-y_1)^2$, $((a*x1+b)-y_1)^2+((a*x2+b)-y_2)^2+…$ which is calculating the distance between the line and the observed value.
+To find that sweet spot, let’s start with the generic line equation, which is $y = a*x+b$. a is the slope of the line, and b is the y-intercept of the line. We want to find the optimal values for a and b so that we minimize the sum of squared residuals.
+In more general math terms, sum of squared residuals = $((a * x_1+b)-y_1)^2+((a*x2+b)-y_2)^2+…$ which is calculating the distance between the line and the observed value.
 
 <img src="SSR.png" width="400" height="350" alt="SSR">
 
@@ -32,7 +32,6 @@ If we plotted the sum of squared residuals vs each rotation, we will get this fu
 We take the derivative of this function, the derivative tells us the slope of the function at every point. The slope at the best point(the “least squares”) is zero. Remember, the different rotations are just different values for “a” the slope) and “b”(the intercept.
 
 <img src="best_point.png" width="400" height="350" alt="best_point">
-
 
 Taking the derivatives of both the slope and the intercepts tells us where the optimal values are for the best fit.
 
