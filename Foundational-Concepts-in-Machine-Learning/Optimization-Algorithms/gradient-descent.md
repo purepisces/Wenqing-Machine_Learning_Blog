@@ -1,3 +1,40 @@
+# Derivative vs. Partial Derivative
+
+## Overview
+
+The concept of derivatives is fundamental in calculus and can be categorized into two main types: **Derivatives** and **Partial Derivatives**.
+
+### Derivative
+- **Definition**: The derivative is applicable to single-variable functions.
+- **Geometric Interpretation**: The derivative at a specific point on a curve represents the slope of the tangent line at that point.
+- **Application**: It measures the rate of change of the function with respect to its variable.
+
+### Partial Derivative
+- **Definition**: Partial derivatives are used for functions of multiple variables.
+- **Process**: When calculating a partial derivative, the value of one variable is changed while keeping others constant.
+- **Geometric Interpretation**: Similar to the derivative but in the context of multivariable functions.
+
+## Gradient and Directional Derivative
+
+### Gradient Descent
+- **Gradient**: It is a vector pointing in the direction of the steepest ascent.
+- **Gradient Descent**: Involves taking steps proportional to the negative of the gradient at the current point.
+- **Note**: The gradient vector does not indicate the direction of steepest descent, which is opposite to the gradient.
+
+### Directional Derivative
+- **Expression**: The directional derivative, represented as $\( D_{\mathbf{d}} f(\mathbf{x}) = \nabla f(\mathbf{x}) \cdot \mathbf{d} \)$, approximates the change in function value $\( \Delta f \)$ when moving a small distance from $\( \mathbf{x} \)$ in the direction of $\( \mathbf{d} \)$.
+- **Interpretation**:
+  - **Positive Value**: The function $\( f \)$ is increasing in the direction of $\( \mathbf{d} \)$ from the point $\( x \)$.
+  - **Negative Value**: The function $\( f \)$ is decreasing in that direction.
+- **Rate of Change**: The rate of change in any given direction \( \mathbf{u} \) is given by the dot product \( \nabla f \cdot \mathbf{u} \).
+
+### Maximum Positive Change
+- **Focus**: The gradient vector indicates the direction of maximum positive rate of change.
+- **Maximization**: When the unit vector $\( u \)$ aligns with the gradient vector $\( \nabla f \)$, the dot product $\( \nabla f \cdot \mathbf{u} \)$ is maximized and positive.
+- **Convention**: The statement "the gradient vector points to the direction of steepest ascent" is based on this convention.
+
+
+
 Derivative vs Partial Derivative
 
 The derivative is for single variable functions, and partial derivative is for multivariate functions. In calculating the partial derivative, you are just changing the value of one variable, while keeping others constant. Geometrically, the derivative of a function can be interpreted as the slope of the graph of the function or, more precisely, as the slope of the tangent line at a point. 
