@@ -15,4 +15,9 @@ The rate of change of the function in any given direction (represented by a unit
 $\mathbf{u}$) from that point is given by the directional derivative, which is the dot product of the gradient and $u$. Mathematically, it's expressed as $\nabla f \cdot \mathbf{u}$
 
 
+The gradient vector's direction corresponds to the direction in which the function experiences the greatest increase. The focus here is on the maximum positive change, not the absolute change. The gradient does not point in the direction of the steepest descent (which would be the maximum absolute rate of change if considering both increases and decreases).
+
+ When the unit vector $u$ is aligned with the gradient vector $\nabla f$, the dot product $\nabla f \cdot \mathbf{u}$ will definitely be a positive value, and it will be maximized.
+
+
 
