@@ -47,11 +47,34 @@ In the case of the function $y = x^2$, gradient descent involves updating the x 
 ### Directional Derivative
 - **Definition**: The directional derivative of a function at a point in a given direction is the rate at which the function changes at that point as it moves in that direction.
 - **Expression**: The directional derivative, represented as $D_{\mathbf{d}} f(\mathbf{x}) = \nabla f(\mathbf{x}) \cdot \mathbf{d}$, approximates the change in function value $\Delta f$ when moving a small distance from $\mathbf{x}$ in the direction of $\mathbf{d}$.
-- **Example**: Consider the function $f(x, y) = x^2 + y^2$. Let's calculate the directional derivative at the point $(1, 1)$ in the direction of the vector $\mathbf{d} = [1, 1]$ (assuming $\mathbf{d}$ is a unit vector).
-  - First, find the gradient of $f$. The partial derivative with respect to $x$ is $\frac{\partial f}{\partial x} = 2x$, and with respect to $y$ is $\frac{\partial f}{\partial y} = 2y$. So, the gradient at $(1, 1)$ is $\nabla f(1, 1) = [2, 2]$.
-  - The directional derivative in the direction of $\mathbf{d}$ is $D_{\mathbf{d}} f(1, 1) = \nabla f(1, 1) \cdot \mathbf{d} = [2, 2] \cdot [1, 1] = 2 + 2 = 4$.
-  - Interpretation: This value indicates that at the point $(1, 1)$, if you move in the direction of the vector $[1, 1]$, the function $f(x, y)$ increases at a rate of 4 units per unit distance in that direction.
-  - Note: If $\mathbf{d}$ was not a unit vector, it would need to be normalized before calculating the directional derivative.
+
+#### Example: Movement in Direction of Vector $[1, 1]$
+- Consider the function $f(x, y) = x^2 + y^2$.
+- The direction vector $\mathbf{d} = [1, 1]$ suggests movement in a diagonal direction where both $x$ and $y$ increase equally.
+
+#### Moving in the Direction of $[1, 1]$:
+- To move a small distance in the direction of $[1, 1]$ from the point $(1, 1)$, add a small multiple of the direction vector to the current point. Let this small multiple be $\epsilon$, a small number like $0.01$.
+
+  - **Calculating the New Point**:
+    - New $x$ coordinate: $1 + \epsilon \times 1 = 1 + \epsilon$.
+    - New $y$ coordinate: $1 + \epsilon \times 1 = 1 + \epsilon$.
+    - The new point is approximately $(1 + \epsilon, 1 + \epsilon)$.
+
+#### Example of the Rate of Increase:
+- If $\epsilon = 0.01$, the new point is $(1.01, 1.01)$.
+- The function value at the new point is $f(1.01, 1.01) = 1.01^2 + 1.01^2$.
+- Change in function value from original point $(1, 1)$ is $f(1.01, 1.01) - f(1, 1)$.
+
+  - **Calculation**:
+    - Original function value: $f(1, 1) = 1^2 + 1^2 = 2$.
+    - New function value: $f(1.01, 1.01) \approx 2.0402$.
+    - Change in function value: $2.0402 - 2 = 0.0402$.
+
+- The directional derivative predicted a rate of increase of 4 per unit distance. Since we moved $0.01$ units (our $\epsilon$), we expect the change to be roughly $4 \times 0.01 = 0.04$, aligning with the actual change of approximately 0.0402.
+
+#### Conclusion:
+- The directional derivative value of 4 indicates that for every unit you move in the direction $[1, 1]$ from $(1, 1)$, the function $f(x, y)$ increases at a rate of 4 units per unit distance in that direction. In this example, moving $0.01$ units in that direction resulted in an increase of about $0.04$ units in the function value, consistent with the directional derivative's prediction.
+- Note: If $\mathbf{d}$ was not a unit vector, it would need to be normalized before calculating the directional derivative.
 
 <img src="q3.png" alt="q3" width="400" height="300"/> <img src="q4.png" alt="q4" width="400" height="300"/>
 
