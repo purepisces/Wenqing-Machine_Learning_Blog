@@ -2,7 +2,6 @@
 
 ## Overview
 
-
 ### Derivative
 - **Definition**: The derivative is applicable to single-variable functions.
 - **Geometric Interpretation**: The derivative at a specific point on a curve represents the slope of the tangent line at that point.
@@ -29,68 +28,51 @@
 
 <img src="q1.png" alt="q1" width="400" height="300"/> <img src="q2.png" alt="q2" width="400" height="300"/>
 
+In the case of the function $y = x^2$, gradient descent involves updating the x value and then recalculating the y value based on this new x. The y value is not directly manipulated; instead, it is determined by the function itself once you have the new x. 
+
+1. **Start with an Initial x Value**: Begin with an initial guess or starting point for x. This can be any value.
+
+2. **Calculate the Gradient at x**: The gradient (or derivative) of $y = x^2$ with respect to x is $2x$. This gradient tells you the slope of the function at your current x value.
+
+3. **Update x Based on the Gradient**: Use the gradient to update the value of x. The update rule is:
+   $x_{\text{new}} = x_{\text{old}} - \alpha \times \text{gradient}$
+   Here, $\alpha$ is the learning rate, a small positive number that determines the size of the step you take. If the gradient is positive, x will decrease, and if the gradient is negative, x will increase.
+
+4. **Calculate the New y Value**: After updating x, calculate the new y value using the function $y = x^2$. This new y is the function value corresponding to your updated x.
+
+5. **Repeat the Process**: Repeat this process of calculating the gradient, updating x, and then calculating y, until you reach a point where the changes in x (and consequently in y) are sufficiently small. This indicates that you have reached or are very close to the minimum.
+
+In the context of a single-variable function like $y = x^2$, the terms "slope," "derivative," and "gradient" essentially refer to the same concept, although they are often used in slightly different contexts." For the function $y = x^2$, when considering the direction of movement along the x-axis, you're right that there are essentially two directions: towards positive x values and towards negative x values. 
+
 
 ### Directional Derivative
+- **Definition**: The directional derivative of a function at a point in a given direction is the rate at which the function changes at that point as it moves in that direction.
 - **Expression**: The directional derivative, represented as $D_{\mathbf{d}} f(\mathbf{x}) = \nabla f(\mathbf{x}) \cdot \mathbf{d}$, approximates the change in function value $\Delta f$ when moving a small distance from $\mathbf{x}$ in the direction of $\mathbf{d}$.
-- **Interpretation**:
-  - **Positive Value**: The function $f$ is increasing in the direction of $\mathbf{d}$ from the point $x$.
-  - **Negative Value**: The function $f$ is decreasing in that direction.
-- **Rate of Change**: The rate of change in any given direction $\mathbf{u}$ is given by the dot product $\nabla f \cdot \mathbf{u}$.
+- **Example**: Consider the function $f(x, y) = x^2 + y^2$. Let's calculate the directional derivative at the point $(1, 1)$ in the direction of the vector $\mathbf{d} = [1, 1]$ (assuming $\mathbf{d}$ is a unit vector).
+  - First, find the gradient of $f$. The partial derivative with respect to $x$ is $\frac{\partial f}{\partial x} = 2x$, and with respect to $y$ is $\frac{\partial f}{\partial y} = 2y$. So, the gradient at $(1, 1)$ is $\nabla f(1, 1) = [2, 2]$.
+  - The directional derivative in the direction of $\mathbf{d}$ is $D_{\mathbf{d}} f(1, 1) = \nabla f(1, 1) \cdot \mathbf{d} = [2, 2] \cdot [1, 1] = 2 + 2 = 4$.
+  - Interpretation: This value indicates that at the point $(1, 1)$, if you move in the direction of the vector $[1, 1]$, the function $f(x, y)$ increases at a rate of 4 units per unit distance in that direction.
+  - Note: If $\mathbf{d}$ was not a unit vector, it would need to be normalized before calculating the directional derivative.
 
 <img src="q3.png" alt="q3" width="400" height="300"/> <img src="q4.png" alt="q4" width="400" height="300"/>
 
 
 ### Maximum Positive Change
-- **Focus**: The gradient vector indicates the direction of maximum positive rate of change.
-- **Maximization**: When the unit vector $\( u \)$ aligns with the gradient vector $\nabla f$, the dot product $\( \nabla f \cdot \mathbf{u} \)$ is maximized and positive.
+- **Focus**: The gradient vector indicates the direction of maximum positive rate of change, not the absolute change. 
+- **Maximization**: When the unit vector $\( u \)$ aligns with the gradient vector $\nabla f$, the dot product $\( \nabla f \cdot \mathbf{u} \)$ is maximized and positive. $\nabla f \cdot \mathbf{u} = |\nabla f| |\mathbf{u}| \cos(0) = |\nabla f| \times 1 \times 1 = |\nabla f|$
 - **Convention**: The statement "the gradient vector points to the direction of steepest ascent" is based on this convention.
 
 ### Displacement Vector
-- **Definition**: A displacement vector is the vector directing towards final position whose length is the shortest distance between the initial and the final point.
 
+- **Definition**: A displacement vector is a vector that points from the initial position to the final position. Its length is the shortest distance between the initial and final points.
 
-Directional Derivative Equals $\Delta f$: The expression $D_{\mathbf{d}} f(\mathbf{x}) = \nabla f(\mathbf{x}) \cdot \mathbf{d}$ represents the directional derivative of the function $f$ at point $\mathbf{x}$ in the direction of the vector $\mathbf{d}$. This quantity approximates the change in the function's value, $\Delta f$, when moving a very small distance from $\mathbf{x}$ in the direction of $\mathbf{d}$, assuming $\mathbf{d}$ is sufficiently small. 
+- **Example**: Consider two points in a 2D plane: Point A at coordinates $(1, 2)$ and Point B at coordinates $(4, 6)$. The displacement vector from Point A to Point B is found by subtracting the coordinates of Point A from the coordinates of Point B.
 
-Interpreting Positive and Negative Values:
+  - Calculating the displacement vector:
+    - The x-component of the displacement vector is $4 - 1 = 3$.
+    - The y-component of the displacement vector is $6 - 2 = 4$.
+    - Therefore, the displacement vector $\vec{d}$ from A to B is $\vec{d} = [3, 4]$.
 
-If the result of $\nabla f(\mathbf{x}) \cdot \mathbf{d}$ is positive, it indicates that the function $f$ is increasing in the direction of 
-$\mathbf{d}$ from the point $x$. If the result is negative, it indicates that the function $f$ is decreasing in the direction of $d$ from the point $x$.
+  - Interpretation: The vector $\vec{d} = [3, 4]$ represents the direct path from Point A to Point B, regardless of the path actually taken to get from A to B. The magnitude of this vector, which is the straight-line distance between A and B, can be calculated using the Pythagorean theorem: $|\vec{d}| = \sqrt{3^2 + 4^2} = 5$ units.
 
-The rate of change of the function in any given direction (represented by a unit vector 
-$\mathbf{u}$) from that point is given by the directional derivative, which is the dot product of the gradient and $u$. Mathematically, it's expressed as $\nabla f \cdot \mathbf{u}$
-
-
-The gradient vector's direction corresponds to the direction in which the function experiences the greatest increase. The focus here is on the maximum positive change, not the absolute change. The gradient does not point in the direction of the steepest descent (which would be the maximum absolute rate of change if considering both increases and decreases).
-
- When the unit vector $u$ is aligned with the gradient vector $\nabla f$, the dot product $\nabla f \cdot \mathbf{u}$ will definitely be a positive value, and it will be maximized.
-
-The statement that "the gradient vector points to the direction of steepest ascent" is a convention based on the fact that the gradient gives the direction of maximum positive rate of change. The direction of steepest descent is indeed the opposite of the gradient vector, but when we refer to the direction the gradient points, we're conventionally speaking of ascent.
-
-
-
-
-
-
-
-
-
-
-In the case of the function $y = x^2$, gradient descent involves updating the x value and then recalculating the y value based on this new x. The y value is not directly manipulated; instead, it is determined by the function itself once you have the new x. 
- 
-1. **Start with an Initial \( x \) Value**: Begin with an initial guess or starting point for \( x \). This can be any value.
-
-2. **Calculate the Gradient at \( x \)**: The gradient (or derivative) of \( y = x^2 \) with respect to \( x \) is \( 2x \). This gradient tells you the slope of the function at your current \( x \) value.
-
-3. **Update \( x \) Based on the Gradient**: Use the gradient to update the value of \( x \). The update rule is:
-   \[ x_{\text{new}} = x_{\text{old}} - \alpha \times \text{gradient} \]
-   Here, \( \alpha \) is the learning rate, a small positive number that determines the size of the step you take. If the gradient is positive, \( x \) will decrease, and if the gradient is negative, \( x \) will increase.
-
-4. **Calculate the New \( y \) Value**: After updating \( x \), calculate the new \( y \) value using the function \( y = x^2 \). This new \( y \) is the function value corresponding to your updated \( x \).
-
-5. **Repeat the Process**: Repeat this process of calculating the gradient, updating \( x \), and then calculating \( y \), until you reach a point where the changes in \( x \) (and consequently in \( y \)) are sufficiently small. This indicates that you have reached or are very close to the minimum.
-
-
-in the context of a single-variable function like $y = x^2$ , the terms "slope," "derivative," and "gradient" essentially refer to the same concept, although they are often used in slightly different contexts or disciplines.
-
-For the function $y = x^2$, when considering the direction of movement along the x-axis, you're right that there are essentially two directions: towards positive x values and towards negative x values. 
 
