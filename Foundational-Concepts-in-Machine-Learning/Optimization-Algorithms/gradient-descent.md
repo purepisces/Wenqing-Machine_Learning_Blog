@@ -2,11 +2,16 @@
 
 ## Overview
 
+
 ### Derivative
 - **Definition**: The derivative is applicable to single-variable functions.
 - **Geometric Interpretation**: The derivative at a specific point on a curve represents the slope of the tangent line at that point.
 - **Application**: It measures the rate of change of the function with respect to its variable.
-- **Example**: For the function $f(x) = x^2$, the derivative with respect to $x$ is $f'(x) = 2x$. At $x = 3$, the derivative is $6$, indicating the slope of the tangent line to the curve at that point.
+- **Example**: For the function $f(x) = x^2$, the derivative with respect to $x$ is $f'(x) = 2x$. 
+  - At $x = 1$, the derivative is $2 \times 1 = 2$. This means that at $x = 1$, for a very small increase in $x$, $y$ increases at twice that rate. If $x$ increases by 0.01, $y$ will increase approximately by 0.02 around that point.
+  - At $x = 2$, the derivative is $2 \times 2 = 4$. Here, if $x$ increases by a small amount, say 0.01, $y$ will increase approximately by 0.04 around $x = 2$. The rate of change is higher here compared to $x = 1$.
+  - At $x = 3$, the derivative is $6$, indicating the slope of the tangent line to the curve at that point.
+
 
 ### Partial Derivative
 - **Definition**: Partial derivatives are used for functions of multiple variables.
