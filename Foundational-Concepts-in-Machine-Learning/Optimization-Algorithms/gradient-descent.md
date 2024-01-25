@@ -11,4 +11,8 @@ Interpreting Positive and Negative Values:
 If the result of $\nabla f(\mathbf{x}) \cdot \mathbf{d}$ is positive, it indicates that the function $f$ is increasing in the direction of 
 $\mathbf{d}$ from the point $x$. If the result is negative, it indicates that the function $f$ is decreasing in the direction of $d$ from the point $x$.
 
+The rate of change of the function in any given direction (represented by a unit vector 
+$\mathbf{u}$) from that point is given by the directional derivative, which is the dot product of the gradient and $u$. Mathematically, it's expressed as $\nabla f \cdot \mathbf{u}$
+
+
 
