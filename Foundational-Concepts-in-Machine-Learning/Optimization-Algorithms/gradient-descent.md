@@ -79,3 +79,5 @@ In the case of the function $y = x^2$, gradient descent involves updating the x 
 
 in the context of a single-variable function like $y = x^2$ , the terms "slope," "derivative," and "gradient" essentially refer to the same concept, although they are often used in slightly different contexts or disciplines.
 
+For the function $y = x^2$, when considering the direction of movement along the x-axis, you're right that there are essentially two directions: towards positive x values and towards negative x values. 
+
