@@ -24,7 +24,7 @@
 - **Gradient Descent**: Involves taking steps proportional to the negative of the gradient at the current point.
 - **Note**: The gradient vector does not indicate the direction of steepest descent, which is opposite to the gradient.
 
-<img src="q1.png" alt="q1" width="400" height="300"/> <img src="q2.png" alt="q2" width="400" height="300"/>
+<img src="q1.png" alt="q1" width="500" height="400"/> <img src="q2.png" alt="q2" width="500" height="400"/>
 
 In the case of the function $y = x^2$, gradient descent involves updating the x value and then recalculating the y value based on this new x. The y value is not directly manipulated; instead, it is determined by the function itself once you have the new x. 
 
@@ -43,8 +43,6 @@ In the case of the function $y = x^2$, gradient descent involves updating the x 
 
 > Note: In the context of a single-variable function like $y = x^2$, the terms "slope," "derivative," and "gradient" essentially refer to the same concept, although they are often used in slightly different contexts." For the function $y = x^2$, when considering the direction of movement along the x-axis, you're right that there are essentially two directions: towards positive x values and towards negative x values. 
 >
-
-
 
 ### Directional Derivative
 - **Definition**: The directional derivative of a function at a point in a given direction is the rate at which the function changes at that point as it moves in that direction.
@@ -78,7 +76,7 @@ In the case of the function $y = x^2$, gradient descent involves updating the x 
 - The directional derivative value of 4 indicates that for every unit you move in the direction $[1, 1]$ from $(1, 1)$, the function $f(x, y)$ increases at a rate of 4 units per unit distance in that direction. In this example, moving $0.01$ units in that direction resulted in an increase of about $0.04$ units in the function value, consistent with the directional derivative's prediction.
 - Note: If $\mathbf{d}$ was not a unit vector, it would need to be normalized before calculating the directional derivative.
 
-<img src="q3.png" alt="q3" width="400" height="300"/> <img src="q4.png" alt="q4" width="400" height="300"/>
+<img src="q3.png" alt="q3" width="500" height="400"/> <img src="q4.png" alt="q4" width="500" height="400"/>
 
 
 ### Maximum Positive Change
@@ -98,5 +96,6 @@ In the case of the function $y = x^2$, gradient descent involves updating the x 
     - Therefore, the displacement vector $\vec{d}$ from A to B is $\vec{d} = [3, 4]$.
 
   - Interpretation: The vector $\vec{d} = [3, 4]$ represents the direct path from Point A to Point B, regardless of the path actually taken to get from A to B. The magnitude of this vector, which is the straight-line distance between A and B, can be calculated using the Pythagorean theorem: $|\vec{d}| = \sqrt{3^2 + 4^2} = 5$ units.
-
-
+ 
+## Reference:
+- [Watch the video on YouTube](https://www.youtube.com/watch?v=cSkrV-FnGo8)
