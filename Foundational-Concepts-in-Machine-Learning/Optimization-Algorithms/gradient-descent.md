@@ -19,5 +19,7 @@ The gradient vector's direction corresponds to the direction in which the functi
 
  When the unit vector $u$ is aligned with the gradient vector $\nabla f$, the dot product $\nabla f \cdot \mathbf{u}$ will definitely be a positive value, and it will be maximized.
 
+The statement that "the gradient vector points to the direction of steepest ascent" is a convention based on the fact that the gradient gives the direction of maximum positive rate of change. The direction of steepest descent is indeed the opposite of the gradient vector, but when we refer to the direction the gradient points, we're conventionally speaking of ascent.
+
 
 
