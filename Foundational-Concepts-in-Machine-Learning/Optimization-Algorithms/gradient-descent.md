@@ -38,7 +38,10 @@ In the case of the function $y = x^2$, gradient descent involves updating the x 
 
 5. **Repeat the Process**: Repeat this process of calculating the gradient, updating x, and then calculating y, until you reach a point where the changes in x (and consequently in y) are sufficiently small. This indicates that you have reached or are very close to the minimum.
 
-In the context of a single-variable function like $y = x^2$, the terms "slope," "derivative," and "gradient" essentially refer to the same concept, although they are often used in slightly different contexts." For the function $y = x^2$, when considering the direction of movement along the x-axis, you're right that there are essentially two directions: towards positive x values and towards negative x values. 
+
+> Note: In the context of a single-variable function like $y = x^2$, the terms "slope," "derivative," and "gradient" essentially refer to the same concept, although they are often used in slightly different contexts." For the function $y = x^2$, when considering the direction of movement along the x-axis, you're right that there are essentially two directions: towards positive x values and towards negative x values. 
+>
+
 
 
 ### Directional Derivative
