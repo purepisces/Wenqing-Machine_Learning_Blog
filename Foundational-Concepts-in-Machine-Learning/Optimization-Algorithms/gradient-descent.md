@@ -33,6 +33,9 @@ The concept of derivatives is fundamental in calculus and can be categorized int
 - **Maximization**: When the unit vector $\( u \)$ aligns with the gradient vector $\( \nabla f \)$, the dot product $\( \nabla f \cdot \mathbf{u} \)$ is maximized and positive.
 - **Convention**: The statement "the gradient vector points to the direction of steepest ascent" is based on this convention.
 
+### Displacement Vector
+- **Definition**: A displacement vector is the vector directing towards final position whose length is the shortest distance between the initial and the final point.
+
 
 
 Derivative vs Partial Derivative
