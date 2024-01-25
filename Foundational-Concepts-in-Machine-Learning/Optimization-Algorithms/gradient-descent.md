@@ -27,12 +27,21 @@
 - **Gradient Descent**: Involves taking steps proportional to the negative of the gradient at the current point.
 - **Note**: The gradient vector does not indicate the direction of steepest descent, which is opposite to the gradient.
 
+<img src="q1.png" alt="q1" width="400" height="300"/>
+<img src="q2.png" alt="q2" width="400" height="300"/>
+
+
 ### Directional Derivative
 - **Expression**: The directional derivative, represented as $\( D_{\mathbf{d}} f(\mathbf{x}) = \nabla f(\mathbf{x}) \cdot \mathbf{d} \)$, approximates the change in function value $\( \Delta f \)$ when moving a small distance from $\( \mathbf{x} \)$ in the direction of $\( \mathbf{d} \)$.
 - **Interpretation**:
   - **Positive Value**: The function $\( f \)$ is increasing in the direction of $\( \mathbf{d} \)$ from the point $\( x \)$.
   - **Negative Value**: The function $\( f \)$ is decreasing in that direction.
 - **Rate of Change**: The rate of change in any given direction \( \mathbf{u} \) is given by the dot product \( \nabla f \cdot \mathbf{u} \).
+
+<img src="q3.png" alt="q3" width="400" height="300"/>
+<img src="q4.png" alt="q4" width="400" height="300"/>
+
+
 
 ### Maximum Positive Change
 - **Focus**: The gradient vector indicates the direction of maximum positive rate of change.
