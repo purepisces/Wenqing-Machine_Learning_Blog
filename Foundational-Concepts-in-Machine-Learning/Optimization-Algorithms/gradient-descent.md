@@ -20,6 +20,16 @@
 - **Example**: Consider the function $f(x, y) = x^2 + y^2$. The partial derivative with respect to $x$ is $\frac{\partial f}{\partial x} = 2x$, and the partial derivative with respect to $y$ is $\frac{\partial f}{\partial y} = 2y$. At a point $(x, y) = (1, 2)$, the partial derivative with respect to $x$ is $2$ and with respect to $y$ is $4$. These values represent the rate of change of $f$ along the $x$ and $y$ directions, respectively, at this point.
 
 
+### Partial Derivative
+- **Definition**: Partial derivatives are used for functions of multiple variables.
+- **Process**: When calculating a partial derivative, the value of one variable is changed while keeping others constant.
+- **Geometric Interpretation**: Similar to the derivative but in the context of multivariable functions.
+- **Example**: Consider the function $f(x, y) = x^2 + y^2$. The partial derivative with respect to $x$ is $\frac{\partial f}{\partial x} = 2x$, and the partial derivative with respect to $y$ is $\frac{\partial f}{\partial y} = 2y$. At a point $(x, y) = (1, 2)$, the partial derivative with respect to $x$ is 2 and with respect to $y$ is 4. These values represent the rate of change of $f$ along the $x$ and $y$ directions, respectively, at this point.
+  - Rate of Change with Respect to $x$: At $(1, 2)$, this becomes $2 \times 1 = 2$. This means that if you make a very small change in $x$ while keeping $y$ constant, the change in the function $f$ will be approximately 2 times the change in $x$. For example, if $x$ increases by 0.01 (and $y$ remains constant at 2), the function $f$ will increase by approximately $2 \times 0.01 = 0.02$.
+  - Rate of Change with Respect to $y$: Similarly, the partial derivative with respect to $y$ is $2 \times 2 = 4$ at $(1, 2)$. This indicates that if you make a very small change in $y$ while keeping $x$ constant, the change in $f$ will be approximately 4 times the change in $y$. For instance, if $y$ increases by 0.01 (and $x$ remains constant at 1), the function $f$ will increase by approximately $4 \times 0.01 = 0.04$.
+
+
+
 ## Gradient and Directional Derivative
 
 ### Gradient Descent
@@ -42,7 +52,6 @@
 ### Displacement Vector
 - **Definition**: A displacement vector is the vector directing towards final position whose length is the shortest distance between the initial and the final point.
 
-whereas gradient descent is the magnitude of the step taken down that curve at that point in either direction. 
 
 Directional Derivative Equals $\Delta f$: The expression $D_{\mathbf{d}} f(\mathbf{x}) = \nabla f(\mathbf{x}) \cdot \mathbf{d}$ represents the directional derivative of the function $f$ at point $\mathbf{x}$ in the direction of the vector $\mathbf{d}$. This quantity approximates the change in the function's value, $\Delta f$, when moving a very small distance from $\mathbf{x}$ in the direction of $\mathbf{d}$, assuming $\mathbf{d}$ is sufficiently small. 
 
