@@ -12,7 +12,8 @@
   - [Eigenvalue](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/eigenvalue.md)
   - [Singular Value](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/singular-value.md)
   - [Singular Value Decomposition (SVD)](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/svd.md)
-
+- **Calculus**
+  - [Calculus](Foundational-Concepts-in-Machine-Learning/calculus.md)
 - **Statistical Measures**
   - [Standard Deviation vs Standard Error](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Standard-Deviation-vs-Standard-Error.md)
   - [Margin of Error](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Margin-of-Error.md)
