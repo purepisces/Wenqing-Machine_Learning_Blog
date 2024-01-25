@@ -2,8 +2,6 @@
 
 ## Overview
 
-The concept of derivatives is fundamental in calculus and can be categorized into two main types: **Derivatives** and **Partial Derivatives**.
-
 ### Derivative
 - **Definition**: The derivative is applicable to single-variable functions.
 - **Geometric Interpretation**: The derivative at a specific point on a curve represents the slope of the tangent line at that point.
@@ -36,13 +34,7 @@ The concept of derivatives is fundamental in calculus and can be categorized int
 ### Displacement Vector
 - **Definition**: A displacement vector is the vector directing towards final position whose length is the shortest distance between the initial and the final point.
 
-
-
-Derivative vs Partial Derivative
-
-The derivative is for single variable functions, and partial derivative is for multivariate functions. In calculating the partial derivative, you are just changing the value of one variable, while keeping others constant. Geometrically, the derivative of a function can be interpreted as the slope of the graph of the function or, more precisely, as the slope of the tangent line at a point. 
-
-Derivative of a function at a particular point on the curve is the slope of the tangent line at that point, whereas gradient descent is the magnitude of the step taken down that curve at that point in either direction. The gradient is a vector; it points in the direction of steepest ascent.
+whereas gradient descent is the magnitude of the step taken down that curve at that point in either direction. 
 
 Directional Derivative Equals $\Delta f$: The expression $D_{\mathbf{d}} f(\mathbf{x}) = \nabla f(\mathbf{x}) \cdot \mathbf{d}$ represents the directional derivative of the function $f$ at point $\mathbf{x}$ in the direction of the vector $\mathbf{d}$. This quantity approximates the change in the function's value, $\Delta f$, when moving a very small distance from $\mathbf{x}$ in the direction of $\mathbf{d}$, assuming $\mathbf{d}$ is sufficiently small. 
 
@@ -61,5 +53,27 @@ The gradient vector's direction corresponds to the direction in which the functi
 
 The statement that "the gradient vector points to the direction of steepest ascent" is a convention based on the fact that the gradient gives the direction of maximum positive rate of change. The direction of steepest descent is indeed the opposite of the gradient vector, but when we refer to the direction the gradient points, we're conventionally speaking of ascent.
 
+
+
+
+
+
+
+
+
+
+In the case of the function $y = x^2$, gradient descent involves updating the x value and then recalculating the y value based on this new x. The y value is not directly manipulated; instead, it is determined by the function itself once you have the new x. 
+ 
+1. **Start with an Initial \( x \) Value**: Begin with an initial guess or starting point for \( x \). This can be any value.
+
+2. **Calculate the Gradient at \( x \)**: The gradient (or derivative) of \( y = x^2 \) with respect to \( x \) is \( 2x \). This gradient tells you the slope of the function at your current \( x \) value.
+
+3. **Update \( x \) Based on the Gradient**: Use the gradient to update the value of \( x \). The update rule is:
+   \[ x_{\text{new}} = x_{\text{old}} - \alpha \times \text{gradient} \]
+   Here, \( \alpha \) is the learning rate, a small positive number that determines the size of the step you take. If the gradient is positive, \( x \) will decrease, and if the gradient is negative, \( x \) will increase.
+
+4. **Calculate the New \( y \) Value**: After updating \( x \), calculate the new \( y \) value using the function \( y = x^2 \). This new \( y \) is the function value corresponding to your updated \( x \).
+
+5. **Repeat the Process**: Repeat this process of calculating the gradient, updating \( x \), and then calculating \( y \), until you reach a point where the changes in \( x \) (and consequently in \( y \)) are sufficiently small. This indicates that you have reached or are very close to the minimum.
 
 
