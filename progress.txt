@@ -16,6 +16,7 @@ statistical-significance.md✅
 Standard-Deviation-vs-Standard-Error.md✅
 Confidence-Intervals.md✅
 least-squared.md✅
+calculus.md✅
 
 
 logistic regression
