@@ -1,3 +1,8 @@
+<img src="mean_std.png" alt="mean_std" width="400" height="300"/>
+> Note: The output layer's neuron count often differs from the input layer. Each layer can have a distinct number of neurons, indicating its 'size' or capacity.
+>
+
+
 ffnn.md✅
 linear-regression.md✅
 variance&standarDeviation.md✅
