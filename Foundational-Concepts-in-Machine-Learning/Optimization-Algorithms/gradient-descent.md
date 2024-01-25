@@ -1,7 +1,3 @@
-# Derivative vs. Partial Derivative
-
-## Overview
-
 ### Derivative
 - **Definition**: The derivative is applicable to single-variable functions.
 - **Geometric Interpretation**: The derivative at a specific point on a curve represents the slope of the tangent line at that point.
