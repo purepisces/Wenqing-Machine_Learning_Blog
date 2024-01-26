@@ -50,39 +50,20 @@ We do this by taking the derivative and finding where it is equal to 0. The fina
 
 The key to understanding why we set both the derivative with respect to `a` (the slope) and the derivative with respect to `b` (the intercept) to zero in the context of minimizing the Sum of Squared Residuals (SSR) in linear regression lies in the principles of multivariable optimization.
 
-### Simplified Single Variable Function Example
 
-First, consider a function `f(x) = x^2`, which is a simple parabola.
-
-- **Function**: `f(x) = x^2`
-- **Derivative**: The derivative `f'(x) = 2x`
-
-#### Analyzing the Derivative
-
-- **At `x = 0`**: The derivative `f'(0) = 0`. This is where the function has its minimum.
-- **At `x = 1`**: The derivative `f'(1) = 2`. Since this is not zero, it implies:
-  - If the derivative is positive, decreasing `x` slightly will decrease `f(x)`.
-  - If the derivative is negative, increasing `x` slightly will decrease `f(x)`.
-
-### Application to SSR in Linear Regression
+### pratical example
 
 In linear regression, SSR is a function of two variables, `a` and `b`:
 
-$SSR(a, b) = \sum((yi - axi - b)^2)$
+$\text{SSR}(a, b) = \sum_{i=1}^{n} (y_i - ax_i - b)^2$
 
-#### Importance of Partial Derivatives
+Imagine we have a set of data points and a line $y=ax+b$ fitted to these points. If the derivative of SSR with respect to $a$ is positive, increasing $a$ slightly will increase SSR, but decreasing $a$ slightly will decrease SSR. This decrease indicates we haven't found the minimum SSR yet, as we can still adjust $a$ to further minimize SSR.
 
-- The partial derivatives with respect to `a` and `b` indicate how SSR changes as `a` and `b` are varied.
-- A non-zero derivative indicates that a small adjustment in that variable will lead to a decrease in SSR.
-
-#### Setting Both Derivatives to Zero
-
-- Setting both derivatives to zero is essential to find the minimum SSR. This means that the SSR cannot be further decreased by changing either `a` or `b`.
-- This approach helps identify the optimal slope (`a`) and intercept (`b`) for the best-fit line in the data.
+Similarly, if the derivative of SSR with respect to $b$ is negative, increasing $b$ slightly will decrease SSR, indicating that we can improve the fit of our line (lower the SSR) by adjusting $b$.
 
 ### Conclusion
 
-In summary, a non-zero derivative at a point indicates that moving in the direction opposite to the sign of the derivative will decrease the function value (SSR in this case). In the context of linear regression, we need both derivatives (with respect to $a$ and $b$ to be zero to ensure we've found the minimum SSR, where the line best fits the data. By setting both the derivative with respect to `a` and `b` to zero, we ensure that we have found the point where SSR is minimized with respect to both variables. This point represents the optimal values of `a` (slope) and `b` (intercept) for the linear regression line that best fits the given data.
+In summary, a non-zero derivative at a point indicates that moving in the direction opposite to the sign of the derivative will decrease the function value (SSR in this case). In the context of linear regression, we need both derivatives (with respect to $a$ and $b$ to be zero to ensure we've found the minimum SSR, where the line best fits the data. 
 
 
 ## Reference:
