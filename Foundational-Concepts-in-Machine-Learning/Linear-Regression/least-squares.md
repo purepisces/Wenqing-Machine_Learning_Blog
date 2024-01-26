@@ -68,7 +68,7 @@ First, consider a function `f(x) = x^2`, which is a simple parabola.
 
 In linear regression, SSR is a function of two variables, `a` and `b`:
 
-`SSR(a, b) = sum((yi - axi - b)^2)`
+$SSR(a, b) = \sum((yi - axi - b)^2)$
 
 #### Importance of Partial Derivatives
 
