@@ -55,7 +55,7 @@ The key to understanding why we set both the derivative with respect to `a` (the
 
 In linear regression, SSR is a function of two variables, `a` and `b`:
 
-$\text{SSR}(a, b) = \sum_{i=1}^{n} (y_i - ax_i - b)^2$
+$\text{SSR}(a, b) = \sum\limits_{i=1}^{n} (y_i - ax_i - b)^2$
 
 Imagine we have a set of data points and a line $y=ax+b$ fitted to these points. If the derivative of SSR with respect to $a$ is positive, increasing $a$ slightly will increase SSR, but decreasing $a$ slightly will decrease SSR. This decrease indicates we haven't found the minimum SSR yet, as we can still adjust $a$ to further minimize SSR.
 
