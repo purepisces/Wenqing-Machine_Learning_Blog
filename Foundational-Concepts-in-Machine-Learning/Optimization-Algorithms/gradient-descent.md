@@ -8,6 +8,6 @@ In statistics, machine learning and other data science fields, we optimize a lot
 
 The cool thing is that gradient descent can optimize all these things and much more. So if we learn how to optimize this line using gradient descent then we will have learned the strategy that optimizes this squiggle and these clusters and many more of the optimization problems we have in statistics, machine learning and data science.
 
-<img src="optimize_this_line.png" alt="optimize_this_line" width="400" height="300"/>
+<img src="optimize_this_line.png" alt="optimize_this_line" width="350" height="200"/>
 
 
