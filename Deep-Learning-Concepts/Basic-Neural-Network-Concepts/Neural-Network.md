@@ -105,9 +105,7 @@ Now if someone comes along and says that they are using dosage = 0.5 we can look
 
 The parameters that we multiply are called weights and the parameters that we add are called biases.
 
-<img src="weights.png" alt="weights" width="400" height="300"/>
-
-<img src="biases.png" alt="biases" width="400" height="300"/>
+<img src="weights.png" alt="weights" width="400" height="300"/> <img src="biases.png" alt="biases" width="400" height="300"/>
 
 Note, this neural network starts with two identical activation functions, but the weights and biases on the connections slice them, flip them and stretch them into new shapes, which are then added together to get a squiggle that is entirely new, and the squiggle is then shifted to fit the data.
 
@@ -117,3 +115,5 @@ In theory, neural networks can fit a green squiggle to just about any dataset, n
 
 <img src="theory_nn.png" alt="theory_nn" width="400" height="300"/>
 
+## Reference:
+- [Watch the video on YouTube](https://www.youtube.com/watch?v=CqOfi41LfDw)
