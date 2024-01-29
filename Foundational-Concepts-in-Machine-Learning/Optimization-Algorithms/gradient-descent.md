@@ -23,18 +23,24 @@ In this example, we will evaluate how well this line fits the data with the sum 
 
 We’ll start by calculating the residual.
 
-Insert cal_residual png
+<img src="cal_residual.png" alt="cal_residual" width="350" height="200"/>
+
 
 And the SSR is 3.1, now we can draw this in the graph where x-axis represents intercept, y-axis represent sum of squared residuals, the red point in the graph represents the sum of the squared residuals when the intercept = 0.
 
-Insert cal_ssr png
+<img src="cal_ssr.png" alt="cal_ssr" width="350" height="200"/>
 
 And for increasing values for the intercept, we get these points. 
-Insert increase_intercept png
+
+<img src="increase_intercept.png" alt="increase_intercept" width="350" height="200"/>
 
 Of the points that we calculated for the graph, this one has the lowest sum of squared residuals, but is it the best we can do? And what if the best value for the intercept is somewhere between these values? 
 Insert lowest_ssr png
 Insert lowest_ssr2 png
+
+<img src="lowest_ssr.png" alt="lowest_ssr" width="350" height="200"/>
+<img src="lowest_ssr2.png" alt="lowest_ssr2" width="350" height="200"/>
+
 
 A slow and painful method for finding the minimal sum of the squared residuals is to plug and chug a bunch more values for the intercept. But gradient descent is way more efficient!
 
@@ -54,14 +60,17 @@ Sum of squared residuals = (1.4-(intercept + 0.64 * 0.5))^2
 + (1.9-(intercept + 0.64 * 2.3))^2
 + (3.2-(intercept + 0.64 * 2.9))^2
 Now we can easily plug in any value for the intercept and get the sum of the squared residuals.
-Insert diff_intercept png
+
+<img src="diff_intercept.png" alt="diff_intercept" width="350" height="200"/>
+
 
 Thus, we now have an equation for this curve, and we can take the derivative of this function and determine the slope at any value for the intercept.
 
 So now let’s take the derivative of the sum of the squared residuals with respect to the intercept. 
 The derivative of the sum of the squared residuals with respect to the intercept equals the derivative of the first part plus the derivative of the second part plus the derivative of the third part.
 
-Insert derivative1 png
+<img src="derivative1t.png" alt="derivative1" width="350" height="200"/>
+
 
 D/d intercept sum of squared residuals = d/d intercept (1.4-(intercept + 0.64 x 0.5))^2 
 d/d intercept(1.9-(intercept + 0.64 * 2.3))^2 
@@ -80,6 +89,8 @@ Now that we have the derivative, gradient descent will use it to find where the 
 
 Insert gd_find graph
 
+<img src="gd_find.png" alt="gd_find" width="350" height="200"/>
+
 Note: If we were using least squares to solve for the optimal value for the intercept, we would simply find where the slope of the curve = 0. In contrast, gradient descent finds the minimum value by taking steps from an initial guess until it reaches the best value. This makes gradient descent very useful when it is not possible to solve for where the derivative = 0, and this is why gradient descent can be used in so many different situations.
 Remember, we started by setting the intercept to a random number. In this case, that was 0. So we plug 0 into the derivative and we get -5.7.
 
@@ -87,19 +98,23 @@ D/d intercept sum of squared residuals = -2(1.4-(0+ 0.64 x 0.5))
 -2(1.9-(0 + 0.64 x 2.3))
 -2(3.2-(0+ 0.64 x 2.9)) =-5.7                                                      So when the intercept = 0, the slope of the curve = -5.7
 
-Insert slope57 png
+<img src="slope57.png" alt="slope57" width="350" height="200"/>
+
 
 Note, the closer we get to the optimal value for the intercept, the closer the slope of the curve gets to 0. This means that when the slope of the curve is close to 0, then we should take baby steps, because we are close to the optimal value. And when the slope is far from 0, then we should take big steps because we are far from the optimal value. However, if we take a super huge step then we would increase the sum of the squared residuals. So the size of the step should be related to the slope, since it tells us if we should take a baby step or a big step, but we need to make sure the big step is not too big.
 Gradient descent determines the step size by multiplying the slope by a small number called the learning rate.
 
-Insert lr png
+<img src="lr.png" alt="lr" width="350" height="200"/>
+
 Step size = -5.7x0.1 = -0.57
 When the intercept equals 0, the step size equals -0.57. With the step size, we can calculate a new intercept. The new intercept is the old intercept minus the step size
 New intercept = old intercept - step size
 = 0 - (-0.57) = 0.57
 
 In one big step, we moved much closer to the optimal value for the intercept.
-Insert move_closer png
+
+<img src="move_closer.png" alt="move_closer" width="350" height="200"/>
+
 
 Going back to the original data and the original line with the intercept = 0, we can see how much the residuals shrink when the intercept equals 0.57. 
 Now let’s take another step closer to the optimal value for the intercept. To take another step, we go back to the derivative and plug in the new intercept(0.57)
@@ -123,9 +138,9 @@ New intercept = old intercept - step size = 0.57-(-0.23) = 0.8
 Now we can compare the residuals when the intercept equals 0.57 to when the intercept equals 0.8. Overall, the sum of the squared residuals is getting smaller.
 Notice that the first step was relatively large, compared to the second step.
 
-Insert step_change png
-Now let’s calculate the derivative at the new intercept(0.8), and we get -0.9
+<img src="step_change.png" alt="step_change" width="350" height="200"/>
 
+Now let’s calculate the derivative at the new intercept(0.8), and we get -0.9
 
 D/d intercept sum of squared residuals = 
 -2(1.4-(0.8+ 0.64 x 0.5))
@@ -137,7 +152,7 @@ Step size = slope x learning rate = -0.9 x0.1 = -0.09, The step size equals -0.0
 new intercept = old intercept -step size = 0.8-(-0.09)=0.89
 Now we increase the intercept from 0.8 to 0.89, then we take another step and the new intercept equals 0.92. And then we take another step, and the new intercept equals 0.94. And then we take another step, and the new intercept equals 0.95.
 
-Insert intercept_95 png
+<img src="intercept_95.png" alt="intercept_95" width="350" height="200"/>
 
 Notice how each step gets smaller and smaller the closer we get to the bottom of the curve. After 6 steps, the gradient descent estimate for the intercept is 0.95. Note: The Least Squares estimate for the intercept is also 0.95. So we know that gradient descent has done its job, but without comparing its solution to a gold standard, how does gradient descent know to stop taking steps?
 
@@ -150,7 +165,8 @@ Step size = slope x learning rate
 = 0.009 x 0.1= 0.0009
 Which is smaller than 0.001, so gradient descent would stop.
 
-Insert stepsize_00009 png
+<img src="stepsize_00009.png" alt="stepsize_00009" width="350" height="200"/>
+
 
 That said, gradient descent also includes a limit on the number of steps it will take before giving up. In practice, the maximum number of steps = 1000 or greater.
 So even if the step size is large, if here have been more than the maximum number of steps, gradient descent will stop.
@@ -160,7 +176,9 @@ Let’s review what we’ve learned so far, the first thing we did is decide to 
 Sum of squared residuals = (1.4-(intercept + 0.64 x 0.5))^2
 (1.9-(intercept + 0.64 x 2.3))^2
 (3.2-(intercept + 0.64 x 2.9))^2      
-insert  first_thing graph                           
+
+<img src="first_thing.png" alt="first_thing" width="350" height="200"/>
+
 
 
 Then we took the derivative of the sum of the squared residuals. In other words, we took the derivative of the loss function.
@@ -169,34 +187,44 @@ D/d intercept sum of squared residuals = -2(1.4-(intercept + 0.64 x 0.5))
 -2(1.9-(intercept + 0.64 x 2.3))
 -2(3.2-(intercept + 0.64 x 2.9))
 
-Insert derivative_loss graph
+
+<img src="derivative_loss.png" alt="derivative_loss" width="350" height="200"/>
+
 Then we picked a random value for the intercept, in this case we set the intercept = 0.
 
-Insert intercept0 graph
+<img src="intercept0.png" alt="intercept0" width="350" height="200"/>
+
 
 Then we calculated the derivative when the intercept equals zero, plugged that slope into the step size calculation and then calculated the new intercept, the difference between the old intercept and the step size.
 
-Insert cal_new_intercept png
+<img src="cal_new_intercept.png" alt="cal_new_intercept" width="350" height="200"/>
+
 
 Lastly, we plugged the new intercept into the derivative and repeated everything until step size was close to 0.
 
-Insert lastly png
+
+<img src="lastly.png" alt="lastly" width="350" height="200"/>
 
 Now that we understand how gradient descent can calculate the intercept, let’s talk about how to estimate he intercept and the slope.
 
-Insert est_inter_slope png
+<img src="est_inter_slope.png" alt="est_inter_slope" width="350" height="200"/>
 
 Just like before, we will use the sum of the square residuals as the loss function.
 
-Insert ssr_loss png
+<img src="ssr_loss.png" alt="ssr_loss" width="350" height="200"/>
 
 This is a 3-D graph of the loss function for different values for the intercept and the slope.
-Insert 3d png
+
+<img src="3d.png" alt="3d" width="350" height="200"/>
+
 This axis is the sum of the squared residuals, this axis represents different values for the slope, and this axis represents different values for the intercept. We want to find the values for the intercept and slope that give us the minimum sum of the squared residuals.
-Insert axis1 png
-Insert axis2 png
-Insert axis3 png
-insert find_min png
+
+<img src="axis1.png" alt="axis1" width="350" height="200"/>
+<img src="axis2.png" alt="axis2" width="350" height="200"/>
+<img src="axis3.png" alt="axis3" width="350" height="200"/>
+<img src="find_min.png" alt="find_min" width="350" height="200"/>
+
+
 
 So, just like before, we need to take the derivative of this function.
 
@@ -209,7 +237,8 @@ And just like before, we’ll take the derivative with respect to the intercept,
 D/d intercept sum of squared residuals
 D/d slope sum of squared residuals
 
-Insert deri_slope png
+<img src="deri_slope.png" alt="deri_slope" width="350" height="200"/>
+
 
 We’ll start by taking the derivative with respect to the intercept, just like before, we take the derivative of each part.
 
@@ -222,7 +251,8 @@ D/d intercept Sum of squared residuals = D/d intercept (1.4-(intercept + slope x
 D/d intercept (1.9-(intercept + slope x 2.3))^2
 D/d intercept (3.2-(intercept + slope x 2.9))^2     
 
-Insert deri_wrt_intercept png
+<img src="deri_wrt_intercept.png" alt="deri_wrt_intercept" width="350" height="200"/>
+
 
 D/d intercept Sum of squared residuals = D/d intercept (1.4-(intercept + slope x 0.5))^2
 D/d intercept (1.9-(intercept + slope x 2.3))^2
@@ -240,10 +270,14 @@ D/d slope (3.2-(intercept + slope x 2.9))^2
 = -2x0.5(1.4-(intercept+slopex0.5))
 +-2x2.3(1.9-(intercept+slopex2.3))
 +-2x2.9(3.2-(intercept+slopex2.9))
-Insert deri_wrt_slope png
+
+<img src="deri_wrt_slope.png" alt="deri_wrt_slope" width="350" height="200"/>
+
 
 When you have 2 or more derivatives of the same function, they are called a gradient. We will use this gradient to descend to lowest point in the loss function, which, in this case, is the sum of the squared residuals. Thus, this is why this algorithm is called gradient descent.
-Insert total_deri png
+
+<img src="total_deri.png" alt="total_deri" width="350" height="200"/>
+
 
 Just like before, we will start by picking a random number for the intercept. In this case we’ll set the intercept = 0 and we’ll pick a random number for the slope. In this case we’ll set the slope = 1.
 Thus, this line with intercept = 0 and slope =1, is where we will start.
@@ -258,20 +292,25 @@ Anyway, we do the math and get two step sizes.
 Step Size_Intercept = Slope x Learning Rate = -1.6x0.01=-0.016
 Step Size_Slope = Slope x Learning Rate = -0.8x0.01=-0.008
 
+<img src="step_size.png" alt="step_size" width="350" height="200"/>
 
-Insert step_size png
 Now we calculate the new intercept and new slope by plugging in the old intercept and the old slope and the step sizes.
 New Intercept = Old Intercept - Step Size = 0-(-0.016)=0.016
 New slope = Old slope - Step Size = 1-(-0.008)=1.008
 And we end up with a new intercept and a new slope
 This is the line we started with(slope = 1 and intercept = 0) and this is the line new line(with slope = 1.008 and intercept = 0.016) after the first step.
-Insert new_line png
+
+<img src="new_line.png" alt="new_line" width="350" height="200"/>
+
 Now we just repeat what we did until all of the steps sizes are very small or we reach the maximum number of steps.
 This is the best fitting line, with intercept = 0.95 and slope = 0.64, the same values we get from least squares.
-Insert best_fit_line png
+
+<img src="best_fit_line.png" alt="best_fit_line" width="350" height="200"/>
+
 We now know how gradient descent optimizes two parameters, the slope and intercept. If we had more parameters, then we’d just take more derivatives and everything else stays the same.
 Note: the sum of the squared residuals is just one type of loss function, however, there are tons of other loss functions that work with other types of data. Regardless of which loss function you use, gradient descent works the same way.
-Insert loss_function png
+
+<img src="loss_function.png" alt="loss_function" width="350" height="200"/>
 
 Step 1: Take the derivative of the loss function for each parameter in it. In fancy machine learning lingo, take the gradient of the loss function.
 Step 2: Pick random values for the parameters.
@@ -282,4 +321,6 @@ New parameter = old parameter - step size
 Now go back to step 3 and repeat until step size is very small, or you reach the maximum number of steps.
 
 One last thing, in out example, we only had three data points, so the math didn’t take very long, but when you have millions of data points, it can take a long time. So there is a thing called stochastic gradient descent that uses a randomly selected subset of the data at every step rather than the full dataset. This reduces the time spent calculating the derivatives of the loss function.
-Insert stochastic_gradient_descent png
+
+<img src="stochastic_gradient_descent.png" alt="stochastic_gradient_descent" width="350" height="200"/>
+
