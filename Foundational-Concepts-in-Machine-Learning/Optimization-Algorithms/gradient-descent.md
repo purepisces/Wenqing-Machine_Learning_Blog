@@ -19,7 +19,7 @@ The cool thing is that gradient descent can optimize all these things and much m
 <img src="optimize_this_line.png" alt="optimize_this_line" width="350" height="200"/>
 
 
-So let’s start with a simple data set, on the x-axis we have weight and on the y-axis we have height. Predicted height = intercept + slope * height, so let’s learn how gradient descent can fit a line to data by finding the optimal values for the intercept and the slope. Actually, we’ll start by using gradient descent to find the intercept, then once we understand how gradient descent works, we’ll use it to solve for the intercept and the slope.
+So let’s start with a simple data set, on the x-axis we have weight and on the y-axis we have height. \text{Predicted height} = \text{intercept} + slope \times \text{weight}, so let’s learn how gradient descent can fit a line to data by finding the optimal values for the intercept and the slope. Actually, we’ll start by using gradient descent to find the intercept, then once we understand how gradient descent works, we’ll use it to solve for the intercept and the slope.
 
 So for now, let’s just plug in the least squares estimate for the slope, 0.64. And we’ll use gradient descent to find the optimal value for the intercept.
 
@@ -55,11 +55,9 @@ Gradient descent only does a few calculations far from the optimal solution and 
 
 So let’s get back to using gradient descent to find the optimal value for the intercept, starting from a random value. In this case, the random value was 0. When we calculated the sum of the squared residuals, the first residual was the difference between the observed height, which was 1.4 and the predicted height, which came from the equation for this line.
 
-$Predicted height = intercept + 0.64 * weight$
+$\text{Predicted height} = \text{intercept} + 0.64 \times \text{weight}$
+$\text{Sum of squared residuals} = (\text{observed} - \text{predicted})^2 = (1.4 - \text{predicted})^2 = \left(1.4 - (\text{intercept} + 0.64 \times \text{weight})\right)^2$
 
-$Sum of squared residuals = (observed-predicted)^2 
-= (1.4-predicted)^2
-= (1.4-(intercept + 0.64 * weight))^2$
 
 Since the individual weighs 0.5, we replace weight with 0.5. 
 
