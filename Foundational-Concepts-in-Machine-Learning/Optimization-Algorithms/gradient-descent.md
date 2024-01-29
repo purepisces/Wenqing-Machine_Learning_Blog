@@ -1,4 +1,4 @@
-If you are not farmiliar with some calculus concept, please refer to [Calculus](Foundational-Concepts-in-Machine-Learning/Calculus/calculus.md).
+If you are not familiar with some calculus concept, please refer to [Calculus](Foundational-Concepts-in-Machine-Learning/Calculus/calculus.md).
 
 # Gradient Descent Explanation
 
@@ -79,20 +79,13 @@ The derivative of the sum of the squared residuals with respect to the intercept
 
 <img src="derivative1.png" alt="derivative1" width="350" height="200"/>
 
-
-$D/d intercept sum of squared residuals = d/d intercept (1.4-(intercept + 0.64 x 0.5))^2 
-d/d intercept(1.9-(intercept + 0.64 * 2.3))^2 
-d/d intercept (3.2-(intercept + 0.64 * 2.9))^2$
+$\frac{d}{d \text{intercept}} \text{Sum of Squared Residuals} = \frac{d}{d \text{intercept}} \left[(1.4 - (\text{intercept} + 0.64 \times 0.5))^2\right] + \frac{d}{d \text{intercept}} \left[(1.9 - (\text{intercept} + 0.64 \times 2.3))^2\right] + \frac{d}{d \text{intercept}} \left[(3.2 - (\text{intercept} + 0.64 \times 2.9))^2\right]$
 
 Let’s start by taking the derivative of the first part, to take the derivative, we need to apply the chain rule:
 
-$d/d intercept (1.4-(intercept + 0.64 x 0.5))^2 
-=2(1.4-(intercept + 0.64 x 0.5))x(-1)
-= -2(1.4-(intercept + 0.64 x 0.5))$
+$\frac{d}{d \text{intercept}} \left(1.4 - (\text{intercept} + 0.64 \times 0.5)\right)^2 = 2 \left(1.4 - (\text{intercept} + 0.64 \times 0.5)\right) \times \left(-1\right) = -2 \left(1.4 - (\text{intercept} + 0.64 \times 0.5)\right)$
 
-So $D/d intercept sum of squared residuals = -2(1.4-(intercept + 0.64 x 0.5))
--2(1.9-(intercept + 0.64 x 2.3))
-+ -2(3.2-(intercept + 0.64 x 2.9))$
+So $\frac{D}{d \text{ intercept}} \text{Sum of Squared Residuals} = -2 \left(1.4 - (\text{intercept} + 0.64 \times 0.5)\right) - 2 \left(1.9 - (\text{intercept} + 0.64 \times 2.3)\right) - 2 \left(3.2 - (\text{intercept} + 0.64 \times 2.9)\right)$
 
 Now that we have the derivative, gradient descent will use it to find where the sum of squared residuals is lowest.
 
@@ -130,14 +123,9 @@ Going back to the original data and the original line with the intercept = 0, we
 Now let’s take another step closer to the optimal value for the intercept. To take another step, we go back to the derivative and plug in the new intercept(0.57)
 
 
-$D/d intercept sum of squared residuals = -2(1.4-(intercept + 0.64 x 0.5))
--2(1.9-(intercept + 0.64 x 2.3))
--2(3.2-(intercept + 0.64 x 2.9))$
+$\frac{D}{d \, \text{intercept}} \, \text{Sum of Squared Residuals} = -2 \left(1.4 - \left(\text{intercept} + 0.64 \times 0.5\right)\right) - 2 \left(1.9 - \left(\text{intercept} + 0.64 \times 2.3\right)\right) - 2 \left(3.2 - \left(\text{intercept} + 0.64 \times 2.9\right)\right)$
 
-$D/d intercept sum of squared residuals = -2(1.4-(0.57+ 0.64 x 0.5))
--2(1.9-(0.57 + 0.64 x 2.3))
-+ -2(3.2-(0.57 + 0.64 x 2.9))
-=-2.3$
+$\frac{D}{d \, \text{intercept}} \, \text{Sum of Squared Residuals} \bigg|_{\text{intercept} = 0.57} = -2 \left(1.4 - \left(0.57 + 0.64 \times 0.5\right)\right) - 2 \left(1.9 - \left(0.57 + 0.64 \times 2.3\right)\right) - 2 \left(3.2 - \left(0.57 + 0.64 \times 2.9\right)\right) = -2.3$
 
 And that tells us the slope of the curve = -2.3.
 Now let’s calculate the step size, 
@@ -264,22 +252,26 @@ D/d intercept (3.2-(intercept + slope x 2.9))^2
 <img src="deri_wrt_intercept.png" alt="deri_wrt_intercept" width="350" height="200"/>
 
 
-D/d intercept Sum of squared residuals = D/d intercept (1.4-(intercept + slope x 0.5))^2
-D/d intercept (1.9-(intercept + slope x 2.3))^2
-D/d intercept (3.2-(intercept + slope x 2.9))^2     
-= -2(1.4-intercept + slope x 0.5))
-+-2(1.9-(intercept+slopex2.3))
-+-2(3.2-(intercept+slopex2.9))
+$$\begin{align*}
+\frac{D}{d\text{intercept}} \, \text{Sum of Squared Residuals} = &amp; \frac{d}{d \, \text{intercept}} \left(1.4 - (\text{intercept} + \text{slope} \times 0.5)\right)^2 \\
+&amp;+ \frac{d}{d\text{intercept}} \left(1.9 - (\text{intercept} + \text{slope} \times 2.3)\right)^2 \\
+&amp;+ \frac{d}{d\text{intercept}} \left(3.2 - (\text{intercept} + \text{slope} \times 2.9)\right)^2 \\
+= &amp; -2 \left(1.4 - (\text{intercept} + \text{slope} \times 0.5)\right) \\
+&amp;- 2 \left(1.9 - (\text{intercept} + \text{slope} \times 2.3)\right) \\
+&amp;- 2 \left(3.2 - (\text{intercept} + \text{slope} \times 2.9)\right)
+\end{align*}$$
+
 So this whole thing is the derivative of the sum of the squared residuals with respect to the intercept.
 Now let’s take the derivative of the sum of the squared residuals with respect to the slope.
 
-D/d slope Sum of squared residuals = 
-D/d slope (1.4-(intercept + slope x 0.5))^2
-D/d slope (1.9-(intercept + slope x 2.3))^2
-D/d slope (3.2-(intercept + slope x 2.9))^2     
-= -2x0.5(1.4-(intercept+slopex0.5))
-+-2x2.3(1.9-(intercept+slopex2.3))
-+-2x2.9(3.2-(intercept+slopex2.9))
+$$\begin{align*}
+\frac{D}{d\text{slope}} \, \text{Sum of Squared Residuals} = &amp; \frac{d}{d \, \text{slope}} \left(1.4 - (\text{intercept} + \text{slope} \times 0.5)\right)^2 \\
+&amp;+ \frac{d}{d\text{slope}} \left(1.9 - (\text{intercept} + \text{slope} \times 2.3)\right)^2 \\
+&amp;+ \frac{d}{d\text{slope}} \left(3.2 - (\text{intercept} + \text{slope} \times 2.9)\right)^2 \\
+= &amp; -2 \times 0.5 \left(1.4 - (\text{intercept} + \text{slope} \times 0.5)\right) \\
+&amp;- 2 \times 2.3 \left(1.9 - (\text{intercept} + \text{slope} \times 2.3)\right) \\
+&amp;- 2 \times 2.9 \left(3.2 - (\text{intercept} + \text{slope} \times 2.9)\right)
+\end{align*}$$
 
 <img src="deri_wrt_slope.png" alt="deri_wrt_slope" width="350" height="200"/>
 
