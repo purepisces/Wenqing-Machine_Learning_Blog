@@ -1,14 +1,23 @@
 If you are not farmiliar with some calculus concept, please refer to [Calculus](Foundational-Concepts-in-Machine-Learning/Calculus/calculus.md).
 
-Garden descent:
+# Gradient Descent Explanation
 
-In statistics, machine learning and other data science fields, we optimize a lot of stuff. When we fit a line with linear regression, we optimize the intercept and slope. When we use logistic regression, we optimize a squiggle. And when we use t-SNE, we optimize clusters.
+In the realms of statistics, machine learning, and data science, optimization plays a crucial role. Whether it's fitting a line in linear regression, adjusting the curve in logistic regression, or forming clusters in t-SNE, gradient descent emerges as a powerful tool to optimize various models.
+
+## Optimizing Different Models with Gradient Descent
+
+- **Linear Regression**: Optimizes the intercept and slope of a line.
+- **Logistic Regression**: Adjusts the curve (or "squiggle") to classify data points.
+- **t-SNE**: Optimizes data points into meaningful clusters.
 
 <img src="optimize_line.png" alt="optimize_line" width="300" height="200"/> <img src="optimize_squiggle.png" alt="optimize_squiggle" width="300" height="200"/> <img src="optimize_clusters.png" alt="optimize_clusters" width="300" height="200"/>
 
 The cool thing is that gradient descent can optimize all these things and much more. So if we learn how to optimize this line using gradient descent then we will have learned the strategy that optimizes this squiggle and these clusters and many more of the optimization problems we have in statistics, machine learning and data science.
 
+## Understanding Gradient Descent with a Simple Example
+
 <img src="optimize_this_line.png" alt="optimize_this_line" width="350" height="200"/>
+
 
 So let’s start with a simple data set, on the x-axis we have weight and on the y-axis we have height. Predicted height = intercept + slope * height, so let’s learn how gradient descent can fit a line to data by finding the optimal values for the intercept and the slope. Actually, we’ll start by using gradient descent to find the intercept, then once we understand how gradient descent works, we’ll use it to solve for the intercept and the slope.
 
@@ -319,6 +328,8 @@ Step 4: calculate the step sizes: step size = slope x learning rate
 Step 5: calculate the new parameters:
 New parameter = old parameter - step size
 Now go back to step 3 and repeat until step size is very small, or you reach the maximum number of steps.
+
+## Stochastic Gradient Descent
 
 One last thing, in out example, we only had three data points, so the math didn’t take very long, but when you have millions of data points, it can take a long time. So there is a thing called stochastic gradient descent that uses a randomly selected subset of the data at every step rather than the full dataset. This reduces the time spent calculating the derivatives of the loss function.
 
