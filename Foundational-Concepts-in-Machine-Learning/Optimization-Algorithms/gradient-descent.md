@@ -324,3 +324,6 @@ One last thing, in out example, we only had three data points, so the math didnâ
 
 <img src="stochastic_gradient_descent.png" alt="stochastic_gradient_descent" width="350" height="200"/>
 
+## Reference:
+- [Watch the video on YouTube](https://www.youtube.com/watch?v=sDv4f4s2SB8)
+
