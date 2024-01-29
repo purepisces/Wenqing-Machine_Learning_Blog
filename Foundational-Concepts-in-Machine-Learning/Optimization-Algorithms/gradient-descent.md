@@ -69,7 +69,7 @@ Thus, we now have an equation for this curve, and we can take the derivative of 
 So now let’s take the derivative of the sum of the squared residuals with respect to the intercept. 
 The derivative of the sum of the squared residuals with respect to the intercept equals the derivative of the first part plus the derivative of the second part plus the derivative of the third part.
 
-<img src="derivative1t.png" alt="derivative1" width="350" height="200"/>
+<img src="derivative1.png" alt="derivative1" width="350" height="200"/>
 
 
 D/d intercept sum of squared residuals = d/d intercept (1.4-(intercept + 0.64 x 0.5))^2 
