@@ -45,9 +45,7 @@ And for increasing values for the intercept, we get these points.
 
 Of the points that we calculated for the graph, this one has the lowest sum of squared residuals, but is it the best we can do? And what if the best value for the intercept is somewhere between these values? 
 
-
-<img src="lowest_ssr.png" alt="lowest_ssr" width="350" height="200"/>
-<img src="lowest_ssr2.png" alt="lowest_ssr2" width="350" height="200"/>
+<img src="lowest_ssr.png" alt="lowest_ssr" width="350" height="200"/> <img src="lowest_ssr2.png" alt="lowest_ssr2" width="350" height="200"/>
 
 
 A slow and painful method for finding the minimal sum of the squared residuals is to plug and chug a bunch more values for the intercept. But gradient descent is way more efficient!
@@ -56,17 +54,21 @@ A slow and painful method for finding the minimal sum of the squared residuals i
 Gradient descent only does a few calculations far from the optimal solution and increases the number of calculations closer to the optimal value. In other words, gradient descent identifies the optimal value by taking big steps when it is far away and baby steps when it is close.
 
 So let’s get back to using gradient descent to find the optimal value for the intercept, starting from a random value. In this case, the random value was 0. When we calculated the sum of the squared residuals, the first residual was the difference between the observed height, which was 1.4 and the predicted height, which came from the equation for this line.
-Predicted height = intercept + 0.64 * weight
-Sum of squared residuals = (observed-predicted)^2 
+
+$Predicted height = intercept + 0.64 * weight$
+
+$Sum of squared residuals = (observed-predicted)^2 
 = (1.4-predicted)^2
-= (1.4-(intercept + 0.64 * weight))^2
-Since the individual weighs 0.5, we replace weight with 0.5. So for this individual, 
-= (1.4-(intercept + 0.64 * 0.5))^2
+= (1.4-(intercept + 0.64 * weight))^2$
+
+Since the individual weighs 0.5, we replace weight with 0.5. 
+
+So for this individual, 
+= $(1.4-(intercept + 0.64 * 0.5))^2$
 And now we can plug in any value for the intercept and get a new predicted height. And we will repeat this operation for other points. The equation becomes 
 
-Sum of squared residuals = (1.4-(intercept + 0.64 * 0.5))^2
-+ (1.9-(intercept + 0.64 * 2.3))^2
-+ (3.2-(intercept + 0.64 * 2.9))^2
+$Sum of squared residuals = (1.4-(intercept + 0.64 * 0.5))^2 + (1.9-(intercept + 0.64 * 2.3))^2 + (3.2-(intercept + 0.64 * 2.9))^2$
+  
 Now we can easily plug in any value for the intercept and get the sum of the squared residuals.
 
 <img src="diff_intercept.png" alt="diff_intercept" width="350" height="200"/>
@@ -80,18 +82,19 @@ The derivative of the sum of the squared residuals with respect to the intercept
 <img src="derivative1.png" alt="derivative1" width="350" height="200"/>
 
 
-D/d intercept sum of squared residuals = d/d intercept (1.4-(intercept + 0.64 x 0.5))^2 
+$D/d intercept sum of squared residuals = d/d intercept (1.4-(intercept + 0.64 x 0.5))^2 
 d/d intercept(1.9-(intercept + 0.64 * 2.3))^2 
-d/d intercept (3.2-(intercept + 0.64 * 2.9))^2
+d/d intercept (3.2-(intercept + 0.64 * 2.9))^2$
 
 Let’s start by taking the derivative of the first part, to take the derivative, we need to apply the chain rule:
-d/d intercept (1.4-(intercept + 0.64 x 0.5))^2 
-=2(1.4-(intercept + 0.64 x 0.5))x(-1)
-= -2(1.4-(intercept + 0.64 x 0.5))
 
-So D/d intercept sum of squared residuals = -2(1.4-(intercept + 0.64 x 0.5))
+$d/d intercept (1.4-(intercept + 0.64 x 0.5))^2 
+=2(1.4-(intercept + 0.64 x 0.5))x(-1)
+= -2(1.4-(intercept + 0.64 x 0.5))$
+
+So $D/d intercept sum of squared residuals = -2(1.4-(intercept + 0.64 x 0.5))
 -2(1.9-(intercept + 0.64 x 2.3))
-+ -2(3.2-(intercept + 0.64 x 2.9))
++ -2(3.2-(intercept + 0.64 x 2.9))$
 
 Now that we have the derivative, gradient descent will use it to find where the sum of squared residuals is lowest.
 
@@ -101,9 +104,10 @@ Now that we have the derivative, gradient descent will use it to find where the 
 Note: If we were using least squares to solve for the optimal value for the intercept, we would simply find where the slope of the curve = 0. In contrast, gradient descent finds the minimum value by taking steps from an initial guess until it reaches the best value. This makes gradient descent very useful when it is not possible to solve for where the derivative = 0, and this is why gradient descent can be used in so many different situations.
 Remember, we started by setting the intercept to a random number. In this case, that was 0. So we plug 0 into the derivative and we get -5.7.
 
-D/d intercept sum of squared residuals = -2(1.4-(0+ 0.64 x 0.5))
+$D/d intercept sum of squared residuals = -2(1.4-(0+ 0.64 x 0.5))
 -2(1.9-(0 + 0.64 x 2.3))
--2(3.2-(0+ 0.64 x 2.9)) =-5.7                                                      So when the intercept = 0, the slope of the curve = -5.7
+-2(3.2-(0+ 0.64 x 2.9)) =-5.7$                                                  
+So when the intercept = 0, the slope of the curve = -5.7
 
 <img src="slope57.png" alt="slope57" width="350" height="200"/>
 
@@ -115,8 +119,9 @@ Gradient descent determines the step size by multiplying the slope by a small nu
 
 Step size = -5.7x0.1 = -0.57
 When the intercept equals 0, the step size equals -0.57. With the step size, we can calculate a new intercept. The new intercept is the old intercept minus the step size
-New intercept = old intercept - step size
-= 0 - (-0.57) = 0.57
+
+$New intercept = old intercept - step size
+= 0 - (-0.57) = 0.57$
 
 In one big step, we moved much closer to the optimal value for the intercept.
 
@@ -127,14 +132,14 @@ Going back to the original data and the original line with the intercept = 0, we
 Now let’s take another step closer to the optimal value for the intercept. To take another step, we go back to the derivative and plug in the new intercept(0.57)
 
 
-D/d intercept sum of squared residuals = -2(1.4-(intercept + 0.64 x 0.5))
+$D/d intercept sum of squared residuals = -2(1.4-(intercept + 0.64 x 0.5))
 -2(1.9-(intercept + 0.64 x 2.3))
--2(3.2-(intercept + 0.64 x 2.9))
+-2(3.2-(intercept + 0.64 x 2.9))$
 
-D/d intercept sum of squared residuals = -2(1.4-(0.57+ 0.64 x 0.5))
+$D/d intercept sum of squared residuals = -2(1.4-(0.57+ 0.64 x 0.5))
 -2(1.9-(0.57 + 0.64 x 2.3))
 + -2(3.2-(0.57 + 0.64 x 2.9))
-=-2.3
+=-2.3$
 
 And that tells us the slope of the curve = -2.3.
 Now let’s calculate the step size, 
