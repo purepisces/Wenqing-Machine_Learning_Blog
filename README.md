@@ -74,6 +74,8 @@
 ## Deep Learning Concepts
 
 ### Basic Neural Network Concepts
+- **Neural Network**
+  - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network.md)
 - **Feed Forward Neural Network (FFNN)**
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/FFNN/FFNN.md)
   - **MLP (Multi-Layer Perceptron)**
