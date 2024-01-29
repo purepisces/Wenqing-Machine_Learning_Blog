@@ -17,6 +17,7 @@ Standard-Deviation-vs-Standard-Error.md✅
 Confidence-Intervals.md✅
 least-squared.md✅
 calculus.md✅
+gradient-descent.md✅ need further math formula format improvement
 
 
 logistic regression
