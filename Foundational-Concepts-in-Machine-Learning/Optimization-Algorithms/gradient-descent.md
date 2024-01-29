@@ -95,7 +95,7 @@ Now that we have the derivative, gradient descent will use it to find where the 
 Note: If we were using least squares to solve for the optimal value for the intercept, we would simply find where the slope of the curve = 0. In contrast, gradient descent finds the minimum value by taking steps from an initial guess until it reaches the best value. This makes gradient descent very useful when it is not possible to solve for where the derivative = 0, and this is why gradient descent can be used in so many different situations.
 Remember, we started by setting the intercept to a random number. In this case, that was 0. So we plug 0 into the derivative and we get -5.7.
 
-$D/d intercept sum of squared residuals = -2(1.4-(0+ 0.64 x 0.5))
+$\frac{D}{d \text{ intercept}} \text{Sum of Squared Residuals}  = -2(1.4-(0+ 0.64 x 0.5))
 -2(1.9-(0 + 0.64 x 2.3))
 -2(3.2-(0+ 0.64 x 2.9)) =-5.7$                                                  
 So when the intercept = 0, the slope of the curve = -5.7
@@ -123,9 +123,9 @@ Going back to the original data and the original line with the intercept = 0, we
 Now let’s take another step closer to the optimal value for the intercept. To take another step, we go back to the derivative and plug in the new intercept(0.57)
 
 
-$\frac{D}{d \, \text{intercept}} \, \text{Sum of Squared Residuals} = -2 \left(1.4 - \left(\text{intercept} + 0.64 \times 0.5\right)\right) - 2 \left(1.9 - \left(\text{intercept} + 0.64 \times 2.3\right)\right) - 2 \left(3.2 - \left(\text{intercept} + 0.64 \times 2.9\right)\right)$
+$\frac{D}{d \text{ intercept}} \text{Sum of Squared Residuals} = -2 \left(1.4 - \left(\text{intercept} + 0.64 \times 0.5\right)\right) - 2 \left(1.9 - \left(\text{intercept} + 0.64 \times 2.3\right)\right) - 2 \left(3.2 - \left(\text{intercept} + 0.64 \times 2.9\right)\right)$
 
-$\frac{D}{d \, \text{intercept}} \, \text{Sum of Squared Residuals} \bigg|_{\text{intercept} = 0.57} = -2 \left(1.4 - \left(0.57 + 0.64 \times 0.5\right)\right) - 2 \left(1.9 - \left(0.57 + 0.64 \times 2.3\right)\right) - 2 \left(3.2 - \left(0.57 + 0.64 \times 2.9\right)\right) = -2.3$
+$\frac{D}{d \text{ intercept}} \text{Sum of Squared Residuals} = -2 \left(1.4 - \left(0.57 + 0.64 \times 0.5\right)\right) - 2 \left(1.9 - \left(0.57 + 0.64 \times 2.3\right)\right) - 2 \left(3.2 - \left(0.57 + 0.64 \times 2.9\right)\right) = -2.3$
 
 And that tells us the slope of the curve = -2.3.
 Now let’s calculate the step size, 
@@ -140,11 +140,11 @@ Notice that the first step was relatively large, compared to the second step.
 
 Now let’s calculate the derivative at the new intercept(0.8), and we get -0.9
 
-D/d intercept sum of squared residuals = 
+$\frac{D}{d \text{ intercept}} \text{Sum of Squared Residuals}  = 
 -2(1.4-(0.8+ 0.64 x 0.5))
 -2(1.9-(0.8 + 0.64 x 2.3))
 + -2(3.2-(0.8 + 0.64 x 2.9))
-=-0.9
+=-0.9$
 
 Step size = slope x learning rate = -0.9 x0.1 = -0.09, The step size equals -0.09 and the new intercept equals 0.89.
 new intercept = old intercept -step size = 0.8-(-0.09)=0.89
@@ -171,9 +171,9 @@ So even if the step size is large, if here have been more than the maximum numbe
 
 Let’s review what we’ve learned so far, the first thing we did is decide to use the sum of the squared residuals as the loss function to evaluate how well a line fits the data.
 
-Sum of squared residuals = (1.4-(intercept + 0.64 x 0.5))^2
+$\text{Sum of Squared Residuals} = (1.4-(intercept + 0.64 x 0.5))^2
 (1.9-(intercept + 0.64 x 2.3))^2
-(3.2-(intercept + 0.64 x 2.9))^2      
+(3.2-(intercept + 0.64 x 2.9))^2$    
 
 <img src="first_thing.png" alt="first_thing" width="350" height="200"/>
 
@@ -181,9 +181,9 @@ Sum of squared residuals = (1.4-(intercept + 0.64 x 0.5))^2
 
 Then we took the derivative of the sum of the squared residuals. In other words, we took the derivative of the loss function.
 
-D/d intercept sum of squared residuals = -2(1.4-(intercept + 0.64 x 0.5))
+$\frac{D}{d \text{intercept}} \text{Sum of Squared Residuals} = -2(1.4-(intercept + 0.64 x 0.5))
 -2(1.9-(intercept + 0.64 x 2.3))
--2(3.2-(intercept + 0.64 x 2.9))
+-2(3.2-(intercept + 0.64 x 2.9))$
 
 
 <img src="derivative_loss.png" alt="derivative_loss" width="350" height="200"/>
@@ -217,18 +217,16 @@ This is a 3-D graph of the loss function for different values for the intercept 
 
 This axis is the sum of the squared residuals, this axis represents different values for the slope, and this axis represents different values for the intercept. We want to find the values for the intercept and slope that give us the minimum sum of the squared residuals.
 
-<img src="axis1.png" alt="axis1" width="350" height="200"/>
-<img src="axis2.png" alt="axis2" width="350" height="200"/>
-<img src="axis3.png" alt="axis3" width="350" height="200"/>
+<img src="axis1.png" alt="axis1" width="350" height="200"/> <img src="axis2.png" alt="axis2" width="350" height="200"/> <img src="axis3.png" alt="axis3" width="350" height="200"/>
 <img src="find_min.png" alt="find_min" width="350" height="200"/>
 
 
 
 So, just like before, we need to take the derivative of this function.
 
-Sum of squared residuals = (1.4-(intercept + slope x 0.5))^2
+$\text{Sum of Squared Residuals} = (1.4-(\text{intercept} + slope x 0.5))^2
 (1.9-(intercept + slope x 2.3))^2
-(3.2-(intercept + slope x 2.9))^2     
+(3.2-(intercept + slope x 2.9))^2$   
 
 And just like before, we’ll take the derivative with respect to the intercept, but unlike before, we’ll also take the derivative with respect to the slope.
 
@@ -241,9 +239,9 @@ D/d slope sum of squared residuals
 We’ll start by taking the derivative with respect to the intercept, just like before, we take the derivative of each part.
 
 
-Sum of squared residuals = (1.4-(intercept + slope x 0.5))^2
+$\text{Sum of Squared Residuals}  = (1.4-(intercept + slope x 0.5))^2
 (1.9-(intercept + slope x 2.3))^2
-(3.2-(intercept + slope x 2.9))^2      
+(3.2-(intercept + slope x 2.9))^2$ 
 
 D/d intercept Sum of squared residuals = D/d intercept (1.4-(intercept + slope x 0.5))^2
 D/d intercept (1.9-(intercept + slope x 2.3))^2
