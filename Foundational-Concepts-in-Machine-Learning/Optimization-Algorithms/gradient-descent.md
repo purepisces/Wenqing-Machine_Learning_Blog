@@ -44,8 +44,7 @@ And for increasing values for the intercept, we get these points.
 <img src="increase_intercept.png" alt="increase_intercept" width="350" height="200"/>
 
 Of the points that we calculated for the graph, this one has the lowest sum of squared residuals, but is it the best we can do? And what if the best value for the intercept is somewhere between these values? 
-Insert lowest_ssr png
-Insert lowest_ssr2 png
+
 
 <img src="lowest_ssr.png" alt="lowest_ssr" width="350" height="200"/>
 <img src="lowest_ssr2.png" alt="lowest_ssr2" width="350" height="200"/>
@@ -96,7 +95,6 @@ So D/d intercept sum of squared residuals = -2(1.4-(intercept + 0.64 x 0.5))
 
 Now that we have the derivative, gradient descent will use it to find where the sum of squared residuals is lowest.
 
-Insert gd_find graph
 
 <img src="gd_find.png" alt="gd_find" width="350" height="200"/>
 
