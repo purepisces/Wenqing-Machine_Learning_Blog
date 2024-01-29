@@ -182,8 +182,104 @@ Lastly, we plugged the new intercept into the derivative and repeated everything
 
 Insert lastly png
 
+Now that we understand how gradient descent can calculate the intercept, let’s talk about how to estimate he intercept and the slope.
+
+Insert est_inter_slope png
+
+Just like before, we will use the sum of the square residuals as the loss function.
+
+Insert ssr_loss png
+
+This is a 3-D graph of the loss function for different values for the intercept and the slope.
+Insert 3d png
+This axis is the sum of the squared residuals, this axis represents different values for the slope, and this axis represents different values for the intercept. We want to find the values for the intercept and slope that give us the minimum sum of the squared residuals.
+Insert axis1 png
+Insert axis2 png
+Insert axis3 png
+insert find_min png
+
+So, just like before, we need to take the derivative of this function.
+
+Sum of squared residuals = (1.4-(intercept + slope x 0.5))^2
+(1.9-(intercept + slope x 2.3))^2
+(3.2-(intercept + slope x 2.9))^2     
+
+And just like before, we’ll take the derivative with respect to the intercept, but unlike before, we’ll also take the derivative with respect to the slope.
+
+D/d intercept sum of squared residuals
+D/d slope sum of squared residuals
+
+Insert deri_slope png
+
+We’ll start by taking the derivative with respect to the intercept, just like before, we take the derivative of each part.
 
 
-<img src="cal_residual.png" alt="cal_residual" width="350" height="200"/>
+Sum of squared residuals = (1.4-(intercept + slope x 0.5))^2
+(1.9-(intercept + slope x 2.3))^2
+(3.2-(intercept + slope x 2.9))^2      
+
+D/d intercept Sum of squared residuals = D/d intercept (1.4-(intercept + slope x 0.5))^2
+D/d intercept (1.9-(intercept + slope x 2.3))^2
+D/d intercept (3.2-(intercept + slope x 2.9))^2     
+
+Insert deri_wrt_intercept png
+
+D/d intercept Sum of squared residuals = D/d intercept (1.4-(intercept + slope x 0.5))^2
+D/d intercept (1.9-(intercept + slope x 2.3))^2
+D/d intercept (3.2-(intercept + slope x 2.9))^2     
+= -2(1.4-intercept + slope x 0.5))
++-2(1.9-(intercept+slopex2.3))
++-2(3.2-(intercept+slopex2.9))
+So this whole thing is the derivative of the sum of the squared residuals with respect to the intercept.
+Now let’s take the derivative of the sum of the squared residuals with respect to the slope.
+
+D/d slope Sum of squared residuals = 
+D/d slope (1.4-(intercept + slope x 0.5))^2
+D/d slope (1.9-(intercept + slope x 2.3))^2
+D/d slope (3.2-(intercept + slope x 2.9))^2     
+= -2x0.5(1.4-(intercept+slopex0.5))
++-2x2.3(1.9-(intercept+slopex2.3))
++-2x2.9(3.2-(intercept+slopex2.9))
+Insert deri_wrt_slope png
+
+When you have 2 or more derivatives of the same function, they are called a gradient. We will use this gradient to descend to lowest point in the loss function, which, in this case, is the sum of the squared residuals. Thus, this is why this algorithm is called gradient descent.
+Insert total_deri png
+
+Just like before, we will start by picking a random number for the intercept. In this case we’ll set the intercept = 0 and we’ll pick a random number for the slope. In this case we’ll set the slope = 1.
+Thus, this line with intercept = 0 and slope =1, is where we will start.
+Now let’s plug in 0 for the intercept and 1 for the slope, and that gives us two slopes. Now we plug the slopes into the step size formula and multiply by the learning rate, which this time we set to 0.01. 
+
+Step Size_Intercept = Slope x Learning Rate
+Step Size_Slope = Slope x Learning Rate
+
+Note: The larger learning rate that we used in the first example doesn’t work this time. Even after a bunch of steps, gradient descent doesn’t arrive at the correct answer. This means that gradient descent can be very sensitive to the learning rate.
+The good news is that in practice, a reasonable learning rate can be determined automatically by starting large and getting smaller with each step. So in theory, you shouldn’t have to worry too much about the learning rate.
+Anyway, we do the math and get two step sizes.
+Step Size_Intercept = Slope x Learning Rate = -1.6x0.01=-0.016
+Step Size_Slope = Slope x Learning Rate = -0.8x0.01=-0.008
 
 
+Insert step_size png
+Now we calculate the new intercept and new slope by plugging in the old intercept and the old slope and the step sizes.
+New Intercept = Old Intercept - Step Size = 0-(-0.016)=0.016
+New slope = Old slope - Step Size = 1-(-0.008)=1.008
+And we end up with a new intercept and a new slope
+This is the line we started with(slope = 1 and intercept = 0) and this is the line new line(with slope = 1.008 and intercept = 0.016) after the first step.
+Insert new_line png
+Now we just repeat what we did until all of the steps sizes are very small or we reach the maximum number of steps.
+This is the best fitting line, with intercept = 0.95 and slope = 0.64, the same values we get from least squares.
+Insert best_fit_line png
+We now know how gradient descent optimizes two parameters, the slope and intercept. If we had more parameters, then we’d just take more derivatives and everything else stays the same.
+Note: the sum of the squared residuals is just one type of loss function, however, there are tons of other loss functions that work with other types of data. Regardless of which loss function you use, gradient descent works the same way.
+Insert loss_function png
+
+Step 1: Take the derivative of the loss function for each parameter in it. In fancy machine learning lingo, take the gradient of the loss function.
+Step 2: Pick random values for the parameters.
+Step 3: plug the parameter values into the derivatives(ahem, the gradient)
+Step 4: calculate the step sizes: step size = slope x learning rate
+Step 5: calculate the new parameters:
+New parameter = old parameter - step size
+Now go back to step 3 and repeat until step size is very small, or you reach the maximum number of steps.
+
+One last thing, in out example, we only had three data points, so the math didn’t take very long, but when you have millions of data points, it can take a long time. So there is a thing called stochastic gradient descent that uses a randomly selected subset of the data at every step rather than the full dataset. This reduces the time spent calculating the derivatives of the loss function.
+Insert stochastic_gradient_descent png
