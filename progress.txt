@@ -24,6 +24,7 @@ Neural-Network.md✅ need format and rephrase
 backpropagation.md✅ need format and rephrase
 relu.md✅ need format and rephrase
 activation-functions.md✅ need format and rephrase
+sigmoid.md✅
 
 
 Activation function
