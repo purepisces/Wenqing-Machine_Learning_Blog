@@ -122,7 +122,17 @@ $\frac{d SSR}{d b_3} = \sum\limits_{i=1}^{n=3} -2 \cdot (Observed_i - Predicted_
 
 Let’s see how we can use this equation with gradient descent
 
-$\frac{d SSR}{d b_3} = \sum\limits_{i=1}^{n=3} -2 \cdot (Observed_i - Predicted_i) \cdot 1 = -2 \cdot (Observed_1 - Predicted_1) \cdot 1 - 2 \cdot (Observed_2 - Predicted_2) \cdot 1 - 2 \cdot (Observed_3 - Predicted_3) \cdot 1 = -2 \cdot (0 - (-2.6)) \cdot 1 - 2 \cdot (1 - (-1.6)) \cdot 1 - 2 \cdot (0 - (-2.61)) \cdot 1 = -15.7$
+$$\begin{align*}
+\frac{d SSR}{d b_3} &= \sum_{i=1}^{n=3} -2 \cdot (Observed_i - Predicted_i) \cdot 1 \\
+&= -2 \cdot (Observed_1 - Predicted_1) \cdot 1 \\
+&\quad - 2 \cdot (Observed_2 - Predicted_2) \cdot 1 \\
+&\quad - 2 \cdot (Observed_3 - Predicted_3) \cdot 1 \\
+&= -2 \cdot (0 - (-2.6)) \cdot 1 \\
+&\quad - 2 \cdot (1 - (-1.6)) \cdot 1 \\
+&\quad - 2 \cdot (0 - (-2.61)) \cdot 1 \\
+&= -15.7
+\end{align*}$$
+
 
 
 Remember, we get the predicted values on the green squiggle by running the dosages through the neural network.
@@ -139,6 +149,17 @@ Now we plug the slope into the gradient descent equation for step size, and in t
 Step size = slope x learning rate = -15.7 x 0.1 = -1.57
 
 New b3 = Old b3 - Step Size = 0 - (-1.57) = 1.57
+
+$$\begin{align*}
+\text{Step size} &= \text{slope} \times \text{learning rate} \\
+&= -15.7 \times 0.1 \\
+&= -1.57 \\
+\\
+\text{New } b_3 &= \text{Old } b_3 - \text{Step size} \\
+&= 0 - (-1.57) \\
+&= 1.57
+\end{align*}$$
+
 
 Changing b3 to 1.57 shifts the green squiggle up and that shrinks the residuals.
 
