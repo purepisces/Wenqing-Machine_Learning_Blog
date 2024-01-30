@@ -1,5 +1,4 @@
 Backpropagation
-<img src="mean_std.png" alt="mean_std" width="400" height="300"/>
 
 In part1, inside the black box, we started with a simple dataset that showed whether or not different drug dosages were effective against a virus. The low and high dosages were not effective, but the medium dosage was effective. Then we talked about how a neural network fits a green a green squiggle to this dataset.
 
