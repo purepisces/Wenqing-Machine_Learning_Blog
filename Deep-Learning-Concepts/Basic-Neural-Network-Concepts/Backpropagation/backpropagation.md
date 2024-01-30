@@ -93,11 +93,9 @@ Now let’s solve for the second part, the derivative of the Predicted values wi
 
  d Predicted/d b_3 = d/d b3 green squiggle = d/d b_3(blue+orange+b_3) = 0+0+1 = 1
 
-Insert creat_before png
-<img src="green_last.png" alt="green_last" width="400" height="300"/>
+<img src="creat_before.png" alt="creat_before" width="400" height="300"/>
 
-Insert predicted_b3 png
-<img src="green_last.png" alt="green_last" width="400" height="300"/>
+<img src="predicted_b3.png" alt="predicted_b3" width="400" height="300"/>
 
 
 Therefore d SSR/ d b_3 = d SSR/d Predicted x d Predicted/d b_3
@@ -105,14 +103,12 @@ Therefore d SSR/ d b_3 = d SSR/d Predicted x d Predicted/d b_3
 = \sum i=1^n=3 -2x(Observed_i - Predicted_i) x 1
 And that means we can pug this derivative into gradient descent to find the optimal value for b_3.
 
-Insert find_optimal_b3 png
-<img src="green_last.png" alt="green_last" width="400" height="300"/>
+<img src="find_optimal_b3.png" alt="find_optimal_b3" width="400" height="300"/>
 
 
 d SSR/ d b_3 = \sum i=1^n=3 -2x(Observed_i - Predicted_i) x 1
 
 Let’s see how we can use this equation with gradient descent
-
 
 
 d SSR/ d b_3 = \sum i=1^n=3 -2x(Observed_i - Predicted_i) x 1
