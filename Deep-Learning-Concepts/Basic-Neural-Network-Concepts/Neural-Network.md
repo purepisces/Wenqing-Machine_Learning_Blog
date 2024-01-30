@@ -1,17 +1,21 @@
-Neural networks
+# Neural Networks Overview
+
 
 We will learn about what neural networks do and how they do it.
 For example, different dosages will have different efficacy, and we can not just fit a line for the dataset. But even if we have a really complicated dataset like this, a neural network can fit a squiggle to it.
 
 <img src="nn_squiggle.png" alt="nn_squiggle" width="400" height="300"/>
 
+## What is a Neural Network?
 
-What is a neural network?
-A neural network consists of nodes and connections between the nodes. Note: the numbers along each connection represent parameter values that were estimated when this neural network was fit to the data.
+A neural network is composed of layers of nodes, with connections between these nodes. The values along each connection represent the parameters of the network, which are estimated during the training process.
 
 <img src="connection_value.png" alt="connection_value" width="400" height="300"/>
 
-For now, just know that these parameter estimates are analogous to the slope and intercept values that we solve for when we fit a straight line to data. Likewise, a neural network starts out with unknown parameter values, that are estimated when we fit the neural network to a dataset using a method called backpropagation. 
+For now, just know that these parameter estimates are analogous to the slope and intercept values that we solve for when we fit a straight line to data. 
+
+Initially, the parameter values of a neural network are unknown. These values are determined through a process called backpropagation, which adjusts the parameters to fit the network to the training data.
+
 
 <img src="unknown_value.png" alt="unknown_value" width="400" height="300"/>
 
@@ -21,18 +25,25 @@ And we will talk about how backprogagation estimates these parameters in part2 i
 
 <img src="curved_lines.png" alt="curved_lines" width="400" height="300"/>
 
+### Hidden Layers
 
-The layers of nodes between the input and output nodes are called hidden layers. When you build a neural network, one of the first things you do is decide how many hidden layers you want, and how many nodes go into each hidden layer. Although there are rules of thumb for making decisions about the hidden layers, you essentially make a guess and see how well the neural network performs, adding more layers and nodes if needed.
+The layers between the input and output layers are known as hidden layers. The configuration of these layers—how many there are and how many nodes they contain—is one of the initial design decisions when constructing a neural network.
 
 <img src="hidden_layers.png" alt="hidden_layers" width="400" height="300"/>
 
+### Constructing the Model
 
 Let’s learn how this neural network creates new shapes from the curved or bent lines in the hidden layer and then adds them together to get a green squiggle that fits the data. Note in this neural network, we have one input node which is dosage, one hidden layer with 2 nodes and one output node which is efficacy.
 
+
 <img src="add_together.png" alt="add_together" width="400" height="300"/>
 
+#### Example: Dosage and Efficacy
+
+Consider a scenario where we model the efficacy of a drug based on its dosage, ranging from 0 (low) to 1 (high). The neural network takes the dosage value, applies transformations through the network's parameters and activation functions, and outputs an efficacy prediction.
 
 Note: To keep the math simple, let’s assume dosages go from 0(low) to 1(high).
+
 The first thing we are going to do is plug the lowest dosage 0 into the neural network. Now, to get from the input node to the top node in the hidden layer, this connection multiplies the dosage by -34.4 and then adds 2.14 and the result is an x-axis coordinate for the activation function.
 
 <img src="from_to.png" alt="from_to" width="400" height="300"/>
@@ -97,11 +108,13 @@ Then finally we subtract 0.58 from the y-axis values on the green squiggle and w
 
 <img src="subtract_curve.png" alt="subtract_curve" width="400" height="300"/>
 
+### Predictions
 
 Now if someone comes along and says that they are using dosage = 0.5 we can look at the corresponding y-axis coordinate on the green squiggle and see that the dosage will be effective or we can solve for the y-axis coordinate by plugging dosage = 0.5 into the neural network and do the math. And we see that the y-axis coordinate on the green squiggle is 1.03, and since 1.03 is closer to 1 than 0, we will conclude that a dosage = 0.5 is effective.
 
 <img src="BFSFMs.png" alt="BFSFMs" width="400" height="300"/>
 
+### Weights and Biases
 
 The parameters that we multiply are called weights and the parameters that we add are called biases.
 
