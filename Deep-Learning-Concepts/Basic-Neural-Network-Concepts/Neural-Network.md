@@ -53,9 +53,7 @@ The first thing we are going to do is plug the lowest dosage 0 into the neural n
 
 To get the corresponding y-axis value, we plug 2.14 into the activation function, which, in this case, is the softplus function. Then we put a blue dot at 2.25 for dosage = 0.
 
-<img src="choose_softplus.png" alt="choose_softplus" width="400" height="300"/>
-
-<img src="put_dot.png" alt="put_dot" width="400" height="300"/>
+<img src="choose_softplus.png" alt="choose_softplus" width="400" height="300"/> <img src="put_dot.png" alt="put_dot" width="400" height="300"/>
 
 Note, if we had chosen the sigmoid curve for the activation function, then we would plug 2.14 into the equation for the sigmoid curve.
 
@@ -71,9 +69,7 @@ Note, the full range of dosage values, from 0 to 1 corresponds to this relativel
 
 Now we scale the y-axis values for the blue curve by -1.30. For example, when dosage = 0, the current y-axis coordinate for the blue curve is 2.25, then 2.25*-1.3 = -2.93 which corresponds to this position on the y-axis. And we end up with a new blue curve.
 
-<img src="scale_pos.png" alt="scale_pos" width="400" height="300"/>
-
-<img src="new_blue_curve.png" alt="new_blue_curve" width="400" height="300"/>
+<img src="scale_pos.png" alt="scale_pos" width="400" height="300"/> <img src="new_blue_curve.png" alt="new_blue_curve" width="400" height="300"/>
 
 Now let’s focus on the connection from the input node to the bottom node in the hidden layer. Remember, for -2.52 and 1.29, these values come from fitting the neural network to the data with back propagation, and we’ll talk about that in part2 in this series.
 
@@ -86,9 +82,7 @@ Then same operation as before, we get this orange curve.
 
 So we see that fitting a neural network to data gives us different parameter estimates on the connections and results in each node in the hidden layer using different portions of the activation functions to create these new and exciting shapes.
 
-<img src="diff_para.png" alt="diff_para" width="400" height="300"/>
-<img src="diff_portion.png" alt="diff_portion" width="400" height="300"/>
-<img src="exciting_shape.png" alt="exciting_shape" width="400" height="300"/>
+<img src="diff_para.png" alt="diff_para" width="400" height="300"/> <img src="diff_portion.png" alt="diff_portion" width="400" height="300"/> <img src="exciting_shape.png" alt="exciting_shape" width="400" height="300"/>
 
 
 Now just like before, we scale the y-axis coordinates on the orange curve. Only this time, we scale by a positive number 2.28, and that gives us this new orange curve.
