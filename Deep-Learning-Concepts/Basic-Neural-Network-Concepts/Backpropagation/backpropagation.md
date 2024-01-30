@@ -61,3 +61,80 @@ Predicted_i = green squiggle_i = blue + orange + b3
 
 
 Insert green_last png
+
+Now remember, we want to use gradient descent to optimize b3 and that means we need to take the derivative of the SSR with respect to b3. And because the SSR are linked to b3 by the predicted values, we can use the chain rule so solve for the derivative of the sum of the squared residuals with respect to b3.
+The chain rule says that the derivative of the SSR respect to b3 is the derivative of the SSR with respect to the predicted values times the derivative of the predicted values with respect to b3.
+
+Now let’s solve for the first part, the derivative of the SSR with respect to the predicted values:
+
+d SSR/ d b_3 = d SSR/d Predicted x d Predicted/d b_3
+d SSR/d Predicted = d/d Predicted \sum_i=1^n=3(Observed_i - Predicted_i)^2 = \sum I=1^n=3 2x(Observed_i - Predicted_i)x-1 = \sum i=1^n=3 -2x(Observed_i - Predicted_i)
+
+d/d Predicted Observed - Predicted = -1
+
+Insert ssr_predicted png
+
+Now let’s solve for the second part, the derivative of the Predicted values with respect to b3. Remember, the blue and orange curves were created before we got to b3, so the derivative of the blue curve with respect to b_3 is 0, because the blue curve is independent of b_3.
+
+
+ d Predicted/d b_3 = d/d b3 green squiggle = d/d b_3(blue+orange+b_3) = 0+0+1 = 1
+
+Insert creat_before png
+Insert predicted_b3 png
+
+Therefore d SSR/ d b_3 = d SSR/d Predicted x d Predicted/d b_3
+
+= \sum i=1^n=3 -2x(Observed_i - Predicted_i) x 1
+And that means we can pug this derivative into gradient descent to find the optimal value for b_3.
+
+Insert find_optimal_b3 png
+
+d SSR/ d b_3 = \sum i=1^n=3 -2x(Observed_i - Predicted_i) x 1
+
+Let’s see how we can use this equation with gradient descent
+
+
+
+d SSR/ d b_3 = \sum i=1^n=3 -2x(Observed_i - Predicted_i) x 1
+= -2x(Observed_1 - Predicted_1) x 1
+-2x(Observed_2 - Predicted_2) x 1
+-2x(Observed_3 - Predicted_3) x 1
+= -2x(0 - Predicted_1) x 1
+-2x(1 - Predicted_2) x 1
+-2x(0 - Predicted_3) x 1
+=  -2x(0 - -2.6) x 1
+-2x(1 - -1.6) x 1
+-2x(0 - -2.61) x 1
+=-15.7
+
+
+Remember, we get the predicted values on the green squiggle by running the dosages through the neural network.
+
+Insert predict_green png
+
+Now we just do the math and get -15.7 and that corresponds to the slope for when b3=0
+
+Insert slope_b30 png
+
+Now we plug the slope into the gradient descent equation for step size, and in this example, we’ll set the learning rate to 0.1. And then we use the step size to calculate the new value for b3.
+Step size = slope x learning rate = -15.7 x 0.1 = -1.57
+New b3 = Old b3 - Step Size = 0 - (-1.57) = 1.57
+Changing b3 to 1.57 shifts the green squiggle up and that shrinks the residuals.
+
+Insert b3_157 png
+
+Now, plugging in the new predicted values and doing the math gives us -6.26 which corresponds to the slope when b3 = 1.57. Then calculate the step size and the new value for b3 which is 2.19. Changing b3 to 2.19 shifts the green squiggle up further and that shrinks the residuals even more.
+
+Insert b3_2191 png
+Insert b3_2192 png
+Insert b3_2193 png
+
+Now we just keep taking steps until the step size is close to 0. And because the spa size is close to 0 when b3 = 2.61, we decide that 2.16 is the optimal value for b3.
+
+Insert b3_261 png
+
+So the main ideas for back propagation are that when a parameter is unknown like b3, we use the chain rule to calculate the derivative of the sum of the squared residuals(SSR) with respect to the unknown parameter, which in this case was b3. Then we initialize the unknown parameter with a number and in this case we set b3 = 0 and used gradient descent to optimize the unknown parameter.
+
+Insert main_idea png
+Insert optimize png
+
