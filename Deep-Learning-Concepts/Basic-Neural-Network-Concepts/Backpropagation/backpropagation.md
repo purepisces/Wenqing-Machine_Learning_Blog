@@ -5,8 +5,6 @@ In our previous discussion, we delved into how a neural network can fit a comple
 
 <img src="fit_squiggle.png" alt="fit_squiggle" width="400" height="300"/>
 
-## The Essence of Neural Network Training
-
 Remember, the neural network starts with identical activation functions but using different weights and biases on the connections, it flips and stretches the activation functions into new shapes, which are then added together to get a squiggle that is shifted to fit the data.
 
 <img src="new_shape.png" alt="new_shape" width="400" height="300"/>
