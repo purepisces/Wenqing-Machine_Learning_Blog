@@ -22,6 +22,8 @@ calculus.md✅
 gradient-descent.md✅ need further math formula format improvement, need format and refrase
 Neural-Network.md✅ need format and rephrase
 backpropagation.md✅ need format and rephrase
+relu.md✅ need format and rephrase
+activation-functions.md✅ need format and rephrase
 
 
 Activation function
