@@ -17,13 +17,13 @@ In this part, we talk about the main ideas of backpropagation:
 
 1. **Using the chain rule to calculate derivatives**
 
-   $\frac{dSSR}{dbias} = \frac{dSSR}{dPredicted} \cdot \frac{dPredicted}{dbias}$
+   \(\frac{dSSR}{dbias} = \frac{dSSR}{dPredicted} \cdot \frac{dPredicted}{dbias}\)
 
-    <img src="step1.png" alt="step1" width="400" height="300"/>
+   ![step1](step1.png)
 
 2. **Plugging the derivatives into gradient descent to optimize parameters**
 
-    <img src="step2.png" alt="step2" width="400" height="300"/>
+   ![step2](step2.png)
 
 In the next part, we’ll talk about how the chain rule and gradient descent apply to multiple parameters simultaneously and introduce some fancy notation, then we will go completely bonkers with the chain rule and show how to optimize all 7 parameters simultaneously in this neural network.
 
