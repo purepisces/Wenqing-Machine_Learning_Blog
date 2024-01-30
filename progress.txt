@@ -18,6 +18,8 @@ Confidence-Intervals.md✅
 least-squared.md✅
 calculus.md✅
 gradient-descent.md✅ need further math formula format improvement
+Neural-Network.md✅
+
 
 
 logistic regression
