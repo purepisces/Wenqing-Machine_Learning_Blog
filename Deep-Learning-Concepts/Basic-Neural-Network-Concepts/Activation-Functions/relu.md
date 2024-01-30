@@ -10,13 +10,14 @@ Now let’s see what happens if we swap out the soft plus activation function in
 
 Remember: To keep the math simple, let’s assume Dosages go from 0(low) to 1(high). So if we plug in the lowest dosage, 0, the connection from the input to the top node in the hidden layer multiples the dosage by 1.70 and then adds -0.85, and the result is an x-axis coordinate for the activation function. 
 
-(0x1.70)+-0.85 = -0.85
+$(0x1.70)+-0.85 = -0.85$
 
 <img src="x-axis.png" alt="x-axis" width="400" height="300"/>
 
 
 Now we plug -0.85 into the ReLU activation function, the ReLU activation function output whichever value is larger, 0 or the input value, which in this case is -0.85.
-f(-0.85) = max(0,-0.85) = y-axis coordinate = 0
+
+$f(-0.85) = max(0,-0.85) = y-axis coordinate = 0$
 
 <img src="y-axis.png" alt="y-axis" width="400" height="300"/>
 
@@ -27,18 +28,12 @@ So, let’s put a blue dot at 0 for when dosage = 0.
 
 And if we continue to increase the dosage values all the way to 1(the maximum dosage), we will get this bent blue line. Then we multiply the y-axis coordinates on the bent blue line by -40.8, and the new bent blue line goes off the screen.
 
-<img src="bent-blue-line.png" alt="bent-blue-line" width="400" height="300"/>
-
-<img src="new-bent-blue-line.png" alt="new-bent-blue-line" width="400" height="300"/>
+<img src="bent-blue-line.png" alt="bent-blue-line" width="400" height="300"/> <img src="new-bent-blue-line.png" alt="new-bent-blue-line" width="400" height="300"/>
 
 
 Now when we run dosages through the connection to the bottom node in the hidden layer, we get the corresponding y-axis coordinates that go off the screen for this straight orange line. Now we multiply the y-axis coordinates on the straight orange line by 2.7 and we end up with this final straight orange line
 
-<img src="bottom-go-off.png" alt="bottom-go-off" width="400" height="300"/>
-
-<img src="straight-orange-line.png" alt="straight-orange-line" width="400" height="300"/>
-
-<img src="final-straight-orange-line.png" alt="final-straight-orange-line" width="400" height="300"/>
+<img src="bottom-go-off.png" alt="bottom-go-off" width="300" height="200"/> <img src="straight-orange-line.png" alt="straight-orange-line" width="300" height="200"/> <img src="final-straight-orange-line.png" alt="final-straight-orange-line" width="300" height="200"/>
 
 
 Now we add the bent blue line and straight orange line together to get this green wedge. Now we add the final bias term, -16 to the y-axis coordinates on the green wedge.
@@ -50,8 +45,10 @@ Lastly, because we included the ReLU activation function right in front of the o
 <img src="cor_x_axis.png" alt="cor_x_axis" width="400" height="300"/>
 
 And when we plug that into the ReLU activation function, we get 
-f(x) = max(0,x) = y-axis coordinate
-f(-16) = max(0,-16) =  y-axis coordinate = 0
+
+$f(x) = max(0,x) = y-axis coordinate$
+
+$f(-16) = max(0,-16) =  y-axis coordinate = 0$
 
 And 0 corresponds to this green dot.
 
