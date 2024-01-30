@@ -1,66 +1,80 @@
 Backpropagation
+<img src="mean_std.png" alt="mean_std" width="400" height="300"/>
 
 In part1, inside the black box, we started with a simple dataset that showed whether or not different drug dosages were effective against a virus. The low and high dosages were not effective, but the medium dosage was effective. Then we talked about how a neural network fits a green a green squiggle to this dataset.
-Insert fit_squiggle png
+
+<img src="fit_squiggle.png" alt="fit_squiggle" width="400" height="300"/>
+
 Remember, the neural network starts with identical activation functions but using different weights and biases on the connections, it flips and stretches the activation functions into new shapes, which are then added together to get a squiggle that is shifted to fit the data.
-Insert new_shape png
-Insert shift_fit png
+
+<img src="new_shape.png" alt="new_shape" width="400" height="300"/>
+<img src="shift_fit.png" alt="shift_fit" width="400" height="300"/>
+
 However, we did not talk about how to estimate the weights and biases, so let’s talk about how back propagation optimizes the weights and biases in this and other neural networks.
-Insert how_optimize png
+
+<img src="how_optimize.png" alt="how_optimize" width="400" height="300"/>
+
 
 In this part, we talk about the main ideas of back propagation:
 Using the chain rule to calculate derivatives
 d SSR/ d bias = d SSR/d Predicted x d Predicted/d bias
-Insert step1 png
+
+<img src="step1.png" alt="step1" width="400" height="300"/>
+
 2. Plugging the derivatives into gradient descent to optimize parameters
 
-Insert step2 png
+<img src="step2.png" alt="step2" width="400" height="300"/>
+
 
 In the next part, we’ll talk about how the chain rule and gradient descent apply to multiple parameters simultaneously and introduce some fancy notation, then we will go completely bonkers with the chain rule and show how to optimize all 7 parameters simultaneously in this neural network.
 
-Insert 7_para png
+<img src="7_para.png" alt="7_para" width="400" height="300"/>
 
 Note: conceptually, backpropagation starts with the last parameter and works its way backwards to estimate all of the other parameters. However, we can discuss all of the main ideas behind backprogagation by just estimating the last Bias, b3.
 
-Insert last_para png
+<img src="last_para.png" alt="last_para" width="400" height="300"/>
 
 In order to start from the back, let’s assume that we already have optimal values for all of the parameters except for the last bias term, b3. The parameter values that have already been optimized are marked green, and unoptimized parameters will be red. Also note, to keep the math simple, let’s assume dosages go from 0(low) to 1(high).
-Insert assume png
+
+<img src="assume.png" alt="assume" width="400" height="300"/>
 
 Now, if we run dosages from 0 to 1 through the connection to the top node in the hidden layer then we get x-axis coordinates for the activation function that are all inside this red box and when we plug the x-axis coordinates into the activation function, which, in this example is the soft plus activation function, we get the corresponding y-axis coordinates and this blue curve. Then we multiply the y-axis coordinates on the blue curve by -1.22 and we get the final blue curve.
 Insert softplus png insert final_blue_curve png
 Then same operation for run dosages from 0 to 1 through the connection to the bottom node in the hidden layer, and get the final orange curve. Then add the blue and orange curves together to get the green squiggle.
 
-Insert get_squiggle png
+<img src="get_squiggle.png" alt="get_squiggle" width="400" height="300"/>
 
 Now we are ready to add the final bias, b3, to the green squiggle. because we don’t yet know the optimal value for b3, we have to give it an initial value. And because bias terms are frequently initialized to 0, we will set b3 = 0. Now, adding 0 to all of the y-axis coordinates on the green squiggle leaves it right where it is. However, that means the green squiggle is pretty far from the data that we observed. We can quantify how good the green squiggle fits the data by calculating the sum of the squared residuals.
 
-Insert b30 png
+<img src="b30.png" alt="b30" width="400" height="300"/>
 
 A residual is the difference between the observed and predicted values.
 Residual = (Observed - Predicted)
-Insert cal_residual png
+
+<img src="cal_residual.png" alt="cal_residual" width="400" height="300"/>
 
 By calculation when b3= 0, the SSR = 20.4. And we can plot it in the following graph, where y-axis is SSR, x-axis is the bias b3.
-Insert b3_SSR png
+
+<img src="b3_SSR.png" alt="b3_SSR" width="400" height="300"/>
 
 Now, if we increase b3 to 1, then we add 1 to the y-axis coordinates on the green squiggle and shift the green squiggle up 1 and we end up with shorter residuals.
-Insert vary_b3_ssr png
+
+<img src="vary_b3_ssr.png" alt="vary_b3_ssr" width="400" height="300"/>
 
 And if we had time to plug in tons of values for b3, we would get this pink curve and we could find the lowest point, which corresponds to the value for b3 that results in the lowest SSR, here.
-Insert lowest_ssr png
+
+<img src="lowest_ssr.png" alt="lowest_ssr" width="400" height="300"/>
 
 However, instead of plugging in tons of values to find the lowest point in the pink curve, we use gradient descent to find it relatively quickly. And that means we need to find the derivative of the sum of the squared residuals with respect to b3.
 
-Insert lowest_by_gradient png
+<img src="lowest_by_gradient.png" alt="lowest_by_gradient" width="400" height="300"/>
 
 SSR = \sum_{I=1}^{n=3}(Obseved_i - Predicted_i)^2
 Each predicted value comes from the green squiggle, Predicted_i = green squiggle_i, and the green squiggle comes from the last part of the neural network. In other words, the green squiggle is the sum of the blue and orange curves plus b3.
 
 Predicted_i = green squiggle_i = blue + orange + b3
 
-
-Insert green_last png
+<img src="green_last.png" alt="green_last" width="400" height="300"/>
 
 Now remember, we want to use gradient descent to optimize b3 and that means we need to take the derivative of the SSR with respect to b3. And because the SSR are linked to b3 by the predicted values, we can use the chain rule so solve for the derivative of the sum of the squared residuals with respect to b3.
 The chain rule says that the derivative of the SSR respect to b3 is the derivative of the SSR with respect to the predicted values times the derivative of the predicted values with respect to b3.
@@ -72,7 +86,8 @@ d SSR/d Predicted = d/d Predicted \sum_i=1^n=3(Observed_i - Predicted_i)^2 = \su
 
 d/d Predicted Observed - Predicted = -1
 
-Insert ssr_predicted png
+<img src="ssr_predicted.png" alt="ssr_predicted" width="400" height="300"/>
+
 
 Now let’s solve for the second part, the derivative of the Predicted values with respect to b3. Remember, the blue and orange curves were created before we got to b3, so the derivative of the blue curve with respect to b_3 is 0, because the blue curve is independent of b_3.
 
@@ -80,7 +95,11 @@ Now let’s solve for the second part, the derivative of the Predicted values wi
  d Predicted/d b_3 = d/d b3 green squiggle = d/d b_3(blue+orange+b_3) = 0+0+1 = 1
 
 Insert creat_before png
+<img src="green_last.png" alt="green_last" width="400" height="300"/>
+
 Insert predicted_b3 png
+<img src="green_last.png" alt="green_last" width="400" height="300"/>
+
 
 Therefore d SSR/ d b_3 = d SSR/d Predicted x d Predicted/d b_3
 
@@ -88,6 +107,8 @@ Therefore d SSR/ d b_3 = d SSR/d Predicted x d Predicted/d b_3
 And that means we can pug this derivative into gradient descent to find the optimal value for b_3.
 
 Insert find_optimal_b3 png
+<img src="green_last.png" alt="green_last" width="400" height="300"/>
+
 
 d SSR/ d b_3 = \sum i=1^n=3 -2x(Observed_i - Predicted_i) x 1
 
@@ -110,31 +131,37 @@ d SSR/ d b_3 = \sum i=1^n=3 -2x(Observed_i - Predicted_i) x 1
 
 Remember, we get the predicted values on the green squiggle by running the dosages through the neural network.
 
-Insert predict_green png
+<img src="predict_green.png" alt="predict_green" width="400" height="300"/>
+
 
 Now we just do the math and get -15.7 and that corresponds to the slope for when b3=0
 
-Insert slope_b30 png
+<img src="slope_b30.png" alt="slope_b30" width="400" height="300"/>
 
 Now we plug the slope into the gradient descent equation for step size, and in this example, we’ll set the learning rate to 0.1. And then we use the step size to calculate the new value for b3.
 Step size = slope x learning rate = -15.7 x 0.1 = -1.57
 New b3 = Old b3 - Step Size = 0 - (-1.57) = 1.57
 Changing b3 to 1.57 shifts the green squiggle up and that shrinks the residuals.
 
-Insert b3_157 png
+<img src="b3_157.png" alt="b3_157" width="400" height="300"/>
+
 
 Now, plugging in the new predicted values and doing the math gives us -6.26 which corresponds to the slope when b3 = 1.57. Then calculate the step size and the new value for b3 which is 2.19. Changing b3 to 2.19 shifts the green squiggle up further and that shrinks the residuals even more.
 
-Insert b3_2191 png
-Insert b3_2192 png
-Insert b3_2193 png
+<img src="b3_2191.png" alt="b3_2191" width="400" height="300"/>
+
+<img src="b3_2192.png" alt="b3_2192" width="400" height="300"/>
+
+<img src="b3_2193.png" alt="b3_2193" width="400" height="300"/>
+
 
 Now we just keep taking steps until the step size is close to 0. And because the spa size is close to 0 when b3 = 2.61, we decide that 2.16 is the optimal value for b3.
 
-Insert b3_261 png
+<img src="b3_261.png" alt="b3_261" width="400" height="300"/>
 
 So the main ideas for back propagation are that when a parameter is unknown like b3, we use the chain rule to calculate the derivative of the sum of the squared residuals(SSR) with respect to the unknown parameter, which in this case was b3. Then we initialize the unknown parameter with a number and in this case we set b3 = 0 and used gradient descent to optimize the unknown parameter.
 
-Insert main_idea png
-Insert optimize png
+<img src="main_idea.png" alt="main_idea" width="400" height="300"/>
+<img src="optimize.png" alt="optimize" width="400" height="300"/>
+
 
