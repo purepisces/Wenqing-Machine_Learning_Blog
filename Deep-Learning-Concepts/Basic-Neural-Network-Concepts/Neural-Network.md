@@ -19,7 +19,11 @@ Initially, the parameter values of a neural network are unknown. These values ar
 
 <img src="unknown_value.png" alt="unknown_value" width="400" height="300"/> <img src="back_estimated.png" alt="back_estimated" width="400" height="300"/>
 
-And we will talk about how backprogagation estimates these parameters in part2 in this series, but for now, just assume that we’ve already fit this neural network to this specific dataset and that means we have already estimated these parameters. Also, you may have noticed that some of the nodes have curved lines inside of them, the curved or bent lines are called activation functions. When you build a neural network, you have to decide which activation function or functions you want to use.
+And we will talk about how backprogagation estimates these parameters in part2 in this series, but for now, just assume that we’ve already fit this neural network to this specific dataset and that means we have already estimated these parameters. 
+
+### activation function
+
+Also, you may have noticed that some of the nodes have curved lines inside of them, the curved or bent lines are called activation functions. When you build a neural network, you have to decide which activation function or functions you want to use.
 
 <img src="curved_lines.png" alt="curved_lines" width="400" height="300"/>
 
@@ -46,8 +50,8 @@ The first thing we are going to do is plug the lowest dosage 0 into the neural n
 
 <img src="from_to.png" alt="from_to" width="400" height="300"/>
 
-(Dosage x -34.4) + 2.14 = x-axis coordinate 
-(0 x -34.4) +2.14 = 2.14  
+$(\text{Dosage} \times -34.4) + 2.14 = \text{x-axis coordinate}$
+$(0 \times -34.4) +2.14 = 2.14$
 
 <img src="x_axis_coordinate.png" alt="x_axis_coordinate" width="400" height="300"/>
 
