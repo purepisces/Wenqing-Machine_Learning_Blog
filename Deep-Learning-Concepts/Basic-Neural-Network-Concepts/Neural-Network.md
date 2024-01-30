@@ -1,5 +1,105 @@
 # Neural Networks Overview
 
+In this overview, we explore the functionality of neural networks and their capability to model complex relationships, such as varying drug efficacy based on dosage, beyond simple linear fits.
+
+![Neural Network Squiggle Fit](nn_squiggle.png)
+
+## What is a Neural Network?
+
+Neural networks consist of interconnected layers of nodes or neurons, where each connection represents a parameter (weight or bias) that the network learns during training.
+
+![Connection Values in Neural Networks](connection_value.png)
+
+Initially, these parameters are unknown and are determined through a process called backpropagation, fine-tuning them to fit the training data accurately.
+
+![Parameter Estimation in Neural Networks](unknown_value.png) ![Backpropagation](back_estimated.png)
+
+In the next part of this series, we will delve deeper into how backpropagation works, but for now, let's assume we have a neural network already trained for our dataset.
+
+### Activation Functions
+
+Within the network, some nodes incorporate activation functions, depicted by curved lines, essential for introducing non-linearity into the model.
+
+![Activation Functions](curved_lines.png)
+
+### Hidden Layers
+
+Hidden layers lie between the input and output layers. The configuration of these layers, including the number of nodes and layers, is crucial in designing a neural network.
+
+![Hidden Layers](hidden_layers.png)
+
+### Model Construction
+
+We'll examine how neural networks utilize activation functions in hidden layers to create and combine various shapes, ultimately fitting a complex model to the data, illustrated by a green squiggle in our example.
+
+![Combining Shapes in Neural Networks](add_together.png)
+
+#### Dosage and Efficacy Example
+
+Considering a scenario modeling drug efficacy from dosage, we input dosage values into the network, transforming them through layers and activation functions to predict efficacy.
+
+For the lowest dosage (0), the calculation through one path in the network might look like this:
+
+![Dosage to Activation](from_to.png)
+
+\[ (\text{Dosage} \times -34.4) + 2.14 = \text{x-axis coordinate} \]
+
+\[ (0 \times -34.4) + 2.14 = 2.14 \]
+
+![X-Axis Coordinate](x_axis_coordinate.png)
+
+By applying the softplus activation function, we plot a point on the curve for the corresponding dosage, creating a series of points that form a curve as we vary the dosage from 0 to 1.
+
+![Softplus Activation Function](choose_softplus.png) ![Plotting Points](put_dot.png)
+
+The choice of activation function affects the shape of the curve. For instance, using a sigmoid function would yield a different curve.
+
+![Sigmoid Activation Function](choose_sigmoid.png)
+
+As we increase the dosage to 1, we obtain a curve that represents the model's predictions over the dosage range.
+
+![Blue Curve](blue_curve.png)
+
+The range of values from the activation function is relatively narrow, corresponding to the red box in the graph, shaping the curve.
+
+![Narrow Value Range](narrow_range.png)
+
+Scaling and transforming these curves through weights and biases in the network allows us to fit complex models to the data.
+
+![Scaling and Transforming Curves](scale_pos.png) ![New Blue Curve](new_blue_curve.png)
+
+Each node in the hidden layer contributes to the final model by creating unique shapes through the activation function, transformed by the network's parameters.
+
+![Different Parameters and Shapes](diff_para.png) ![Portions of Activation Functions](diff_portion.png) ![Creating New Shapes](exciting_shape.png)
+
+By scaling and adding these curves together, neural networks can approximate complex relationships within the data.
+
+![Adding Curves](add_curve.png) ![Final Model Fit](subtract_curve.png)
+
+### Making Predictions
+
+Given a specific dosage, the neural network can predict its efficacy by mapping it onto the final model curve, indicating the drug's effectiveness.
+
+![Predicting Efficacy](BFSFMs.png)
+
+### Understanding Weights and Biases
+
+Weights and biases are the parameters that neural networks adjust to fit the model to the data, slicing, flipping, and stretching the activation functions into new shapes.
+
+![Weights in Neural Networks](weights.png) ![Biases in Neural Networks](biases.png)
+
+Neural networks can adapt to fit nearly any dataset by manipulating these parameters, showcasing their versatility and power.
+
+![Fitting Complex Data](shift_data.png) ![Theoretical Capability](theory_nn.png)
+
+## Reference:
+
+For a more detailed exploration, watch the related video on [YouTube](https://www.youtube.com/watch?v=CqOfi41LfDw).
+
+
+
+# Neural Networks Overview
+
 
 We will learn about what neural networks do and how they do it.
 For example, different dosages will have different efficacy, and we can not just fit a line for the dataset. But even if we have a really complicated dataset like this, a neural network can fit a squiggle to it.
