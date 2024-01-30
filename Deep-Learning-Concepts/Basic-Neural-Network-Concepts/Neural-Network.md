@@ -42,9 +42,9 @@ For the lowest dosage (0), the calculation through one path in the network might
 
 ![Dosage to Activation](from_to.png)
 
-\[ (\text{Dosage} \times -34.4) + 2.14 = \text{x-axis coordinate} \]
+$(\text{Dosage} \times -34.4) + 2.14 = \text{x-axis coordinate}$
 
-\[ (0 \times -34.4) + 2.14 = 2.14 \]
+$(0 \times -34.4) + 2.14 = 2.14$
 
 ![X-Axis Coordinate](x_axis_coordinate.png)
 
