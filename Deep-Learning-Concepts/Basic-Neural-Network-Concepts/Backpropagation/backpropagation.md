@@ -181,7 +181,4 @@ Now we just keep taking steps until the step size is close to 0. And because the
 
 So the main ideas for back propagation are that when a parameter is unknown like b3, we use the chain rule to calculate the derivative of the sum of the squared residuals(SSR) with respect to the unknown parameter, which in this case was b3. Then we initialize the unknown parameter with a number and in this case we set b3 = 0 and used gradient descent to optimize the unknown parameter.
 
-<img src="main_idea.png" alt="main_idea" width="400" height="300"/>
-<img src="optimize.png" alt="optimize" width="400" height="300"/>
-
-
+<img src="main_idea.png" alt="main_idea" width="400" height="300"/> <img src="optimize.png" alt="optimize" width="400" height="300"/>
