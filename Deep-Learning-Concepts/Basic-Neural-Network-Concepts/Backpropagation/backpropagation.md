@@ -16,7 +16,10 @@ However, we did not talk about how to estimate the weights and biases, so let’
 
 In this part, we talk about the main ideas of back propagation:
 Using the chain rule to calculate derivatives
-d SSR/ d bias = d SSR/d Predicted x d Predicted/d bias
+
+$\frac{dSSR}{dbias} = \frac{dSSR}{dPredicted} \cdot \frac{dPredicted}{dbias}$
+
+
 
 <img src="step1.png" alt="step1" width="400" height="300"/>
 
@@ -33,12 +36,14 @@ Note: conceptually, backpropagation starts with the last parameter and works its
 
 <img src="last_para.png" alt="last_para" width="400" height="300"/>
 
-In order to start from the back, let’s assume that we already have optimal values for all of the parameters except for the last bias term, b3. The parameter values that have already been optimized are marked green, and unoptimized parameters will be red. Also note, to keep the math simple, let’s assume dosages go from 0(low) to 1(high).
+In order to start from the back, let’s assume that we already have optimal values for all of the parameters except for the last bias term, $b_3$. The parameter values that have already been optimized are marked green, and unoptimized parameters will be red. Also note, to keep the math simple, let’s assume dosages go from 0(low) to 1(high).
 
 <img src="assume.png" alt="assume" width="400" height="300"/>
 
 Now, if we run dosages from 0 to 1 through the connection to the top node in the hidden layer then we get x-axis coordinates for the activation function that are all inside this red box and when we plug the x-axis coordinates into the activation function, which, in this example is the soft plus activation function, we get the corresponding y-axis coordinates and this blue curve. Then we multiply the y-axis coordinates on the blue curve by -1.22 and we get the final blue curve.
-Insert softplus png insert final_blue_curve png
+
+<img src="softplus.png" alt="softplus" width="400" height="300"/> <img src="final_blue_curve.png" alt="final_blue_curve" width="400" height="300"/>
+
 Then same operation for run dosages from 0 to 1 through the connection to the bottom node in the hidden layer, and get the final orange curve. Then add the blue and orange curves together to get the green squiggle.
 
 <img src="get_squiggle.png" alt="get_squiggle" width="400" height="300"/>
@@ -48,11 +53,12 @@ Now we are ready to add the final bias, b3, to the green squiggle. because we do
 <img src="b30.png" alt="b30" width="400" height="300"/>
 
 A residual is the difference between the observed and predicted values.
-Residual = (Observed - Predicted)
+
+$Residual = Observed - Predicted$
 
 <img src="cal_residual.png" alt="cal_residual" width="400" height="300"/>
 
-By calculation when b3= 0, the SSR = 20.4. And we can plot it in the following graph, where y-axis is SSR, x-axis is the bias b3.
+By calculation when $b_3$= 0, the SSR = 20.4. And we can plot it in the following graph, where y-axis is SSR, x-axis is the bias $b_3$.
 
 <img src="b3_SSR.png" alt="b3_SSR" width="400" height="300"/>
 
@@ -68,10 +74,12 @@ However, instead of plugging in tons of values to find the lowest point in the p
 
 <img src="lowest_by_gradient.png" alt="lowest_by_gradient" width="400" height="300"/>
 
-SSR = \sum_{I=1}^{n=3}(Obseved_i - Predicted_i)^2
+$SSR = \sum\limits_{i=1}^{n=3} (Observed_i - Predicted_i)^2$
+
+
 Each predicted value comes from the green squiggle, Predicted_i = green squiggle_i, and the green squiggle comes from the last part of the neural network. In other words, the green squiggle is the sum of the blue and orange curves plus b3.
 
-Predicted_i = green squiggle_i = blue + orange + b3
+$Predicted_i = \text{green squiggle}_i = \text{blue} + \text{orange} + b_3$
 
 <img src="green_last.png" alt="green_last" width="400" height="300"/>
 
@@ -80,10 +88,12 @@ The chain rule says that the derivative of the SSR respect to b3 is the derivati
 
 Now let’s solve for the first part, the derivative of the SSR with respect to the predicted values:
 
-d SSR/ d b_3 = d SSR/d Predicted x d Predicted/d b_3
-d SSR/d Predicted = d/d Predicted \sum_i=1^n=3(Observed_i - Predicted_i)^2 = \sum I=1^n=3 2x(Observed_i - Predicted_i)x-1 = \sum i=1^n=3 -2x(Observed_i - Predicted_i)
+$\frac{d SSR}{d b_3} = \frac{d SSR}{d Predicted} \cdot \frac{d Predicted}{d b_3}$
 
-d/d Predicted Observed - Predicted = -1
+$\frac{d SSR}{d Predicted} = \frac{d}{d Predicted} \sum\limits_{i=1}^{n=3} (Observed_i - Predicted_i)^2 = \sum\limits_{i=1}^{n=3} 2 \cdot (Observed_i - Predicted_i) \cdot (-1) = \sum\limits_{i=1}^{n=3} -2 \cdot (Observed_i - Predicted_i)$
+
+$\frac{d}{d Predicted} (Observed - Predicted) = -1$
+
 
 <img src="ssr_predicted.png" alt="ssr_predicted" width="400" height="300"/>
 
@@ -91,37 +101,28 @@ d/d Predicted Observed - Predicted = -1
 Now let’s solve for the second part, the derivative of the Predicted values with respect to b3. Remember, the blue and orange curves were created before we got to b3, so the derivative of the blue curve with respect to b_3 is 0, because the blue curve is independent of b_3.
 
 
- d Predicted/d b_3 = d/d b3 green squiggle = d/d b_3(blue+orange+b_3) = 0+0+1 = 1
+ $\frac{d Predicted}{d b_3} = \frac{d}{d b_3} (\text{green squiggle}) = \frac{d}{d b_3} (blue + orange + b_3) = 0 + 0 + 1 = 1$
+
 
 <img src="creat_before.png" alt="creat_before" width="400" height="300"/>
 
 <img src="predicted_b3.png" alt="predicted_b3" width="400" height="300"/>
 
 
-Therefore d SSR/ d b_3 = d SSR/d Predicted x d Predicted/d b_3
+Therefore
 
-= \sum i=1^n=3 -2x(Observed_i - Predicted_i) x 1
-And that means we can pug this derivative into gradient descent to find the optimal value for b_3.
+$\frac{d SSR}{d b_3} = \frac{d SSR}{d Predicted} \cdot \frac{d Predicted}{d b_3} = \sum\limits_{i=1}^{n=3} -2 \cdot (Observed_i - Predicted_i) \cdot 1$
+
+And that means we can pug this derivative into gradient descent to find the optimal value for $b_3$.
 
 <img src="find_optimal_b3.png" alt="find_optimal_b3" width="400" height="300"/>
 
+$\frac{d SSR}{d b_3} = \sum\limits_{i=1}^{n=3} -2 \cdot (Observed_i - Predicted_i) \cdot 1$
 
-d SSR/ d b_3 = \sum i=1^n=3 -2x(Observed_i - Predicted_i) x 1
 
 Let’s see how we can use this equation with gradient descent
 
-
-d SSR/ d b_3 = \sum i=1^n=3 -2x(Observed_i - Predicted_i) x 1
-= -2x(Observed_1 - Predicted_1) x 1
--2x(Observed_2 - Predicted_2) x 1
--2x(Observed_3 - Predicted_3) x 1
-= -2x(0 - Predicted_1) x 1
--2x(1 - Predicted_2) x 1
--2x(0 - Predicted_3) x 1
-=  -2x(0 - -2.6) x 1
--2x(1 - -1.6) x 1
--2x(0 - -2.61) x 1
-=-15.7
+$\frac{d SSR}{d b_3} = \sum\limits_{i=1}^{n=3} -2 \cdot (Observed_i - Predicted_i) \cdot 1 = -2 \cdot (Observed_1 - Predicted_1) \cdot 1 - 2 \cdot (Observed_2 - Predicted_2) \cdot 1 - 2 \cdot (Observed_3 - Predicted_3) \cdot 1 = -2 \cdot (0 - (-2.6)) \cdot 1 - 2 \cdot (1 - (-1.6)) \cdot 1 - 2 \cdot (0 - (-2.61)) \cdot 1 = -15.7$
 
 
 Remember, we get the predicted values on the green squiggle by running the dosages through the neural network.
@@ -134,8 +135,11 @@ Now we just do the math and get -15.7 and that corresponds to the slope for when
 <img src="slope_b30.png" alt="slope_b30" width="400" height="300"/>
 
 Now we plug the slope into the gradient descent equation for step size, and in this example, we’ll set the learning rate to 0.1. And then we use the step size to calculate the new value for b3.
+
 Step size = slope x learning rate = -15.7 x 0.1 = -1.57
+
 New b3 = Old b3 - Step Size = 0 - (-1.57) = 1.57
+
 Changing b3 to 1.57 shifts the green squiggle up and that shrinks the residuals.
 
 <img src="b3_157.png" alt="b3_157" width="400" height="300"/>
