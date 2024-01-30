@@ -1,10 +1,3 @@
-<img src="mean_std.png" alt="mean_std" width="400" height="300"/>
-> Note: The output layer's neuron count often differs from the input layer. Each layer can have a distinct number of neurons, indicating its 'size' or capacity.
->
-## Reference:
-- [Watch the video on YouTube](https://youtube.com/watch?v=jTzJ9zjC8nU)
-$\text{SSR}(a, b) = \sum\limits_{i=1}^{n} (y_i - ax_i - b)^2$
-
 ReLU In Action!!!
 
 Part 1 in neural networks, we started with a simple data set(inside the black box) that showed whether or not different drug dosages were effective against a virus. The low and high dosages were not effective but the medium dosage was effective. Then we talked about how a neural network like this one using the soft plus activation function in the hidden layer can fit a green squiggle to the dataset.
@@ -78,4 +71,6 @@ Some of you may have noticed that the ReLU activation function is bent and not c
 
 <img src="deri_pro.png" alt="deri_pro" width="400" height="300"/>
 
+## Reference:
+- [Watch the video on YouTube](https://www.youtube.com/watch?v=68BZ5f7P94E)
 
