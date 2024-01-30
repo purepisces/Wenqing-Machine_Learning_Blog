@@ -19,8 +19,9 @@ Standard-Deviation-vs-Standard-Error.md✅
 Confidence-Intervals.md✅
 least-squared.md✅
 calculus.md✅
-gradient-descent.md✅ need further math formula format improvement
-Neural-Network.md✅
+gradient-descent.md✅ need further math formula format improvement, need format and refrase
+Neural-Network.md✅ need format and rephrase
+backpropagation.md✅ need format and rephrase
 
 
 
