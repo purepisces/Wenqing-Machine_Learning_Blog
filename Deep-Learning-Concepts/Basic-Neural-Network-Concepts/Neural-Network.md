@@ -51,6 +51,7 @@ The first thing we are going to do is plug the lowest dosage 0 into the neural n
 <img src="from_to.png" alt="from_to" width="400" height="300"/>
 
 $(\text{Dosage} \times -34.4) + 2.14 = \text{x-axis coordinate}$
+
 $(0 \times -34.4) +2.14 = 2.14$
 
 <img src="x_axis_coordinate.png" alt="x_axis_coordinate" width="400" height="300"/>
