@@ -24,7 +24,8 @@ Neural-Network.md✅ need format and rephrase
 backpropagation.md✅ need format and rephrase
 
 
-
+Activation function
+Chain rule
 logistic regression
 t-sne
 implicit function
