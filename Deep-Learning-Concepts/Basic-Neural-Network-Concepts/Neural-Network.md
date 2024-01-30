@@ -21,7 +21,7 @@ Initially, the parameter values of a neural network are unknown. These values ar
 
 And we will talk about how backprogagation estimates these parameters in part2 in this series, but for now, just assume that we’ve already fit this neural network to this specific dataset and that means we have already estimated these parameters. 
 
-### activation function
+### Activation Function
 
 Also, you may have noticed that some of the nodes have curved lines inside of them, the curved or bent lines are called activation functions. When you build a neural network, you have to decide which activation function or functions you want to use.
 
