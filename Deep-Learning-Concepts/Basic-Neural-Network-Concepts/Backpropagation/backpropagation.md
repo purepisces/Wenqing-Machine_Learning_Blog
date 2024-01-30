@@ -1,6 +1,6 @@
-Backpropagation
+# Backpropagation
 
-In part1, inside the black box, we started with a simple dataset that showed whether or not different drug dosages were effective against a virus. The low and high dosages were not effective, but the medium dosage was effective. Then we talked about how a neural network fits a green a green squiggle to this dataset.
+In part 1, inside the black box, we started with a simple dataset that showed whether or not different drug dosages were effective against a virus. The low and high dosages were not effective, but the medium dosage was effective. Then we talked about how a neural network fits a green squiggle to this dataset.
 
 <img src="fit_squiggle.png" alt="fit_squiggle" width="400" height="300"/>
 
@@ -13,19 +13,19 @@ However, we did not talk about how to estimate the weights and biases, so let’
 
 <img src="how_optimize.png" alt="how_optimize" width="400" height="300"/>
 
+In this part, we talk about the main ideas of backpropagation:
 
-In this part, we talk about the main ideas of back propagation:
-Using the chain rule to calculate derivatives
+1. **Using the chain rule to calculate derivatives**
 
-$\frac{dSSR}{dbias} = \frac{dSSR}{dPredicted} \cdot \frac{dPredicted}{dbias}$
+   $\frac{dSSR}{dbias} = \frac{dSSR}{dPredicted} \cdot \frac{dPredicted}{dbias}$
+
+    <img src="step1.png" alt="step1" width="400" height="300"/>
+
+2. **Plugging the derivatives into gradient descent to optimize parameters**
+
+    <img src="step2.png" alt="step2" width="400" height="300"/>
 
 
-
-<img src="step1.png" alt="step1" width="400" height="300"/>
-
-2. Plugging the derivatives into gradient descent to optimize parameters
-
-<img src="step2.png" alt="step2" width="400" height="300"/>
 
 
 In the next part, we’ll talk about how the chain rule and gradient descent apply to multiple parameters simultaneously and introduce some fancy notation, then we will go completely bonkers with the chain rule and show how to optimize all 7 parameters simultaneously in this neural network.
@@ -145,10 +145,6 @@ Now we just do the math and get -15.7 and that corresponds to the slope for when
 <img src="slope_b30.png" alt="slope_b30" width="400" height="300"/>
 
 Now we plug the slope into the gradient descent equation for step size, and in this example, we’ll set the learning rate to 0.1. And then we use the step size to calculate the new value for b3.
-
-Step size = slope x learning rate = -15.7 x 0.1 = -1.57
-
-New b3 = Old b3 - Step Size = 0 - (-1.57) = 1.57
 
 $$\begin{align*}
 \text{Step size} &= \text{slope} \times \text{learning rate} \\
