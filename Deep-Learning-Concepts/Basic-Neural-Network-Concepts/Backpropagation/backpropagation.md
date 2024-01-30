@@ -25,9 +25,6 @@ In this part, we talk about the main ideas of backpropagation:
 
     <img src="step2.png" alt="step2" width="400" height="300"/>
 
-
-
-
 In the next part, we’ll talk about how the chain rule and gradient descent apply to multiple parameters simultaneously and introduce some fancy notation, then we will go completely bonkers with the chain rule and show how to optimize all 7 parameters simultaneously in this neural network.
 
 <img src="7_para.png" alt="7_para" width="400" height="300"/>
