@@ -163,11 +163,7 @@ Changing b3 to 1.57 shifts the green squiggle up and that shrinks the residuals.
 
 Now, plugging in the new predicted values and doing the math gives us -6.26 which corresponds to the slope when b3 = 1.57. Then calculate the step size and the new value for b3 which is 2.19. Changing b3 to 2.19 shifts the green squiggle up further and that shrinks the residuals even more.
 
-<img src="b3_2191.png" alt="b3_2191" width="400" height="300"/>
-
-<img src="b3_2192.png" alt="b3_2192" width="400" height="300"/>
-
-<img src="b3_2193.png" alt="b3_2193" width="400" height="300"/>
+<img src="b3_2191.png" alt="b3_2191" width="300" height="200"/> <img src="b3_2192.png" alt="b3_2192" width="300" height="200"/> <img src="b3_2193.png" alt="b3_2193" width="300" height="200"/>
 
 
 Now we just keep taking steps until the step size is close to 0. And because the spa size is close to 0 when b3 = 2.61, we decide that 2.16 is the optimal value for b3.
