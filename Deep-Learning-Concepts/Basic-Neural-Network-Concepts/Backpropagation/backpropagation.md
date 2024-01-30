@@ -1,8 +1,11 @@
 # Backpropagation
 
-In part 1, inside the black box, we started with a simple dataset that showed whether or not different drug dosages were effective against a virus. The low and high dosages were not effective, but the medium dosage was effective. Then we talked about how a neural network fits a green squiggle to this dataset.
+In our previous discussion, we delved into how a neural network can fit a complex model to data, such as determining the effectiveness of various drug dosages against a virus. We saw that while low and high dosages were ineffective, a medium dosage proved beneficial. The neural network achieved this by adjusting a basic activation function into a "green squiggle" that matched our data points through manipulation of weights and biases.
+
 
 <img src="fit_squiggle.png" alt="fit_squiggle" width="400" height="300"/>
+
+## The Essence of Neural Network Training
 
 Remember, the neural network starts with identical activation functions but using different weights and biases on the connections, it flips and stretches the activation functions into new shapes, which are then added together to get a squiggle that is shifted to fit the data.
 
@@ -10,6 +13,7 @@ Remember, the neural network starts with identical activation functions but usin
 <img src="shift_fit.png" alt="shift_fit" width="400" height="300"/>
 
 However, we did not talk about how to estimate the weights and biases, so let’s talk about how back propagation optimizes the weights and biases in this and other neural networks.
+
 
 <img src="how_optimize.png" alt="how_optimize" width="400" height="300"/>
 
