@@ -81,7 +81,7 @@
   - **MLP (Multi-Layer Perceptron)**
     - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/FFNN/MLP.md)
 - **Backpropagation**
-  - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/backpropagation.md)
+  - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Backpropagation/backpropagation.md)
 - **Activation Functions**
   - [Overview](activation-functions.md)
   - [ReLU](ReLU.md)
