@@ -83,11 +83,11 @@
 - **Backpropagation**
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Backpropagation/backpropagation.md)
 - **Activation Functions**
-  - [Overview](activation-functions.md)
-  - [ReLU](ReLU.md)
-  - [Sigmoid](sigmoid.md)
-  - [Tanh](tanh.md)
-  - [Softmax](softmax.md)
+  - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/activation-functions.md)
+  - [ReLU](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/relu.md)
+  - [Sigmoid](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/sigmoid.md)
+  - [Tanh](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/tanh.md)
+  - [Softmax](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/softmax.md)
 ### Sequence Models
 - [Overview](sequence-models-overview.md)
 - **Language Model Evaluation Metrics**
