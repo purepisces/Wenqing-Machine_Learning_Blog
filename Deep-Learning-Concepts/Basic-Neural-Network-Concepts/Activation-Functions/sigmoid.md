@@ -35,9 +35,30 @@ $\text{activated output} = \frac{1}{1 + e^{-0.68}} \approx 0.6637$
 
 This activated output is then used as input to the neurons in the subsequent layer.
 
-
 ## Visualization:
 ![Sigmoid Activation Function](sigmoid_activation.png)
+
+## Sigmoid Class Implementation:
+Below is a Python class implementation of the sigmoid activation function, which includes both the forward pass (calculating the activated output) and the backward pass (calculating the gradient for backpropagation).
+
+```python
+class Sigmoid:
+    """
+    Sigmoid Activation Function:
+    - 'forward' function applies the sigmoid activation.
+    - 'backward' function computes the gradient for backpropagation.
+    """
+    def forward(self, Z):
+        self.A = 1 / (1 + np.exp(-Z))
+        return self.A
+
+    def backward(self, dLdA):
+        dAdZ = self.A * (1 - self.A)
+        dLdZ = dLdA * dAdZ
+        return dLdZ
+```
+
+
 
 ## Key Takeaway:
 The sigmoid function is crucial for transforming linear inputs into outputs that can be interpreted as probabilities, thereby providing a probabilistic foundation to the activation levels within a neural network.
