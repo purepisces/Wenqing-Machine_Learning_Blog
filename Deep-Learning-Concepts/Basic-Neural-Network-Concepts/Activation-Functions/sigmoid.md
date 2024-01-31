@@ -42,6 +42,7 @@ This activated output is then used as input to the neurons in the subsequent lay
 Below is a Python class implementation of the sigmoid activation function, which includes both the forward pass (calculating the activated output) and the backward pass (calculating the gradient for backpropagation).
 
 ```python
+import numpy as np
 class Sigmoid:
     """
     Sigmoid Activation Function:
