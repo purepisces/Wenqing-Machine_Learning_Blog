@@ -6,7 +6,7 @@
 $\text{SSR}(a, b) = \sum\limits_{i=1}^{n} (y_i - ax_i - b)^2$
 
 
-ffnn.md✅
+ffnn.md✅已发csdn+知乎
 linear-regression.md✅
 variance&standarDeviation.md✅
 Covariance.md ❌ need further improvement for pca
