@@ -2,6 +2,7 @@
 
 ## Foundational Concepts in Machine Learning
 - **Linear Algebra**
+  - [Numpy Tips](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/Numpy-Tips.md)
   - [Inverse matrix](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/inverse-matrix.md)
   - [Determinants](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/determinants.md)
   - [Linear Transformations](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/linear-transformations.md)
