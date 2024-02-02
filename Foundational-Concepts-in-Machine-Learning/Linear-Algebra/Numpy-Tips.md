@@ -66,3 +66,27 @@ $$
 
 
 - **Element-wise Division**: Use $A / B$ for element-wise division, denoted as $A \oslash B$.
+   
+  **Example**: Given two matrices
+
+$$A = \left(\begin{array}{cc} 
+1 & 2\\ 
+3 & 4
+\end{array}\right)
+$$ 
+
+$$B = \left(\begin{array}{cc} 
+5 & 6\\ 
+7 & 8
+\end{array}\right)
+$$ 
+
+The element-wise division $A \oslash B$ is calculated as:
+
+  $$\left(\begin{array}{cc} 
+\frac{1}{5} & \frac{2}{6}\\ 
+\frac{3}{7} & \frac{4}{8}
+\end{array}\right)
+$$ 
+
+
