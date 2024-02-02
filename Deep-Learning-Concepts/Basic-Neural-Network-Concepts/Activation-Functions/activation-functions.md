@@ -1,4 +1,4 @@
-Note, this file is the same as relu.md, because I want to use relu to illstrate activation functions.
+I use relu.md to illstrate the main idea behind activation functions [ReLU](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/relu.md).
 
 # ReLU In Action!!!
 
