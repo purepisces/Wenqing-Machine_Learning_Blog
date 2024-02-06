@@ -1,17 +1,25 @@
 I use relu.md to illstrate the main idea behind activation functions [ReLU](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/relu.md).
 
-As a machine learning engineer, you can theoretically choose any differentiable function as the activation function. The primary purpose of having nonlinear components in the neural network (fNN ) is to allow it to approximate nonlinear functions. Without activation functions, fNN will always be linear, no matter how deep it is. The reason is that A · W + b is a linear function, and a linear function of a linear function is also linear.
+As a machine learning engineer, you can theoretically choose any differentiable function as the activation function. The primary purpose of having nonlinear components in a neural network (fNN) is to allow it to approximate nonlinear functions. Without activation functions, an fNN will always be linear, no matter how deep it is. This is because `A · W + b` is a linear function, and a linear function of a linear function is also linear.
 
-Activation functions can either take scalar or vector arguments. Scalar activations apply a function to a single number. Thus, when they are applied to a vector, they operate element-wise. This one-to-one dependence between the input and output makes calculating derivatives easier. Popular choices of scalar activation functions are Sigmoid, ReLU, Tanh, and GELU, as shown in Table 2. More details about these functions are provided in their respective subsections.
+Activation functions can either take scalar or vector arguments. Scalar activations apply a function to a single number. Thus, when they are applied to a vector, they operate element-wise. This one-to-one dependence between the input and output makes calculating derivatives easier. Popular choices of scalar activation functions are **Sigmoid, ReLU, Tanh, and GELU**, as shown in Table 2. More details about these functions are provided in their respective subsections.
 
-In the case of vector activations, however, each output element depends on each of the input elements. This makes calculating derivatives tricky. A popular vector activation is the Softmax which you will be imple- menting in addition to the scalar activations mentioned above.
-In this section, your task is to implement the Activation class in file activation.py: • Class attributes:
-– Activation functions have no trainable parameters.
-– Variables stored during forward-propagation to compute derivatives during back-propagation:
-layer output A. • Class methods:
-– forward: forward method takes in a batch of data Z of shape N × C (representing N samples where each sample has C features), and applies the activation function to Z to compute output A of shape N × C.
-– backward: backward method takes in dLdA, a measure of how the post-activations (output) affect the loss. Using this and the derivative of the activation function itself, the method calculates and returns dLdZ, how changes in pre-activation features (input) Z affect the loss L. In the case of scalar activations, dLdZ is computed as:
-dLdZ = dLdA ⊙ ∂A (8) ∂Z
+In the case of vector activations, however, each output element depends on each of the input elements. This makes calculating derivatives tricky. A popular vector activation is the **Softmax**, which you will be implementing in addition to the scalar activations mentioned above.
+
+
+- **Class attributes**:
+  - Activation functions have no trainable parameters.
+  - Variables stored during forward-propagation to compute derivatives during back-propagation: layer output `A`.
+
+- **Class methods**:
+  - `forward`: The forward method takes in a batch of data `Z` of shape `N × C` (representing `N` samples where each sample has `C` features), and applies the activation function to `Z` to compute output `A` of shape `N × C`.
+  - `backward`: The backward method takes in `dLdA`, a measure of how the post-activations (output) affect the loss. Using this and the derivative of the activation function itself, the method calculates and returns `dLdZ`, how changes in pre-activation features (input) `Z` affect the loss `L`. In the case of scalar activations, `dLdZ` is computed as:
+    $
+    dLdZ = dLdA \odot \frac{\partial A}{\partial Z}
+    $
+
+
+<img src="activation-funcs.png" alt="activation-funcs" width="400" height="300"/>
 
 
 # ReLU In Action!!!
