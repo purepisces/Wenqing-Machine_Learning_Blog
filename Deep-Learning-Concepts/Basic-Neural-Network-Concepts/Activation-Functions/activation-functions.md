@@ -236,6 +236,107 @@ In summary, the Jacobian matrix itself is a matrix of derivatives that describes
 
 
 
+### Example Using Softmax Activation Function in Neural Networks
+
+#### Setting the Scene
+Consider a neural network layer with 2 samples in a batch (`N=2`) and each sample has 3 features (`C=3`). This setup could represent the logits for 3 classes in a classification problem.
+
+Our batch of input vectors `Z` is given by:
+
+```plaintext
+Z = [
+    Z^{(1)}
+    Z^{(2)}
+    ] = [
+        1   2   3
+        2   2   1
+        ]
+
+Applying Softmax Activation
+Softmax is applied to each sample Z^{(i)} to produce the output vector A^{(i)}. The Softmax function for an element z_j in vector Z^{(i)} is defined as:
+
+\text{Softmax}(z_j) = \frac{e^{z_j}}{\sum_{k=1}^{C} e^{z_k}}
+
+After applying Softmax to each row of Z, we get:
+
+A = [
+    A^{(1)}
+    A^{(2)}
+    ] = [
+        0.09   0.24   0.67
+        0.42   0.42   0.16
+        ]
+
+Jacobian Matrix for Softmax
+
+For Softmax, the Jacobian J^{(i)} for a single sample A^{(i)} has elements:
+
+J^{(i)}_{jk} = \begin{cases}
+    A^{(i)}_j (1 - A^{(i)}_j) & \text{if } j = k \\
+    -A^{(i)}_j A^{(i)}_k & \text{otherwise}
+\end{cases}
+
+For our first sample A^{(1)}, the Jacobian J^{(1)} would be a 3x3 matrix where each element is computed using the above rule.
+
+Calculating J^{(1)}
+
+For the first sample, A^{(1)} = [0.09, 0.24, 0.67].  Using the Softmax derivative formula:
+For j = k: J^{(1)}_{jj} = A^{(1)}_j (1 - A^{(1)}_j)
+For j \neq k: J^{(1)}_{jk} = -A^{(1)}_j A^{(1)}_k
+Thus, we have:
+J^{(1)}_{11} = 0.09 \times (1 - 0.09) = 0.0819
+J^{(1)}_{22} = 0.24 \times (1 - 0.24) = 0.1824
+J^{(1)}_{33} = 0.67 \times (1 - 0.67) = 0.2211
+And for j \neq k
+
+J^{(1)}_{12} = J^{(1)}_{21} = -0.09 \times 0.24 = -0.0216
+J^{(1)}_{13} = J^{(1)}_{31} = -0.09 \times 0.67 = -0.0603
+J^{(1)}_{23} = J^{(1)}_{32} = -0.24 \times 0.67 = -0.1608
+So, J^{(1)} is
+
+J^{(1)} = \begin{bmatrix}
+0.0819 &amp; -0.0216 &amp; -0.0603 \\
+-0.0216 &amp; 0.1824 &amp; -0.1608 \\
+-0.0603 &amp; -0.1608 &amp; 0.2211
+\end{bmatrix}
+
+Similarly
+J^{(2)} = \begin{bmatrix}
+0.2436 &amp; -0.1764 &amp; -0.0672 \\
+-0.1764 &amp; 0.2436 &amp; -0.0672 \\
+-0.0672 &amp; -0.0672 &amp; 0.1344
+\end{bmatrix}
+
+
+
+Computing the Gradient dLdZ^{(i)}
+Let's assume we have the gradient of the loss with respect to the activation output dLdA for our batch as:
+
+dLdA = [
+    0.1   -0.2    0.1
+    -0.1   0.3   -0.2
+    ]
+
+The gradient dLdZ^{(i)} for each sample is calculated by multiplying the corresponding row of dLdA by the Jacobian J^{(i)}:
+
+dLdZ^{(i)} = dLdA^{(i)} \cdot J^{(i)}
+
+This operation would be performed for each sample, and the resulting vectors dLdZ^{(1)} and dLdZ^{(2)} are then stacked to form the final gradient matrix dLdZ for the whole batch.
+
+Specific Calculations
+Due to the complexity of the Softmax derivatives and for brevity, detailed computations of each element of J^{(1)} and J^{(2)} are omitted here. However, the general process involves:
+
+Calculating J^{(1)} and J^{(2)} using A^{(1)} and A^{(2)}, respectively.
+Multiplying dLdA^{(1)} = [0.1, -0.2, 0.1] by J^{(1)} to get dLdZ^{(1)}.
+Multiplying dLdA^{(2)} = [-0.1, 0.3, -0.2] by J^{(2)} to get dLdZ^{(2)}.
+Stacking dLdZ^{(1)} and dLdZ^{(2)} vertically to form dLdZ.
+This example illustrates the process of computing the gradient of the loss with respect to the inputs for a layer using a vector activation function, where the interdependence of the inputs in producing the outputs requires the computation of a full Jacobian matrix for each sample.
+
+
+
+
+
+
 Please consider the following class structure for the scalar activations:
 ```python
 class Activation:
