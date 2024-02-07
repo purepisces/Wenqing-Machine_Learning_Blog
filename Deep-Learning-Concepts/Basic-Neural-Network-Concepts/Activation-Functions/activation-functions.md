@@ -50,6 +50,22 @@ This reflects the fact that an increase in one logit not only increases its corr
 This interconnectedness makes the derivative computation for vector activation functions like Softmax more complex compared to scalar activations like ReLU.
 
 
+### Scalar Activation Function
+If an activation function is applied element-wise to each individual element of \(Z\), treating each \(z_{ij}\) independently, then it is a scalar activation function. For example, applying the ReLU function to each element of \(Z\) would be a scalar operation:
+
+\[
+\text{ReLU}(Z) = \begin{bmatrix}
+\max(0, z_{11}) & \max(0, z_{12}) \\
+\max(0, z_{21}) & \max(0, z_{22}) \\
+\max(0, z_{31}) & \max(0, z_{32})
+\end{bmatrix}
+\]
+
+In this case, each element \(z_{ij}\) is processed independently, and the shape of the output matrix remains the same as \(Z\), but with the activation function (in this case, ReLU) applied to each element.
+
+### Vector Activation Function
+On the other hand, if the activation function processes each row (or column) of \(Z\) as a whole vector, considering the relationships between elements in that vector, then it is a vector activation function. An example of this would be applying the Softmax function to each row of \(Z\), treating each row as a vector of logits for a multi-class classification problem.
+
 
 - **Class attributes**:
   - Activation functions have no trainable parameters.
@@ -57,11 +73,70 @@ This interconnectedness makes the derivative computation for vector activation f
 
 - **Class methods**:
   - $forward$: The forward method takes in a batch of data $Z$ of shape $N \times C$(representing $N$ samples where each sample has $C$ features), and applies the activation function to $Z$ to compute output $A$ of shape $N \times C$.
+    #### Example:
+    To illustrate this with an example, let's consider a simple case where we have a batch of 3 samples ($N = 3$) and each sample has 2 features ($C=2$). So, our input matrix $Z$ could look something like this:
+    $Z = \begin{bmatrix}
+z_{11} &amp; z_{12} \\
+z_{21} &amp; z_{22} \\
+z_{31} &amp; z_{32}
+\end{bmatrix}$
+
+Applying the ReLU activation function, which is defined as $ReLU(x) = \max(0, x)$, we get the output matrix $A$ as follows:
+
+$A = \begin{bmatrix}
+\max(0, z_{11}) &amp; \max(0, z_{12}) \\
+\max(0, z_{21}) &amp; \max(0, z_{22}) \\
+\max(0, z_{31}) &amp; \max(0, z_{32})
+\end{bmatrix}$
+    As you can see, each element in $Z$ is transformed individually to produce an element in $A$, but the overall shape of the matrix, $3 \times 2$ in this case, remains unchanged.
+    
   - $backward$: The backward method takes in $dLdA$, a measure of how the post-activations (output) affect the loss. Using this and the derivative of the activation function itself, the method calculates and returns $dLdZ$, how changes in pre-activation features (input) $Z$ affect the loss $L$. In the case of scalar activations, $dLdZ$ is computed as:
     
     $dLdZ = dLdA \odot \frac{\partial A}{\partial Z}$
 
-Here, $\frac{\partial A}{\partial Z}$ represents the element-wise derivative of the activation output $A$ with respect to its corresponding input $Z$. Specifically, for a single input of size $1 \times C$, this derivative equates to the diagonal of the Jacobian matrix, expressed as a vector of size $1 \times C$. This concept aligns with the understanding presented in the lecture that the Jacobian of a scalar activation function manifests as a diagonal matrix. When considering a batch with size $N$, the dimension of $\frac{\partial A}{\partial Z}$ expands to $N \times C$. The computation of $\frac{\partial A}{\partial Z}$ varies among different scalar activation functions, as detailed in their respective subsections.
+    ### Backward Method Example with ReLU Activation
+
+Let's explore an example of the backward method in a neural network using the ReLU (Rectified Linear Unit) activation function. The ReLU function is defined as \( ReLU(x) = \max(0, x) \).
+
+#### Forward Pass
+
+Suppose we have a neuron that receives an input \( Z \) and applies the ReLU activation function to produce an output \( A \). Consider a single input value \( Z = -2 \) during the forward pass:
+
+\[ A = ReLU(Z) = \max(0, -2) = 0 \]
+
+#### Backward Pass
+
+During the backward pass, we compute \( dLdZ \), which represents how changes in \( Z \) (pre-activation input) affect the loss \( L \), using \( dLdA \) (the gradient of the loss with respect to the activation function's output) and the derivative of the activation function \( \frac{\partial A}{\partial Z} \).
+
+The derivative of the ReLU function with respect to its input \( Z \) is:
+
+\[
+\frac{\partial A}{\partial Z} = \begin{cases} 
+1 & \text{if } Z > 0 \\
+0 & \text{otherwise}
+\end{cases}
+\]
+
+For \( Z = -2 \), the derivative \( \frac{\partial A}{\partial Z} \) is \( 0 \), because \( Z \) is not greater than \( 0 \).
+
+Let's say the backward pass provides us with \( dLdA = 0.5 \), indicating how the post-activation output \( A \) affects the loss \( L \).
+
+#### Computing \( dLdZ \)
+
+To find \( dLdZ \), we use:
+
+\[ dLdZ = dLdA \odot \frac{\partial A}{\partial Z} \]
+
+Substituting the known values:
+
+\[ dLdZ = 0.5 \odot 0 = 0 \]
+
+This result implies that in this scenario, where the ReLU function clamps the negative input to \( 0 \), changes in \( Z \) have no effect on the loss, as reflected by \( dLdZ = 0 \). This is intuitive since for negative inputs to ReLU, the output is always \( 0 \), and slight variations in \( Z \) do not affect \( A \) or the loss.
+
+This example demonstrates computing the gradient of the loss with respect to pre-activation inputs using the backward method and scalar activation functions.
+
+
+For $dLdZ = dLdA \odot \frac{\partial A}{\partial Z}$, Here, $\frac{\partial A}{\partial Z}$ represents the element-wise derivative of the activation output $A$ with respect to its corresponding input $Z$. Specifically, for a single input of size $1 \times C$, this derivative equates to the diagonal of the Jacobian matrix, expressed as a vector of size $1 \times C$. This concept aligns with the understanding presented in the lecture that the Jacobian of a scalar activation function manifests as a diagonal matrix. When considering a batch with size $N$, the dimension of $\frac{\partial A}{\partial Z}$ expands to $N \times C$. The computation of $\frac{\partial A}{\partial Z}$ varies among different scalar activation functions, as detailed in their respective subsections.
 
 The Jacobian of a vector activation function is not a diagonal matrix. For each input vector $Z^{(i)}$ of size $1 \times C$ and its corresponding output vector $A^{(i)}$ (also $1 \times C$ within the batch, the Jacobian matrix $J^{(i)}$ must be computed individually. This matrix holds dimensions $C \times C$. Consequently, the gradient $dLdZ^{(i)}$ for each sample in the batch is determined by:
 
