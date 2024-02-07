@@ -3,6 +3,9 @@ I use relu.md to illstrate the main idea behind activation functions [ReLU](Deep
 In the realm of machine learning, engineers have the liberty to select any differentiable function to serve as an activation function. The inclusion of non-linear elements within a neural network ($f_{NN}$) is crucial for its capability to model non-linear phenomena. In the absence of activation functions, the output of an $f_{NN}$ remains linear irrespective of its depth, due to the inherent linearity of the equation $A · W + b$.
 
 Activation functions can either take scalar or vector arguments. Scalar activations apply a function to a single number. Scalar activation functions are applied individually to each element of a vector, maintaining a direct relationship between each input and its corresponding output, which simplifies the computation of derivatives. Popular choices of scalar activation functions are **Sigmoid, ReLU, Tanh, and GELU**, as shown in the following figure.
+
+<img src="activation-funcs.png" alt="activation-funcs" width="400" height="300"/>
+
 #### Example:
 Consider a vector `X = [x1, x2, x3]` and applying the ReLU function (`ReLU(x) = max(0, x)`). The ReLU function is applied to each vector element:
 
@@ -35,7 +38,6 @@ On the other hand, vector activation functions like the **Softmax** involve outp
     dLdZ = dLdA \odot \frac{\partial A}{\partial Z}
     $
 
-<img src="activation-funcs.png" alt="activation-funcs" width="400" height="300"/>
 
 
 ## Reference:
