@@ -160,6 +160,48 @@ For the ReLU function, this derivative is 1 for \( z_i > 0 \) (indicating that a
 
 In the context of neural networks, particularly during the backpropagation process, the element-wise derivative plays a crucial role in weight updates. It enables the network to understand how small changes in each weight influence the overall loss, allowing the gradient descent algorithm to minimize the loss function effectively. This individualized computation ensures that each weight is optimized based on its specific contribution to the network's performance.
 
+### Understanding the Diagonal of the Jacobian Matrix for Scalar Activation Functions
+
+To comprehend why, for a single input of size \(1 \times C\), the derivative \( \frac{\partial A}{\partial Z} \) equates to the diagonal of the Jacobian matrix, it's essential to explore the nature of the Jacobian matrix in the context of activation functions.
+
+#### The Jacobian Matrix in the Context of Activation Functions
+The Jacobian matrix represents all first-order partial derivatives of a function that maps from \( \mathbb{R}^n \) to \( \mathbb{R}^m \). For a vector-valued function \( \mathbf{f}(\mathbf{x}) \) where \( \mathbf{x} \in \mathbb{R}^n \) and \( \mathbf{f}(\mathbf{x}) \in \mathbb{R}^m \), the Jacobian matrix \( J \) is defined as:
+
+\[
+J = \begin{bmatrix}
+\frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial f_m}{\partial x_1} & \cdots & \frac{\partial f_m}{\partial x_n}
+\end{bmatrix}
+\]
+
+#### Scalar Activation Functions and the Jacobian
+When scalar activation functions like ReLU or Sigmoid are applied element-wise to a vector \( \mathbf{z} = [z_1, \ldots, z_C] \), they can be viewed as a set of independent scalar functions \( f_i(z_i) \). In this scenario, the Jacobian matrix has a distinctive structure.
+
+#### Example with ReLU Activation Function
+Consider the ReLU activation function applied to an input vector \( \mathbf{z} = [z_1, z_2, z_3] \) (for \( C = 3 \)). The ReLU function transforms \( \mathbf{z} \) into \( \mathbf{A} = [ReLU(z_1), ReLU(z_2), ReLU(z_3)] \).
+
+The derivative of \( ReLU(z) \) with respect to \( z \) is:
+
+\[
+\frac{\partial ReLU(z)}{\partial z} = \begin{cases}
+1, & \text{if } z > 0 \\
+0, & \text{otherwise}
+\end{cases}
+\]
+
+For an input vector \( \mathbf{z} \) with all positive elements, the Jacobian matrix of \( \mathbf{A} \) with respect to \( \mathbf{z} \) is:
+
+\[
+J = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\]
+
+#### Why the Diagonal?
+The diagonal nature of the Jacobian matrix for element-wise scalar activations arises because each output element \( A_i \) depends solely on the corresponding input element \( z_i \), making all off-diagonal elements (which represent derivatives of output with respect to different inputs) zero. The non-zero elements, located on the diagonal, represent the derivative of each output with respect to its corresponding input, simplifying computations in neural networks, particularly during backpropagation.
 
 
 The Jacobian of a vector activation function is not a diagonal matrix. For each input vector $Z^{(i)}$ of size $1 \times C$ and its corresponding output vector $A^{(i)}$ (also $1 \times C$ within the batch, the Jacobian matrix $J^{(i)}$ must be computed individually. This matrix holds dimensions $C \times C$. Consequently, the gradient $dLdZ^{(i)}$ for each sample in the batch is determined by:
