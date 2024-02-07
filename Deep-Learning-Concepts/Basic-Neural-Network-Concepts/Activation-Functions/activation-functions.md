@@ -69,6 +69,41 @@ $dLdZ^{(i)} = dLdA^{(i)} \cdot J^{(i)}$
 
 After computing each $1 \times C$ vector of $dLdZ^{(i)}$, these vectors are vertically stacked to form the final $N \times C$ matrix of $dLdZ$, which is then returned.
 
+Please consider the following class structure for the scalar activations:
+```python
+class Activation:
+    def forward(self, Z):
+        self.A = # TODO
+        return self.A
+    def backward(self, dLdA):
+        dAdZ = # TODO
+       dLdZ = # TODO
+       return dLdZ
+```
+
+| Code Name | Math       | Type   | Shape | Meaning                                  |
+|-----------|------------|--------|-------|------------------------------------------|
+| N         |  $N$    | scalar | -     | batch size                               |
+| C         | $C$    | scalar | -     | number of features                       |
+| Z         | $Z$    | matrix | $N \times C$ | batch of $N$ inputs each represented by $C$ features |
+| A         | $A$    | matrix | $N \times C$ | batch of $N$ outputs each represented by $C$ features |
+| dLdA      | $\frac{\partial L}{\partial A}$ | matrix | $N \times C$ | how changes in post-activation features affect loss |
+| dLdZ      | $\frac{\partial L}{\partial Z}$ | matrix | $N \times C$ | how changes in pre-activation features affect loss  |
+
+
+The topology of the activation function is illustrated in Figure C. To understand its context within the broader network architecture, refer back to Figure A.
+
+**Note**: In this course, we adhere to a specific convention:
+- $Z$ represents the output of a linear layer.
+- $A$ signifies the input to a linear layer.
+
+In this framework, $Z$ is derived from the preceding linear layer's output, and $A$ serves as the input for the subsequent linear layer. For instance, if $f_l$ denotes the activation function for layer $l$, then the relationship between $A$ and $Z$ for consecutive layers is given by:
+
+$A_{l+1} = f_l(Z_l)$
+
+This equation highlights how the output $Z$ from one layer, after undergoing transformation by the activation function $f_l$, becomes the input $A$ for the next layer.
+
+<img src="activation-func-topology.png" alt="activation-func-topology" width="600" height="350"/>
 
 ## Reference:
 - CMU_11785_Introduction_To_Deep_Learning
