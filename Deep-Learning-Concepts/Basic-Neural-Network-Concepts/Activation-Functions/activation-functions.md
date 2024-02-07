@@ -210,6 +210,32 @@ $dLdZ^{(i)} = dLdA^{(i)} \cdot J^{(i)}$
 
 After computing each $1 \times C$ vector of $dLdZ^{(i)}$, these vectors are vertically stacked to form the final $N \times C$ matrix of $dLdZ$, which is then returned.
 
+
+
+
+
+
+
+
+Specifically, The Jacobian matrix is the derivative, not the input. Specifically, the Jacobian matrix of a vector-valued function represents the collection of all first-order partial derivatives of the function's outputs with respect to its inputs. Each element in the Jacobian matrix is a partial derivative of one of the function's output components with respect to one of its input components.
+
+In the context of a vector-valued function \( \mathbf{f}(\mathbf{x}) \) where \( \mathbf{x} \) is the input vector and \( \mathbf{f}(\mathbf{x}) \) is the output vector, the Jacobian matrix \( J \) is defined as:
+
+\[
+J = \begin{bmatrix}
+\frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial f_m}{\partial x_1} & \cdots & \frac{\partial f_m}{\partial x_n}
+\end{bmatrix}
+\]
+
+Here, \( f_1, f_2, \ldots, f_m \) are the components of the output vector \( \mathbf{f}(\mathbf{x}) \), and \( x_1, x_2, \ldots, x_n \) are the components of the input vector \( \mathbf{x} \). The element in the \( i \)-th row and \( j \)-th column of \( J \), \( \frac{\partial f_i}{\partial x_j} \), represents the partial derivative of the \( i \)-th output component with respect to the \( j \)-th input component.
+
+In summary, the Jacobian matrix itself is a matrix of derivatives that describes how each component of the output vector changes with respect to changes in each component of the input vector. It is not the input but rather a mathematical object that characterizes the sensitivity of the output to changes in the input.
+
+
+
+
 Please consider the following class structure for the scalar activations:
 ```python
 class Activation:
