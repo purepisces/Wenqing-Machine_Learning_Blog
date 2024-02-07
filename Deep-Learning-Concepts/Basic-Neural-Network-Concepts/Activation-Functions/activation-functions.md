@@ -138,6 +138,30 @@ This example demonstrates computing the gradient of the loss with respect to pre
 
 For $dLdZ = dLdA \odot \frac{\partial A}{\partial Z}$, Here, $\frac{\partial A}{\partial Z}$ represents the element-wise derivative of the activation output $A$ with respect to its corresponding input $Z$. Specifically, for a single input of size $1 \times C$, this derivative equates to the diagonal of the Jacobian matrix, expressed as a vector of size $1 \times C$. This concept aligns with the understanding presented in the lecture that the Jacobian of a scalar activation function manifests as a diagonal matrix. When considering a batch with size $N$, the dimension of $\frac{\partial A}{\partial Z}$ expands to $N \times C$. The computation of $\frac{\partial A}{\partial Z}$ varies among different scalar activation functions, as detailed in their respective subsections.
 
+note:### Element-wise Derivative
+
+The term "element-wise derivative" refers to the derivative calculated independently for each element of a function's output with respect to its corresponding input element. This concept is widely used in functions applied to vectors or matrices, such as activation functions in neural networks.
+
+When computing the element-wise derivative of an activation function's output \( A \) with respect to its input \( Z \), we calculate the derivative for each entry \( a_{ij} \) in the output matrix \( A \) with respect to the corresponding entry \( z_{ij} \) in the input matrix \( Z \), where \( i \) and \( j \) denote the row and column indices, respectively.
+
+#### Illustration with an Example
+
+Consider a simple example using a vector input and the ReLU activation function, defined as \( \text{ReLU}(x) = \max(0, x) \).
+
+For an input vector \( Z = [z_1, z_2, z_3] \), the ReLU function produces an output vector \( A = [a_1, a_2, a_3] \), where \( a_i = \max(0, z_i) \) for \( i = 1, 2, 3 \).
+
+The element-wise derivative of \( A \) with respect to \( Z \) is given by:
+
+\[ \frac{\partial A}{\partial Z} = \left[ \frac{\partial a_1}{\partial z_1}, \frac{\partial a_2}{\partial z_2}, \frac{\partial a_3}{\partial z_3} \right] \]
+
+For the ReLU function, this derivative is 1 for \( z_i > 0 \) (indicating that a small increase in \( z_i \) results in an equal increase in \( a_i \)) and 0 for \( z_i \leq 0 \) (as \( a_i \) remains at 0 regardless of changes in \( z_i \)).
+
+#### Significance in Neural Networks
+
+In the context of neural networks, particularly during the backpropagation process, the element-wise derivative plays a crucial role in weight updates. It enables the network to understand how small changes in each weight influence the overall loss, allowing the gradient descent algorithm to minimize the loss function effectively. This individualized computation ensures that each weight is optimized based on its specific contribution to the network's performance.
+
+
+
 The Jacobian of a vector activation function is not a diagonal matrix. For each input vector $Z^{(i)}$ of size $1 \times C$ and its corresponding output vector $A^{(i)}$ (also $1 \times C$ within the batch, the Jacobian matrix $J^{(i)}$ must be computed individually. This matrix holds dimensions $C \times C$. Consequently, the gradient $dLdZ^{(i)}$ for each sample in the batch is determined by:
 
 $dLdZ^{(i)} = dLdA^{(i)} \cdot J^{(i)}$
