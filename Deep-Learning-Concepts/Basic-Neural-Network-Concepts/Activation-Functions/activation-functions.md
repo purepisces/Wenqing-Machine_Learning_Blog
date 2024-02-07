@@ -4,16 +4,16 @@ In the realm of machine learning, engineers have the liberty to select any diffe
 
 Activation functions can either take scalar or vector arguments. Scalar activations apply a function to a single number. Scalar activation functions are applied individually to each element of a vector, maintaining a direct relationship between each input and its corresponding output, which simplifies the computation of derivatives. Popular choices of scalar activation functions are **Sigmoid, ReLU, Tanh, and GELU**, as shown in the following figure.
 
-<img src="activation-funcs.png" alt="activation-funcs" width="400" height="300"/>
+<img src="activation-funcs.png" alt="activation-funcs" width="600" height="350"/>
 
 #### Example:
-Consider a vector `X = [x1, x2, x3]` and applying the ReLU function (`ReLU(x) = max(0, x)`). The ReLU function is applied to each vector element:
+Consider a vector $X = [x1, x2, x3]$ and applying the ReLU function $ReLU(x) = max(0, x)$. The ReLU function is applied to each vector element:
 
-- `ReLU(x1) = max(0, x1)`
-- `ReLU(x2) = max(0, x2)`
-- `ReLU(x3) = max(0, x3)`
+- $ReLU(x1) = max(0, x1)$
+- $ReLU(x2) = max(0, x2)$
+- $ReLU(x3) = max(0, x3)$
 
-For `X = [-1, 5, -3]`, the output after applying ReLU is $[0, 5, 0]$, as ReLU converts negative inputs to 0.
+For $X = [-1, 5, -3]$, the output after applying ReLU is $[0, 5, 0]$, as ReLU converts negative inputs to 0.
 
 #### Simplifying Derivative Calculation:
 The one-to-one correspondence in scalar activations like ReLU simplifies derivative calculations:
