@@ -26,6 +26,30 @@ This element-wise approach allows for straightforward computation of derivatives
 
 On the other hand, vector activation functions like the **Softmax** involve outputs that are interdependent on all input elements, complicating the derivative computation process. This document will guide you in implementing both scalar and vector activation functions, with an emphasis on the **Softmax** function for vector activations.
 
+#### Example:
+
+Consider a neural network output for a 3-class classification problem with logits $Z = [2, 1, -1]$. Applying the Softmax function would yield the following probabilities:
+
+- $\text{Softmax}(z_1) = \frac{e^2}{e^2 + e^1 + e^{-1}}$
+- $\text{Softmax}(z_2) = \frac{e^1}{e^2 + e^1 + e^{-1}}$
+- $\text{Softmax}(z_3) = \frac{e^{-1}}{e^2 + e^1 + e^{-1}}$
+
+Each output probability depends on all input logits, illustrating the interconnected nature of vector activation functions.
+
+#### Derivative Complexity:
+
+The derivative of the Softmax function with respect to any input $z_k$ involves partial derivatives where each output depends on all inputs. This is due to the normalization term in the denominator, which includes all input exponentials.
+
+For instance, the derivative of $\text{Softmax}(z_i)$ with respect to $z_k$ is:
+
+- If $i = k$: $\frac{\partial \text{Softmax}(z_i)}{\partial z_k} = \text{Softmax}(z_i) \cdot (1 - \text{Softmax}(z_k))$
+- If $i \neq k$: $\frac{\partial \text{Softmax}(z_i)}{\partial z_k} = -\text{Softmax}(z_i) \cdot \text{Softmax}(z_k)$
+
+This reflects the fact that an increase in one logit not only increases its corresponding probability (assuming it's positive) but also decreases the probabilities of other classes due to the shared sum in the denominator.
+
+This interconnectedness makes the derivative computation for vector activation functions like Softmax more complex compared to scalar activations like ReLU.
+
+
 
 - **Class attributes**:
   - Activation functions have no trainable parameters.
@@ -33,11 +57,17 @@ On the other hand, vector activation functions like the **Softmax** involve outp
 
 - **Class methods**:
   - $forward$: The forward method takes in a batch of data $Z$ of shape $N \times C$(representing $N$ samples where each sample has $C$ features), and applies the activation function to $Z$ to compute output $A$ of shape $N \times C$.
-  - $backward$: The backward method takes in `dLdA`, a measure of how the post-activations (output) affect the loss. Using this and the derivative of the activation function itself, the method calculates and returns `dLdZ`, how changes in pre-activation features (input) `Z` affect the loss `L`. In the case of scalar activations, `dLdZ` is computed as:
-    $
-    dLdZ = dLdA \odot \frac{\partial A}{\partial Z}
-    $
+  - $backward$: The backward method takes in $dLdA$, a measure of how the post-activations (output) affect the loss. Using this and the derivative of the activation function itself, the method calculates and returns $dLdZ$, how changes in pre-activation features (input) $Z$ affect the loss $L$. In the case of scalar activations, $dLdZ$ is computed as:
+    
+    $dLdZ = dLdA \odot \frac{\partial A}{\partial Z}$
 
+Here, $\frac{\partial A}{\partial Z}$ represents the element-wise derivative of the activation output $A$ with respect to its corresponding input $Z$. Specifically, for a single input of size $1 \times C$, this derivative equates to the diagonal of the Jacobian matrix, expressed as a vector of size $1 \times C$. This concept aligns with the understanding presented in the lecture that the Jacobian of a scalar activation function manifests as a diagonal matrix. When considering a batch with size $N$, the dimension of $\frac{\partial A}{\partial Z}$ expands to $N \times C$. The computation of $\frac{\partial A}{\partial Z}$ varies among different scalar activation functions, as detailed in their respective subsections.
+
+The Jacobian of a vector activation function is not a diagonal matrix. For each input vector $Z^{(i)}$ of size $1 \times C$ and its corresponding output vector $A^{(i)}$ (also $1 \times C$ within the batch, the Jacobian matrix $J^{(i)}$ must be computed individually. This matrix holds dimensions $C \times C$. Consequently, the gradient $dLdZ^{(i)}$ for each sample in the batch is determined by:
+
+$dLdZ^{(i)} = dLdA^{(i)} \cdot J^{(i)}$
+
+After computing each $1 \times C$ vector of $dLdZ^{(i)}$, these vectors are vertically stacked to form the final $N \times C$ matrix of $dLdZ$, which is then returned.
 
 
 ## Reference:
