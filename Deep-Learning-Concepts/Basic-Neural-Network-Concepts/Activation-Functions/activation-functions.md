@@ -29,11 +29,11 @@ On the other hand, vector activation functions like the **Softmax** involve outp
 
 - **Class attributes**:
   - Activation functions have no trainable parameters.
-  - Variables stored during forward-propagation to compute derivatives during back-propagation: layer output `A`.
+  - Variables stored during forward-propagation to compute derivatives during back-propagation: layer output $A$.
 
 - **Class methods**:
-  - `forward`: The forward method takes in a batch of data `Z` of shape `N × C` (representing `N` samples where each sample has `C` features), and applies the activation function to `Z` to compute output `A` of shape `N × C`.
-  - `backward`: The backward method takes in `dLdA`, a measure of how the post-activations (output) affect the loss. Using this and the derivative of the activation function itself, the method calculates and returns `dLdZ`, how changes in pre-activation features (input) `Z` affect the loss `L`. In the case of scalar activations, `dLdZ` is computed as:
+  - $forward$: The forward method takes in a batch of data $Z$ of shape $N \times C$(representing $N$ samples where each sample has $C$ features), and applies the activation function to $Z$ to compute output $A$ of shape $N \times C$.
+  - $backward$: The backward method takes in `dLdA`, a measure of how the post-activations (output) affect the loss. Using this and the derivative of the activation function itself, the method calculates and returns `dLdZ`, how changes in pre-activation features (input) `Z` affect the loss `L`. In the case of scalar activations, `dLdZ` is computed as:
     $
     dLdZ = dLdA \odot \frac{\partial A}{\partial Z}
     $
