@@ -74,5 +74,4 @@ class Tanh:
 
 
 ## Reference:
-- [Watch the video on YouTube](https://www.youtube.com/watch?v=u0VsKSoSM4Y)
 - CMU_11785_Introduction_To_Deep_Learning
