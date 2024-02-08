@@ -15,16 +15,6 @@ where $e$ is the base of the natural logarithm, and $x$ represents the input to 
 - **Shape**: It has an S-shaped curve, similar to the sigmoid function, but stretched vertically to fit the new range.
 - **Output Interpretation**: Values near 1 indicate high positive activation, values near -1 indicate high negative activation, and values around 0 indicate low or no activation.
 
-## Application in Neural Networks:
-The tanh function is used in the same way as the sigmoid, applied to the weighted sum of inputs for each neuron. Its output being in the range of -1 to 1 makes it particularly useful in layers where negative outputs are meaningful and should be preserved.
-
-The use of tanh allows for a balanced approach to neuron activation:
-- **Closer to 1**: Indicates high positive activation.
-- **Closer to -1**: Indicates high negative activation.
-- **Around 0**: Indicates low or no activation.
-
-This balance makes tanh especially useful in hidden layers of a neural network.
-
 ## Example:
 Consider the same neuron receiving inputs with values 0.5 and 0.8, weights 0.4 and 0.6, and bias 0.1. The pre-activated output (x) is:
 
@@ -38,9 +28,7 @@ This output then serves as input to subsequent neurons.
 
 ## Visualization:
 
-
 <img src="tanh_activation_forward.png" alt="tanh_activation_forward" width="400" height="300"/>
-
 
 ## Tanh Class Implementation:
 
@@ -83,7 +71,6 @@ class Tanh:
 ## Visualization:
 
 <img src="tanh.png" alt="tanh" width="400" height="300"/>
-
 
 
 ## Reference:
