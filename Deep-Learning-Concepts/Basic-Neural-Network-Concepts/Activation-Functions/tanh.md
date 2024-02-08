@@ -1,6 +1,3 @@
-
-
-
 # Tanh Activation Function
 
 ## Overview:
@@ -72,29 +69,29 @@ The equation $\frac{\partial \sigma(Z)}{\partial Z} = \sigma(Z) \cdot (1 - \sigm
    Substituting these into the derivative gives:
    $$\frac{d\sigma}{dZ} = \frac{e^{-Z}}{(1 + e^{-Z})^2} = \frac{\frac{1}{\sigma(Z)} - 1}{(\frac{1}{\sigma(Z)})^2} =\sigma(Z) - \sigma^2(Z)$$
 
-## Sigmoid Class Implementation:
+## Tanh Class Implementation:
 
-### Sigmoid Forward Equation
+### Tanh Forward Equation
 
 During forward propagation, pre-activation features $Z$ are passed to the activation function Sigmoid to calculate their post-activation values $A$.
 
 
 $$\begin{align}
-A &= \text{sigmoid.forward}(Z) \\
-&= \sigma(Z) \\
-&= \frac{1}{1 + e^{-Z}}
+A &= \text{Tanh.forward}(Z) \\
+&= \tanh(Z) \\
+&= 
 \end{align}$$
 
-<img src="sigmoid_activation_forward.png" alt="sigmoid_activation_forward" width="400" height="300"/>
+<img src="tanh_activation_forward.png" alt="tanh_activation_forward" width="400" height="300"/>
 
-### Sigmoid Backward Equation
+### Tanh Backward Equation
 
 Backward propagation helps us understand how changes in pre-activation features $Z$ affect the loss, given
 how changes in post-activation values $A$ affect the loss.
 
 
 $$\begin{align}
-\frac{dL}{dz} &= \text{sigmoid.backward}(dLdA) \\
+\frac{dL}{dZ} &= \text{tanh.backward}(dLdA) \\
 &= dLdA \odot \frac{\partial A}{\partial Z} \\
 &= dLdA \odot (\sigma(Z) - \sigma^2(Z)) \\
 &= dLdA \odot (A - A \odot A)
