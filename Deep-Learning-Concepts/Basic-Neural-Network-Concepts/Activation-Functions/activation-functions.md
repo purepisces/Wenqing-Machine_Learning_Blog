@@ -77,8 +77,8 @@ On the other hand, if the activation function processes each row (or column) of 
   - $forward$: The forward method takes in a batch of data $Z$ of shape $N \times C$(representing $N$ samples where each sample has $C$ features), and applies the activation function to $Z$ to compute output $A$ of shape $N \times C$.
     #### Forward Example:
     To illustrate this with an example, let's consider a simple case where we have a batch of 3 samples ($N = 3$) and each sample has 2 features ($C=2$). So, our input matrix $Z$ could look something like this:
-    
-    $$Z = \begin{pmatrix}
+
+$$Z = \begin{pmatrix}
 z_{11} &z_{12} \\
 z_{21} &z_{22} \\
 z_{31} &z_{32}
@@ -185,10 +185,10 @@ Consider the ReLU activation function applied to an input vector $\mathbf{z} = [
 The derivative of $ReLU(z)$ with respect to $z$ is:
 
 
-$\frac{\partial ReLU(z)}{\partial z} = \begin{cases}
+$$\frac{\partial ReLU(z)}{\partial z} = \begin{cases}
 1, & \text{if } z > 0 \\
 0, & \text{otherwise}
-\end{cases}$
+\end{cases}$$
 
 For an input vector $\mathbf{z}$ with all positive elements, the Jacobian matrix of $\mathbf{A}$ with respect to $\mathbf{z}$ is:
 
@@ -233,7 +233,12 @@ Consider a neural network layer with 2 samples in a batch ($N=2$) and each sampl
 
 Our batch of input vectors $Z$ is given by:
 
-$Z = \begin{pmatrix} Z^{(1)} & Z^{(2)} \end{pmatrix} = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 2 & 1 \end{pmatrix}$
+$$Z = \begin{pmatrix} Z^{(1)} & Z^{(2)} \end{pmatrix}
+= \begin{pmatrix}
+1 & 2 & 3 \\
+2 & 2 & 1
+\end{pmatrix}$$
+$$
 
 Applying Softmax Activation
 
@@ -243,8 +248,12 @@ $$\text{Softmax}(z_j) = \frac{e^{z_j}}{\sum_{k=1}^{C} e^{z_k}}$$
 
 After applying Softmax to each row of $Z$, we get:
 
-$A = \begin{pmatrix} A^{(1)} & A^{(2)} \end{pmatrix} = \begin{pmatrix} 0.09 & 0.24 & 0.67 \\ 0.42 & 0.42 & 0.16 \end{pmatrix}$
-
+$$A = \begin{pmatrix} A^{(1)} & A^{(2)} \end{pmatrix}
+= \begin{pmatrix}
+0.09 & 0.24 & 0.67 \\
+0.42 & 0.42 & 0.16
+\end{pmatrix}$$
+$$
 
 Jacobian Matrix for Softmax
 
@@ -259,19 +268,37 @@ For our first sample $A^{(1)}$, the Jacobian $J^{(1)}$ would be a 3x3 matrix whe
 
 Calculating $J^{(1)}$
 
-For the first sample, $A^{(1)} = [0.09, 0.24, 0.67]$.  Using the Softmax derivative formula:
-For $j = k: J^{(1)}_{jj} = A^{(1)}_j (1 - A^{(1)}_j)$
-For $j \neq k: J^{(1)}_{jk} = -A^{(1)}_j A^{(1)}_k$
+For the first sample, $A^{(1)} = [0.09, 0.24, 0.67]$.  
+
+Using the Softmax derivative formula:
+
+$$ For \ \ j = k: J^{(1)}_{jj} = A^{(1)}_j (1 - A^{(1)}_j)$$
+
+$$ For \ \ j \neq k: J^{(1)}_{jk} = -A^{(1)}_j A^{(1)}_k$$
+
 Thus, we have:
-$J^{(1)}_{11} = 0.09 \times (1 - 0.09) = 0.0819$
-$J^{(1)}_{22} = 0.24 \times (1 - 0.24) = 0.1824$
-$J^{(1)}_{33} = 0.67 \times (1 - 0.67) = 0.2211$
 
-And for $j \neq k$
+$$J^{(1)}_{11} = 0.09 \times (1 - 0.09) = 0.0819$$
 
-$J^{(1)}_{12} = J^{(1)}_{21} = -0.09 \times 0.24 = -0.0216$
-$J^{(1)}_{13} = J^{(1)}_{31} = -0.09 \times 0.67 = -0.0603$
-$J^{(1)}_{23} = J^{(1)}_{32} = -0.24 \times 0.67 = -0.1608$
+$$J^{(1)}_{22} = 0.24 \times (1 - 0.24) = 0.1824$$
+
+$$J^{(1)}_{33} = 0.67 \times (1 - 0.67) = 0.2211$$
+
+
+And for 
+
+$$j \neq k$$
+
+
+
+$$J^{(1)}_{12} = J^{(1)}_{21} = -0.09 \times 0.24 = -0.0216$$
+
+
+$$J^{(1)}_{13} = J^{(1)}_{31} = -0.09 \times 0.67 = -0.0603$$
+
+
+$$J^{(1)}_{23} = J^{(1)}_{32} = -0.24 \times 0.67 = -0.1608$$
+
 So, $J^{(1)}$ is
 
 $$J^{(1)} = \begin{pmatrix}
@@ -281,6 +308,7 @@ $$J^{(1)} = \begin{pmatrix}
 \end{pmatrix}$$
 
 Similarly
+
 $$J^{(2)} = \begin{pmatrix}
 0.2436 & -0.1764 & -0.0672 \\
 -0.1764 & 0.2436 & -0.0672 \\
