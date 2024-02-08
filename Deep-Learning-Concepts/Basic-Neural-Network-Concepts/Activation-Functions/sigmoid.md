@@ -36,7 +36,8 @@ $\text{activated output} = \frac{1}{1 + e^{-0.68}} \approx 0.6637$
 This activated output is then used as input to the neurons in the subsequent layer.
 
 ## Visualization:
-![Sigmoid Activation Function](sigmoid_activation.png)
+
+<img src="sigmoid——activation.png" alt="sigmoid_activation" width="400" height="300"/>
 
 ## Sigmoid Class Implementation:
 
@@ -51,9 +52,7 @@ A &= \text{sigmoid.forward}(Z) \\
 &= \frac{1}{1 + e^{-Z}}
 \end{align}$$
 
-
-
-![Sigmoid Activation Function](sigmoid_activation_forward.png)
+<img src="sigmoid_activation_forward.png" alt="sigmoid_activation_forward" width="400" height="300"/>
 
 ### Sigmoid Backward Equation
 
