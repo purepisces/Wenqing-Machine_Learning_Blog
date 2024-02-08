@@ -38,7 +38,9 @@ This output then serves as input to subsequent neurons.
 
 ## Visualization:
 
-![Tanh Activation Function](tanh_activation.png)
+
+<img src="tanh_activation_forward.png" alt="tanh_activation_forward" width="400" height="300"/>
+
 
 ## Tanh Class Implementation:
 
