@@ -16,6 +16,8 @@ $$
 \end{pmatrix}
 $$
 
+Editor: https://stackedit.io/app#
+
 ffnn.md✅已发csdn+知乎
 linear-regression.md✅
 variance&standarDeviation.md✅
