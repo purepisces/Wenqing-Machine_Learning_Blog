@@ -166,7 +166,7 @@ The element-wise derivative of $A$ with respect to $Z$is given by:
 
 $\frac{\partial A}{\partial Z} = \left[ \frac{\partial a_1}{\partial z_1}, \frac{\partial a_2}{\partial z_2}, \frac{\partial a_3}{\partial z_3} \right]$
 
-For the ReLU function, this derivative is 1 for $z_i > 0$ (indicating that a small increase in $z_i$ results in an equal increase in \( a_i \)) and 0 for \( z_i \leq 0 \) (as \( a_i \) remains at 0 regardless of changes in \( z_i \)).
+For the ReLU function, this derivative is 1 for $z_i > 0$ (indicating that a small increase in $z_i$ results in an equal increase in \( a_i \)) and 0 for \( z_i \leq 0 \) (as \( a_i \) remains at 0 regardless of changes in $z_i$.
 
 #### Significance in Neural Networks
 
@@ -205,7 +205,7 @@ $$J = \begin{pmatrix}
 1 & 0 & 0 \\
 0 & 1 & 0 \\
 0 & 0 & 1
-\end{[matrix}$$
+\end{pmatrix}$$
 
 #### Why the Diagonal?
 The diagonal nature of the Jacobian matrix for element-wise scalar activations arises because each output element $A_i$ depends solely on the corresponding input element $z_i$, making all off-diagonal elements (which represent derivatives of output with respect to different inputs) zero. The non-zero elements, located on the diagonal, represent the derivative of each output with respect to its corresponding input, simplifying computations in neural networks, particularly during backpropagation.
@@ -228,13 +228,13 @@ Specifically, The Jacobian matrix is the derivative, not the input. Specifically
 
 In the context of a vector-valued function \( \mathbf{f}(\mathbf{x}) \) where \( \mathbf{x} \) is the input vector and \( \mathbf{f}(\mathbf{x}) \) is the output vector, the Jacobian matrix \( J \) is defined as:
 
-\[
-J = \begin{bmatrix}
+$$
+J = \begin{pmatrix}
 \frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n} \\
 \vdots & \ddots & \vdots \\
 \frac{\partial f_m}{\partial x_1} & \cdots & \frac{\partial f_m}{\partial x_n}
-\end{bmatrix}
-\]
+\end{pmatrix}
+$$
 
 Here, \( f_1, f_2, \ldots, f_m \) are the components of the output vector \( \mathbf{f}(\mathbf{x}) \), and \( x_1, x_2, \ldots, x_n \) are the components of the input vector \( \mathbf{x} \). The element in the \( i \)-th row and \( j \)-th column of \( J \), \( \frac{\partial f_i}{\partial x_j} \), represents the partial derivative of the \( i \)-th output component with respect to the \( j \)-th input component.
 
