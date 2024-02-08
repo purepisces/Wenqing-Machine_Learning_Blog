@@ -3,22 +3,28 @@
 
 I use relu.md to illstrate the main idea behind activation functions [ReLU](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/relu.md).
 
+### Overview
+
 In the realm of machine learning, engineers have the liberty to select any differentiable function to serve as an activation function. The inclusion of non-linear elements within a neural network ($f_{NN}$) is crucial for its capability to model non-linear phenomena. In the absence of activation functions, the output of an $f_{NN}$ remains linear irrespective of its depth, due to the inherent linearity of the equation $A · W + b$.
 
 Activation functions can either take scalar or vector arguments. Scalar activations apply a function to a single number. Scalar activation functions are applied individually to each element of a vector, maintaining a direct relationship between each input and its corresponding output, which simplifies the computation of derivatives. Popular choices of scalar activation functions are **Sigmoid, ReLU, Tanh, and GELU**, as shown in the following figure.
 
 <img src="activation-funcs.png" alt="activation-funcs" width="600" height="350"/>
 
+### Scalar Activation Function
+If an activation function is applied element-wise to each individual element of $Z$, treating each $z_{ij}$ independently, then it is a scalar activation function. For example, applying the ReLU function to each element of $Z$ would be a scalar operation:
+
 #### Example:
-Consider a vector $X = [x1, x2, x3]$ and applying the ReLU function $ReLU(x) = max(0, x)$. The ReLU function is applied to each vector element:
 
-- $ReLU(x1) = max(0, x1)$
-- $ReLU(x2) = max(0, x2)$
-- $ReLU(x3) = max(0, x3)$
+$$\text{ReLU}(Z) = \begin{pmatrix}
+\max(0, z_{11}) & \max(0, z_{12}) \\
+\max(0, z_{21}) & \max(0, z_{22}) \\
+\max(0, z_{31}) & \max(0, z_{32})
+\end{pmatrix}$$
 
-For $X = [-1, 5, -3]$, the output after applying ReLU is $[0, 5, 0]$, as ReLU converts negative inputs to 0.
+In this case, each element $z_{ij}$ is processed independently, and the shape of the output matrix remains the same as $Z$, but with the activation function (in this case, ReLU) applied to each element.
 
-#### Simplifying Derivative Calculation:
+#### Derivative Simplification
 The one-to-one correspondence in scalar activations like ReLU simplifies derivative calculations:
 
 - For $x1 = -1$, derivative $ReLU'(x1) = 0$ because $x1$ is negative.
@@ -27,7 +33,34 @@ The one-to-one correspondence in scalar activations like ReLU simplifies derivat
 
 This element-wise approach allows for straightforward computation of derivatives, a key aspect in neural network optimization through backpropagation.
 
-On the other hand, vector activation functions like the **Softmax** involve outputs that are interdependent on all input elements, complicating the derivative computation process. This document will guide you in implementing both scalar and vector activation functions, with an emphasis on the **Softmax** function for vector activations.
+
+#### Element-wise Derivative
+
+The term "element-wise derivative" refers to the derivative calculated independently for each element of a function's output with respect to its corresponding input element. This concept is widely used in functions applied to vectors or matrices, such as activation functions in neural networks.
+
+When computing the element-wise derivative of an activation function's output $A$ with respect to its input $Z$, we calculate the derivative for each entry $a_{ij}$ in the output matrix  $A$ with respect to the corresponding entry $z_{ij}$ in the input matrix $Z$, where $i$ and $j$ denote the row and column indices, respectively.
+
+##### Illustration with an Example
+
+Consider a simple example using a vector input and the ReLU activation function, defined as $\text{ReLU}(x) = \max(0, x)$.
+
+For an input vector $Z = [z_1, z_2, z_3]$, the ReLU function produces an output vector $A = [a_1, a_2, a_3]$, where $a_i = \max(0, z_i)$ for $i = 1, 2, 3$.
+
+The element-wise derivative of $A$ with respect to $Z$is given by:
+
+$\frac{\partial A}{\partial Z} = \left[ \frac{\partial a_1}{\partial z_1}, \frac{\partial a_2}{\partial z_2}, \frac{\partial a_3}{\partial z_3} \right]$
+
+For the ReLU function, this derivative is 1 for $z_i > 0$ (indicating that a small increase in $z_i$ results in an equal increase in $a_i$ and 0 for $z_i \leq 0$ as $a_i$ remains at $0$ regardless of changes in $z_i$.
+
+##### Significance in Neural Networks
+
+In the context of neural networks, particularly during the backpropagation process, the element-wise derivative plays a crucial role in weight updates. It enables the network to understand how small changes in each weight influence the overall loss, allowing the gradient descent algorithm to minimize the loss function effectively. This individualized computation ensures that each weight is optimized based on its specific contribution to the network's performance.
+
+
+### Vector Activation Function
+
+On the other hand, vector activation functions like the **Softmax** involve outputs that are interdependent on all input elements, complicating the derivative computation process. If the activation function processes each row (or column) of $Z$ as a whole vector, considering the relationships between elements in that vector, then it is a vector activation function. An example of this would be applying the Softmax function to each row of $Z$, treating each row as a vector of logits for a multi-class classification problem.
+
 
 #### Example:
 
@@ -52,22 +85,7 @@ This reflects the fact that an increase in one logit not only increases its corr
 
 This interconnectedness makes the derivative computation for vector activation functions like Softmax more complex compared to scalar activations like ReLU.
 
-
-### Scalar Activation Function
-If an activation function is applied element-wise to each individual element of $Z$, treating each $z_{ij}$ independently, then it is a scalar activation function. For example, applying the ReLU function to each element of $Z$ would be a scalar operation:
-
-
-$$\text{ReLU}(Z) = \begin{pmatrix}
-\max(0, z_{11}) & \max(0, z_{12}) \\
-\max(0, z_{21}) & \max(0, z_{22}) \\
-\max(0, z_{31}) & \max(0, z_{32})
-\end{pmatrix}$$
-
-In this case, each element $z_{ij}$ is processed independently, and the shape of the output matrix remains the same as $Z$, but with the activation function (in this case, ReLU) applied to each element.
-
-### Vector Activation Function
-On the other hand, if the activation function processes each row (or column) of $Z$ as a whole vector, considering the relationships between elements in that vector, then it is a vector activation function. An example of this would be applying the Softmax function to each row of $Z$, treating each row as a vector of logits for a multi-class classification problem.
-
+### Implementation
 
 - **Class attributes**:
   - Activation functions have no trainable parameters.
@@ -75,6 +93,10 @@ On the other hand, if the activation function processes each row (or column) of 
 
 - **Class methods**:
   - $forward$: The forward method takes in a batch of data $Z$ of shape $N \times C$(representing $N$ samples where each sample has $C$ features), and applies the activation function to $Z$ to compute output $A$ of shape $N \times C$.
+  - $backward$: The backward method takes in $dLdA$, a measure of how the post-activations (output) affect the loss. Using this and the derivative of the activation function itself, the method calculates and returns $dLdZ$, how changes in pre-activation features (input) $Z$ affect the loss $L$. In the case of scalar activations, $dLdZ$ is computed as:
+    
+    $dLdZ = dLdA \odot \frac{\partial A}{\partial Z}$
+    
     #### Forward Example:
     To illustrate this with an example, let's consider a simple case where we have a batch of 3 samples ($N = 3$) and each sample has 2 features ($C=2$). So, our input matrix $Z$ could look something like this:
 
@@ -94,11 +116,9 @@ $$A = \begin{pmatrix}
 
 As you can see, each element in $Z$ is transformed individually to produce an element in $A$, but the overall shape of the matrix, $3 \times 2$ in this case, remains unchanged.
     
-  - $backward$: The backward method takes in $dLdA$, a measure of how the post-activations (output) affect the loss. Using this and the derivative of the activation function itself, the method calculates and returns $dLdZ$, how changes in pre-activation features (input) $Z$ affect the loss $L$. In the case of scalar activations, $dLdZ$ is computed as:
-    
-    $dLdZ = dLdA \odot \frac{\partial A}{\partial Z}$
+ 
 
-    ### Backward Method Example with ReLU Activation
+### Backward Method Example with ReLU Activation
 
 Let's explore an example of the backward method in a neural network using the ReLU (Rectified Linear Unit) activation function. The ReLU function is defined as $ReLU(x) = \max(0, x)$.
 
@@ -141,27 +161,7 @@ This example demonstrates computing the gradient of the loss with respect to pre
 
 For $dLdZ = dLdA \odot \frac{\partial A}{\partial Z}$, Here, $\frac{\partial A}{\partial Z}$ represents the element-wise derivative of the activation output $A$ with respect to its corresponding input $Z$. Specifically, for a single input of size $1 \times C$, this derivative equates to the diagonal of the Jacobian matrix, expressed as a vector of size $1 \times C$. This concept aligns with the understanding presented in the lecture that the Jacobian of a scalar activation function manifests as a diagonal matrix. When considering a batch with size $N$, the dimension of $\frac{\partial A}{\partial Z}$ expands to $N \times C$. The computation of $\frac{\partial A}{\partial Z}$ varies among different scalar activation functions, as detailed in their respective subsections. The size of $\frac{\partial A}{\partial Z}$ is $N \times C$ because we have a derivative value for each feature of each sample.
 
-### Element-wise Derivative
 
-The term "element-wise derivative" refers to the derivative calculated independently for each element of a function's output with respect to its corresponding input element. This concept is widely used in functions applied to vectors or matrices, such as activation functions in neural networks.
-
-When computing the element-wise derivative of an activation function's output $A$ with respect to its input $Z$, we calculate the derivative for each entry $a_{ij}$ in the output matrix  $A$ with respect to the corresponding entry $z_{ij}$ in the input matrix $Z$, where $i$ and $j$ denote the row and column indices, respectively.
-
-#### Illustration with an Example
-
-Consider a simple example using a vector input and the ReLU activation function, defined as $\text{ReLU}(x) = \max(0, x)$.
-
-For an input vector $Z = [z_1, z_2, z_3]$, the ReLU function produces an output vector $A = [a_1, a_2, a_3]$, where $a_i = \max(0, z_i)$ for $i = 1, 2, 3$.
-
-The element-wise derivative of $A$ with respect to $Z$is given by:
-
-$\frac{\partial A}{\partial Z} = \left[ \frac{\partial a_1}{\partial z_1}, \frac{\partial a_2}{\partial z_2}, \frac{\partial a_3}{\partial z_3} \right]$
-
-For the ReLU function, this derivative is 1 for $z_i > 0$ (indicating that a small increase in $z_i$ results in an equal increase in $a_i$ and 0 for $z_i \leq 0$ as $a_i$ remains at $0$ regardless of changes in $z_i$.
-
-#### Significance in Neural Networks
-
-In the context of neural networks, particularly during the backpropagation process, the element-wise derivative plays a crucial role in weight updates. It enables the network to understand how small changes in each weight influence the overall loss, allowing the gradient descent algorithm to minimize the loss function effectively. This individualized computation ensures that each weight is optimized based on its specific contribution to the network's performance.
 
 ### Understanding the Diagonal of the Jacobian Matrix for Scalar Activation Functions
 
@@ -240,7 +240,7 @@ $$Z = \begin{pmatrix} Z^{(1)} & Z^{(2)} \end{pmatrix}
 \end{pmatrix}$$
 $$
 
-Applying Softmax Activation
+#### Applying Softmax Activation
 
 Softmax is applied to each sample $Z^{(i)}$ to produce the output vector $A^{(i)}$. The Softmax function for an element $z_j$ in vector $Z^{(i)}$ is defined as:
 
@@ -255,7 +255,7 @@ $$A = \begin{pmatrix} A^{(1)} & A^{(2)} \end{pmatrix}
 \end{pmatrix}$$
 $$
 
-Jacobian Matrix for Softmax
+#### Jacobian Matrix for Softmax
 
 For Softmax, the Jacobian $J^{(i)}$ for a single sample $A^{(i)}$ has elements:
 
@@ -328,7 +328,7 @@ $$dLdZ^{(i)} =dLdA^{(i)} \cdot J^{(i)}$$
 
 This operation would be performed for each sample, and the resulting vectors $dLdZ^{(1)}$ and $dLdZ^{(2)}$ are then stacked to form the final gradient matrix $dLdZ$ for the whole batch.
 
-$\textbf{Specific Calculations}$
+#### Specific Calculations
 
 Due to the complexity of the Softmax derivatives and for brevity, detailed computations of each element of $J^{(1)}$ and $J^{(2)}$ are omitted here. However, the general process involves:
 
@@ -345,7 +345,7 @@ This example illustrates the process of computing the gradient of the loss with 
 
 
 
-Please consider the following class structure for the scalar activations:
+Consider the following class structure for the scalar activations:
 ```python
 class Activation:
     def forward(self, Z):
@@ -369,7 +369,7 @@ class Activation:
 
 The topology of the activation function is illustrated in Figure C. To understand its context within the broader network architecture, refer back to Figure A.
 
-**Note**: In this course, we adhere to a specific convention:
+**Note**: In this document, we adhere to a specific convention:
 - $Z$ represents the output of a linear layer.
 - $A$ signifies the input to a linear layer.
 
