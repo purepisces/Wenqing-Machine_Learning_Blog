@@ -205,7 +205,7 @@ The diagonal nature of the Jacobian matrix for element-wise scalar activations a
 
 **The Jacobian of a vector activation function is not a diagonal matrix. For each input vector $Z^{(i)}$ of size $1 \times C$ and its corresponding output vector $A^{(i)}$ (also $1 \times C$ within the batch, the Jacobian matrix $J^{(i)}$ must be computed individually. This matrix holds dimensions $C \times C$. Consequently, the gradient $dLdZ^{(i)}$ for each sample in the batch is determined by:**
 
-**$dLdZ^{(i)} = dLdA^{(i)} \cdot J^{(i)}$**
+**$$dLdZ^{(i)} = dLdA^{(i)} \cdot J^{(i)}$$**
 
 **After computing each $1 \times C$ vector of $dLdZ^{(i)}$, these vectors are vertically stacked to form the final $N \times C$ matrix of $dLdZ$, which is then returned.**
 
@@ -381,7 +381,11 @@ This equation highlights how the output $Z$ from one layer, after undergoing tra
 <img src="activation-func-topology.png" alt="activation-func-topology" width="600" height="350"/>
 
 > Note: dLdZ is used in the backward pass because it directly relates the loss to the parameters we want to optimize (weights and biases) through $Z$ since $Z = W \cdot A_{prev} + b$, and followed by $A = f(Z)$, where $f$ is the activation function.
->
+> In the case of scalar activations, $dLdZ$ is computed as:
+> $$dLdZ = dLdA \odot \frac{\partial A}{\partial Z}$$
+> In the case of vector activation function, $dLdZ$ is computed as: For each input vector $Z^{(i)}$ of size $1 \times C$ and its corresponding output vector $A^{(i)}$ (also $1 \times C$ within the batch, the Jacobian matrix $J^{(i)}$ must be computed individually. This matrix holds dimensions $C \times C$. Consequently, the gradient $dLdZ^{(i)}$ for each sample in the batch is determined by:
+> $$dLdZ^{(i)} = dLdA^{(i)} \cdot J^{(i)}$$
+> 
 ## Reference:
 - CMU_11785_Introduction_To_Deep_Learning
 
