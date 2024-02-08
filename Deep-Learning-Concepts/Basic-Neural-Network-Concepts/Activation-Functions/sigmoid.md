@@ -67,7 +67,7 @@ The equation $\frac{\partial \sigma(Z)}{\partial Z} = \sigma(Z) \cdot (1 - \sigm
    $$e^{-Z} = \frac{1}{\sigma(Z)} - 1$$.
    $$(1 + e^{-Z})^2 = \left(\frac{1}{\sigma(Z)}\right)^2$$
    Substituting these into the derivative gives:
-   $$\frac{d\sigma}{dZ} = \frac{e^{-Z}}{(1 + e^{-Z})^2} = \frac{\frac{1}{\sigma(Z)} - 1}{(\frac{1}{\sigma(Z)})^2} =\sigma(Z) - \sigma(Z)^2$$
+   $$\frac{d\sigma}{dZ} = \frac{e^{-Z}}{(1 + e^{-Z})^2} = \frac{\frac{1}{\sigma(Z)} - 1}{(\frac{1}{\sigma(Z)})^2} =\sigma(Z) - \sigma^2(Z)$$
 
 ## Sigmoid Class Implementation:
 
