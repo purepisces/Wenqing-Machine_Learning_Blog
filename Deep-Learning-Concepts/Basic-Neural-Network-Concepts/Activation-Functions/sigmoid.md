@@ -39,6 +39,32 @@ This activated output is then used as input to the neurons in the subsequent lay
 
 <img src="sigmoid_activation.png" alt="sigmoid_activation" width="400" height="300"/>
 
+## Derivation of the Sigmoid Function's Derivative
+
+The equation $\frac{\partial \sigma(Z)}{\partial Z} = \sigma(Z) \cdot (1 - \sigma(Z))$ is derived from applying the chain rule to the sigmoid function, which is given by $\sigma(Z) = \frac{1}{1 + e^{-Z}}$. Here's a step-by-step breakdown of how this derivative is obtained:
+
+1. **Express the sigmoid function**: The sigmoid function can be rewritten for convenience in derivative calculation as:
+   $$\sigma(Z) = (1 + e^{-Z})^{-1}$$
+
+2. **Apply the chain rule**: The chain rule in calculus is a formula to compute the derivative of the composition of two or more functions. In this case, we have an outer function $u^{-1}$ (where $u = 1 + e^{-Z}$) and an inner function $1 + e^{-Z}$. The chain rule states that if you have a function $h(u) = u^{-1}$ and $u(Z) = 1 + e^{-Z}$, then:
+   $$\frac{d}{dZ} h(u) = \frac{dh}{du} \cdot \frac{du}{dZ}$$
+
+3. **Compute $\frac{du}{dZ}$**: The derivative of $u(Z) = 1 + e^{-Z}$ with respect to $Z$ is:
+   $$\frac{du}{dZ} = -e^{-Z}$$
+
+4. **Compute $\frac{dh}{du}$**: The derivative of $h(u) = u^{-1}$ with respect to $u$ is:
+   $$\frac{dh}{du} = -u^{-2} = -(1 + e^{-Z})^{-2}$$
+
+5. **Combine using the chain rule**: Now, combining these results using the chain rule gives:
+   $$\frac{d\sigma}{dZ} = -(1 + e^{-Z})^{-2} \cdot (-e^{-Z})$$
+
+6. **Simplify**: This simplifies to:
+   $$\frac{d\sigma}{dZ} = \frac{e^{-Z}}{(1 + e^{-Z})^2}$$
+
+7. **Express in terms of $\sigma(Z)$**: Notice that $\sigma(Z) = \frac{1}{1 + e^{-Z}}$, so $e^{-Z} = \frac{1 - \sigma(Z)}{\sigma(Z)}$, and $(1 + e^{-Z})^2 = \left(\frac{1}{\sigma(Z)}\right)^2$. Substituting these into the derivative gives:
+   $$\frac{d\sigma}{dZ} = \sigma(Z) \cdot (1 - \sigma(Z))$$
+   $$\frac{d\sigma}{dZ} = \sigma(Z) - \sigma^2(Z)$$
+
 ## Sigmoid Class Implementation:
 
 ### Sigmoid Forward Equation
