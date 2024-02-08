@@ -201,11 +201,13 @@ $$J = \begin{pmatrix}
 The diagonal nature of the Jacobian matrix for element-wise scalar activations arises because each output element $A_i$ depends solely on the corresponding input element $z_i$, making all off-diagonal elements (which represent derivatives of output with respect to different inputs) zero. The non-zero elements, located on the diagonal, represent the derivative of each output with respect to its corresponding input, simplifying computations in neural networks, particularly during backpropagation.
 
 
-The Jacobian of a vector activation function is not a diagonal matrix. For each input vector $Z^{(i)}$ of size $1 \times C$ and its corresponding output vector $A^{(i)}$ (also $1 \times C$ within the batch, the Jacobian matrix $J^{(i)}$ must be computed individually. This matrix holds dimensions $C \times C$. Consequently, the gradient $dLdZ^{(i)}$ for each sample in the batch is determined by:
+### Understanding the Diagonal of the Jacobian Matrix for Vector Activation Functions
 
-$dLdZ^{(i)} = dLdA^{(i)} \cdot J^{(i)}$
+**The Jacobian of a vector activation function is not a diagonal matrix. For each input vector $Z^{(i)}$ of size $1 \times C$ and its corresponding output vector $A^{(i)}$ (also $1 \times C$ within the batch, the Jacobian matrix $J^{(i)}$ must be computed individually. This matrix holds dimensions $C \times C$. Consequently, the gradient $dLdZ^{(i)}$ for each sample in the batch is determined by:**
 
-After computing each $1 \times C$ vector of $dLdZ^{(i)}$, these vectors are vertically stacked to form the final $N \times C$ matrix of $dLdZ$, which is then returned.
+**$dLdZ^{(i)} = dLdA^{(i)} \cdot J^{(i)}$**
+
+**After computing each $1 \times C$ vector of $dLdZ^{(i)}$, these vectors are vertically stacked to form the final $N \times C$ matrix of $dLdZ$, which is then returned.**
 
 Specifically, the Jacobian matrix of a vector-valued function represents the collection of all first-order partial derivatives of the function's outputs with respect to its inputs. Each element in the Jacobian matrix is a partial derivative of one of the function's output components with respect to one of its input components.
 
@@ -224,10 +226,8 @@ Here, $f_1, f_2, \ldots, f_m$ are the components of the output vector $\mathbf{f
 In summary, the Jacobian matrix itself is a matrix of derivatives that describes how each component of the output vector changes with respect to changes in each component of the input vector. It is not the input but rather a mathematical object that characterizes the sensitivity of the output to changes in the input.
 
 
-
 ### Example Using Softmax Activation Function in Neural Networks
 
-#### Setting the Scene
 Consider a neural network layer with 2 samples in a batch ($N=2$) and each sample has 3 features ($C=3$). This setup could represent the logits for 3 classes in a classification problem.
 
 Our batch of input vectors $Z$ is given by:
