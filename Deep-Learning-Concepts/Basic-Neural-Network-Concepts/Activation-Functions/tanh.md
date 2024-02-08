@@ -48,6 +48,7 @@ In backward propagation, we calculate how changes in $Z$ affect the loss, given 
 
 $$\begin{align}
 \frac{dL}{dz} &= \text{tanh.backward}(dLdA) \\
+&= dLdA \odot \frac{\partial A}{\partial Z} \\
 &= dLdA \odot (1 - \text{tanh}^2(Z)) \\
 &= dLdA \odot (1 - A^2)
 \end{align}$$
