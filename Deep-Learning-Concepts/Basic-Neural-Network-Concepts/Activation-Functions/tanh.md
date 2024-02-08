@@ -48,7 +48,8 @@ In forward propagation, the pre-activation features $Z$ are passed through the t
 
 $$\begin{align}
 A &= \text{tanh.forward}(Z) \\
-&= \text{tanh}(Z)
+&= \text{tanh}(Z) \\
+&= \frac{e^{x} - e^{-x}}{e^{x} + e^{-x}}
 \end{align}$$
 
 ### Tanh Backward Equation
