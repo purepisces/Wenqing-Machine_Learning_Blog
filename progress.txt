@@ -38,8 +38,6 @@ relu.md✅ need format and rephrase
 activation-functions.md✅ need format and rephrase, Comparison with different activation Functions, why and when choose which
 sigmoid.md✅
 
-
-Activation function
 Chain rule
 logistic regression
 t-sne
