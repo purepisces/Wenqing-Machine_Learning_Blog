@@ -16,7 +16,9 @@ where $e$ is the base of the natural logarithm, and $x$ represents the input to 
 - **Output Interpretation**: Values near 1 indicate high positive activation, values near -1 indicate high negative activation, and values around 0 indicate low or no activation.
 
 ## Example:
-Consider the same neuron receiving inputs with values 0.5 and 0.8, weights 0.4 and 0.6, and bias 0.1. The pre-activated output (x) is:
+Consider the same neuron receiving inputs with values 0.5 and 0.8, weights 0.4 and 0.6, and bias 0.1. 
+
+The pre-activated output ($x$) is:
 
 $x = (0.5 \times 0.4) + (0.8 \times 0.6) + 0.1 = 0.68$
 
