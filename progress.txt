@@ -4,7 +4,17 @@
 ## Reference:
 - [Watch the video on YouTube](https://youtube.com/watch?v=jTzJ9zjC8nU)
 $\text{SSR}(a, b) = \sum\limits_{i=1}^{n} (y_i - ax_i - b)^2$
-
+matrix:
+$$
+\begin{pmatrix}
+0.8944272 & 0.4472136\\
+-0.4472136 & -0.8944272
+\end{pmatrix}
+\begin{pmatrix}
+10 & 0\\ 
+0 & 5
+\end{pmatrix}
+$$
 
 ffnn.md✅已发csdn+知乎
 linear-regression.md✅
