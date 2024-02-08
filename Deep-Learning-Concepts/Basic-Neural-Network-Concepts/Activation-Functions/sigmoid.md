@@ -37,7 +37,7 @@ This activated output is then used as input to the neurons in the subsequent lay
 
 ## Visualization:
 
-<img src="sigmoid——activation.png" alt="sigmoid_activation" width="400" height="300"/>
+<img src="sigmoid_activation.png" alt="sigmoid_activation" width="400" height="300"/>
 
 ## Sigmoid Class Implementation:
 
