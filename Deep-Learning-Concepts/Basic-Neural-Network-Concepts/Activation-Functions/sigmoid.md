@@ -125,3 +125,4 @@ The sigmoid function is crucial for transforming linear inputs into outputs that
 
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=KOhbp3EIRlM)
+- CMU_11785_Introduction_To_Deep_Learning
