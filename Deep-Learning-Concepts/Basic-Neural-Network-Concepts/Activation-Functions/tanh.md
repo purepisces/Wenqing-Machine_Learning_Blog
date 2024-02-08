@@ -69,17 +69,12 @@ Here's a Python class implementation:
 ```python
 import numpy as np
 class Tanh:
-    """
-    Tanh Activation Function:
-    - 'forward' function applies the tanh activation.
-    - 'backward' function computes the gradient for backpropagation.
-    """
     def forward(self, Z):
         self.A = np.tanh(Z)
         return self.A
 
     def backward(self, dLdA):
-        dAdZ = 1 - np.square(self.A)
+        dAdZ = 1 - np.power(self.A, 2)
         dLdZ = dLdA * dAdZ
         return dLdZ
 ```
