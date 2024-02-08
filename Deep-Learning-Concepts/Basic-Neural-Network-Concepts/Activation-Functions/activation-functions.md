@@ -1,3 +1,15 @@
+$$
+\begin{pmatrix}
+0.8944272 & 0.4472136\\
+-0.4472136 & -0.8944272
+\end{pmatrix}
+\begin{pmatrix}
+10 & 0\\ 
+0 & 5
+\end{pmatrix}
+$$
+
+
 I use relu.md to illstrate the main idea behind activation functions [ReLU](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/relu.md).
 
 In the realm of machine learning, engineers have the liberty to select any differentiable function to serve as an activation function. The inclusion of non-linear elements within a neural network ($f_{NN}$) is crucial for its capability to model non-linear phenomena. In the absence of activation functions, the output of an $f_{NN}$ remains linear irrespective of its depth, due to the inherent linearity of the equation $A · W + b$.
@@ -51,20 +63,19 @@ This interconnectedness makes the derivative computation for vector activation f
 
 
 ### Scalar Activation Function
-If an activation function is applied element-wise to each individual element of \(Z\), treating each \(z_{ij}\) independently, then it is a scalar activation function. For example, applying the ReLU function to each element of \(Z\) would be a scalar operation:
+If an activation function is applied element-wise to each individual element of $Z$, treating each $z_{ij}$ independently, then it is a scalar activation function. For example, applying the ReLU function to each element of $Z$ would be a scalar operation:
 
-\[
-\text{ReLU}(Z) = \begin{bmatrix}
+
+$$\text{ReLU}(Z) = \begin{pmatrix}
 \max(0, z_{11}) & \max(0, z_{12}) \\
 \max(0, z_{21}) & \max(0, z_{22}) \\
 \max(0, z_{31}) & \max(0, z_{32})
-\end{bmatrix}
-\]
+\end{pmatrix}$$
 
-In this case, each element \(z_{ij}\) is processed independently, and the shape of the output matrix remains the same as \(Z\), but with the activation function (in this case, ReLU) applied to each element.
+In this case, each element $z_{ij}$ is processed independently, and the shape of the output matrix remains the same as $Z$, but with the activation function (in this case, ReLU) applied to each element.
 
 ### Vector Activation Function
-On the other hand, if the activation function processes each row (or column) of \(Z\) as a whole vector, considering the relationships between elements in that vector, then it is a vector activation function. An example of this would be applying the Softmax function to each row of \(Z\), treating each row as a vector of logits for a multi-class classification problem.
+On the other hand, if the activation function processes each row (or column) of $Z$ as a whole vector, considering the relationships between elements in that vector, then it is a vector activation function. An example of this would be applying the Softmax function to each row of $Z$, treating each row as a vector of logits for a multi-class classification problem.
 
 
 - **Class attributes**:
@@ -75,19 +86,21 @@ On the other hand, if the activation function processes each row (or column) of 
   - $forward$: The forward method takes in a batch of data $Z$ of shape $N \times C$(representing $N$ samples where each sample has $C$ features), and applies the activation function to $Z$ to compute output $A$ of shape $N \times C$.
     #### Example:
     To illustrate this with an example, let's consider a simple case where we have a batch of 3 samples ($N = 3$) and each sample has 2 features ($C=2$). So, our input matrix $Z$ could look something like this:
-    $Z = \begin{bmatrix}
+    
+    $$Z = \begin{pmatrix}
 z_{11} &amp; z_{12} \\
 z_{21} &amp; z_{22} \\
 z_{31} &amp; z_{32}
-\end{bmatrix}$
+\end{pmatrix}$$
 
 Applying the ReLU activation function, which is defined as $ReLU(x) = \max(0, x)$, we get the output matrix $A$ as follows:
 
-$A = \begin{bmatrix}
+$A = \begin{pmatrix}
 \max(0, z_{11}) &amp; \max(0, z_{12}) \\
 \max(0, z_{21}) &amp; \max(0, z_{22}) \\
 \max(0, z_{31}) &amp; \max(0, z_{32})
-\end{bmatrix}$
+\end{pmatrix}$
+
     As you can see, each element in $Z$ is transformed individually to produce an element in $A$, but the overall shape of the matrix, $3 \times 2$ in this case, remains unchanged.
     
   - $backward$: The backward method takes in $dLdA$, a measure of how the post-activations (output) affect the loss. Using this and the derivative of the activation function itself, the method calculates and returns $dLdZ$, how changes in pre-activation features (input) $Z$ affect the loss $L$. In the case of scalar activations, $dLdZ$ is computed as:
@@ -96,40 +109,39 @@ $A = \begin{bmatrix}
 
     ### Backward Method Example with ReLU Activation
 
-Let's explore an example of the backward method in a neural network using the ReLU (Rectified Linear Unit) activation function. The ReLU function is defined as \( ReLU(x) = \max(0, x) \).
+Let's explore an example of the backward method in a neural network using the ReLU (Rectified Linear Unit) activation function. The ReLU function is defined as $ReLU(x) = \max(0, x)$.
 
 #### Forward Pass
 
-Suppose we have a neuron that receives an input \( Z \) and applies the ReLU activation function to produce an output \( A \). Consider a single input value \( Z = -2 \) during the forward pass:
+Suppose we have a neuron that receives an input $Z$ and applies the ReLU activation function to produce an output $A$. Consider a single input value $Z = -2$ during the forward pass:
 
-\[ A = ReLU(Z) = \max(0, -2) = 0 \]
+$A = ReLU(Z) = \max(0, -2) = 0$
 
 #### Backward Pass
 
-During the backward pass, we compute \( dLdZ \), which represents how changes in \( Z \) (pre-activation input) affect the loss \( L \), using \( dLdA \) (the gradient of the loss with respect to the activation function's output) and the derivative of the activation function \( \frac{\partial A}{\partial Z} \).
+During the backward pass, we compute $dLdZ$, which represents how changes in $Z$ (pre-activation input) affect the loss $L$, using $dLdA$ (the gradient of the loss with respect to the activation function's output) and the derivative of the activation function $\frac{\partial A}{\partial Z}$.
 
-The derivative of the ReLU function with respect to its input \( Z \) is:
+The derivative of the ReLU function with respect to its input $Z$ is:
 
-\[
-\frac{\partial A}{\partial Z} = \begin{cases} 
+
+$$\frac{\partial A}{\partial Z} = \begin{cases} 
 1 & \text{if } Z > 0 \\
 0 & \text{otherwise}
-\end{cases}
-\]
+\end{cases}$$
 
-For \( Z = -2 \), the derivative \( \frac{\partial A}{\partial Z} \) is \( 0 \), because \( Z \) is not greater than \( 0 \).
+For $Z = -2$, the derivative $\frac{\partial A}{\partial Z}$ is $0$, because $Z$ is not greater than $0$.
 
-Let's say the backward pass provides us with \( dLdA = 0.5 \), indicating how the post-activation output \( A \) affects the loss \( L \).
+Let's say the backward pass provides us with $dLdA = 0.5$, indicating how the post-activation output $A$ affects the loss $L$.
 
-#### Computing \( dLdZ \)
+#### Computing $dLdZ$
 
-To find \( dLdZ \), we use:
+To find $dLdZ$, we use:
 
-\[ dLdZ = dLdA \odot \frac{\partial A}{\partial Z} \]
+$dLdZ = dLdA \odot \frac{\partial A}{\partial Z}$
 
 Substituting the known values:
 
-\[ dLdZ = 0.5 \odot 0 = 0 \]
+$dLdZ = 0.5 \odot 0 = 0$
 
 This result implies that in this scenario, where the ReLU function clamps the negative input to \( 0 \), changes in \( Z \) have no effect on the loss, as reflected by \( dLdZ = 0 \). This is intuitive since for negative inputs to ReLU, the output is always \( 0 \), and slight variations in \( Z \) do not affect \( A \) or the loss.
 
@@ -142,19 +154,19 @@ note:### Element-wise Derivative
 
 The term "element-wise derivative" refers to the derivative calculated independently for each element of a function's output with respect to its corresponding input element. This concept is widely used in functions applied to vectors or matrices, such as activation functions in neural networks.
 
-When computing the element-wise derivative of an activation function's output \( A \) with respect to its input \( Z \), we calculate the derivative for each entry \( a_{ij} \) in the output matrix \( A \) with respect to the corresponding entry \( z_{ij} \) in the input matrix \( Z \), where \( i \) and \( j \) denote the row and column indices, respectively.
+When computing the element-wise derivative of an activation function's output $A$ with respect to its input $Z$, we calculate the derivative for each entry $a_{ij$ in the output matrix  $A$ with respect to the corresponding entry $z_{ij}$ in the input matrix $Z$, where $i$ and $j$ denote the row and column indices, respectively.
 
 #### Illustration with an Example
 
-Consider a simple example using a vector input and the ReLU activation function, defined as \( \text{ReLU}(x) = \max(0, x) \).
+Consider a simple example using a vector input and the ReLU activation function, defined as $\text{ReLU}(x) = \max(0, x)$.
 
-For an input vector \( Z = [z_1, z_2, z_3] \), the ReLU function produces an output vector \( A = [a_1, a_2, a_3] \), where \( a_i = \max(0, z_i) \) for \( i = 1, 2, 3 \).
+For an input vector $Z = [z_1, z_2, z_3]$, the ReLU function produces an output vector $A = [a_1, a_2, a_3]$, where $a_i = \max(0, z_i)$ for $i = 1, 2, 3$.
 
-The element-wise derivative of \( A \) with respect to \( Z \) is given by:
+The element-wise derivative of $A$ with respect to $Z$is given by:
 
-\[ \frac{\partial A}{\partial Z} = \left[ \frac{\partial a_1}{\partial z_1}, \frac{\partial a_2}{\partial z_2}, \frac{\partial a_3}{\partial z_3} \right] \]
+$\frac{\partial A}{\partial Z} = \left[ \frac{\partial a_1}{\partial z_1}, \frac{\partial a_2}{\partial z_2}, \frac{\partial a_3}{\partial z_3} \right]$
 
-For the ReLU function, this derivative is 1 for \( z_i > 0 \) (indicating that a small increase in \( z_i \) results in an equal increase in \( a_i \)) and 0 for \( z_i \leq 0 \) (as \( a_i \) remains at 0 regardless of changes in \( z_i \)).
+For the ReLU function, this derivative is 1 for $z_i > 0$ (indicating that a small increase in $z_i$ results in an equal increase in \( a_i \)) and 0 for \( z_i \leq 0 \) (as \( a_i \) remains at 0 regardless of changes in \( z_i \)).
 
 #### Significance in Neural Networks
 
@@ -162,46 +174,41 @@ In the context of neural networks, particularly during the backpropagation proce
 
 ### Understanding the Diagonal of the Jacobian Matrix for Scalar Activation Functions
 
-To comprehend why, for a single input of size \(1 \times C\), the derivative \( \frac{\partial A}{\partial Z} \) equates to the diagonal of the Jacobian matrix, it's essential to explore the nature of the Jacobian matrix in the context of activation functions.
+To comprehend why, for a single input of size $1 \times C$, the derivative $\frac{\partial A}{\partial Z}$ equates to the diagonal of the Jacobian matrix, it's essential to explore the nature of the Jacobian matrix in the context of activation functions.
 
 #### The Jacobian Matrix in the Context of Activation Functions
-The Jacobian matrix represents all first-order partial derivatives of a function that maps from \( \mathbb{R}^n \) to \( \mathbb{R}^m \). For a vector-valued function \( \mathbf{f}(\mathbf{x}) \) where \( \mathbf{x} \in \mathbb{R}^n \) and \( \mathbf{f}(\mathbf{x}) \in \mathbb{R}^m \), the Jacobian matrix \( J \) is defined as:
+The Jacobian matrix represents all first-order partial derivatives of a function that maps from $\mathbb{R}^n$ to $\mathbb{R}^m$. For a vector-valued function $\mathbf{f}(\mathbf{x})$ where $\mathbf{x} \in \mathbb{R}^n$ and $\mathbf{f}(\mathbf{x}) \in \mathbb{R}^m$, the Jacobian matrix $J$ is defined as:
 
-\[
-J = \begin{bmatrix}
+$$J = \begin{pmatrix}
 \frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n} \\
 \vdots & \ddots & \vdots \\
 \frac{\partial f_m}{\partial x_1} & \cdots & \frac{\partial f_m}{\partial x_n}
-\end{bmatrix}
-\]
+\end{pmatrix}$$
 
 #### Scalar Activation Functions and the Jacobian
-When scalar activation functions like ReLU or Sigmoid are applied element-wise to a vector \( \mathbf{z} = [z_1, \ldots, z_C] \), they can be viewed as a set of independent scalar functions \( f_i(z_i) \). In this scenario, the Jacobian matrix has a distinctive structure.
+When scalar activation functions like ReLU or Sigmoid are applied element-wise to a vector $\mathbf{z} = [z_1, \ldots, z_C]$, they can be viewed as a set of independent scalar functions $f_i(z_i)$. In this scenario, the Jacobian matrix has a distinctive structure.
 
 #### Example with ReLU Activation Function
-Consider the ReLU activation function applied to an input vector \( \mathbf{z} = [z_1, z_2, z_3] \) (for \( C = 3 \)). The ReLU function transforms \( \mathbf{z} \) into \( \mathbf{A} = [ReLU(z_1), ReLU(z_2), ReLU(z_3)] \).
+Consider the ReLU activation function applied to an input vector $\mathbf{z} = [z_1, z_2, z_3]$ (for $C = 3$). The ReLU function transforms $\mathbf{z}$ into $\mathbf{A} = [ReLU(z_1), ReLU(z_2), ReLU(z_3)]$.
 
-The derivative of \( ReLU(z) \) with respect to \( z \) is:
+The derivative of $ReLU(z)$ with respect to $z$ is:
 
-\[
-\frac{\partial ReLU(z)}{\partial z} = \begin{cases}
+
+$\frac{\partial ReLU(z)}{\partial z} = \begin{cases}
 1, & \text{if } z > 0 \\
 0, & \text{otherwise}
-\end{cases}
-\]
+\end{cases}$
 
-For an input vector \( \mathbf{z} \) with all positive elements, the Jacobian matrix of \( \mathbf{A} \) with respect to \( \mathbf{z} \) is:
+For an input vector $\mathbf{z}$ with all positive elements, the Jacobian matrix of $\mathbf{A}$ with respect to $\mathbf{z}$ is:
 
-\[
-J = \begin{bmatrix}
+$$J = \begin{pmatrix}
 1 & 0 & 0 \\
 0 & 1 & 0 \\
 0 & 0 & 1
-\end{bmatrix}
-\]
+\end{[matrix}$$
 
 #### Why the Diagonal?
-The diagonal nature of the Jacobian matrix for element-wise scalar activations arises because each output element \( A_i \) depends solely on the corresponding input element \( z_i \), making all off-diagonal elements (which represent derivatives of output with respect to different inputs) zero. The non-zero elements, located on the diagonal, represent the derivative of each output with respect to its corresponding input, simplifying computations in neural networks, particularly during backpropagation.
+The diagonal nature of the Jacobian matrix for element-wise scalar activations arises because each output element $A_i$ depends solely on the corresponding input element $z_i$, making all off-diagonal elements (which represent derivatives of output with respect to different inputs) zero. The non-zero elements, located on the diagonal, represent the derivative of each output with respect to its corresponding input, simplifying computations in neural networks, particularly during backpropagation.
 
 
 The Jacobian of a vector activation function is not a diagonal matrix. For each input vector $Z^{(i)}$ of size $1 \times C$ and its corresponding output vector $A^{(i)}$ (also $1 \times C$ within the batch, the Jacobian matrix $J^{(i)}$ must be computed individually. This matrix holds dimensions $C \times C$. Consequently, the gradient $dLdZ^{(i)}$ for each sample in the batch is determined by:
