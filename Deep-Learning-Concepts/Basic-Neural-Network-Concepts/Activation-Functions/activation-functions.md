@@ -94,7 +94,7 @@ This interconnectedness makes the derivative computation for vector activation f
   - $forward$: The forward method takes in a batch of data $Z$ of shape $N \times C$(representing $N$ samples where each sample has $C$ features), and applies the activation function to $Z$ to compute output $A$ of shape $N \times C$.
   - $backward$: The backward method takes in $dLdA$, a measure of how the post-activations (output) affect the loss. Using this and the derivative of the activation function itself, the method calculates and returns $dLdZ$, how changes in pre-activation features (input) $Z$ affect the loss $L$. In the case of scalar activations, $dLdZ$ is computed as:
     
-    $dLdZ = dLdA \odot \frac{\partial A}{\partial Z}$
+    $$dLdZ = dLdA \odot \frac{\partial A}{\partial Z}$$
     
     #### Forward Example:
     To illustrate this with an example, let's consider a simple case where we have a batch of 3 samples ($N = 3$) and each sample has 2 features ($C=2$). So, our input matrix $Z$ could look something like this:
