@@ -1,4 +1,3 @@
-
 # Activation Functions
 
 I use relu.md to illstrate the main idea behind activation functions [ReLU](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/relu.md).
@@ -159,7 +158,7 @@ This result implies that in this scenario, where the ReLU function clamps the ne
 This example demonstrates computing the gradient of the loss with respect to pre-activation inputs using the backward method and scalar activation functions.
 
 
-For $dLdZ = dLdA \odot \frac{\partial A}{\partial Z}$, Here, $\frac{\partial A}{\partial Z}$ represents the element-wise derivative of the activation output $A$ with respect to its corresponding input $Z$. Specifically, for a single input of size $1 \times C$, this derivative equates to the diagonal of the Jacobian matrix, expressed as a vector of size $1 \times C$. This concept aligns with the understanding presented in the lecture that the Jacobian of a scalar activation function manifests as a diagonal matrix. When considering a batch with size $N$, the dimension of $\frac{\partial A}{\partial Z}$ expands to $N \times C$. The computation of $\frac{\partial A}{\partial Z}$ varies among different scalar activation functions, as detailed in their respective subsections. The size of $\frac{\partial A}{\partial Z}$ is $N \times C$ because we have a derivative value for each feature of each sample.
+**For $dLdZ = dLdA \odot \frac{\partial A}{\partial Z}$, Here, $\frac{\partial A}{\partial Z}$ represents the element-wise derivative of the activation output $A$ with respect to its corresponding input $Z$. Specifically, for a single input of size $1 \times C$, this derivative equates to the diagonal of the Jacobian matrix, expressed as a vector of size $1 \times C$. This concept aligns with the understanding presented in the lecture that the Jacobian of a scalar activation function manifests as a diagonal matrix. When considering a batch with size $N$, the dimension of $\frac{\partial A}{\partial Z}$ expands to $N \times C$. The computation of $\frac{\partial A}{\partial Z}$ varies among different scalar activation functions, as detailed in their respective subsections. The size of $\frac{\partial A}{\partial Z}$ is $N \times C$ because we have a derivative value for each feature of each sample.**
 
 
 
@@ -208,7 +207,7 @@ $dLdZ^{(i)} = dLdA^{(i)} \cdot J^{(i)}$
 
 After computing each $1 \times C$ vector of $dLdZ^{(i)}$, these vectors are vertically stacked to form the final $N \times C$ matrix of $dLdZ$, which is then returned.
 
-Specifically, The Jacobian matrix is the derivative, not the input. Specifically, the Jacobian matrix of a vector-valued function represents the collection of all first-order partial derivatives of the function's outputs with respect to its inputs. Each element in the Jacobian matrix is a partial derivative of one of the function's output components with respect to one of its input components.
+Specifically, the Jacobian matrix of a vector-valued function represents the collection of all first-order partial derivatives of the function's outputs with respect to its inputs. Each element in the Jacobian matrix is a partial derivative of one of the function's output components with respect to one of its input components.
 
 In the context of a vector-valued function $\mathbf{f}(\mathbf{x})$ where $\mathbf{x}$ is the input vector and $\mathbf{f}(\mathbf{x})$ is the output vector, the Jacobian matrix $J$ is defined as:
 
