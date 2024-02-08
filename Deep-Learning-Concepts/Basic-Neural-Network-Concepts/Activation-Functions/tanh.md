@@ -32,6 +32,31 @@ This output then serves as input to subsequent neurons.
 
 <img src="tanh_activation_forward.png" alt="tanh_activation_forward" width="400" height="300"/>
 
+### Derivation of the tanh Function's Derivative
+
+The derivative of the tanh function, $\frac{\partial \tanh(Z)}{\partial Z} = 1 - \tanh^2(Z)$, is derived from applying the chain rule and the definition of the tanh function. The tanh function is given by $\tanh(Z) = \frac{e^Z - e^{-Z}}{e^Z + e^{-Z}}$. Here's a step-by-step breakdown of how this derivative is obtained:
+
+1. **Express the tanh function**: The tanh function is defined as:
+   $$\tanh(Z) = \frac{e^Z - e^{-Z}}{e^Z + e^{-Z}}$$
+
+2. **Apply the quotient rule**: The quotient rule in calculus is a formula to compute the derivative of the ratio of two functions. If we have $f(Z) = \frac{g(Z)}{h(Z)}$, then the derivative is:
+   $$f'(Z) = \frac{g'(Z) \cdot h(Z) - g(Z) \cdot h'(Z)}{[h(Z)]^2}$$
+   
+   In this case, $g(Z) = e^Z - e^{-Z}$ and $h(Z) = e^Z + e^{-Z}$.
+
+3. **Compute \(g'(Z)\) and \(h'(Z)\)**: The derivatives of $g(Z)$ and $h(Z)$ with respect to $Z$ are:
+   $$g'(Z) = e^Z + e^{-Z}$$
+   $$h'(Z) = e^Z - e^{-Z}$$
+
+4. **Apply the quotient rule**: Substituting $g(Z)$, $h(Z)$, $g'(Z)$, and $h'(Z)$ into the quotient rule gives:
+   $$\frac{d\tanh}{dZ} = \frac{(e^Z + e^{-Z})(e^Z + e^{-Z}) - (e^Z - e^{-Z})(e^Z - e^{-Z})}{(e^Z + e^{-Z})^2}$$
+
+5. **Simplify**: Simplifying the above expression, we get:
+   $$\frac{d\tanh}{dZ} = \frac{4e^{2Z}}{(e^Z + e^{-Z})^2}$$
+   Recognizing that $\tanh^2(Z) = \left(\frac{e^Z - e^{-Z}}{e^Z + e^{-Z}}\right)^2$, we can simplify further to:
+   $$\frac{d\tanh}{dZ} = 1 - \tanh^2(Z)$$
+
+
 ## Tanh Class Implementation:
 
 ### Tanh Forward Equation
