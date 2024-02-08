@@ -39,6 +39,36 @@ This activated output is then used as input to the neurons in the subsequent lay
 ![Sigmoid Activation Function](sigmoid_activation.png)
 
 ## Sigmoid Class Implementation:
+
+### Sigmoid Forward Equation
+
+During forward propagation, pre-activation features Z are passed to the activation function Sigmoid to calculate their post-activation values A.
+
+
+$$\begin{align}
+A &= \text{sigmoid.forward}(Z) \\
+&= \sigma(Z) \\
+&= \frac{1}{1 + e^{-Z}}
+\end{align}$$
+
+
+
+![Sigmoid Activation Function](sigmoid_activation_forward.png)
+
+### Sigmoid Backward Equation
+
+Backward propagation helps us understand how changes in pre-activation features Z affect the loss, given
+how changes in post-activation values A affect the loss.
+
+
+$$\begin{align}
+\frac{dL}{dz} &= \text{sigmoid.backward}(dLdA) \\
+&= dLdA \odot \frac{\partial A}{\partial Z} \\
+&= dLdA \odot (\sigma(Z) - \sigma^2(Z)) \\
+&= dLdA \odot (A - A \odot A)
+\end{align}$$
+
+
 Below is a Python class implementation of the sigmoid activation function, which includes both the forward pass (calculating the activated output) and the backward pass (calculating the gradient for backpropagation).
 
 ```python
