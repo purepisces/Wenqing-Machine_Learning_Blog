@@ -1,14 +1,5 @@
-$$
-\begin{pmatrix}
-0.8944272 & 0.4472136\\
--0.4472136 & -0.8944272
-\end{pmatrix}
-\begin{pmatrix}
-10 & 0\\ 
-0 & 5
-\end{pmatrix}
-$$
 
+# Activation Functions
 
 I use relu.md to illstrate the main idea behind activation functions [ReLU](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/relu.md).
 
@@ -84,24 +75,24 @@ On the other hand, if the activation function processes each row (or column) of 
 
 - **Class methods**:
   - $forward$: The forward method takes in a batch of data $Z$ of shape $N \times C$(representing $N$ samples where each sample has $C$ features), and applies the activation function to $Z$ to compute output $A$ of shape $N \times C$.
-    #### Example:
+    #### Forward Example:
     To illustrate this with an example, let's consider a simple case where we have a batch of 3 samples ($N = 3$) and each sample has 2 features ($C=2$). So, our input matrix $Z$ could look something like this:
     
     $$Z = \begin{pmatrix}
-z_{11} &amp; z_{12} \\
-z_{21} &amp; z_{22} \\
-z_{31} &amp; z_{32}
+z_{11} &z_{12} \\
+z_{21} &z_{22} \\
+z_{31} &z_{32}
 \end{pmatrix}$$
 
 Applying the ReLU activation function, which is defined as $ReLU(x) = \max(0, x)$, we get the output matrix $A$ as follows:
 
-$A = \begin{pmatrix}
-\max(0, z_{11}) &amp; \max(0, z_{12}) \\
-\max(0, z_{21}) &amp; \max(0, z_{22}) \\
-\max(0, z_{31}) &amp; \max(0, z_{32})
-\end{pmatrix}$
+$$A = \begin{pmatrix}
+\max(0, z_{11}) & \max(0, z_{12}) \\
+\max(0, z_{21}) &\max(0, z_{22}) \\
+\max(0, z_{31}) &\max(0, z_{32})
+\end{pmatrix}$$
 
-    As you can see, each element in $Z$ is transformed individually to produce an element in $A$, but the overall shape of the matrix, $3 \times 2$ in this case, remains unchanged.
+As you can see, each element in $Z$ is transformed individually to produce an element in $A$, but the overall shape of the matrix, $3 \times 2$ in this case, remains unchanged.
     
   - $backward$: The backward method takes in $dLdA$, a measure of how the post-activations (output) affect the loss. Using this and the derivative of the activation function itself, the method calculates and returns $dLdZ$, how changes in pre-activation features (input) $Z$ affect the loss $L$. In the case of scalar activations, $dLdZ$ is computed as:
     
@@ -143,18 +134,18 @@ Substituting the known values:
 
 $dLdZ = 0.5 \odot 0 = 0$
 
-This result implies that in this scenario, where the ReLU function clamps the negative input to \( 0 \), changes in \( Z \) have no effect on the loss, as reflected by \( dLdZ = 0 \). This is intuitive since for negative inputs to ReLU, the output is always \( 0 \), and slight variations in \( Z \) do not affect \( A \) or the loss.
+This result implies that in this scenario, where the ReLU function clamps the negative input to $0$, changes in $Z$  have no effect on the loss, as reflected by $dLdZ = 0$. This is intuitive since for negative inputs to ReLU, the output is always $0$, and slight variations in $Z$ do not affect $A$ or the loss.
 
 This example demonstrates computing the gradient of the loss with respect to pre-activation inputs using the backward method and scalar activation functions.
 
 
 For $dLdZ = dLdA \odot \frac{\partial A}{\partial Z}$, Here, $\frac{\partial A}{\partial Z}$ represents the element-wise derivative of the activation output $A$ with respect to its corresponding input $Z$. Specifically, for a single input of size $1 \times C$, this derivative equates to the diagonal of the Jacobian matrix, expressed as a vector of size $1 \times C$. This concept aligns with the understanding presented in the lecture that the Jacobian of a scalar activation function manifests as a diagonal matrix. When considering a batch with size $N$, the dimension of $\frac{\partial A}{\partial Z}$ expands to $N \times C$. The computation of $\frac{\partial A}{\partial Z}$ varies among different scalar activation functions, as detailed in their respective subsections. The size of $\frac{\partial A}{\partial Z}$ is $N \times C$ because we have a derivative value for each feature of each sample.
 
-note:### Element-wise Derivative
+### Element-wise Derivative
 
 The term "element-wise derivative" refers to the derivative calculated independently for each element of a function's output with respect to its corresponding input element. This concept is widely used in functions applied to vectors or matrices, such as activation functions in neural networks.
 
-When computing the element-wise derivative of an activation function's output $A$ with respect to its input $Z$, we calculate the derivative for each entry $a_{ij$ in the output matrix  $A$ with respect to the corresponding entry $z_{ij}$ in the input matrix $Z$, where $i$ and $j$ denote the row and column indices, respectively.
+When computing the element-wise derivative of an activation function's output $A$ with respect to its input $Z$, we calculate the derivative for each entry $a_{ij}$ in the output matrix  $A$ with respect to the corresponding entry $z_{ij}$ in the input matrix $Z$, where $i$ and $j$ denote the row and column indices, respectively.
 
 #### Illustration with an Example
 
@@ -166,7 +157,7 @@ The element-wise derivative of $A$ with respect to $Z$is given by:
 
 $\frac{\partial A}{\partial Z} = \left[ \frac{\partial a_1}{\partial z_1}, \frac{\partial a_2}{\partial z_2}, \frac{\partial a_3}{\partial z_3} \right]$
 
-For the ReLU function, this derivative is 1 for $z_i > 0$ (indicating that a small increase in $z_i$ results in an equal increase in \( a_i \)) and 0 for \( z_i \leq 0 \) (as \( a_i \) remains at 0 regardless of changes in $z_i$.
+For the ReLU function, this derivative is 1 for $z_i > 0$ (indicating that a small increase in $z_i$ results in an equal increase in $a_i$ and 0 for $z_i \leq 0$ as $a_i$ remains at $0$ regardless of changes in $z_i$.
 
 #### Significance in Neural Networks
 
@@ -217,16 +208,9 @@ $dLdZ^{(i)} = dLdA^{(i)} \cdot J^{(i)}$
 
 After computing each $1 \times C$ vector of $dLdZ^{(i)}$, these vectors are vertically stacked to form the final $N \times C$ matrix of $dLdZ$, which is then returned.
 
-
-
-
-
-
-
-
 Specifically, The Jacobian matrix is the derivative, not the input. Specifically, the Jacobian matrix of a vector-valued function represents the collection of all first-order partial derivatives of the function's outputs with respect to its inputs. Each element in the Jacobian matrix is a partial derivative of one of the function's output components with respect to one of its input components.
 
-In the context of a vector-valued function \( \mathbf{f}(\mathbf{x}) \) where \( \mathbf{x} \) is the input vector and \( \mathbf{f}(\mathbf{x}) \) is the output vector, the Jacobian matrix \( J \) is defined as:
+In the context of a vector-valued function $\mathbf{f}(\mathbf{x})$ where $\mathbf{x}$ is the input vector and $\mathbf{f}(\mathbf{x})$ is the output vector, the Jacobian matrix $J$ is defined as:
 
 $$
 J = \begin{pmatrix}
@@ -236,111 +220,100 @@ J = \begin{pmatrix}
 \end{pmatrix}
 $$
 
-Here, \( f_1, f_2, \ldots, f_m \) are the components of the output vector \( \mathbf{f}(\mathbf{x}) \), and \( x_1, x_2, \ldots, x_n \) are the components of the input vector \( \mathbf{x} \). The element in the \( i \)-th row and \( j \)-th column of \( J \), \( \frac{\partial f_i}{\partial x_j} \), represents the partial derivative of the \( i \)-th output component with respect to the \( j \)-th input component.
+Here, $f_1, f_2, \ldots, f_m$ are the components of the output vector $\mathbf{f}(\mathbf{x})$, and $x_1, x_2, \ldots, x_n$ are the components of the input vector $\mathbf{x}$. The element in the $i$-th row and $j$-th column of $J$, $\frac{\partial f_i}{\partial x_j}$, represents the partial derivative of the $i$-th output component with respect to the $j$-th input component.
 
 In summary, the Jacobian matrix itself is a matrix of derivatives that describes how each component of the output vector changes with respect to changes in each component of the input vector. It is not the input but rather a mathematical object that characterizes the sensitivity of the output to changes in the input.
-
 
 
 
 ### Example Using Softmax Activation Function in Neural Networks
 
 #### Setting the Scene
-Consider a neural network layer with 2 samples in a batch (`N=2`) and each sample has 3 features (`C=3`). This setup could represent the logits for 3 classes in a classification problem.
+Consider a neural network layer with 2 samples in a batch ($N=2$) and each sample has 3 features ($C=3$). This setup could represent the logits for 3 classes in a classification problem.
 
-Our batch of input vectors `Z` is given by:
+Our batch of input vectors $Z$ is given by:
 
-```plaintext
-Z = [
-    Z^{(1)}
-    Z^{(2)}
-    ] = [
-        1   2   3
-        2   2   1
-        ]
+$Z = \begin{pmatrix} Z^{(1)} & Z^{(2)} \end{pmatrix} = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 2 & 1 \end{pmatrix}$
 
 Applying Softmax Activation
-Softmax is applied to each sample Z^{(i)} to produce the output vector A^{(i)}. The Softmax function for an element z_j in vector Z^{(i)} is defined as:
 
-\text{Softmax}(z_j) = \frac{e^{z_j}}{\sum_{k=1}^{C} e^{z_k}}
+Softmax is applied to each sample $Z^{(i)}$ to produce the output vector $A^{(i)}$. The Softmax function for an element $z_j$ in vector $Z^{(i)}$ is defined as:
 
-After applying Softmax to each row of Z, we get:
+$$\text{Softmax}(z_j) = \frac{e^{z_j}}{\sum_{k=1}^{C} e^{z_k}}$$
 
-A = [
-    A^{(1)}
-    A^{(2)}
-    ] = [
-        0.09   0.24   0.67
-        0.42   0.42   0.16
-        ]
+After applying Softmax to each row of $Z$, we get:
+
+$A = \begin{pmatrix} A^{(1)} & A^{(2)} \end{pmatrix} = \begin{pmatrix} 0.09 & 0.24 & 0.67 \\ 0.42 & 0.42 & 0.16 \end{pmatrix}$
+
 
 Jacobian Matrix for Softmax
 
-For Softmax, the Jacobian J^{(i)} for a single sample A^{(i)} has elements:
+For Softmax, the Jacobian $J^{(i)}$ for a single sample $A^{(i)}$ has elements:
 
-J^{(i)}_{jk} = \begin{cases}
+$$J^{(i)}_{jk} = \begin{cases}
     A^{(i)}_j (1 - A^{(i)}_j) & \text{if } j = k \\
     -A^{(i)}_j A^{(i)}_k & \text{otherwise}
-\end{cases}
+\end{cases}$$
 
-For our first sample A^{(1)}, the Jacobian J^{(1)} would be a 3x3 matrix where each element is computed using the above rule.
+For our first sample $A^{(1)}$, the Jacobian $J^{(1)}$ would be a 3x3 matrix where each element is computed using the above rule.
 
-Calculating J^{(1)}
+Calculating $J^{(1)}$
 
-For the first sample, A^{(1)} = [0.09, 0.24, 0.67].  Using the Softmax derivative formula:
-For j = k: J^{(1)}_{jj} = A^{(1)}_j (1 - A^{(1)}_j)
-For j \neq k: J^{(1)}_{jk} = -A^{(1)}_j A^{(1)}_k
+For the first sample, $A^{(1)} = [0.09, 0.24, 0.67]$.  Using the Softmax derivative formula:
+For $j = k: J^{(1)}_{jj} = A^{(1)}_j (1 - A^{(1)}_j)$
+For $j \neq k: J^{(1)}_{jk} = -A^{(1)}_j A^{(1)}_k$
 Thus, we have:
-J^{(1)}_{11} = 0.09 \times (1 - 0.09) = 0.0819
-J^{(1)}_{22} = 0.24 \times (1 - 0.24) = 0.1824
-J^{(1)}_{33} = 0.67 \times (1 - 0.67) = 0.2211
-And for j \neq k
+$J^{(1)}_{11} = 0.09 \times (1 - 0.09) = 0.0819$
+$J^{(1)}_{22} = 0.24 \times (1 - 0.24) = 0.1824$
+$J^{(1)}_{33} = 0.67 \times (1 - 0.67) = 0.2211$
 
-J^{(1)}_{12} = J^{(1)}_{21} = -0.09 \times 0.24 = -0.0216
-J^{(1)}_{13} = J^{(1)}_{31} = -0.09 \times 0.67 = -0.0603
-J^{(1)}_{23} = J^{(1)}_{32} = -0.24 \times 0.67 = -0.1608
-So, J^{(1)} is
+And for $j \neq k$
 
-J^{(1)} = \begin{bmatrix}
-0.0819 &amp; -0.0216 &amp; -0.0603 \\
--0.0216 &amp; 0.1824 &amp; -0.1608 \\
--0.0603 &amp; -0.1608 &amp; 0.2211
-\end{bmatrix}
+$J^{(1)}_{12} = J^{(1)}_{21} = -0.09 \times 0.24 = -0.0216$
+$J^{(1)}_{13} = J^{(1)}_{31} = -0.09 \times 0.67 = -0.0603$
+$J^{(1)}_{23} = J^{(1)}_{32} = -0.24 \times 0.67 = -0.1608$
+So, $J^{(1)}$ is
+
+$$J^{(1)} = \begin{pmatrix}
+0.0819 &-0.0216 & -0.0603 \\
+-0.0216 &0.1824 & -0.1608 \\
+-0.0603 &-0.1608 &0.2211
+\end{pmatrix}$$
 
 Similarly
-J^{(2)} = \begin{bmatrix}
-0.2436 &amp; -0.1764 &amp; -0.0672 \\
--0.1764 &amp; 0.2436 &amp; -0.0672 \\
--0.0672 &amp; -0.0672 &amp; 0.1344
-\end{bmatrix}
+$$J^{(2)} = \begin{pmatrix}
+0.2436 & -0.1764 & -0.0672 \\
+-0.1764 & 0.2436 & -0.0672 \\
+-0.0672 & -0.0672 & 0.1344
+\end{pmatrix}$$
 
-
-
-Computing the Gradient dLdZ^{(i)}
+Computing the Gradient $dLdZ^{(i)}$
 Let's assume we have the gradient of the loss with respect to the activation output dLdA for our batch as:
+$$dLdA= \begin{pmatrix}
+0.1 & -0.2 & 0.1 \\
+-0.1 & 0.3 & -0.2
+\end{pmatrix}$$
 
-dLdA = [
-    0.1   -0.2    0.1
-    -0.1   0.3   -0.2
-    ]
+The gradient $dLdZ^{(i)}$ for each sample is calculated by multiplying the corresponding row of $dLdA$ by the Jacobian $J^{(i)}$:
 
-The gradient dLdZ^{(i)} for each sample is calculated by multiplying the corresponding row of dLdA by the Jacobian J^{(i)}:
+$$dLdZ^{(i)} =dLdA^{(i)} \cdot J^{(i)}$$
 
-dLdZ^{(i)} = dLdA^{(i)} \cdot J^{(i)}
+This operation would be performed for each sample, and the resulting vectors $dLdZ^{(1)}$ and $dLdZ^{(2)}$ are then stacked to form the final gradient matrix $dLdZ$ for the whole batch.
 
-This operation would be performed for each sample, and the resulting vectors dLdZ^{(1)} and dLdZ^{(2)} are then stacked to form the final gradient matrix dLdZ for the whole batch.
+$\textbf{Specific Calculations}$
 
-Specific Calculations
-Due to the complexity of the Softmax derivatives and for brevity, detailed computations of each element of J^{(1)} and J^{(2)} are omitted here. However, the general process involves:
+Due to the complexity of the Softmax derivatives and for brevity, detailed computations of each element of $J^{(1)}$ and $J^{(2)}$ are omitted here. However, the general process involves:
 
-Calculating J^{(1)} and J^{(2)} using A^{(1)} and A^{(2)}, respectively.
-Multiplying dLdA^{(1)} = [0.1, -0.2, 0.1] by J^{(1)} to get dLdZ^{(1)}.
-Multiplying dLdA^{(2)} = [-0.1, 0.3, -0.2] by J^{(2)} to get dLdZ^{(2)}.
-Stacking dLdZ^{(1)} and dLdZ^{(2)} vertically to form dLdZ.
+Calculating $J^{(1)}$ and $J^{(2)}$ using $A^{(1)}$ and $A^{(2)}$, respectively.
+
+Multiplying $dLdA^{(1)} = [0.1, -0.2, 0.1]$ by $J^{(1)}$ to get $dLdZ^{(1)}$.
+
+Multiplying $dLdA^{(2)} = [-0.1, 0.3, -0.2]$ by $J^{(2)}$ to get $dLdZ^{(2)}$.
+
+Stacking $dLdZ^{(1)}$ and $dLdZ^{(2)}$ vertically to form $dLdZ$
+
+
 This example illustrates the process of computing the gradient of the loss with respect to the inputs for a layer using a vector activation function, where the interdependence of the inputs in producing the outputs requires the computation of a full Jacobian matrix for each sample.
-
-
-
 
 
 
