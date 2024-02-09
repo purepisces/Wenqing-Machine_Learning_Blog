@@ -36,7 +36,7 @@ This output then serves as input to subsequent neurons.
 
 ## Visualization:
 
-<img src="relu_activation_forward.png" alt="relu_activation_forward" width="300" height="300"/>
+<img src="relu.png" alt="relu" width="300" height="300"/> <img src="relu_activation_forward.png" alt="relu_activation_forward" width="300" height="300"/>
 
 
 ### Derivation of the ReLU Function's Derivative
@@ -96,10 +96,6 @@ class ReLU:
         dLdZ = dLdA * dAdZ
         return dLdZ
 ```
-## Visualization:
-
-<img src="relu.png" alt="relu" width="300" height="300"/>
-
 
 ## Reference:
 - CMU_11785_Introduction_To_Deep_Learning
