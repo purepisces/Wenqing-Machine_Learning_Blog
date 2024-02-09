@@ -21,10 +21,12 @@ Here, $\text{erf}$ is the error function.
 ## GELU Forward Equation
 The forward pass of GELU can be calculated as:
 
-$$A = \text{gelu.forward}(Z) \\
-= Z \Phi(Z) \\
-= Z \int_{-\infty}^{Z} \frac{1}{\sqrt{2\pi}} \exp \left( -\frac{x^2}{2} \right) dx \\
-= \frac{1}{2} Z \odot \left[ 1 + \text{erf} \left( \frac{Z}{\sqrt{2}} \right) \right]$$
+$$\begin{align*}
+A &= \text{gelu.forward}(Z) \\
+&= Z \Phi(Z) \\
+&= Z \int_{-\infty}^{Z} \frac{1}{\sqrt{2\pi}} \exp \left( -\frac{x^2}{2} \right) dx \\
+&= \frac{1}{2} Z \odot \left[ 1 + \text{erf} \left( \frac{Z}{\sqrt{2}} \right) \right]
+\end{align*}$$
 
 ## GELU Backward Equation
 For the backward pass, the derivative of $A$ with respect to $Z$ is needed:
