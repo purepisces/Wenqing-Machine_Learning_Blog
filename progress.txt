@@ -36,7 +36,7 @@ Neural-Network.md✅ need format and rephrase
 backpropagation.md✅ need format and rephrase
 relu.md✅ need format and rephrase
 activation-functions.md✅ need format and rephrase, Comparison with different activation Functions, why and when choose which
-sigmoid.md✅
+sigmoid.md✅已发csdn+知乎
 tanh.md✅
 
 Chain rule
