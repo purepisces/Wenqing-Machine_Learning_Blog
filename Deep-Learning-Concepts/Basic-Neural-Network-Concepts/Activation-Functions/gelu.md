@@ -39,15 +39,7 @@ $$\begin{align*}
 
 where $\Phi'(Z)$ is the probability density function of the standard Gaussian distribution, resulting in:
 
-$$
-\frac{dA}{dZ} = \frac{1}{2}\left[1 + \text{erf}\left(\frac{Z}{\sqrt{2}}\right)\right] + \frac{Z}{\sqrt{2\pi}}\exp\left(-\frac{Z^2}{2}\right)
-$$
-
 This is the expression used to implement the backward function of GELU:
-
-$$
-\frac{\partial L}{\partial Z} = \text{gelu.backward}(dLdA) = dLdA \frac{dA}{dZ}
-$$
 
 $$\begin{align*}
 \frac{\partial L}{\partial Z} &= \text{gelu.backward}(\text{d}L\text{d}A) \\
