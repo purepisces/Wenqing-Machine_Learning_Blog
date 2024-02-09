@@ -37,6 +37,7 @@ backpropagation.md✅ need format and rephrase
 relu.md✅ need format and rephrase
 activation-functions.md✅ need format and rephrase, Comparison with different activation Functions, why and when choose which
 sigmoid.md✅
+tanh.md✅
 
 Chain rule
 logistic regression
