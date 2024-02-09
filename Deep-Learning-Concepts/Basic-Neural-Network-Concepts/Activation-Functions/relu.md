@@ -85,7 +85,6 @@ Here's a Python class implementation:
 
 ```python
 import numpy as np
-
 class ReLU:
     def forward(self, Z):
         self.A = np.maximum(0, Z)
@@ -96,9 +95,6 @@ class ReLU:
         dLdZ = dLdA * dAdZ
         return dLdZ
 ```
-
-## Reference:
-- CMU_11785_Introduction_To_Deep_Learning
   
 # ReLU In Action!!!
 
@@ -172,4 +168,5 @@ Some of you may have noticed that the ReLU activation function is bent and not c
 
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=68BZ5f7P94E)
+- CMU_11785_Introduction_To_Deep_Learning
 
