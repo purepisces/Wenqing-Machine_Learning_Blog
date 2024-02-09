@@ -40,6 +40,8 @@ sigmoid.md✅
 tanh.md✅
 
 Chain rule
+Cumulative Distribution Function (CDF)
+Standard Gaussian Distributio
 gelu
 logistic regression
 t-sne
