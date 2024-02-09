@@ -95,10 +95,9 @@ class Tanh:
         return dLdZ
 ```
 
-
 ## Visualization:
 
-<img src="tanh.png" alt="tanh" width="400" height="300"/>
+<img src="tanh.png" alt="tanh" width="300" height="300"/>
 
 
 ## Reference:
