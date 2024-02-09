@@ -9,7 +9,7 @@ The GELU function is mathematically expressed as follows:
 
 $$A = \text{gelu.forward}(Z) = \frac{1}{2} Z \odot \left[ 1 + \text{erf} \left( \frac{Z}{\sqrt{2}} \right) \right]$$
 
-Here, erf refers to the error function which is frequently seen in probability and statistics. It can also take complex arguments but will take real ones here. Hint: Search the docs of the math and scipy libraries for help with implementation.
+Here, $erf$ refers to the error function which is frequently seen in probability and statistics. It can also take complex arguments but will take real ones here. Hint: Search the docs of the math and scipy libraries for help with implementation.
 
 ## GELU Forward Equation
 The forward pass of GELU can be calculated as:
