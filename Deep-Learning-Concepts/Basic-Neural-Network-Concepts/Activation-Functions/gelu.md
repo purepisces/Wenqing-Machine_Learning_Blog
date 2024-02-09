@@ -21,16 +21,21 @@ Here, $\text{erf}$ is the error function.
 ## GELU Forward Equation
 The forward pass of GELU can be calculated as:
 
-$$
-A = \frac{1}{2}Z\left[1 + \text{erf}\left(\frac{Z}{\sqrt{2}}\right)\right]
-$$
+$$A = \text{gelu.forward}(Z) \\
+= Z \Phi(Z) \\
+= Z \int_{-\infty}^{Z} \frac{1}{\sqrt{2\pi}} \exp \left( -\frac{x^2}{2} \right) dx \\
+= \frac{1}{2} Z \odot \left[ 1 + \text{erf} \left( \frac{Z}{\sqrt{2}} \right) \right]$$
 
 ## GELU Backward Equation
 For the backward pass, the derivative of $A$ with respect to $Z$ is needed:
 
-$$
-\frac{dA}{dZ} = \Phi(Z) + Z\Phi'(Z)
-$$
+$$\begin{align*}
+\frac{dA}{dZ} &= \frac{d}{dZ} Z \Phi(Z) \\
+&= \Phi(Z) + Z \Phi'(Z) \\
+&= \Phi(Z) + Z P(X = Z) \\
+&= \frac{1}{2} \left[ 1 + \text{erf} \left( \frac{Z}{\sqrt{2}} \right) \right] + \frac{Z}{\sqrt{2\pi}} \odot \exp \left( -\frac{Z^2}{2} \right)
+\end{align*}$$
+
 
 where $\Phi'(Z)$ is the probability density function of the standard Gaussian distribution, resulting in:
 
@@ -43,6 +48,12 @@ This is the expression used to implement the backward function of GELU:
 $$
 \frac{\partial L}{\partial Z} = \text{gelu.backward}(dLdA) = dLdA \frac{dA}{dZ}
 $$
+
+$$\begin{align*}
+\frac{\partial L}{\partial Z} &= \text{gelu.backward}(\text{d}L\text{d}A) \\
+&= \text{d}L\text{d}A \odot \frac{\partial A}{\partial Z} \\
+&= \text{d}L\text{d}A \odot \left[ \frac{1}{2} \left( 1 + \text{erf}\left(\frac{Z}{\sqrt{2}}\right) \right) + \frac{Z}{\sqrt{2\pi}} \odot \exp\left(-\frac{Z^2}{2}\right) \right]
+\end{align*}$$
 
 ## Implementation:
 Below is a Python class implementation for the GELU activation function:
