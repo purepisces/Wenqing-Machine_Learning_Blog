@@ -22,15 +22,11 @@ Consider a neuron receiving inputs with values 1.2 and -0.9, weights 0.5 and -1.
 
 The pre-activated output ($x$) is:
 
-$$
-x = (1.2 \times 0.5) + (-0.9 \times -1.1) + 0.1 = 1.49
-$$
+$$x = (1.2 \times 0.5) + (-0.9 \times -1.1) + 0.1 = 1.49$$
 
 Applying the ReLU function gives the activated output:
 
-$$
-\text{activated output} = \text{ReLU}(1.49) = 1.49
-$$
+$$\text{activated output} = \text{ReLU}(1.49) = 1.49$$
 
 This output then serves as input to subsequent neurons.
 
@@ -44,14 +40,10 @@ This output then serves as input to subsequent neurons.
 The derivative of the ReLU function is a simple step function:
 
 1. **For $x > 0$**:
-   $$
-   \frac{d}{dx}\text{ReLU}(x) = 1
-   $$
+   $$\frac{d}{dx}\text{ReLU}(x) = 1$$
 
 2. **For $x \leq 0$**:
-   $$
-   \frac{d}{dx}\text{ReLU}(x) = 0
-   $$
+   $$\frac{d}{dx}\text{ReLU}(x) = 0$$
 
 This derivative is straightforward to compute, which is one of the reasons for the popularity of ReLU in deep learning.
 
@@ -63,7 +55,7 @@ In forward propagation, the pre-activation features $Z$ are passed through the R
 
 $$
 \begin{align}
-A &= \text{ReLU.forward}(Z) \\
+A &= \text{relu.forward}(Z) \\
 &= \max(0, Z)
 \end{align}
 $$
@@ -72,14 +64,13 @@ $$
 
 In backward propagation, we calculate how changes in $Z$ affect the loss, given the changes in $A$.
 
-$$
-\begin{align}
-\frac{dL}{dZ} &= \text{ReLU.backward}(dLdA) \\
-&= dLdA \odot \text{step}(Z)
-\end{align}
-$$
-
-Where $\text{step}(Z)$ is 1 for $Z > 0$ and 0 otherwise.
+$$\begin{align}
+\frac{dL}{dZ} &= \text{relu.backward}(dLdA) \\
+&= \begin{cases} 
+dLdA \cdot 1 & \text{if } A > 0 \\
+dLdA \cdot 0 & \text{if } A \leq 0 
+\end{cases}
+\end{align}$$
 
 Here's a Python class implementation:
 
