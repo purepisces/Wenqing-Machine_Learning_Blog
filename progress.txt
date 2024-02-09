@@ -40,6 +40,7 @@ sigmoid.md✅
 tanh.md✅
 
 Chain rule
+gelu
 logistic regression
 t-sne
 implicit function
