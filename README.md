@@ -87,6 +87,7 @@
 - **Activation Functions**
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/activation-functions.md)
   - [ReLU](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/relu.md)
+  - [GELU](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/gelu.md)
   - [Sigmoid](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/sigmoid.md)
   - [Tanh](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/tanh.md)
   - [Softmax](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/softmax.md)
