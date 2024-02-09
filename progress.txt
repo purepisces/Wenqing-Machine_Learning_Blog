@@ -39,6 +39,7 @@ activation-functions.md✅ need format and rephrase, Comparison with different a
 sigmoid.md✅已发csdn+知乎
 tanh.md✅
 
+
 Chain rule
 Cumulative Distribution Function (CDF)
 Standard Gaussian Distributio
