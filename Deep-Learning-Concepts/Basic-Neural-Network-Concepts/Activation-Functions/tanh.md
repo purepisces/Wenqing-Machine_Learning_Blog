@@ -1,7 +1,7 @@
 # Tanh Activation Function
 
 ## Overview:
-The tanh (hyperbolic tangent) function is a popular nonlinear activation function used in artificial neural networks, similar to the sigmoid function but with a range from -1 to 1. This makes it more suitable for cases where the model needs to deal with negative inputs efficiently.
+The tanh function is a popular nonlinear activation function used in artificial neural networks, similar to the sigmoid function but with a range from -1 to 1. This makes it more suitable for cases where the model needs to deal with negative inputs efficiently.
 
 ## Mathematical Expression:
 The tanh function is defined mathematically as:
