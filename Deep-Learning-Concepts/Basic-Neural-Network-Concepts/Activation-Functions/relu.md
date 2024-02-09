@@ -147,14 +147,13 @@ And at long las, we end up with this green pointy thing.
 
 <img src="green_pointy_thing.png" alt="green_pointy_thing" width="400" height="300"/>
 
-Thus, the ReLU activation function may seem weird, because it is not curvy and the equation is really simple f(x) = max(0,x) = y-axis coordinate
+Thus, the ReLU activation function may seem weird, because it is not curve and the equation is really simple f(x) = max(0,x) = y-axis coordinate
 
 But just like for any other activation function, the weights and biases on the connections slice them, flip them and stretch them into new shapes, which are added together to get an entirely new shape that fits the data.
 
 <img src="new_shape.png" alt="new_shape" width="400" height="300"/>
 
-Some of you may have noticed that the ReLU activation function is bent and not curved, this means that the derivative is not defined where the function is bent, and that’s a problem because gradient descent, which we use to estimate the weights and biases, requires a derivative for all points. However, it’s not a big problem because we can get around this by simply defining the derivative at the bent part to be 0, or 1, it doesn’t really matter.
-
+Note that the ReLU activation function is bent rather than curved, which means that the derivatives are not defined where the function is bent, which is a problem because the gradient descent we use to estimate weights and biases requires derivatives at all points. However, we can solve this problem by simply defining the derivative at the bent part as 0 or 1, it doesn't really matter.
 <img src="deri_pro.png" alt="deri_pro" width="400" height="300"/>
 
 ## Reference:
