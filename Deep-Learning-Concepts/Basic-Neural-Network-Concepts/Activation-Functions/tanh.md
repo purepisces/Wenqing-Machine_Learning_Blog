@@ -52,7 +52,7 @@ The derivative of the tanh function, $\frac{\partial \tanh(Z)}{\partial Z} = 1 -
    $$\frac{d\tanh}{dZ} = \frac{(e^Z + e^{-Z})(e^Z + e^{-Z}) - (e^Z - e^{-Z})(e^Z - e^{-Z})}{(e^Z + e^{-Z})^2}$$
 
 5. **Simplify**: Simplifying the above expression, we get:
-   $$\frac{d\tanh}{dZ} = \frac{4e^{2Z}}{(e^Z + e^{-Z})^2}$$
+   $$\frac{d\tanh}{dZ} = \frac{(e^Z + e^{-Z})^2 - (e^Z - e^{-Z})^2}{(e^Z + e^{-Z})^2}$$
    Recognizing that $\tanh^2(Z) = \left(\frac{e^Z - e^{-Z}}{e^Z + e^{-Z}}\right)^2$, we can simplify further to:
    $$\frac{d\tanh}{dZ} = 1 - \tanh^2(Z)$$
 
