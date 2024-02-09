@@ -30,7 +30,7 @@ This output then serves as input to subsequent neurons.
 
 ## Visualization:
 
-<img src="tanh_activation_forward.png" alt="tanh_activation_forward" width="400" height="300"/>
+<img src="tanh.png" alt="tanh" width="300" height="300"/> <img src="tanh_activation_forward.png" alt="tanh_activation_forward" width="400" height="300"/>
 
 ### Derivation of the tanh Function's Derivative
 
@@ -94,11 +94,6 @@ class Tanh:
         dLdZ = dLdA * dAdZ
         return dLdZ
 ```
-
-## Visualization:
-
-<img src="tanh.png" alt="tanh" width="300" height="300"/>
-
 
 ## Reference:
 - CMU_11785_Introduction_To_Deep_Learning
