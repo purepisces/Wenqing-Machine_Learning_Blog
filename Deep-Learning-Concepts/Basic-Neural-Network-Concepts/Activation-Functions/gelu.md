@@ -28,6 +28,8 @@ This output can then be used as input to subsequent neurons in the network.
 
 ![GELU](gelu.png) ![GELU_activation_forward](gelu_activation_forward.png)
 
+<img src="gelu.png" alt="gelu" width="300" height="300"/> 
+
 ### Derivation of the GELU Function's Derivative
 
 The derivative of the GELU function is important for backpropagation in neural networks. Due to the complexity of the GELU function, its derivative is not straightforward and is typically computed numerically.
@@ -66,3 +68,6 @@ class GELU:
     def backward(self, dLdA):
         # Approximate the derivative numerically or use autograd if available
         pass
+```
+## Reference:
+- CMU_11785_Introduction_To_Deep_Learning
