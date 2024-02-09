@@ -1,22 +1,15 @@
 # GELU Activation Function
 
 ## Overview:
-The GELU (Gaussian Error Linear Unit) activation function is based on the cumulative distribution function of the standard Gaussian distribution. It is widely used in neural networks, particularly those involving natural language processing.
+The GELU (Gaussian Error Linear Unit) activation function is defined in terms of the cumulative distribution function of the standard Gaussian distribution $\Phi(Z) = P(X \leq Z)$ where $X \sim \mathcal{N}(0,1)$:
+
 
 ## Mathematical Expression:
 The GELU function is mathematically expressed as follows:
 
-$$
-A = \text{gelu.forward}(Z) = Z\Phi(Z)
-$$
+$$A = \text{gelu.forward}(Z) = \frac{1}{2} Z \odot \left[ 1 + \text{erf} \left( \frac{Z}{\sqrt{2}} \right) \right]$$
 
-where $\Phi(Z)$ is the cumulative distribution function of the standard Gaussian distribution, given by:
-
-$$
-\Phi(Z) = \frac{1}{2}\left[1 + \text{erf}\left(\frac{Z}{\sqrt{2}}\right)\right]
-$$
-
-Here, $\text{erf}$ is the error function.
+Here, erf refers to the error function which is frequently seen in probability and statistics. It can also take complex arguments but will take real ones here. Hint: Search the docs of the math and scipy libraries for help with implementation.
 
 ## GELU Forward Equation
 The forward pass of GELU can be calculated as:
@@ -29,7 +22,7 @@ A &= \text{gelu.forward}(Z) \\
 \end{align*}$$
 
 ## GELU Backward Equation
-For the backward pass, the derivative of $A$ with respect to $Z$ is needed:
+For the gelu.backward part where we calculate $\frac{\partial A}{\partial Z}$, the GELU equation given above needs to be differentiated with respect to $Z$:
 
 $$\begin{align*}
 \frac{dA}{dZ} &= \frac{d}{dZ} Z \Phi(Z) \\
@@ -38,10 +31,7 @@ $$\begin{align*}
 &= \frac{1}{2} \left[ 1 + \text{erf} \left( \frac{Z}{\sqrt{2}} \right) \right] + \frac{Z}{\sqrt{2\pi}} \odot \exp \left( -\frac{Z^2}{2} \right)
 \end{align*}$$
 
-
-where $\Phi'(Z)$ is the probability density function of the standard Gaussian distribution, resulting in:
-
-This is the expression used to implement the backward function of GELU:
+This gives us the final expression to implement the backward function:
 
 $$\begin{align*}
 \frac{\partial L}{\partial Z} &= \text{gelu.backward}(\text{d}L\text{d}A) \\
