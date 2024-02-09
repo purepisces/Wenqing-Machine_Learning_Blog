@@ -1,3 +1,109 @@
+# ReLU Activation Function
+
+## Overview:
+The ReLU (Rectified Linear Unit) function is a widely used activation function in artificial neural networks, especially in deep learning models. It is defined as the positive part of its argument, with a formula of $f(x) = \max(0, x)$. This simplicity makes it computationally efficient and helps in reducing the vanishing gradient problem.
+
+## Mathematical Expression:
+The ReLU function is defined mathematically as:
+
+$$
+\text{ReLU}(x) = \max(0, x)
+$$
+
+where $x$ represents the input to the function.
+
+## Function Characteristics:
+- **Range**: The output of the ReLU function is from 0 to $\infty$.
+- **Shape**: It is a piecewise linear function that looks like a ramp.
+- **Output Interpretation**: Values less than 0 are mapped to 0, which indicates no activation. Values greater than 0 are kept unchanged, indicating linear activation.
+
+## Example:
+Consider a neuron receiving inputs with values 1.2 and -0.9, weights 0.5 and -1.1, and bias 0.1.
+
+The pre-activated output ($x$) is:
+
+$$
+x = (1.2 \times 0.5) + (-0.9 \times -1.1) + 0.1 = 1.49
+$$
+
+Applying the ReLU function gives the activated output:
+
+$$
+\text{activated output} = \text{ReLU}(1.49) = 1.49
+$$
+
+This output then serves as input to subsequent neurons.
+
+## Visualization:
+
+<img src="relu_activation_forward.png" alt="relu_activation_forward" width="300" height="300"/>
+
+
+### Derivation of the ReLU Function's Derivative
+
+The derivative of the ReLU function is a simple step function:
+
+1. **For $x > 0$**:
+   $$
+   \frac{d}{dx}\text{ReLU}(x) = 1
+   $$
+
+2. **For $x \leq 0$**:
+   $$
+   \frac{d}{dx}\text{ReLU}(x) = 0
+   $$
+
+This derivative is straightforward to compute, which is one of the reasons for the popularity of ReLU in deep learning.
+
+## ReLU Class Implementation:
+
+### ReLU Forward Equation
+
+In forward propagation, the pre-activation features $Z$ are passed through the ReLU function to get the post-activation values $A$.
+
+$$
+\begin{align}
+A &= \text{ReLU.forward}(Z) \\
+&= \max(0, Z)
+\end{align}
+$$
+
+### ReLU Backward Equation
+
+In backward propagation, we calculate how changes in $Z$ affect the loss, given the changes in $A$.
+
+$$
+\begin{align}
+\frac{dL}{dZ} &= \text{ReLU.backward}(dLdA) \\
+&= dLdA \odot \text{step}(Z)
+\end{align}
+$$
+
+Where $\text{step}(Z)$ is 1 for $Z > 0$ and 0 otherwise.
+
+Here's a Python class implementation:
+
+```python
+import numpy as np
+
+class ReLU:
+    def forward(self, Z):
+        self.A = np.maximum(0, Z)
+        return self.A
+
+    def backward(self, dLdA):
+        dAdZ = np.where(self.A > 0, 1, 0)
+        dLdZ = dLdA * dAdZ
+        return dLdZ
+```
+## Visualization:
+
+<img src="relu.png" alt="relu" width="300" height="300"/>
+
+
+## Reference:
+- CMU_11785_Introduction_To_Deep_Learning
+  
 # ReLU In Action!!!
 
 Part 1 in neural networks, we started with a simple data set(inside the black box) that showed whether or not different drug dosages were effective against a virus. The low and high dosages were not effective but the medium dosage was effective. Then we talked about how a neural network like this one using the soft plus activation function in the hidden layer can fit a green squiggle to the dataset.
