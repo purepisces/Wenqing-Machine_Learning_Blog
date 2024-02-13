@@ -13,7 +13,9 @@ $$f_l(z) = g_l(W_l \cdot z + b_l)$$
 
 where $l$ is called the layer index. The function $g_l$ is called an activation function (e.g. ReLU, Sigmoid). The parameters $W_l$ (weight matrix) and $b_l$ (bias vector) for each layer are learnt using gradient descent by optimizing a particular loss function^5 depending on the task.
 
-## 4.1 Understanding the shapes
+![End-to-End-Topology](end-to-end-topology.png)
+
+## Understanding the shapes
 
 1. Input Data ($A_0$): Input data is usually processed in batches, with each batch containing multiple data points. So the shape of the input data is often represented as $(N \times C_{in})$, where $N$ is the batch size and $C_{in}$ is the number of input features.
 
