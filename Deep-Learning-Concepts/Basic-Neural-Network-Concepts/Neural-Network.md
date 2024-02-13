@@ -11,9 +11,9 @@ $$y = f_{NN} (x) = f_3(f_2(f_1(x)))$$
 In the above equation, $f_1$ and $f_2$ are vector functions of the following form:
 $$f_l(z) = g_l(W_l \cdot z + b_l)$$
 
-where $l$ is called the layer index. The function $g_l$ is called an activation function (e.g. ReLU, Sigmoid). The parameters $W_l$ (weight matrix) and $b_l$ (bias vector) for each layer are learnt using gradient descent by optimizing a particular loss function^5 depending on the task.
+where $l$ is called the layer index. The function $g_l$ is called an activation function (e.g. ReLU, Sigmoid). The parameters $W_l$ (weight matrix) and $b_l$ (bias vector) for each layer are learnt using gradient descent by optimizing a particular loss function depending on the task.
 
-![End-to-End-Topology](end-to-end-topology.png)
+<img src="end-to-end-topology.png" alt="End-to-End-Topology" width="500" height="400"/>
 
 ## Understanding the shapes
 
