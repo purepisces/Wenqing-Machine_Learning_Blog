@@ -1,3 +1,22 @@
+# The Big Picture
+
+We can think of a neural network (NN) as a mathematical function which takes an input data x and computes an output y:
+y = fNN (x)
+For example, a model trained to identify spam emails takes in an email as input data x, and output 0 or 1 indicating whether the email is spam.
+The function fNN has a particular form: it’s a nested function. In lecture, we learnt the concepts of network layers. So, for a 3-layer neural network that returns a scaler, fNN looks like this:
+y = fNN (x) = f3(f2(f1(x)))
+In the above equation, f1 and f2 are vector functions of the following form:
+fl(z) = gl(Wl · z + bl)
+where l is called the layer index. The function gl is called an activation function (e.g. ReLU, Sigmoid). The parameters Wl (weight matrix) and bl (bias vector) for each layer are learnt using gradient descent by optimizing a particular loss function5 depending on the task.
+4.1 Understanding the shapes
+1. A0 (inputs): Instead of passing each training data ( input features of dimension Cin) we consider a batch of them at once because we are doing the same computation for each of the input features hence (N × Cin, where N is batch number)
+2. W0 (weight matrix): From lectures, we know the value of each neuron is the affine combination of the input, weight and bias (W · A + b for this multiplication to be compatible, the second dimension of W must match the first dimension of A. However this is for a single neuron, for multiple neurons, the first dimension of W should be equal to the number of output neurons Cout hence the shape Cout × Cin
+3. B0 (Biases): From the previous explanation about the weights, we can infer that the bias for a single input feature should be 1 × 1, however, since we are considering a batch of N inputs at once, the biases shape become N × 1.
+4. Z0: Z0 is the output is the affine combination of input, weights and biases and we require it to be of shape N × Cout so that each of the inputs in the batch have their outputs for the number of neurons in Cout. To see how this works, check example below.
+5. f: The activation is a linear function and does not change the shape of the input
+6. A1: This is the output of the activation function and hence same shape as Z0
+7. Y: After the activation of the hidden layer, the network can be made deeper by adding several layers. However, the output of the final layer should match your desired output shape, in this case, Cout of the final layer is same as the Cout of the weight which is equal to the number of neurons because we have just one layer. Cout will be the equal to number of neurons in your final layer.
+
 # Neural Networks Overview
 
 In this overview, we explore the functionality of neural networks and their capability to model complex relationships, such as varying drug efficacy based on dosage, beyond simple linear fits.
