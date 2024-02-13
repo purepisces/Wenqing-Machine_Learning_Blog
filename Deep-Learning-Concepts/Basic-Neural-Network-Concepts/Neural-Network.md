@@ -1,21 +1,34 @@
 # The Big Picture
 
-We can think of a neural network (NN) as a mathematical function which takes an input data x and computes an output y:
-y = fNN (x)
-For example, a model trained to identify spam emails takes in an email as input data x, and output 0 or 1 indicating whether the email is spam.
-The function fNN has a particular form: it’s a nested function. In lecture, we learnt the concepts of network layers. So, for a 3-layer neural network that returns a scaler, fNN looks like this:
-y = fNN (x) = f3(f2(f1(x)))
-In the above equation, f1 and f2 are vector functions of the following form:
-fl(z) = gl(Wl · z + bl)
-where l is called the layer index. The function gl is called an activation function (e.g. ReLU, Sigmoid). The parameters Wl (weight matrix) and bl (bias vector) for each layer are learnt using gradient descent by optimizing a particular loss function5 depending on the task.
-4.1 Understanding the shapes
-1. A0 (inputs): Instead of passing each training data ( input features of dimension Cin) we consider a batch of them at once because we are doing the same computation for each of the input features hence (N × Cin, where N is batch number)
-2. W0 (weight matrix): From lectures, we know the value of each neuron is the affine combination of the input, weight and bias (W · A + b for this multiplication to be compatible, the second dimension of W must match the first dimension of A. However this is for a single neuron, for multiple neurons, the first dimension of W should be equal to the number of output neurons Cout hence the shape Cout × Cin
-3. B0 (Biases): From the previous explanation about the weights, we can infer that the bias for a single input feature should be 1 × 1, however, since we are considering a batch of N inputs at once, the biases shape become N × 1.
-4. Z0: Z0 is the output is the affine combination of input, weights and biases and we require it to be of shape N × Cout so that each of the inputs in the batch have their outputs for the number of neurons in Cout. To see how this works, check example below.
-5. f: The activation is a linear function and does not change the shape of the input
-6. A1: This is the output of the activation function and hence same shape as Z0
-7. Y: After the activation of the hidden layer, the network can be made deeper by adding several layers. However, the output of the final layer should match your desired output shape, in this case, Cout of the final layer is same as the Cout of the weight which is equal to the number of neurons because we have just one layer. Cout will be the equal to number of neurons in your final layer.
+We can think of a neural network (NN) as a mathematical function which takes an input data $x$ and computes an output $y$:
+$y = f_{NN} (x)$
+
+For example, a model trained to identify spam emails takes in an email as input data $x$, and output 0 or 1 indicating whether the email is spam.
+
+The function $f_{NN}$ has a particular form: it’s a nested function. In lecture, we learnt the concepts of network layers. So, for a 3-layer neural network that returns a scaler, $f_{NN}$ looks like this:
+$$y = f_{NN} (x) = f_3(f_2(f_1(x)))$$
+
+In the above equation, $f_1$ and $f_2$ are vector functions of the following form:
+$$f_l(z) = g_l(W_l \cdot z + b_l)$$
+
+where $l$ is called the layer index. The function $g_l$ is called an activation function (e.g. ReLU, Sigmoid). The parameters $W_l$ (weight matrix) and $b_l$ (bias vector) for each layer are learnt using gradient descent by optimizing a particular loss function^5 depending on the task.
+
+## 4.1 Understanding the shapes
+
+1. Input Data ($A_0$): Input data is usually processed in batches, with each batch containing multiple data points. So the shape of the input data is often represented as $(N \times C_{in})$, where $N$ is the batch size and $C_{in}$ is the number of input features.
+
+2. Weight Matrix ($W_0$): The weight matrix $W_0$ connects the input data to the neurons in the next layer. For a single layer, the shape of $W_0$ is $C_{out} \times C_{in}$, where $C_{out}$ is the number of output neurons.
+
+3. Biases ($B_0$): Biases are added to the weighted sum of inputs before passing through the activation function. For a single layer and considering a batch of inputs, the shape of the bias vector $B_0$ is $N \times 1$.
+
+4. Weighted Sum ($Z_0$): This is the result of the affine transformation of inputs using weights and biases. The shape of $Z_0$ is $N \times C_{out}$, where each row represents the output for a single input in the batch.
+
+5. Activation Function ($f$): The activation function is applied element-wise to the weighted sum. It typically doesn't change the shape of the input.
+
+6. Activated Output ($A_1$): This is the output of the activation function, which has the same shape as $Z_0$, i.e., $N \times C_{out}$.
+
+7. Output ($Y$): For the final layer, the output should match the desired output shape. The number of neurons in the final layer determines the shape of the output $Y$.
+
 
 # Neural Networks Overview
 
