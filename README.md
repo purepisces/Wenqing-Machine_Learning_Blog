@@ -85,6 +85,9 @@
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/FFNN/FFNN.md)
   - **MLP (Multi-Layer Perceptron)**
     - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/FFNN/MLP.md)
+- **Neural Network Layers**
+  - [Linear Layer](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/Linear-Layer.md)
+  - [Other Layers...]
 - **Backpropagation**
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Backpropagation/backpropagation.md)
 - **Activation Functions**
