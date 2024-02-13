@@ -12,7 +12,6 @@ class Linear:
         """
         self.W = np.zeros((out_features, in_features))
         self.b = np.zeros((out_features, 1))
-        self.debug = debug
 
     def forward(self, A):
         """
