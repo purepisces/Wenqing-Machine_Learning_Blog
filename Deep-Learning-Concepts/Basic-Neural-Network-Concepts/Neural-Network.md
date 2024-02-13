@@ -15,7 +15,7 @@ where $l$ is called the layer index. The function $g_l$ is called an activation 
 
 <img src="end-to-end-topology.png" alt="End-to-End-Topology" width="500" height="400"/>
 
-## Understanding the shapes
+## Understanding the shapes(still don't understand, need further explanatation)
 
 1. A0 (inputs): Instead of passing each training data ( input features of dimension Cin) we consider a batch of them at once because we are doing the same computation for each of the input features hence (N × Cin, where N is batch number)
 2. W0 (weight matrix): From lectures, we know the value of each neuron is the affine combination of the input, weight and bias (W · A + b for this multiplication to be compatible, the second dimension of W must match the first dimension of A. However this is for a single neuron, for multiple neurons, the first dimension of W should be equal to the number of output neurons Cout hence the shape Cout × Cin
