@@ -380,6 +380,8 @@ This equation highlights how the output $Z$ from one layer, after undergoing tra
 
 <img src="activation-func-topology.png" alt="activation-func-topology" width="600" height="350"/>
 
+<img src="end-to-end-topology.png" alt="end-to-end-topology" width="600" height="350"/>
+
 > Note: dLdZ is used in the backward pass because it directly relates the loss to the parameters we want to optimize (weights and biases) through $Z$ since $Z = W \cdot A_{prev} + b$, and followed by $A = f(Z)$, where $f$ is the activation function.
 > In the case of scalar activations, $dLdZ$ is computed as:
 > $$dLdZ = dLdA \odot \frac{\partial A}{\partial Z}$$
