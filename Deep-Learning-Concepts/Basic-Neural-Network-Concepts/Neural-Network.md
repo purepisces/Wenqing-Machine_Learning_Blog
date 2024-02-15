@@ -1,3 +1,61 @@
+**Input Layer ($A_0$)**: We have 5 instances in our batch, each represented by a vector of 4 features. Thus, $A_0$ could look like this:
+
+ $$A_0 = 
+   \begin{pmatrix}
+   0.5 & 0.6 & 0.7 & 0.8 \\
+   1.5 & 1.6 & 1.7 & 1.8 \\
+   2.5 & 2.6 & 2.7 & 2.8 \\
+   3.5 & 3.6 & 3.7 & 3.8 \\
+   4.5 & 4.6 & 4.7 & 4.8 \\
+   \end{pmatrix}$$
+
+**Weights of the First Layer ($W_0$)**: The weights connecting the input layer to the 6 neurons in the hidden layer form a matrix of shape $6 \times 4$ (since $C_{out} = 6$ and $C_{in} = 4$). Each element $w_{ij}$ represents the weight from the $i^{th}$ neuron to the $j^{th}$ feature of the input. The weight matrix might look something like this:
+
+   $$W_0 = 
+   \begin{bmatrix}
+   w_{11} & w_{12} & w_{13} & w_{14} \\
+   w_{21} & w_{22} & w_{23} & w_{24} \\
+   w_{31} & w_{32} & w_{33} & w_{34} \\
+   w_{41} & w_{42} & w_{43} & w_{44} \\
+   w_{51} & w_{52} & w_{53} & w_{54} \\
+   w_{61} & w_{62} & w_{63} & w_{64} \\
+   \end{bmatrix}$$
+   
+**Weighted Sums Before Activation ($Z_0 = A_0 \cdot W_0^T$)**: Multiplying $A_0$ by the transpose of $W_0$ ($W_0^T$) gives us the weighted sums for each neuron in the hidden layer for each instance in the batch. The resulting matrix $Z_0$ will have a shape of $5 \times 6$ because we have 5 instances and 6 neurons:
+
+   $$Z_0 = 
+   \begin{bmatrix}
+   z_{11} & z_{12} & z_{13} & z_{14} & z_{15} & z_{16} \\
+   z_{21} & z_{22} & z_{23} & z_{24} & z_{25} & z_{26} \\
+   z_{31} & z_{32} & z_{33} & z_{34} & z_{35} & z_{36} \\
+   z_{41} & z_{42} & z_{43} & z_{44} & z_{45} & z_{46} \\
+   z_{51} & z_{52} & z_{53} & z_{54} & z_{55} & z_{56} \\
+   \end{bmatrix}$$
+   
+   The first element $z_{11}$ is calculated as:
+   $$z_{11} = (0.5 \times w_{11}) + (0.6 \times w_{21}) + (0.7 \times w_{31}) + (0.8 \times w_{41})$$
+
+   Similarly, for $z_{12}$, which represents the weighted sum for the second neuron of the first instance, the calculation would involve the second row of $W_0$:
+
+   $$z_{12} = (0.5 \times w_{12}) + (0.6 \times w_{22}) + (0.7 \times w_{32}) + (0.8 \times w_{42})$$
+
+   And so on for each element in $Z_0$.
+
+**Biases of the First Layer ($B_0$)**: Let's assume the biases for the 6 neurons are as follows: 
+
+$$B_0 = [1, 2, 3, 4, 5, 6]$$
+
+**Adding Biases Using Broadcasting ($Z_0 + B_0$)**: When we add $B_0$ to $Z_0$, broadcasting expands $B_0$ to match the shape of $Z_0$. The operation looks like this:
+
+   $$\begin{bmatrix}
+   z_{11}+1 & z_{12}+2 & z_{13}+3 & z_{14}+4 & z_{15}+5 & z_{16}+6 \\
+   z_{21}+1 & z_{22}+2 & z_{23}+3 & z_{24}+4 & z_{25}+5 & z_{26}+6 \\
+   z_{31}+1 & z_{32}+2 & z_{33}+3 & z_{34}+4 & z_{35}+5 & z_{36}+6 \\
+   z_{41}+1 & z_{42}+2 & z_{43}+3 & z_{44}+4 & z_{45}+5 & z_{46}+6 \\
+   z_{51}+1 & z_{52}+2 & z_{53}+3 & z_{54}+4 & z_{55}+5 & z_{56}+6 \\
+   \end{bmatrix}$$
+
+
 # The Big Picture
 
 We can think of a neural network (NN) as a mathematical function which takes an input data $x$ and computes an output $y$:
@@ -25,9 +83,23 @@ where $l$ is called the layer index. The function $g_l$ is called an activation 
 6. A1: This is the output of the activation function and hence same shape as Z0
 7. Y: After the activation of the hidden layer, the network can be made deeper by adding several layers. However, the output of the final layer should match your desired output shape, in this case, Cout of the final layer is same as the Cout of the weight which is equal to the number of neurons because we have just one layer. Cout will be the equal to number of neurons in your final layer.
 
+1. **Input Layer ($A_0$)**: We have 5 instances in our batch, each represented by a vector of 4 features. Thus, \(A_0\) could look like this:
+
+   $$A_0 = 
+   \begin{pmatrix}
+   0.5 & 0.6 & 0.7 & 0.8 \\
+   1.5 & 1.6 & 1.7 & 1.8 \\
+   2.5 & 2.6 & 2.7 & 2.8 \\
+   3.5 & 3.6 & 3.7 & 3.8 \\
+   4.5 & 4.6 & 4.7 & 4.8 \\
+   \end{pmatrix}$$
 
 
 
+
+
+
+In the context of the input layer, each neuron typically corresponds to one input feature. 
 
 
 
