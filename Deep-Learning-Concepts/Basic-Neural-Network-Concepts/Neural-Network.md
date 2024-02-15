@@ -83,25 +83,6 @@ where $l$ is called the layer index. The function $g_l$ is called an activation 
 6. A1: This is the output of the activation function and hence same shape as Z0
 7. Y: After the activation of the hidden layer, the network can be made deeper by adding several layers. However, the output of the final layer should match your desired output shape, in this case, Cout of the final layer is same as the Cout of the weight which is equal to the number of neurons because we have just one layer. Cout will be the equal to number of neurons in your final layer.
 
-1. **Input Layer ($A_0$)**: We have 5 instances in our batch, each represented by a vector of 4 features. Thus, \(A_0\) could look like this:
-
-   $$A_0 = 
-   \begin{pmatrix}
-   0.5 & 0.6 & 0.7 & 0.8 \\
-   1.5 & 1.6 & 1.7 & 1.8 \\
-   2.5 & 2.6 & 2.7 & 2.8 \\
-   3.5 & 3.6 & 3.7 & 3.8 \\
-   4.5 & 4.6 & 4.7 & 4.8 \\
-   \end{pmatrix}$$
-
-
-
-
-
-
-In the context of the input layer, each neuron typically corresponds to one input feature. 
-
-
 
 # Neural Networks Overview
 
