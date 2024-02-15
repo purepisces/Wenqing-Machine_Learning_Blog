@@ -55,6 +55,15 @@ $$B_0 = [1, 2, 3, 4, 5, 6]$$
    z_{51}+1 & z_{52}+2 & z_{53}+3 & z_{54}+4 & z_{55}+5 & z_{56}+6 \\
    \end{bmatrix}$$
 
+**Activation Function ($f$)**: Let's apply a ReLU activation function to $Z_0$, which does not change the shape but replaces negative values with 0:
+
+$$A_1 = f(Z_0) = \text{ReLU}(Z_0)$$
+
+**Output of the Activation Function ($A_1$)**: The output $A_1$ retains the same shape as $Z_0$, with the ReLU function applied element-wise.
+
+**Final Output ($Y$)**: Assuming this is the final layer or we have a single-layer network, the output $Y$ is the same as $A_1$. For multi-layer networks, further layers would transform $A_1$ accordingly, with the final layer's output shape matching the desired output shape, which in this case is determined by the number of neurons in the final layer ($C_{out}$).
+
+
 
 # The Big Picture
 
