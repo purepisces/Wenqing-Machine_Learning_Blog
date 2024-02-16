@@ -152,7 +152,7 @@ Hidden layers lie between the input and output layers. The configuration of thes
 
 ### Model Construction
 
-We'll examine how neural networks utilize activation functions in hidden layers to create and combine various shapes, ultimately fitting a complex model to the data, illustrated by a green squiggle in our example.
+We'll examine how neural networks utilize activation functions in hidden layers to create and combine various shapes, ultimately fitting a complex model to the data, illustrated by a green squiggle in our example. In this neural network, we have one input node which is dosage, one hidden layer with 2 nodes and one output node which is efficacy.
 
 ![Combining Shapes in Neural Networks](add_together.png)
 
