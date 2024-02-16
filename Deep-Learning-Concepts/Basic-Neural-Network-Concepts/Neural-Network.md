@@ -63,11 +63,11 @@ where $l$ is called the layer index. The function $g_l$ is called an activation 
    \end{bmatrix}$$
    
    The first element $z_{11}$ is calculated as:
-   $$z_{11} = (0.5 \times w_{11}) + (0.6 \times w_{21}) + (0.7 \times w_{31}) + (0.8 \times w_{41})$$
+   $$z_{11} = (0.5 \times w_{11}) + (0.6 \times w_{12}) + (0.7 \times w_{13}) + (0.8 \times w_{14})$$
 
    Similarly, for $z_{12}$, which represents the weighted sum for the second neuron of the first instance, the calculation would involve the second row of $W_0$:
 
-   $$z_{12} = (0.5 \times w_{12}) + (0.6 \times w_{22}) + (0.7 \times w_{32}) + (0.8 \times w_{42})$$
+   $$z_{12} = (0.5 \times w_{21}) + (0.6 \times w_{22}) + (0.7 \times w_{23}) + (0.8 \times w_{24})$$
 
    And so on for each element in $Z_0$.
 
