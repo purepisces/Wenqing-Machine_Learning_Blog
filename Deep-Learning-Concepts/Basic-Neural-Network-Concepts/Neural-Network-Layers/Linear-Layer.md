@@ -39,6 +39,57 @@ class Linear:
 
         return dLdA
 ```
+# Table 1: Linear Layer Components
+
+| Code Name    | Math     | Type    | Shape       | Meaning                          |
+|--------------|----------|---------|-------------|----------------------------------|
+| N            | N        | scalar  | -           | batch size                       |
+| in_features  | C_in     | scalar  | -           | number of input features         |
+| out_features | C_out    | scalar  | -           | number of output features        |
+| A            | A        | matrix  | N x C_in    | batch of N inputs each represented by C_in features |
+| Z            | Z        | matrix  | N x C_out   | batch of N outputs each represented by C_out features |
+| W            | W        | matrix  | C_out x C_in| weight parameters                |
+| b            | b        | matrix  | C_out x 1   | bias parameters                  |
+| dLdZ         | ∂L/∂Z    | matrix  | N x C_out   | how changes in outputs affect loss |
+| dLdA         | ∂L/∂A    | matrix  | N x C_in    | how changes in inputs affect loss  |
+| dLdW         | ∂L/∂W    | matrix  | C_out x C_in| how changes in weights affect loss |
+| dLdb         | ∂L/∂b    | matrix  | C_out x 1   | how changes in bias affect loss    |
+
+## Linear Layer Forward Equation
+
+During forward propagation, we apply a linear transformation to the incoming data A to obtain output data Z using a weight matrix W and a bias vector b. 1_N is a column vector of size N which contain all 1s, and is used for broadcasting the bias.
+
+$$Z = A . W^T + 1_N . b^T ∈ R^(N x C_out)$$
+
+insert image
+
+<img src="Linear_Layer_Forward.png" alt="Linear_Layer_Forward" width="400" height="300"/>
+
+
+## 5.1.2 Linear Layer Backward Equation
+
+As mentioned earlier, the objective of backward propagation is to calculate the derivative of the loss with respect to the weight matrix, bias, and input to the linear layer, i.e., dLdW, dLdb, and dLdA respectively.
+
+Given ∂L/∂Z as an input to the backward function, we can apply chain rule to obtain how changes in A, W, b affect loss L:
+
+∂L/∂A = (∂L/∂Z) · (∂Z/∂A)^T ∈ R^(N x C_in) (2)
+
+∂L/∂W = (∂L/∂Z) · (∂Z/∂W)^T ∈ R^(C_out x C_in) (3)
+
+∂L/∂b = (∂L/∂Z)^T · (∂Z/∂b) ∈ R^(C_out x 1) (4)
+
+In the above equations, dZdA, dZdW, and dZdb represent how the input, weights matrix, and bias respectively affect the output of the linear layer.
+
+Now, Z, A, and W are all two-dimensional matrices (see Table 1 above). dZdA would have derivative terms corresponding to each term of Z with respect to each term of A, and hence would be a 4-dimensional tensor. Similarly, dZdW would be 4-dimensional and dZdb would be 3-dimensional (since b is 1-dimensional). These high-dimensional matrices would be sparse (many terms would be 0) as only some pairs of terms have a dependence. So, to make things simpler and avoid dealing with high-dimensional intermediate tensors, the derivative equations given above are simplified to the below form:
+
+∂L/∂A = (∂L/∂Z) · W ∈ R^(N x C_in) (5)
+
+∂L/∂W = (∂L/∂Z)^T · A ∈ R^(C_out x C_in) (6)
+
+∂L/∂b = (∂L/∂Z)^T · 1_N ∈ R^(C_out x 1) (7)
+
+
+
 
 ```python
 #mytorch.nn.linear.py
