@@ -9,7 +9,7 @@ Linear layers, also known as fully-connected layers, connect every input neuron 
 
 - Class attributes:
   - Learnable model parameters weight W, bias b.
-  - Variables stored during forward-propagation to compute derivatives during back-propagation: layer input A, batch size N ≥ 6.
+  - Variables stored during forward-propagation to compute derivatives during back-propagation: layer input A, batch size N.
   - Variables stored during backward-propagation to train model parameters dLdW, dLdb.
 
 - Class methods:
