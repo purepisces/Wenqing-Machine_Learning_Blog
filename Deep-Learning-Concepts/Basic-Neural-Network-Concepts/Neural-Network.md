@@ -186,7 +186,7 @@ The range of values from the activation function is relatively narrow, correspon
 
 ![Narrow Value Range](narrow_range.png)
 
-Scaling and transforming these curves through weights and biases in the network allows us to fit complex models to the data.
+Scaling and transforming these curves through weights and biases in the network allows us to fit complex models to the data. For example, when dosage = 0, the current y-axis coordinate for the blue curve is 2.25, then 2.25*-1.3 = -2.93 which corresponds to this position on the y-axis. And we end up with a new blue curve.
 
 ![Scaling and Transforming Curves](scale_pos.png) ![New Blue Curve](new_blue_curve.png)
 
