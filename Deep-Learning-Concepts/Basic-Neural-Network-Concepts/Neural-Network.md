@@ -196,6 +196,12 @@ Each node in the hidden layer contributes to the final model by creating unique 
 
 By scaling and adding these curves together, neural networks can approximate complex relationships within the data.
 
+
+
+![new_orange_curve](new_orange_curve.png) 
+
+
+
 ![Adding Curves](add_curve.png) ![Final Model Fit](subtract_curve.png)
 
 ### Making Predictions
