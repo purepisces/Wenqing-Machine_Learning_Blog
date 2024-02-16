@@ -71,20 +71,28 @@ where $l$ is called the layer index. The function $g_l$ is called an activation 
 
    And so on for each element in $Z_0$.
 
-**Biases of the First Layer ($B_0$)**: Let's assume the biases for the 6 neurons are as follows: 
 
-$$B_0 = [1, 2, 3, 4, 5, 6]$$
+**Biases of the First Layer ($B_0$)**: Now, let's represent the biases for the 6 neurons as a column vector, maintaining the shape $C_{out} \times 1$, where $C_{out} = 6$:
 
-**Adding Biases Using Broadcasting ($Z_0 + B_0$)**: When we add $B_0$ to $Z_0$, broadcasting expands $B_0$ to match the shape of $Z_0$. The operation looks like this:
-
-   $$\begin{bmatrix}
-   z_{11}+1 & z_{12}+2 & z_{13}+3 & z_{14}+4 & z_{15}+5 & z_{16}+6 \\
-   z_{21}+1 & z_{22}+2 & z_{23}+3 & z_{24}+4 & z_{25}+5 & z_{26}+6 \\
-   z_{31}+1 & z_{32}+2 & z_{33}+3 & z_{34}+4 & z_{35}+5 & z_{36}+6 \\
-   z_{41}+1 & z_{42}+2 & z_{43}+3 & z_{44}+4 & z_{45}+5 & z_{46}+6 \\
-   z_{51}+1 & z_{52}+2 & z_{53}+3 & z_{54}+4 & z_{55}+5 & z_{56}+6 \\
+ $$Z_0 = 
+   \begin{bmatrix}
+   1 \\
+   2 \\
+   3 \\
+   4 \\
+   5 \\
+   6 \\
    \end{bmatrix}$$
+   
+**Adding Biases Using Column Vector Addition, broadcasting ($Z_0 + B_0$)**: When we add $B_0$ to $Z_0$, each bias value in $B_0$ is added to every corresponding neuron's weighted sum across all instances in the batch. This operation effectively broadcasts the bias values across each row of $Z_0$, maintaining the original shape of $Z_0$, which is $N \times C_{out}$. The operation can be visualized as follows:
 
+$$\begin{bmatrix}
+z_{11}+1 & z_{12}+2 & z_{13}+3 & z_{14}+4 & z_{15}+5 & z_{16}+6 \\
+z_{21}+1 & z_{22}+2 & z_{23}+3 & z_{24}+4 & z_{25}+5 & z_{26}+6 \\
+z_{31}+1 & z_{32}+2 & z_{33}+3 & z_{34}+4 & z_{35}+5 & z_{36}+6 \\
+z_{41}+1 & z_{42}+2 & z_{43}+3 & z_{44}+4 & z_{45}+5 & z_{46}+6 \\
+z_{51}+1 & z_{52}+2 & z_{53}+3 & z_{54}+4 & z_{55}+5 & z_{56}+6 \\
+\end{bmatrix}$$
 
 **Activation Function ($f$)**: We apply a ReLU (Rectified Linear Unit) activation function to each element of the weighted sum matrix $Z_0$. The ReLU function outputs the input value if it is positive and 0 if it is negative. This does not change the shape of the matrix but alters its values. For example, if the weighted sum matrix $Z_0$ after adding biases looked like this:
 
