@@ -2,7 +2,10 @@
 
 ## Linear Layer
 
-Linear layers, also known as fully-connected layers, connect every input neuron to every output neuron and are commonly used in neural networks. Refer to Figure A for the visual representation of a linear layer. In this section, your task is to implement the Linear class in file `linear.py` (Additionally, to enhance clarity, we’ve marked the equations requiring conversion into code with a distinctive blue color for all the sections):
+Linear layers, also known as fully-connected layers, connect every input neuron to every output neuron and are commonly used in neural networks. Refer to end-to-end_topology figure for the visual representation of a linear layer.
+
+<img src="end-to-end_topology.png" alt="end-to-end_topology" width="400" height="300"/>
+
 
 - Class attributes:
   - Learnable model parameters weight W, bias b.
