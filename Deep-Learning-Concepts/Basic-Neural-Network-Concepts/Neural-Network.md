@@ -129,6 +129,10 @@ $$A_1 =
 
 **Final Output ($Y$)**: Assuming this is the final layer or we have a single-layer network, the output $Y$ is the same as $A_1$. For multi-layer networks, further layers would transform $A_1$ accordingly, with the final layer's output shape matching the desired output shape, which in this case is determined by the number of neurons in the final layer ($C_{out}$).
 
+> Note: The affine combination for a given layer can be expressed as:
+> $Z = W \cdot X + B$
+>
+
 
 # Neural Networks Overview
 
