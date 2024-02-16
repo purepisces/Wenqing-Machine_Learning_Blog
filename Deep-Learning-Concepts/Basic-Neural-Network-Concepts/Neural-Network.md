@@ -222,4 +222,4 @@ Note, this neural network starts with two identical activation functions, but th
 ## Reference:
 
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=CqOfi41LfDw)
-- 
+- CMU_11785_Introduction_To_Deep_Learning
