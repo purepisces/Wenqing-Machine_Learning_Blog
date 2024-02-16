@@ -55,11 +55,39 @@ $$B_0 = [1, 2, 3, 4, 5, 6]$$
    z_{51}+1 & z_{52}+2 & z_{53}+3 & z_{54}+4 & z_{55}+5 & z_{56}+6 \\
    \end{bmatrix}$$
 
-**Activation Function ($f$)**: Let's apply a ReLU activation function to $Z_0$, which does not change the shape but replaces negative values with 0:
 
-$$A_1 = f(Z_0) = \text{ReLU}(Z_0)$$
+**Activation Function ($f$)**: We apply a ReLU (Rectified Linear Unit) activation function to each element of the weighted sum matrix $Z_0$. The ReLU function outputs the input value if it is positive and 0 if it is negative. This does not change the shape of the matrix but alters its values. For example, if the weighted sum matrix $Z_0$ after adding biases looked like this:
 
-**Output of the Activation Function ($A_1$)**: The output $A_1$ retains the same shape as $Z_0$, with the ReLU function applied element-wise.
+$$\begin{bmatrix}
+-1 & 2 & -3 & 4 & -5 & 6 \\
+7 & -8 & 9 & -10 & 11 & -12 \\
+-13 & 14 & -15 & 16 & -17 & 18 \\
+19 & -20 & 21 & -22 & 23 & -24 \\
+-25 & 26 & -27 & 28 & -29 & 30 \\
+\end{bmatrix}$$
+
+Applying the ReLU activation function would give us:
+
+$$A_1 = f(Z_0) = \text{ReLU}(Z_0) =
+\begin{bmatrix}
+0 & 2 & 0 & 4 & 0 & 6 \\
+7 & 0 & 9 & 0 & 11 & 0 \\
+0 & 14 & 0 & 16 & 0 & 18 \\
+19 & 0 & 21 & 0 & 23 & 0 \\
+0 & 26 & 0 & 28 & 0 & 30 \\
+\end{bmatrix}$$
+
+
+**Output of the Activation Function ($A_1$)**: The output matrix $A_1$ retains the same shape as $Z_0$ but with the ReLU function applied element-wise. Negative values are replaced with 0, while positive values remain unchanged. In our example, $A_1$ looks like this:
+
+$$A_1 =
+\begin{bmatrix}
+0 & 2 & 0 & 4 & 0 & 6 \\
+7 & 0 & 9 & 0 & 11 & 0 \\
+0 & 14 & 0 & 16 & 0 & 18 \\
+19 & 0 & 21 & 0 & 23 & 0 \\
+0 & 26 & 0 & 28 & 0 & 30 \\
+\end{bmatrix}$$
 
 **Final Output ($Y$)**: Assuming this is the final layer or we have a single-layer network, the output $Y$ is the same as $A_1$. For multi-layer networks, further layers would transform $A_1$ accordingly, with the final layer's output shape matching the desired output shape, which in this case is determined by the number of neurons in the final layer ($C_{out}$).
 
