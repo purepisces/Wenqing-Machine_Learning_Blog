@@ -1,3 +1,31 @@
+# The Big Picture
+
+We can think of a neural network (NN) as a mathematical function which takes an input data $x$ and computes an output $y$:
+$y = f_{NN} (x)$
+
+For example, a model trained to identify spam emails takes in an email as input data $x$, and output 0 or 1 indicating whether the email is spam.
+
+The function $f_{NN}$ has a particular form: it’s a nested function. In lecture, we learnt the concepts of network layers. So, for a 3-layer neural network that returns a scaler, $f_{NN}$ looks like this:
+$$y = f_{NN} (x) = f_3(f_2(f_1(x)))$$
+
+In the above equation, $f_1$ and $f_2$ are vector functions of the following form:
+$$f_l(z) = g_l(W_l \cdot z + b_l)$$
+
+where $l$ is called the layer index. The function $g_l$ is called an activation function (e.g. ReLU, Sigmoid). The parameters $W_l$ (weight matrix) and $b_l$ (bias vector) for each layer are learnt using gradient descent by optimizing a particular loss function depending on the task.
+
+<img src="end-to-end-topology.png" alt="End-to-End-Topology" width="500" height="400"/>
+
+## Understanding the shapes
+
+1. $A_0$ (inputs): Instead of passing each training data (input features of dimension $C_{in}$) we consider a batch of them at once because we are doing the same computation for each of the input features hence ($N \times C_{in}$, where $N$ is batch number)
+2. $W_0$ (weight matrix): From lectures, we know the value of each neuron is the affine combination of the input, weight and bias ($W · A + b$ for this multiplication to be compatible, the second dimension of W must match the first dimension of $A$. However this is for a single neuron, for multiple neurons, the first dimension of W should be equal to the number of output neurons Cout hence the shape $C_{out} \times C_{in}$
+3. $B_0$ (Biases): From the previous explanation about the weights, we can infer that the bias for a single input feature should be $1 \times 1$, however, since we are considering a batch of N inputs at once, the biases shape become $N \times 1$.
+4. $Z_0$: $Z_0$ is the output is the affine combination of input, weights and biases and we require it to be of shape $N × C_{out}$ so that each of the inputs in the batch have their outputs for the number of neurons in $C_out$. To see how this works, check example below.
+5. $f$: The activation is a linear function and does not change the shape of the input
+6. $A_1$: This is the output of the activation function and hence same shape as $Z_0$
+7. $Y$: After the activation of the hidden layer, the network can be made deeper by adding several layers. However, the output of the final layer should match your desired output shape, in this case, $C_{out}$ of the final layer is same as the $C_{out}$ of the weight which is equal to the number of neurons because we have just one layer. $C_{out}$ will be the equal to number of neurons in your final layer.
+
+### Example
 **Input Layer ($A_0$)**: We have 5 instances in our batch, each represented by a vector of 4 features. Thus, $A_0$ could look like this:
 
  $$A_0 = 
@@ -90,35 +118,6 @@ $$A_1 =
 \end{bmatrix}$$
 
 **Final Output ($Y$)**: Assuming this is the final layer or we have a single-layer network, the output $Y$ is the same as $A_1$. For multi-layer networks, further layers would transform $A_1$ accordingly, with the final layer's output shape matching the desired output shape, which in this case is determined by the number of neurons in the final layer ($C_{out}$).
-
-
-
-# The Big Picture
-
-We can think of a neural network (NN) as a mathematical function which takes an input data $x$ and computes an output $y$:
-$y = f_{NN} (x)$
-
-For example, a model trained to identify spam emails takes in an email as input data $x$, and output 0 or 1 indicating whether the email is spam.
-
-The function $f_{NN}$ has a particular form: it’s a nested function. In lecture, we learnt the concepts of network layers. So, for a 3-layer neural network that returns a scaler, $f_{NN}$ looks like this:
-$$y = f_{NN} (x) = f_3(f_2(f_1(x)))$$
-
-In the above equation, $f_1$ and $f_2$ are vector functions of the following form:
-$$f_l(z) = g_l(W_l \cdot z + b_l)$$
-
-where $l$ is called the layer index. The function $g_l$ is called an activation function (e.g. ReLU, Sigmoid). The parameters $W_l$ (weight matrix) and $b_l$ (bias vector) for each layer are learnt using gradient descent by optimizing a particular loss function depending on the task.
-
-<img src="end-to-end-topology.png" alt="End-to-End-Topology" width="500" height="400"/>
-
-## Understanding the shapes(still don't understand, need further explanatation)
-
-1. A0 (inputs): Instead of passing each training data ( input features of dimension Cin) we consider a batch of them at once because we are doing the same computation for each of the input features hence (N × Cin, where N is batch number)
-2. W0 (weight matrix): From lectures, we know the value of each neuron is the affine combination of the input, weight and bias (W · A + b for this multiplication to be compatible, the second dimension of W must match the first dimension of A. However this is for a single neuron, for multiple neurons, the first dimension of W should be equal to the number of output neurons Cout hence the shape Cout × Cin
-3. B0 (Biases): From the previous explanation about the weights, we can infer that the bias for a single input feature should be 1 × 1, however, since we are considering a batch of N inputs at once, the biases shape become N × 1.
-4. Z0: Z0 is the output is the affine combination of input, weights and biases and we require it to be of shape N × Cout so that each of the inputs in the batch have their outputs for the number of neurons in Cout. To see how this works, check example below.
-5. f: The activation is a linear function and does not change the shape of the input
-6. A1: This is the output of the activation function and hence same shape as Z0
-7. Y: After the activation of the hidden layer, the network can be made deeper by adding several layers. However, the output of the final layer should match your desired output shape, in this case, Cout of the final layer is same as the Cout of the weight which is equal to the number of neurons because we have just one layer. Cout will be the equal to number of neurons in your final layer.
 
 
 # Neural Networks Overview
