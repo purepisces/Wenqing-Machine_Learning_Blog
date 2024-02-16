@@ -32,7 +32,7 @@ Confidence-Intervals.md✅
 least-squared.md✅
 calculus.md✅
 gradient-descent.md✅ need further math formula format improvement, need format and refrase
-Neural-Network.md✅ need format and rephrase
+Neural-Network.md✅
 backpropagation.md✅ need format and rephrase
 relu.md✅ need format and rephrase
 activation-functions.md✅ 已发csdn+知乎 need format and rephrase, Comparison with different activation Functions, why and when choose which
