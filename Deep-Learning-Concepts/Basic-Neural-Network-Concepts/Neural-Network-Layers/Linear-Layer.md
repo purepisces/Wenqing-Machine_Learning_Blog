@@ -13,9 +13,9 @@ Linear layers, also known as fully-connected layers, connect every input neuron 
   - Variables stored during backward-propagation to train model parameters dLdW, dLdb.
 
 - Class methods:
-  - `__init__`: Two parameters define a linear layer: `in_feature (C_in)` and `out_feature (C_out)`. Zero initialize weight W and bias b based on the inputs. Refer to Table 5.1 to see how the shapes of W and b are related to the inputs (Hint: - Check the shapes of the `in_feature` and `out_feature` and create a numpy array with zeros based on the required shape of W and b given in Table 5.1).
+  - `__init__`: Two parameters define a linear layer: `in_feature (C_in)` and `out_feature (C_out)`. Zero initialize weight W and bias b based on the inputs. Refer to Table 1(Linear Layer Components) to see how the shapes of W and b are related to the inputs (Hint: - Check the shapes of the `in_feature` and `out_feature` and create a numpy array with zeros based on the required shape of W and b given in Table 5.1).
   - `forward`: forward method takes in a batch of data A of shape N x C_in (representing N samples where each sample has C_in features), and computes output Z of shape N x C_out – each data sample is now represented by C_out features.
-  - `backward`: backward method takes in input dLdZ, how changes in its output Z affect loss L. It calculates and stores dLdW, dLdb – how changes in the layer weights and bias affect loss, which are used to improve the model. It returns dLdA, how changes in the layer inputs affect loss to enable downstream computation.
+  - `backward`: backward method takes in input dLdZ, how changes in its output Z affect loss L. It calculates and stores **dLdW, dLdb – how changes in the layer weights and bias affect loss**, which are used to improve the model. It returns dLdA, how changes in the layer inputs affect loss to enable downstream computation.
 
 Please consider the following class structure:
 
@@ -47,16 +47,16 @@ class Linear:
 | Code Name    | Math     | Type    | Shape       | Meaning                          |
 |--------------|----------|---------|-------------|----------------------------------|
 | N            | N        | scalar  | -           | batch size                       |
-| in_features  | C_in     | scalar  | -           | number of input features         |
-| out_features | C_out    | scalar  | -           | number of output features        |
-| A            | A        | matrix  | N x C_in    | batch of N inputs each represented by C_in features |
-| Z            | Z        | matrix  | N x C_out   | batch of N outputs each represented by C_out features |
-| W            | W        | matrix  | C_out x C_in| weight parameters                |
-| b            | b        | matrix  | C_out x 1   | bias parameters                  |
-| dLdZ         | ∂L/∂Z    | matrix  | N x C_out   | how changes in outputs affect loss |
-| dLdA         | ∂L/∂A    | matrix  | N x C_in    | how changes in inputs affect loss  |
-| dLdW         | ∂L/∂W    | matrix  | C_out x C_in| how changes in weights affect loss |
-| dLdb         | ∂L/∂b    | matrix  | C_out x 1   | how changes in bias affect loss    |
+| in_features  | $C_{in}$     | scalar  | -           | number of input features         |
+| out_features | $C_{out}$    | scalar  | -           | number of output features        |
+| A            | A        | matrix  | $N \times C_{in}$   | batch of N inputs each represented by $C_{in}$ features |
+| Z            | Z        | matrix  | $N \times C_{out}$   | batch of N outputs each represented by $C_{out}$ features |
+| W            | W        | matrix  | $C_{out} \times C_{in}$| weight parameters                |
+| b            | b        | matrix  | $C_{out} \times 1$   | bias parameters                  |
+| dLdZ         | ∂L/∂Z    | matrix  | $N \times C_{out}$   | how changes in outputs affect loss |
+| dLdA         | ∂L/∂A    | matrix  | $N \times C_{in}$     | how changes in inputs affect loss  |
+| dLdW         | ∂L/∂W    | matrix  | $C_{out} \times C_{in}$| how changes in weights affect loss |
+| dLdb         | ∂L/∂b    | matrix  | $C_{out} \times 1$   | how changes in bias affect loss    |
 
 ## Linear Layer Forward Equation
 
