@@ -1,3 +1,21 @@
+$$\begin{pmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6
+\end{pmatrix}$$
+
+
+$$\text{3D Tensor} = \left[ \begin{bmatrix}
+1 & 2  \\
+3 & 4 
+\end{bmatrix}, \begin{bmatrix}
+5 & 6  \\
+7 & 8 
+\end{bmatrix}, \begin{bmatrix}
+9 & 10  \\
+11 & 12 
+\end{bmatrix} \right]$$
+
+
 # Neural Network Layers
 
 ## Linear Layer
@@ -95,8 +113,14 @@ Now, Z, A, and W are all two-dimensional matrices (see Table 1 above). dZdA woul
 
 ∂L/∂b = (∂L/∂Z)^T · 1_N ∈ R^(C_out x 1) (7)
 
-
-
+> Note:
+> $$\text{2D Array (Matrix)} = \begin{pmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6
+\end{pmatrix}
+$$
+> $\text{3D Tensor} = \left[ \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}, \begin{bmatrix} 5 & 6 \\ 7 &amp; 8 \end{bmatrix}, \begin{bmatrix} 9 &amp; 10 \\ 11 &amp; 12 \end{bmatrix} \right]$
+>
 
 ```python
 #mytorch.nn.linear.py
