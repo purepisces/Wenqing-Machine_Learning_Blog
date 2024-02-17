@@ -58,6 +58,10 @@ class Linear:
 | dLdW         | ∂L/∂W    | matrix  | $C_{out} \times C_{in}$| how changes in weights affect loss |
 | dLdb         | ∂L/∂b    | matrix  | $C_{out} \times 1$   | how changes in bias affect loss    |
 
+
+> Note: For dLdZ, its shape matches Z's shape because when you compute the gradient of the loss L with respect to the output Z (dLdZ), you are essentially asking, "How does each element of the loss change with respect to each element of the output Z?" Since Z has a shape of N x C_out (where N is the batch size and C_out is the number of output features), dLdZ must have the same shape to represent the gradient of the loss with respect to each individual element in Z.
+>
+
 ## Linear Layer Forward Equation
 
 During forward propagation, we apply a linear transformation to the incoming data A to obtain output data Z using a weight matrix W and a bias vector b. 1_N is a column vector of size N which contain all 1s, and is used for broadcasting the bias.
