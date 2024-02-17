@@ -116,6 +116,91 @@ $$\text{3D Tensor} = \left[ \begin{bmatrix}
 11 & 12 
 \end{bmatrix} \right]$$
 
+To illustrate why the collection of 2D arrays for `dZ/db` forms a 3D tensor rather than a 2D tensor, let's use a simple numerical example.
+
+### Numerical Example:
+Let's consider a linear layer with:
+- 2 input features (`C_in = 2`)
+- 3 output features (`C_out = 3`)
+- A batch size of 2 (`N = 2`)
+
+#### Bias Vector `b`:
+Suppose the bias vector `b` is:
+
+$$
+b = \begin{pmatrix}
+b_1 \\
+b_2 \\
+b_3
+\end{pmatrix}
+$$
+
+#### Output Matrix `Z`:
+And the output matrix `Z` (before adding the bias) for a specific input batch might be:
+
+$$
+Z_{\text{before bias}} = \begin{pmatrix}
+z_{11} & z_{12} & z_{13} \\
+z_{21} & z_{22} & z_{23}
+\end{pmatrix}
+$$
+
+After adding the bias `b`, the output `Z` becomes:
+
+$$
+Z = \begin{pmatrix}
+z_{11} + b_1 & z_{12} + b_2 & z_{13} + b_3 \\
+z_{21} + b_1 & z_{22} + b_2 & z_{23} + b_3
+\end{pmatrix}
+$$
+
+### Derivative `dZ/db`:
+The derivative `dZ/db` represents how changes in each bias element affect each output in `Z`. For each element of `b`, we consider how changing that element affects all elements of `Z`.
+
+#### For `b_1`:
+
+Changing `b_1` affects the first column of `Z`:
+
+$$
+\frac{\partial Z}{\partial b_1} = \begin{pmatrix}
+1 & 0 & 0 \\
+1 & 0 & 0
+\end{pmatrix}
+$$
+
+#### For `b_2`:
+Changing `b_2` affects the second column of `Z`:
+
+$$
+\frac{\partial Z}{\partial b_2} = \begin{pmatrix}
+0 & 1 & 0 \\
+0 & 1 & 0
+\end{pmatrix}
+$$
+
+#### For `b_3`:
+
+Changing `b_3` affects the third column of `Z`:
+
+$$
+\frac{\partial Z}{\partial b_3} = \begin{pmatrix}
+0 & 0 & 1 \\
+0 & 0 & 1
+\end{pmatrix}
+$$
+
+### Forming a 3D Tensor:
+Each of these matrices is a 2D array showing how changing one element of `b` affects all elements of `Z`. Collectively, these 2D arrays can be thought of as "slices" or "layers" in a 3D structure, where each "layer" corresponds to the derivative with respect to one bias element:
+
+$$
+\text{3D Tensor for } \frac{\partial Z}{\partial b} = \left[ \frac{\partial Z}{\partial b_1}, \frac{\partial Z}{\partial b_2}, \frac{\partial Z}{\partial b_3} \right]
+$$
+
+This 3D tensor can be visualized as a stack of the three 2D arrays, one for each bias element. However, in practice, this tensor is often simplified to a 2D or even 1D structure for efficiency, as explained previously.
+
+This example demonstrates why considering the derivative of each output element with respect to each bias element conceptually leads to a 3D tensor, even though the actual computation might be simplified.
+
+
 ```python
 #mytorch.nn.linear.py
 import numpy as np
