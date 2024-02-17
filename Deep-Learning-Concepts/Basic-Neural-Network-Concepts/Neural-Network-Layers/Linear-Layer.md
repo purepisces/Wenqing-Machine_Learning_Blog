@@ -204,6 +204,7 @@ For dzda, the follwing figure is my personal understanding:
 
 <img src="dzda.jpeg" alt="dzda" width="400" height="300"/>
 
+And for $\frac{\partial L}{\partial Z}$, the shape is $N \times C_{out}$ which matching Z's shape, note that the shape of $L$(which is a scalar and hence would have a shape of $1 \times 1$. $\frac{\partial L}{\partial Z}$ represents the partial derivatives of the loss with respect to each individual element in $Z$.
 
 ```python
 #mytorch.nn.linear.py
