@@ -200,6 +200,8 @@ This 3D tensor can be visualized as a stack of the three 2D arrays, one for each
 
 This example demonstrates why considering the derivative of each output element with respect to each bias element conceptually leads to a 3D tensor, even though the actual computation might be simplified.
 
+<img src="dzda.jpeg" alt="dzda" width="400" height="300"/>
+
 
 ```python
 #mytorch.nn.linear.py
