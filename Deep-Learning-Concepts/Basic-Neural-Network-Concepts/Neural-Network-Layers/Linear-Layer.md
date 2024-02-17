@@ -117,6 +117,7 @@ class Linear:
         """
         self.A = A
         Z = A.dot(self.W.T) + self.b.T
+        # Since numPy automatically applies broadcasting, so we don't need to write like Z = A.dot(self.W.T) + np.ones((A.shape[0], 1)).dot(self.b.T)
         return Z
 
 
