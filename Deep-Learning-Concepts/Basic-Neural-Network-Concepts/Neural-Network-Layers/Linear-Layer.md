@@ -57,10 +57,10 @@ class Linear:
 | Z            | Z        | matrix  | $N \times C_{out}$   | batch of N outputs each represented by $C_{out}$ features |
 | W            | W        | matrix  | $C_{out} \times C_{in}$| weight parameters                |
 | b            | b        | matrix  | $C_{out} \times 1$   | bias parameters                  |
-| dLdZ         | ∂L/∂Z    | matrix  | $N \times C_{out}$   | how changes in outputs affect loss |
-| dLdA         | ∂L/∂A    | matrix  | $N \times C_{in}$     | how changes in inputs affect loss  |
-| dLdW         | ∂L/∂W    | matrix  | $C_{out} \times C_{in}$| how changes in weights affect loss |
-| dLdb         | ∂L/∂b    | matrix  | $C_{out} \times 1$   | how changes in bias affect loss    |
+| dLdZ         | $\frac{\partial L}{\partial Z}$   | matrix  | $N \times C_{out}$   | how changes in outputs affect loss |
+| dLdA         | $\frac{\partial L}{\partial A}$    | matrix  | $N \times C_{in}$     | how changes in inputs affect loss  |
+| dLdW         | $\frac{\partial L}{\partial W}$    | matrix  | $C_{out} \times C_{in}$| how changes in weights affect loss |
+| dLdb         | $\frac{\partial L}{\partial b}$     | matrix  | $C_{out} \times 1$   | how changes in bias affect loss    |
 
 
 > Note: For dLdZ, its shape matches Z's shape because when you compute the gradient of the loss L with respect to the output Z (dLdZ), you are essentially asking, "How does each element of the loss change with respect to each element of the output Z?" Since Z has a shape of N x C_out (where N is the batch size and C_out is the number of output features), dLdZ must have the same shape to represent the gradient of the loss with respect to each individual element in Z.
