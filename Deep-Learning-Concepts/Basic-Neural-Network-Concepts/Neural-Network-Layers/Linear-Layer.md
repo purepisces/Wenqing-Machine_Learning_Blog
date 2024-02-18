@@ -210,7 +210,7 @@ For $\frac{\partial L}{\partial Z}$, the shape is $N \times C_{out}$ which match
 **Note**: why we don't calculate $\frac{\partial Z}{\partial A}$ , but calculate $\frac{\partial L}{\partial A}$?
 Calculating $\frac{\partial Z}{\partial A}$ alone wouldn't give us information about the loss. To minimize the loss, we need to understand how the inputs and parameters of our model influence the loss, not just how they influence the output of a single layer. 
 
-# Why dLdA is returned
+## Why dLdA is returned
 In the context of neural networks and backpropagation, the reason we return dLdA (the gradient of the loss with respect to the input of the layer) instead of dLdZ (the gradient of the loss with respect to the output of the layer) during the backward pass is due to the nature of backpropagation itself. Backpropagation is a method used to calculate the gradient of the loss function with respect to each weight in the network by propagating the error gradient backwards through the network.
 
 Let's go through a specific example to illustrate why dLdA is returned.
@@ -236,7 +236,7 @@ Imagine you have a loss L at the output of the network, and you're currently bac
 
 In summary, during backpropagation, each layer needs to know how changes in its inputs affect the overall loss so that it can adjust its weights and biases accordingly. This is why dLdA is returned from the backward method of each layer and used as dLdZ for the preceding layer in the network.
 
-
+## Code implementation
 ```python
 #mytorch.nn.linear.py
 import numpy as np
