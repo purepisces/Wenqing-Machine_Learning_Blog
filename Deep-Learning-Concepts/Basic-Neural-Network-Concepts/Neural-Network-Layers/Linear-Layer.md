@@ -210,6 +210,33 @@ For $\frac{\partial L}{\partial Z}$, the shape is $N \times C_{out}$ which match
 **Note**: why we don't calculate $\frac{\partial Z}{\partial A}$ , but calculate $\frac{\partial L}{\partial A}$?
 Calculating $\frac{\partial Z}{\partial A}$ alone wouldn't give us information about the loss. To minimize the loss, we need to understand how the inputs and parameters of our model influence the loss, not just how they influence the output of a single layer. 
 
+# Why dLdA is returned
+In the context of neural networks and backpropagation, the reason we return dLdA (the gradient of the loss with respect to the input of the layer) instead of dLdZ (the gradient of the loss with respect to the output of the layer) during the backward pass is due to the nature of backpropagation itself. Backpropagation is a method used to calculate the gradient of the loss function with respect to each weight in the network by propagating the error gradient backwards through the network.
+
+Let's go through a specific example to illustrate why dLdA is returned.
+
+Example:
+Imagine a simple neural network with two layers: a hidden linear layer (Layer 1) and an output linear layer (Layer 2). The output of Layer 1 (Z1) becomes the input to Layer 2 (A2), and the output of Layer 2 (Z2) is used to compute the loss (L).
+
+Layer 1: Input A1, Output Z1
+Layer 2: Input A2 (which is Z1 from Layer 1), Output Z2
+When we perform backpropagation, we start from the output of the network and move backward:
+
+Layer 2 (Output Layer): We first compute dLdZ2, which is the gradient of the loss with respect to the output of Layer 2. This is usually straightforward since we know the loss function and the output of the network.
+
+Layer 2 to Layer 1: To update the weights and biases of Layer 2, we need to compute dLdW2 and dLdb2, which depend on dLdZ2. However, to propagate the error back to Layer 1, we need to compute dLdA2, which represents how changes in the input to Layer 2 (which is the output of Layer 1, Z1) affect the loss. This is why we compute dLdA in the backward method of Layer 2. dLdA2 is essentially dLdZ1 since A2 is Z1.
+
+Layer 1 (Hidden Layer): Now that we have dLdZ1 (from dLdA2 of Layer 2), we can perform the backward pass through Layer 1. We use dLdZ1 to compute dLdW1 and dLdb1 for Layer 1. Additionally, if there were layers before Layer 1, we would also need to compute dLdA1 to propagate the error further back.
+
+Why not return dLdZ?
+Returning dLdZ of a layer does not make sense in the context of backpropagation because the error gradient relevant to the previous layer is with respect to its output (Z), which is the input (A) to the current layer. Hence, what is relevant to the previous layer is how changes in its output (which is the input to the current layer) affect the loss, and that is represented by dLdA of the current layer.
+
+Specific Example:
+Imagine you have a loss L at the output of the network, and you're currently backpropagating through Layer 2. You've computed dLdZ2 based on the loss function. To update the weights (W2) and biases (b2) of Layer 2, you use dLdZ2. However, to tell Layer 1 how it should adjust its weights (W1) and biases (b1), you need to communicate how changes in its outputs (Z1, which are inputs to Layer 2: A2) affect the loss. This is done by passing back dLdA2 (which is dLdZ1 from the perspective of Layer 1), allowing Layer 1 to adjust W1 and b1 effectively to minimize the loss.
+
+In summary, during backpropagation, each layer needs to know how changes in its inputs affect the overall loss so that it can adjust its weights and biases accordingly. This is why dLdA is returned from the backward method of each layer and used as dLdZ for the preceding layer in the network.
+
+
 ```python
 #mytorch.nn.linear.py
 import numpy as np
