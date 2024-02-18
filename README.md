@@ -88,6 +88,10 @@
 - **Neural Network Layers**
   - [Linear Layer](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/Linear-Layer.md)
   - [Other Layers...]
+- **Neural Network Models**
+  - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Models/neural-network-models.md)
+  - [MLP](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Models/MLP.md)
+
 - **Backpropagation**
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Backpropagation/backpropagation.md)
 - **Activation Functions**
