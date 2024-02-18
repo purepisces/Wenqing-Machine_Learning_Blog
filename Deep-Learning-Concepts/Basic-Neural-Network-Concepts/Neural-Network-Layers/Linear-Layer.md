@@ -1,7 +1,3 @@
-
-
-
-
 # Neural Network Layers
 
 ## Linear Layer
@@ -93,13 +89,14 @@ In the above equations, dZdA, dZdW, and dZdb represent how the input, weights ma
 
 Now, Z, A, and W are all two-dimensional matrices (see Table 1 above). dZdA would have derivative terms corresponding to each term of Z with respect to each term of A, and hence would be a 4-dimensional tensor. Similarly, dZdW would be 4-dimensional and dZdb would be 3-dimensional (since b is 1-dimensional). These high-dimensional matrices would be sparse (many terms would be 0) as only some pairs of terms have a dependence. So, to make things simpler and avoid dealing with high-dimensional intermediate tensors, the derivative equations given above are simplified to the below form:
 
-∂L/∂A = (∂L/∂Z) · W ∈ R^(N x C_in) (5)
+$$\frac{\partial L}{\partial A} = \left(\frac{\partial L}{\partial Z}\right) \cdot W \in \mathbb{R}^{(N \times C_{\text{in}})}$$
 
-∂L/∂W = (∂L/∂Z)^T · A ∈ R^(C_out x C_in) (6)
+$$\frac{\partial L}{\partial W} = \left(\frac{\partial L}{\partial Z}\right)^T \cdot A \in \mathbb{R}^{(C_{\text{out}} \times C_{\text{in}})}$$
 
-∂L/∂b = (∂L/∂Z)^T · 1_N ∈ R^(C_out x 1) (7)
+$$\frac{\partial L}{\partial b} = \left(\frac{\partial L}{\partial Z}\right)^T \cdot \mathbf{1}_N \in \mathbb{R}^{(C_{\text{out}} \times 1)}$$
 
 **Note**:
+
 $$\text{2D Array (Matrix)} = \begin{bmatrix}
 1 & 2 & 3 \\
 4 & 5 & 6
