@@ -263,7 +263,7 @@ import numpy as np
 
 class Linear:
 
-    def __init__(self, in_features, out_features, debug=False):
+    def __init__(self, in_features, out_features):
         """
         Initialize the weights and biases with zeros
         Checkout np.zeros function.
