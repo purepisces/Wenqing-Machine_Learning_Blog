@@ -51,7 +51,6 @@ class MLP0:
         """
 
         self.layers = [Linear(2, 3), ReLU()]
-        self.debug = debug
 
     def forward(self, A0):
         """
@@ -61,10 +60,6 @@ class MLP0:
         Z0 = self.layers[0].forward(A0)
         A1 = self.layers[1].forward(Z0)
 
-        if self.debug:
-            self.Z0 = Z0
-            self.A1 = A1
-
         return A1
 
     def backward(self, dLdA1):
@@ -73,9 +68,6 @@ class MLP0:
         """
         dLdZ0 = self.layers[1].backward(dLdA1)
         dLdA0 = self.layers[0].backward(dLdZ0)
-        if self.debug:
-            self.dLdZ0 = dLdZ0
-            self.dLdA0 = dLdA0
 
         return dLdA0
 
@@ -90,7 +82,6 @@ class MLP1:
         """
 
         self.layers = [Linear(2, 3), ReLU(), Linear(3, 2), ReLU()]
-        self.debug = debug
 
     def forward(self, A0):
         """
@@ -102,12 +93,6 @@ class MLP1:
 
         Z1 = self.layers[2].forward(A1)
         A2 = self.layers[3].forward(Z1)
-
-        if self.debug:
-            self.Z0 = Z0
-            self.A1 = A1
-            self.Z1 = Z1
-            self.A2 = A2
 
         return A2
 
@@ -121,12 +106,6 @@ class MLP1:
 
         dLdZ0 = self.layers[1].backward(dLdA1)
         dLdA0 = self.layers[0].backward(dLdZ0)
-
-        if self.debug:
-            self.dLdZ1 = dLdZ1
-            self.dLdA1 = dLdA1
-            self.dLdZ0 = dLdZ0
-            self.dLdA0 = dLdA0
 
         return dLdA0
 
@@ -143,19 +122,13 @@ class MLP4:
             Linear(8, 4), ReLU(),
             Linear(4, 2), ReLU()
         ]
-        self.debug = debug
 
     def forward(self, A):
         """
         Pass the input through the linear layers and corresponding activation layer alternately to get the model output.
         """
-        if self.debug:
-            self.A = [A]
-
         for layer in self.layers:
             A = layer.forward(A)
-            if self.debug:
-                self.A.append(A)
 
         return A
 
@@ -163,13 +136,8 @@ class MLP4:
         """
         Implement backpropagation through the model.
         """
-        if self.debug:
-            self.dLdA = [dLdA]
-
         for layer in reversed(self.layers):
             dLdA = layer.backward(dLdA)
-            if self.debug:
-                self.dLdA.insert(0, dLdA)
 
         return dLdA
 ```
