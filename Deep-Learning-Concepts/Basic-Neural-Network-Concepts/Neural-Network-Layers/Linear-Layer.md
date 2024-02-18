@@ -99,7 +99,7 @@ Now, Z, A, and W are all two-dimensional matrices (see Table 1 above). dZdA woul
 
 ∂L/∂b = (∂L/∂Z)^T · 1_N ∈ R^(C_out x 1) (7)
 
-
+**Note**:
 $$\text{2D Array (Matrix)} = \begin{bmatrix}
 1 & 2 & 3 \\
 4 & 5 & 6
@@ -204,7 +204,11 @@ For dzda, the follwing figure is my personal understanding:
 
 <img src="dzda.jpeg" alt="dzda" width="400" height="300"/>
 
-And for $\frac{\partial L}{\partial Z}$, the shape is $N \times C_{out}$ which matching Z's shape, note that the shape of $L$(which is a scalar and hence would have a shape of $1 \times 1$. $\frac{\partial L}{\partial Z}$ represents the partial derivatives of the loss with respect to each individual element in $Z$.
+**Note**:
+For $\frac{\partial L}{\partial Z}$, the shape is $N \times C_{out}$ which matching Z's shape, note that the shape of $L$(which is a scalar and hence would have a shape of $1 \times 1$. $\frac{\partial L}{\partial Z}$ represents the partial derivatives of the loss with respect to each individual element in $Z$.
+
+**Note**: why we don't calculate $\frac{\partial Z}{\partial A}$ , but calculate $\frac{\partial L}{\partial A}$?
+Calculating $\frac{\partial Z}{\partial A}$ alone wouldn't give us information about the loss. To minimize the loss, we need to understand how the inputs and parameters of our model influence the loss, not just how they influence the output of a single layer. 
 
 ```python
 #mytorch.nn.linear.py
