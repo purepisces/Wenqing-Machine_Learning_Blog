@@ -268,18 +268,16 @@ class Linear:
         Read the writeup for implementation details
         """
         self.A = A
-        Z = A.dot(self.W.T) + self.b.T
+        Z = A.dot(self.W.T) + self.b.T #N×Cin dot Cin x Cout = N×Cout + 1xCout and broadcase of b to be N×Cout = N×Cout + N×Cout
         # Since numPy automatically applies broadcasting, so we don't need to write like Z = A.dot(self.W.T) + np.ones((A.shape[0], 1)).dot(self.b.T)
         return Z
 
 
     def backward(self, dLdZ):
-        self.Ones = np.ones((dLdZ.shape[0], 1))
-        dLdA = dLdZ.dot(self.W)
-        self.dLdW = dLdZ.T.dot(self.A)
-        self.dLdb = dLdZ.T.dot(self.Ones)
-        if self.debug:
-            self.dLdA = dLdA
+        self.Ones = np.ones((dLdZ.shape[0], 1)) #N×1
+        dLdA = dLdZ.dot(self.W) #N×Cout dot Cout × Cin = N×Cin
+        self.dLdW = dLdZ.T.dot(self.A) # CoutxN dot N×Cin = Cout × Cin
+        self.dLdb = dLdZ.T.dot(self.Ones) #CoutxN dot Nx1 = Cout×1
         return dLdA
 ```
 
