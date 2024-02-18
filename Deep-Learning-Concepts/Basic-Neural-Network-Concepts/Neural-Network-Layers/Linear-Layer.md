@@ -79,11 +79,12 @@ As mentioned earlier, the objective of backward propagation is to calculate the 
 
 Given ∂L/∂Z as an input to the backward function, we can apply chain rule to obtain how changes in A, W, b affect loss L:
 
-∂L/∂A = (∂L/∂Z) · (∂Z/∂A)^T ∈ R^(N x C_in) (2)
 
-∂L/∂W = (∂L/∂Z) · (∂Z/∂W)^T ∈ R^(C_out x C_in) (3)
+$$\frac{\partial L}{\partial A} = \left(\frac{\partial L}{\partial Z}\right) \cdot \left(\frac{\partial Z}{\partial A}\right)^T \in \mathbb{R}^{(N \times C_{\text{in}})}$$
 
-∂L/∂b = (∂L/∂Z)^T · (∂Z/∂b) ∈ R^(C_out x 1) (4)
+$$\frac{\partial L}{\partial W} = \left(\frac{\partial L}{\partial Z}\right) \cdot \left(\frac{\partial Z}{\partial W}\right)^T \in \mathbb{R}^{(C_{\text{out}} \times C_{\text{in}})}$$
+
+$$\frac{\partial L}{\partial b} = \left(\frac{\partial L}{\partial Z}\right)^T \cdot \left(\frac{\partial Z}{\partial b}\right) \in \mathbb{R}^{(C_{\text{out}} \times 1)}$$
 
 In the above equations, dZdA, dZdW, and dZdb represent how the input, weights matrix, and bias respectively affect the output of the linear layer.
 
