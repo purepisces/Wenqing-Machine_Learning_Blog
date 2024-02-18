@@ -236,6 +236,15 @@ Imagine you have a loss L at the output of the network, and you're currently bac
 
 In summary, during backpropagation, each layer needs to know how changes in its inputs affect the overall loss so that it can adjust its weights and biases accordingly. This is why dLdA is returned from the backward method of each layer and used as dLdZ for the preceding layer in the network.
 
+Here's a breakdown of the process:
+
+- **Layer 2 Backward Pass**: For Layer 2, you compute \( \frac{\partial L}{\partial W_2} \) and \( \frac{\partial L}{\partial b_2} \) using \( \frac{\partial L}{\partial Z_2} \) (where \( Z_2 \) is the output of Layer 2). This step involves how changes in Layer 2's weights and biases affect the overall loss \( L \), allowing you to update \( W_2 \) and \( b_2 \).
+
+- **Error Propagation to Layer 1**: The gradient \( \frac{\partial L}{\partial A_2} \) is computed in Layer 2's backward pass and is essentially \( \frac{\partial L}{\partial Z_1} \) from Layer 1's perspective, since \( A_2 = Z_1 \). This gradient represents how changes in Layer 1's output affect the loss \( L \), not just the output \( Z_2 \) of Layer 2.
+
+- **Layer 1 Backward Pass**: Using \( \frac{\partial L}{\partial Z_1} \), you compute \( \frac{\partial L}{\partial W_1} \) and \( \frac{\partial L}{\partial b_1} \) for Layer 1. These calculations show how changes in Layer 1's weights and biases affect the overall loss \( L \), allowing you to update \( W_1 \) and \( b_1 \).
+
+
 ## Code implementation
 ```python
 #mytorch.nn.linear.py
