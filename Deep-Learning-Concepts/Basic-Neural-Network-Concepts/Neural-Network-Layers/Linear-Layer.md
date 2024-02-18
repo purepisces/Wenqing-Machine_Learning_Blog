@@ -1,3 +1,14 @@
+# Introduction to Neural Networks and Linear Layers(this introduction part is from chatgpt, need further modification)
+
+Neural networks are a foundational element of machine learning, inspired by the structure and function of the human brain. These computational models are designed to recognize patterns and make decisions based on input data. At the core of neural networks are layers of interconnected nodes or "neurons," each capable of performing simple calculations. The data flows through these layers, transforming through various operations, leading to the final output which can be used for tasks such as classification, regression, and more.
+
+Among these layers, linear (or fully-connected) layers play a crucial role. They are so named because each neuron in a linear layer is connected to every neuron in the previous layer, forming a dense network. These layers apply linear transformations to the incoming data, effectively learning to weigh the importance of input features through adjustable parameters known as weights and biases.
+
+Linear layers are fundamental to the structure of many neural networks, serving as the building blocks that allow these models to learn complex patterns and relationships within the data. Their simplicity and effectiveness make them a staple in the neural network architecture, capable of handling a wide range of tasks from simple to highly complex.
+
+The following sections will delve into the specifics of linear layers, including their components, forward and backward propagation equations, and practical code implementations, providing a comprehensive understanding of their operation and significance within neural networks.
+
+
 # Neural Network Layers
 
 ## Linear Layer
