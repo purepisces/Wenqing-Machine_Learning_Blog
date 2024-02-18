@@ -94,7 +94,7 @@ $$\frac{\partial L}{\partial A} = \left(\frac{\partial L}{\partial Z}\right) \cd
 
 $$\frac{\partial L}{\partial W} = \left(\frac{\partial L}{\partial Z}\right)^T \cdot A \in \mathbb{R}^{(C_{\text{out}} \times C_{\text{in}})}$$
 
-$$\frac{\partial L}{\partial b} = \left(\frac{\partial L}{\partial Z}\right)^T \cdot \mathbf{1}_N \in \mathbb{R}^{(C_{\text{out}} \times 1)}$$
+$$\frac{\partial L}{\partial b} = \left( \frac{\partial L}{\partial Z} \right)^T \cdot 1_N \in \mathbb{R}^{C_{out} \times 1}$$
 
 **Note**:
 
@@ -227,9 +227,11 @@ Layer 2 to Layer 1: To update the weights and biases of Layer 2, we need to comp
 Layer 1 (Hidden Layer): Now that we have dLdZ1 (from dLdA2 of Layer 2), we can perform the backward pass through Layer 1. We use dLdZ1 to compute dLdW1 and dLdb1 for Layer 1. Additionally, if there were layers before Layer 1, we would also need to compute dLdA1 to propagate the error further back.
 
 Why not return dLdZ?
+
 Returning dLdZ of a layer does not make sense in the context of backpropagation because the error gradient relevant to the previous layer is with respect to its output (Z), which is the input (A) to the current layer. Hence, what is relevant to the previous layer is how changes in its output (which is the input to the current layer) affect the loss, and that is represented by dLdA of the current layer.
 
 Specific Example:
+
 Imagine you have a loss L at the output of the network, and you're currently backpropagating through Layer 2. You've computed dLdZ2 based on the loss function. To update the weights (W2) and biases (b2) of Layer 2, you use dLdZ2. However, to tell Layer 1 how it should adjust its weights (W1) and biases (b1), you need to communicate how changes in its outputs (Z1, which are inputs to Layer 2: A2) affect the loss. This is done by passing back dLdA2 (which is dLdZ1 from the perspective of Layer 1), allowing Layer 1 to adjust W1 and b1 effectively to minimize the loss.
 
 In summary, during backpropagation, each layer needs to know how changes in its inputs affect the overall loss so that it can adjust its weights and biases accordingly. This is why dLdA is returned from the backward method of each layer and used as dLdZ for the preceding layer in the network.
