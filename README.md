@@ -85,15 +85,6 @@
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/FFNN/FFNN.md)
   - **MLP (Multi-Layer Perceptron)**
     - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/FFNN/MLP.md)
-- **Neural Network Layers**
-  - [Linear Layer](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/Linear-Layer.md)
-  - [Other Layers...]
-- **Neural Network Models**
-  - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Models/neural-network-models.md)
-  - [MLP](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Models/MLP.md)
-
-- **Backpropagation**
-  - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Backpropagation/backpropagation.md)
 - **Activation Functions**
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/activation-functions.md)
   - [ReLU](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/relu.md)
@@ -101,6 +92,19 @@
   - [Tanh](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/tanh.md)
   - [GELU](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/gelu.md)
   - [Softmax](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/softmax.md)
+- **Backpropagation**
+  - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Backpropagation/backpropagation.md)
+- **Neural Network Layers**
+  - [Linear Layer](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/Linear-Layer.md)
+  - [Other Layers...]
+- **Neural Network Models**
+  - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Models/neural-network-models.md)
+  - [MLP](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Models/MLP.md)
+- **Loss Functions**
+  - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Loss_Functions.md)
+  - [MSE_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/MSE_Loss.md)
+  - [Cross_Entropy_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Cross_Entropy_Loss.md)
+
 ### Sequence Models
 - [Overview](sequence-models-overview.md)
 - **Language Model Evaluation Metrics**
