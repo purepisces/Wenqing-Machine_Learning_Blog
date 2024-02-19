@@ -39,6 +39,8 @@ activation-functions.md✅ 已发csdn+知乎 need format and rephrase, Compariso
 sigmoid.md✅已发csdn+知乎
 tanh.md✅
 neural-network-models.md✅
+Linear-Layer.md✅ need further modification
+
 
 Chain rule
 Cumulative Distribution Function (CDF)
