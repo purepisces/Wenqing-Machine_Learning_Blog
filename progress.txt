@@ -38,7 +38,7 @@ relu.md✅ need format and rephrase
 activation-functions.md✅ 已发csdn+知乎 need format and rephrase, Comparison with different activation Functions, why and when choose which
 sigmoid.md✅已发csdn+知乎
 tanh.md✅
-
+neural-network-models.md✅
 
 Chain rule
 Cumulative Distribution Function (CDF)
