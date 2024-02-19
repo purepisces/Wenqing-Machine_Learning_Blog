@@ -6,9 +6,9 @@
 
 ## Class methods:
 
-- $forward$: The `forward` method takes input data $A0$ and applies transformations corresponding to the layers (linear and activation) sequentially as `self.layers[i].forward` for $i = 0, ..., l − 18$ where $l$ is the total number of layers, to compute output $Al$.
+- $forward$: The $forward$ method takes input data $A_0$ and applies transformations corresponding to the layers (linear and activation) sequentially as `self.layers[i].forward` for $i = 0, ..., l − 1$ where $l$ is the total number of layers, to compute output $A_l$.
 
-- $backward$: The $backward$ method takes in $dLdAl$, how changes in loss $L$ affect model output $Al$, and performs back-propagation from the last layer to the first layer by calling `self.layers[i].backward` for $i = l − 1, ..., 0$. It does not return anything. Note that activation and linear layers don’t need to be treated differently as both take in the derivative of the loss with respect to the layer’s output and give back the derivative of the loss with respect to the layer’s input.
+- $backward$: The $backward$ method takes in $dLdA_l$, how changes in loss $L$ affect model output $A_l$, and performs back-propagation from the last layer to the first layer by calling `self.layers[i].backward` for $i = l − 1, ..., 0$. It does not return anything. Note that activation and linear layers don’t need to be treated differently as both take in the derivative of the loss with respect to the layer’s output and give back the derivative of the loss with respect to the layer’s input.
 
 Please consider the following class structure:
 ```python
