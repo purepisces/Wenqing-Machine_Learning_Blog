@@ -28,3 +28,7 @@ class Model:
 ```
 
 Note that the $A$ mentioned in the for loop in the forward pseudo code above is written so to maintain the same name of the variable containing the current output. In case of linear layers, it is the same as the output that was written as $Z$ in the linear layer section. The case with $dLdA$ mentioned in the backward pseudo code is similar. In the case of activation functions, it will be the same as what was mentioned as $dLdZ$ in the activation functions section after the current $dLdA$ is passed through the activation layer’s backward function.
+
+## Reference:
+
+- CMU_11785_Introduction_To_Deep_Learning
