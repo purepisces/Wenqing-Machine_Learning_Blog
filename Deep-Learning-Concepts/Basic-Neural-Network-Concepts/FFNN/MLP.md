@@ -34,7 +34,7 @@ A Multi-Layer Perceptron (MLP) is a class of feedforward artificial neural netwo
 ## Applications
 - MLPs are used in various fields like speech recognition, image recognition, and machine translation.
 
-## Example Code Snippet (Python)
+## Example Code (Python)
 ```python
 import numpy as np
 
