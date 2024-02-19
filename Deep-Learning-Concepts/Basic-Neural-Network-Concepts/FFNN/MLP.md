@@ -127,17 +127,18 @@ class MLP4:
         """
         Pass the input through the linear layers and corresponding activation layer alternately to get the model output.
         """
-        for layer in self.layers:
-            A = layer.forward(A)
-
+        L = len(self.layers)
+        for i in range(L):
+            A = self.layers[i].forward(A)
         return A
+
 
     def backward(self, dLdA):
         """
         Implement backpropagation through the model.
         """
-        for layer in reversed(self.layers):
-            dLdA = layer.backward(dLdA)
-
+        L = len(self.layers)
+        for i in reversed(range(L)):
+            dLdA = self.layers[i].backward(dLdA)
         return dLdA
 ```
