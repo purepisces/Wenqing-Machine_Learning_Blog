@@ -110,6 +110,7 @@ class MLP1:
         return dLdA0
 
 class MLP4:
+
     def __init__(self, debug=False):
         """
         Initialize 4 hidden layers and an output layer with specified shapes.
