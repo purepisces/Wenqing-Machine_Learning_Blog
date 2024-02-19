@@ -31,9 +31,6 @@ A Multi-Layer Perceptron (MLP) is a class of feedforward artificial neural netwo
 - MLPs are trained using backpropagation.
 - The most common training algorithm is gradient descent.
 
-## Applications
-- MLPs are used in various fields like speech recognition, image recognition, and machine translation.
-
 ## Example Code (Python)
 ```python
 import numpy as np
