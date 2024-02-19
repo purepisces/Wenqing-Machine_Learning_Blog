@@ -390,5 +390,3 @@ This equation highlights how the output $Z$ from one layer, after undergoing tra
 > 
 ## Reference:
 - CMU_11785_Introduction_To_Deep_Learning
-
-
