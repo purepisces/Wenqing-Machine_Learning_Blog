@@ -29,6 +29,11 @@ class Model:
 
 Note that the $A$ mentioned in the for loop in the forward pseudo code above is written so to maintain the same name of the variable containing the current output. In case of linear layers, it is the same as the output that was written as $Z$ in the linear layer section. The case with $dLdA$ mentioned in the backward pseudo code is similar. In the case of activation functions, it will be the same as what was mentioned as $dLdZ$ in the activation functions section after the current $dLdA$ is passed through the activation layer’s backward function.
 
+
+
+> Note: The statement in backward "It does not return anything", however, the code of backward returns dLdA. The statement might be trying to convey that the primary purpose of the backward method is not to produce an output in the same way the forward method does (i.e., producing a prediction from the input data). Instead, its main role is to propagate gradients backward through the network to update the parameters based on the gradient of the loss function. The return of dLdA is more of a byproduct of this process, providing a clear endpoint for the back-propagation and possibly serving the additional purposes mentioned above.
+>
+
 ## Reference:
 
 - CMU_11785_Introduction_To_Deep_Learning
