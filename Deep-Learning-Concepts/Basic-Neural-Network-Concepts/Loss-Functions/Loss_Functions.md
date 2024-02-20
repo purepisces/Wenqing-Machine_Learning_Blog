@@ -1,4 +1,5 @@
-Different loss functions may become useful depending on the type of neural network and type of data you are using. It is important to know how these are calculated, and how they will be used to update your network. 
+# Loss Functions
+Different loss functions may become useful depending on the type of neural network and type of data you are using, like Cross-Entropy Loss for classification, Mean Squared Error for regression. It is important to know how these are calculated, and how they will be used to update your network. 
 
 ## Loss Class
 
