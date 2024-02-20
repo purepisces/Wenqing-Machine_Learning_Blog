@@ -82,3 +82,51 @@ class MSELoss:
         return dLdA
 
 ```
+
+Let's walk through a specific example of applying the Mean Squared Error (MSE) loss in a regression scenario. Suppose we are trying to predict house prices based on some features. For simplicity, we'll consider a case where our model predicts prices for two houses based on a single feature (like area in square feet), so our batch size $N$ is 2 and the number of features (or classes in this context) $C$ is 1.
+
+### Given Data:
+
+- Model outputs ($A$): Predicted prices of two houses, say $[300,000; 500,000]$ (in some currency, let's assume USD for simplicity). This can be represented as a 2x1 matrix (since $N=2$ and $C=1$):
+
+$$
+A = \begin{bmatrix} 300,000 \\ 500,000 \end{bmatrix}
+$$
+
+- Ground-truth values ($Y$): Actual prices of the two houses, say $[350,000; 450,000]$. This is also a 2x1 matrix:
+
+$$
+Y = \begin{bmatrix} 350,000 \\ 450,000 \end{bmatrix}
+$$
+
+### Forward Pass (Calculating MSE Loss):
+
+1. **Calculate Squared Error ($SE$):**
+
+$$
+SE(A, Y) = (A - Y) \odot (A - Y) = \begin{bmatrix} (300,000 - 350,000)^2 \\ (500,000 - 450,000)^2 \end{bmatrix} = \begin{bmatrix} 2500 \times 10^6 \\ 2500 \times 10^6 \end{bmatrix}
+$$
+
+2. **Sum of Squared Error ($SSE$):**
+   Since we only have one feature, the $SSE$ is simply the sum of all elements in $SE$:
+
+$$
+SSE(A,Y) = \sum SE(A,Y) = 2500 \times 10^6 + 2500 \times 10^6 = 5000 \times 10^6
+$$
+
+3. **Mean Squared Error ($MSE$):**
+
+$$
+MSELoss(A, Y) = \frac{SSE(A, Y)}{N \cdot C} = \frac{5000 \times 10^6}{2 \times 1} = 2500 \times 10^6
+$$
+
+### Backward Pass (Calculating Gradient):
+
+The gradient of the loss with respect to the predictions ($A$) can be calculated as:
+
+$$
+\frac{\partial MSELoss}{\partial A} = 2 \cdot \frac{(A - Y)}{N \cdot C} = 2 \cdot \frac{\begin{bmatrix} 300,000 - 350,000 \\ 500,000 - 450,000 \end{bmatrix}}{2 \times 1} = \begin{bmatrix} -50,000 \\ 50,000 \end{bmatrix}
+$$
+
+This gradient tells us how to adjust our predictions to reduce the loss. For the first house, since the gradient is negative, we need to increase our prediction to reduce the loss, and for the second house, since the gradient is positive, we need to decrease our prediction.
+
