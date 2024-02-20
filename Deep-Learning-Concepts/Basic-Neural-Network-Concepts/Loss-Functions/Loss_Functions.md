@@ -85,6 +85,9 @@ $$
 
 Here, the first row $[1, 0, 0]$ indicates that the first example belongs to Class 1, and the second row $[0, 0, 1]$ shows the second example belongs to Class 3.
 
-### Loss Calculation
+### Using $A$ and $Y$ in Loss Calculation
 
-Upon feeding $A$ and $Y$ to the $forward$ method of our $Loss$ class, it computes the scalar loss value $L$, quantifying the mismatch between the predicted probabilities and the actual labels. The backward method would then calculate $dLdA$, representing how changes in $A$ would affect $L$, essential for back-propagation during network updates.
+The loss function employs the matrices $A$ and $Y$ to compute the loss value $L$. For example, employing the Cross-Entropy Loss function would involve calculating the loss for each individual example by comparing the predicted probabilities in $A$ against the actual labels in $Y$. Subsequently, these individual losses are averaged across all examples within the batch to yield a single scalar value for the loss, $L$.
+
+The $forward$ method within the $Loss$ class is tasked with computing this scalar loss value, $L$, utilizing $A$ and $Y$. Following this, the $backward$ method calculates the gradient of the loss with respect to the model outputs, denoted as $\frac{\partial L}{\partial A}$. This gradient is crucial for the back-propagation process, enabling the update of model parameters during training.
+
