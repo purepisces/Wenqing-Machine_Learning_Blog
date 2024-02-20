@@ -1,8 +1,8 @@
-## 8.1 MSE Loss
+# MSE Loss
 
 MSE stands for Mean Squared Error, and is often used to quantify the prediction error for regression problems. Regression is a problem of predicting a real-valued label given an unlabeled example. Estimating house price based on features such as area, location, the number of bedrooms and so on is a classic regression problem.
 
-### 8.1.1 MSE Loss Forward Equation
+## MSE Loss Forward Equation
 
 We first calculate the squared error `SE` between the model outputs `A` and the ground-truth values `Y`:
 SE(A, Y) = (A - Y) ⊙ (A - Y)
@@ -17,7 +17,7 @@ Lastly, we calculate the per-component Mean Squared Error `MSE` loss:
 
 MSELoss(A, Y) = SSE(A, Y) / (N · C)
 
-### 8.1.2 MSE Loss Backward Equation
+## MSE Loss Backward Equation
 MSELoss.backward() = 2 · (A - Y) / (N · C)
 
 ```python
