@@ -60,7 +60,12 @@ In this example, we illustrate the use of the $Loss$ class for a classification 
 
 The model outputs, denoted as $A$, are the predicted probabilities for each class. For our example with a batch size of 2 and 3 classes, $A$ could look like:
 
-$$A = \begin{bmatrix} 0.7 & 0.2 & 0.1 \\ 0.1 & 0.8 & 0.1 \end{bmatrix}$$
+$$A = 
+\begin{bmatrix}
+0.7 & 0.2 & 0.1\\
+0.1 & 0.8 & 0.1
+\end{bmatrix}
+$$
 
 This matrix signifies the network's predictions:
 - For the first example, the probabilities for Class 1, Class 2, and Class 3 are 0.7, 0.2, and 0.1, respectively, suggesting a prediction of Class 1.
@@ -70,7 +75,13 @@ This matrix signifies the network's predictions:
 
 The ground-truth values, $Y$, are represented in a one-hot encoded format:
 
-$$Y = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \end{bmatrix}$$
+
+$$Y = 
+\begin{bmatrix}
+1 & 0 & 0\\
+0 & 0 & 1
+\end{bmatrix}
+$$
 
 Here, the first row $[1, 0, 0]$ indicates that the first example belongs to Class 1, and the second row $[0, 0, 1]$ shows the second example belongs to Class 3.
 
