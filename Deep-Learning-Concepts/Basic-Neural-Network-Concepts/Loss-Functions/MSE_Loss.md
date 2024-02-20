@@ -61,4 +61,24 @@ class MSELoss:
     def backward(self):
         dLdA = 2 * (self.A - self.Y) / (self.A.shape[0] * self.A.shape[1])
         return dLd
+import numpy as np
+
+class MSELoss:
+    def forward(self, A, Y):
+        # Store the predictions (A) and ground truth values (Y) for backward computation
+        self.A = A
+        self.Y = Y
+        # Compute the squared error between predictions and ground truth
+        se = (A - Y) ** 2
+        # Sum the squared errors to get the total squared error
+        sse = np.sum(se)
+        # Compute the Mean Squared Error by dividing the total squared error by the number of elements
+        mse = sse / (A.shape[0] * A.shape[1])
+        return mse
+
+    def backward(self):
+        # Compute the gradient of the loss with respect to the predictions (A)
+        dLdA = 2 * (self.A - self.Y) / (self.A.shape[0] * self.A.shape[1])
+        return dLdA
+
 ```
