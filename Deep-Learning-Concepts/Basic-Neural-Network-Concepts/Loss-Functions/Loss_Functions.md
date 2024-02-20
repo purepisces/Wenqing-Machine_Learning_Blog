@@ -1,18 +1,4 @@
-Much as you did for activation functions you will now program some simple loss functions. Different loss functions may become useful depending on the type of neural network and type of data you are using. Here we will program Mean Squared Error Loss MSE and Cross Entropy Loss. It is important to know how these are calculated, and how they will be used to update your network. 
-
-Loss class in file loss.py:
-
-• Class attributes:
-
-– Stores model prediction A to compute back-propagation.
-
-– Stores desired output Y stored to compute back-propagation.
-
-• Class methods:
-
-– forward: forward method takes in model prediction A and desired output Y of the same shape to calculate and return a loss value L. The loss value is a scalar quantity used to quantify the mismatch between the network output and the desired output.
-
-– backward: backward method calculates and returns dLdA, how changes in model outputs A affect loss L. It is used to enable downstream computation, as seen in previous sections.
+Different loss functions may become useful depending on the type of neural network and type of data you are using. Here we will program Mean Squared Error Loss MSE and Cross Entropy Loss. It is important to know how these are calculated, and how they will be used to update your network. 
 
 ## Loss Class
 
