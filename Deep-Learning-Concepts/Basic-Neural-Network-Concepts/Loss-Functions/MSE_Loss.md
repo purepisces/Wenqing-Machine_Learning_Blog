@@ -8,7 +8,7 @@ We first calculate the squared error $SE$ between the model outputs $A$ and the 
 
 $SE(A, Y) = (A - Y) \odot (A - Y)$ 
 
-Then we calculate the sum of the squared error $SSE$, where $l_N$, $l_C$ are column vectors of size $N$ and $C$ which contain all 1s:
+Then we calculate the sum of the squared error $SSE$, where $\iota__N$, $\iota__C$ are column vectors of size $N$ and $C$ which contain all 1s:
 
 $SSE(A,Y) = \iota_{N}^{T} \cdot SE(A,Y) \cdot \iota_{C}$
 
