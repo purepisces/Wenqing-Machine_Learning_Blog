@@ -87,4 +87,4 @@ Here, the first row $[1, 0, 0]$ indicates that the first example belongs to Clas
 
 ### Loss Calculation
 
-Upon feeding $A$ and $Y$ to the $forward$ method of our $Loss$ class, it computes the scalar loss value $L$, quantifying the mismatch between the predicted probabilities and the actual labels. The `backward` method would then calculate $dLdA$, representing how changes in $A$ would affect $L$, essential for back-propagation during network updates.
+Upon feeding $A$ and $Y$ to the $forward$ method of our $Loss$ class, it computes the scalar loss value $L$, quantifying the mismatch between the predicted probabilities and the actual labels. The backward method would then calculate $dLdA$, representing how changes in $A$ would affect $L$, essential for back-propagation during network updates.
