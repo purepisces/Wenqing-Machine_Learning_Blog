@@ -22,31 +22,27 @@ $MSELoss(A, Y) = \frac{SSE(A, Y)}{N \cdot C}$
 
 $MSELoss.backward() = 2 \cdot \frac{(A - Y)}{N \cdot C}$
 
-The expression for the backward pass of the Mean Squared Error (MSE) loss, $2 \cdot \frac{(A - Y)}{N \cdot C}$, is derived from the derivative of the MSE loss function with respect to the model predictions $A$. Here's a step-by-step explanation:
+### Derivative of MSE Loss
 
-Mean Squared Error Loss Function
 The MSE loss function is defined as:
-$MSELoss(A, Y) = \frac{1}{N \cdot C} \sum\limits_{i=1}^{N} \sum\limits_{j=1}^{C} (A_{ij} - Y_{ij})^2$
+
+$$MSELoss(A, Y) = \frac{1}{N \cdot C} \sum\limits_{i=1}^{N} \sum\limits_{j=1}^{C} (A_{ij} - Y_{ij})^2$$
 
 where:
 
 $A$ are the predictions from the model.
+
 $Y$ are the actual ground-truth values.
+
 $N$ is the number of samples in the batch.
+
 $C$ is the number of output dimensions per sample (in regression, this is usually 1).
-Derivative of MSE Loss
+
+
 To update the model parameters (in this case, through backpropagation), we need to know how changes in $A$ affect the loss. This is given by the derivative of the loss function with respect to $A$, denoted as $\frac{\partial MSELoss}{\partial A}$.
 
-The derivative of the squared term $(A - Y)^2$ with respect to $A$ is $2 \cdot (A - Y)$. 
+$$\frac{\partial MSELoss}{\partial A} = 2 \cdot \frac{(A - Y)}{N \cdot C}$$
 
-Incorporating the Mean:
-Since the MSE loss involves a mean (i.e., dividing the sum of squared errors by $N \cdot C$), when we differentiate the loss with respect to $A$, we must also take this division into account. This leads to the full derivative expression:
-
-$\frac{\partial MSELoss}{\partial A} = 2 \cdot \frac{(A - Y)}{N \cdot C}$
-
-This expression tells us how the loss changes with small changes in $A$, for each element of $A$. The factor of $2$ comes from the derivative of the squared term, and the division by $N \cdot C$ comes from the mean operation in the MSE formula.
-
-Intuition
 The gradient $\frac{\partial MSELoss}{\partial A}$ points in the direction of steepest increase of the loss function. By moving in the opposite direction (i.e., subtracting this gradient from the predictions $A$), we can reduce the loss, which is the goal of training the model.
 
 In summary, the $2 \cdot \frac{(A - Y)}{N \cdot C}$ formula for $MSELoss.backward()$ is derived from differentiating the MSE loss function with respect to the predictions $A$, taking into account both the squared error and the mean operation. This gradient is used in the optimization process to adjust the model parameters in a way that minimizes the loss.
