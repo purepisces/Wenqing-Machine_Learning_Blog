@@ -82,7 +82,7 @@ class MSELoss:
         return dLdA
 
 ```
-
+## Example
 Let's walk through a specific example of applying the Mean Squared Error (MSE) loss in a regression scenario. Suppose we are trying to predict house prices based on some features. For simplicity, we'll consider a case where our model predicts prices for two houses based on a single feature (like area in square feet), so our batch size $N$ is 2 and the number of features (or classes in this context) $C$ is 1.
 
 ### Given Data:
