@@ -27,11 +27,15 @@ class Loss:
             N      = # TODO,  this is the first dimension of A and Y
             C      = # TODO,  this is the second dimension of A and Y
             # TODO
-return L
-def backward(self):
-    dLdA = # TODO
-return dLdA
+
+            return L
+
+        def backward(self):
+            dLdA = # TODO
+
+            return dLdA
 ```
+
 | Code Name | Math      | Type    | Shape | Meaning                                 |
 |-----------|-----------|---------|-------|-----------------------------------------|
 | N         | $N$   | scalar  | -     | batch size                              |
