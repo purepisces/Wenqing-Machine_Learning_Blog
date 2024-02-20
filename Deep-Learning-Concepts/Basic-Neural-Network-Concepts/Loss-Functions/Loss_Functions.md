@@ -3,18 +3,18 @@ Different loss functions may become useful depending on the type of neural netwo
 ## Loss Class
 
 ### Class Attributes:
-- `A`: Stores model prediction to compute back-propagation.
-- `Y`: Stores desired output to compute back-propagation.
+- $A$: Stores model prediction to compute back-propagation.
+- $Y$: Stores desired output to compute back-propagation.
 
 ### Class Methods:
 - `forward`: 
-  - Parameters: `A` (model prediction), `Y` (desired output)
-  - Returns: Loss value `L`
-  - Description: Calculates and returns a scalar loss value `L` quantifying the mismatch between the network output and the desired output.
+  - Parameters: $A$ (model prediction), $Y$ (desired output)
+  - Returns: Loss value $L$
+  - Description: Calculates and returns a scalar loss value $L$ quantifying the mismatch between the network output and the desired output.
   
-- `backward`: 
-  - Returns: `dLdA` (how changes in model outputs affect loss `L`)
-  - Description: Calculates and returns `dLdA`, which represents how changes in model outputs `A` affect the loss `L`. It enables downstream computation for back-propagation.
+- $backward$: 
+  - Returns: $dLdA$ (how changes in model outputs affect loss $L$)
+  - Description: Calculates and returns `dLdA`, which represents how changes in model outputs $A$ affect the loss $L$. It enables downstream computation for back-propagation.
 
 
 Please consider the following class structure:
