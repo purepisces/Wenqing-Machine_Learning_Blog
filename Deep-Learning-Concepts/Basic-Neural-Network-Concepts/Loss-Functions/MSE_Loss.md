@@ -1,26 +1,27 @@
 # MSE Loss
 
-MSE stands for Mean Squared Error, and is often used to quantify the prediction error for regression problems. Regression is a problem of predicting a real-valued label given an unlabeled example. Estimating house price based on features such as area, location, the number of bedrooms and so on is a classic regression problem.
+MSE, or Mean Squared Error, is a widely used metric for evaluating the prediction error in regression problems. In regression, the goal is to predict a continuous value, such as estimating a house's price based on its features (e.g., area, location, number of bedrooms).
 
 ## MSE Loss Forward Equation
 
-We first calculate the squared error $SE$ between the model outputs $A$ and the ground-truth values $Y$:
+The computation begins with calculating the squared error ($SE$) between the model's predictions ($A$) and the actual ground-truth values ($Y$):
 
-$SE(A, Y) = (A - Y) \odot (A - Y)$ 
+$$SE(A, Y) = (A - Y) \odot (A - Y)$$
 
-Then we calculate the sum of the squared error $SSE$, where $\iota_N$, $\iota_C$ are column vectors of size $N$ and $C$ which contain all 1s:
+Next, we determine the sum of the squared errors ($SSE$). Here, $\iota_N$ and $\iota_C$ represent column vectors filled with 1s, of sizes $N$ and $C$ respectively:
 
-$SSE(A,Y) = \iota_{N}^{T} \cdot SE(A,Y) \cdot \iota_{C}$
+$$SSE(A,Y) = \iota_{N}^{T} \cdot SE(A,Y) \cdot \iota_{C}$$
 
-Here, we are calculating the sum of all elements of the $N \times C$ matrix $SE(A, Y)$. The first pre multiplication with $\iota_{N}^{T}$ sums across rows. Then, the post multiplication of this product with $\iota_{C}$ sums the row sums across columns to give the final sum as a single number.
+This operation sums all elements in the $SE(A, Y)$ matrix, which has dimensions $N \times C$. The multiplication by $\iota_{N}^{T}$ aggregates the errors across rows, and subsequent multiplication by $\iota_{C}$ sums these across columns, yielding the total error as a single scalar.
 
-Lastly, we calculate the per-component Mean Squared Error $MSE$ loss:
+The Mean Squared Error ($MSE$) loss per component is then computed as:
 
-$MSELoss(A, Y) = \frac{SSE(A, Y)}{N \cdot C}$
+$$MSELoss(A, Y) = \frac{SSE(A, Y)}{N \cdot C}$$
 
 ## MSE Loss Backward Equation
+During backpropagation, the gradient of the MSE loss with respect to the model's outputs ($A$) is needed for updating model parameters:
 
-$MSELoss.backward() = 2 \cdot \frac{(A - Y)}{N \cdot C}$
+$$MSELoss.backward() = 2 \cdot \frac{(A - Y)}{N \cdot C}$$
 
 ### Derivative of MSE Loss
 
@@ -30,14 +31,13 @@ $$MSELoss(A, Y) = \frac{1}{N \cdot C} \sum\limits_{i=1}^{N} \sum\limits_{j=1}^{C
 
 where:
 
-$A$ are the predictions from the model.
+$A$: Model predictions.
 
-$Y$ are the actual ground-truth values.
+$Y$: Ground-truth values.
 
-$N$ is the number of samples in the batch.
+$N$: Number of samples in the batch.
 
-$C$ is the number of output dimensions per sample (in regression, this is usually 1).
-
+$C$: Number of output dimensions per sample, typically 1 in regression tasks.
 
 To update the model parameters (in this case, through backpropagation), we need to know how changes in $A$ affect the loss. This is given by the derivative of the loss function with respect to $A$, denoted as $\frac{\partial MSELoss}{\partial A}$.
 
