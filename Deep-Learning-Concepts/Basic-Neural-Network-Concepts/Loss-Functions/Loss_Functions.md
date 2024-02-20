@@ -39,7 +39,7 @@ class Loss:
 | Code Name | Math      | Type    | Shape | Meaning                                 |
 |-----------|-----------|---------|-------|-----------------------------------------|
 | N         | $N$   | scalar  | -     | batch size                              |
-| c         | $C$   | scalar  | -     | number of classes                       |
+| C         | $C$   | scalar  | -     | number of classes                       |
 | A         | $A$   | matrix  | $N \times C$ | model outputs                        |
 | Y         | $Y$   | matrix  | $N \times C$ | ground-truth values                   |
 | L         | $L$   | scalar  | -     | loss value                              |
