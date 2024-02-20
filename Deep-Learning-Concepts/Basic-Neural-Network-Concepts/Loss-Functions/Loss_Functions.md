@@ -1,4 +1,4 @@
-Different loss functions may become useful depending on the type of neural network and type of data you are using. Here we will program Mean Squared Error Loss MSE and Cross Entropy Loss. It is important to know how these are calculated, and how they will be used to update your network. 
+Different loss functions may become useful depending on the type of neural network and type of data you are using. It is important to know how these are calculated, and how they will be used to update your network. 
 
 ## Loss Class
 
