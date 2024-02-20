@@ -37,7 +37,7 @@ $C$ is the number of output dimensions per sample (in regression, this is usuall
 Derivative of MSE Loss
 To update the model parameters (in this case, through backpropagation), we need to know how changes in $A$ affect the loss. This is given by the derivative of the loss function with respect to $A$, denoted as $\frac{\partial MSELoss}{\partial A}$.
 
-The derivative of the squared term $(A - Y)^2$ with respect to $A$ is $2 \cdot (A - Y)$. This comes from basic calculus rules, where the derivative of a function $f(x) = x^2$ is $f'(x) = 2x$.
+The derivative of the squared term $(A - Y)^2$ with respect to $A$ is $2 \cdot (A - Y)$. 
 
 Incorporating the Mean:
 Since the MSE loss involves a mean (i.e., dividing the sum of squared errors by $N \cdot C$), when we differentiate the loss with respect to $A$, we must also take this division into account. This leads to the full derivative expression:
