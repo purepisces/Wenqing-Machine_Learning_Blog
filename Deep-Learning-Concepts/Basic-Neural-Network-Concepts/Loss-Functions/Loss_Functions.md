@@ -29,5 +29,7 @@ return dLdA
 | L         | $L$   | scalar  | -     | loss value                              |
 | dLdA      | $\frac{\partial L}{\partial A}$ | matrix  | $N \times C$ | how changes in model outputs affect loss |
 
-The loss function topology is visualized in Figure J, whose reference persists throughout this document.
+The loss function topology is visualized in the follwing Figure, whose reference persists throughout this document.
+
+<img src="Loss_Function_Topology.png" alt="Loss_Function_Topology" width="400" height="300"/>
 
