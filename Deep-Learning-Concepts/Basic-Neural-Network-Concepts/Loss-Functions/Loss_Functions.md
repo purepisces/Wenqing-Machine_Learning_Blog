@@ -1,12 +1,38 @@
 Much as you did for activation functions you will now program some simple loss functions. Different loss functions may become useful depending on the type of neural network and type of data you are using. Here we will program Mean Squared Error Loss MSE and Cross Entropy Loss. It is important to know how these are calculated, and how they will be used to update your network. As before we will provide the formulas, and know that each of these functions can be done in less than 10 lines of code, so if your code begins to get more complex than that you may be overthinking the problem.
+
 In this section, your task is to implement the forward and backward attribute functions of the Loss class in file loss.py:
+
 • Class attributes:
+
 – Stores model prediction A to compute back-propagation.
+
 – Stores desired output Y stored to compute back-propagation.
+
 • Class methods:
+
 – forward: forward method takes in model prediction A and desired output Y of the same shape to calculate and return a loss value L. The loss value is a scalar quantity used to quantify the mismatch between the network output and the desired output.
+
 – backward: backward method calculates and returns dLdA, how changes in model outputs A affect loss L. It is used to enable downstream computation, as seen in previous sections.
+
+## Loss Class
+
+### Class Attributes:
+- `A`: Stores model prediction to compute back-propagation.
+- `Y`: Stores desired output to compute back-propagation.
+
+### Class Methods:
+- `forward`: 
+  - Parameters: `A` (model prediction), `Y` (desired output)
+  - Returns: Loss value `L`
+  - Description: Calculates and returns a scalar loss value `L` quantifying the mismatch between the network output and the desired output.
+  
+- `backward`: 
+  - Returns: `dLdA` (how changes in model outputs affect loss `L`)
+  - Description: Calculates and returns `dLdA`, which represents how changes in model outputs `A` affect the loss `L`. It enables downstream computation for back-propagation.
+
+
 Please consider the following class structure:
+```python
 class Loss:
         def forward(self, A, Y):
             self.A = A
@@ -19,7 +45,7 @@ return L
 def backward(self):
     dLdA = # TODO
 return dLdA
-
+```
 | Code Name | Math      | Type    | Shape | Meaning                                 |
 |-----------|-----------|---------|-------|-----------------------------------------|
 | N         | $N$   | scalar  | -     | batch size                              |
