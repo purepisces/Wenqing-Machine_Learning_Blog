@@ -4,21 +4,23 @@ MSE stands for Mean Squared Error, and is often used to quantify the prediction 
 
 ## MSE Loss Forward Equation
 
-We first calculate the squared error `SE` between the model outputs `A` and the ground-truth values `Y`:
-SE(A, Y) = (A - Y) ⊙ (A - Y)
+We first calculate the squared error $SE$ between the model outputs $A$ and the ground-truth values $Y$:
 
-Then we calculate the sum of the squared error `SSE`, where `l_N`, `l_C` are column vectors of size `N` and `C` which contain all 1s:
+$SE(A, Y) = (A - Y) \odot (A - Y)$ 
 
-SSE(A,Y)=ιTN ·SE(A,Y)·ιC
+Then we calculate the sum of the squared error $SSE$, where $l_N$, $l_C$ are column vectors of size $N$ and $C$ which contain all 1s:
 
-Here, we are calculating the sum of all elements of the `N x C` matrix `SE(A, Y)`. The first pre multiplication with `l^T_N` sums across rows. Then, the post multiplication of this product with `l_C` sums the row sums across columns to give the final sum as a single number.
+$SSE(A,Y) = \iota_{TN} \cdot SE(A,Y) \cdot \iota_{C}$
 
-Lastly, we calculate the per-component Mean Squared Error `MSE` loss:
+Here, we are calculating the sum of all elements of the $N \times C$ matrix $SE(A, Y)$. The first pre multiplication with $l^T_N$ sums across rows. Then, the post multiplication of this product with $l_C$ sums the row sums across columns to give the final sum as a single number.
 
-MSELoss(A, Y) = SSE(A, Y) / (N · C)
+Lastly, we calculate the per-component Mean Squared Error $MSE$ loss:
+
+$MSELoss(A, Y) = \frac{SSE(A, Y)}{N \cdot C}$
 
 ## MSE Loss Backward Equation
-MSELoss.backward() = 2 · (A - Y) / (N · C)
+
+$MSELoss.backward() = 2 \cdot \frac{(A - Y)}{N \cdot C}$
 
 ```python
 import numpy as np
