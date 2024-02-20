@@ -10,9 +10,9 @@ $SE(A, Y) = (A - Y) \odot (A - Y)$
 
 Then we calculate the sum of the squared error $SSE$, where $l_N$, $l_C$ are column vectors of size $N$ and $C$ which contain all 1s:
 
-$SSE(A,Y) = \iota_{TN} \cdot SE(A,Y) \cdot \iota_{C}$
+$SSE(A,Y) = \iota_{N}^{T} \cdot SE(A,Y) \cdot \iota_{C}$
 
-Here, we are calculating the sum of all elements of the $N \times C$ matrix $SE(A, Y)$. The first pre multiplication with $l^T_N$ sums across rows. Then, the post multiplication of this product with $l_C$ sums the row sums across columns to give the final sum as a single number.
+Here, we are calculating the sum of all elements of the $N \times C$ matrix $SE(A, Y)$. The first pre multiplication with $\iota_{N}^{T}$ sums across rows. Then, the post multiplication of this product with $\iota_{C}$ sums the row sums across columns to give the final sum as a single number.
 
 Lastly, we calculate the per-component Mean Squared Error $MSE$ loss:
 
