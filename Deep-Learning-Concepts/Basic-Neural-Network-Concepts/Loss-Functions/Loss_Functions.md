@@ -1,1 +1,33 @@
+Much as you did for activation functions you will now program some simple loss functions. Different loss functions may become useful depending on the type of neural network and type of data you are using. Here we will program Mean Squared Error Loss MSE and Cross Entropy Loss. It is important to know how these are calculated, and how they will be used to update your network. As before we will provide the formulas, and know that each of these functions can be done in less than 10 lines of code, so if your code begins to get more complex than that you may be overthinking the problem.
+In this section, your task is to implement the forward and backward attribute functions of the Loss class in file loss.py:
+• Class attributes:
+– Stores model prediction A to compute back-propagation.
+– Stores desired output Y stored to compute back-propagation.
+• Class methods:
+– forward: forward method takes in model prediction A and desired output Y of the same shape to calculate and return a loss value L. The loss value is a scalar quantity used to quantify the mismatch between the network output and the desired output.
+– backward: backward method calculates and returns dLdA, how changes in model outputs A affect loss L. It is used to enable downstream computation, as seen in previous sections.
+Please consider the following class structure:
+class Loss:
+        def forward(self, A, Y):
+            self.A = A
+            self.Y = Y
+            self.    # TODO (store additional attributes as needed)
+            N      = # TODO,  this is the first dimension of A and Y
+            C      = # TODO,  this is the second dimension of A and Y
+            # TODO
+return L
+def backward(self):
+    dLdA = # TODO
+return dLdA
+
+| Code Name | Math      | Type    | Shape | Meaning                                 |
+|-----------|-----------|---------|-------|-----------------------------------------|
+| N         | $N$   | scalar  | -     | batch size                              |
+| c         | $C$   | scalar  | -     | number of classes                       |
+| A         | $A$   | matrix  | $N \times C$ | model outputs                        |
+| Y         | $Y$   | matrix  | $N \times C$ | ground-truth values                   |
+| L         | $L$   | scalar  | -     | loss value                              |
+| dLdA      | $\frac{\partial L}{\partial A}$ | matrix  | $N \times C$ | how changes in model outputs affect loss |
+
+The loss function topology is visualized in Figure J, whose reference persists throughout this document.
 
