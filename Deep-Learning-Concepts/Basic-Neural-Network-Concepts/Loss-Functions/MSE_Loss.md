@@ -89,23 +89,30 @@ Let's walk through a specific example of applying the Mean Squared Error (MSE) l
 
 - Model outputs ($A$): Predicted prices of two houses, say $[300,000; 500,000]$ (in some currency, let's assume USD for simplicity). This can be represented as a 2x1 matrix (since $N=2$ and $C=1$):
 
-$$
-A = \begin{bmatrix} 300,000 \\ 500,000 \end{bmatrix}
-$$
+$$A = \begin{bmatrix}
+300,000 \\
+500,000
+\end{bmatrix}$$
 
 - Ground-truth values ($Y$): Actual prices of the two houses, say $[350,000; 450,000]$. This is also a 2x1 matrix:
 
-$$
-Y = \begin{bmatrix} 350,000 \\ 450,000 \end{bmatrix}
-$$
+$$Y = \begin{bmatrix}
+350,000 \\
+450,000
+\end{bmatrix}$$
 
 ### Forward Pass (Calculating MSE Loss):
 
 1. **Calculate Squared Error ($SE$):**
 
-$$
-SE(A, Y) = (A - Y) \odot (A - Y) = \begin{bmatrix} (300,000 - 350,000)^2 \\ (500,000 - 450,000)^2 \end{bmatrix} = \begin{bmatrix} 2500 \times 10^6 \\ 2500 \times 10^6 \end{bmatrix}
-$$
+$$ SE(A, Y) = (A - Y) \odot (A - Y) = \begin{bmatrix}
+(300,000 - 350,000)^2\\
+(500,000 - 450,000)^2
+\end{bmatrix}
+= \begin{bmatrix}
+2500 \times 10^6 \\
+2500 \times 10^6
+\end{bmatrix} $$
 
 2. **Sum of Squared Error ($SSE$):**
    Since we only have one feature, the $SSE$ is simply the sum of all elements in $SE$:
@@ -124,9 +131,14 @@ $$
 
 The gradient of the loss with respect to the predictions ($A$) can be calculated as:
 
-$$
-\frac{\partial MSELoss}{\partial A} = 2 \cdot \frac{(A - Y)}{N \cdot C} = 2 \cdot \frac{\begin{bmatrix} 300,000 - 350,000 \\ 500,000 - 450,000 \end{bmatrix}}{2 \times 1} = \begin{bmatrix} -50,000 \\ 50,000 \end{bmatrix}
-$$
+
+$$\frac{\partial MSELoss}{\partial A} = 2 \cdot \frac{(A - Y)}{N \cdot C} = 2 \cdot \frac{\begin{bmatrix}
+300,000 - 350,000 \\
+500,000 - 450,000
+\end{bmatrix}}{2 \times 1} = \begin{bmatrix}
+-50,000 \\
+50,000
+\end{bmatrix}$$
 
 This gradient tells us how to adjust our predictions to reduce the loss. For the first house, since the gradient is negative, we need to increase our prediction to reduce the loss, and for the second house, since the gradient is positive, we need to decrease our prediction.
 
