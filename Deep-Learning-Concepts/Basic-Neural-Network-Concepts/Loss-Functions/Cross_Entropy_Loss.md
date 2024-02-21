@@ -35,15 +35,15 @@ $$\text{xent.backward}() = \frac{\sigma(A) - Y}{N}$$
 
 ## Example
 
-To illustrate the cross-entropy loss, let's consider a specific example with a small dataset. Imagine we have a simple classification problem with three classes (C=3) and we are working with a batch of two samples (N=2). The raw output scores (`A`) from the model for these two samples and the corresponding true labels (`Y`) could be as follows:
+To illustrate the cross-entropy loss, let's consider a specific example with a small dataset. Imagine we have a simple classification problem with three classes (C=3) and we are working with a batch of two samples ($N=2$). The raw output scores ($A$) from the model for these two samples and the corresponding true labels ($Y$) could be as follows:
 
-- Raw model outputs for the two samples (`A`):
-  - Sample 1: [2.0, 1.0, 0.1]
-  - Sample 2: [0.1, 2.0, 1.9]
+- Raw model outputs for the two samples ($A$):
+  - Sample 1: $[2.0, 1.0, 0.1]$
+  - Sample 2: $[0.1, 2.0, 1.9]$
 
-- True class distributions (`Y`, one-hot encoded):
-  - Sample 1: [0, 1, 0]  (class 2 is the true class)
-  - Sample 2: [1, 0, 0]  (class 1 is the true class)
+- True class distributions ($Y$, one-hot encoded):
+  - Sample 1: $[0, 1, 0]$  (class 2 is the true class)
+  - Sample 2: $[1, 0, 0]$  (class 1 is the true class)
 
 Let's go through the cross-entropy loss computation step by step for this example:
 
@@ -96,7 +96,7 @@ Based on the calculations:
 
 - The mean cross-entropy loss for this batch is approximately 2.019.
 
-- The gradients of the loss with respect to the raw model outputs (`A`) are:
+- The gradients of the loss with respect to the raw model outputs ($A$) are:
   - For Sample 1: [0.330, -0.379, 0.049]
   - For Sample 2: [-0.464, 0.243, 0.220]
 
