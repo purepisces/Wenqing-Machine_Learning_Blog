@@ -129,3 +129,7 @@ $$\frac{\partial MSELoss}{\partial A} = 2 \cdot \frac{(A - Y)}{N \cdot C} = 2 \c
 
 This gradient tells us how to adjust our predictions to reduce the loss. For the first house, since the gradient is negative, we need to increase our prediction to reduce the loss, and for the second house, since the gradient is positive, we need to decrease our prediction.
 
+## Reference:
+
+- CMU_11785_Introduction_To_Deep_Learning
+
