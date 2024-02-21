@@ -89,4 +89,7 @@ The element-wise division $A \oslash B$ is calculated as:
 \end{array}\right)
 $$ 
 
+> Note: In element-wise division, the two matrix must be the same shape.
+>
+
 
