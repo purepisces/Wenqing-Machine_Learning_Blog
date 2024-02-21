@@ -102,3 +102,22 @@ Based on the calculations:
 
 These results give us the predicted probabilities for each class using the softmax function, the individual cross-entropy losses for each sample, the overall mean cross-entropy loss for the batch, and the gradients required for the backward pass. The negative values in the gradients indicate the direction in which we should adjust our model's parameters to reduce the loss, while the positive values suggest the opposite.
 
+```python
+class CrossEntropyLoss:
+    def softmax(self, x):
+        e_x = np.exp(x - np.max(x, axis=1, keepdims=True))
+        return e_x / e_x.sum(axis=1, keepdims=True)
+
+    def forward(self, A, Y):
+        self.A = A
+        self.Y = Y
+        self.softmax = self.softmax(A)
+        crossentropy = -Y * np.log(self.softmax)
+        L = np.sum(crossentropy) / A.shape[0]
+        return L
+
+    def backward(self):
+        dLdA = (self.softmax - self.Y) / self.A.shape[0]
+        return dLdA
+```
+
