@@ -32,6 +32,7 @@ Cross-Entropy Loss Backward Equation
 
 $$\text{xent.backward}() = \frac{\sigma(A) - Y}{N}$$
 
+## Example
 
 To provide a specific example of how cross-entropy loss works, let's consider a classification problem where we have a dataset consisting of images, and our task is to classify these images into three categories (C = 3): Cat, Dog, and Bird.
 
@@ -39,7 +40,7 @@ To provide a specific example of how cross-entropy loss works, let's consider a 
 
 Suppose our model has made predictions for a single image in the batch (N = 1), and the raw output scores from the model (logits) for this image are $A = [2.0, 1.0, 0.1]$. These scores correspond to the model's confidence in each class (Cat, Dog, Bird, respectively).
 
-Softmax Activation: We first apply the softmax function to convert these logits into probabilities.
+**Softmax Activation:** We first apply the softmax function to convert these logits into probabilities.
 
 $$\sigma(A) = \frac{\exp(A)}{\sum\limits_{j=1}^{3} \exp(A_{j})}$$
 
@@ -49,14 +50,15 @@ $$\sigma(A) = \frac{[\exp(2.0), \exp(1.0), \exp(0.1)]}{\exp(2.0) + \exp(1.0) + \
 
 Let's compute this:
 
-$$\sigma(A) = [\sigma(A){\text{Cat}}, \sigma(A){\text{Dog}}, \sigma(A){\text{Bird}}]$$
+$$\sigma(A) = [\sigma(A)_{\text{Cat}}, \sigma(A)_{\text{Dog}}, \sigma(A)_{\text{Bird}}]$$
 
-Target Distribution: Assume the true label for this image is "Cat", so the target distribution $Y$ is a one-hot encoded vector: 
+**Target Distribution:** Assume the true label for this image is "Cat", so the target distribution $Y$ is a one-hot encoded vector: 
+
 $$Y = [1, 0, 0]$$
 
-Cross-Entropy Loss: Now, we calculate the cross-entropy loss:
+**Cross-Entropy Loss:** Now, we calculate the cross-entropy loss:
 
-$$H(A, Y) = -[1, 0, 0] \circ \log([\sigma(A)\text{Cat}, \sigma(A)\text{Dog}, \sigma(A)_{\text{Bird}}])$$
+$$H(A, Y) = -[1, 0, 0] \circ \log([\sigma(A)_{\text{Cat}}, \sigma(A)_{\text{Dog}}, \sigma(A)_{\text{Bird}}])$$
 
 Only the first component matters (because the other components of $Y$ are zero):
 
@@ -83,8 +85,3 @@ The cross-entropy loss for this prediction is approximately $0.417$. This value 
 The gradient of the loss with respect to the logits $A$ is approximately $[-0.341, 0.242, 0.099]$. This gradient tells us how to adjust the logits in order to reduce the loss. Specifically, we need to increase the logit corresponding to the "Cat" class (since its gradient is negative, indicating we should increase the logit to decrease the loss) and decrease the logits for the "Dog" and "Bird" classes (since their gradients are positive).
 
 These computed values will guide the optimization algorithm in updating the model parameters to improve its predictions over training iterations.
-
-
-
-
-
