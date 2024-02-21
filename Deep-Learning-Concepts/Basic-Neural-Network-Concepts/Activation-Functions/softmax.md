@@ -29,7 +29,38 @@ as:
 
 $$\frac{dL}{dZ} = \frac{dL}{dA} \cdot J$$
 
-Similar derivative calculation can be done for all the N vectors in the batch and the resulting vectors can
-be stacked up vertically to give the final N × C derivatives matrix.
+Similar derivative calculation can be done for all the $N$ vectors in the batch and the resulting vectors can
+be stacked up vertically to give the final $N \times C$ derivatives matrix.
 
-Some code hints for Softmax are given in the handout to help you with implementation.
+```python
+class Softmax:
+    """
+    On same lines as above:
+    Define 'forward' function
+    Define 'backward' function
+    Read the writeup for further details on Softmax.
+    """
+    def forward(self, Z):
+        """
+        Remember that Softmax does not act element-wise.
+        It will use an entire row of Z to compute an output element.
+        """
+        shift_z = Z - np.max(Z, axis=1, keepdims=True)
+        exp_z = np.exp(shift_z)
+        self.A = exp_z / np.sum(exp_z, axis=1, keepdims=True)
+        return self.A
+
+    def backward(self, dLdA):
+        N, C = dLdA.shape
+        dLdZ = np.zeros_like(dLdA)
+        for i in range(N):
+            J = np.zeros((C, C))
+            for m in range(C):
+                for n in range(C):
+                    if m == n:
+                        J[m, n] = self.A[i, m] * (1 - self.A[i, m])
+                    else:
+                        J[m, n] = -self.A[i, m] * self.A[i, n]
+            dLdZ[i, :] = np.dot(dLdA[i, :], J)
+        return dLdZ
+```
