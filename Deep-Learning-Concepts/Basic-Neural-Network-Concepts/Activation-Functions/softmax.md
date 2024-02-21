@@ -4,7 +4,7 @@ The Softmax activation function is a vector activation function that is mostly a
 
 ## Softmax Forward Equation
 
-Given a $C$-dimensional input vector $Z$, whose $m-th$ element is denoted by $z_m$, $softmax.forward(Z)$ will give a vector $A$ whose $m-th$ element $a_m$ is given by:
+Given a $C$-dimensional input vector $Z$, whose $m$-th element is denoted by $z_m$, $softmax.forward(Z)$ will give a vector $A$ whose $m$-th element $a_m$ is given by:
 
 $$a_m = \frac{\exp(z_m)}{\\sum\limits_{k=1}^{C} \exp(z_k)}$$
 
