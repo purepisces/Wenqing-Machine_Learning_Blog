@@ -40,27 +40,40 @@ class Softmax:
     Define 'backward' function
     Read the writeup for further details on Softmax.
     """
+
     def forward(self, Z):
         """
         Remember that Softmax does not act element-wise.
         It will use an entire row of Z to compute an output element.
         """
-        shift_z = Z - np.max(Z, axis=1, keepdims=True)
-        exp_z = np.exp(shift_z)
+        exp_z = np.exp(Z)
         self.A = exp_z / np.sum(exp_z, axis=1, keepdims=True)
         return self.A
 
     def backward(self, dLdA):
+
+        # Calculate the batch size and number of features
         N, C = dLdA.shape
+
+        # Initialize the final output dLdZ with all zeros. Refer to the writeup and think about the shape.
         dLdZ = np.zeros_like(dLdA)
+
+        # Fill dLdZ one data point (row) at a time
         for i in range(N):
+
+            # Initialize the Jacobian with all zeros.
             J = np.zeros((C, C))
+
+            # Fill the Jacobian matrix according to the conditions described in the writeup
             for m in range(C):
                 for n in range(C):
                     if m == n:
                         J[m, n] = self.A[i, m] * (1 - self.A[i, m])
                     else:
                         J[m, n] = -self.A[i, m] * self.A[i, n]
+
+            # Calculate the derivative of the loss with respect to the i-th input
             dLdZ[i, :] = np.dot(dLdA[i, :], J)
+
         return dLdZ
 ```
