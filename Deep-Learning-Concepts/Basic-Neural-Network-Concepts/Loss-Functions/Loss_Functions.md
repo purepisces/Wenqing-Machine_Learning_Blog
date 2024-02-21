@@ -92,3 +92,7 @@ The loss function employs the matrices $A$ and $Y$ to compute the loss value $L$
 
 The $forward$ method within the $Loss$ class is tasked with computing this scalar loss value, $L$, utilizing $A$ and $Y$. Following this, the $backward$ method calculates the gradient of the loss with respect to the model outputs, denoted as $\frac{\partial L}{\partial A}$. This gradient is crucial for the back-propagation process, enabling the update of model parameters during training.
 
+## Reference:
+
+- CMU_11785_Introduction_To_Deep_Learning
+
