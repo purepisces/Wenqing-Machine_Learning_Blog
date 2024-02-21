@@ -49,19 +49,6 @@ In summary, the $2 \cdot \frac{(A - Y)}{N \cdot C}$ formula for $MSELoss.backwar
 
 ```python
 import numpy as np
-class MSELoss:
-    def forward(self, A, Y):
-        self.A = A
-        self.Y = Y
-        se = (A - Y) ** 2
-        sse = np.sum(se)
-        mse = sse / (A.shape[0] * A.shape[1])
-        return mse
-
-    def backward(self):
-        dLdA = 2 * (self.A - self.Y) / (self.A.shape[0] * self.A.shape[1])
-        return dLd
-import numpy as np
 
 class MSELoss:
     def forward(self, A, Y):
