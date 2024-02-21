@@ -50,7 +50,7 @@ $$\sigma(A) = \frac{[\exp(2.0), \exp(1.0), \exp(0.1)]}{\exp(2.0) + \exp(1.0) + \
 
 Let's compute this:
 
-$$\sigma(A) = [\sigma(A)_{\text{Cat}}, \sigma(A)_{\text{Dog}}, \sigma(A)_{\text{Bird}}]$$
+$$\sigma(A) = [\sigma(A){\text{Cat}}, \sigma(A){\text{Dog}}, \sigma(A){\text{Bird}}]$$
 
 **Target Distribution:** Assume the true label for this image is "Cat", so the target distribution $Y$ is a one-hot encoded vector: 
 
