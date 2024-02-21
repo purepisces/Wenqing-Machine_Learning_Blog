@@ -32,62 +32,10 @@ Cross-Entropy Loss Backward Equation
 
 $$\text{xent.backward}() = \frac{\sigma(A) - Y}{N}$$
 
+
 ## Example
 
-To provide a specific example of how cross-entropy loss works, let's consider a classification problem where we have a dataset consisting of images, and our task is to classify these images into three categories (C = 3): Cat, Dog, and Bird.
-
-### Forward Pass
-
-Suppose our model has made predictions for a single image in the batch (N = 1), and the raw output scores from the model (logits) for this image are $A = [2.0, 1.0, 0.1]$. These scores correspond to the model's confidence in each class (Cat, Dog, Bird, respectively).
-
-**Softmax Activation:** We first apply the softmax function to convert these logits into probabilities.
-
-$$\sigma(A) = \frac{\exp(A)}{\sum\limits_{j=1}^{3} \exp(A_{j})}$$
-
-Substituting the values, we get:
-
-$$\sigma(A) = \frac{[\exp(2.0), \exp(1.0), \exp(0.1)]}{\exp(2.0) + \exp(1.0) + \exp(0.1)}$$
-
-Let's compute this:
-
-$$\sigma(A) = [\sigma(A){\text{Cat}}, \sigma(A){\text{Dog}}, \sigma(A){\text{Bird}}]$$
-
-**Target Distribution:** Assume the true label for this image is "Cat", so the target distribution $Y$ is a one-hot encoded vector: 
-
-$$Y = [1, 0, 0]$$
-
-**Cross-Entropy Loss:** Now, we calculate the cross-entropy loss:
-
-$$H(A, Y) = -[1, 0, 0] \circ \log([\sigma(A){\text{Cat}}, \sigma(A){\text{Dog}}, \sigma(A){\text{Bird}}])$$
-
-Only the first component matters (because the other components of $Y$ are zero):
-
-$$H(A, Y) = -\log(\sigma(A)_{\text{Cat}})$$
-
-### Backward Pass
-
-For the backward pass, we compute the gradient of the loss with respect to the softmax probabilities, which will be used to update the model parameters.
-
-$$\frac{\partial H(A, Y)}{\partial A} = \frac{\sigma(A) - Y}{N}$$
-
-In this case, since we have only one example (N = 1), the gradient simplifies to:
-
-$$\frac{\partial H(A, Y)}{\partial A} = \sigma(A) - Y$$
-
-This gradient tells us how we should adjust our logits $A$ to decrease the loss, thereby improving our model's predictions.
-
-Let's calculate the softmax probabilities, the cross-entropy loss, and the gradients for this example using Python:
-
-For this example, the softmax probabilities for the classes (Cat, Dog, Bird) are approximately $[0.659, 0.242, 0.099]$ respectively. This means the model assigns a 65.9% probability to the "Cat" class, which is the correct class in this case.
-
-The cross-entropy loss for this prediction is approximately $0.417$. This value quantifies how far off the prediction is from the actual label. A lower loss value indicates a better prediction.
-
-The gradient of the loss with respect to the logits $A$ is approximately $[-0.341, 0.242, 0.099]$. This gradient tells us how to adjust the logits in order to reduce the loss. Specifically, we need to increase the logit corresponding to the "Cat" class (since its gradient is negative, indicating we should increase the logit to decrease the loss) and decrease the logits for the "Dog" and "Bird" classes (since their gradients are positive).
-
-These computed values will guide the optimization algorithm in updating the model parameters to improve its predictions over training iterations.
-
-
-Certainly! To illustrate the cross-entropy loss, let's consider a specific example with a small dataset. Imagine we have a simple classification problem with three classes (C=3) and we are working with a batch of two samples (N=2). The raw output scores (`A`) from the model for these two samples and the corresponding true labels (`Y`) could be as follows:
+To illustrate the cross-entropy loss, let's consider a specific example with a small dataset. Imagine we have a simple classification problem with three classes (C=3) and we are working with a batch of two samples (N=2). The raw output scores (`A`) from the model for these two samples and the corresponding true labels (`Y`) could be as follows:
 
 - Raw model outputs for the two samples (`A`):
   - Sample 1: [2.0, 1.0, 0.1]
