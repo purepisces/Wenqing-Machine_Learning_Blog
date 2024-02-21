@@ -58,7 +58,7 @@ $$Y = [1, 0, 0]$$
 
 **Cross-Entropy Loss:** Now, we calculate the cross-entropy loss:
 
-$$H(A, Y) = -[1, 0, 0] \circ \log([\sigma(A)_{\text{Cat}}, \sigma(A)_{\text{Dog}}, \sigma(A)_{\text{Bird}}])$$
+$$H(A, Y) = -[1, 0, 0] \circ \log([\sigma(A){\text{Cat}}, \sigma(A){\text{Dog}}, \sigma(A){\text{Bird}}])$$
 
 Only the first component matters (because the other components of $Y$ are zero):
 
