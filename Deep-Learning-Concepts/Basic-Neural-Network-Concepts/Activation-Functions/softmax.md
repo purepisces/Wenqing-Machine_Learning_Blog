@@ -201,3 +201,83 @@ This example illustrates the process of computing the gradient of the loss with 
 > 
 ## Reference:
 - CMU_11785_Introduction_To_Deep_Learning
+
+Certainly! To derive the expression $\frac{\partial a_m}{\partial z_m} = a_m (1 - a_m)$ for the case $m=n$ in the context of the Softmax function, we'll start with the definition of the Softmax function for a particular output $a_m$ and then apply the chain rule to differentiate it with respect to its corresponding input $z_m$. The Softmax function for an output $a_m$ is defined as:
+
+$$
+a_m = \frac{e^{z_m}}{\sum\limits_{k=1}^{C} e^{z_k}}
+$$
+
+### Step 1: Apply the Quotient Rule
+Since $a_m$ is a fraction, we'll use the quotient rule for differentiation, which is:
+
+$$
+\left( \frac{f}{g} \right)' = \frac{f'g - fg'}{g^2}
+$$
+
+Here, $f=e^{z_m}$ and $g=\\sum\limits_{k=1}^{C} e^{z_k}$. Thus, $f' = e^{z_m}$ because the derivative of $e^{z_m}$ with respect to $z_m$ is $e^{z_m}$, and $g' = e^{z_m}$ because when differentiating the sum with respect to $z_m$, only the term $e^{z_m}$ in the sum has a non-zero derivative.
+
+### Step 2: Substitute and Simplify
+Substituting $f$, $g$, $f'$, and $g'$ into the quotient rule gives:
+
+$$
+\frac{\partial a_m}{\partial z_m} = \frac{e^{z_m} \sum\limits_{k=1}^{C} e^{z_k} - e^{z_m} e^{z_m}}{\left( \sum\limits_{k=1}^{C} e^{z_k} \right)^2}
+$$
+
+Simplifying the numerator, we get:
+
+$$
+e^{z_m} \sum\limits_{k=1}^{C} e^{z_k} - e^{z_m} e^{z_m} = e^{z_m} \left( \sum\limits_{k=1}^{C} e^{z_k} - e^{z_m} \right)
+$$
+
+### Step 3: Factor and Rearrange
+We can factor out $e^{z_m}$ and recognize the terms in the parenthesis as the denominator of the Softmax function minus the $m$-th term, which gives us:
+
+$$
+\frac{\partial a_m}{\partial z_m} = \frac{e^{z_m} \left( \sum\limits_{k=1}^{C} e^{z_k} - e^{z_m} \right)}{\left( \sum\limits_{k=1}^{C} e^{z_k} \right)^2}
+$$
+
+Now, observe that $\frac{e^{z_m}}{\sum\limits_{k=1}^{C} e^{z_k}} = a_m$, and $\frac{\sum_{k=1}^{C} e^{z_k} - e^{z_m}}{\sum_{k=1}^{C} e^{z_k}} = 1 - a_m$ because subtracting $e^{z_m}$ from the sum in the denominator and then dividing by the same sum gives the proportion of all other $e^{z_k}$s except $e^{z_m}$, which complements $a_m$ to 1.
+
+### Step 4: Final Expression
+Putting it all together, we get:
+
+$$
+\frac{\partial a_m}{\partial z_m} = a_m (1 - a_m)
+$$
+
+This expression shows that the rate of change of $a_m$ with respect to $z_m$ depends on $a_m$ itself and the proportion of $a_m$ relative to the sum of all $e^{z_k}$, which reflects how increasing $z_m$ not only increases $a_m$ directly but also affects the distribution of probabilities across all classes indirectly.
+
+
+To understand why $\frac{\partial a_m}{\partial z_n} = -a_m a_n$ for $m \neq n$ in the context of the Softmax function, we'll analyze the impact of changing an input $z_n$ on a different output $a_m$. Recall the Softmax function for an output $a_m$:
+
+$$
+a_m = \frac{e^{z_m}}{\sum\limits_{k=1}^{C} e^{z_k}}
+$$
+
+### Analyzing the Impact of $z_n$ on $a_m$
+
+When we differentiate $a_m$ with respect to $z_n$ ($m \neq n$), we're interested in how changes in an input $z_n$ affect an output $a_m$ that is not directly associated with $z_n$. Unlike the case where $m = n$, the numerator of the Softmax function does not directly depend on $z_n$ when we're considering $a_m$. Thus, the only effect of $z_n$ on $a_m$ comes from the denominator.
+
+### Step 1: Differentiate with Respect to $z_n$
+
+The derivative of $a_m$ with respect to $z_n$ for $m \neq n$ involves only the denominator of the Softmax function, since the numerator, $e^{z_m}$, does not depend on $z_n$. The differentiation yields:
+
+$$
+\frac{\partial a_m}{\partial z_n} = -\frac{e^{z_m} e^{z_n}}{\left( \sum\limits_{k=1}^{C} e^{z_k} \right)^2}
+$$
+
+This expression arises because the derivative of the denominator with respect to $z_n$ introduces a negative sign (due to the chain rule) and includes $e^{z_n}$, reflecting the impact of $z_n$ on the sum.
+
+### Step 2: Simplify the Expression
+
+Recognizing that $a_m = \frac{e^{z_m}}{\sum\limits_{k=1}^{C} e^{z_k}}$ and $a_n = \frac{e^{z_n}}{\sum\limits_{k=1}^{C} e^{z_k}}$, we can substitute these into the expression from Step 1 to obtain:
+
+$$
+\frac{\partial a_m}{\partial z_n} = -\frac{e^{z_m}}{\sum\limits_{k=1}^{C} e^{z_k}} \cdot \frac{e^{z_n}}{\sum\limits_{k=1}^{C} e^{z_k}} = -a_m a_n
+$$
+
+### Conclusion
+
+The derivative $\frac{\partial a_m}{\partial z_n} = -a_m a_n$ for $m \neq n$ reflects the competitive nature of the Softmax function, where an increase in one input $z_n$ leads to a proportional decrease in the unrelated output $a_m$. This is because the increase in $z_n$ increases $a_n$, which, due to the conservation of total probability (which must sum to 1), results in a decrease in $a_m$. The negative sign in the derivative signifies this inverse relationship.
+
