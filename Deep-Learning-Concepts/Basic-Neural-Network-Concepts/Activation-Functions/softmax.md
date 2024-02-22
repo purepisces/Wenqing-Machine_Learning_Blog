@@ -22,7 +22,7 @@ a_m(1 - a_m) & \text{if } m = n \\
 \end{cases}$$
 
 
-where $a_m$ refers to the m-th element of the vector $A$.
+where $a_m$ refers to the $m$-th element of the vector $A$.
 
 Now the derivative of the loss with respect to this input vector, i.e., $dLdZ$ is $1 × C$ vector and is calculated
 as:
