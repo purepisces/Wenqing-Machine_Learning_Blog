@@ -32,6 +32,14 @@ $$\frac{dL}{dZ} = \frac{dL}{dA} \cdot J$$
 Similar derivative calculation can be done for all the $N$ vectors in the batch and the resulting vectors can
 be stacked up vertically to give the final $N \times C$ derivatives matrix.
 
+> Note: $J_{mn}$ represents the element of the Jacobian matrix of the Softmax function, corresponding to the partial derivative of the $m$-th output $a_m$ with respect to the $n$-th input $z_n$. The Jacobian matrix $J$ is composed of these partial derivatives, capturing how each input dimension $z_n$ influences each output dimension $a_m$. The elements of $J$ are defined as follows:
+> $$J_{mn} = \frac{\partial a_m}{\partial z_n}$$
+> For the Softmax function, this differentiation takes two forms depending on whether $m = n$ or $m \neq n$:
+> 
+> When $m=n$ : $J_{mn} = \frac{\partial a_m}{\partial z_m} = a_m (1 - a_m)$
+> 
+> When $m \neq n$: $J_{mn} = \frac{\partial a_m}{\partial z_n} = -a_m a_n$
+> 
 ```python
 class Softmax:
     """
