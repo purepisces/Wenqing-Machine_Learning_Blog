@@ -45,6 +45,26 @@ $$\frac{\partial H}{\partial A_i} = -Y_i + Y_i \sigma(A_i) + 0 = \sigma(A_i) - Y
 ### Conclusion
 The derivative of the cross-entropy loss with respect to the logits $A_i$ thus simplifies to $\sigma(A_i) - Y_i$, indicating the difference between the predicted probability for class $i$ and the actual class label. This elegant result is fundamental in training neural networks for classification tasks, as it directly relates the gradient to the discrepancy between the model's predictions and the true labels.
 
+# TEMP
+The equation $\frac{\partial \log(\sigma(A_k))}{\partial A_i} = -\sigma(A_i)$ when $i \neq k$ comes from understanding the behavior of the softmax function and the logarithmic function in the context of taking derivatives.
+
+Let's break it down:
+
+**Softmax Function:** The softmax function for a class $k$ is defined as $\sigma(A_k) = \frac{e^{A_k}}{\sum_{j=1}^{C} e^{A_j}}$ where $A_k$ is the logit for class $k$ and $C$ is the total number of classes.
+
+**Derivative of Softmax:** When taking the derivative of $\sigma(A_k)$ with respect to $A_i$ where $i \neq k$, we need to apply the quotient rule because $\sigma(A_k)$ is a ratio. The derivative will have two parts:
+- The numerator $e^{A_k}$ will be treated as a constant (because we are differentiating with respect to $A_i$, and $i \neq k$), so its derivative is $0$.
+- The denominator $\sum_{j=1}^{C} e^{A_j}$ includes $e^{A_i}$, and its derivative with respect to $A_i$ is $e^{A_i}$.
+
+This results in the derivative of the softmax for $i \neq k$ being negative because the derivative of the denominator will be subtracted (due to the quotient rule), and since the numerator's derivative is $0$, we are left with $\frac{\partial \sigma(A_k)}{\partial A_i} = -\sigma(A_k) \cdot \sigma(A_i)$ for $i \neq k$.
+
+**Logarithm of Softmax:** When you take the derivative of $\log(\sigma(A_k))$ with respect to $A_i$, by the chain rule, this derivative is the derivative of the log function ($\frac{1}{\sigma(A_k)}$) times the derivative of its argument ($\sigma(A_k)$ with respect to $A_i$).
+
+**Combining the Two:** For $i \neq k$, the derivative of $\log(\sigma(A_k))$ with respect to $A_i$ is the product of $\frac{1}{\sigma(A_k)}$ (from the derivative of the log function) and $-\sigma(A_k) \cdot \sigma(A_i)$ (from the derivative of the softmax function), which simplifies to $\frac{\partial \log(\sigma(A_k))}{\partial A_i} = -\sigma(A_i)$ for $i \neq k$.
+
+This result essentially indicates that the rate of change of the log likelihood for class $k$ with respect to the logit of a different class $i$ is influenced negatively by the predicted probability of class $i$, $\sigma(A_i)$, reflecting how increases in $A_i$ decrease the log likelihood of the true class $k$ when $k \neq i$.
+
+
 # Cross-Entropy Loss
 
 Cross-entropy loss is one of the most commonly used loss function for probability-based classification problems. 
