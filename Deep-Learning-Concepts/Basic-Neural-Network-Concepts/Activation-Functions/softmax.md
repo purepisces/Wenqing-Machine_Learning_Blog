@@ -1,3 +1,40 @@
+Consider we have a simple case with a batch size $N=1$ (i.e., a single input vector) and three classes $C=3$. Let's assume the output of the softmax forward pass (vector $A$) for this input is $[0.1, 0.2, 0.7]$. This would mean the input vector $Z$ to the softmax function resulted in these probabilities after the forward pass.
+
+Now, assume we have the gradient of the loss with respect to the output of the softmax layer $\frac{dL}{dA}$ as $[0.01, -0.03, 0.02]$. We want to find the gradient of the loss with respect to the input of the softmax layer $\frac{dL}{dZ}$ using the backward equation and the process of filling in the Jacobian matrix $J$.
+
+Given:
+
+$A = [0.1, 0.2, 0.7]$
+$\frac{dL}{dA} = [0.01, -0.03, 0.02]$
+$C = 3$
+We will:
+
+Initialize the Jacobian matrix $J$ of size $C \times C$ (which is $3 \times 3$ in this case) with all zeros.
+Fill in the Jacobian matrix according to the given rules:
+If $m = n$, $J_{mn} = a_m(1 - a_m)$
+If $m \neq n$, $J_{mn} = -a_m a_n$
+Calculate $\frac{dL}{dZ}$ as $\frac{dL}{dA} \cdot J$.
+Let's perform these steps with actual calculations.
+
+The Jacobian matrix $J$ computed for the softmax output vector $A = [0.1, 0.2, 0.7]$ is:
+
+$$J = \begin{bmatrix}
+0.09 &amp; -0.02 &amp; -0.07 \\
+-0.02 &amp; 0.16 &amp; -0.14 \\
+-0.07 &amp; -0.14 &amp; 0.21
+\end{bmatrix}$$
+
+
+This matrix is filled according to the rules specified:
+
+The diagonal elements ($J_{mm}$) are calculated as $a_m(1 - a_m)$, representing the derivative of the softmax output with respect to itself.
+The off-diagonal elements ($J_{mn}$ where $m \neq n$) are negative products of the probabilities $-a_m a_n$, representing the derivative of a softmax output with respect to the other outputs.
+Given the gradient of the loss with respect to the softmax output $\frac{dL}{dA} = [0.01, -0.03, 0.02]$, the gradient of the loss with respect to the input of the softmax layer $\frac{dL}{dZ}$ is computed as:
+
+$$\frac{dL}{dZ} = \frac{dL}{dA} \cdot J = [0.0001, -0.0078, 0.0077]$$
+
+This result provides the gradients needed to update the input vector $Z$ during the backpropagation process, effectively informing how changes to $Z$ would affect the loss, allowing for optimization of the neural network's weights.
+
 # Softmax 
 
 The Softmax activation function is a vector activation function that is mostly applied at the end of neural network to convert a vector or raw outputs to a probability distribution in which the output elements sum up to 1. However, it can also be applied in the middle of a neural network like other activation functions discussed before this.
@@ -77,3 +114,5 @@ class Softmax:
 
         return dLdZ
 ```
+
+
