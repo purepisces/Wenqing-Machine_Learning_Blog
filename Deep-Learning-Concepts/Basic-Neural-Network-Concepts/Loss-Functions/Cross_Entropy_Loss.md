@@ -1,42 +1,49 @@
-## Derivation of the Gradient $\frac{\partial \text{Loss}}{\partial A}$
+To understand why the derivative of the cross-entropy loss 
+$- \sum\limits_{i=1}^{C} Y_i \log(\sigma(A_i))$ with respect to the logits $A_i$ is $\sigma(A_i) - Y_i$, let's delve into the mathematical details. This derivation involves applying the chain rule for derivatives and leveraging the specific mathematical properties of the softmax and logarithm functions.
 
-The gradient $\frac{\partial \text{Loss}}{\partial A}$ signifies how the loss changes with slight variations in the raw output scores $A$. This is crucial for backpropagation, as it guides how the model's weights should be adjusted to minimize the loss.
+### Cross-Entropy Loss and Softmax
+The cross-entropy loss for a single sample when using the softmax function for a multi-class classification problem is given by:
 
-### Step 1: Differentiate Cross-Entropy Loss with Respect to $\sigma(A)$
+$$H(Y, \sigma(A)) = - \sum_{i=1}^{C} Y_i \log(\sigma(A_i))$$
+where:
+- $Y_i$ is the true label for class $i$, which is 1 for the correct class and 0 for all other classes in one-hot encoding.
+- $\sigma(A_i)$ is the softmax function applied to the logit $A_i$, representing the predicted probability that the sample belongs to class $i$.
 
-The first step involves differentiating the cross-entropy loss with respect to the softmax probabilities, $\sigma(A)$. For a specific class $c$, this differentiation yields:
+### Softmax Function
+The softmax function for a logit $A_i$ is defined as:
 
-$\frac{\partial H(A, Y)}{\partial \sigma(A)_c} = -\frac{Y_c}{\sigma(A)_c}$
+$$\sigma(A_i) = \frac{e^{A_i}}{\sum\limits_{j=1}^{C} e^{A_j}}$$
 
-This equation indicates that the rate of change of the loss with respect to the predicted probability of class $c$ is inversely proportional to $\sigma(A)_c$, scaled by the true label $Y_c$.
+### Derivation of the Gradient
+To find the gradient of the cross-entropy loss with respect to the logits $A_i$, we need to compute the derivative $\frac{\partial H}{\partial A_i}$. This involves applying the chain rule to the composition of the logarithm and the softmax function.
 
-### Step 2: Chain Rule to Relate $\frac{\partial \text{Loss}}{\partial A}$
+#### Step 1: Apply the Chain Rule
+First, note that we need to apply the chain rule for the derivative of a composite function, which in this case is the logarithm of the softmax output:
 
-To connect the change in loss with the raw output scores $A$, we apply the chain rule of calculus, which in the context of functions of functions, states that:
+$$\frac{\partial H}{\partial A_i} = - \sum\limits_{k=1}^{C} Y_k \frac{\partial \log(\sigma(A_k))}{\partial A_i}$$
 
-$\frac{\partial \text{Loss}}{\partial A} = \frac{\partial \text{Loss}}{\partial \sigma(A)} \cdot \frac{\partial \sigma(A)}{\partial A}$
+#### Step 2: Derivative of the Logarithm of Softmax
+The derivative of $\log(\sigma(A_k))$ with respect to $A_i$ involves two cases: when $i=k$ and when $i \neq k$.
 
-The term $\frac{\partial \sigma(A)}{\partial A}$ is derived from the softmax function and represents how changes in the raw scores $A$ affect the softmax probabilities $\sigma(A)$. For the softmax function, this derivative is particularly interesting because it takes a different form when differentiating with respect to the score of the correct class versus the scores of other classes.
+When $i=k$, using the derivative of the logarithm $\frac{\partial \log(x)}{\partial x} = \frac{1}{x}$ and the definition of softmax, we get:
 
-### Step 3: Combine Terms and Simplify
+$$\frac{\partial \log(\sigma(A_i))}{\partial A_i} = \frac{1}{\sigma(A_i)} \cdot \sigma(A_i) \cdot (1 - \sigma(A_i)) = 1 - \sigma(A_i)$$
 
-By substituting the derivatives from Steps 1 and 2 into the chain rule expression, and after some algebraic simplification, we arrive at the gradient of the cross-entropy loss with respect to the raw output scores $A$:
+When $i \neq k$, the derivative involves the softmax function for a different class $k$, and the result is:
 
-$\frac{\partial \text{Loss}}{\partial A} = \sigma(A) - Y$ 
+$$\frac{\partial \log(\sigma(A_k))}{\partial A_i} = - \sigma(A_i)$$
 
-This result shows that the gradient is simply the difference between the predicted probabilities and the true labels. This makes intuitive sense: if the predicted probability for the correct class is too low (or high for incorrect classes), the raw scores need to be adjusted in a way that increases (or decreases) these probabilities.
+#### Step 3: Combine the Cases
+Combining these two cases and considering the effect of the one-hot encoding of $Y_k$ (which is 0 for all $k \neq i$ and 1 for $k=i$), the summation simplifies to:
 
-### Step 4: Scaling by Batch Size
+$$\frac{\partial H}{\partial A_i} = -Y_i (1 - \sigma(A_i)) + \sum_{k \neq i} Y_k \sigma(A_i)$$
 
-In practice, when working with batches of data, we often compute the mean loss over all samples in the batch to stabilize training and make the loss less dependent on the batch size. Consequently, the gradient of the mean loss with respect to $A$ is scaled by the reciprocal of the batch size $N$:
+Given that $Y_i$ can only be 1 for the true class and 0 otherwise, and $\sum_{k \neq i} Y_k = 0$ (since for the true class $i$, all other $Y_k$ are 0), this further simplifies to:
 
-$\frac{\partial \text{Mean Loss}}{\partial A} = \frac{\sigma(A) - Y}{N}$
-
-This scaling ensures that the magnitude of the updates does not directly scale with the number of samples, providing a more consistent update step across different batch sizes.
+$$\frac{\partial H}{\partial A_i} = -Y_i + Y_i \sigma(A_i) + 0 = \sigma(A_i) - Y_i$$
 
 ### Conclusion
-
-The derivation of $\frac{\sigma(A) - Y}{N}$ for the gradient of the cross-entropy loss with respect to the raw model outputs $A$ highlights the direct relationship between the difference in predicted probabilities and true labels, and how this difference informs the adjustments needed in the model's parameters. This gradient is a cornerstone of learning in neural networks, guiding the optimization process towards models that better approximate the underlying data distribution.
+The derivative of the cross-entropy loss with respect to the logits $A_i$ thus simplifies to $\sigma(A_i) - Y_i$, indicating the difference between the predicted probability for class $i$ and the actual class label. This elegant result is fundamental in training neural networks for classification tasks, as it directly relates the gradient to the discrepancy between the model's predictions and the true labels.
 
 # Cross-Entropy Loss
 
