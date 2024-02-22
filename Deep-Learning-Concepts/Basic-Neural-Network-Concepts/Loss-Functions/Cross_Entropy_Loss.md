@@ -1,3 +1,40 @@
+Derivation of the Gradient $\frac{\partial \text{Loss}}{\partial A}$
+The gradient $\frac{\partial \text{Loss}}{\partial A}$ signifies how the loss changes with slight variations in the raw output scores $A$. This is crucial for backpropagation, as it guides how the model's weights should be adjusted to minimize the loss.
+
+Step 1: Differentiate Cross-Entropy Loss with Respect to $\sigma(A)$
+
+The first step involves differentiating the cross-entropy loss with respect to the softmax probabilities, $\sigma(A)$. For a specific class $c$, this differentiation yields:
+
+$\frac{\partial H(A, Y)}{\partial \sigma(A)_c} = -\frac{Y_c}{\sigma(A)_c}$
+
+This equation indicates that the rate of change of the loss with respect to the predicted probability of class $c$ is inversely proportional to $\sigma(A)_c$, scaled by the true label $Y_c$.
+
+Step 2: Chain Rule to Relate $\frac{\partial \text{Loss}}{\partial A}$
+
+To connect the change in loss with the raw output scores $A$, we apply the chain rule of calculus, which in the context of functions of functions, states that:
+
+$\frac{\partial \text{Loss}}{\partial A} = \frac{\partial \text{Loss}}{\partial \sigma(A)} \cdot \frac{\partial \sigma(A)}{\partial A}$
+
+The term $\frac{\partial \sigma(A)}{\partial A}$ is derived from the softmax function and represents how changes in the raw scores $A$ affect the softmax probabilities $\sigma(A)$. For the softmax function, this derivative is particularly interesting because it takes a different form when differentiating with respect to the score of the correct class versus the scores of other classes.
+
+Step 3: Combine Terms and Simplify
+
+By substituting the derivatives from Steps 1 and 2 into the chain rule expression, and after some algebraic simplification, we arrive at the gradient of the cross-entropy loss with respect to the raw output scores $A$:
+
+$\frac{\partial \text{Loss}}{\partial A} = \sigma(A) - Y$ 
+
+This result shows that the gradient is simply the difference between the predicted probabilities and the true labels. This makes intuitive sense: if the predicted probability for the correct class is too low (or high for incorrect classes), the raw scores need to be adjusted in a way that increases (or decreases) these probabilities.
+
+Step 4: Scaling by Batch Size
+In practice, when working with batches of data, we often compute the mean loss over all samples in the batch to stabilize training and make the loss less dependent on the batch size. Consequently, the gradient of the mean loss with respect to $A$ is scaled by the reciprocal of the batch size $N$:
+
+$\frac{\partial \text{Mean Loss}}{\partial A} = \frac{\sigma(A) - Y}{N}$
+
+This scaling ensures that the magnitude of the updates does not directly scale with the number of samples, providing a more consistent update step across different batch sizes.
+
+Conclusion
+
+The derivation of $\frac{\sigma(A) - Y}{N}$ for the gradient of the cross-entropy loss with respect to the raw model outputs $A$ highlights the direct relationship between the difference in predicted probabilities and true labels, and how this difference informs the adjustments needed in the model's parameters. This gradient is a cornerstone of learning in neural networks, guiding the optimization process towards models that better approximate the underlying data distribution.
 
 # Cross-Entropy Loss
 
