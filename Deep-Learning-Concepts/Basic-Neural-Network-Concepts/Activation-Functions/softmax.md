@@ -208,7 +208,7 @@ This example illustrates the process of computing the gradient of the loss with 
 > $$dLdZ^{(i)} = dLdA^{(i)} \cdot J^{(i)}$$
 > 
 
-## $\frac{\partial a_m}{\partial z_m} = a_m (1 - a_m)$
+## Derivation of $J_{mn}$ for $m = n, \frac{\partial a_m}{\partial z_m} = a_m (1 - a_m)$
 
 To derive the expression $\frac{\partial a_m}{\partial z_m} = a_m (1 - a_m)$ for the case $m=n$ in the context of the Softmax function, we'll start with the definition of the Softmax function for a particular output $a_m$ and then apply the chain rule to differentiate it with respect to its corresponding input $z_m$. The Softmax function for an output $a_m$ is defined as:
 
@@ -245,7 +245,7 @@ $$
 \frac{\partial a_m}{\partial z_m} = \frac{e^{z_m} \left( \sum\limits_{k=1}^{C} e^{z_k} - e^{z_m} \right)}{\left( \sum\limits_{k=1}^{C} e^{z_k} \right)^2}
 $$
 
-Now, observe that $\frac{e^{z_m}}{\sum\limits_{k=1}^{C} e^{z_k}} = a_m$, and $\frac{\sum_{k=1}^{C} e^{z_k} - e^{z_m}}{\sum_{k=1}^{C} e^{z_k}} = 1 - a_m$ because subtracting $e^{z_m}$ from the sum in the denominator and then dividing by the same sum gives the proportion of all other $e^{z_k}$s except $e^{z_m}$, which complements $a_m$ to 1.
+Now, observe that $\frac{e^{z_m}}{\sum\limits_{k=1}^{C} e^{z_k}} = a_m$, and $\frac{\sum\limits_{k=1}^{C} e^{z_k} - e^{z_m}}{\sum_{k=1}^{C} e^{z_k}} = 1 - a_m$ because subtracting $e^{z_m}$ from the sum in the denominator and then dividing by the same sum gives the proportion of all other $e^{z_k}$s except $e^{z_m}$, which complements $a_m$ to 1.
 
 ### Step 4: Final Expression
 Putting it all together, we get:
@@ -256,7 +256,7 @@ $$
 
 This expression shows that the rate of change of $a_m$ with respect to $z_m$ depends on $a_m$ itself and the proportion of $a_m$ relative to the sum of all $e^{z_k}$, which reflects how increasing $z_m$ not only increases $a_m$ directly but also affects the distribution of probabilities across all classes indirectly.
 
-## $\frac{\partial a_m}{\partial z_n} = -a_m a_n$
+## Derivation of $J_{mn}$ for $m \neq n, \frac{\partial a_m}{\partial z_n} = -a_m a_n$
 
 To derive the expression $\frac{\partial a_m}{\partial z_n} = -a_m a_n$ for the case $m \neq n$ in the context of the Softmax function, we'll start with the definition of the Softmax function for a particular output $a_m$ and analyze the impact of changing an input $z_n$ on a different output $a_m$. The Softmax function for an output $a_m$ is defined as:
 
