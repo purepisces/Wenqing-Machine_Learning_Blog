@@ -199,8 +199,6 @@ This example illustrates the process of computing the gradient of the loss with 
 > In the case of vector activation function, $dLdZ$ is computed as: For each input vector $Z^{(i)}$ of size $1 \times C$ and its corresponding output vector $A^{(i)}$ (also $1 \times C$ within the batch, the Jacobian matrix $J^{(i)}$ must be computed individually. This matrix holds dimensions $C \times C$. Consequently, the gradient $dLdZ^{(i)}$ for each sample in the batch is determined by:
 > $$dLdZ^{(i)} = dLdA^{(i)} \cdot J^{(i)}$$
 > 
-## Reference:
-- CMU_11785_Introduction_To_Deep_Learning
 
 ## $\frac{\partial a_m}{\partial z_m} = a_m (1 - a_m)$
 
@@ -280,4 +278,5 @@ $$
 
 The derivative $\frac{\partial a_m}{\partial z_n} = -a_m a_n$ for $m \neq n$ encapsulates the competitive nature of the Softmax function, where an increase in one input $z_n$ leads to a proportional decrease in the unrelated output $a_m$. This inverse relationship is due to the conservation of total probability (which must sum to 1) and signifies that as $z_n$ increases, causing an increase in $a_n$, there must be a compensatory decrease in $a_m$, thus the negative sign in the derivative.
 
-
+## Reference:
+- CMU_11785_Introduction_To_Deep_Learning
