@@ -2,7 +2,7 @@
 
 The gradient $\frac{\partial \text{Loss}}{\partial A}$ signifies how the loss changes with slight variations in the raw output scores $A$. This is crucial for backpropagation, as it guides how the model's weights should be adjusted to minimize the loss.
 
-###Step 1: Differentiate Cross-Entropy Loss with Respect to $\sigma(A)$
+### Step 1: Differentiate Cross-Entropy Loss with Respect to $\sigma(A)$
 
 The first step involves differentiating the cross-entropy loss with respect to the softmax probabilities, $\sigma(A)$. For a specific class $c$, this differentiation yields:
 
