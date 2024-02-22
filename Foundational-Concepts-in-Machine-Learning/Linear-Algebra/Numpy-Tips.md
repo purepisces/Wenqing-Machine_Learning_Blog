@@ -31,7 +31,7 @@ $$\left(\begin{array}{cc}
 \end{array}\right)
 $$ 
 
-- **Matrix Multiplication**: Use $A @ B$ for matrix multiplication, denoted as $A \cdot B$.
+- **Matrix Multiplication**: Use $A @ B$ or np.dot(A, B) for matrix multiplication, denoted as $A \cdot B$.
   
 
   **Example**: Given the same two matrices
