@@ -10,6 +10,12 @@ $$a_m = \frac{\exp(z_m)}{\\sum\limits_{k=1}^{C} \exp(z_k)}$$
 
 Here $Z$ was a single vector. Similar calculations can be done for batch of $N$ vectors.
 
+For a batch of vectors, the formula for each element in the output matrix $A$ (which is also of size $N \times C$) can be represented as:
+
+$$A_{ij} = \frac{\exp(Z_{ij})}{\sum\limits_{k=1}^{C} \exp(Z_{ik})}$$
+
+Here, $A_{ij}$ represents the $j$-th element of the Softmax output corresponding to the $i$-th input vector in the batch. $Z_{ij}$ is the $j$-th element of the $i$-th vector in the batch. The denominator is a sum over all elements in the $i$-th input vector, ensuring that for each input vector in the batch, the Softmax outputs sum to 1.
+
 ## Softmax Backward Equation
 
 As discussed in the description of the backward method for vector activations earlier in the section, the first step in backpropagating the derivatives is to calculate the Jacobian for each vector in the batch. Let’s take the example of an input vector $Z$ (a row of the input data matrix) and corresponding output vector $A$ (a row of the output matrix calculated by softmax.forward). The Jacobian $J$ is a $C \times C$ matrix. Its element at the $m$-th row and $n$-th column is given by:
