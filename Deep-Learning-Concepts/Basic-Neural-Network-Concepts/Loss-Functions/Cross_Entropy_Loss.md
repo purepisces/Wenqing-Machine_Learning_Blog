@@ -1,3 +1,32 @@
+$$\frac{\partial \log(\sigma(A_k))}{\partial A_i} = \frac{\partial \log(\sigma(A_k))}{\partial \sigma(A_k)} \cdot \frac{\partial \sigma(A_k)}{\partial A_i}$$
+
+The equation
+
+$$\frac{\partial H}{\partial A_i} = - \sum_{k=1}^{C} Y_k \frac{\partial \log(\sigma(A_k))}{\partial A_i}$$
+
+for the cross-entropy loss function
+
+$$H(Y, \sigma(A)) = - \sum_{i=1}^{C} Y_i \log(\sigma(A_i))$$
+
+is derived using the chain rule of calculus, which allows us to differentiate a function of a function. Here, $H(Y, \sigma(A))$ represents the cross-entropy loss between the true labels $Y$ and the predicted probabilities $\sigma(A)$ for a multi-class classification problem, where $C$ is the number of classes.
+
+Let's break down the derivation:
+
+**Cross-Entropy Loss Function:** The cross-entropy loss for a multi-class classification problem measures the dissimilarity between the true label distribution $Y$ and the predicted probability distribution $\sigma(A)$. For each class $i$, the contribution to the loss is $-Y_i \log(\sigma(A_i))$, where $Y_i$ is the true label (1 for the correct class and 0 for others, assuming one-hot encoding) and $\sigma(A_i)$ is the predicted probability for class $i$.
+
+**Taking the Derivative:** To update the model parameters (in this case, the logits $A_i$) using gradient descent, we need to calculate the gradient of the loss function with respect to each logit $A_i$. This involves differentiating the loss function with respect to $A_i$.
+
+**Applying the Chain Rule:** The derivative of the loss function with respect to a specific logit $A_i$ involves taking the derivative of each term in the summation. The chain rule comes into play because $\log(\sigma(A_k))$ is a composite function: it's the logarithm of the softmax function applied to $A_k$. According to the chain rule, the derivative of a composite function is the derivative of the outer function (in this case, $\log(x)$) evaluated at the inner function ($\sigma(A_k)$) times the derivative of the inner function ($\sigma(A_k)$ with respect to $A_i$).
+
+**Summation over Classes:** The gradient $\frac{\partial H}{\partial A_i}$ is the sum of the derivatives for each class $k$. This accounts for the fact that changing $A_i$ not only affects the predicted probability $\sigma(A_i)$ for class $i$ but also the predicted probabilities for all other classes because of the softmax normalization.
+
+Therefore, the equation
+
+$$\frac{\partial H}{\partial A_i} = - \sum_{k=1}^{C} Y_k \frac{\partial \log(\sigma(A_k))}{\partial A_i}$$
+
+expresses the total change in the cross-entropy loss with respect to the logit $A_i$, considering the impact of $A_i$ on the predicted probabilities for all classes. This gradient is used in the optimization process to adjust the logits $A_i$ in a way that minimizes the loss, thereby improving the model's predictions.
+
+# temp
 To understand why the derivative of the cross-entropy loss 
 $- \sum\limits_{i=1}^{C} Y_i \log(\sigma(A_i))$ with respect to the logits $A_i$ is $\sigma(A_i) - Y_i$, let's delve into the mathematical details. This derivation involves applying the chain rule for derivatives and leveraging the specific mathematical properties of the softmax and logarithm functions.
 
