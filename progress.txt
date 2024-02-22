@@ -40,6 +40,7 @@ sigmoid.md✅已发csdn+知乎
 tanh.md✅
 neural-network-models.md✅
 Linear-Layer.md✅ need further modification
+softmax.md✅已发csdn,未发知乎
 
 
 Chain rule
