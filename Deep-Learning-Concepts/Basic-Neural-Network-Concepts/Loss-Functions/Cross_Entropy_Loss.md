@@ -1,4 +1,4 @@
-# temp
+# Derivation of 
 To understand why the derivative of the cross-entropy loss 
 $- \sum\limits_{i=1}^{C} Y_i \log(\sigma(A_i))$ with respect to the logits $A_i$ is $\sigma(A_i) - Y_i$, let's delve into the mathematical details. This derivation involves applying the chain rule for derivatives and leveraging the specific mathematical properties of the softmax and logarithm functions.
 
