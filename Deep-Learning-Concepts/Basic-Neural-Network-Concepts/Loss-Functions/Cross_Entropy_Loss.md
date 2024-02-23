@@ -62,10 +62,6 @@ $$\frac{\partial H}{\partial A_i} = \sigma(A_i) - Y_i$$
 This result shows that the gradient of the cross-entropy loss with respect to the logits $A_i$ is the difference between the predicted probability $\sigma(A_i)$ and the actual class label $Y_i$, which is a crucial aspect in updating the weights during the training of neural networks for classification tasks. This gradient essentially tells us how to adjust the logits to reduce the loss, moving the predictions closer to the true labels.
 
 
-### Conclusion
-The derivative of the cross-entropy loss with respect to the logits $A_i$ thus simplifies to $\sigma(A_i) - Y_i$, indicating the difference between the predicted probability for class $i$ and the actual class label. This elegant result is fundamental in training neural networks for classification tasks, as it directly relates the gradient to the discrepancy between the model's predictions and the true labels.
-
-
 # Cross-Entropy Loss
 
 Cross-entropy loss is one of the most commonly used loss function for probability-based classification problems. 
