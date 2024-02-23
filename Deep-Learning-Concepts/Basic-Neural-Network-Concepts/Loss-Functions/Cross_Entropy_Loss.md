@@ -42,7 +42,7 @@ The derivative of $\log(\sigma(A_k))$ with respect to $A_i$ involves two cases: 
 
 When $i=k$, using the derivative of the logarithm $\frac{\partial \log(x)}{\partial x} = \frac{1}{x}$ and the definition of softmax, we get:
 
-$$\frac{\partial \log(\sigma(A_k))}{\partial A_i} = \frac{\partial \log(\sigma(A_i))}{\partial \sigma(A_i)} \cdot \frac{\partial \sigma(A_k)}{\partial A_i} = \frac{1}{\sigma(A_i)} \cdot \sigma(A_i) \cdot (1 - \sigma(A_i)) = 1 - \sigma(A_i)$$
+$$\frac{\partial \log(\sigma(A_k))}{\partial A_i} = \frac{\partial \log(\sigma(A_i))}{\partial \sigma(A_i)} \cdot \frac{\partial \sigma(A_i)}{\partial A_i} = \frac{1}{\sigma(A_i)} \cdot \sigma(A_i) \cdot (1 - \sigma(A_i)) = 1 - \sigma(A_i)$$
 
 When $i \neq k$, the derivative involves the softmax function for a different class $k$, and the result is:
 
