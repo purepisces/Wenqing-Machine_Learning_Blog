@@ -46,7 +46,7 @@ $$\frac{\partial \log(\sigma(A_i))}{\partial A_i} = \frac{\partial \log(\sigma(A
 
 When $i \neq k$, the derivative involves the softmax function for a different class $k$, and the result is:
 
-$$\frac{\partial \log(\sigma(A_k))}{\partial A_i} = \frac{\partial \log(\sigma(A_k))}{\partial \sigma(A_k)} \cdot \frac{\partial \sigma(A_k)}{\partial A_i} = - \sigma(A_i)$$
+$$\frac{\partial \log(\sigma(A_k))}{\partial A_i} = \frac{\partial \log(\sigma(A_k))}{\partial \sigma(A_k)} \cdot \frac{\partial \sigma(A_k)}{\partial A_i} = \frac{1}{\sigma(A_k)} \cdot -\sigma(A_k) \cdot \sigma(A_i) = - \sigma(A_i)$$
 
 #### Step 3: Combine the Cases
 Combining these two cases and considering the effect of the one-hot encoding of $Y_k$ (which is 0 for all $k \neq i$ and 1 for $k=i$), the summation simplifies to:
