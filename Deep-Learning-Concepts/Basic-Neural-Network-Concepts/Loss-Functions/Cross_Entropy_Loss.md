@@ -1,4 +1,5 @@
-# Derivation of 
+# Derivation of the Gradient
+
 To understand why the derivative of the cross-entropy loss 
 $- \sum\limits_{i=1}^{C} Y_i \log(\sigma(A_i))$ with respect to the logits $A_i$ is $\sigma(A_i) - Y_i$, let's delve into the mathematical details. This derivation involves applying the chain rule for derivatives and leveraging the specific mathematical properties of the softmax and logarithm functions.
 
@@ -49,13 +50,17 @@ When $i \neq k$, the derivative involves the softmax function for a different cl
 $$\frac{\partial \log(\sigma(A_k))}{\partial A_i} = \frac{\partial \log(\sigma(A_k))}{\partial \sigma(A_k)} \cdot \frac{\partial \sigma(A_k)}{\partial A_i} = \frac{1}{\sigma(A_k)} \cdot -\sigma(A_k) \cdot \sigma(A_i) = - \sigma(A_i)$$
 
 #### Step 3: Combine the Cases
-Combining these two cases and considering the effect of the one-hot encoding of $Y_k$ (which is 0 for all $k \neq i$ and 1 for $k=i$), the summation simplifies to:
 
-$$\frac{\partial H}{\partial A_i} = -Y_i (1 - \sigma(A_i)) + \sum_{k \neq i} Y_k \sigma(A_i)$$
+Given the one-hot encoding of $Y$, where $Y_i = 1$ for the correct class and $Y_k = 0$ for all $k \neq i$, the term involving $\sum\limits_{k \neq i} Y_k \sigma(A_i)$ disappears because $Y_k = 0$ for $k \neq i$. Therefore, the derivative simplifies to:
 
-Given that $Y_i$ can only be 1 for the true class and 0 otherwise, and $\sum_{k \neq i} Y_k = 0$ (since for the true class $i$, all other $Y_k$ are 0), this further simplifies to:
+$$\frac{\partial H}{\partial A_i} = -Y_i (1 - \sigma(A_i)) - \sum_{k \neq i} 0 \cdot \sigma(A_i) = -Y_i + Y_i \sigma(A_i)$$
 
-$$\frac{\partial H}{\partial A_i} = -Y_i + Y_i \sigma(A_i) + 0 = \sigma(A_i) - Y_i$$
+Since $Y_i$ can only be 1 for the true class and 0 otherwise, this simplifies to:
+
+$$\frac{\partial H}{\partial A_i} = \sigma(A_i) - Y_i$$
+
+This result shows that the gradient of the cross-entropy loss with respect to the logits $A_i$ is the difference between the predicted probability $\sigma(A_i)$ and the actual class label $Y_i$, which is a crucial aspect in updating the weights during the training of neural networks for classification tasks. This gradient essentially tells us how to adjust the logits to reduce the loss, moving the predictions closer to the true labels.
+
 
 ### Conclusion
 The derivative of the cross-entropy loss with respect to the logits $A_i$ thus simplifies to $\sigma(A_i) - Y_i$, indicating the difference between the predicted probability for class $i$ and the actual class label. This elegant result is fundamental in training neural networks for classification tasks, as it directly relates the gradient to the discrepancy between the model's predictions and the true labels.
