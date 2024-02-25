@@ -42,7 +42,6 @@ neural-network-models.md✅
 Linear-Layer.md✅ need further modification
 softmax.md✅已发csdn,未发知乎
 
-
 Chain rule
 Cumulative Distribution Function (CDF)
 Standard Gaussian Distributio
@@ -52,7 +51,6 @@ t-sne
 implicit function
 scalar function
 Directional Derivative:
-
 
 why gradient" refers to a vector that points in the direction of the greatest rate of increase  give specific example???
 why the product of the standard deviations of x and y is normalization?
