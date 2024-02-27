@@ -48,17 +48,38 @@ $$\frac{\partial \mathcal{L}}{\partial a_L} = \begin{bmatrix}
 \frac{\partial}{\partial a_{L1}} \left(-\sum\limits_{c=1}^{C} y_c \log a_{Lc}\right) \\
 \vdots \\
 \frac{\partial}{\partial a_{LC}} \left(-\sum\limits_{c=1}^{C} y_c \log a_{Lc}\right)
-\end{bmatrix}$$
+\end{bmatrix} = -
 \begin{bmatrix}
--\frac{y_1}{a_{L1}} \\
+\frac{y_1}{a_{L1}} \\
 \vdots \\
--\frac{y_C}{a_{LC}}
+\frac{y_C}{a_{LC}}
 \end{bmatrix}$$
 
 
 Remember that for each 1-hot vector of $y$ we only have one element which is equal to 1, the rest are 0.
 
-Going back to our concrete 3x3 example, and putting everything together, we get:
+Going back to our concrete $3x3$ example, and putting everything together, we get:
+
+
+$$\frac{\partial \mathcal{L}}{\partial z_L} = \frac{\partial \mathcal{L}}{\partial a_L} \frac{\partial a_L}{\partial z_L} = 
+-\begin{pmatrix}
+a_1(1 - a_1) & -a_1a_2 & -a_1a_3 \\
+-a_2a_1 & a_2(1 - a_2) & -a_2a_3 \\
+-a_3a_1 & -a_3a_2 & a_3(1 - a_3)
+\end{pmatrix} 
+\begin{pmatrix}
+\frac{y_1}{a_{1}} \\
+\frac{y_2}{a_{2}} \\
+\frac{y_3}{a_{3}}
+\end{pmatrix}
+ = -
+\begin{pmatrix}
+y_1 - a_1(y_1 + y_2 + y_3) \\
+y_2 - a_2(y_1 + y_2 + y_3) \\
+y_3 - a_3(y_1 + y_2 + y_3)
+\end{pmatrix} = a - y$$
+
+note that a and y here are vectors, not scalars.
 
 
 # Derivation of the Gradient
