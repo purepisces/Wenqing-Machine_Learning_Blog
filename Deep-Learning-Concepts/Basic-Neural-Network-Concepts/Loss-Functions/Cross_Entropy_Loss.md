@@ -60,26 +60,19 @@ Remember that for each 1-hot vector of $y$ we only have one element which is equ
 
 Going back to our concrete $3x3$ example, and putting everything together, we get:
 
-
-$$\frac{\partial \mathcal{L}}{\partial z_L} = \frac{\partial \mathcal{L}}{\partial a_L} \frac{\partial a_L}{\partial z_L} = 
--\begin{pmatrix}
+$$\begin{align}
+\frac{\partial \mathcal{L}}{\partial z_L} &= \frac{\partial \mathcal{L}}{\partial a_L} \frac{\partial a_L}{\partial z_L} \\
+&= -\begin{bmatrix} \frac{y_1}{a_1} \\ \frac{y_2}{a_2} \\ \frac{y_3}{a_3} \end{bmatrix} 
+\begin{pmatrix}
 a_1(1 - a_1) & -a_1a_2 & -a_1a_3 \\
 -a_2a_1 & a_2(1 - a_2) & -a_2a_3 \\
 -a_3a_1 & -a_3a_2 & a_3(1 - a_3)
-\end{pmatrix} 
-\begin{pmatrix}
-\frac{y_1}{a_{1}} \\
-\frac{y_2}{a_{2}} \\
-\frac{y_3}{a_{3}}
-\end{pmatrix}
- = -
-\begin{pmatrix}
-y_1 - a_1(y_1 + y_2 + y_3) \\
-y_2 - a_2(y_1 + y_2 + y_3) \\
-y_3 - a_3(y_1 + y_2 + y_3)
-\end{pmatrix} = a - y$$
+\end{pmatrix} \\
+&= -\begin{bmatrix} y_1 - a_1(y_1 + y_2 + y_3) & y_2 - a_2(y_1 + y_2 + y_3) & y_3 - a_3(y_1 + y_2 + y_3) \end{bmatrix} \\
+&= \mathbf{a} - \mathbf{y}
+\end{align}$$
 
-note that a and y here are vectors, not scalars.
+note that $\mathbf{a}$ and $\mathbf{y}$ here are vectors, not scalars.
 
 
 # Derivation of the Gradient
