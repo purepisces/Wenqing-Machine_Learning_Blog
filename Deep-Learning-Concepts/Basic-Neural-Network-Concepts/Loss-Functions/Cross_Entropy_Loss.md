@@ -261,3 +261,9 @@ class CrossEntropyLoss:
         return dLdA
 ```
 
+## Reference:
+- [Watch the video on YouTube](https://www.youtube.com/watch?v=rf4WF-5y8uY)
+- CMU_11785_Introduction_To_Deep_Learning
+
+
+
