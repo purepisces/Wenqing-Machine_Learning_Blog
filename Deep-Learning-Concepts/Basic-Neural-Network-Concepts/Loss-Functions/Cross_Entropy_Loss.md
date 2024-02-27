@@ -1,3 +1,23 @@
+$$\frac{\partial H}{\partial A_i} = - \sum\limits_{k=1}^{C} Y_k \frac{\partial \log(\sigma(A_k))}{\partial A_i}$$
+
+When $i=k$, using the derivative of the logarithm $\frac{\partial \log(x)}{\partial x} = \frac{1}{x}$ and the definition of softmax, we get:
+
+$$\frac{\partial \log(\sigma(A_k))}{\partial A_i} = \frac{\partial \log(\sigma(A_i))}{\partial \sigma(A_i)} \cdot \frac{\partial \sigma(A_i)}{\partial A_i} = \frac{1}{\sigma(A_i)} \cdot \sigma(A_i) \cdot (1 - \sigma(A_i)) = 1 - \sigma(A_i)$$
+
+
+Thus:
+
+$$\frac{\partial H}{\partial A_i} = - \sum\limits_{k=1}^{C} Y_k \frac{\partial \log(\sigma(A_k))}{\partial A_i} = -Y_i(1 - \sigma(A_i)) = \sigma(A_i) - Y_i = \sigma(A_i) - 1$$
+
+When $i\neq k$, using the derivative of the logarithm $\frac{\partial \log(x)}{\partial x} = \frac{1}{x}$ and the definition of softmax, we get:
+
+$$\frac{\partial \log(\sigma(A_k))}{\partial A_i} = \frac{\partial \log(\sigma(A_k))}{\partial \sigma(A_k)} \cdot \frac{\partial \sigma(A_k)}{\partial A_i} = \frac{1}{\sigma(A_k)} \cdot -\sigma(A_k) \cdot \sigma(A_i) = - \sigma(A_i)$$
+
+Thus:
+
+$$\frac{\partial H}{\partial A_i} = - \sum\limits_{k=1}^{C} Y_k \frac{\partial \log(\sigma(A_k))}{\partial A_i} = -Y_i(- \sigma(A_i)) = \sigma(A_i) = \sigma(A_i) - 0$$
+
+
 # Softmax + Cross Entropy
 
 - The softmax function is a vector.
@@ -128,9 +148,6 @@ $$\frac{\partial \log(\sigma(A_k))}{\partial A_i} = \frac{\partial \log(\sigma(A
 
 #### Step 3: Combine the Cases
 
-Given the one-hot encoding of $Y$, where $Y_i = 1$ for the correct class and $Y_k = 0$ for all $k \neq i$, the term involving $\sum\limits_{k \neq i} Y_k \sigma(A_i)$ disappears because $Y_k = 0$ for $k \neq i$. Therefore, the derivative simplifies to:
-
-$$\frac{\partial H}{\partial A_i} = -Y_i (1 - \sigma(A_i)) - \sum_{k \neq i} 0 \cdot \sigma(A_i) = -Y_i + Y_i \sigma(A_i)$$
 
 Since $Y_i$ can only be 1 for the true class and 0 otherwise, this simplifies to:
 
