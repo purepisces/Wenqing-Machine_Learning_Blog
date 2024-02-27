@@ -1,3 +1,66 @@
+# Softmax + Cross Entropy
+
+- The softmax function is a vector.
+- Each element $\frac{e^{z_k}}{\sum\limits_{c=1}^{C} e^{z_c}}$ is dependent on all of the input elements because of the denominator.
+- The gradient of a vector w.r.t. a vector is a matrix.
+- To simplify and solidify the notion, let's make it more concrete by looking at a vector of size $3$:
+  
+$$ \begin{pmatrix}
+z_1\\
+z_2\\
+z_3
+\end{pmatrix} \rightarrow \begin{pmatrix}
+\frac{e^{z_1}}{e^{z_1} + e^{z_2} + e^{z_3}}\\
+\frac{e^{z_2}}{e^{z_1} + e^{z_2} + e^{z_3}}\\
+\frac{e^{z_3}}{e^{z_1} + e^{z_2} + e^{z_3}}
+\end{pmatrix} = \begin{pmatrix}
+a_1\\
+a_2\\
+a_3
+\end{pmatrix} = \begin{pmatrix}
+\hat{y_1}\\
+\hat{y_2}\\
+\hat{y_3}
+\end{pmatrix}$$
+
+What happens in the diagonal elements of the matrix? We have that the derivative is w.r.t. the same element which is in the numerator. E.g., for $\frac{\partial a_1}{\partial z_1}$ we get:
+
+$$\frac{\partial a_1}{\partial z_1} = \frac{e^{z_1}(e^{z_1} + e^{z_2} + e^{z_3}) - e^{z_1}e^{z_1}}{(e^{z_1} + e^{z_2} + e^{z_3})(e^{z_1} + e^{z_2} + e^{z_3})} = \frac{e^{z_1}}{e^{z_1} + e^{z_2} + e^{z_3}} \cdot \frac{e^{z_1}+e^{z_2}+e^{z_3}-e^{z_1}}{e^{z_1} + e^{z_2} + e^{z_3}} = a_1(1 - a_1)$$
+
+So we got something really close to the sigmoid derivatives.
+
+What happens in the off diagonal element? E.g., for $\frac{\partial a_1}{\partial z_2}$ we get:
+
+$$\frac{\partial a_1}{\partial z_2} = \frac{0 \cdot (e^{z_1} + e^{z_2} + e^{z_3}) - e^{z_1}e^{z_2}}{(e^{z_1} + e^{z_2} + e^{z_3})^2} = -\frac{e^{z_1}}{e^{z_1} + e^{z_2} + e^{z_3}} \cdot \frac{e^{z_2}}{e^{z_1} + e^{z_2} + e^{z_3}} = -a_1a_2$$
+
+Overall for our 3x3 matrix we will get:
+
+$$\frac{\partial \mathbf{a}}{\partial \mathbf{z}} = 
+\begin{pmatrix}
+a_1(1 - a_1) & -a_1a_2 & -a_1a_3 \\
+-a_1a_2 & a_2(1 - a_2) & -a_2a_3 \\
+-a_1a_3 & -a_2a_3 & a_3(1 - a_3)
+\end{pmatrix}$$
+
+For the derivative of the loss w.r.t. the final output - we have a derivative of a scalar w.r.t. a vector, so the result will also be a vector:
+
+$$\frac{\partial \mathcal{L}}{\partial a_L} = \begin{bmatrix}
+\frac{\partial}{\partial a_{L1}} \left(-\sum\limits_{c=1}^{C} y_c \log a_{Lc}\right) \\
+\vdots \\
+\frac{\partial}{\partial a_{LC}} \left(-\sum\limits_{c=1}^{C} y_c \log a_{Lc}\right)
+\end{bmatrix}$$
+\begin{bmatrix}
+-\frac{y_1}{a_{L1}} \\
+\vdots \\
+-\frac{y_C}{a_{LC}}
+\end{bmatrix}$$
+
+
+Remember that for each 1-hot vector of $y$ we only have one element which is equal to 1, the rest are 0.
+
+Going back to our concrete 3x3 example, and putting everything together, we get:
+
+
 # Derivation of the Gradient
 
 To understand why the derivative of the cross-entropy loss 
