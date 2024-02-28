@@ -117,8 +117,6 @@ $$\begin{align*}
 
 ### Derivation of the Gradient(Youtube's prove)
 
-# Softmax + Cross Entropy
-
 - The softmax function is a vector.
 - Each element $\frac{e^{z_k}}{\sum\limits_{c=1}^{C} e^{z_c}}$ is dependent on all of the input elements because of the denominator.
 - The gradient of a vector w.r.t. a vector is a matrix.
