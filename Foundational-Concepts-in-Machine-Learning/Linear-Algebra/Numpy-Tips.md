@@ -31,6 +31,9 @@ $$\left(\begin{array}{cc}
 \end{array}\right)
 $$ 
 
+> Note: In element-wise multiplication, the two matrix must be the same shape.
+>
+
 - **Matrix Multiplication**: Use $A @ B$ or $np.dot(A, B)$ for matrix multiplication, denoted as $A \cdot B$.
   
 
