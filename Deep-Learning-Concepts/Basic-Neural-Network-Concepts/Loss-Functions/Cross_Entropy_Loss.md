@@ -24,7 +24,7 @@ $$\text{sumcrossentropyloss} := \mathbf{\iota}_N^T \cdot H(A, Y) = SCE(A, Y)$$
 
 $$\text{meancrossentropyloss} := \frac{SCE(A, Y)}{N}$$
 
-insert img
+<img src="cross_entropy_loss.png" alt="cross_entropy_loss" width="400" height="300"/>
 
 Cross-Entropy Loss Backward Equation
 
