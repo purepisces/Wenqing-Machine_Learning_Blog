@@ -53,31 +53,31 @@ The loss function topology is visualized in the follwing Figure, whose reference
 
 <img src="Loss_Function_Topology.png" alt="Loss_Function_Topology" width="400" height="300"/>
 
+
 ## Example
 
 In this example, we illustrate the use of the $Loss$ class for a classification task with 3 classes. Consider a scenario where our batch size ($N$) is 2, meaning we process two examples at a time.
 
-### Model Outputs (A)
+### Model Outputs (Logits)
 
-The model outputs, denoted as $A$, are the predicted probabilities for each class. For our example with a batch size of 2 and 3 classes, $A$ could look like:
+The model outputs, denoted as $A$, are the logits for each class. For our example with a batch size of 2 and 3 classes, $A$ could look like:
 
-$$A = 
+$$
+A = 
 \begin{bmatrix}
-0.7 & 0.2 & 0.1\\
-0.1 & 0.8 & 0.1
+5 & 1 & -1\\
+-2 & 6 & 0
 \end{bmatrix}
 $$
 
-This matrix signifies the network's predictions:
-- For the first example, the probabilities for Class 1, Class 2, and Class 3 are 0.7, 0.2, and 0.1, respectively, suggesting a prediction of Class 1.
-- For the second example, the probabilities are 0.1, 0.8, and 0.1, indicating a prediction of Class 2.
+These logits represent the raw scores for each class, before applying the softmax function. 
 
 ### Ground-Truth Values (Y)
 
 The ground-truth values, $Y$, are represented in a one-hot encoded format:
 
-
-$$Y = 
+$$
+Y = 
 \begin{bmatrix}
 1 & 0 & 0\\
 0 & 0 & 1
@@ -88,9 +88,9 @@ Here, the first row $[1, 0, 0]$ indicates that the first example belongs to Clas
 
 ### Using $A$ and $Y$ in Loss Calculation
 
-The loss function employs the matrices $A$ and $Y$ to compute the loss value $L$. For example, employing the Cross-Entropy Loss function would involve calculating the loss for each individual example by comparing the predicted probabilities in $A$ against the actual labels in $Y$. Subsequently, these individual losses are averaged across all examples within the batch to yield a single scalar value for the loss, $L$.
+The loss function employs the logits $A$ and the ground-truth $Y$ to compute the loss value $L$. For example, employing the Cross-Entropy Loss function would involve first applying a softmax function to the logits to obtain probabilities, and then calculating the loss for each individual example by comparing these predicted probabilities against the actual labels in $Y$. Subsequently, these individual losses are averaged across all examples within the batch to yield a single scalar value for the loss, $L$.
 
-The $forward$ method within the $Loss$ class is tasked with computing this scalar loss value, $L$, utilizing $A$ and $Y$. Following this, the $backward$ method calculates the gradient of the loss with respect to the model outputs, denoted as $\frac{\partial L}{\partial A}$. This gradient is crucial for the back-propagation process, enabling the update of model parameters during training.
+The $forward$ method within the $Loss$ class is tasked with computing this scalar loss value, $L$, utilizing $A$ (as logits) and $Y$. Following this, the $backward$ method calculates the gradient of the loss with respect to the logits, denoted as $\frac{\partial L}{\partial A}$. This gradient is crucial for the back-propagation process, enabling the update of model parameters during training.
 
 ## Reference:
 
