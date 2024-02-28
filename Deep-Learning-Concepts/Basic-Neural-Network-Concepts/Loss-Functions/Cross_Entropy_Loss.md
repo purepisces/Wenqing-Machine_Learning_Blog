@@ -263,6 +263,8 @@ These results give us the predicted probabilities for each class using the softm
 ```python
 class CrossEntropyLoss:
     def softmax(self, x):
+        # Improve numerical stability for softmax by subtracting the max value within each input vector.
+        # This prevents potential overflow by exponentiating large positive numbers.
         e_x = np.exp(x - np.max(x, axis=1, keepdims=True))
         return e_x / e_x.sum(axis=1, keepdims=True)
 
