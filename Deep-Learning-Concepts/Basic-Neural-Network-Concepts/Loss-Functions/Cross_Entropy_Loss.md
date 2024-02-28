@@ -58,12 +58,19 @@ The derivative of $\log(\sigma(A_{ik}))$ with respect to $A_{ic}$ involves two c
 
 When $k=c$, using the derivative of the logarithm $\frac{\partial \log(x)}{\partial x} = \frac{1}{x}$ and the definition of softmax, we get: 
 
-$$\frac{\partial \log(\sigma(A_{ik}))}{\partial A_{ic}} = \frac{\partial \log(\sigma(A_{ic}))}{\partial \sigma(A_{ic})} \cdot \frac{\partial \sigma(A_{ic})}{\partial A_{ic}} = \frac{1}{\sigma(A_{ic})} \cdot \sigma(A_{ic}) \cdot (1 - \sigma(A_{ic})) = 1 - \sigma(A_{ic})$$
+$$\begin{align*}
+\frac{\partial \log(\sigma(A_{ik}))}{\partial A_{ic}} &= \frac{\partial \log(\sigma(A_{ic}))}{\partial \sigma(A_{ic})} \cdot \frac{\partial \sigma(A_{ic})}{\partial A_{ic}} \\
+&= \frac{1}{\sigma(A_{ic})} \cdot \sigma(A_{ic}) \cdot (1 - \sigma(A_{ic})) \\
+&= 1 - \sigma(A_{ic})
+\end{align*}$$
 
 When $k\neq c$, the derivative involves the softmax function for a different class, and the result is:
 
-$$\frac{\partial \log(\sigma(A_{ik}))}{\partial A_{ic}} = \frac{\partial \log(\sigma(A_{ik}))}{\partial \sigma(A_{ic})} \cdot \frac{\partial \sigma(A_{ic})}{\partial A_{ic}} = \frac{1}{\sigma(A_{ik})} \cdot -\sigma(A_{ik}) \cdot  \sigma(A_{ic}) = -\sigma(A_{ic})$$
-
+$$\begin{align*}
+\frac{\partial \log(\sigma(A_{ik}))}{\partial A_{ic}} &= \frac{\partial \log(\sigma(A_{ik}))}{\partial \sigma(A_{ic})} \cdot \frac{\partial \sigma(A_{ic})}{\partial A_{ic}} \\
+&= \frac{1}{\sigma(A_{ik})} \cdot -\sigma(A_{ik}) \cdot \sigma(A_{ic}) \\
+&= -\sigma(A_{ic})
+\end{align*}$$
 
 #### Step 3: Combine the Cases
 
