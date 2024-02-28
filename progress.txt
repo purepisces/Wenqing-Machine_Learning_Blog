@@ -19,30 +19,33 @@ $$
 
 Editor: https://stackedit.io/app#
 
-ffnn.md✅已发csdn+知乎
-linear-regression.md✅
-variance&standarDeviation.md✅
-Covariance.md ❌ need further improvement for pca
-Linearity.md❌ need further improvement for why the product of the standard deviations of x and y is normalization? Which is correlated to correlation.
-p_values.md✅
-Correlation.md✅
-r-squared.md✅
-statistical-significance.md✅
-Standard-Deviation-vs-Standard-Error.md✅
-Confidence-Intervals.md✅
-least-squared.md✅
-calculus.md✅
-gradient-descent.md✅ need further math formula format improvement, need format and refrase
-Neural-Network.md✅
-backpropagation.md✅ need format and rephrase
-relu.md✅ need format and rephrase
-activation-functions.md✅ 已发csdn+知乎 need format and rephrase, Comparison with different activation Functions, why and when choose which
-sigmoid.md✅已发csdn+知乎
-tanh.md✅
-neural-network-models.md✅
-Linear-Layer.md✅ need further modification
-softmax.md✅已发csdn,未发知乎
-cross_entropy.md✅已发csdn,未发知乎
+1.ffnn.md✅已发csdn+知乎
+2.linear-regression.md✅
+3.variance&standarDeviation.md✅
+4.Covariance.md ❌ need further improvement for pca
+5.Linearity.md❌ need further improvement for why the product of the standard deviations of x and y is normalization? Which is correlated to correlation.
+6.p_values.md✅
+7.Correlation.md✅
+8.r-squared.md✅
+9.statistical-significance.md✅
+10.Standard-Deviation-vs-Standard-Error.md✅
+11.Confidence-Intervals.md✅
+12.least-squared.md✅
+13.calculus.md✅
+14.gradient-descent.md✅ need further math formula format improvement, need format and refrase
+15.Neural-Network.md✅
+16.backpropagation.md✅ need format and rephrase
+17.relu.md✅ need format and rephrase
+18.activation-functions.md✅ 已发csdn+知乎 need format and rephrase, Comparison with different activation Functions, why and when choose which
+19.sigmoid.md✅已发csdn+知乎
+20.tanh.md✅
+21.neural-network-models.md✅
+22.Linear-Layer.md✅ need further modification
+23.softmax.md✅已发csdn,未发知乎
+24.Cross_Entropy_Loss.md✅已发csdn,未发知乎
+25.MSE_Loss.md✅已发csdn,未发知乎
+
+
 
 Chain rule
 Cumulative Distribution Function (CDF)
