@@ -1,3 +1,13 @@
+### Derivation of the Gradient
+To find the gradient of the cross-entropy loss with respect to the logits $A_i$, we need to compute the derivative $\frac{\partial H}{\partial A_i}$. This involves applying the chain rule to the composition of the logarithm and the softmax function.
+
+Note the softmax function for a logit $A_{ic}$ is defined as:
+
+$$\sigma(A_{ic}) = \frac{e^{A_{ic}}}{\sum\limits_{j=1}^{C} e^{A_{ij}}}$$
+
+#### Step 1: Apply the Chain Rule
+First, note that we need to apply the chain rule for the derivative of a composite function, which in this case is the logarithm of the softmax output:
+
 $$H(A_i, Y_i) = -\sum_{c=1}^{C} Y_{ic} \log(\sigma(A_{ic}))$$
 
 $$\begin{align*}
@@ -8,16 +18,24 @@ $$\begin{align*}
 \end{align*}$$
 
 
-**For $k=c$**: The derivative of the softmax function with respect to its corresponding logit $A_{ic}$ is 
+$$\frac{\partial H}{\partial A_{ic}} = - \sum_{k=1}^{C} Y_{ik} \frac{\partial \log(\sigma(A_{ik}))}{\partial A_{ic}}$$
+
+#### Step 2: Derivative of the Logarithm of Softmax
+The derivative of $\log(\sigma(A_{ik}))$ with respect to $A_{ic}$ involves two cases: when $k=c$ and when $k \neq c$.
+
+When $k=c$, using the derivative of the logarithm $\frac{\partial \log(x)}{\partial x} = \frac{1}{x}$ and the definition of softmax, we get: 
 
 $$\frac{\partial \log(\sigma(A_{ik}))}{\partial A_{ic}} = \frac{\partial \log(\sigma(A_{ic}))}{\partial \sigma(A_{ic})} \cdot \frac{\partial \sigma(A_{ic})}{\partial A_{ic}} = \frac{1}{\sigma(A_{ic})} \cdot \sigma(A_{ic}) \cdot (1 - \sigma(A_{ic})) = 1 - \sigma(A_{ic})$$
 
-**For $k\neq c$**: The derivative of the softmax function with respect to its corresponding logit $A_{ic}$ is 
+When $k\neq c$, the derivative involves the softmax function for a different class, and the result is:
 
 $$\frac{\partial \log(\sigma(A_{ik}))}{\partial A_{ic}} = \frac{\partial \log(\sigma(A_{ik}))}{\partial \sigma(A_{ic})} \cdot \frac{\partial \sigma(A_{ic})}{\partial A_{ic}} = \frac{1}{\sigma(A_{ik})} \cdot -\sigma(A_{ik}) \cdot  \sigma(A_{ic}) = -\sigma(A_{ic})$$
 
 
-Combining these 2 cases and since Y is a one-hot vector:
+#### Step 3: Combine the Cases
+
+
+Since $Y_i$ can only be 1 for the true class and 0 otherwise, this simplifies to:
 
 $$\begin{align*}
 \frac{\partial H}{\partial A_{ic}} &= - \sum_{k=1}^{C} Y_{ik} \frac{\partial \log(\sigma(A_{ik}))}{\partial A_{ic}} \\
@@ -25,9 +43,11 @@ $$\begin{align*}
 &= \sigma(A_{ic}) - Y _{ic}
 \end{align*}$$
 
+#### Example 
+
 Let me give specific example to illustrate it:
 
-### Example 1
+#### Example 1
 
 Consider this case $Y = [1,0,0]$ and $A = [2, 1, -1]$.
 
@@ -38,7 +58,7 @@ Then when calculate
 
 $\frac{\partial H}{\partial A_{13}} =- \sum\limits_{k=1}^{C} Y_{1k} \frac{\partial \log(\sigma(A_{1k}))}{\partial A_{13}}=-Y_{11}\frac{\partial \log(\sigma(A_{11}))}{\partial A_{13}}-Y_{12}\frac{\partial \log(\sigma(A_{12}))}{\partial A_{13}}-Y_{13}\frac{\partial \log(\sigma(A_{13}))}{\partial A_{13}} = -1(-\sigma(A_{13}))-0-0 = \sigma(A_{13}) - 0 = \sigma(A_{13}) - Y _{13}$
 
-### Example 2
+#### Example 2
 
 Consider this case $Y = [0,0,1]$ and $A = [2, 1, -1]$.
 
@@ -52,52 +72,6 @@ $\frac{\partial H}{\partial A_{13}} =- \sum\limits_{k=1}^{C} Y_{1k} \frac{\parti
 
 
 # 分割线HAHAHHAHAHAHHAHAHAHAHAHHAHAHAHHAHAHAHAHAHHAHAHAHHAHAHAHAHAHHAHAHAHHAHAHAHAHAHHAHAHAHHAHAHAHAHAHHAHAHAHHAHAHA
-
-$$\begin{align*}
-\frac{\partial H}{\partial A_{ic}} &= - \sum_{k=1}^{C} Y_{ik} \frac{\partial \log(\sigma(A_{ik}))}{\partial A_{ic}} \\
-&=-1 (1 - \sigma(A_{ic})) =  \sigma(A_{ic}) -1 \ \text{or} -1(-\sigma(A_{ic})) = \sigma(A_{ic}) -0\\
-&= \sigma(A_{ic}) - Y _{ic}
-\end{align*}$$
-
-Let me give specific example to illustrate it:
-
-Consider this case $Y = [1,0,0]$ and $A = [2, 1, -1]$.
-
-$Y_{11} = 1, Y_{12} = 0, Y_{13} = 0$
-$A_{11} = 2, A_{12} = 1, A_{13} = -1$
-
-
-Then when calculate 
-
-$\frac{\partial H}{\partial A_{13}} =- \sum\limits_{k=1}^{C} Y_{1k} \frac{\partial \log(\sigma(A_{1k}))}{\partial A_{13}}=-Y_{11}\frac{\partial \log(\sigma(A_{11}))}{\partial A_{13}}-Y_{12}\frac{\partial \log(\sigma(A_{12}))}{\partial A_{13}}-Y_{13}\frac{\partial \log(\sigma(A_{13}))}{\partial A_{13}} = -1(-\sigma(A_{13}))-0-0 = \sigma(A_{13}) - 0 = \sigma(A_{13}) - Y _{13}$
-
-Consider this case Y = [0,0,1] and A = [2, 1, -1].
-$Y_{11} = 0, Y_{12} = 0, Y_{13} = 1$
-$A_{11} = 2, A_{12} = 1, A_{13} = -1$
-Then when calculate 
-
-$\frac{\partial H}{\partial A_{13}} =- \sum_{k=1}^{C} Y_{1k} \frac{\partial \log(\sigma(A_{1k}))}{\partial A_{13}}=-Y_{11}\frac{\partial \log(\sigma(A_{11}))}{\partial A_{13}}-Y_{12}\frac{\partial \log(\sigma(A_{12}))}{\partial A_{13}}-Y_{13}\frac{\partial \log(\sigma(A_{13}))}{\partial A_{13}} = -0-0-1(1 - \sigma(A_{13}))= \sigma(A_{13}) - 1 = \sigma(A_{13}) - Y _{13}$
-
-
-$$\frac{\partial H}{\partial A_i} = - \sum\limits_{k=1}^{C} Y_k \frac{\partial \log(\sigma(A_k))}{\partial A_i}$$
-
-When $i=k$, using the derivative of the logarithm $\frac{\partial \log(x)}{\partial x} = \frac{1}{x}$ and the definition of softmax, we get:
-
-$$\frac{\partial \log(\sigma(A_k))}{\partial A_i} = \frac{\partial \log(\sigma(A_i))}{\partial \sigma(A_i)} \cdot \frac{\partial \sigma(A_i)}{\partial A_i} = \frac{1}{\sigma(A_i)} \cdot \sigma(A_i) \cdot (1 - \sigma(A_i)) = 1 - \sigma(A_i)$$
-
-
-Thus:
-
-$$\frac{\partial H}{\partial A_i} = - \sum\limits_{k=1}^{C} Y_k \frac{\partial \log(\sigma(A_k))}{\partial A_i} = -Y_i(1 - \sigma(A_i)) = \sigma(A_i) - Y_i = \sigma(A_i) - 1$$
-
-When $i\neq k$, using the derivative of the logarithm $\frac{\partial \log(x)}{\partial x} = \frac{1}{x}$ and the definition of softmax, we get:
-
-$$\frac{\partial \log(\sigma(A_k))}{\partial A_i} = \frac{\partial \log(\sigma(A_k))}{\partial \sigma(A_k)} \cdot \frac{\partial \sigma(A_k)}{\partial A_i} = \frac{1}{\sigma(A_k)} \cdot -\sigma(A_k) \cdot \sigma(A_i) = - \sigma(A_i)$$
-
-Thus:
-
-$$\frac{\partial H}{\partial A_i} = - \sum\limits_{k=1}^{C} Y_k \frac{\partial \log(\sigma(A_k))}{\partial A_i} = -Y_i(- \sigma(A_i)) = \sigma(A_i) = \sigma(A_i) - 0$$
-
 
 # Softmax + Cross Entropy
 
