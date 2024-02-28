@@ -1,4 +1,37 @@
-### Derivation of the Gradient
+# Cross-Entropy Loss
+
+Cross-entropy loss is one of the most commonly used loss function for probability-based classification problems. 
+
+## Cross-Entropy Loss Forward Equation
+
+Firstly, we use softmax function to transform the raw model outputs $A$ into a probability distribution consisting of $C$ classes proportional to the exponentials of the input numbers.
+
+$\iota_N$, $\iota_C$ are column vectors of size $N$ and $C$ which contain all 1s. 
+
+$$\text{softmax}(A) = \sigma(A) = \frac{\exp(A)}{\sum\limits_{j=1}^{C} \exp(A_{ij})}$$
+
+
+Now, each row of A represents the model’s prediction of the probability distribution while each row of Y represents target distribution of an input in the batch.
+Then, we calculate the cross-entropy H(A,Y) of the distribution Ai relative to the target distribution Yi for i = 1,...,N:
+
+$$\text{crossentropy} = H(A, Y) = (-Y \circ \log(\sigma(A))) \cdot \mathbf{\iota}_C$$
+
+Remember that the output of a loss function is a scalar, but now we have a column matrix of size N. To transform it into a scalar, we can either use the sum or mean of all cross-entropy.
+
+Here, we choose to use the mean cross-entropy as the cross-entropy loss as that is the default for PyTorch as well:
+
+$$\text{sumcrossentropyloss} := \mathbf{\iota}_N^T \cdot H(A, Y) = SCE(A, Y)$$
+
+$$\text{meancrossentropyloss} := \frac{SCE(A, Y)}{N}$$
+
+insert img
+
+Cross-Entropy Loss Backward Equation
+
+$$\text{xent.backward}() = \frac{\sigma(A) - Y}{N}$$
+
+
+### Derivation of the Gradient(My prove)
 To find the gradient of the cross-entropy loss with respect to the logits $A_i$, we need to compute the derivative $\frac{\partial H}{\partial A_i}$. This involves applying the chain rule to the composition of the logarithm and the softmax function.
 
 Note the softmax function for a logit $A_{ic}$ is defined as:
@@ -56,7 +89,13 @@ $A_{11} = 2, A_{12} = 1, A_{13} = -1$
 
 Then when calculate 
 
-$\frac{\partial H}{\partial A_{13}} =- \sum\limits_{k=1}^{C} Y_{1k} \frac{\partial \log(\sigma(A_{1k}))}{\partial A_{13}}=-Y_{11}\frac{\partial \log(\sigma(A_{11}))}{\partial A_{13}}-Y_{12}\frac{\partial \log(\sigma(A_{12}))}{\partial A_{13}}-Y_{13}\frac{\partial \log(\sigma(A_{13}))}{\partial A_{13}} = -1(-\sigma(A_{13}))-0-0 = \sigma(A_{13}) - 0 = \sigma(A_{13}) - Y _{13}$
+$$\begin{align*}
+\frac{\partial H}{\partial A_{13}} &= - \sum\limits_{k=1}^{C} Y_{1k} \frac{\partial \log(\sigma(A_{1k}))}{\partial A_{13}}\\
+&=-Y_{11}\frac{\partial \log(\sigma(A_{11}))}{\partial A_{13}}-Y_{12}\frac{\partial \log(\sigma(A_{12}))}{\partial A_{13}}-Y_{13}\frac{\partial \log(\sigma(A_{13}))}{\partial A_{13}}\\
+&= -1(-\sigma(A_{13}))-0-0 \\
+&= \sigma(A_{13}) - 0 \\
+&= \sigma(A_{13}) - Y _{13}\\
+\end{align*}$$
 
 #### Example 2
 
@@ -67,11 +106,16 @@ $A_{11} = 2, A_{12} = 1, A_{13} = -1$
 
 Then when calculate 
 
-$\frac{\partial H}{\partial A_{13}} =- \sum\limits_{k=1}^{C} Y_{1k} \frac{\partial \log(\sigma(A_{1k}))}{\partial A_{13}}=-Y_{11}\frac{\partial \log(\sigma(A_{11}))}{\partial A_{13}}-Y_{12}\frac{\partial \log(\sigma(A_{12}))}{\partial A_{13}}-Y_{13}\frac{\partial \log(\sigma(A_{13}))}{\partial A_{13}} = -0-0-1(1 - \sigma(A_{13}))= \sigma(A_{13}) - 1 = \sigma(A_{13}) - Y _{13}$
+$$\begin{align*}
+\frac{\partial H}{\partial A_{13}} &= - \sum\limits_{k=1}^{C} Y_{1k} \frac{\partial \log(\sigma(A_{1k}))}{\partial A_{13}}\\
+&=-Y_{11}\frac{\partial \log(\sigma(A_{11}))}{\partial A_{13}}-Y_{12}\frac{\partial \log(\sigma(A_{12}))}{\partial A_{13}}-Y_{13}\frac{\partial \log(\sigma(A_{13}))}{\partial A_{13}}\\
+&= -0-0-1(1 - \sigma(A_{13})) \\
+&= \sigma(A_{13}) - 1 \\
+&= \sigma(A_{13}) - Y _{13}\\
+\end{align*}$$
 
 
-
-# 分割线HAHAHHAHAHAHHAHAHAHAHAHHAHAHAHHAHAHAHAHAHHAHAHAHHAHAHAHAHAHHAHAHAHHAHAHAHAHAHHAHAHAHHAHAHAHAHAHHAHAHAHHAHAHA
+### Derivation of the Gradient(Youtube's prove)
 
 # Softmax + Cross Entropy
 
@@ -130,7 +174,6 @@ $$\frac{\partial \mathcal{L}}{\partial a_L} = \begin{bmatrix}
 \frac{y_C}{a_{LC}}
 \end{bmatrix}$$
 
-
 Remember that for each 1-hot vector of $y$ we only have one element which is equal to 1, the rest are 0.
 
 Going back to our concrete $3x3$ example, and putting everything together, we get:
@@ -150,102 +193,7 @@ a_1(1 - a_1) & -a_1a_2 & -a_1a_3 \\
 note that $\mathbf{a}$ and $\mathbf{y}$ here are vectors, not scalars.
 
 
-# Derivation of the Gradient
-
-To understand why the derivative of the cross-entropy loss 
-$- \sum\limits_{i=1}^{C} Y_i \log(\sigma(A_i))$ with respect to the logits $A_i$ is $\sigma(A_i) - Y_i$, let's delve into the mathematical details. This derivation involves applying the chain rule for derivatives and leveraging the specific mathematical properties of the softmax and logarithm functions.
-
-### Cross-Entropy Loss and Softmax
-The cross-entropy loss for a single sample when using the softmax function for a multi-class classification problem is given by:
-
-$$H(Y, \sigma(A)) = - \sum_{i=1}^{C} Y_i \log(\sigma(A_i))$$
-where:
-- $Y_i$ is the true label for class $i$, which is 1 for the correct class and 0 for all other classes in one-hot encoding.
-- $\sigma(A_i)$ is the softmax function applied to the logit $A_i$, representing the predicted probability that the sample belongs to class $i$.
-
-### Softmax Function
-The softmax function for a logit $A_i$ is defined as:
-
-$$\sigma(A_i) = \frac{e^{A_i}}{\sum\limits_{j=1}^{C} e^{A_j}}$$
-
-### Derivation of the Gradient
-To find the gradient of the cross-entropy loss with respect to the logits $A_i$, we need to compute the derivative $\frac{\partial H}{\partial A_i}$. This involves applying the chain rule to the composition of the logarithm and the softmax function.
-
-#### Step 1: Apply the Chain Rule
-First, note that we need to apply the chain rule for the derivative of a composite function, which in this case is the logarithm of the softmax output:
-
-$$\begin{align*}
-H(Y, \sigma(A)) &= - \sum_{i=1}^{C} Y_i \log(\sigma(A_i)) \\
-&= -Y_1\log(\sigma(A_1))  -Y_2\log(\sigma(A_2))-...-Y_C\log(\sigma(A_C))
-\end{align*}$$
-
-$$\begin{align*}
-\frac{\partial H}{\partial A_i} &= \frac{\partial (-Y_1\log(\sigma(A_1))  -Y_2\log(\sigma(A_2))-...-Y_C\log(\sigma(A_C)))}{\partial A_i} \\
-&=  \frac{\partial (-Y_1\log(\sigma(A_1)))}{\partial A_i}  + \frac{\partial (-Y_2\log(\sigma(A_2)))}{\partial A_i}  + ...+ \frac{\partial (-Y_C\log(\sigma(A_C)))}{\partial A_i} \\
-&=-Y_1\frac{\partial \log(\sigma(A_1))}{\partial A_i} -Y_2\frac{\partial \log(\sigma(A_2))}{\partial A_i} -...-Y_C\frac{\partial \log(\sigma(A_C))}{\partial A_i} \\
-&=- \sum_{k=1}^{C} Y_k \frac{\partial \log(\sigma(A_k))}{\partial A_i}\\
-\end{align*}$$
-
-$$\frac{\partial H}{\partial A_i} = - \sum\limits_{k=1}^{C} Y_k \frac{\partial \log(\sigma(A_k))}{\partial A_i}$$
-
-Note: **Summation over Classes:** The gradient $\frac{\partial H}{\partial A_i}$ is the sum of the derivatives for each class $k$. This accounts for the fact that changing $A_i$ not only affects the predicted probability $\sigma(A_i)$ for class $i$ but also the predicted probabilities for all other classes because of the softmax normalization.
-
-#### Step 2: Derivative of the Logarithm of Softmax
-The derivative of $\log(\sigma(A_k))$ with respect to $A_i$ involves two cases: when $i=k$ and when $i \neq k$.
-
-When $i=k$, using the derivative of the logarithm $\frac{\partial \log(x)}{\partial x} = \frac{1}{x}$ and the definition of softmax, we get:
-
-$$\frac{\partial \log(\sigma(A_k))}{\partial A_i} = \frac{\partial \log(\sigma(A_i))}{\partial \sigma(A_i)} \cdot \frac{\partial \sigma(A_i)}{\partial A_i} = \frac{1}{\sigma(A_i)} \cdot \sigma(A_i) \cdot (1 - \sigma(A_i)) = 1 - \sigma(A_i)$$
-
-When $i \neq k$, the derivative involves the softmax function for a different class $k$, and the result is:
-
-$$\frac{\partial \log(\sigma(A_k))}{\partial A_i} = \frac{\partial \log(\sigma(A_k))}{\partial \sigma(A_k)} \cdot \frac{\partial \sigma(A_k)}{\partial A_i} = \frac{1}{\sigma(A_k)} \cdot -\sigma(A_k) \cdot \sigma(A_i) = - \sigma(A_i)$$
-
-#### Step 3: Combine the Cases
-
-
-Since $Y_i$ can only be 1 for the true class and 0 otherwise, this simplifies to:
-
-$$\frac{\partial H}{\partial A_i} = \sigma(A_i) - Y_i$$
-
-This result shows that the gradient of the cross-entropy loss with respect to the logits $A_i$ is the difference between the predicted probability $\sigma(A_i)$ and the actual class label $Y_i$, which is a crucial aspect in updating the weights during the training of neural networks for classification tasks. This gradient essentially tells us how to adjust the logits to reduce the loss, moving the predictions closer to the true labels.
-
-
-# Cross-Entropy Loss
-
-Cross-entropy loss is one of the most commonly used loss function for probability-based classification problems. 
-
-## Cross-Entropy Loss Forward Equation
-
-Firstly, we use softmax function to transform the raw model outputs $A$ into a probability distribution consisting of $C$ classes proportional to the exponentials of the input numbers.
-
-$\iota_N$, $\iota_C$ are column vectors of size $N$ and $C$ which contain all 1s. 
-
-$$\text{softmax}(A) = \sigma(A) = \frac{\exp(A)}{\sum\limits_{j=1}^{C} \exp(A_{ij})}$$
-
-
-
-Now, each row of A represents the model’s prediction of the probability distribution while each row of Y represents target distribution of an input in the batch.
-Then, we calculate the cross-entropy H(A,Y) of the distribution Ai relative to the target distribution Yi for i = 1,...,N:
-
-$$\text{crossentropy} = H(A, Y) = (-Y \circ \log(\sigma(A))) \cdot \mathbf{\iota}_C$$
-
-Remember that the output of a loss function is a scalar, but now we have a column matrix of size N. To transform it into a scalar, we can either use the sum or mean of all cross-entropy.
-
-Here, we choose to use the mean cross-entropy as the cross-entropy loss as that is the default for PyTorch as well:
-
-$$\text{sumcrossentropyloss} := \mathbf{\iota}_N^T \cdot H(A, Y) = SCE(A, Y)$$
-
-$$\text{meancrossentropyloss} := \frac{SCE(A, Y)}{N}$$
-
-insert img
-
-Cross-Entropy Loss Backward Equation
-
-$$\text{xent.backward}() = \frac{\sigma(A) - Y}{N}$$
-
-
-## Example
+## Example For Cross Entropy Loss
 
 To illustrate the cross-entropy loss, let's consider a specific example with a small dataset. Imagine we have a simple classification problem with three classes (C=3) and we are working with a batch of two samples ($N=2$). The raw output scores ($A$) from the model for these two samples and the corresponding true labels ($Y$) could be as follows:
 
