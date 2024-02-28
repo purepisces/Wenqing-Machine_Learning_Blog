@@ -1,3 +1,84 @@
+$$H(A_i, Y_i) = -\sum_{c=1}^{C} Y_{ic} \log(\sigma(A_{ic}))$$
+
+$$\begin{align*}
+\frac{\partial H}{\partial A_{ic}} &= \frac{\partial (-Y_{i1}\log(\sigma(A_{i1}))  -Y_{i2}\log(\sigma(A_{i2}))-...-Y_{iC}\log(\sigma(A_{iC})))}{\partial A_{ic}} \\
+&=  \frac{\partial (-Y_{i1}\log(\sigma(A_{i1})))}{\partial A_{ic}}  + \frac{\partial (-Y_{i2}\log(\sigma(A_{i2})))}{\partial A_{ic}}  + ...+ \frac{\partial (-Y_{iC}\log(\sigma(A_{iC})))}{\partial A_{ic}} \\
+&=-Y_{i1}\frac{\partial \log(\sigma(A_{i1}))}{\partial A_{ic}} -Y_{i2}\frac{\partial \log(\sigma(A_{i2}))}{\partial A_{ic}} -...-Y_{iC}\frac{\partial \log(\sigma(A_{iC}))}{\partial A_{ic}} \\
+&=- \sum_{k=1}^{C} Y_{ik} \frac{\partial \log(\sigma(A_{ik}))}{\partial A_{ic}}\\
+\end{align*}$$
+
+
+**For $k=c$**: The derivative of the softmax function with respect to its corresponding logit $A_{ic}$ is 
+
+$$\frac{\partial \log(\sigma(A_{ik}))}{\partial A_{ic}} = \frac{\partial \log(\sigma(A_{ic}))}{\partial \sigma(A_{ic})} \cdot \frac{\partial \sigma(A_{ic})}{\partial A_{ic}} = \frac{1}{\sigma(A_{ic})} \cdot \sigma(A_{ic}) \cdot (1 - \sigma(A_{ic})) = 1 - \sigma(A_{ic})$$
+
+**For $k\neq c$**: The derivative of the softmax function with respect to its corresponding logit $A_{ic}$ is 
+
+$$\frac{\partial \log(\sigma(A_{ik}))}{\partial A_{ic}} = \frac{\partial \log(\sigma(A_{ik}))}{\partial \sigma(A_{ic})} \cdot \frac{\partial \sigma(A_{ic})}{\partial A_{ic}} = \frac{1}{\sigma(A_{ik})} \cdot -\sigma(A_{ik}) \cdot  \sigma(A_{ic}) = -\sigma(A_{ic})$$
+
+
+Combining these 2 cases and since Y is a one-hot vector:
+
+$$\begin{align*}
+\frac{\partial H}{\partial A_{ic}} &= - \sum_{k=1}^{C} Y_{ik} \frac{\partial \log(\sigma(A_{ik}))}{\partial A_{ic}} \\
+&=-1 (1 - \sigma(A_{ic})) =  \sigma(A_{ic}) -1 \ \text{or} -1(-\sigma(A_{ic})) = \sigma(A_{ic}) -0\\
+&= \sigma(A_{ic}) - Y _{ic}
+\end{align*}$$
+
+Let me give specific example to illustrate it:
+
+### Example 1
+
+Consider this case $Y = [1,0,0]$ and $A = [2, 1, -1]$.
+
+$Y_{11} = 1, Y_{12} = 0, Y_{13} = 0$
+$A_{11} = 2, A_{12} = 1, A_{13} = -1$
+
+Then when calculate 
+
+$\frac{\partial H}{\partial A_{13}} =- \sum\limits_{k=1}^{C} Y_{1k} \frac{\partial \log(\sigma(A_{1k}))}{\partial A_{13}}=-Y_{11}\frac{\partial \log(\sigma(A_{11}))}{\partial A_{13}}-Y_{12}\frac{\partial \log(\sigma(A_{12}))}{\partial A_{13}}-Y_{13}\frac{\partial \log(\sigma(A_{13}))}{\partial A_{13}} = -1(-\sigma(A_{13}))-0-0 = \sigma(A_{13}) - 0 = \sigma(A_{13}) - Y _{13}$
+
+### Example 2
+
+Consider this case $Y = [0,0,1]$ and $A = [2, 1, -1]$.
+
+$Y_{11} = 0, Y_{12} = 0, Y_{13} = 1$
+$A_{11} = 2, A_{12} = 1, A_{13} = -1$
+
+Then when calculate 
+
+$\frac{\partial H}{\partial A_{13}} =- \sum\limits_{k=1}^{C} Y_{1k} \frac{\partial \log(\sigma(A_{1k}))}{\partial A_{13}}=-Y_{11}\frac{\partial \log(\sigma(A_{11}))}{\partial A_{13}}-Y_{12}\frac{\partial \log(\sigma(A_{12}))}{\partial A_{13}}-Y_{13}\frac{\partial \log(\sigma(A_{13}))}{\partial A_{13}} = -0-0-1(1 - \sigma(A_{13}))= \sigma(A_{13}) - 1 = \sigma(A_{13}) - Y _{13}$
+
+
+
+# 分割线HAHAHHAHAHAHHAHAHAHAHAHHAHAHAHHAHAHAHAHAHHAHAHAHHAHAHAHAHAHHAHAHAHHAHAHAHAHAHHAHAHAHHAHAHAHAHAHHAHAHAHHAHAHA
+
+$$\begin{align*}
+\frac{\partial H}{\partial A_{ic}} &= - \sum_{k=1}^{C} Y_{ik} \frac{\partial \log(\sigma(A_{ik}))}{\partial A_{ic}} \\
+&=-1 (1 - \sigma(A_{ic})) =  \sigma(A_{ic}) -1 \ \text{or} -1(-\sigma(A_{ic})) = \sigma(A_{ic}) -0\\
+&= \sigma(A_{ic}) - Y _{ic}
+\end{align*}$$
+
+Let me give specific example to illustrate it:
+
+Consider this case $Y = [1,0,0]$ and $A = [2, 1, -1]$.
+
+$Y_{11} = 1, Y_{12} = 0, Y_{13} = 0$
+$A_{11} = 2, A_{12} = 1, A_{13} = -1$
+
+
+Then when calculate 
+
+$\frac{\partial H}{\partial A_{13}} =- \sum\limits_{k=1}^{C} Y_{1k} \frac{\partial \log(\sigma(A_{1k}))}{\partial A_{13}}=-Y_{11}\frac{\partial \log(\sigma(A_{11}))}{\partial A_{13}}-Y_{12}\frac{\partial \log(\sigma(A_{12}))}{\partial A_{13}}-Y_{13}\frac{\partial \log(\sigma(A_{13}))}{\partial A_{13}} = -1(-\sigma(A_{13}))-0-0 = \sigma(A_{13}) - 0 = \sigma(A_{13}) - Y _{13}$
+
+Consider this case Y = [0,0,1] and A = [2, 1, -1].
+$Y_{11} = 0, Y_{12} = 0, Y_{13} = 1$
+$A_{11} = 2, A_{12} = 1, A_{13} = -1$
+Then when calculate 
+
+$\frac{\partial H}{\partial A_{13}} =- \sum_{k=1}^{C} Y_{1k} \frac{\partial \log(\sigma(A_{1k}))}{\partial A_{13}}=-Y_{11}\frac{\partial \log(\sigma(A_{11}))}{\partial A_{13}}-Y_{12}\frac{\partial \log(\sigma(A_{12}))}{\partial A_{13}}-Y_{13}\frac{\partial \log(\sigma(A_{13}))}{\partial A_{13}} = -0-0-1(1 - \sigma(A_{13}))= \sigma(A_{13}) - 1 = \sigma(A_{13}) - Y _{13}$
+
+
 $$\frac{\partial H}{\partial A_i} = - \sum\limits_{k=1}^{C} Y_k \frac{\partial \log(\sigma(A_k))}{\partial A_i}$$
 
 When $i=k$, using the derivative of the logarithm $\frac{\partial \log(x)}{\partial x} = \frac{1}{x}$ and the definition of softmax, we get:
