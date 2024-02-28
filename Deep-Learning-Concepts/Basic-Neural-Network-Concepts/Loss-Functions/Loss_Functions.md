@@ -49,7 +49,7 @@ class Loss:
 > Note: In the context of regression tasks, the dimension corresponding to the number of classes, $C$, simplifies to 1. This is because regression problems involve predicting a single continuous variable, rather than selecting from multiple categories. Conversely, in classification scenarios, $C$ represents the total number of distinct classes or categories into which each input can be classified, and thus can vary based on the specific problem at hand.
 >
 
-The loss function topology is visualized in the follwing Figure, whose reference persists throughout this document.
+The loss function topology is visualized in the follwing Figure.
 
 <img src="Loss_Function_Topology.png" alt="Loss_Function_Topology" width="400" height="300"/>
 
