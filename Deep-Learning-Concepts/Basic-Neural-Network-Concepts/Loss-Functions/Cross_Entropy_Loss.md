@@ -14,7 +14,7 @@ $$\text{softmax}(A) = \sigma(A) = \frac{\exp(A)}{\sum\limits_{j=1}^{C} \exp(A_{i
 Now, each row of A represents the model’s prediction of the probability distribution while each row of Y represents target distribution of an input in the batch.
 Then, we calculate the cross-entropy H(A,Y) of the distribution Ai relative to the target distribution Yi for i = 1,...,N:
 
-$$\text{crossentropy} = H(A, Y) = (-Y \circ \log(\sigma(A))) \cdot \mathbf{\iota}_C$$
+$$\text{crossentropy} = H(A, Y) = (-Y \odot \log(\sigma(A))) \cdot \mathbf{\iota}_C$$
 
 Remember that the output of a loss function is a scalar, but now we have a column matrix of size N. To transform it into a scalar, we can either use the sum or mean of all cross-entropy.
 
