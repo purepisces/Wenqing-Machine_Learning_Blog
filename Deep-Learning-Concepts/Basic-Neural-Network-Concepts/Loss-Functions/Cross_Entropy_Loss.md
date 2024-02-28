@@ -26,7 +26,7 @@ $$\text{meancrossentropyloss} := \frac{SCE(A, Y)}{N}$$
 
 <img src="cross_entropy_loss.png" alt="cross_entropy_loss" width="400" height="300"/>
 
-Cross-Entropy Loss Backward Equation
+## Cross-Entropy Loss Backward Equation
 
 $$\text{xent.backward}() = \frac{\sigma(A) - Y}{N}$$
 
