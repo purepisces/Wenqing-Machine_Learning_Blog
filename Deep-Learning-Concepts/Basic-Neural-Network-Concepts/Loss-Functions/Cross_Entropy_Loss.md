@@ -176,7 +176,7 @@ $$\frac{\partial \mathcal{L}}{\partial a_L} = \begin{bmatrix}
 
 Remember that for each 1-hot vector of $y$ we only have one element which is equal to 1, the rest are 0.
 
-Going back to our concrete $3x3$ example, and putting everything together, we get:
+Going back to our concrete $3 \times 3$ example, and putting everything together, we get:
 
 $$\begin{align}
 \frac{\partial \mathcal{L}}{\partial z_L} &= \frac{\partial \mathcal{L}}{\partial a_L} \frac{\partial a_L}{\partial z_L} \\
