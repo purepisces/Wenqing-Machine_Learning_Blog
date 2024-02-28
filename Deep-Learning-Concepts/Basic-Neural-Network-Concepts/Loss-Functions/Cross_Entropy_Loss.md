@@ -247,8 +247,8 @@ This gives us the gradients that we need to backpropagate through the network.
 Based on the calculations:
 
 - The softmax probabilities for the two samples are approximately:
-  - Sample 1: [0.659, 0.242, 0.099]
-  - Sample 2: [0.073, 0.487, 0.440]
+  - Sample 1: $[0.659, 0.242, 0.099]$
+  - Sample 2: $[0.073, 0.487, 0.440]$
 
 - The cross-entropy losses for the two samples are:
   - Sample 1: 1.417
@@ -257,8 +257,8 @@ Based on the calculations:
 - The mean cross-entropy loss for this batch is approximately 2.019.
 
 - The gradients of the loss with respect to the raw model outputs ($A$) are:
-  - For Sample 1: [0.330, -0.379, 0.049]
-  - For Sample 2: [-0.464, 0.243, 0.220]
+  - For Sample 1: $[0.330, -0.379, 0.049]$
+  - For Sample 2: $[-0.464, 0.243, 0.220]$
 
 These results give us the predicted probabilities for each class using the softmax function, the individual cross-entropy losses for each sample, the overall mean cross-entropy loss for the batch, and the gradients required for the backward pass. The negative values in the gradients indicate the direction in which we should adjust our model's parameters to reduce the loss, while the positive values suggest the opposite.
 
