@@ -273,10 +273,13 @@ class CrossEntropyLoss:
         self.Y = Y
         self.softmax = self.softmax(A)
         crossentropy = -Y * np.log(self.softmax)
+        # Average the loss over the batch
         L = np.sum(crossentropy) / A.shape[0]
         return L
 
     def backward(self):
+        # Compute the gradient of the loss with respect to the logits (pre-softmax activations) A
+        # This gradient also includes the averaging over the batch
         dLdA = (self.softmax - self.Y) / self.A.shape[0]
         return dLdA
 ```
@@ -284,6 +287,3 @@ class CrossEntropyLoss:
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=rf4WF-5y8uY)
 - CMU_11785_Introduction_To_Deep_Learning
-
-
-
