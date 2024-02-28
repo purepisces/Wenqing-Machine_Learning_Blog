@@ -43,7 +43,7 @@ Editor: https://stackedit.io/app#
 23.softmax.md✅已发csdn,未发知乎
 24.Cross_Entropy_Loss.md✅已发csdn,未发知乎
 25.MSE_Loss.md✅已发csdn,未发知乎
-
+26.Loss_Functions.md✅已发csdn,未发知乎
 
 
 Chain rule
