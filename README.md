@@ -105,6 +105,8 @@
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Loss_Functions.md)
   - [MSE_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/MSE_Loss.md)
   - [Cross_Entropy_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Cross_Entropy_Loss.md)
+- **Optimizers**
+  - [Stochastic Gradient Descent (SGD)](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Optimizers/SGD.md)
 
 ### Sequence Models
 - [Overview](sequence-models-overview.md)
