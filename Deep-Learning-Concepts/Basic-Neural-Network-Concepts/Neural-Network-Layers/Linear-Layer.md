@@ -1,13 +1,8 @@
-# Introduction to Neural Networks and Linear Layers(this introduction part is from chatgpt, need further modification)
+# Introduction to Neural Networks and Linear Layers
 
 Neural networks are a foundational element of machine learning, inspired by the structure and function of the human brain. These computational models are designed to recognize patterns and make decisions based on input data. At the core of neural networks are layers of interconnected nodes or "neurons," each capable of performing simple calculations. The data flows through these layers, transforming through various operations, leading to the final output which can be used for tasks such as classification, regression, and more.
 
 Among these layers, linear (or fully-connected) layers play a crucial role. They are so named because each neuron in a linear layer is connected to every neuron in the previous layer, forming a dense network. These layers apply linear transformations to the incoming data, effectively learning to weigh the importance of input features through adjustable parameters known as weights and biases.
-
-Linear layers are fundamental to the structure of many neural networks, serving as the building blocks that allow these models to learn complex patterns and relationships within the data. Their simplicity and effectiveness make them a staple in the neural network architecture, capable of handling a wide range of tasks from simple to highly complex.
-
-The following sections will delve into the specifics of linear layers, including their components, forward and backward propagation equations, and practical code implementations, providing a comprehensive understanding of their operation and significance within neural networks.
-
 
 # Neural Network Layers
 
@@ -24,9 +19,9 @@ Linear layers, also known as fully-connected layers, connect every input neuron 
   - Variables stored during backward-propagation to train model parameters dLdW, dLdb.
 
 - Class methods:
-  - `__init__`: Two parameters define a linear layer: `in_feature (C_in)` and `out_feature (C_out)`. Zero initialize weight W and bias b based on the inputs. Refer to Table 1(Linear Layer Components) to see how the shapes of W and b are related to the inputs (Hint: - Check the shapes of the `in_feature` and `out_feature` and create a numpy array with zeros based on the required shape of W and b given in Table 5.1).
-  - `forward`: forward method takes in a batch of data A of shape N x C_in (representing N samples where each sample has C_in features), and computes output Z of shape N x C_out – each data sample is now represented by C_out features.
-  - `backward`: backward method takes in input dLdZ, how changes in its output Z affect loss L. It calculates and stores **dLdW, dLdb – how changes in the layer weights and bias affect loss**, which are used to improve the model. It returns dLdA, how changes in the layer inputs affect loss to enable downstream computation.
+  - $__init__$: Two parameters define a linear layer: $in_feature (C_in)$ and $out_feature (C_out)$. Zero initialize weight $W$ and bias $b$ based on the inputs. Refer to Table 1(Linear Layer Components) to see how the shapes of $W$ and $b$ are related to the inputs (Hint: - Check the shapes of the $in_feature$ and $out_feature$ and create a numpy array with zeros based on the required shape of $W$ and $b$ given in Table 1).
+  - $forward$: forward method takes in a batch of data A of shape $N \times C_in$ (representing N samples where each sample has $C_in$ features), and computes output $Z$ of shape $N \times C_out$ – each data sample is now represented by $C_out$ features.
+  - $backward$: backward method takes in input $dLdZ$, how changes in its output $Z$ affect loss $L$. It calculates and stores **dLdW, dLdb – how changes in the layer weights and bias affect loss**, which are used to improve the model. It returns dLdA, how changes in the layer inputs affect loss to enable downstream computation.
 
 Please consider the following class structure:
 
@@ -79,16 +74,14 @@ During forward propagation, we apply a linear transformation to the incoming dat
 
 $$Z = A . W^T + 1_N . b^T ∈ R^(N x C_out)$$
 
-insert image
-
 <img src="Linear_Layer_Forward.png" alt="Linear_Layer_Forward" width="400" height="300"/>
 
 
 ## 5.1.2 Linear Layer Backward Equation
 
-As mentioned earlier, the objective of backward propagation is to calculate the derivative of the loss with respect to the weight matrix, bias, and input to the linear layer, i.e., dLdW, dLdb, and dLdA respectively.
+As mentioned earlier, the objective of backward propagation is to calculate the derivative of the loss with respect to the weight matrix, bias, and input to the linear layer, i.e., $dLdW$, $dLdb$, and $dLdA$ respectively.
 
-Given ∂L/∂Z as an input to the backward function, we can apply chain rule to obtain how changes in A, W, b affect loss L:
+Given $\frac{\partial L}{\partial Z}$ as an input to the backward function, we can apply chain rule to obtain how changes in $A$, $W$, $b$ affect loss $L$:
 
 
 $$\frac{\partial L}{\partial A} = \left(\frac{\partial L}{\partial Z}\right) \cdot \left(\frac{\partial Z}{\partial A}\right)^T \in \mathbb{R}^{(N \times C_{\text{in}})}$$
@@ -99,7 +92,7 @@ $$\frac{\partial L}{\partial b} = \left(\frac{\partial L}{\partial Z}\right)^T \
 
 In the above equations, dZdA, dZdW, and dZdb represent how the input, weights matrix, and bias respectively affect the output of the linear layer.
 
-Now, Z, A, and W are all two-dimensional matrices (see Table 1 above). dZdA would have derivative terms corresponding to each term of Z with respect to each term of A, and hence would be a 4-dimensional tensor. Similarly, dZdW would be 4-dimensional and dZdb would be 3-dimensional (since b is 1-dimensional). These high-dimensional matrices would be sparse (many terms would be 0) as only some pairs of terms have a dependence. So, to make things simpler and avoid dealing with high-dimensional intermediate tensors, the derivative equations given above are simplified to the below form:
+Now, $Z$, $A$, and $W$ are all two-dimensional matrices (see Table 1 above). $dZdA$ would have derivative terms corresponding to each term of $Z$ with respect to each term of $A$, and hence would be a 4-dimensional tensor. Similarly, dZdW would be 4-dimensional and dZdb would be 3-dimensional (since $b$ is 1-dimensional). These high-dimensional matrices would be sparse (many terms would be 0) as only some pairs of terms have a dependence. So, to make things simpler and avoid dealing with high-dimensional intermediate tensors, the derivative equations given above are simplified to the below form:
 
 $$\frac{\partial L}{\partial A} = \left(\frac{\partial L}{\partial Z}\right) \cdot W \in \mathbb{R}^{(N \times C_{\text{in}})}$$
 
@@ -129,12 +122,12 @@ To illustrate why the collection of 2D arrays for `dZ/db` forms a 3D tensor rath
 
 ### Numerical Example:
 Let's consider a linear layer with:
-- 2 input features (`C_in = 2`)
-- 3 output features (`C_out = 3`)
-- A batch size of 2 (`N = 2`)
+- 2 input features ($C_in = 2$)
+- 3 output features ($C_out = 3$)
+- A batch size of 2 ($N = 2$)
 
-#### Bias Vector `b`:
-Suppose the bias vector `b` is:
+#### Bias Vector $b$:
+Suppose the bias vector $b$ is:
 
 $$
 b = \begin{pmatrix}
@@ -144,8 +137,8 @@ b_3
 \end{pmatrix}
 $$
 
-#### Output Matrix `Z`:
-And the output matrix `Z` (before adding the bias) for a specific input batch might be:
+#### Output Matrix $Z$:
+And the output matrix $Z$ (before adding the bias) for a specific input batch might be:
 
 $$
 Z_{\text{before bias}} = \begin{pmatrix}
@@ -154,7 +147,7 @@ z_{21} & z_{22} & z_{23}
 \end{pmatrix}
 $$
 
-After adding the bias `b`, the output `Z` becomes:
+After adding the bias $b$, the output `Z` becomes:
 
 $$
 Z = \begin{pmatrix}
