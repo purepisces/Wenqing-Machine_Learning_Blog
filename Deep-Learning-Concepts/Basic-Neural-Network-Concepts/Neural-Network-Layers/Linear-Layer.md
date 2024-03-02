@@ -19,9 +19,9 @@ Linear layers, also known as fully-connected layers, connect every input neuron 
   - Variables stored during backward-propagation to train model parameters dLdW, dLdb.
 
 - Class methods:
-  - $__init__$: Two parameters define a linear layer: $in_feature (C_in)$ and $out_feature (C_out)$. Zero initialize weight $W$ and bias $b$ based on the inputs. Refer to Table 1(Linear Layer Components) to see how the shapes of $W$ and $b$ are related to the inputs (Hint: - Check the shapes of the $in_feature$ and $out_feature$ and create a numpy array with zeros based on the required shape of $W$ and $b$ given in Table 1).
-  - $forward$: forward method takes in a batch of data A of shape $N \times C_in$ (representing N samples where each sample has $C_in$ features), and computes output $Z$ of shape $N \times C_out$ – each data sample is now represented by $C_out$ features.
-  - $backward$: backward method takes in input $dLdZ$, how changes in its output $Z$ affect loss $L$. It calculates and stores **dLdW, dLdb – how changes in the layer weights and bias affect loss**, which are used to improve the model. It returns dLdA, how changes in the layer inputs affect loss to enable downstream computation.
+  - `__init__`: Two parameters define a linear layer: $in_feature (C_in)$ and $out_feature (C_out)$. Zero initialize weight $W$ and bias $b$ based on the inputs. Refer to Table 1(Linear Layer Components) to see how the shapes of $W$ and $b$ are related to the inputs (Hint: - Check the shapes of the $in_feature$ and $out_feature$ and create a numpy array with zeros based on the required shape of $W$ and $b$ given in Table 1).
+  - `forward`: forward method takes in a batch of data A of shape $N \times C_in$ (representing N samples where each sample has $C_in$ features), and computes output $Z$ of shape $N \times C_out$ – each data sample is now represented by $C_out$ features.
+  - `backward`: backward method takes in input $dLdZ$, how changes in its output $Z$ affect loss $L$. It calculates and stores **dLdW, dLdb – how changes in the layer weights and bias affect loss**, which are used to improve the model. It returns dLdA, how changes in the layer inputs affect loss to enable downstream computation.
 
 Please consider the following class structure:
 
