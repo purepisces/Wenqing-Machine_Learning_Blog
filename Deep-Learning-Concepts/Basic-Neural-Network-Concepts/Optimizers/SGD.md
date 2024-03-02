@@ -40,6 +40,19 @@ class SGD:
                 self.l[i].W = # TODO
                 self.l[i].b = # TODO
 ```
+| Code Name | Math | Type   | Shape | Meaning                                            |
+|-----------|------|--------|-------|----------------------------------------------------|
+| model     | -    | object | -     | model with layers attribute                        |
+| 1         | -    | object | -     | layers attribute selected from the model           |
+| L         | -    | scalar | -     | number of layers in the model                      |
+| lr        | λ    | scalar | -     | learning rate hyperparameter to scale affect of new gradients |
+| momentum  | μ    | scalar | -     | momentum hyperparameter to scale affect of prior gradients |
+| v_W       | -    | list   | L     | list of velocity weight parameters, one for each layer |
+| v_b       | -    | list   | L     | list of velocity bias parameters, one for each layer |
+| v_w[i]    | vWi  | matrix | Ci+1 x Ci | velocity for layer i weight                        |
+| v_b[i]    | vbi  | matrix | Ci+1 x 1  | velocity for layer i bias                          |
+| l[i].w    | Wi   | matrix | Ci+1 x Ci | weight parameter for a layer                      |
+| l[i].b    | bi   | matrix | Ci+1 x 1  | bias parameter for a layer                        |
 
 9.1.1 SGD Equation (Without Momentum)
 
