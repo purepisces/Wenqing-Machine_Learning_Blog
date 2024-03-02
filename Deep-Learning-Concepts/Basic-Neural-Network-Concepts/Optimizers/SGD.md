@@ -11,17 +11,17 @@ In this section, we are going to implement Minibatch stochastic gradient descent
 Your task is to implement the `step` attribute function of the `SGD` class in file `sgd.py`:
 
 - **Class attributes:**
-  - `l`: list of model layers
-  - `L`: number of model layers
-  - `lr`: learning rate, tunable hyperparameter scaling the size of an update.
-  - `mu`: momentum rate μ, tunable hyperparameter controlling how much the previous updates affect the direction of current update. μ = 0 means no momentum.
-  - `v_W`: list of weight velocity for each layer
-  - `v_b`: list of bias velocity for each layer
+  - $l$: list of model layers
+  - $L$: number of model layers
+  - $lr$: learning rate, tunable hyperparameter scaling the size of an update.
+  - $mu$: momentum rate μ, tunable hyperparameter controlling how much the previous updates affect the direction of current update. μ = 0 means no momentum.
+  - $v_W$: list of weight velocity for each layer
+  - $v_b$: list of bias velocity for each layer
 
 - **Class methods:**
-  - `step`: Updates `W` and `b` of each of the model layers:
+  - $step$: Updates $W$ and $b$ of each of the model layers:
     - Because parameter gradients tell us which direction makes the model worse, we move opposite the direction of the gradient to update parameters.
-    - When momentum is non-zero, update velocities `v_W` and `v_b`, which are changes in the gradient to get to the global minima. The velocity of the previous update is scaled by hyperparameter μ, refer to lecture slides for more details.
+    - When momentum is non-zero, update velocities $v_W$ and $v_b$, which are changes in the gradient to get to the global minima. The velocity of the previous update is scaled by hyperparameter μ, refer to lecture slides for more details.
 
 Please consider the following class structure:
 
