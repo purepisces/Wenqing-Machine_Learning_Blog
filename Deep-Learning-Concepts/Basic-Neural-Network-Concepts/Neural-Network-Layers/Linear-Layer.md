@@ -14,14 +14,14 @@ Linear layers, also known as fully-connected layers, connect every input neuron 
 
 
 - Class attributes:
-  - Learnable model parameters weight W, bias b.
-  - Variables stored during forward-propagation to compute derivatives during back-propagation: layer input A, batch size N.
-  - Variables stored during backward-propagation to train model parameters dLdW, dLdb.
+  - Learnable model parameters weight $W$, bias $b$.
+  - Variables stored during forward-propagation to compute derivatives during back-propagation: layer input $A$, batch size $N$.
+  - Variables stored during backward-propagation to train model parameters $dLdW$, $dLdb$.
 
 - Class methods:
-  - `__init__`: Two parameters define a linear layer: $in_feature (C_in)$ and $out_feature (C_out)$. Zero initialize weight $W$ and bias $b$ based on the inputs. Refer to Table 1(Linear Layer Components) to see how the shapes of $W$ and $b$ are related to the inputs (Hint: - Check the shapes of the $in_feature$ and $out_feature$ and create a numpy array with zeros based on the required shape of $W$ and $b$ given in Table 1).
-  - `forward`: forward method takes in a batch of data A of shape $N \times C_in$ (representing N samples where each sample has $C_in$ features), and computes output $Z$ of shape $N \times C_out$ – each data sample is now represented by $C_out$ features.
-  - `backward`: backward method takes in input $dLdZ$, how changes in its output $Z$ affect loss $L$. It calculates and stores **dLdW, dLdb – how changes in the layer weights and bias affect loss**, which are used to improve the model. It returns dLdA, how changes in the layer inputs affect loss to enable downstream computation.
+  - `__init__`: Two parameters define a linear layer: `in_feature` $(C_{in})$ and `out_feature`$(C_{out})$. Zero initialize weight $W$ and bias $b$ based on the inputs. Refer to Table 1(Linear Layer Components) to see how the shapes of $W$ and $b$ are related to the inputs (Hint: - Check the shapes of the `in_feature` and `out_feature` and create a numpy array with zeros based on the required shape of $W$ and $b$ given in Table 1).
+  - `forward`: forward method takes in a batch of data A of shape $N \times C_{in}$ (representing $N$ samples where each sample has $C_{in}$ features), and computes output $Z$ of shape $N \times C_{out}$ – each data sample is now represented by $C_out$ features.
+  - `backward`: backward method takes in input $dLdZ$, how changes in its output $Z$ affect loss $L$. It calculates and stores **$dLdW$, $dLdb$ – how changes in the layer weights and bias affect loss**, which are used to improve the model. It returns $dLdA$, how changes in the layer inputs affect loss to enable downstream computation.
 
 Please consider the following class structure:
 
@@ -251,19 +251,18 @@ Here's a breakdown of the process:
 
 ## Code implementation
 ```python
-#mytorch.nn.linear.py
 import numpy as np
 
 class Linear:
 
-    def __init__(self, in_features, out_features):
+    def __init__(self, in_features, out_features, debug=False):
         """
         Initialize the weights and biases with zeros
         Checkout np.zeros function.
         Read the writeup to identify the right shapes for all.
         """
-        self.W = np.zeros((out_features, in_features))
-        self.b = np.zeros((out_features, 1))
+        self.W = np.zeros((in_features, out_features))
+        self.b = np.zeros((out_features,))
 
     def forward(self, A):
         """
@@ -272,16 +271,14 @@ class Linear:
         Read the writeup for implementation details
         """
         self.A = A
-        Z = A.dot(self.W.T) + self.b.T #N×Cin dot Cin x Cout = N×Cout + 1xCout and broadcase of b to be N×Cout = N×Cout + N×Cout
-        # Since numPy automatically applies broadcasting, so we don't need to write like Z = A.dot(self.W.T) + np.ones((A.shape[0], 1)).dot(self.b.T)
-        return Z
-
+        self.N = A.shape[0]  # Store the batch size of input
+        self.Ones = np.ones((self.N, 1))
+        Z = A.dot(self.W) + self.b  # Compute the output Z
 
     def backward(self, dLdZ):
-        self.Ones = np.ones((dLdZ.shape[0], 1)) #N×1
-        dLdA = dLdZ.dot(self.W) #N×Cout dot Cout × Cin = N×Cin
-        self.dLdW = dLdZ.T.dot(self.A) # CoutxN dot N×Cin = Cout × Cin
-        self.dLdb = dLdZ.T.dot(self.Ones) #CoutxN dot Nx1 = Cout×1
+        dLdA = dLdZ.dot(self.W.T)  # Compute the gradient w.r.t. the input
+        self.dLdW = self.A.T.dot(dLdZ)  # Compute the gradient w.r.t. the weights
+        self.dLdb = dLdZ.T.dot(self.Ones).reshape(-1)  # Compute the gradient w.r.t. the biases
         return dLdA
 ```
 
