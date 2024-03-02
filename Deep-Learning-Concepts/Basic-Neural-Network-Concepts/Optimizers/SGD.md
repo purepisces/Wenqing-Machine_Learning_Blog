@@ -1,4 +1,4 @@
-9 Optimizers [10 points]
+# Optimizers
 
 In deep learning, optimizers are used to adjust the parameters for a model. The purpose of an optimizer is to adjust model weights to maximize a loss function.
 
@@ -54,7 +54,21 @@ class SGD:
 | l[i].w    | Wi   | matrix | Ci+1 x Ci | weight parameter for a layer                      |
 | l[i].b    | bi   | matrix | Ci+1 x 1  | bias parameter for a layer                        |
 
-9.1.1 SGD Equation (Without Momentum)
 
-9.1.2 SGD Equations (With Momentum)
+## SGD Equation (Without Momentum)
+
+$$W := W - \lambda \frac{\partial L}{\partial W}$$
+
+$$b := b - \lambda \frac{\partial L}{\partial b}$$
+
+## SGD Equations (With Momentum)
+
+$$v_W := \mu v_W + \frac{\partial L}{\partial W}$$
+
+$$v_b := \mu v_b + \frac{\partial L}{\partial b}$$
+
+$$W := W - \lambda v_W$$
+
+$$b := b - \lambda v_b$$
+
 
