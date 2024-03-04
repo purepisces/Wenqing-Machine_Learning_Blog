@@ -1,6 +1,7 @@
 # Current progress is updated in [progress.txt](progress.txt)
 # Wenqing's Machine Learning Blog
 
+
 ## Foundational Concepts in Machine Learning
 - **Linear Algebra**
   - [Numpy Tips](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/Numpy-Tips.md)
