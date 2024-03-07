@@ -2,9 +2,9 @@
 
 In deep learning, optimizers are used to adjust the parameters for a model. The purpose of an optimizer is to adjust model weights to minimize a loss function.
 
-To recap, we built our own MLP models in Section 7 using linear class we built in Section 5 and activation classes we built in Section 6 and have seen how to do forward propagation, and backward propagation for the core components used in neural networks. Forward propagation is used for estimation, and backward propagation informs us on how changes in parameters affect loss. And in Section 8, we coded some loss functions, which are criterion we use to evaluate the quality of our model’s estimates. The last step is to improve our model using the information we learned on how changes in parameters affect loss.
+To recap, we built our own MLP models using linear class and activation classes and have seen how to do forward propagation, and backward propagation for the core components used in neural networks. Forward propagation is used for estimation, and backward propagation informs us on how changes in parameters affect loss. And we coded some loss functions, which are criterion we use to evaluate the quality of our model’s estimates. The last step is to improve our model using the information we learned on how changes in parameters affect loss.
 
-## Stochastic Gradient Descent (SGD) [mytorch.optim.SGD]
+## Stochastic Gradient Descent (SGD)
 
 In this section, we are going to implement Minibatch stochastic gradient descent with momentum, which we will refer to as SGD in this homework. Minibatch SGD is a version of SGD algorithm that speeds up the computation by approximating the gradient using smaller batches of the training data, and Momentum is a method that helps accelerate SGD by incorporating velocity from the previous update to reduce oscillations. The `sgd` function in PyTorch library is actually an implementation of Minibatch stochastic gradient descent with momentum.
 
@@ -56,4 +56,28 @@ $$W := W - \lambda v_W$$
 
 $$b := b - \lambda v_b$$
 
+# Code Implementation
 
+```python
+import numpy as np
+class SGD:
+
+    def __init__(self, model, lr=0.1, momentum=0):
+        self.l = model.layers
+        self.L = len(model.layers)
+        self.lr = lr
+        self.mu = momentum
+        self.v_W = [np.zeros(self.l[i].W.shape, dtype="f") for i in range(self.L)]
+        self.v_b = [np.zeros(self.l[i].b.shape, dtype="f") for i in range(self.L)]
+
+    def step(self):
+        for i in range(self.L):
+            if self.mu == 0:
+                self.l[i].W -= self.lr * self.l[i].dLdW
+                self.l[i].b -= self.lr * self.l[i].dLdb
+            else:
+                self.v_W[i] = self.mu * self.v_W[i] + self.lr * self.l[i].dLdW
+                self.v_b[i] = self.mu * self.v_b[i] + self.lr * self.l[i].dLdb
+                self.l[i].W -= self.v_W[i]
+                self.l[i].b -= self.v_b[i]
+```
