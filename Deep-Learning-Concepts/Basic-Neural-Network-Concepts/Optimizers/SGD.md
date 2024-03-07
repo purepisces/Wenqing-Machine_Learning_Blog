@@ -83,6 +83,7 @@ $$b := b - \lambda v_b$$
 
 ```python
 import numpy as np
+
 class SGD:
 
     def __init__(self, model, lr=0.1, momentum=0):
@@ -99,8 +100,8 @@ class SGD:
                 self.l[i].W -= self.lr * self.l[i].dLdW
                 self.l[i].b -= self.lr * self.l[i].dLdb
             else:
-                self.v_W[i] = self.mu * self.v_W[i] + self.lr * self.l[i].dLdW
-                self.v_b[i] = self.mu * self.v_b[i] + self.lr * self.l[i].dLdb
-                self.l[i].W -= self.v_W[i]
-                self.l[i].b -= self.v_b[i]
+                self.v_W[i] = self.mu * self.v_W[i] + self.l[i].dLdW
+                self.v_b[i] = self.mu * self.v_b[i] + self.l[i].dLdb
+                self.l[i].W -= self.lr * self.v_W[i]
+                self.l[i].b -= self.lr * self.v_b[i]
 ```
