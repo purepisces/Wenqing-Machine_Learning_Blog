@@ -261,8 +261,10 @@ class Linear:
         Checkout np.zeros function.
         Read the writeup to identify the right shapes for all.
         """
-        self.W = np.zeros((in_features, out_features))
+        self.W = np.zeros((out_features,in_features))
         self.b = np.zeros((out_features,))
+
+        self.debug = debug
 
     def forward(self, A):
         """
@@ -271,14 +273,18 @@ class Linear:
         Read the writeup for implementation details
         """
         self.A = A
-        self.N = A.shape[0]  # Store the batch size of input
+        self.N = A.shape[0]
         self.Ones = np.ones((self.N, 1))
-        Z = A.dot(self.W) + self.b  # Compute the output Z
+        Z = self.A.dot(self.W.T) + self.Ones.dot(self.b.T)
+        return Z
 
     def backward(self, dLdZ):
-        dLdA = dLdZ.dot(self.W.T)  # Compute the gradient w.r.t. the input
-        self.dLdW = self.A.T.dot(dLdZ)  # Compute the gradient w.r.t. the weights
-        self.dLdb = dLdZ.T.dot(self.Ones).reshape(-1)  # Compute the gradient w.r.t. the biases
+        dLdA = dLdZ.dot(self.W)
+        self.dLdW = dLdZ.T.dot(self.A)
+        self.dLdb = dLdZ.T.dot(self.Ones)
+
+        if self.debug:
+            self.dLdA = dLdA
         return dLdA
 ```
 
