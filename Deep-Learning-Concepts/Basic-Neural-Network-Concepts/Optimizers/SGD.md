@@ -14,30 +14,53 @@ Your task is to implement the `step` attribute function of the `SGD` class in fi
   - $l$: list of model layers
   - $L$: number of model layers
   - $lr$: learning rate, tunable hyperparameter scaling the size of an update.
-  - $mu$: momentum rate μ, tunable hyperparameter controlling how much the previous updates affect the direction of current update. μ = 0 means no momentum.
+  - $\mu$: momentum rate $\mu$, tunable hyperparameter controlling how much the previous updates affect the direction of current update. $\mu = 0$ means no momentum.
   - $v_W$: list of weight velocity for each layer
   - $v_b$: list of bias velocity for each layer
 
 - **Class methods:**
-  - $step$: Updates $W$ and $b$ of each of the model layers:
+  - step: Updates $W$ and $b$ of each of the model layers:
     - Because parameter gradients tell us which direction makes the model worse, we move opposite the direction of the gradient to update parameters.
-    - When momentum is non-zero, update velocities $v_W$ and $v_b$, which are changes in the gradient to get to the global minima. The velocity of the previous update is scaled by hyperparameter μ, refer to lecture slides for more details.
+    - When momentum is non-zero, update velocities $v_W$ and $v_b$, which are changes in the gradient to get to the global minima. The velocity of the previous update is scaled by hyperparameter $\mu$.
 
 Please consider the following class structure:
+
+```python
+class SGD:
+
+    def __init__(self, model, lr=0.1, momentum=0):
+        self.l   = model.layers
+        self.L   = len(model.layers)
+        self.lr  = lr
+        self.mu  = momentum
+        self.v_W = [np.zeros(self.l[i].W.shape) for i in range(self.L)]
+        self.v_b = [np.zeros(self.l[i].b.shape) for i in range(self.L)]
+
+    def step(self):
+        for i in range(self.L):
+          if self.mu == 0:
+            self.l[i].W = # TODO
+            self.l[i].b = # TODO
+          else:
+            self.v_W[i] = # TODO
+            self.v_b[i] = # TODO
+            self.l[i].W = # TODO
+            self.l[i].b = # TODO
+```
 
 | Code Name | Math | Type   | Shape | Meaning                                            |
 |-----------|------|--------|-------|----------------------------------------------------|
 | model     | -    | object | -     | model with layers attribute                        |
-| 1         | -    | object | -     | layers attribute selected from the model           |
-| L         | -    | scalar | -     | number of layers in the model                      |
-| lr        | λ    | scalar | -     | learning rate hyperparameter to scale affect of new gradients |
-| momentum  | μ    | scalar | -     | momentum hyperparameter to scale affect of prior gradients |
-| $v_W$       | -    | list   | L     | list of velocity weight parameters, one for each layer |
-| $v_b$       | -    | list   | L     | list of velocity bias parameters, one for each layer |
-| $v_w[i]$    | $vWi$  | matrix | $Ci+1 \times Ci$ | velocity for layer i weight                        |
-| $v_b[i]$    | $vbi$  | matrix | $Ci+1 \times 1$  | velocity for layer i bias                          |
-| $l[i].w$    | $Wi$   | matrix | $Ci+1 \times Ci$ | weight parameter for a layer                      |
-| $l[i].b$    | $bi$   | matrix | $Ci+1 \times 1$  | bias parameter for a layer                        |
+| $l$      | -    | object | -     | layers attribute selected from the model           |
+| $L$         | -    | scalar | -     | number of layers in the model                      |
+| lr        | $\lambda$   | scalar | -     | learning rate hyperparameter to scale affect of new gradients |
+| momentum  | $\mu$    | scalar | -     | momentum hyperparameter to scale affect of prior gradients |
+| $v_W$       | -    | list   | $L$     | list of velocity weight parameters, one for each layer |
+| $v_b$       | -    | list   | $L$     | list of velocity bias parameters, one for each layer |
+| $v_w[i]$    | $vWi$  | matrix | $C_{i+1} \times C_i$ | velocity for layer $i$ weight                        |
+| $v_b[i]$    | $vbi$  | matrix | $C_{i+1} \times 1$  | velocity for layer $i$ bias                          |
+| $l[i] \cdot w$    | $Wi$   | matrix | $C_{i+1} \times C_i$ | weight parameter for a layer                      |
+| $l[i] \cdot b$    | $bi$   | matrix | $C_{i+1} \times 1$  | bias parameter for a layer                        |
 
 
 ## SGD Equation (Without Momentum)
