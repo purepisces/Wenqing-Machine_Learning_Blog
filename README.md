@@ -60,21 +60,6 @@
   - [Overview](Foundational-Concepts-in-Machine-Learning/Logistic-Regression/logistic-regression.md)
 - **T-SNE**
   - [Overview](Foundational-Concepts-in-Machine-Learning/t-sne.md)
-- **Optimization Algorithms**
-  - [Overview](optimization-overview.md)
-  - **Gradient Descent**
-    - [Overview](Foundational-Concepts-in-Machine-Learning/Optimization-Algorithms/gradient-descent.md)
-    - **Batch Gradient Descent**
-      - [Overview](batch-gradient-descent.md)
-    - **Stochastic Gradient Descent (SGD)**
-      - [Overview](stochastic-gradient-descent.md)
-    - **Mini-Batch Gradient Descent**
-      - [Overview](mini-batch-gradient-descent.md)
-  - **Advanced Optimization Algorithms**
-    - [Momentum](momentum.md)
-    - [Adam](adam.md)
-    - [RMSProp](RMSProp.md)
-    - [AdaGrad](adagrad.md)
 - **Dimensionality Reduction**
   - [Principal Component Analysis (PCA)](Foundational-Concepts-in-Machine-Learning/Dimensionality-Reduction/pca.md)
 
@@ -106,8 +91,17 @@
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Loss_Functions.md)
   - [MSE_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/MSE_Loss.md)
   - [Cross_Entropy_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Cross_Entropy_Loss.md)
-- **Optimizers**
+- **Optimization Algorithms**
+  - [Overview](optimization-overview.md)
+  - [Gradient Descent](Foundational-Concepts-in-Machine-Learning/Optimization-Algorithms/gradient-descent.md)
+  - [Batch Gradient Descent](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Optimizers/SGD.md)
   - [Stochastic Gradient Descent (SGD)](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Optimizers/SGD.md)
+  - [Mini-Batch Gradient Descent](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Optimizers/SGD.md)
+  - **Advanced Optimization Algorithms**
+    - [Momentum](momentum.md)
+    - [Adam](adam.md)
+    - [RMSProp](RMSProp.md)
+    - [AdaGrad](adagrad.md)
 
 ### Sequence Models
 - [Overview](sequence-models-overview.md)
