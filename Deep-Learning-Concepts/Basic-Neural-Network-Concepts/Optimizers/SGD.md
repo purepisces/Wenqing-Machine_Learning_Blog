@@ -263,3 +263,6 @@ print("Test W (Step 2):", TEST_sgd_W_2)
 TEST_sgd_b_2 = np.allclose(b_2.round(4), b_2_solution, atol=atol_threshold)
 print("Test b (Step 2):", TEST_sgd_b_2)
 ```
+
+
+Note: the design intention for the layers attribute is to only contain layers with trainable parameters (like weights and biases in linear layers). Typically, activation functions like ReLU don't have parameters that need updating during training, as they're purely functional transformations.
