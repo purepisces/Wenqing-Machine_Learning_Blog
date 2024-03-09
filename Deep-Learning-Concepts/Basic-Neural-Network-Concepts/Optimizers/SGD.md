@@ -483,4 +483,20 @@ Test W (Step 2): True
 Test b (Step 2): True
 ```
 
+```python
+optimizer = SGD(pseudo_model, lr=0.9)
+print(optimizer.v_W)
+print(optimizer.v_b)
+print(optimizer.l)
+print(optimizer.L)
+[array([[0., 0.],
+       [0., 0.],
+       [0., 0.]], dtype=float32)]
+[array([[0.],
+       [0.],
+       [0.]], dtype=float32)]
+[<__main__.Linear object at 0x7980e0793690>]
+1
+```
+
 Note: the design intention for the layers attribute is to only contain layers with trainable parameters (like weights and biases in linear layers). Typically, activation functions like ReLU don't have parameters that need updating during training, as they're purely functional transformations.
