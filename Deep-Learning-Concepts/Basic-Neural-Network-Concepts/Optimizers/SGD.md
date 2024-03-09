@@ -122,8 +122,6 @@ class Linear:
         self.W = np.zeros((out_features,in_features))
         self.b = np.zeros((out_features,))
 
-        self.debug = debug
-
     def forward(self, A):
         """
         :param A: Input to the linear layer with shape (N, C0)
@@ -140,9 +138,6 @@ class Linear:
         dLdA = dLdZ.dot(self.W)
         self.dLdW = dLdZ.T.dot(self.A)
         self.dLdb = dLdZ.T.dot(self.Ones)
-
-        if self.debug:
-            self.dLdA = dLdA
         return dLdA
 
 class ReLU:
@@ -199,7 +194,7 @@ class PseudoModel:
     def backward(self):
         return NotImplemented
 
-    # Create Example Model
+# Create Example Model
 pseudo_model = PseudoModel()
 
 pseudo_model.layers[0].W = np.ones((3, 2))
