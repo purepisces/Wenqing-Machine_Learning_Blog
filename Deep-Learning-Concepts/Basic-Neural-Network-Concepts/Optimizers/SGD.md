@@ -360,6 +360,127 @@ print("Test W (Step 2):", TEST_sgd_W_m_2)
 TEST_sgd_b_m_2 = np.allclose(b_2.round(4), b_2_solution, atol=atol_threshold)
 print("Test b (Step 2):", TEST_sgd_b_m_2)
 ```
+Test Result
+```python
 
+Initialized Parameters:
+
+W =
+[[1. 1.]
+ [1. 1.]
+ [1. 1.]]
+
+b =
+[[1.]
+ [1.]
+ [1.]]
+
+Parameters After SGD (Step=1)
+
+W =
+[[0.91 0.91]
+ [0.91 0.91]
+ [0.91 0.91]]
+
+b =
+[[0.91]
+ [0.91]
+ [0.91]]
+
+Parameters After SGD (Step=2)
+
+W =
+[[0.82 0.82]
+ [0.82 0.82]
+ [0.82 0.82]]
+
+b =
+[[0.82]
+ [0.82]
+ [0.82]]
+
+──────────────────────────────────────────
+SGD | SOLUTION OUTPUT
+──────────────────────────────────────────
+
+──────────────────────────────────────────
+SGD | TEST RESULTS
+──────────────────────────────────────────
+                 Pass?
+Test W (Step 2): True
+Test b (Step 2): True
+
+Initialized Parameters:
+
+W =
+[[1. 1.]
+ [1. 1.]
+ [1. 1.]]
+
+b =
+[[1.]
+ [1.]
+ [1.]]
+
+Parameters After SGD (Step=1)
+
+W =
+[[0.91 0.91]
+ [0.91 0.91]
+ [0.91 0.91]]
+
+b =
+[[0.91]
+ [0.91]
+ [0.91]]
+
+Parameters After SGD (Step=2)
+
+W =
+[[0.739 0.739]
+ [0.739 0.739]
+ [0.739 0.739]]
+
+b =
+[[0.739]
+ [0.739]
+ [0.739]]
+
+──────────────────────────────────────────
+SGD with Momentum | SOLUTION OUTPUT
+──────────────────────────────────────────
+
+Parameters After SGD (Step=1)
+
+W =
+[[0.91 0.91]
+ [0.91 0.91]
+ [0.91 0.91]]
+
+b =
+[[0.91]
+ [0.91]
+ [0.91]]
+
+Parameters After SGD (Step=2)
+
+W =
+[[0.739 0.739]
+ [0.739 0.739]
+ [0.739 0.739]]
+
+b =
+[[0.739]
+ [0.739]
+ [0.739]]
+
+
+──────────────────────────────────────────
+SGD with Momentum| TEST RESULTS
+──────────────────────────────────────────
+                 Pass?
+Test W (Step 2): True
+Test b (Step 2): True
+```
 
 Note: the design intention for the layers attribute is to only contain layers with trainable parameters (like weights and biases in linear layers). Typically, activation functions like ReLU don't have parameters that need updating during training, as they're purely functional transformations.
