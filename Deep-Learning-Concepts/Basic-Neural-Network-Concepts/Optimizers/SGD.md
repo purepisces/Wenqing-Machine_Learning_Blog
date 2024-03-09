@@ -512,7 +512,7 @@ Example of Oscillations:
 Imagine you're trying to roll a ball down into the deepest part of a bowl to find the lowest point, which represents the minimum of the loss function. If the bowl's sides are steep, the ball might roll down quickly on one side, gain too much speed (due to the steep gradient), and overshoot the bottom to climb up the opposite side. Then, gravity pulls it back down, but again it gains too much momentum and overshoots, leading to a back-and-forth oscillation around the bottom.
 
 
-<img src="mean_std.png" alt="mean_std" width="400" height="300"/>
+<img src="SGD_momentum.png" alt="SGD_momentum" width="400" height="300"/>
 
 The illustration depicts two scenarios of a gradient descent process on a loss surface represented by concentric ellipses, which indicate levels of the loss function. The goal is to reach the lowest point, marked by the red dot at the center, which is the global minimum of the loss function.
 
