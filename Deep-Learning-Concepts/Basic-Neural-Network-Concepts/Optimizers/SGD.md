@@ -503,6 +503,17 @@ Note: the design intention for the layers attribute is to only contain layers wi
 
 # Momentum
 
+Oscillations:
+
+In the context of optimization and gradient descent, "oscillations" refer to the phenomenon where the updates to the parameters (such as weights in a neural network) repeatedly overshoot the minimum of the loss function, causing the path of the parameters to zigzag or oscillate back and forth across the slope of the loss surface. Instead of smoothly converging to the minimum, the updates keep bouncing around it, which can slow down convergence and make the training process less efficient.
+
+Example of Oscillations:
+
+Imagine you're trying to roll a ball down into the deepest part of a bowl to find the lowest point, which represents the minimum of the loss function. If the bowl's sides are steep, the ball might roll down quickly on one side, gain too much speed (due to the steep gradient), and overshoot the bottom to climb up the opposite side. Then, gravity pulls it back down, but again it gains too much momentum and overshoots, leading to a back-and-forth oscillation around the bottom.
+
+
+<img src="mean_std.png" alt="mean_std" width="400" height="300"/>
+
 The illustration depicts two scenarios of a gradient descent process on a loss surface represented by concentric ellipses, which indicate levels of the loss function. The goal is to reach the lowest point, marked by the red dot at the center, which is the global minimum of the loss function.
 
 SGD without Momentum: On the left, the path taken by the standard SGD algorithm without momentum shows a zigzag pattern. This is due to the fact that each step is taken based solely on the local gradient, which can lead to overcorrections and thus oscillations. When the loss surface has steep curvatures, these adjustments are large and can cause the updates to overshoot the minimum, leading to a bouncing effect back and forth across the slope of the loss function.
@@ -510,4 +521,3 @@ SGD without Momentum: On the left, the path taken by the standard SGD algorithm 
 SGD with Momentum: On the right, the inclusion of momentum allows the optimization path to accumulate directionality from previous steps, which helps to smooth out the path towards the minimum. The momentum term prevents the optimizer from being too drastically affected by the local gradient variations, which leads to fewer oscillations and a more direct path towards the goal. This is shown by the smoother and more stable curve that still heads toward the global minimum but with less deviation along the way.
 
 The key difference is that momentum helps to dampen the oscillations and provides a more consistent direction of travel, preventing the kind of erratic movements seen in the path without momentum. This generally results in faster convergence and a more efficient path to the minimum of the loss function.
-XSS
