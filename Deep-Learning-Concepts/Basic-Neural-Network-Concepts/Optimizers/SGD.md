@@ -521,3 +521,5 @@ SGD without Momentum: On the left, the path taken by the standard SGD algorithm 
 SGD with Momentum: On the right, the inclusion of momentum allows the optimization path to accumulate directionality from previous steps, which helps to smooth out the path towards the minimum. The momentum term prevents the optimizer from being too drastically affected by the local gradient variations, which leads to fewer oscillations and a more direct path towards the goal. This is shown by the smoother and more stable curve that still heads toward the global minimum but with less deviation along the way.
 
 The key difference is that momentum helps to dampen the oscillations and provides a more consistent direction of travel, preventing the kind of erratic movements seen in the path without momentum. This generally results in faster convergence and a more efficient path to the minimum of the loss function.
+
+# velocities 
