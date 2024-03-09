@@ -105,3 +105,166 @@ class SGD:
                 self.l[i].W -= self.lr * self.v_W[i]
                 self.l[i].b -= self.lr * self.v_b[i]
 ```
+
+Test
+
+```python
+import numpy as np
+
+class Linear:
+
+    def __init__(self, in_features, out_features, debug=False):
+        """
+        Initialize the weights and biases with zeros
+        Checkout np.zeros function.
+        Read the writeup to identify the right shapes for all.
+        """
+        self.W = np.zeros((out_features,in_features))
+        self.b = np.zeros((out_features,))
+
+        self.debug = debug
+
+    def forward(self, A):
+        """
+        :param A: Input to the linear layer with shape (N, C0)
+        :return: Output Z of linear layer with shape (N, C1)
+        Read the writeup for implementation details
+        """
+        self.A = A
+        self.N = A.shape[0]
+        self.Ones = np.ones((self.N, 1))
+        Z = self.A.dot(self.W.T) + self.Ones.dot(self.b.T)
+        return Z
+
+    def backward(self, dLdZ):
+        dLdA = dLdZ.dot(self.W)
+        self.dLdW = dLdZ.T.dot(self.A)
+        self.dLdb = dLdZ.T.dot(self.Ones)
+
+        if self.debug:
+            self.dLdA = dLdA
+        return dLdA
+
+class ReLU:
+    """
+    On same lines as above:
+    Define 'forward' function
+    Define 'backward' function
+    Read the writeup for further details on ReLU.
+    """
+    def forward(self, Z):
+        self.A = np.maximum(0, Z)
+        return self.A
+
+    def backward(self, dLdA):
+        dAdZ = np.where(self.A > 0, 1, 0)
+        dLdZ = dLdA * dAdZ
+        return dLdZ
+        
+class SGD:
+
+    def __init__(self, model, lr=0.1, momentum=0):
+        self.l = model.layers
+        self.L = len(model.layers)
+        self.lr = lr
+        self.mu = momentum
+        self.v_W = [np.zeros(self.l[i].W.shape, dtype="f") for i in range(self.L)]
+        self.v_b = [np.zeros(self.l[i].b.shape, dtype="f") for i in range(self.L)]
+
+    def step(self):
+        for i in range(self.L):
+            if self.mu == 0:
+                self.l[i].W -= self.lr * self.l[i].dLdW
+                self.l[i].b -= self.lr * self.l[i].dLdb
+            else:
+                self.v_W[i] = self.mu * self.v_W[i] + self.l[i].dLdW
+                self.v_b[i] = self.mu * self.v_b[i] + self.l[i].dLdb
+                self.l[i].W -= self.lr * self.v_W[i]
+                self.l[i].b -= self.lr * self.v_b[i]
+
+"""
+────────────────────────────────────────────────────────────────────────────────────
+# SGD
+────────────────────────────────────────────────────────────────────────────────────
+"""
+
+class PseudoModel:
+    def __init__(self):
+        self.layers = [Linear(3, 2)]
+        self.f = [ReLU()]
+
+    def forward(self, A):
+        return NotImplemented
+
+    def backward(self):
+        return NotImplemented
+
+    # Create Example Model
+pseudo_model = PseudoModel()
+
+pseudo_model.layers[0].W = np.ones((3, 2))
+pseudo_model.layers[0].dLdW = np.ones((3, 2)) / 10
+pseudo_model.layers[0].b = np.ones((3, 1))
+pseudo_model.layers[0].dLdb = np.ones((3, 1)) / 10
+
+print("\nInitialized Parameters:\n")
+print("W =\n", pseudo_model.layers[0].W, "\n", sep="")
+print("b =\n", pseudo_model.layers[0].b, "\n", sep="")
+
+#Test Example Models
+optimizer = SGD(pseudo_model, lr=0.9)
+optimizer.step()
+
+print("Parameters After SGD (Step=1)\n")
+
+W_1 = pseudo_model.layers[0].W.copy()
+b_1 = pseudo_model.layers[0].b.copy()
+print("W =\n", W_1, "\n", sep="")
+print("b =\n", b_1, "\n", sep="")
+
+optimizer.step()
+
+print("Parameters After SGD (Step=2)\n")
+
+W_2 = pseudo_model.layers[0].W
+b_2 = pseudo_model.layers[0].b
+print("W =\n", W_2, "\n", sep="")
+print("b =\n", b_2, "\n", sep="")
+
+print("──────────────────────────────────────────")
+print("SGD | SOLUTION OUTPUT")
+print("──────────────────────────────────────────")
+
+W_1_solution = np.array([
+        [0.91, 0.91],
+        [0.91, 0.91],
+        [0.91, 0.91]], dtype="f")
+
+b_1_solution = np.array([
+        [0.91],
+        [0.91],
+        [0.91]], dtype="f")
+
+W_2_solution = np.array([
+        [0.82, 0.82],
+        [0.82, 0.82],
+        [0.82, 0.82]], dtype="f")
+
+b_2_solution = np.array([
+        [0.82],
+        [0.82],
+        [0.82]], dtype="f")
+
+print("\n──────────────────────────────────────────")
+print("SGD | TEST RESULTS")
+print("──────────────────────────────────────────")
+
+print("                 Pass?")
+atol_threshold = 1e-4
+
+TEST_sgd_W_2 = np.allclose(W_2.round(4), W_2_solution, atol=atol_threshold)
+print("Test W (Step 2):", TEST_sgd_W_2)
+
+TEST_sgd_b_2 = np.allclose(b_2.round(4), b_2_solution, atol=atol_threshold)
+print("Test b (Step 2):", TEST_sgd_b_2)
+```
