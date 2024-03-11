@@ -7,6 +7,7 @@ $\text{SSR}(a, b) = \sum\limits_{i=1}^{n} (y_i - ax_i - b)^2$
 matrix:
 $$
 \begin{pmatrix}
+
 0.8944272 & 0.4472136\\
 -0.4472136 & -0.8944272
 \end{pmatrix}
