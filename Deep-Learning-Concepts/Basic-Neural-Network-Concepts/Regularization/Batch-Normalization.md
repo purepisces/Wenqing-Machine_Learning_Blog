@@ -1,3 +1,79 @@
+
+# Regularization
+
+Regularization is a set of techniques that can prevent overfitting in neural networks and thus improve the accuracy of a Deep Learning model when facing completely new data from the problem domain.
+
+## Batch Normalization 
+
+Z-score normalization is the procedure during which the feature values are rescaled so that they have the properties of a normal distribution. Let µ be the mean (the average value of the feature, averaged over all examples in the dataset) and σ be the standard deviation from the mean.
+Standard scores (or z-scores) of features are calculated as follows:
+
+$$\hat{x} = \frac{x - µ}{σ}$$
+
+Batch normalization is a method used to make training of artificial neural networks faster and more stable through normalization of the layers’ inputs by re-centering and re-scaling. It comes from the paper Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift, we encourage you to read the paper for a better understanding. You can find pseudocode and explanation in the paper if you are stuck!
+
+In this section, your task is to implement the forward and backward attribute functions of the BatchNorm1d class in file `batchnorm.py`.
+
+- Class attributes:
+  - `alpha`: a hyperparameter used for the running mean and running var computation.
+  - `eps`: a value added to the denominator for numerical stability.
+  - `Bw`: learnable parameter of a BN (batch norm) layer to scale features.
+  - `Bb`: learnable parameter of a BN (batch norm) layer to shift features.
+  - `dLBw`: how changes in γ affect loss
+  - `dLBb`: how changes in β affect loss
+  - `running-M`: learnable parameter, the estimated mean of the training data
+  - `running-V`: learnable parameter, the estimated variance of the training data
+
+- Class methods:
+  - `forward`: It takes in a batch of data Z computes the batch normalized data \(\hat{Z}\), and returns the scaled and shifted data \(\tilde{Z}\). In addition:
+    * During training, forward calculates the mean and standard-deviation of each feature over the mini-batches and uses them to update the `running-M[E[Z]]` and `running-V[Var[Z]]`, which are learnable parameter vectors trained during forward propagation. By default, the elements of `E[Z]` are set to 0 and the elements of `Var[Z]` are set to 1.
+    * During inference, the learnt mean `running-M[E[Z]]` and variance `running-V[Var[Z]]` over the entire training dataset are used to normalize \(\tilde{Z}\).
+  - `backward`: takes input `dL/d\tilde{Z}`, how changes in BN layer output affects loss, computes and stores the necessary gradients `dLBw`, `dLBb` to train learnable parameters BW and Bb. Returns `dL/dZ`, how the changes in BN layer input Z affect loss L for downstream computation.
+
+Please consider the following class structure:
+```python
+class BatchNorm1d:
+    def __init__(self, num_features, alpha=0.9):
+        self.alpha = alpha
+        self.eps = 1e-8
+        self.BW = np.ones((1, num_features))
+        self.Bb = np.zeros((1, num_features))
+        self.dLdBW = np.zeros((1, num_features))
+        self.dLdBb = np.zeros((1, num_features))
+        self.running_M = np.zeros((1, num_features))
+        self.running_V = np.ones((1, num_features))
+        
+    def forward(self, Z, eval=False):
+        """
+        The eval parameter is to indicate whether we are in the
+        training phase of the problem or the inference phase.
+        So see what values you need to recompute when eval is False.
+        """
+        if eval == False:
+            # training mode
+            self.Z = Z
+            self.N = None  # TODO
+            self.M = None  # TODO
+            self.V = None  # TODO
+            self.NZ = None  # TODO
+            self.BZ = None  # TODO
+            self.running_M = None  # TODO
+            self.running_V = None  # TODO
+        else:
+            # inference mode
+            self.NZ = None  # TODO
+            self.BZ = None  # TODO
+        return self.BZ
+    
+    def backward(self, dLdBZ):
+        self.dLdBW = None  # TODO
+        self.dLdBb = None  # TODO
+        dLdNZ = None  # TODO
+        dLdV = None  # TODO
+        dLdM = None  # TODO
+        dLdZ = None  # TODO
+        return dLdZ
+```
 ## Code Implementation
 ```python
 import numpy as np
