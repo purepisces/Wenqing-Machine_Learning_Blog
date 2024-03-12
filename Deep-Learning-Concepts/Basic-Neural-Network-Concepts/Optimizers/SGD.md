@@ -80,33 +80,34 @@ $$b := b - \lambda v_b$$
 
 ## Momentum
 
-Oscillations:
+**Oscillations:**
 
 In the context of optimization and gradient descent, "oscillations" refer to the phenomenon where the updates to the parameters (such as weights in a neural network) repeatedly overshoot the minimum of the loss function, causing the path of the parameters to zigzag or oscillate back and forth across the slope of the loss surface. Instead of smoothly converging to the minimum, the updates keep bouncing around it, which can slow down convergence and make the training process less efficient.
 
-Example of Oscillations:
+**Example of Oscillations:**
 
 Imagine you're trying to roll a ball down into the deepest part of a bowl to find the lowest point, which represents the minimum of the loss function. If the bowl's sides are steep, the ball might roll down quickly on one side, gain too much speed (due to the steep gradient), and overshoot the bottom to climb up the opposite side. Then, gravity pulls it back down, but again it gains too much momentum and overshoots, leading to a back-and-forth oscillation around the bottom.
 
+![SGD_momentum](SGD_momentum.png)
 
-<img src="SGD_momentum.png" alt="SGD_momentum" width="500" height="300"/>
+*The illustration depicts two scenarios of a gradient descent process on a loss surface represented by concentric ellipses, which indicate levels of the loss function. The goal is to reach the lowest point, marked by the red dot at the center, which is the global minimum of the loss function.*
 
-The illustration depicts two scenarios of a gradient descent process on a loss surface represented by concentric ellipses, which indicate levels of the loss function. The goal is to reach the lowest point, marked by the red dot at the center, which is the global minimum of the loss function.
+**SGD without Momentum:** On the left, the path taken by the standard SGD algorithm without momentum shows a zigzag pattern. This is due to the fact that each step is taken based solely on the local gradient, which can lead to overcorrections and thus oscillations. When the loss surface has steep curvatures, these adjustments are large and can cause the updates to overshoot the minimum, leading to a bouncing effect back and forth across the slope of the loss function.
 
-SGD without Momentum: On the left, the path taken by the standard SGD algorithm without momentum shows a zigzag pattern. This is due to the fact that each step is taken based solely on the local gradient, which can lead to overcorrections and thus oscillations. When the loss surface has steep curvatures, these adjustments are large and can cause the updates to overshoot the minimum, leading to a bouncing effect back and forth across the slope of the loss function.
-
-SGD with Momentum: On the right, the inclusion of momentum allows the optimization path to accumulate directionality from previous steps, which helps to smooth out the path towards the minimum. The momentum term prevents the optimizer from being too drastically affected by the local gradient variations, which leads to fewer oscillations and a more direct path towards the goal. This is shown by the smoother and more stable curve that still heads toward the global minimum but with less deviation along the way.
+**SGD with Momentum:** On the right, the inclusion of momentum allows the optimization path to accumulate directionality from previous steps, which helps to smooth out the path towards the minimum. The momentum term prevents the optimizer from being too drastically affected by the local gradient variations, which leads to fewer oscillations and a more direct path towards the goal. This is shown by the smoother and more stable curve that still heads toward the global minimum but with less deviation along the way.
 
 The key difference is that momentum helps to dampen the oscillations and provides a more consistent direction of travel, preventing the kind of erratic movements seen in the path without momentum. This generally results in faster convergence and a more efficient path to the minimum of the loss function.
 
-### Example
-let's visualize the concept of momentum in optimization with an analogy involving a ball rolling down a steep slope.
 
-Without Momentum:
+### Example
+
+Let's visualize the concept of momentum in optimization with an analogy involving a ball rolling down a steep slope.
+
+**Without Momentum:**
 
 Imagine a ball at the top of a steep hill, and this ball represents our optimizer. Each time we allow the ball to roll a step downhill, it represents an iteration of gradient descent. Without momentum, the ball only moves due to the force of gravity acting on it at each step (which represents the gradient of our loss function at each point). As the ball rolls down the hill, it only moves a small distance with each step because it stops as soon as the slope (gradient) becomes flat or it encounters an uphill (a rise in the loss function). This movement is analogous to basic SGD, where each update is based solely on the current gradient, and the optimizer can get stuck in flat regions or be significantly slowed down by slight uphill gradients, leading to slow convergence.
 
-With Momentum:
+**With Momentum:**
 
 Now, imagine the same ball, but this time it has the ability to retain some of its velocity from previous rolls (steps). This is akin to adding a momentum term to our optimizer. As the ball starts to roll down the hill, it not only gains speed due to the current slope (gradient) but also retains some of the speed from its previous movements. This accumulated velocity helps the ball to keep moving even when it hits a flat spot or a slight uphill slope, making it less likely to get stuck and enabling it to move faster across the landscape. This is especially useful when navigating through complex terrains with multiple hills and valleys (local minima), as the momentum can help the ball (optimizer) to escape shallow valleys and continue its journey towards the lowest point (global minimum).
 
@@ -120,11 +121,12 @@ At each step, instead of directly using the current gradient to update the model
 
 The inclusion of velocity helps in two main ways:
 
-Directional Consistency: By accumulating gradients, it helps in maintaining a consistent direction of updates, which can be particularly beneficial in scenarios where the surface of the loss function is uneven or has steep slopes.
+- **Directional Consistency:** By accumulating gradients, it helps in maintaining a consistent direction of updates, which can be particularly beneficial in scenarios where the surface of the loss function is uneven or has steep slopes.
 
-Dampening Oscillations: It reduces the oscillations that can occur when the gradient's direction changes rapidly, which often happens in the steep areas of the loss function. This dampening effect allows for a smoother convergence to the minimum.
+- **Dampening Oscillations:** It reduces the oscillations that can occur when the gradient's direction changes rapidly, which often happens in the steep areas of the loss function. This dampening effect allows for a smoother convergence to the minimum.
 
 In essence, the concept of velocity in optimization algorithms like SGD with Momentum allows the optimizer to "remember" the direction and magnitude of past updates, thus making the optimization process more stable and efficient.
+
 
 # Code Implementation
 
