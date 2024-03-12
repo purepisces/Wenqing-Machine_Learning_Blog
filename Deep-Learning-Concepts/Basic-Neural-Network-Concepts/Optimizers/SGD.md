@@ -246,14 +246,14 @@ class PseudoModel:
 # Create Example Model
 pseudo_model = PseudoModel()
 
-pseudo_model.layers[0].W = np.ones((3, 2))
-pseudo_model.layers[0].dLdW = np.ones((3, 2)) / 10
-pseudo_model.layers[0].b = np.ones((3, 1))
-pseudo_model.layers[0].dLdb = np.ones((3, 1)) / 10
-pseudo_model.layers[1].W = np.ones((4, 2))
-pseudo_model.layers[1].dLdW = np.ones((4, 2)) / 10
-pseudo_model.layers[1].b = np.ones((4, 1))
-pseudo_model.layers[1].dLdb = np.ones((4, 1)) / 10
+pseudo_model.layers[0].W = np.ones((2,3))
+pseudo_model.layers[0].dLdW = np.ones((2,3)) / 10
+pseudo_model.layers[0].b = np.ones((2,1))
+pseudo_model.layers[0].dLdb = np.ones((2, 1)) / 10
+pseudo_model.layers[1].W = np.ones((2, 4))
+pseudo_model.layers[1].dLdW = np.ones((2, 4)) / 10
+pseudo_model.layers[1].b = np.ones((2, 1))
+pseudo_model.layers[1].dLdb = np.ones((2, 1)) / 10
 
 print("\nInitialized Parameters:\n")
 print("W11 =\n", pseudo_model.layers[0].W, "\n", sep="")
@@ -294,22 +294,18 @@ print("SGD | SOLUTION OUTPUT")
 print("──────────────────────────────────────────")
 
 W_11_solution = np.array([
-        [0.91, 0.91],
-        [0.91, 0.91],
-        [0.91, 0.91]], dtype="f")
+        [0.91, 0.91, 0.91],
+        [0.91, 0.91, 0.91]], dtype="f")
 
 b_11_solution = np.array([
-        [0.91],
         [0.91],
         [0.91]], dtype="f")
 
 W_21_solution = np.array([
-        [0.82, 0.82],
-        [0.82, 0.82],
-        [0.82, 0.82]], dtype="f")
+        [0.82, 0.82, 0.82],
+        [0.82, 0.82, 0.82]], dtype="f")
 
 b_21_solution = np.array([
-        [0.82],
         [0.82],
         [0.82]], dtype="f")
         
@@ -358,15 +354,15 @@ class PseudoModel:
 # Create Example Model
 pseudo_model = PseudoModel()
 
-pseudo_model.layers[0].W = np.ones((3, 2))
-pseudo_model.layers[0].dLdW = np.ones((3, 2)) / 10
-pseudo_model.layers[0].b = np.ones((3, 1))
-pseudo_model.layers[0].dLdb = np.ones((3, 1)) / 10
+pseudo_model.layers[0].W = np.ones((2, 3))
+pseudo_model.layers[0].dLdW = np.ones((2, 3)) / 10
+pseudo_model.layers[0].b = np.ones((2, 1))
+pseudo_model.layers[0].dLdb = np.ones((2, 1)) / 10
 
-pseudo_model.layers[1].W = np.ones((4, 2))
-pseudo_model.layers[1].dLdW = np.ones((4, 2)) / 10
-pseudo_model.layers[1].b = np.ones((4, 1))
-pseudo_model.layers[1].dLdb = np.ones((4, 1)) / 10
+pseudo_model.layers[1].W = np.ones((2, 4))
+pseudo_model.layers[1].dLdW = np.ones((2, 4)) / 10
+pseudo_model.layers[1].b = np.ones((2, 1))
+pseudo_model.layers[1].dLdb = np.ones((2, 1)) / 10
 
 print("\nInitialized Parameters:\n")
 print("W11 =\n", pseudo_model.layers[0].W, "\n", sep="")
@@ -411,22 +407,18 @@ print("SGD with Momentum | SOLUTION OUTPUT")
 print("──────────────────────────────────────────")
 
 W_11_solution = np.array([
-    [0.91, 0.91],
-    [0.91, 0.91],
-    [0.91, 0.91]], dtype="f")
+    [0.91, 0.91, 0.91],
+    [0.91, 0.91, 0.91]], dtype="f")
 
 b_11_solution = np.array([
-    [0.91],
     [0.91],
     [0.91]], dtype="f")
 
 W_21_solution = np.array([
-    [0.739, 0.739],
-    [0.739, 0.739],
-    [0.739, 0.739]], dtype="f")
+    [0.739, 0.739, 0.739],
+    [0.739, 0.739, 0.739]], dtype="f")
 
 b_21_solution = np.array([
-    [0.739],
     [0.739],
     [0.739]], dtype="f")
 
@@ -451,6 +443,7 @@ print("Test W (Step 2):", TEST_sgd_W_m_21)
 
 TEST_sgd_b_m_21 = np.allclose(b_21.round(4), b_21_solution, atol=atol_threshold)
 print("Test b (Step 2):", TEST_sgd_b_m_21)
+
 ```
 Test Result
 
@@ -459,73 +452,55 @@ Test Result
 Initialized Parameters:
 
 W11 =
-[[1. 1.]
- [1. 1.]
- [1. 1.]]
+[[1. 1. 1.]
+ [1. 1. 1.]]
 
 b11 =
 [[1.]
- [1.]
  [1.]]
 
 W12 =
-[[1. 1.]
- [1. 1.]
- [1. 1.]
- [1. 1.]]
+[[1. 1. 1. 1.]
+ [1. 1. 1. 1.]]
 
 b12 =
 [[1.]
- [1.]
- [1.]
  [1.]]
 
 Parameters After SGD (Step=1)
 
 W11 =
-[[0.91 0.91]
- [0.91 0.91]
- [0.91 0.91]]
+[[0.91 0.91 0.91]
+ [0.91 0.91 0.91]]
 
 b11 =
 [[0.91]
- [0.91]
  [0.91]]
 
 W12 =
-[[0.91 0.91]
- [0.91 0.91]
- [0.91 0.91]
- [0.91 0.91]]
+[[0.91 0.91 0.91 0.91]
+ [0.91 0.91 0.91 0.91]]
 
 b12 =
 [[0.91]
- [0.91]
- [0.91]
  [0.91]]
 
 Parameters After SGD (Step=2)
 
 W21 =
-[[0.82 0.82]
- [0.82 0.82]
- [0.82 0.82]]
+[[0.82 0.82 0.82]
+ [0.82 0.82 0.82]]
 
 b21 =
 [[0.82]
- [0.82]
  [0.82]]
 
 W22 =
-[[0.82 0.82]
- [0.82 0.82]
- [0.82 0.82]
- [0.82 0.82]]
+[[0.82 0.82 0.82 0.82]
+ [0.82 0.82 0.82 0.82]]
 
 b22 =
 [[0.82]
- [0.82]
- [0.82]
  [0.82]]
 
 ──────────────────────────────────────────
@@ -535,25 +510,21 @@ SGD | SOLUTION OUTPUT
 Parameters After SGD (Step=1)
 
 W11 =
-[[0.91 0.91]
- [0.91 0.91]
- [0.91 0.91]]
+[[0.91 0.91 0.91]
+ [0.91 0.91 0.91]]
 
 b11 =
 [[0.91]
- [0.91]
  [0.91]]
 
 Parameters After SGD (Step=2)
 
 W21 =
-[[0.82 0.82]
- [0.82 0.82]
- [0.82 0.82]]
+[[0.82 0.82 0.82]
+ [0.82 0.82 0.82]]
 
 b21 =
 [[0.82]
- [0.82]
  [0.82]]
 
 
@@ -567,91 +538,67 @@ Test b (Step 2): True
 Initialized Parameters:
 
 W11 =
-[[1. 1.]
- [1. 1.]
- [1. 1.]]
+[[1. 1. 1.]
+ [1. 1. 1.]]
 
 b11 =
 [[1.]
- [1.]
  [1.]]
 
 W12 =
-[[1. 1.]
- [1. 1.]
- [1. 1.]
- [1. 1.]]
+[[1. 1. 1. 1.]
+ [1. 1. 1. 1.]]
 
 b12 =
 [[1.]
- [1.]
- [1.]
  [1.]]
 
 optimizer.v_W =
- [array([[0., 0.],
-       [0., 0.],
-       [0., 0.]], dtype=float32), array([[0., 0.],
-       [0., 0.],
-       [0., 0.],
-       [0., 0.]], dtype=float32)]
+ [array([[0., 0., 0.],
+       [0., 0., 0.]], dtype=float32), array([[0., 0., 0., 0.],
+       [0., 0., 0., 0.]], dtype=float32)]
 optimizer.v_b =
  [array([[0.],
-       [0.],
        [0.]], dtype=float32), array([[0.],
-       [0.],
-       [0.],
        [0.]], dtype=float32)]
 optimizer.l =
- [<__main__.Linear object at 0x7a8786fbb290>, <__main__.Linear object at 0x7a8786fbac10>]
+ [<__main__.Linear object at 0x7b96706546d0>, <__main__.Linear object at 0x7b965b14c750>]
 optimizer.L =
  2
 Parameters After SGD (Step=1)
 
 W11 =
-[[0.91 0.91]
- [0.91 0.91]
- [0.91 0.91]]
+[[0.91 0.91 0.91]
+ [0.91 0.91 0.91]]
 
 b11 =
 [[0.91]
- [0.91]
  [0.91]]
 
 W12 =
-[[0.91 0.91]
- [0.91 0.91]
- [0.91 0.91]
- [0.91 0.91]]
+[[0.91 0.91 0.91 0.91]
+ [0.91 0.91 0.91 0.91]]
 
 b12 =
 [[0.91]
- [0.91]
- [0.91]
  [0.91]]
 
 Parameters After SGD (Step=2)
 
 W21 =
-[[0.739 0.739]
- [0.739 0.739]
- [0.739 0.739]]
+[[0.739 0.739 0.739]
+ [0.739 0.739 0.739]]
 
 b21 =
 [[0.739]
- [0.739]
  [0.739]]
 
 W22 =
-[[0.739 0.739]
- [0.739 0.739]
- [0.739 0.739]
- [0.739 0.739]]
+[[0.739 0.739 0.739 0.739]
+ [0.739 0.739 0.739 0.739]]
 
 b22 =
 [[0.739]
- [0.739]
- [0.739]
  [0.739]]
 
 ──────────────────────────────────────────
@@ -661,25 +608,21 @@ SGD with Momentum | SOLUTION OUTPUT
 Parameters After SGD (Step=1)
 
 W11 =
-[[0.91 0.91]
- [0.91 0.91]
- [0.91 0.91]]
+[[0.91 0.91 0.91]
+ [0.91 0.91 0.91]]
 
 b11 =
 [[0.91]
- [0.91]
  [0.91]]
 
 Parameters After SGD (Step=2)
 
 W21 =
-[[0.739 0.739]
- [0.739 0.739]
- [0.739 0.739]]
+[[0.739 0.739 0.739]
+ [0.739 0.739 0.739]]
 
 b21 =
 [[0.739]
- [0.739]
  [0.739]]
 
 
