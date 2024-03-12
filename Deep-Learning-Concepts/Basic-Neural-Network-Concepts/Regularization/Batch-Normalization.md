@@ -74,6 +74,31 @@ class BatchNorm1d:
         dLdZ = None  # TODO
         return dLdZ
 ```
+
+| Code Name   | Math          | Type   | Shape | Meaning                                                    |
+|-------------|---------------|--------|-------|------------------------------------------------------------|
+| N           | $N$      | scalar | -     | batch size                                                 |
+| num_features| $C$       | scalar | -     | number of features (same for input and output)             |
+| alpha       | $\alpha$  | scalar | -     | the coefficient used for running_M and running_V computations |
+| eps         | $\varepsilon$ | scalar | -     | a value added to the denominator for numerical stability. |
+| Z           | $Z$       | matrix | $N \times C$ | data input to the BN layer                                |
+| NZ          | $\hat{Z}$ | matrix | $N \times C$ | normalized input data                                     |
+| BZ          | $\tilde{Z}$| matrix | $N \times C$ | data output from the BN layer                             |
+| M           | $\mu$     | matrix | $1 \times C$ | Mini-batch per feature mean                               |
+| V           | $\sigma^2$ | matrix | $1 \times C$ | Mini-batch per feature variance                           |
+| running_M   | $E[Z]$    | matrix | $1 \times C$ | Running average of per feature mean                       |
+| running_V   | $Var[Z]$  | matrix | $1 \times C$ | Running average of per feature variance                   |
+| Bw          | $\gamma$  | matrix | $1 \times C$ | Scaling parameters                                        |
+| Bb          | $\beta$   | matrix | $1 \times C$ | Shifting parameters                                       |
+| dLdBW       | $\frac{\partial L}{\partial \gamma}$ | matrix | $1 \times C$ | how changes in $\gamma$ affect loss                |
+| dLdBb       | $\frac{\partial L}{\partial \beta}$ | matrix | $1 \times C$ | how changes in $\beta$ affect loss                  |
+| dLdZ        | $\frac{\partial L}{\partial Z}$ | matrix | $N \times C$ | how changes in inputs affect loss                        |
+| dLdNZ       | $\frac{\partial L}{\partial \hat{Z}}$ | matrix | $N \times C$ | how changes in $\hat{Z}$ affect loss              |
+| dLdBZ       | $\frac{\partial L}{\partial \tilde{Z}}$ | matrix | $N \times C$ | how changes in $\tilde{Z}$ affect loss            |
+| dLdV        | $\frac{\partial L}{\partial \sigma^2}$ | matrix | $1 \times C$ | how changes in $\sigma^2$ affect loss             |
+| dLdM        | $\frac{\partial L}{\partial \mu}$ | matrix | $1 \times C$ | how changes in $\mu$ affect loss                   |
+
+
 ## Code Implementation
 ```python
 import numpy as np
