@@ -28,7 +28,7 @@ In this section, your task is to implement the forward and backward attribute fu
   - `forward`: It takes in a batch of data $Z$ computes the batch normalized data $\hat{Z}$, and returns the scaled and shifted data $\tilde{Z}$. In addition:
     * During training, forward calculates the mean and standard-deviation of each feature over the mini-batches and uses them to update the `running_M` $E[Z]$ and `running_V`$Var[Z]$, which are learnable parameter vectors trained during forward propagation. By default, the elements of $E[Z]$ are set to $0$ and the elements of $Var[Z]$ are set to 1.
     * During inference, the learnt mean `running_M` $E[Z]$ and variance `running_V`$Var[Z]$ over the entire training dataset are used to normalize $\tilde{Z}$.
-  - `backward`: takes input $dLdBZ$, how changes in BN layer output affects loss, computes and stores the necessary gradients $dLdBW$, $dLdBb$ to train learnable parameters BW and Bb. Returns $dLdZ$,  how the changes in BN layer input $Z$ affect loss $L$ for downstream computation.
+  - `backward`: takes input $dLdBZ$, how changes in BN layer output affects loss, computes and stores the necessary gradients $dLdBW$, $dLdBb$ to train learnable parameters $BW$ and $Bb$. Returns $dLdZ$,  how the changes in BN layer input $Z$ affect loss $L$ for downstream computation.
 
 Please consider the following class structure:
 ```python
