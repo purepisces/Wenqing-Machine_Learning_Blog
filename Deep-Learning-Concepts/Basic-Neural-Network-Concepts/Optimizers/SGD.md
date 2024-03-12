@@ -78,7 +78,7 @@ $$W := W - \lambda v_W$$
 
 $$b := b - \lambda v_b$$
 
-# Momentum
+## Momentum
 
 Oscillations:
 
@@ -99,7 +99,18 @@ SGD with Momentum: On the right, the inclusion of momentum allows the optimizati
 
 The key difference is that momentum helps to dampen the oscillations and provides a more consistent direction of travel, preventing the kind of erratic movements seen in the path without momentum. This generally results in faster convergence and a more efficient path to the minimum of the loss function.
 
-# Velocities 
+### Example
+let's visualize the concept of momentum in optimization with an analogy involving a ball rolling down a steep slope.
+
+Without Momentum:
+
+Imagine a ball at the top of a steep hill, and this ball represents our optimizer. Each time we allow the ball to roll a step downhill, it represents an iteration of gradient descent. Without momentum, the ball only moves due to the force of gravity acting on it at each step (which represents the gradient of our loss function at each point). As the ball rolls down the hill, it only moves a small distance with each step because it stops as soon as the slope (gradient) becomes flat or it encounters an uphill (a rise in the loss function). This movement is analogous to basic SGD, where each update is based solely on the current gradient, and the optimizer can get stuck in flat regions or be significantly slowed down by slight uphill gradients, leading to slow convergence.
+
+With Momentum:
+
+Now, imagine the same ball, but this time it has the ability to retain some of its velocity from previous rolls (steps). This is akin to adding a momentum term to our optimizer. As the ball starts to roll down the hill, it not only gains speed due to the current slope (gradient) but also retains some of the speed from its previous movements. This accumulated velocity helps the ball to keep moving even when it hits a flat spot or a slight uphill slope, making it less likely to get stuck and enabling it to move faster across the landscape. This is especially useful when navigating through complex terrains with multiple hills and valleys (local minima), as the momentum can help the ball (optimizer) to escape shallow valleys and continue its journey towards the lowest point (global minimum).
+
+## Velocities 
 
 In the context of gradient descent and optimization algorithms in deep learning, "velocity" is a term often associated with momentum-based methods, such as Stochastic Gradient Descent with Momentum (SGD with Momentum). Velocity represents an accumulated gradient update across iterations. It helps in smoothing out the updates and provides a more stable and faster convergence towards the minimum of the loss function.
 
