@@ -62,6 +62,9 @@ class SGD:
 | l[i].W    | $W_{i}$   | matrix | $C_{i+1} \times C_i$ | weight parameter for a layer                      |
 | l[i].b    | $b_{i}$   | matrix | $C_{i+1} \times 1$  | bias parameter for a layer                        |
 
+> Note: $W$ in a linear layer has the shape $C_{i+1} \times C_i$, where $C_i$ is the number of input features to the layer and $C_{i+1}$ is the number of output features.
+>
+
 ## SGD Equation (Without Momentum)
 
 $$W := W - \lambda \frac{\partial L}{\partial W}$$
