@@ -99,7 +99,7 @@ Imagine you're trying to roll a ball down into the deepest part of a bowl to fin
 The key difference is that momentum helps to dampen the oscillations and provides a more consistent direction of travel, preventing the kind of erratic movements seen in the path without momentum. This generally results in faster convergence and a more efficient path to the minimum of the loss function.
 
 
-### Example
+**Example of Momentum:**
 
 Let's visualize the concept of momentum in optimization with an analogy involving a ball rolling down a steep slope.
 
@@ -312,6 +312,16 @@ b_21_solution = np.array([
         [0.82],
         [0.82],
         [0.82]], dtype="f")
+        
+print("\nParameters After SGD (Step=1)\n")
+
+print("W11 =\n", W_11_solution, "\n", sep="")
+print("b11 =\n", b_11_solution, "\n", sep="")
+
+print("Parameters After SGD (Step=2)\n")
+
+print("W21 =\n", W_21_solution, "\n", sep="")
+print("b21 =\n", b_21_solution, "\n", sep="")
 
 print("\n──────────────────────────────────────────")
 print("SGD | TEST RESULTS")
@@ -443,8 +453,8 @@ TEST_sgd_b_m_21 = np.allclose(b_21.round(4), b_21_solution, atol=atol_threshold)
 print("Test b (Step 2):", TEST_sgd_b_m_21)
 ```
 Test Result
-```python
 
+```python
 
 Initialized Parameters:
 
@@ -522,6 +532,31 @@ b22 =
 SGD | SOLUTION OUTPUT
 ──────────────────────────────────────────
 
+Parameters After SGD (Step=1)
+
+W11 =
+[[0.91 0.91]
+ [0.91 0.91]
+ [0.91 0.91]]
+
+b11 =
+[[0.91]
+ [0.91]
+ [0.91]]
+
+Parameters After SGD (Step=2)
+
+W21 =
+[[0.82 0.82]
+ [0.82 0.82]
+ [0.82 0.82]]
+
+b21 =
+[[0.82]
+ [0.82]
+ [0.82]]
+
+
 ──────────────────────────────────────────
 SGD | TEST RESULTS
 ──────────────────────────────────────────
@@ -568,7 +603,7 @@ optimizer.v_b =
        [0.],
        [0.]], dtype=float32)]
 optimizer.l =
- [<__main__.Linear object at 0x7f367786b790>, <__main__.Linear object at 0x7f3677868090>]
+ [<__main__.Linear object at 0x7a8786fbb290>, <__main__.Linear object at 0x7a8786fbac10>]
 optimizer.L =
  2
 Parameters After SGD (Step=1)
