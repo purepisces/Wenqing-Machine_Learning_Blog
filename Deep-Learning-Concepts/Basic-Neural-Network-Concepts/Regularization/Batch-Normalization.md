@@ -103,9 +103,9 @@ The batchnorm topology is visualized in the followingFigure, whose reference per
 
 <img src="Batchnorm_Topology.png" alt="Batchnorm_Topology" width="400" height="300"/>
 
-Note: In the following sections, we are providing you with element-wise equations instead of matrix equa- tions. As a deep learning ninja, please don’t use for loops to implement them – that will be extremely slow!
+Note: In the following sections, we are providing you with element-wise equations instead of matrix equations. As a deep learning ninja, please don’t use for loops to implement them – that will be extremely slow!
 
-Your task is first to come up with a matrix equation for each element-wise equation we provide, then im- plement them as code. If you ask TAs for help in this section, we will ask you to provide your matrix equations.
+Your task is first to come up with a matrix equation for each element-wise equation we provide, then implement them as code.
 
 
 ## Code Implementation
