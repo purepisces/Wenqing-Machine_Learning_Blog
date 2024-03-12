@@ -103,6 +103,9 @@
     - [Adam](adam.md)
     - [RMSProp](RMSProp.md)
     - [AdaGrad](adagrad.md)
+- **Regularization**
+  - [Overview](regularization-overview.md)
+  - [Batch Normalization](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Regularization/Batch-Normalization.md)
 
 ### Sequence Models
 - [Overview](sequence-models-overview.md)
