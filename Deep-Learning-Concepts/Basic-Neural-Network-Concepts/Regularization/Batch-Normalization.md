@@ -10,25 +10,26 @@ Standard scores (or z-scores) of features are calculated as follows:
 
 $$\hat{x} = \frac{x - µ}{σ}$$
 
-Batch normalization is a method used to make training of artificial neural networks faster and more stable through normalization of the layers’ inputs by re-centering and re-scaling. It comes from the paper Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift, we encourage you to read the paper for a better understanding. You can find pseudocode and explanation in the paper if you are stuck!
+Batch normalization is a method used to make training of artificial neural networks faster and more stable through normalization of the layers’ inputs by re-centering and re-scaling. It comes from the paper Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift.
 
 In this section, your task is to implement the forward and backward attribute functions of the BatchNorm1d class in file `batchnorm.py`.
+
 
 - Class attributes:
   - `alpha`: a hyperparameter used for the running mean and running var computation.
   - `eps`: a value added to the denominator for numerical stability.
   - `Bw`: learnable parameter of a BN (batch norm) layer to scale features.
   - `Bb`: learnable parameter of a BN (batch norm) layer to shift features.
-  - `dLBw`: how changes in γ affect loss
-  - `dLBb`: how changes in β affect loss
-  - `running-M`: learnable parameter, the estimated mean of the training data
-  - `running-V`: learnable parameter, the estimated variance of the training data
-
+  - `dLBw`: how changes in $\gamma$ affect loss
+  - `dLBb`: how changes in $\beta$ affect loss
+  - `running_M`: learnable parameter, the estimated mean of the training data
+  - `running_V`: learnable parameter, the estimated variance of the training data
+    
 - Class methods:
-  - `forward`: It takes in a batch of data Z computes the batch normalized data \(\hat{Z}\), and returns the scaled and shifted data \(\tilde{Z}\). In addition:
-    * During training, forward calculates the mean and standard-deviation of each feature over the mini-batches and uses them to update the `running-M[E[Z]]` and `running-V[Var[Z]]`, which are learnable parameter vectors trained during forward propagation. By default, the elements of `E[Z]` are set to 0 and the elements of `Var[Z]` are set to 1.
-    * During inference, the learnt mean `running-M[E[Z]]` and variance `running-V[Var[Z]]` over the entire training dataset are used to normalize \(\tilde{Z}\).
-  - `backward`: takes input `dL/d\tilde{Z}`, how changes in BN layer output affects loss, computes and stores the necessary gradients `dLBw`, `dLBb` to train learnable parameters BW and Bb. Returns `dL/dZ`, how the changes in BN layer input Z affect loss L for downstream computation.
+  - `forward`: It takes in a batch of data $Z$ computes the batch normalized data $\hat{Z}$, and returns the scaled and shifted data $\tilde{Z}$. In addition:
+    * During training, forward calculates the mean and standard-deviation of each feature over the mini-batches and uses them to update the `running_M` $E[Z]$ and `running_V`$Var[Z]$, which are learnable parameter vectors trained during forward propagation. By default, the elements of $E[Z]$ are set to $0$ and the elements of $Var[Z]$ are set to 1.
+    * During inference, the learnt mean `running_M` $E[Z]$ and variance `running_V`$Var[Z]$ over the entire training dataset are used to normalize $\tilde{Z}$.
+  - `backward`: takes input $dLdBZ$, how changes in BN layer output affects loss, computes and stores the necessary gradients $dLdBW$, $dLdBb$ to train learnable parameters BW and Bb. Returns $dLdZ$,  how the changes in BN layer input $Z$ affect loss $L$ for downstream computation.
 
 Please consider the following class structure:
 ```python
