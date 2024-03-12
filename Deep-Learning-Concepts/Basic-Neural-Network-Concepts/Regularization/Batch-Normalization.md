@@ -74,6 +74,7 @@ class BatchNorm1d:
         dLdZ = None  # TODO
         return dLdZ
 ```
+Table for Batch Normalization Components:
 
 | Code Name   | Math          | Type   | Shape | Meaning                                                    |
 |-------------|---------------|--------|-------|------------------------------------------------------------|
@@ -97,6 +98,14 @@ class BatchNorm1d:
 | dLdBZ       | $\frac{\partial L}{\partial \tilde{Z}}$ | matrix | $N \times C$ | how changes in $\tilde{Z}$ affect loss            |
 | dLdV        | $\frac{\partial L}{\partial \sigma^2}$ | matrix | $1 \times C$ | how changes in $\sigma^2$ affect loss             |
 | dLdM        | $\frac{\partial L}{\partial \mu}$ | matrix | $1 \times C$ | how changes in $\mu$ affect loss                   |
+
+The batchnorm topology is visualized in the followingFigure, whose reference persists throughout this document. In the image, V0,M0 correspond to V,M during training, and correspond to running_V and running_M during inference.
+
+<img src="Batchnorm_Topology.png" alt="Batchnorm_Topology" width="400" height="300"/>
+
+Note: In the following sections, we are providing you with element-wise equations instead of matrix equa- tions. As a deep learning ninja, please don’t use for loops to implement them – that will be extremely slow!
+
+Your task is first to come up with a matrix equation for each element-wise equation we provide, then im- plement them as code. If you ask TAs for help in this section, we will ask you to provide your matrix equations.
 
 
 ## Code Implementation
