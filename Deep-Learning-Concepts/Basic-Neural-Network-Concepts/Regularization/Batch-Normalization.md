@@ -108,6 +108,22 @@ Note: In the following sections, we are providing you with element-wise equation
 Your task is first to come up with a matrix equation for each element-wise equation we provide, then implement them as code.
 
 
+###  Batch Normalization Forward Training Equations (When eval = False)
+
+First, we calculate the mini-batch mean $\mu$ and variance $\sigma^2$ of the current batch of data $Z$. $\mu_j$ and $\sigma_j^2$ represent the mean and variance of the jth feature. $Z_{ij}$ refers to the element at the $i$th row and $j$th column of $Z$ and represents the value of the $j$th feature in the $i$th sample in the batch.
+
+
+$$\mu_j = \frac{1}{N} \sum_{i=1}^{N} Z_{ij} \quad j = 1, \ldots, C $$
+
+$$\sigma_j^2 = \frac{1}{N} \sum_{i=1}^{N} (Z_{ij} - \mu_j)^2 \quad j = 1, \ldots, C $$
+
+Using the mean and variance, we normalize the input $Z$ to get the normalized data $\hat{Z}$. Note: we add $\epsilon$ in denominator for numerical stability and to prevent division by $0$ error.
+
+$$\hat{Z_i} = \frac{Z_i - \mu}{\sqrt{\sigma^2 + \epsilon}} \quad i = 1, \ldots, N$$
+
+Here, we give you an example for the above equation to facilitate understanding:
+
+
 ## Code Implementation
 ```python
 import numpy as np
