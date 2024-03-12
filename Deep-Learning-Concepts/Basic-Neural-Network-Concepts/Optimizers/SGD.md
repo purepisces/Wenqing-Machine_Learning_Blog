@@ -55,12 +55,12 @@ class SGD:
 | $L$         | -    | scalar | -     | number of layers in the model                      |
 | lr        | $\lambda$   | scalar | -     | learning rate hyperparameter to scale affect of new gradients |
 | momentum  | $\mu$    | scalar | -     | momentum hyperparameter to scale affect of prior gradients |
-| $v_W$       | -    | list   | $L$     | list of velocity weight parameters, one for each layer |
-| $v_b$       | -    | list   | $L$     | list of velocity bias parameters, one for each layer |
-| $v_w[i]$    | $vWi$  | matrix | $C_{i+1} \times C_i$ | velocity for layer $i$ weight                        |
-| $v_b[i]$    | $vbi$  | matrix | $C_{i+1} \times 1$  | velocity for layer $i$ bias                          |
-| $l[i] \cdot w$    | $Wi$   | matrix | $C_{i+1} \times C_i$ | weight parameter for a layer                      |
-| $l[i] \cdot b$    | $bi$   | matrix | $C_{i+1} \times 1$  | bias parameter for a layer                        |
+| v_W       | -    | list   | $L$     | list of velocity weight parameters, one for each layer |
+| v_b      | -    | list   | $L$     | list of velocity bias parameters, one for each layer |
+| v_W[i]   | $v_{W_{i}}$  | matrix | $C_{i+1} \times C_i$ | velocity for layer $i$ weight                        |
+| v_b[i]    | $v_{b_{i}}$  | matrix | $C_{i+1} \times 1$  | velocity for layer $i$ bias                          |
+| l[i].W    | $W_{i}$   | matrix | $C_{i+1} \times C_i$ | weight parameter for a layer                      |
+| l[i].b    | $b_{i}$   | matrix | $C_{i+1} \times 1$  | bias parameter for a layer                        |
 
 ## SGD Equation (Without Momentum)
 
