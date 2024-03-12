@@ -101,9 +101,19 @@ The key difference is that momentum helps to dampen the oscillations and provide
 
 # Velocities 
 
-In SGD implementation, v_W and v_b represent the velocities for weights and biases, respectively. These velocities are essential in momentum-based optimization as they store information about the previous updates. The term "velocity" here is analogous to momentum in physics; it helps the optimizer to "remember" the direction and speed of previous updates, allowing for more effective navigation of the loss landscape.
+In the context of gradient descent and optimization algorithms in deep learning, "velocity" is a term often associated with momentum-based methods, such as Stochastic Gradient Descent with Momentum (SGD with Momentum). Velocity represents an accumulated gradient update across iterations. It helps in smoothing out the updates and provides a more stable and faster convergence towards the minimum of the loss function.
 
-The implementation updates the velocities by blending the current gradient (dLdW for weights and dLdb for biases) with the previous velocity, scaled by the momentum term (mu). This results in an exponential moving average of the gradients, which is then used to update the weights and biases. This approach effectively dampens oscillations and accelerates convergence towards the minima.
+Here's how velocity works in SGD with Momentum:
+
+At each step, instead of directly using the current gradient to update the model parameters, SGD with Momentum combines the current gradient with the velocity from the previous step. This combination is controlled by a momentum coefficient, typically denoted as $\mu$.
+
+The inclusion of velocity helps in two main ways:
+
+Directional Consistency: By accumulating gradients, it helps in maintaining a consistent direction of updates, which can be particularly beneficial in scenarios where the surface of the loss function is uneven or has steep slopes.
+
+Dampening Oscillations: It reduces the oscillations that can occur when the gradient's direction changes rapidly, which often happens in the steep areas of the loss function. This dampening effect allows for a smoother convergence to the minimum.
+
+In essence, the concept of velocity in optimization algorithms like SGD with Momentum allows the optimizer to "remember" the direction and magnitude of past updates, thus making the optimization process more stable and efficient.
 
 # Code Implementation
 
