@@ -499,7 +499,8 @@ print(optimizer.L)
 1
 ```
 
-Note: the design intention for the layers attribute is to only contain layers with trainable parameters (like weights and biases in linear layers). Typically, activation functions like ReLU don't have parameters that need updating during training, as they're purely functional transformations.
+> Note: The design intention for the layers attribute is to only contain layers with trainable parameters (like weights and biases in linear layers). Typically, activation functions like ReLU don't have parameters that need updating during training, as they're purely functional transformations.
+>
 
 # Momentum
 
