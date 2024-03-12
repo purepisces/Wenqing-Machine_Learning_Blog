@@ -1,4 +1,4 @@
-# Code Implementation
+## Code Implementation
 ```python
 import numpy as np
 
