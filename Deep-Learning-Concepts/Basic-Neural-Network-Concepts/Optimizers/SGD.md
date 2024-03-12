@@ -211,7 +211,7 @@ class SGD:
 
 class PseudoModel:
     def __init__(self):
-        self.layers = [Linear(3, 2)]
+        self.layers = [Linear(3, 2),Linear(4, 2)]
         self.f = [ReLU()]
 
     def forward(self, A):
@@ -227,10 +227,16 @@ pseudo_model.layers[0].W = np.ones((3, 2))
 pseudo_model.layers[0].dLdW = np.ones((3, 2)) / 10
 pseudo_model.layers[0].b = np.ones((3, 1))
 pseudo_model.layers[0].dLdb = np.ones((3, 1)) / 10
+pseudo_model.layers[1].W = np.ones((4, 2))
+pseudo_model.layers[1].dLdW = np.ones((4, 2)) / 10
+pseudo_model.layers[1].b = np.ones((4, 1))
+pseudo_model.layers[1].dLdb = np.ones((4, 1)) / 10
 
 print("\nInitialized Parameters:\n")
-print("W =\n", pseudo_model.layers[0].W, "\n", sep="")
-print("b =\n", pseudo_model.layers[0].b, "\n", sep="")
+print("W11 =\n", pseudo_model.layers[0].W, "\n", sep="")
+print("b11 =\n", pseudo_model.layers[0].b, "\n", sep="")
+print("W12 =\n", pseudo_model.layers[1].W, "\n", sep="")
+print("b12 =\n", pseudo_model.layers[1].b, "\n", sep="")
 
 #Test Example Models
 optimizer = SGD(pseudo_model, lr=0.9)
@@ -238,40 +244,48 @@ optimizer.step()
 
 print("Parameters After SGD (Step=1)\n")
 
-W_1 = pseudo_model.layers[0].W.copy()
-b_1 = pseudo_model.layers[0].b.copy()
-print("W =\n", W_1, "\n", sep="")
-print("b =\n", b_1, "\n", sep="")
+W_11 = pseudo_model.layers[0].W.copy()
+b_11 = pseudo_model.layers[0].b.copy()
+print("W11 =\n", W_11, "\n", sep="")
+print("b11 =\n", b_11, "\n", sep="")
+W_12 = pseudo_model.layers[1].W.copy()
+b_12 = pseudo_model.layers[1].b.copy()
+print("W12 =\n", W_12, "\n", sep="")
+print("b12 =\n", b_12, "\n", sep="")
 
 optimizer.step()
 
 print("Parameters After SGD (Step=2)\n")
 
-W_2 = pseudo_model.layers[0].W
-b_2 = pseudo_model.layers[0].b
-print("W =\n", W_2, "\n", sep="")
-print("b =\n", b_2, "\n", sep="")
+W_21 = pseudo_model.layers[0].W
+b_21 = pseudo_model.layers[0].b
+print("W21 =\n", W_21, "\n", sep="")
+print("b21 =\n", b_21, "\n", sep="")
+W_22 = pseudo_model.layers[1].W
+b_22 = pseudo_model.layers[1].b
+print("W22 =\n", W_22, "\n", sep="")
+print("b22 =\n", b_22, "\n", sep="")
 
 print("──────────────────────────────────────────")
 print("SGD | SOLUTION OUTPUT")
 print("──────────────────────────────────────────")
 
-W_1_solution = np.array([
+W_11_solution = np.array([
         [0.91, 0.91],
         [0.91, 0.91],
         [0.91, 0.91]], dtype="f")
 
-b_1_solution = np.array([
+b_11_solution = np.array([
         [0.91],
         [0.91],
         [0.91]], dtype="f")
 
-W_2_solution = np.array([
+W_21_solution = np.array([
         [0.82, 0.82],
         [0.82, 0.82],
         [0.82, 0.82]], dtype="f")
 
-b_2_solution = np.array([
+b_21_solution = np.array([
         [0.82],
         [0.82],
         [0.82]], dtype="f")
@@ -283,11 +297,11 @@ print("────────────────────────�
 print("                 Pass?")
 atol_threshold = 1e-4
 
-TEST_sgd_W_2 = np.allclose(W_2.round(4), W_2_solution, atol=atol_threshold)
-print("Test W (Step 2):", TEST_sgd_W_2)
+TEST_sgd_W_21 = np.allclose(W_21.round(4), W_21_solution, atol=atol_threshold)
+print("Test W (Step 2):", TEST_sgd_W_21)
 
-TEST_sgd_b_2 = np.allclose(b_2.round(4), b_2_solution, atol=atol_threshold)
-print("Test b (Step 2):", TEST_sgd_b_2)
+TEST_sgd_b_21 = np.allclose(b_21.round(4), b_21_solution, atol=atol_threshold)
+print("Test b (Step 2):", TEST_sgd_b_21)
 
 
 """
@@ -299,7 +313,7 @@ print("Test b (Step 2):", TEST_sgd_b_2)
 
 class PseudoModel:
     def __init__(self):
-        self.layers = [Linear(3, 2)]
+        self.layers = [Linear(3, 2), Linear(4,2)]
         self.f = [ReLU()]
 
     def forward(self, A):
@@ -316,63 +330,82 @@ pseudo_model.layers[0].dLdW = np.ones((3, 2)) / 10
 pseudo_model.layers[0].b = np.ones((3, 1))
 pseudo_model.layers[0].dLdb = np.ones((3, 1)) / 10
 
+pseudo_model.layers[1].W = np.ones((4, 2))
+pseudo_model.layers[1].dLdW = np.ones((4, 2)) / 10
+pseudo_model.layers[1].b = np.ones((4, 1))
+pseudo_model.layers[1].dLdb = np.ones((4, 1)) / 10
+
 print("\nInitialized Parameters:\n")
-print("W =\n", pseudo_model.layers[0].W, "\n", sep="")
-print("b =\n", pseudo_model.layers[0].b, "\n", sep="")
+print("W11 =\n", pseudo_model.layers[0].W, "\n", sep="")
+print("b11 =\n", pseudo_model.layers[0].b, "\n", sep="")
+print("W12 =\n", pseudo_model.layers[1].W, "\n", sep="")
+print("b12 =\n", pseudo_model.layers[1].b, "\n", sep="")
 
 # Test Example Models
 optimizer = SGD(pseudo_model, lr=0.9, momentum=0.9)
+print("optimizer.v_W =\n", optimizer.v_W)
+print("optimizer.v_b =\n", optimizer.v_b)
+print("optimizer.l =\n", optimizer.l)
+print("optimizer.L =\n", optimizer.L)
+
 optimizer.step()
 
 print("Parameters After SGD (Step=1)\n")
 
-W_1 = pseudo_model.layers[0].W.copy()
-b_1 = pseudo_model.layers[0].b.copy()
-print("W =\n", W_1, "\n", sep="")
-print("b =\n", b_1, "\n", sep="")
-
+W_11 = pseudo_model.layers[0].W.copy()
+b_11 = pseudo_model.layers[0].b.copy()
+print("W11 =\n", W_11, "\n", sep="")
+print("b11 =\n", b_11, "\n", sep="")
+W_12 = pseudo_model.layers[1].W.copy()
+b_12 = pseudo_model.layers[1].b.copy()
+print("W12 =\n", W_12, "\n", sep="")
+print("b12 =\n", b_12, "\n", sep="")
 optimizer.step()
 
 print("Parameters After SGD (Step=2)\n")
 
-W_2 = pseudo_model.layers[0].W
-b_2 = pseudo_model.layers[0].b
-print("W =\n", W_2, "\n", sep="")
-print("b =\n", b_2, "\n", sep="")
+W_21 = pseudo_model.layers[0].W
+b_21 = pseudo_model.layers[0].b
+print("W21 =\n", W_21, "\n", sep="")
+print("b21 =\n", b_21, "\n", sep="")
+W_22 = pseudo_model.layers[1].W
+b_22 = pseudo_model.layers[1].b
+print("W22 =\n", W_22, "\n", sep="")
+print("b22 =\n", b_22, "\n", sep="")
 
 print("──────────────────────────────────────────")
 print("SGD with Momentum | SOLUTION OUTPUT")
 print("──────────────────────────────────────────")
 
-W_1_solution = np.array([
+W_11_solution = np.array([
     [0.91, 0.91],
     [0.91, 0.91],
     [0.91, 0.91]], dtype="f")
 
-b_1_solution = np.array([
+b_11_solution = np.array([
     [0.91],
     [0.91],
     [0.91]], dtype="f")
 
-W_2_solution = np.array([
+W_21_solution = np.array([
     [0.739, 0.739],
     [0.739, 0.739],
     [0.739, 0.739]], dtype="f")
 
-b_2_solution = np.array([
+b_21_solution = np.array([
     [0.739],
     [0.739],
     [0.739]], dtype="f")
 
 print("\nParameters After SGD (Step=1)\n")
 
-print("W =\n", W_1_solution, "\n", sep="")
-print("b =\n", b_1_solution, "\n", sep="")
+print("W11 =\n", W_11_solution, "\n", sep="")
+print("b11 =\n", b_11_solution, "\n", sep="")
 
 print("Parameters After SGD (Step=2)\n")
 
-print("W =\n", W_2_solution, "\n", sep="")
-print("b =\n", b_2_solution, "\n", sep="")
+print("W21 =\n", W_21_solution, "\n", sep="")
+print("b21 =\n", b_21_solution, "\n", sep="")
 
 print("\n──────────────────────────────────────────")
 print("SGD with Momentum| TEST RESULTS")
@@ -380,48 +413,85 @@ print("────────────────────────�
 
 print("                 Pass?")
 
-TEST_sgd_W_m_2 = np.allclose(W_2.round(4), W_2_solution, atol=atol_threshold)
-print("Test W (Step 2):", TEST_sgd_W_m_2)
+TEST_sgd_W_m_21 = np.allclose(W_21.round(4), W_21_solution, atol=atol_threshold)
+print("Test W (Step 2):", TEST_sgd_W_m_21)
 
-TEST_sgd_b_m_2 = np.allclose(b_2.round(4), b_2_solution, atol=atol_threshold)
-print("Test b (Step 2):", TEST_sgd_b_m_2)
+TEST_sgd_b_m_21 = np.allclose(b_21.round(4), b_21_solution, atol=atol_threshold)
+print("Test b (Step 2):", TEST_sgd_b_m_21)
 ```
 Test Result
 ```python
 
+
 Initialized Parameters:
 
-W =
+W11 =
 [[1. 1.]
  [1. 1.]
  [1. 1.]]
 
-b =
+b11 =
 [[1.]
+ [1.]
+ [1.]]
+
+W12 =
+[[1. 1.]
+ [1. 1.]
+ [1. 1.]
+ [1. 1.]]
+
+b12 =
+[[1.]
+ [1.]
  [1.]
  [1.]]
 
 Parameters After SGD (Step=1)
 
-W =
+W11 =
 [[0.91 0.91]
  [0.91 0.91]
  [0.91 0.91]]
 
-b =
+b11 =
 [[0.91]
+ [0.91]
+ [0.91]]
+
+W12 =
+[[0.91 0.91]
+ [0.91 0.91]
+ [0.91 0.91]
+ [0.91 0.91]]
+
+b12 =
+[[0.91]
+ [0.91]
  [0.91]
  [0.91]]
 
 Parameters After SGD (Step=2)
 
-W =
+W21 =
 [[0.82 0.82]
  [0.82 0.82]
  [0.82 0.82]]
 
-b =
+b21 =
 [[0.82]
+ [0.82]
+ [0.82]]
+
+W22 =
+[[0.82 0.82]
+ [0.82 0.82]
+ [0.82 0.82]
+ [0.82 0.82]]
+
+b22 =
+[[0.82]
+ [0.82]
  [0.82]
  [0.82]]
 
@@ -438,37 +508,91 @@ Test b (Step 2): True
 
 Initialized Parameters:
 
-W =
+W11 =
 [[1. 1.]
  [1. 1.]
  [1. 1.]]
 
-b =
+b11 =
 [[1.]
  [1.]
  [1.]]
 
+W12 =
+[[1. 1.]
+ [1. 1.]
+ [1. 1.]
+ [1. 1.]]
+
+b12 =
+[[1.]
+ [1.]
+ [1.]
+ [1.]]
+
+optimizer.v_W =
+ [array([[0., 0.],
+       [0., 0.],
+       [0., 0.]], dtype=float32), array([[0., 0.],
+       [0., 0.],
+       [0., 0.],
+       [0., 0.]], dtype=float32)]
+optimizer.v_b =
+ [array([[0.],
+       [0.],
+       [0.]], dtype=float32), array([[0.],
+       [0.],
+       [0.],
+       [0.]], dtype=float32)]
+optimizer.l =
+ [<__main__.Linear object at 0x7f367786b790>, <__main__.Linear object at 0x7f3677868090>]
+optimizer.L =
+ 2
 Parameters After SGD (Step=1)
 
-W =
+W11 =
 [[0.91 0.91]
  [0.91 0.91]
  [0.91 0.91]]
 
-b =
+b11 =
 [[0.91]
+ [0.91]
+ [0.91]]
+
+W12 =
+[[0.91 0.91]
+ [0.91 0.91]
+ [0.91 0.91]
+ [0.91 0.91]]
+
+b12 =
+[[0.91]
+ [0.91]
  [0.91]
  [0.91]]
 
 Parameters After SGD (Step=2)
 
-W =
+W21 =
 [[0.739 0.739]
  [0.739 0.739]
  [0.739 0.739]]
 
-b =
+b21 =
 [[0.739]
+ [0.739]
+ [0.739]]
+
+W22 =
+[[0.739 0.739]
+ [0.739 0.739]
+ [0.739 0.739]
+ [0.739 0.739]]
+
+b22 =
+[[0.739]
+ [0.739]
  [0.739]
  [0.739]]
 
@@ -478,24 +602,24 @@ SGD with Momentum | SOLUTION OUTPUT
 
 Parameters After SGD (Step=1)
 
-W =
+W11 =
 [[0.91 0.91]
  [0.91 0.91]
  [0.91 0.91]]
 
-b =
+b11 =
 [[0.91]
  [0.91]
  [0.91]]
 
 Parameters After SGD (Step=2)
 
-W =
+W21 =
 [[0.739 0.739]
  [0.739 0.739]
  [0.739 0.739]]
 
-b =
+b21 =
 [[0.739]
  [0.739]
  [0.739]]
@@ -507,22 +631,7 @@ SGD with Momentum| TEST RESULTS
                  Pass?
 Test W (Step 2): True
 Test b (Step 2): True
-```
-
-```python
-optimizer = SGD(pseudo_model, lr=0.9)
-print(optimizer.v_W)
-print(optimizer.v_b)
-print(optimizer.l)
-print(optimizer.L)
-[array([[0., 0.],
-       [0., 0.],
-       [0., 0.]], dtype=float32)]
-[array([[0.],
-       [0.],
-       [0.]], dtype=float32)]
-[<__main__.Linear object at 0x7980e0793690>]
-1
+> 
 ```
 
 > Note: The design intention for the layers attribute is to only contain layers with trainable parameters (like weights and biases in linear layers). Typically, activation functions like ReLU don't have parameters that need updating during training, as they're purely functional transformations.
