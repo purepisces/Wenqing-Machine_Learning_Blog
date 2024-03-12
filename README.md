@@ -1,5 +1,5 @@
 # Current progress is updated in [progress.txt](progress.txt)
-# 中文版欢迎关注我的csdn[CSDN]((https://blog.csdn.net/weixin_53765658?type=blog)
+# 中文版欢迎关注我的[CSDN](https://blog.csdn.net/weixin_53765658?type=blog)
 # Wenqing's Machine Learning Blog
 
 
