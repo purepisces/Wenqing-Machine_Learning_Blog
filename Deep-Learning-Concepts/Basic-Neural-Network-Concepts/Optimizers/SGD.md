@@ -639,7 +639,37 @@ Test b (Step 2): True
 ```
 
 > Note: The design intention for the layers attribute is to only contain layers with trainable parameters (like weights and biases in linear layers). Typically, activation functions like ReLU don't have parameters that need updating during training, as they're purely functional transformations.
->
+
+## Dynamic Attribute Assignment in Python
+
+That illustrate why we can write:
+
+```python
+pseudo_model.layers[0].dLdW = np.ones((2,3)) / 10
+```
+
+Dynamic attribute assignment in Python allows you to set attributes on an object at runtime, meaning you can add attributes to objects on the fly during execution, even if those attributes were not defined within the class definition. This feature provides flexibility but should be used with caution to maintain code readability and avoid unexpected behaviors.
+
+### Example
+
+```python
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+# Create an instance of Person
+bob = Person("Bob")
+
+# Dynamically assign a new attribute 'age' to the instance 'bob'
+bob.age = 30
+
+# Dynamically assign another new attribute 'occupation' to the same instance
+bob.occupation = "Software Developer"
+
+# Accessing dynamically assigned attributes
+print(f"{bob.name} is {bob.age} years old and works as a {bob.occupation}.")
+```
+
 
 ## Reference:
 
