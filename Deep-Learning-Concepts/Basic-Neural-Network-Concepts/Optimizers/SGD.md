@@ -6,7 +6,7 @@ To recap, we built our own MLP models using linear class and activation classes 
 
 ## Stochastic Gradient Descent (SGD)
 
-In this section, we are going to implement Minibatch stochastic gradient descent with momentum, which we will refer to as SGD in this homework. Minibatch SGD is a version of SGD algorithm that speeds up the computation by approximating the gradient using smaller batches of the training data, and Momentum is a method that helps accelerate SGD by incorporating velocity from the previous update to reduce oscillations. The `sgd` function in PyTorch library is actually an implementation of Minibatch stochastic gradient descent with momentum.
+In this section, we are going to implement Minibatch stochastic gradient descent with momentum, which we will refer to as SGD in this document. Minibatch SGD is a version of SGD algorithm that speeds up the computation by approximating the gradient using smaller batches of the training data, and Momentum is a method that helps accelerate SGD by incorporating velocity from the previous update to reduce oscillations. The `sgd` function in PyTorch library is actually an implementation of Minibatch stochastic gradient descent with momentum.
 
 Your task is to implement the `step` attribute function of the `SGD` class in file `sgd.py`:
 
@@ -527,3 +527,8 @@ print(optimizer.L)
 
 > Note: The design intention for the layers attribute is to only contain layers with trainable parameters (like weights and biases in linear layers). Typically, activation functions like ReLU don't have parameters that need updating during training, as they're purely functional transformations.
 >
+
+## Reference:
+
+- CMU_11785_Introduction_To_Deep_Learning
+
