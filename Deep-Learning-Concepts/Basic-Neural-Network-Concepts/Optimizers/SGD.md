@@ -681,4 +681,5 @@ print(f"{bob.name} is {bob.age} years old and works as a {bob.occupation}.")
 ## Reference:
 
 - CMU_11785_Introduction_To_Deep_Learning
+- https://paperswithcode.com/method/sgd-with-momentum
 
