@@ -131,6 +131,8 @@ $$\hat{Z}_i = \gamma \odot \tilde{Z}_i + \beta \quad i = 1, \ldots, N$$
 
 Hint: In your matrix equation, first broadcast $\gamma$ and $\beta$ to make them have the same shape $N \times C$ as $\tilde{Z}$.
 
+<img src="Batchnorm_Forward_Equation_2_Example.png" alt="Batchnorm_Forward_Equation_2_Example" width="400" height="300"/>
+
 
 ## Code Implementation
 ```python
