@@ -123,6 +123,14 @@ $$\hat{Z_i} = \frac{Z_i - \mu}{\sqrt{\sigma^2 + \epsilon}} \quad i = 1, \ldots, 
 
 Here, we give you an example for the above equation to facilitate understanding:
 
+<img src="Batchnorm_Forward_Equation_1_Example.png" alt="Batchnorm_Forward_Equation_1_Example" width="400" height="300"/>
+
+Scale the normalized data by $\gamma$ and shift it by $\beta$:
+
+$$\hat{Z}_i = \gamma \odot \tilde{Z}_i + \beta \quad i = 1, \ldots, N$$
+
+Hint: In your matrix equation, first broadcast $\gamma$ and $\beta$ to make them have the same shape $N \times C$ as $\tilde{Z}$.
+
 
 ## Code Implementation
 ```python
