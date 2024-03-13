@@ -134,6 +134,7 @@ Hint: In your matrix equation, first broadcast $\gamma$ and $\beta$ to make them
 <img src="Batchnorm_Forward_Equation_2_Example.png" alt="Batchnorm_Forward_Equation_2_Example" width="400" height="300"/>
 
 
+
 ## Code Implementation
 ```python
 import numpy as np
