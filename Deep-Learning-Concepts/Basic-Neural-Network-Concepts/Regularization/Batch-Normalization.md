@@ -150,8 +150,9 @@ Scale the normalized data by $\gamma$ and shift it by $\beta$:
 
 $$\tilde{Z_i} = \gamma \hat{Z_i} + \beta \quad i = 1,...,N$$
 
-# Batch
+##  Batch Normalization Backward Equations
 
+We can now derive the analytic partial derivatives of the BatchNorm transformation. Let $L$ be the training loss over the batch and $\frac{\partial L}{\partial \hat{Z}}$ the derivative of the loss with respect to the output of the BatchNorm transformation for $Z$.
 
 $$\frac{\partial L}{\partial \beta_j} = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial \hat{y}_i} \frac{\partial \hat{y}_i}{\partial \beta_j} \right) = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial Z_i} \frac{\partial Z_i}{\partial \beta_j} \right) \quad j = 1, ..., C$$
 
