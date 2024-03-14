@@ -133,6 +133,42 @@ Hint: In your matrix equation, first broadcast $\gamma$ and $\beta$ to make them
 
 <img src="Batchnorm_Forward_Equation_2_Example.png" alt="Batchnorm_Forward_Equation_2_Example" width="400" height="300"/>
 
+During training (and only during training), your forward method should be maintaining a running average of the mini-batch mean and variance. These running averages should be used during inference. Hyperpa- rameter α is used to compute weighted running averages.
+
+$$E[Z] = \alpha \times E[Z] + (1 - \alpha) \times \mu \quad \in \mathbb{R}^{1 \times C}$$
+
+$$\text{Var}[Z] = \alpha \times \text{Var}[Z] + (1 - \alpha) \times \sigma^2 \quad \in \mathbb{R}^{1 \times C}$$
+
+
+###  Batch Normalization Forward Inference Equations (When eval = True)
+
+Once the network has been trained, we use the running average for the mean and variance of the training data $E[Z]$ and $Var[Z]$ to calculate the normalized data $\tilde{Z}$.
+
+$$\tilde{Z_i} = \frac{Z_i - E[Z]}{\sqrt{Var[Z] + \epsilon}}  \quad i = 1,...,N$$
+
+Scale the normalized data by $\gamma$ and shift it by $\beta$:
+
+$$\tilde{Z_i} = \gamma \hat{Z_i} + \beta \quad i = 1,...,N$$
+
+# Batch
+
+
+$$\frac{\partial L}{\partial \beta_j} = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial \hat{y}_i} \frac{\partial \hat{y}_i}{\partial \beta_j} \right) = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial Z_i} \frac{\partial Z_i}{\partial \beta_j} \right) \quad j = 1, ..., C$$
+
+$$\frac{\partial L}{\partial \gamma_j} = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial \hat{y}_i} \frac{\partial \hat{y}_i}{\partial \gamma_j} \right) = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial Z_i} \odot \frac{\partial Z_i}{\partial \gamma_j} \right) \quad j = 1, ..., C$$
+
+$$\frac{\partial L}{\partial Z} = \frac{\partial L}{\partial \hat{y}} \odot \frac{\partial \hat{y}}{\partial Z}$$
+
+$$\frac{\partial L}{\partial \sigma^2_j} = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial Z_i} \frac{\partial Z_i}{\partial \sigma^2_j} \right) \quad j = 1, ..., C$$
+
+$$\frac{\partial L}{\partial \sigma^2_j} = - \frac{1}{2} \sum_{i=1}^{N} \left( \frac{\partial L}{\partial Z_i} \odot (Z_i - \mu) \odot (\sigma^2 + \epsilon)^{- \frac{3}{2}} \right)_{ij}$$
+
+$$\frac{\partial Z_{ij}}{\partial \mu} = \frac{\partial}{\partial \mu} \left( Z_{ij} - \mu \right) (\sigma^2 + \epsilon)^{-\frac{1}{2}}$$
+
+$$\frac{\partial Z_{ij}}{\partial \mu} = - (\sigma^2 + \epsilon)^{-\frac{1}{2}} + \frac{1}{2} (Z_{ij} - \mu) \odot (\sigma^2 + \epsilon)^{-\frac{3}{2}} \odot \left( -2 \sum_{i=1}^{N} (Z_{ij} - \mu) \right)$$
+
+$$\frac{\partial L}{\partial \mu} = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial Z_i} \odot \frac{\partial Z_{ij}}{\partial \mu} \right)$$
+
 
 
 ## Code Implementation
