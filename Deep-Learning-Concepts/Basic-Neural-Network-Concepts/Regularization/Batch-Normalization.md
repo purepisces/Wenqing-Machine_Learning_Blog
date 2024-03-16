@@ -13,7 +13,6 @@ Batch normalization is a method used to make training of artificial neural netwo
 
 In this section, your task is to implement the forward and backward attribute functions of the BatchNorm1d class in file `batchnorm.py`.
 
-
 - Class attributes:
   - `alpha`: a hyperparameter used for the running mean and running var computation.
   - `eps`: a value added to the denominator for numerical stability.
