@@ -66,3 +66,7 @@ NOTE: Your GRU Cell will have a fundamentally different implementation in compar
 | `bzh` | $$b_{zh}$$ | vector | $$H_{out}$$ | bias vector for hidden state (for update gate) |
 | `bnh` | $$b_{nh}$$ | vector | $$H_{out}$$ | bias vector for hidden state (for candidate hidden state) |
 
+In mytorch/gru cell.py implement the forward pass for a GRUCell using Numpy, analogous to the Pytorch equivalent nn.GRUCell (Though we follow a slightly different naming convention than the Pytorch documentation.) The equations for a GRU cell are the following:
+
+
+
