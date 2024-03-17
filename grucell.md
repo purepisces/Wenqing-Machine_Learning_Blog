@@ -114,14 +114,16 @@ The table above lists the 14 gradients to be computed, and delta is the input of
 How to start? Given below are the equations you need to compute the derivatives for backward pass. We also recommend refreshing yourself on the rules for gradients from Lecture 5.
 IMPORTANT NOTE: As you compute the above gradients, you will notice that a lot of expressions are being reused. Store these expressions in other variables to write code that is easier for you to debug. This problem is not as big as it seems. Apart from dx and dh prev t, all gradients can computed in 2-3 lines of code. For your convenience, the forward equantions are listed here:
 
-$$ rt = \sigma(W_{rx} \cdot xt + b_{rx} + W_{rh} \cdot h_{t-1} + b_{rh}) \tag{8}$$
-$$ zt = \sigma(W_{zx} \cdot xt + b_{zx} + W_{zh} \cdot h_{t-1} + b_{zh}) \tag{9}$$
-$$ nt = \tanh(W_{nx} \cdot xt + b_{nx} + rt \circ (W_{nh} \cdot h_{t-1} + b_{nh})) \tag{10}$$
-$$ht = (1 − zt) \circ nt + zt \circ h_{t-1} \tag{11}$$
+$$\begin{align}
+& rt = \sigma(W_{rx} \cdot x_t + b_{rx} + W_{rh} \cdot h_{t-1} + b_{rh}) \tag{8} \\
+& zt = \sigma(W_{zx} \cdot x_t + b_{zx} + W_{zh} \cdot h_{t-1} + b_{zh}) \tag{9} \\
+& nt = \tanh(W_{nx} \cdot x_t + b_{nx} + rt \odot (W_{nh} \cdot h_{t-1} + b_{nh})) \tag{10} \\
+& h_t = (1 - zt) \odot n_t + z_t \odot h_{t-1} \tag{11}
+\end{align}$$
 
 In the backward calculation, we start from terms involved in equation 11 and work back to terms involved in equation 8.
 
-1. Forward Eqn: $$ht = (1 − z_t) \circ n_t + z_t \circ h_{t-1}$$
+1. Forward Eqn: $$h_t = (1 - zt) \odot n_t + z_t \odot h_{t-1}$$
    (a) $$\frac{\partial L}{\partial zt} = \frac{\partial L}{\partial ht} \times \frac{\partial ht}{\partial zt}$$
    (b) $$\frac{\partial L}{\partial nt} = \frac{\partial L}{\partial ht} \times \frac{\partial ht}{\partial nt}$$
 
