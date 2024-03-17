@@ -89,7 +89,7 @@ Equations given above can be represented by the following figures:
 
 In mytorch/gru cell.py implement the backward pass for the GRUCell specified before. The backward method of the GRUCell seems like the most time-consuming task in this homework because you have to compute 14 gradients but it is not difficult if you do it the right way. This method takes as input delta, and you must calculate the gradients w.r.t the parameters and return the derivative w.r.t the inputs, xt and ht−1, to the cell. The partial derivative input you are given, delta, is the summation of: the derivative of the loss w.r.t the input of the next layer xl+1,t and the derivative of the loss w.r.t the input hidden-state at the next time-step hl,t+1. Using these partials, compute the partial derivative of the loss w.r.t each of the six weight matrices, and the partial derivative of the loss w.r.t the input xt, and the hidden state ht.
 
-# Table 5: GRUCell Backward Components
+## Table 5: GRUCell Backward Components
 
 | Code Name | Math | Type | Shape | Meaning |
 |-----------|------|------|-------|---------|
@@ -150,9 +150,10 @@ In the backward calculation, we start from terms involved in equation 11 and wor
    (b) $$\frac{\partial L}{\partial h_{t-1}} = \frac{\partial L}{\partial h_t} \times \frac{\partial h_t}{\partial h_{t-1}} + \frac{\partial L}{\partial n_t} \times \frac{\partial n_t}{\partial h_{t-1}} + \frac{\partial L}{\partial z_t} \times \frac{\partial z_t}{\partial h_{t-1}} + \frac{\partial L}{\partial r_t} \times \frac{\partial r_t}{\partial h_{t-1}}$$
 
 
+**ADDITIONAL NOTES:**
 
+(a) Utilize the provided tanh class in activation.py without modification. Understand its backward method’s behavior regarding storing and passing the state parameter. Its backward method can work in 2 ways:
+   i. If backward is called after calling forward, the object already has the tanh value stored inside the self.state instance variable. So, backpropagation can be done without explicitly passing the state parameter to the backward method.
+   ii. If backward is called without storing forward, self.state won’t be present. Hence, we pass it as an input - the 2nd parameter of the backward method. If you have the output of tanh, you should pass it as the 2nd parameter of backward so that you don’t rely on forward being called by the test before backward.
 
-
-
-
-
+(b) Consistency in matrix multiplication is crucial for calculating gradients. Ensuring uniformity in the application of matrix operations guarantees accurate and reliable gradient computations, minimizing errors in the backpropagation process.
