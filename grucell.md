@@ -44,3 +44,25 @@ In `backward`, we calculate the gradient changes needed for optimization. The at
 - As an output, `backward` returns variables `dx` and `dh_prev_t`.
 
 NOTE: Your GRU Cell will have a fundamentally different implementation in comparison to the RNN Cell (mainly in the backward method). This is a pedagogical decision to introduce you to a variety of different possible implementations, and we leave it as an exercise to you to gauge the effectiveness of each implementation.
+
+## Table 4: GRUCell Forward Components
+
+| Code Name | Math | Type | Shape | Meaning |
+|-----------|------|------|-------|---------|
+| `input_size` | $$H_{in}$$ | scalar | — | The number of expected features in the input $$x$$ |
+| `hidden_size` | $$H_{out}$$ | scalar | — | The number of features in the hidden state $$h$$ |
+| `x` | $$x_t$$ | vector | $$H_{in}$$ | observation at the current time-step |
+| `h_prev_t` | $$h_{t-1}$$ | vector | $$H_{out}$$ | hidden state at previous time-step |
+| `Wrx` | $$W_{rx}$$ | matrix | $$H_{out} \times H_{in}$$ | Weight matrix for input (for reset gate) |
+| `Wzx` | $$W_{zx}$$ | matrix | $$H_{out} \times H_{in}$$ | Weight matrix for input (for update gate) |
+| `Wnx` | $$W_{nx}$$ | matrix | $$H_{out} \times H_{in}$$ | Weight matrix for input (for candidate hidden state) |
+| `Wrh` | $$W_{rh}$$ | matrix | $$H_{out} \times H_{out}$$ | Weight matrix for hidden state (for reset gate) |
+| `Wzh` | $$W_{zh}$$ | matrix | $$H_{out} \times H_{out}$$ | Weight matrix for hidden state (for update gate) |
+| `Wnh` | $$W_{nh}$$ | matrix | $$H_{out} \times H_{out}$$ | Weight matrix for hidden state (for candidate hidden state) |
+| `brx` | $$b_{rx}$$ | vector | $$H_{out}$$ | bias vector for input (for reset gate) |
+| `bzx` | $$b_{zx}$$ | vector | $$H_{out}$$ | bias vector for input (for update gate) |
+| `bnx` | $$b_{nx}$$ | vector | $$H_{out}$$ | bias vector for input (for candidate hidden state) |
+| `brh` | $$b_{rh}$$ | vector | $$H_{out}$$ | bias vector for hidden state (for reset gate) |
+| `bzh` | $$b_{zh}$$ | vector | $$H_{out}$$ | bias vector for hidden state (for update gate) |
+| `bnh` | $$b_{nh}$$ | vector | $$H_{out}$$ | bias vector for hidden state (for candidate hidden state) |
+
