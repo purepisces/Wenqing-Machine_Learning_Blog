@@ -153,21 +153,16 @@ $$\tilde{Z_i} = \gamma \hat{Z_i} + \beta \quad i = 1,...,N$$
 
 We can now derive the analytic partial derivatives of the BatchNorm transformation. Let $L$ be the training loss over the batch and $\frac{\partial L}{\partial \hat{Z}}$ the derivative of the loss with respect to the output of the BatchNorm transformation for $Z$.
 
-$$\frac{\partial L}{\partial \beta_j} = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial \hat{y}_i} \frac{\partial \hat{y}_i}{\partial \beta_j} \right) = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial Z_i} \frac{\partial Z_i}{\partial \beta_j} \right) \quad j = 1, ..., C$$
+$$(\frac{\partial L}{\partial \beta} )_{j}= \sum_{i=1}^{N} \left( \frac{\partial L}{\partial \tilde{Z}} \frac{\partial \tilde{Z}}{\partial \beta} \right)_{ij} = \sum_{i=1}^{N}(\frac{\partial L}{\partial \tilde{Z}})_{ij} \quad j = 1, ..., C$$
 
-$$\frac{\partial L}{\partial \gamma_j} = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial \hat{y}_i} \frac{\partial \hat{y}_i}{\partial \gamma_j} \right) = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial Z_i} \odot \frac{\partial Z_i}{\partial \gamma_j} \right) \quad j = 1, ..., C$$
 
-$$\frac{\partial L}{\partial Z} = \frac{\partial L}{\partial \hat{y}} \odot \frac{\partial \hat{y}}{\partial Z}$$
+$$(\frac{\partial L}{\partial \gamma})_{j} = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial \tilde{Z}} \frac{\partial \tilde{Z}}{\partial \gamma} \right)_{ij} = \sum_{i=1}^{N}(\frac{\partial L}{\partial \tilde{Z}}\odot \hat{Z} )_{ij} \quad j = 1, ..., C$$
 
-$$\frac{\partial L}{\partial \sigma^2_j} = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial Z_i} \frac{\partial Z_i}{\partial \sigma^2_j} \right) \quad j = 1, ..., C$$
 
-$$\frac{\partial L}{\partial \sigma^2_j} = - \frac{1}{2} \sum_{i=1}^{N} \left( \frac{\partial L}{\partial Z_i} \odot (Z_i - \mu) \odot (\sigma^2 + \epsilon)^{- \frac{3}{2}} \right)_{ij}$$
+$$\frac{\partial L}{\partial \hat{Z}} = \left( \frac{\partial L}{\partial \tilde{Z}} \frac{\partial \tilde{Z}}{\partial \hat{Z}} \right) = \frac{\partial L}{\partial \tilde{Z}} \odot \gamma $$
 
-$$\frac{\partial Z_{ij}}{\partial \mu} = \frac{\partial}{\partial \mu} \left( Z_{ij} - \mu \right) (\sigma^2 + \epsilon)^{-\frac{1}{2}}$$
+$$(\frac{\partial L}{\partial \sigma^2})_j = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial \hat{z}} \frac{\partial \hat{z}}{\partial \sigma^2} \right)_{ij} = -\frac{1}{2} \sum_{i=1}^{N} \left( \frac{\partial L}{\partial \hat{Z}} \odot (Z - \mu) \odot (\sigma^2 + \varepsilon)^{-\frac{3}{2}} \right)_{ij}$$
 
-$$\frac{\partial Z_{ij}}{\partial \mu} = - (\sigma^2 + \epsilon)^{-\frac{1}{2}} + \frac{1}{2} (Z_{ij} - \mu) \odot (\sigma^2 + \epsilon)^{-\frac{3}{2}} \odot \left( -2 \sum_{i=1}^{N} (Z_{ij} - \mu) \right)$$
-
-$$\frac{\partial L}{\partial \mu} = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial Z_i} \odot \frac{\partial Z_{ij}}{\partial \mu} \right)$$
 
 
 
