@@ -164,8 +164,14 @@ $$\frac{\partial L}{\partial \hat{Z}} = \left( \frac{\partial L}{\partial \tilde
 
 $$(\frac{\partial L}{\partial \sigma^2})j = \sum_{i=1}^{N} \left( \frac{\partial L}{\partial \hat{z}} \frac{\partial \hat{z}}{\partial \sigma^2} \right){ij} = -\frac{1}{2} \sum_{i=1}^{N} \left( \frac{\partial L}{\partial \hat{Z}} \odot (Z - \mu) \odot (\sigma^2 + \varepsilon)^{-\frac{3}{2}} \right){ij}$$
 
+$$\frac{\partial \hat{Z}i}{\partial \mu} = \frac{\partial}{\partial \mu} \left[ (Z_i - \mu)(\sigma^2 + \epsilon)^{-\frac{1}{2}} \right]
+= -(\sigma^2 + \epsilon)^{-\frac{1}{2}} - \frac{1}{2}(Z_i - \mu) \odot (\sigma^2 + \epsilon)^{-\frac{3}{2}} \odot \left( -\frac{2}{N} \sum_{i=1}^{N} (Z_i - \mu) \right)$$
 
 
+
+$$\frac{\partial L}{\partial \mu} = \sum_{i=1}^{N} \frac{\partial L}{\partial \hat{Z}_i} \odot \frac{\partial \hat{Z}_i}{\partial \mu}$$
+
+Now for the grand finale, let’s compute $\frac{\partial L}{\partial Z}$ . For clarity, we present the derivation for $\frac{\partial L}{\partial Z_i}$ for one data sample $Zi$.
 
 ## Code Implementation
 ```python
