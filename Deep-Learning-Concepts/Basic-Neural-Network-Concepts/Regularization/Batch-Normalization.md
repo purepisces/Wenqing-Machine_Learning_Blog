@@ -173,6 +173,12 @@ $$\frac{\partial L}{\partial \mu} = \sum_{i=1}^{N} \frac{\partial L}{\partial \h
 
 Now for the grand finale, let’s compute $\frac{\partial L}{\partial Z}$ . For clarity, we present the derivation for $\frac{\partial L}{\partial Z_i}$ for one data sample $Zi$.
 
+$$\frac{\partial L}{\partial Z_i} = \frac{\partial L}{\partial \hat{Z}_i}  \frac{\partial \hat{Z}}{\partial Z_i} = \frac{\partial L}{\partial \hat{Z}_i} \odot \left[ (\sigma^2 + \epsilon)^{-\frac{1}{2}} \right]+ \frac{\partial L}{\partial \sigma^2} \odot \left[ \frac{2}{N} (Z_i - \mu) \right] + \frac{1}{N} \frac{\partial L}{\partial \mu}$$
+
+In figure O, we present you with the illustration of batchnorm in a 0-hidden layer MLP model. Since the variables are color coded, it should be very clear each variable is used in which equations, which will help you apply chain rule and understand where the backward equations come from.
+
+<img src="Batchnorm_Example_Big_Picture.png" alt="Batchnorm_Example_Big_Picture" width="400" height="300"/>
+
 ## Code Implementation
 ```python
 import numpy as np
