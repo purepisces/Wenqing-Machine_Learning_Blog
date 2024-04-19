@@ -40,7 +40,7 @@
 - **Feature Engineering**
   - [Overview of Feature Engineering](Foundational-Concepts-in-Machine-Learning/Feature-Engineering/overview-feature-engineering.md)
 - **Feature Selection**
-  - [Overview of Feature Selection](Foundational-Concepts-in-Machine-Learning/Feature-Selection)
+  - [Overview of Feature Selection](Foundational-Concepts-in-Machine-Learning/Feature-Selection/overview-feature-selection.md)
   
 - **Model Evaluation**
   - [Model_Eval](Foundational-Concepts-in-Machine-Learning/Model-Evaluation/Model_Eval.md)
