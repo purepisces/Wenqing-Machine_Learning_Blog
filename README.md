@@ -36,6 +36,12 @@
   - **Probability Distributions**
     - [Cumulative Distribution Function (CDF)](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Probability-Distributions/cumulative-distribution-function.md)
     - [Standard Gaussian Distribution](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Probability-Distributions/standard-gaussian-distribution.md)
+   
+- **Feature Engineering**
+  - [Overview of_Feature Engineering](Foundational-Concepts-in-Machine-Learning/Feature-Engineering/feature-engineering-overview.md)
+- **Feature Selection**
+  - [Overview of Feature Selection](Foundational-Concepts-in-Machine-Learning/Feature-Selection/feature-selection-overview.md)
+  
 - **Model Evaluation**
   - [Model_Eval](Foundational-Concepts-in-Machine-Learning/Model-Evaluation/Model_Eval.md)
   - **Offline Metrics**
