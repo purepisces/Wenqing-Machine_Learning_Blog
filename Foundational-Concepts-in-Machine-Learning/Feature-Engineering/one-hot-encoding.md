@@ -199,23 +199,77 @@ This will output:
 Handling Unseen Categories
 As configured, if handle_unknown='ignore' had been set in OneHotEncoder, it would handle the new category "Sports" by ignoring it and producing zeros in all categorical feature columns. If not configured to ignore, it would throw an error indicating it has encountered an unknown category.
 
-Step 3: Integration in Pipelines
-OneHotEncoder can be integrated into a Scikit-learn pipeline along with other preprocessing steps and a classifier or regressor:
+OneHotEncoder is a Scikitlearn Transformer; therefore, you can use it consistently during training and predicting, coding examole:
+```python
+from sklearn.preprocessing import OneHotEncoder
+import pandas as pd
+
+# Sample training data
+data = pd.DataFrame({
+    'Genre': ['Action', 'Comedy', 'Drama']
+})
+
+# Creating the OneHotEncoder instance with handle_unknown set to 'ignore'
+encoder = OneHotEncoder(sparse=False, handle_unknown='ignore')
+encoder.fit(data[['Genre']])
+
+# New data with an unseen category 'Tragedy'
+new_data = pd.DataFrame({
+    'Genre': ['Drama', 'Action', 'Comedy', 'Action', 'Tragedy']
+})
+
+# Transforming the new data
+encoded_data = encoder.transform(new_data[['Genre']])
+print(encoded_data)
+```
+results:
+```
+[[0. 0. 1.]
+ [1. 0. 0.]
+ [0. 1. 0.]
+ [1. 0. 0.]
+ [0. 0. 0.]]
+```
+
+
+The integration of OneHotEncoder into preprocessing pipelines in Scikit-learn ensures a streamlined and consistent process from data preparation through to model training. 
+
 ```python
 from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.linear_model import LogisticRegression
+import pandas as pd
+import numpy as np
 
-# Creating a pipeline with OneHotEncoder and a simple classifier
-pipeline = make_pipeline(OneHotEncoder(handle_unknown='ignore'), LogisticRegression())
-pipeline.fit(data[['Content Preference']], np.array([1, 0, 1]))  # Example target data
+# Sample data
+data = pd.DataFrame({
+    'Genre': ['Action', 'Comedy', 'Action', 'Drama'],
+    'Liked': [1, 0, 1, 0]
+})
 
-# Predicting with the pipeline on new data
-predictions = pipeline.predict(new_data[['Content Preference']])
+# Splitting the data into features and target
+X_train = data[['Genre']]
+y_train = data['Liked']
+
+# Creating a pipeline with OneHotEncoder and Logistic Regression
+pipeline = make_pipeline(
+    OneHotEncoder(handle_unknown='ignore'),  # Encodes the 'Genre'
+    LogisticRegression()  # Predicts the 'Liked' outcome
+)
+
+# Fitting the pipeline
+pipeline.fit(X_train, y_train)
+
+# New data to predict
+new_data = pd.DataFrame({
+    'Genre': ['Comedy', 'Action', 'Drama','Tragedy']
+})
+
+# Predicting with the pipeline
+predictions = pipeline.predict(new_data)
 print(predictions)
 ```
-Summary
-This example shows how OneHotEncoder:
-
-Remembers the encoding scheme: By fitting it on the training data, which allows consistent transformation of new data.
-Handles unseen categories: Can be configured to either ignore them or throw an error, ensuring robustness in production environments.
-Integrates into pipelines: Simplifies workflows and ensures that all preprocessing steps are consistently applied both during training and prediction.
+results:
+```python
+[0 1 0 0]
+```
