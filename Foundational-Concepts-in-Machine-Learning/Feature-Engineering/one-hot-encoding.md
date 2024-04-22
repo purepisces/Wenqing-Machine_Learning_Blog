@@ -273,3 +273,7 @@ results:
 ```python
 [0 1 0 0]
 ```
+
+reference:
+https://medium.com/@sudeesh335/what-is-spare-matrix-d4448f27490f
+https://towardsdatascience.com/building-a-one-hot-encoding-layer-with-tensorflow-f907d686bf39
