@@ -39,6 +39,8 @@
    
 - **Feature Engineering**
   - [Overview of Feature Engineering](Foundational-Concepts-in-Machine-Learning/Feature-Engineering/overview-feature-engineering.md)
+  - [One Hot Encoding](Foundational-Concepts-in-Machine-Learning/Feature-Engineering/one-hot-encoding.md)
+
 - **Feature Selection**
   - [Overview of Feature Selection](Foundational-Concepts-in-Machine-Learning/Feature-Selection/overview-feature-selection.md)
   
