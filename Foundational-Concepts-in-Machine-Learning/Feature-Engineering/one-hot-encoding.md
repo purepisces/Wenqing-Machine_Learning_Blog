@@ -2,6 +2,7 @@
 ## Overview
 One hot encoding converts categorical variables into a binary matrix representation. It's particularly useful for categorical features with medium cardinality.
 > **Note**: Cardinality measures the number of elements in a set, so when applied to data features, it indicates the number of unique values that a feature can take.
+<img src="one_hot_encoding.png" alt="one_hot_encoding" width="400" height="300"/>
 
 ## Common Problems
 -  **Memory Consumption**: Can be extensive if there are many unique categories, leading to high-dimensional feature vectors.
@@ -259,6 +260,10 @@ Results:
 ```python
 [0 1 0 0]
 ```
+> Note when encoder = OneHotEncoder(sparse=False), it will result in a dense matrix
+> when encoder = OneHotEncoder(), the default matrix will result in a sparse Matrix
+ <img src="sparse_dense_matrix.png" alt="sparse_dense_matrix" width="400" height="300"/>
+
 
 ## Reference:
 - https://medium.com/@sudeesh335/what-is-spare-matrix-d4448f27490f
