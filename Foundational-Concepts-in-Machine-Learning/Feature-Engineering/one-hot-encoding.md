@@ -2,7 +2,7 @@
 ## Overview
 One hot encoding converts categorical variables into a binary matrix representation. It's particularly useful for categorical features with medium cardinality.
 > **Note**: Cardinality measures the number of elements in a set, so when applied to data features, it indicates the number of unique values that a feature can take.
-<img src="one_hot_encoding.png" alt="one_hot_encoding" width="400" height="300"/>
+<img src="one_hot_encoding.png" alt="one_hot_encoding" width="450" height="200"/>
 
 ## Common Problems
 -  **Memory Consumption**: High-dimensional feature vectors result from encoding categories with many unique values. This can lead to extensive memory use, especially problematic with large datasets.
