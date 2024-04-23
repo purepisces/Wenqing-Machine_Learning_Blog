@@ -262,7 +262,7 @@ Results:
 ```
 > Note when encoder = OneHotEncoder(sparse=False), it will result in a dense matrix
 > when encoder = OneHotEncoder(), the default matrix will result in a sparse Matrix
- <img src="sparse_dense_matrix.png" alt="sparse_dense_matrix" width="400" height="300"/>
+ <img src="sparse_dense_matrix.png" alt="sparse_dense_matrix" width="500" height="300"/>
 
 
 ## Reference:
