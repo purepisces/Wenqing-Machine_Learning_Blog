@@ -46,6 +46,7 @@ Editor: https://stackedit.io/app#
 25.MSE_Loss.md✅已发csdn,未发知乎
 26.Loss_Functions.md✅已发csdn,未发知乎
 27.sgd.md✅已发csdn,未发知乎
+28.one-hot-encoding.md✅
 
 
 
