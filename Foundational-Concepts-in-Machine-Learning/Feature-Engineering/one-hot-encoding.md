@@ -1,56 +1,44 @@
-
-One Hot Encoding
-Overview
+## One Hot Encoding
+### Overview
 One hot encoding converts categorical variables into a binary matrix representation. It's particularly useful for categorical features with medium cardinality.
-> Note: Cardinality itself measures the number of elements in a set, so when applied to data features, it indicates the number of unique values that a feature can take.
->
+> **Note**: Cardinality measures the number of elements in a set, so when applied to data features, it indicates the number of unique values that a feature can take.
 
-Common Problems
-Memory Consumption: Can be extensive if there are many unique categories, leading to high-dimensional feature vectors.
-
-> Note: Each number in a vector represents a dimension:
+### Common Problems
+-  **Memory Consumption**: Can be extensive if there are many unique categories, leading to high-dimensional feature vectors.
+> Each number in a vector represents a dimension:
 > [2] is a one-dimensional vector because it contains only one element.
 > [3, 4] is a two-dimensional vector because it contains two elements.
 > [3, 4, 7] is a three-dimensional vector because it contains three elements.
->
-> 
-Computational Efficiency: Processing large one-hot encoded vectors can be computationally expensive.
+-  **Computational Efficiency**: Processing large one-hot encoded vectors can be computationally expensive. 
+-  **Unsuitability for NLP**: Due to the large vocabulary size, it's impractical for natural language processing tasks.
 
-Unsuitability for NLP: Due to the large vocabulary size, it's impractical for natural language processing tasks.
+### Best Practices
 
-Best Practices
+-  **Handling Rare Categories**: Group infrequent categories into a single "Other" category. 
+-  **Managing Unseen Categories**: Ensure that your one hot encoding implementation can handle new, unseen categories during testing or in production.
 
-Handling Rare Categories: Group infrequent categories into a single "Other" category.
-
-Managing Unseen Categories: Ensure that your one hot encoding implementation can handle new, unseen categories during testing or in production.
-
-Coding:
-pandas.get_dummies
-Functionality: This function converts categorical variable(s) into dummy/indicator variables. It is straightforward and quick for exploratory data analysis and smaller projects.
-Limitation: pandas.get_dummies doesn't inherently "remember" the mapping from categorical values to dummy variables. This means if you encode your training data, and later receive new data for prediction (like a test set), there could be inconsistencies in the encoded columns if the new data contains categories not present in the training data.
-
-
-sklearn.preprocessing.OneHotEncoder
-Functionality: Part of the Scikit-learn library, OneHotEncoder is designed to be used in machine learning pipelines. It converts categorical features into a 2D array of one hot encoded vectors and is capable of handling unseen categories.
-Persistence: OneHotEncoder can remember the encoding scheme by fitting the encoder to the training data. This allows it to handle new data during testing or in production environments consistently, by either ignoring unseen categories or throwing an error, depending on how you configure it.
-Integration in Pipelines: It can be incorporated into a preprocessing pipeline, ensuring that all steps from encoding to model training are aligned and consistent.
-Choosing Between pandas.get_dummies and OneHotEncoder
-Use pandas.get_dummies when you are doing quick data transformations for analysis or visualizations where the exact alignment of encoded features between different datasets (like training and testing) is not critical.
-Use OneHotEncoder when building machine learning models that need to be robust and handle new, unseen data after being deployed. It's particularly useful in production environments or when the data is split into training and testing sets, and consistency across these splits is crucial.
-
-Dummy:
-In statistics and machine learning, "dummy variable" and "indicator variable" are terms often used interchangeably to refer to variables created to represent categorical data in numeric form.
-
-Dummy Variable
+### Coding Examples
+#### pandas.get_dummies 
+- **Functionality**: This function converts categorical variable(s) into dummy/indicator variables. It is straightforward and quick for exploratory data analysis and smaller projects. 
+>In statistics and machine learning, "dummy variable" and "indicator variable" are terms often used interchangeably to refer to variables created to represent categorical data in numeric form.
 A dummy variable is a binary variable that has been created to represent a category. For each category in a categorical feature, a new binary variable is generated. These variables take the value:
-
 1 if the observation belongs to that category
 0 if it does not.
+>
+- **Limitation**: `pandas.get_dummies` doesn't inherently "remember" the mapping from categorical values to dummy variables. This means if you encode your training data, and later receive new data for prediction (like a test set), there could be inconsistencies in the encoded columns if the new data contains categories not present in the training data.
 
-pandas.get_dummies example:
-### Example Scenario: Customer Data for Marketing Campaign
+#### sklearn.preprocessing.OneHotEncoder
+-  **Functionality**: Part of the Scikit-learn library, OneHotEncoder is designed to be used in machine learning pipelines. It converts categorical features into a 2D array of one hot encoded vectors and is capable of handling unseen categories. 
+-  **Persistence**: OneHotEncoder can remember the encoding scheme by fitting the encoder to the training data. This allows it to handle new data during testing or in production environments consistently, by either ignoring unseen categories or throwing an error, depending on how you configure it. 
+-  **Integration in Pipelines**: It can be incorporated into a preprocessing pipeline, ensuring that all steps from encoding to model training are aligned and consistent.
 
-#### **Step 1: Training Data**
+### Choosing Between pandas.get_dummies and OneHotEncoder 
+- Use `pandas.get_dummies` when you are doing quick data transformations for analysis or visualizations where the exact alignment of encoded features between different datasets (like training and testing) is not critical.  
+- Use `OneHotEncoder` when building machine learning models that need to be robust and handle new, unseen data after being deployed. It's particularly useful in production environments or when the data is split into training and testing sets, and consistency across these splits is crucial.
+
+### pandas.get_dummies Example: 
+#### Example Scenario: Customer Data for Marketing Campaign
+**Step 1: Training Data** 
 Imagine we have customer data from a marketing campaign that includes a categorical variable "Product Interest" with three categories: "Gadgets", "Books", and "Clothing".
 
 Here is how the data might look:
@@ -100,34 +88,33 @@ new_data = pd.DataFrame({
     'Customer ID': [4, 5],
     'Product Interest': ['Music', 'Gadgets']
 })
-```
 # Applying get_dummies
 dummy_test = pd.get_dummies(new_data, columns=['Product Interest'])
 print(dummy_test)
-
+```
 This will output:
 | Customer ID | Product Interest_Gadgets | Product Interest_Music | 
 |-------------|--------------------------|------------------------|
 | 4           | 0                        | 1                     |
 | 5           | 1                        | 0                     | 
 
-Issue: Inconsistency in Dummy Variables
-Notice the problem here:
+#### Issue: Inconsistency in Dummy Variables
 
 The dummy variables in the training and testing data are not the same. The testing data lacks columns for "Books" and "Clothing" and introduces a new column for "Music".
 
-Impact
+#### Impact
+
 When you feed this testing data into a machine learning model trained on the original dummy variables, it will throw an error because the feature sets do not align.
 The model expects three features ("Gadgets", "Books", "Clothing"), but only gets two ("Gadgets", "Music"), and the order and number of features do not match.
 
-Solution
+#### Solution
 To avoid this, you could use a method like sklearn.preprocessing.OneHotEncoder, which allows you to specify a handle_unknown='ignore' parameter to deal with unseen categories by ignoring them or creating a consistent schema that includes all potential categories.
 
 This example illustrates how pandas.get_dummies can be straightforward and effective for initial analyses but might not be suitable for scenarios where data evolves or includes new categories not present during model training.
 
-sklearn.preprocessing.OneHotEncoder example
 
-### Example Scenario: Customer Preferences for a Subscription Service
+### sklearn.preprocessing.OneHotEncoder example
+#### Example Scenario: Customer Preferences for a Subscription Service
 
 #### **Step 1: Training Data**
 Suppose we have customer data for a subscription service with preferences for different content types: "Movies", "Music", and "Games".
@@ -161,7 +148,6 @@ encoded_data = encoder.fit_transform(data[['Content Preference']])
 encoded_df = pd.DataFrame(encoded_data, columns=encoder.get_feature_names_out())
 print(pd.concat([data['Customer ID'], encoded_df], axis=1))
 ```
-
 This will output:
 | Customer ID | Content Preference_Games | Content Preference_Movies | Content Preference_Music |
 |-------------|--------------------------|---------------------------|--------------------------|
@@ -196,7 +182,8 @@ This will output:
 |-------------|--------------------------|---------------------------|--------------------------|
 | 4           | 0                        | 0                         | 0                        |
 | 5           | 0                        | 1                         | 0                        |
-Handling Unseen Categories
+
+#### **Handling Unseen Categories**
 As configured, if handle_unknown='ignore' had been set in OneHotEncoder, it would handle the new category "Sports" by ignoring it and producing zeros in all categorical feature columns. If not configured to ignore, it would throw an error indicating it has encountered an unknown category.
 
 OneHotEncoder is a Scikitlearn Transformer; therefore, you can use it consistently during training and predicting, coding examole:
@@ -222,7 +209,7 @@ new_data = pd.DataFrame({
 encoded_data = encoder.transform(new_data[['Genre']])
 print(encoded_data)
 ```
-results:
+Results:
 ```
 [[0. 0. 1.]
  [1. 0. 0.]
@@ -230,7 +217,6 @@ results:
  [1. 0. 0.]
  [0. 0. 0.]]
 ```
-
 
 The integration of OneHotEncoder into preprocessing pipelines in Scikit-learn ensures a streamlined and consistent process from data preparation through to model training. 
 
@@ -269,11 +255,11 @@ new_data = pd.DataFrame({
 predictions = pipeline.predict(new_data)
 print(predictions)
 ```
-results:
+Results:
 ```python
 [0 1 0 0]
 ```
 
-reference:
-https://medium.com/@sudeesh335/what-is-spare-matrix-d4448f27490f
-https://towardsdatascience.com/building-a-one-hot-encoding-layer-with-tensorflow-f907d686bf39
+## Reference:
+- https://medium.com/@sudeesh335/what-is-spare-matrix-d4448f27490f
+- https://towardsdatascience.com/building-a-one-hot-encoding-layer-with-tensorflow-f907d686bf39
