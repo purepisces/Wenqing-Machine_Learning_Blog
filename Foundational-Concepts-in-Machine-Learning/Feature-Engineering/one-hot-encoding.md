@@ -5,13 +5,13 @@ One hot encoding converts categorical variables into a binary matrix representat
 <img src="one_hot_encoding.png" alt="one_hot_encoding" width="400" height="300"/>
 
 ## Common Problems
--  **Memory Consumption**: Can be extensive if there are many unique categories, leading to high-dimensional feature vectors.
+-  **Memory Consumption**: High-dimensional feature vectors result from encoding categories with many unique values. This can lead to extensive memory use, especially problematic with large datasets.
 > Each number in a vector represents a dimension:
 > [2] is a one-dimensional vector because it contains only one element.
 > [3, 4] is a two-dimensional vector because it contains two elements.
 > [3, 4, 7] is a three-dimensional vector because it contains three elements.
--  **Computational Efficiency**: Processing large one-hot encoded vectors can be computationally expensive. 
--  **Unsuitability for NLP**: Due to the large vocabulary size, it's impractical for natural language processing tasks.
+-  **Computational Efficiency**: Processing these large vectors can be computationally expensive, slowing down training and prediction times, which may impact the scalability of machine learning systems. 
+-  **Unsuitability for NLP**: In natural language processing, the vocabulary size can be vast, making One Hot Encoding impractical due to the creation of extremely sparse and high-dimensional data.
 
 ## Best Practices
 
