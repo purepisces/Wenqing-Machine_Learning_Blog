@@ -8,5 +8,14 @@ The output of the model is called a completion, and the act of using the model t
 The completion is comprised of the text contained in the original prompt followed by the generated text.
 <img src="prompt_and_completion.png" alt="llm" width="400" height="300"/>
 
+LLM use case:
+-write an essay based on prompt
+-summarize a dialogue
+-translation task
+-translate natural language to machine code
+-entity extraction <img src="entity-extraction.png" alt="llm" width="400" height="300"/>
+-flight information( such like the input is : is flight VA8005 landing on time?)
+
+
 Reference:
 genai with llm course
