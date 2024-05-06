@@ -129,7 +129,7 @@
   - [Perplexity](Deep-Learning-Concepts/Sequence-Models/Language-Model-Evaluation-Metrics/perplexity.md)
   - [Other relevant metrics...]
 - **RNN (Recurrent Neural Networks)**
-  - [Standard RNN](RNN.md)
+  - [Standard RNN](Deep-Learning-Concepts/Sequence-Models/RNN/RNN.md)
   - [LSTM (Long Short-Term Memory)](RNN/LSTM.md)
 - **CNN (Convolutional Neural Networks)**
   - [Overview](CNN.md)
