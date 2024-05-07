@@ -134,7 +134,7 @@
 - **CNN (Convolutional Neural Networks)**
   - [Overview](CNN.md)
 - **Transformers**
-  - [Original Transformer]Deep-Learning-Concepts/Sequence-Models/transformers/original-transformer.md)
+  - [Original Transformer](Deep-Learning-Concepts/Sequence-Models/transformers/original-transformer.md)
   - **BERT (Bidirectional Encoder Representations from Transformers)**
     - [Overview](BERT.md)
   - **GPT (Generative Pre-trained Transformer)**
