@@ -2,9 +2,12 @@ Generative AI is a subset of traditional machine learning. The machine learning 
 
 ### Generative AI Tools:
 - **Chatbot**: Engages in conversations with users.
-  <img src="chatbot.png" alt="chatbot" width="400" height="300"/>
+  
+  <img src="chatbot.png" alt="chatbot" width="300" height="200"/>
 - **Generating Image from Text**: Creates visual content based on textual descriptions.
-  <img src="gen_image_from_text.png" alt="gen_image_from_tex" width="400" height="300"/>
+  
+  <img src="gen_image_from_text.png" alt="gen_image_from_tex" width="300" height="200"/>
 - **Generating Image from Text**: Creates visual content based on textual descriptions.
-   <img src="plugin_code.png" alt="plugin_code" width="400" height="300"/>
+  
+   <img src="plugin_code.png" alt="plugin_code" width="300" height="200"/>
 
