@@ -1,1 +1,1 @@
-
+The transformer architecture had arrived in the paper "attention is all you need" , this novel approach unlocked the progress in generative AI that we see today, it can be scaled efficiently to use multi-core gpus,it can parallel process input data making use of much larger training datasets and crucially its able to learn to pay attention to input meaning. 
