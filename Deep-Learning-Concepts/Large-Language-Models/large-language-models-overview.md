@@ -13,7 +13,7 @@ LLM use case:
 -summarize a dialogue
 -translation task
 -translate natural language to machine code
--entity extraction <img src="entity-extraction.png" alt="llm" width="400" height="300"/>
+-entity extraction <img src="entity-extraction.png" alt="entity-extraction" width="400" height="300"/>
 -flight information( such like the input is : is flight VA8005 landing on time?)
 
 
