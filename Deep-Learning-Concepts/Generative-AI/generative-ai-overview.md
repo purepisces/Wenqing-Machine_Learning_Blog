@@ -10,8 +10,9 @@ Generative AI is a subset of traditional machine learning. The machine learning 
 - **Generating Image from Text**: Creates visual content based on textual descriptions.
   
   <img src="gen_image_from_text.png" alt="gen_image_from_tex" width="300" height="200"/>
-- **Generating Image from Text**: Creates visual content based on textual descriptions.
   
+- **Using a Plugin to Help You Develop Code**: Assists in software development by providing coding suggestions and improvements.
+
    <img src="plugin_code.png" alt="plugin_code" width="300" height="200"/>
 
 ## Reference:
