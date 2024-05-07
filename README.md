@@ -146,6 +146,16 @@
 ### Large Language Models
 - [Overview](Deep-Learning-Concepts/Large-Language-Models/large-language-models-overview.md)
 
+### Generative AI
+- **Overview**
+  - [Overview](Deep-Learning-Concepts/Generative-AI/generative-ai-overview.md)
+- **Generative Adversarial Networks (GANs)**
+  - [Introduction to GANs](Deep-Learning-Concepts/Generative-AI/GANs/introduction-gans.md)
+- **Variational Autoencoders (VAEs)**
+  - [Introduction to VAEs](Deep-Learning-Concepts/Generative-AI/VAEs/introduction-vaes.md)
+- **Applications of Generative AI**
+  - [Applications](Deep-Learning-Concepts/Generative-AI/applications-generative-ai.md)
+
 ### Word Representations
 - **Embedding** 
   - [Overview](embedding.md)
