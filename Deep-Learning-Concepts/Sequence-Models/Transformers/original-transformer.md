@@ -27,6 +27,9 @@ insert simple_transformer.png
 The transformer architecture is split into two distinct parts, the encoder and the decoder. These components work in conjuction with each other and they share a number of similarities. Also, note here, the diagram you see is derived from the original attention is all you need paper.
 
 
-Machine learning models are just big statistical calculators, and they work with numbers not words. so before passing texts into the model to process, you must first tokenize the words. Simply put, this converts the words into numbers with each number representing a position in a dictionary of all the possible words that the model can work with. You can choose from multiple tokenization methods. For example, token IDs matching two complete words 
+Machine learning models are just big statistical calculators, and they work with numbers not words. so before passing texts into the model to process, you must first tokenize the words. Simply put, this converts the words into numbers with each number representing a position in a dictionary of all the possible words that the model can work with. You can choose from multiple tokenization methods. For example, token IDs matching two complete words, or using token IDs to represent parts of words.
+
+insert complete_word.png
+insert 
 
 
