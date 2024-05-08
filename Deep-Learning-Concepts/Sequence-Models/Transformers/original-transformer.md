@@ -7,3 +7,26 @@ The power of the transformer architecture lies in its ability to learn the relev
 
 insert every_other_word.png
 
+These attention weights are learned during llm training, the diagram is called an attention map and can be useful to illustrate the attetion weights between each word and every other word.
+
+insert diagram_teacher.png
+insert diagram_book.png
+
+
+
+Here in this stylized example, you can see that the word book is strongly connected with or paying attention to the word teacher and the word student. This is called self attention, and the ability to learn attention in this way across the whole input significantly improves the model's ability to encode language.
+
+insert stylized_example.png
+
+Here's a simplified diagram of the transformer atchitecture so that you can focus at a high level on where these processes are taking place.
+
+insert transformer.png
+
+insert simple_transformer.png
+
+The transformer architecture is split into two distinct parts, the encoder and the decoder. These components work in conjuction with each other and they share a number of similarities. Also, note here, the diagram you see is derived from the original attention is all you need paper.
+
+
+Machine learning models are just big statistical calculators, and they work with numbers not words. so before passing texts into the model to process, you must first tokenize the words. Simply put, this converts the words into numbers with each number representing a position in a dictionary of all the possible words that the model can work with. You can choose from multiple tokenization methods. For example, token IDs matching two complete words 
+
+
