@@ -134,14 +134,17 @@ In this case, I love machine learning.
 <img src="love_ml.png" alt="love_ml" width="400" height="300"/>
 
 
-There are multiple ways in which you can use the output from the softmax layer to predict the next token. These can influence how creative you are generated text is.
+There are multiple ways in which you can use the output from the softmax layer to predict the next token. These can influence how creative you are generated text is. 
 
 <img src="output_softmax.png" alt="output_softmax" width="400" height="300"/>
 
-
 Let's summarize what you've seen so far. The complete transformer architecture consists of an encoder and decoder components. The encoder encodes input sequences into a deep representation of the structure and meaning of the input. The decoder, working from input token triggers, uses the encoder's contextual understanding to generate new tokens. It does this in a loop until some stop condition has been reached. 
 
+<img src="encoder_decoder.png" alt="encoder_decoder" width="400" height="300"/>
 
+
+
+## Variation Architecture
 
 While the translation example you explored here used both the encoder and decoder parts of the transformer, you can split these components apart for variations of the architecture. 
 
