@@ -17,8 +17,7 @@ the model can learn who has the book, who could have the book, and if it's relev
 
 These attention weights are learned during LLM training, illustrated by an attention map showing the attention weights between each word and every other word.
 
-<img src="diagram_teacher.png" alt="diagram_teacher" width="400" height="300"/>
-<img src="diagram_book.png" alt="diagram_book" width="400" height="300"/>
+<img src="diagram_teacher.png" alt="diagram_teacher" width="400" height="300"/> <img src="diagram_book.png" alt="diagram_book" width="400" height="300"/>
 
 In this stylized example, you can see that the word "book" is strongly connected with or paying attention to the words "teacher" and "student." This is called self-attention, and the ability to learn attention in this way across the whole input significantly improves the model's ability to encode language.
 
@@ -29,8 +28,7 @@ In this stylized example, you can see that the word "book" is strongly connected
 
 Here's a simplified diagram of the transformer architecture to focus on where these processes take place.
 
-<img src="transformer.png" alt="transformer" width="400" height="300"/>
-<img src="simple_transformer.png" alt="simple_transformer" width="400" height="300"/>
+<img src="transformer.png" alt="transformer" width="400" height="300"/> <img src="simple_transformer.png" alt="simple_transformer" width="400" height="300"/>
 
 The transformer architecture is split into two distinct parts: the encoder and the decoder. These components work in conjunction with each other and share a number of similarities. The diagram below is derived from the original "Attention is All You Need" paper.
 
@@ -39,9 +37,7 @@ The transformer architecture is split into two distinct parts: the encoder and t
 
 Machine learning models are statistical calculators that work with numbers, not words. Before passing texts into the model, you must first tokenize the words, converting them into numbers with each number representing a position in a dictionary of all possible words the model can work with. There are multiple tokenization methods, such as matching token IDs to complete words or parts of words.
 
-<img src="complete_word.png" alt="complete_word" width="400" height="300"/>
-
-<img src="parts_of_word.png" alt="parts_of_words" width="400" height="300"/>
+<img src="complete_word.png" alt="complete_word" width="400" height="300"/> <img src="parts_of_word.png" alt="parts_of_words" width="400" height="300"/>
 
 Once you've selected a tokenizer to train the model, you must use the same tokenizer when generating text.
 
@@ -60,9 +56,7 @@ For simplicity, if you imagine a vector size of just three, you could plot the w
 
 As you add token vectors into the base of the encoder or the decoder, you also add positional encoding. The model processes each of the input tokens in parallel, so adding this preserves information about word order, ensuring the relevance of the word position in the sentence is not lost.
 
-<img src="positional_encoding.png" alt="positional_encoding" width="400" height="300"/>
-
-<img src="add_positional_encoding.png" alt="add_positional_encoding" width="400" height="300"/>
+<img src="positional_encoding.png" alt="positional_encoding" width="400" height="300"/> <img src="add_positional_encoding.png" alt="add_positional_encoding" width="400" height="300"/>
 
 
 ## Self-Attention and Multi-Head Attention
@@ -80,11 +74,7 @@ Once you've summed the input tokens and the positional encodings, you pass the r
 
 Now that all of the attention weights have been applied to your input data, the output is processed through a fully connected feed-forward network. The output of this layer is a vector of logits proportional to the probability score for each and every token in the tokenizer dictionary. You can then pass these logits to a final softmax layer where they are normalized into a probability score for each word. This output includes a probability for every single word in the vocabulary, so there's likely to be thousands of scores here. One single token will have a score higher than the rest. This is the most likely predicted token. There are a number of methods that you can use to vary the final selection from this vector of probabilities.
 
-<img src="feed_forward.png" alt="feed_forward" width="400" height="300"/>
-
-<img src="vector_probabilities.png" alt="vector_probabilities" width="400" height="300"/>
-
-<img src="final_transformers.png" alt="final_transformers" width="400" height="300"/>
+<img src="feed_forward.png" alt="feed_forward" width="400" height="300"/> <img src="vector_probabilities.png" alt="vector_probabilities" width="400" height="300"/> <img src="final_transformers.png" alt="final_transformers" width="400" height="300"/>
 
 ## Reference:
 - Generative AI with large language models coursera
