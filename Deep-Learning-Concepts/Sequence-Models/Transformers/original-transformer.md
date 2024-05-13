@@ -37,7 +37,7 @@ Machine learning models are just big statistical calculators, and they work with
 
 <img src="complete_word.png" alt="complete_word" width="400" height="300"/>
 
-<img src="parts_of_words.png" alt="parts_of_words" width="400" height="300"/>
+<img src="parts_of_word.png" alt="parts_of_words" width="400" height="300"/>
 
 
 what's important is that once you've selected a tokenizer to train the model, you must use the same tokenizer when you generate text.
