@@ -78,63 +78,66 @@ At this point, you've seen a high-level overview of some of the major components
 In this example, you'll look at a translation task or a sequence-to-sequence task, which incidentally was the original objective of the transformer architecture designers. You'll use a transformer model to translate the French phrase into English. 
 
 
-
-
-
 First, you'll tokenize the input words using this same tokenizer that was used to train the network. 
 
-insert same_tokenizer.png
+<img src="same_tokenizer.png" alt="same_tokenizer" width="400" height="300"/>
+
 
 
 These tokens are then added into the input on the encoder side of the network, passed through the embedding layer.
 
-insert  pass_embedding.png
+
+<img src="pass_embedding.png" alt="pass_embedding" width="400" height="300"/>
+
 
 And then fed into the multi-headed attention layers. The outputs of the multi-headed attention layers are fed through a feed-forward network to the output of the encoder.
 
-insert fed_multi_headed.png
+<img src="fed_multi_headed.png" alt="fed_multi_headed" width="400" height="300"/>
+
 
 At this point, the data that leaves the encoder is a deep representation of the structure and meaning of the input sequence. This representation is inserted into the middle of the decoder to influence the decoder's self-attention mechanisms. 
 
-insert data_leave.png
+<img src="data_leave.png" alt="data_leave" width="400" height="300"/>
+
 
 Next, a start of sequence token is added to the input of the decoder. This triggers the decoder to predict the next token, which it does based on the contextual understanding that it's being provided from the encoder.
 
-insert input_decoder.png
+
+<img src="input_decoder.png" alt="input_decoder" width="400" height="300"/>
+
  
 The output of the decoder's self-attention layers gets passed through the decoder feed-forward network and through a final softmax output layer. 
 
-insert output_decoder.png
+<img src="output_decoder.png" alt="output_decoder" width="400" height="300"/>
 
 
 At this point, we have our first token. 
 
-insert first_token.png
-
-
+<img src="first_token.png" alt="first_token" width="400" height="300"/>
 
 
 You'll continue this loop, passing the output token back to the input to trigger the generation of the next token, until the model predicts an end-of-sequence token. 
 
-insert loop1.png
-insert loop2.png
-
-
+<img src="loop1.png" alt="loop1" width="400" height="300"/>
+<img src="loop2.png" alt="loop2" width="400" height="300"/>
 
 
 At this point, the final sequence of tokens can be detokenized into words, and you have your output. 
 
+<img src="final_sequence.png" alt="final_sequence" width="400" height="300"/>
 
-insert final_sequence.png
 
 
 In this case, I love machine learning. 
 
-insert love_ml.png
+
+<img src="love_ml.png" alt="love_ml" width="400" height="300"/>
+
 
 There are multiple ways in which you can use the output from the softmax layer to predict the next token. These can influence how creative you are generated text is.
 
-insert output_softmax.png
+<img src="output_softmax.png" alt="output_softmax" width="400" height="300"/>
+
 
 Let's summarize what you've seen so far. The complete transformer architecture consists of an encoder and decoder components. The encoder encodes input sequences into a deep representation of the structure and meaning of the input. The decoder, working from input token triggers, uses the encoder's contextual understanding to generate new tokens. It does this in a loop until some stop condition has been reached. 
 
@@ -148,7 +151,7 @@ Encoder-decoder models, as you've seen, perform well on sequence-to-sequence tas
 
 Finally, decoder-only models are some of the most commonly used today. Again, as they have scaled, their capabilities have grown. These models can now generalize to most tasks. Popular decoder-only models include the GPT family of models, BLOOM, Jurassic, LLaMA, and many more. 
 
-insert variation_architecture.png
+<img src="variation_architecture.png" alt="variation_architecture" width="400" height="300"/>
 
 
 ## Reference:
