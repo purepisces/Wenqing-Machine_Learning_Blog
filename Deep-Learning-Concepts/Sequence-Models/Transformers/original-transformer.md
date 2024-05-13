@@ -72,6 +72,85 @@ Now that all of the attention weights have been applied to your input data, the 
 
 <img src="feed_forward.png" alt="feed_forward" width="400" height="300"/> <img src="vector_probabilities.png" alt="vector_probabilities" width="400" height="300"/> <img src="final_transformers.png" alt="final_transformers" width="400" height="300"/>
 
+# Generating text with transformers
+
+At this point, you've seen a high-level overview of some of the major components inside the transformer architecture. But you still haven't seen how the overall prediction process works from end to end. Let's walk through a simple example. 
+In this example, you'll look at a translation task or a sequence-to-sequence task, which incidentally was the original objective of the transformer architecture designers. You'll use a transformer model to translate the French phrase into English. 
+
+
+
+
+
+First, you'll tokenize the input words using this same tokenizer that was used to train the network. 
+
+insert same_tokenizer.png
+
+
+These tokens are then added into the input on the encoder side of the network, passed through the embedding layer.
+
+insert  pass_embedding.png
+
+And then fed into the multi-headed attention layers. The outputs of the multi-headed attention layers are fed through a feed-forward network to the output of the encoder.
+
+insert fed_multi_headed.png
+
+At this point, the data that leaves the encoder is a deep representation of the structure and meaning of the input sequence. This representation is inserted into the middle of the decoder to influence the decoder's self-attention mechanisms. 
+
+insert data_leave.png
+
+Next, a start of sequence token is added to the input of the decoder. This triggers the decoder to predict the next token, which it does based on the contextual understanding that it's being provided from the encoder.
+
+insert input_decoder.png
+ 
+The output of the decoder's self-attention layers gets passed through the decoder feed-forward network and through a final softmax output layer. 
+
+insert output_decoder.png
+
+
+At this point, we have our first token. 
+
+insert first_token.png
+
+
+
+
+You'll continue this loop, passing the output token back to the input to trigger the generation of the next token, until the model predicts an end-of-sequence token. 
+
+insert loop1.png
+insert loop2.png
+
+
+
+
+At this point, the final sequence of tokens can be detokenized into words, and you have your output. 
+
+
+insert final_sequence.png
+
+
+In this case, I love machine learning. 
+
+insert love_ml.png
+
+There are multiple ways in which you can use the output from the softmax layer to predict the next token. These can influence how creative you are generated text is.
+
+insert output_softmax.png
+
+Let's summarize what you've seen so far. The complete transformer architecture consists of an encoder and decoder components. The encoder encodes input sequences into a deep representation of the structure and meaning of the input. The decoder, working from input token triggers, uses the encoder's contextual understanding to generate new tokens. It does this in a loop until some stop condition has been reached. 
+
+
+
+While the translation example you explored here used both the encoder and decoder parts of the transformer, you can split these components apart for variations of the architecture. Encoder-only models also work as sequence-to-sequence models, but without further modification, the input sequence and the output sequence are the same length. Their use is less common these days, but by adding additional layers to the architecture, you can train encoder-only models to perform classification tasks such as sentiment analysis, BERT is an example of an encoder-only model. 
+
+
+Encoder-decoder models, as you've seen, perform well on sequence-to-sequence tasks such as translation, where the input sequence and the output sequence can be different lengths. You can also scale and train this type of model to perform general text generation tasks. Examples of encoder-decoder models include BART as opposed to BERT and T5.
+
+
+Finally, decoder-only models are some of the most commonly used today. Again, as they have scaled, their capabilities have grown. These models can now generalize to most tasks. Popular decoder-only models include the GPT family of models, BLOOM, Jurassic, LLaMA, and many more. 
+
+insert variation_architecture.png
+
+
 ## Reference:
 - Generative AI with large language models coursera
 
