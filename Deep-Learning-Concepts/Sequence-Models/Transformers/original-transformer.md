@@ -56,7 +56,15 @@ insert add_positional_encoding.png
 
 Once you've summed the input tokens and the positional encodings, you pass the resulting vectors to the self-attention layer. Here, the model analyzes the relationships between the tokens in your input sequence. As you saw earlier, this allows the model to attend to different parts of the input sequence to better capture the contextual dependencies between the words. The self-attention weights that are learned during training and stored in these layers reflect the importance of each word in that input sequence to all other words in the sequence. But this does not happen just once, the transformer architecture actually has multi-headed self-attention. Thsi means that multiple sets of self-attention weights or heads are learned in parallel independently of each other. The number of attention heads included in the attention layer varies from model to model, but numbers in the range of 12-100 are common. The intuition here is that each self-attention head will learn a different aspect of language. For example, one head may see the relationship between the people entities in our sentence, while another head may focus on the activity of the sentence. while yet another head may focus on some other properties such as the words rhyme. It's important to note that you don't dictate ahead of time what aspects of language the attentino heads will learn. The weights of each head are randomly initialized and given sufficient traning data and time, each will learn differnet aspects of language. While some attention maps are easy to interpret others may not be.
 
+insert self-attention.png
+insert multi_headed_self_attention.png
+insert learn_different.png
+
 
 now that all of the attention weights have been applied to your input data, the output is processed through a fully connected feed-forward network. The output of this layer is a vector of logits proportional to the probability score for each and every token in the tokenizer dictionary. You can then pass these logits to a final softmax layer where they are normalized into a probability score for each word. This output includes a probability for every single word in the vocabulary, so there's likely to be thousands of scores here. One single token will have a score higher than the rest. This is the most likely predicted token. There are a number of methods that you can use to vary the final selection from this vector of probabilities.
+
+insert feed_forward.png
+insert vector_probabilities.png
+insert final_transformers.png
 
 
