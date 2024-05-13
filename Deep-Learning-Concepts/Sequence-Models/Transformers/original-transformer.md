@@ -143,15 +143,17 @@ Let's summarize what you've seen so far. The complete transformer architecture c
 
 
 
-While the translation example you explored here used both the encoder and decoder parts of the transformer, you can split these components apart for variations of the architecture. Encoder-only models also work as sequence-to-sequence models, but without further modification, the input sequence and the output sequence are the same length. Their use is less common these days, but by adding additional layers to the architecture, you can train encoder-only models to perform classification tasks such as sentiment analysis, BERT is an example of an encoder-only model. 
+While the translation example you explored here used both the encoder and decoder parts of the transformer, you can split these components apart for variations of the architecture. 
+
+<img src="variation_architecture.png" alt="variation_architecture" width="400" height="300"/>
+
+Encoder-only models also work as sequence-to-sequence models, but without further modification, the input sequence and the output sequence are the same length. Their use is less common these days, but by adding additional layers to the architecture, you can train encoder-only models to perform classification tasks such as sentiment analysis, BERT is an example of an encoder-only model. 
 
 
 Encoder-decoder models, as you've seen, perform well on sequence-to-sequence tasks such as translation, where the input sequence and the output sequence can be different lengths. You can also scale and train this type of model to perform general text generation tasks. Examples of encoder-decoder models include BART as opposed to BERT and T5.
 
 
 Finally, decoder-only models are some of the most commonly used today. Again, as they have scaled, their capabilities have grown. These models can now generalize to most tasks. Popular decoder-only models include the GPT family of models, BLOOM, Jurassic, LLaMA, and many more. 
-
-<img src="variation_architecture.png" alt="variation_architecture" width="400" height="300"/>
 
 
 ## Reference:
