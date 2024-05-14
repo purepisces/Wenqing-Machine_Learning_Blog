@@ -74,6 +74,8 @@ Now that all of the attention weights have been applied to your input data, the 
 
 # Generating text with transformers
 
+## Overall Prediction Process Example
+
 At this point, you've seen a high-level overview of some of the major components inside the transformer architecture. But you still haven't seen how the overall prediction process works from end to end. Let's walk through a simple example. 
 In this example, you'll look at a translation task or a sequence-to-sequence task, which incidentally was the original objective of the transformer architecture designers. You'll use a transformer model to translate the French phrase into English. 
 
