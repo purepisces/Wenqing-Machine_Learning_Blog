@@ -43,6 +43,14 @@ Once you've selected a tokenizer to train the model, you must use the same token
 
 Now that your input is represented as numbers, you can pass it to the embedding layer, this layer is a trainable vector embedding space, a high dimensional space where each token is represented as a vector and occpies a unique location within that space. Each token id in the vocabulary is matched to a multi-dimensional vector and the intuition is that these vectors learn to encode the meaning and context of individual tokens in the input sequence. Embedding vector spaces have been used in natural language processing for some time, previous generation language algorithms like word2vec use this concept.
 
+> Note: Embeddings are dense vector representations that aim to capture the meaning and context of words.  Each token ID is mapped to a corresponding vector in a high-dimensional space. Embeddings help to capture not just the identity but also the semantic and syntactic essence of words. For instance, similar words like "quick" and "fast" might be placed closer together in the embedding space than "quick" and "slow".
+> In a real-world application, these embedding vectors are learned and fine-tuned during the training process to best suit the model's task, be it translation, sentiment analysis, or any other NLP task. The embedding space evolves such that it captures nuances and complexities of language, aiding the model in making more accurate predictions.
+>
+> A "dense vector" refers to a type of vector in computational mathematics where most or all of the elements are non-zero. This is in contrast to "sparse vectors," where the majority of the elements are zero.
+> 
+> The term "embedding space" refers to the high-dimensional space where vectors representing words, phrases, or other types of data are mapped in a machine learning model. In the context of natural language processing (NLP), embedding space is particularly significant as it is where words are represented as vectors, with each dimension of the vector capturing different aspects of the word's meaning, usage, or context.
+
+
 Looking back at the sample sequence, you can see that in this simple case each word has been matched to a token ID and each token is mapped into a vector. In the original transformer paper, the vector size was actually 512, so much bigger than we can fit onto this image.
 
 <img src="sample_sequence.png" alt="sample_sequence" width="400" height="300"/>
