@@ -162,8 +162,6 @@ Now that all of the attention weights have been applied to your input data, the 
 
 ## Simultaneous Training of Embeddings and Encodings in Transformers
 
-This document outlines the training process of embeddings and encodings in transformer models, including the role of positional encoding.
-
 ### Model Configuration
 In transformer models, the input sequence of tokens is processed through several steps:
 
