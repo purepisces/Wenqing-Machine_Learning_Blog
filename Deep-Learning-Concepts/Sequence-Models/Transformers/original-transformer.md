@@ -74,7 +74,11 @@ Using dot products for simplicity (ignoring scaling):
 #### Feed-Forward Network 1 (FFNN1):
 ##### Transformation of Attention Outputs:
 Each vector output from MHA1 is independently processed by the feed-forward network:
-- Example transformation for "Jane": Linear transformation and ReLU activation applied to `[1.5, 0.5]`, assuming hypothetical transformations, resulting in `[1.35, 0.8]`.
+- Example transformation for "Jane": 
+  - **First Linear Layer**: Apply transformation `New vector = 1.5 * [1.5, 0.5] + bias = [2.25, 0.75] + [0.1, 0.1] = [2.35, 0.85]`
+  - **ReLU Activation**: `ReLU([2.35, 0.85]) = [2.35, 0.85]` (ReLU does not change positive values)
+  - **Second Linear Transformation**: `New vector = 0.8 * [2.35, 0.85] + bias = [1.88, 0.68] + [-0.1, -0.1] = [1.78, 0.58]`
+  - **Output for "Jane"**: `[1.35, 0.8]` after scaling and bias adjustments.
 
 ### Layer 2 Processing:
 
@@ -88,9 +92,6 @@ Inputs to MHA2 are the outputs from FFNN1:
 ##### Compute Queries, Keys, and Values for Layer 2
 Assume similar transformations for K, Q, V as in the first layer:
 - For each token:
-  - K2, Q2, V2 = Transformation of the corresponding outputs from FFNN1 (assuming simple linear transformations for illustration).
-
-- **Transformations:**
   - K2, Q2, V2 for "Jane" = `[1.35, 0.8]`
   - K2, Q2, V2 for "visits" = `[0.1, 0.9]`
   - K2, Q2, V2 for "Paris" = `[1.2, 1.2]`
@@ -121,7 +122,6 @@ Each vector output from MHA2 is independently processed by the feed-forward netw
 
 ### Conclusion:
 In Layer 2, each position again attends to all positions in the input from FFNN1 through the multi-headed attention mechanism, creating new intermediate representations. These are then independently processed by the feed-forward network to produce the final outputs for each position. This example details how transformations at each step of the layer can dynamically influence the overall processing and outputs of the transformer model, emphasizing the complex dependencies modeled by transformers.
-
 
 
 ## Transformer Architecture Overview
