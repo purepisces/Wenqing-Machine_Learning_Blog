@@ -5,6 +5,8 @@ The transformer architecture, introduced in the paper ["Attention is All You Nee
 
 Building large language models with the transformer architecture has dramatically improved the performance of natural language tasks compared to earlier generations of RNNs, leading to a surge in generative capabilities.
 
+> Note: RNNs process data sequentially. This means the model needs to process the first token, then the second token, and so on, with each step depending on the output of the previous step. This sequential dependency is a significant limitation for parallel processing. However, transformers process the entire input sequence at once. This means that all the words in a sentence (or tokens in a sequence) are fed into the model simultaneously, and each word is processed in parallel. This architecture is naturally suited to GPUs, which are designed to perform many operations in parallel.
+
 ## Understanding Self-Attention
 
 The power of the transformer architecture lies in its ability to learn the relevance and context of all the words in a sentence. It applies attention weights to the relationships between words, enabling the model to understand the importance of each word in relation to every other word in the input. For example, in the sentence: 
