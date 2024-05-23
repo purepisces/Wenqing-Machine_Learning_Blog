@@ -159,6 +159,37 @@ Now that all of the attention weights have been applied to your input data, the 
 
 <img src="feed_forward.png" alt="feed_forward" width="400" height="300"/> <img src="vector_probabilities.png" alt="vector_probabilities" width="400" height="300"/> <img src="final_transformers.png" alt="final_transformers" width="400" height="300"/>
 
+
+## Simultaneous Training of Embeddings and Encodings in Transformers
+
+This document outlines the training process of embeddings and encodings in transformer models, including the role of positional encoding.
+
+### Model Configuration
+In transformer models, the input sequence of tokens is processed through several steps:
+
+- **Embedding Layer**: Each token is converted into a dense vector. These embeddings can be initialized using random values or pre-trained vectors.
+
+- **Positional Encoding**: After the embeddings are created, positional encodings are added to each embedding vector to incorporate information about the order of tokens in the sequence. This step is crucial as it allows the model to utilize the sequence order, which is not inherently captured by the embeddings alone.
+
+### Forward Pass
+- **Input to Encoder**: The combined vectors (embeddings + positional encodings) serve as the input to the encoder layers of the transformer.
+- **Encoder Layers**: Each layer in the encoder applies operations such as self-attention and feed-forward neural networks. These operations transform the embeddings into more complex representations (encodings) that incorporate contextual information from the entire input sequence.
+
+### Loss Calculation
+- **Model Output**: The final output of the model, after processing through all encoding layers, is used to predict results for tasks such as classification or translation.
+- **Loss Metrics**: A loss function is used to compute the discrepancy between the model's predictions and the actual target outputs. This loss reflects how well the model performs the intended task.
+
+### Backpropagation
+- **Gradient Computation**: During backpropagation, gradients of the loss are calculated with respect to all trainable parameters in the model. This includes weights in both the encoder layers and the embedding layer.
+- **Parameter Updates**: The calculated gradients are used to update the parameters. This update refines the embeddings and encoder weights to better suit the needs of the model's tasks.
+
+### End Result
+- **Learning and Adaptation**: Both the embeddings and the encodings adapt based on the specific requirements of the task:
+  - **Embeddings**: Adjust to provide initial representations that are more aligned with subsequent encoding layers.
+  - **Encodings**: Transform these embeddings into outputs that effectively minimize the task-specific loss.
+
+This training process ensures that both embeddings and encodings evolve to optimally perform the specific tasks for which the transformer is designed.
+
 # Generating text with transformers
 
 ## Overall Prediction Process Example
