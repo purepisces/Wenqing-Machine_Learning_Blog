@@ -25,6 +25,10 @@ In this stylized example, you can see that the word "book" is strongly connected
 
 <img src="stylized_example.png" alt="stylized_example" width="400" height="300"/>
 
+
+> Note: Self-attention is a mechanism within the transformer architecture that allows each position in the encoder to attend to all positions in the previous layer of the encoder. Similarly, each position in the decoder can attend to all positions up to and including that position in the decoder. The key idea is to calculate the attention weights (or scores) that determine how much focus to put on other parts of the input sequence when encoding a particular part of the sequence.
+>
+
 ### Numerical Example of Self-Attention in Transformers
 
 Let's break down a numerical example of the self-attention mechanism across two layers of a transformer model. We'll use a simple three-word sentence and work through the calculations in detail.
