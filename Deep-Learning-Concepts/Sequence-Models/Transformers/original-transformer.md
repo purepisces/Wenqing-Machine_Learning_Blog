@@ -124,6 +124,15 @@ Each vector output from MHA2 is independently processed by the feed-forward netw
 In Layer 2, each position again attends to all positions in the input from FFNN1 through the multi-headed attention mechanism, creating new intermediate representations. These are then independently processed by the feed-forward network to produce the final outputs for each position. This example details how transformations at each step of the layer can dynamically influence the overall processing and outputs of the transformer model, emphasizing the complex dependencies modeled by transformers.
 
 
+
+> Note: Can Layer 2 Have a Different Number of Heads Than Layer 1?
+> Yes, it is possible: Architecture Flexibility: Transformer architectures can be designed with different numbers of heads in each MHA component across different layers.
+>
+> Simultaneity: All heads in a given layer (e.g., all 6 heads in Layer 1) process their inputs in parallel. This means that head 1, head 2, head 3, etc., are all performing their attention calculations at the same time.
+> 
+> Output Combination: Once all heads in a layer have completed their processing, their outputs are combined (typically concatenated and then linearly transformed) to form a single output representation for each token. This combined output is what feeds into the subsequent feed-forward network of the same layer.
+>
+
 ## Transformer Architecture Overview
 
 Here's a simplified diagram of the transformer architecture to focus on where these processes take place.
