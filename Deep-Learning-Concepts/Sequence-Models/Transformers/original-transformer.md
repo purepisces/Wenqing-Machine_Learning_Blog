@@ -29,9 +29,11 @@ In this stylized example, you can see that the word "book" is strongly connected
 > Note: Self-attention is a mechanism within the transformer architecture that allows each position in the encoder to attend to all positions in the previous layer of the encoder. Similarly, each position in the decoder can attend to all positions up to and including that position in the decoder. The key idea is to calculate the attention weights (or scores) that determine how much focus to put on other parts of the input sequence when encoding a particular part of the sequence.
 >
 
+
+
 ### Numerical Example of Self-Attention in Transformers
 
-Let's break down a numerical example of the self-attention mechanism across two layers of a transformer model. We'll use a simple three-word sentence and work through the calculations in detail.
+Let's explore a numerical example of the self-attention mechanism across two layers of a transformer model, using a simple three-word sentence and detailing the calculations at each step.
 
 #### Example Sentence:
 "Jane visits Paris"
@@ -43,60 +45,83 @@ Let's break down a numerical example of the self-attention mechanism across two 
 
 #### Initial Setup:
 Assume each word is initially embedded into a 2-dimensional vector:
-
 - "Jane" -> `[1, 0]`
 - "visits" -> `[0, 1]`
 - "Paris" -> `[1, 1]`
 
-#### Layer 1: Self-Attention Calculations
+### Layer 1 Processing:
 
+#### Multi-Head Attention 1 (MHA1):
 ##### Step 1: Compute Queries, Keys, and Values
 Suppose every word uses the same simple transformation for keys and queries (for illustration):
 - Keys (K), Queries (Q), and Values (V) are the same as the input embeddings for simplicity.
-
-**K, Q, V for each word:**
-- K1, Q1, V1 = `[1, 0]` (for "Jane")
-- K2, Q2, V2 = `[0, 1]` (for "visits")
-- K3, Q3, V3 = `[1, 1]` (for "Paris")
+  - K1, Q1, V1 = `[1, 0]` (for "Jane")
+  - K2, Q2, V2 = `[0, 1]` (for "visits")
+  - K3, Q3, V3 = `[1, 1]` (for "Paris")
 
 ##### Step 2: Compute Attention Scores
 Using dot products for simplicity (ignoring scaling):
-
-**Attention scores from "Jane" (Position 1) to all words:**
 - Score to "Jane" = `[1, 0]` · `[1, 0]` = 1
 - Score to "visits" = `[1, 0]` · `[0, 1]` = 0
 - Score to "Paris" = `[1, 0]` · `[1, 1]` = 1
 
-**Softmax to normalize (simplified calculation for illustration):**
+##### Softmax to Normalize:
 - Softmax scores = `[0.5, 0, 0.5]` (softmax computed for illustration purposes)
 
-**Output for Position 1 using Vectors:**
+##### Output for Position 1 using Vectors:
 - Output for "Jane" = `0.5*[1, 0] + 0*[0, 1] + 0.5*[1, 1]` = `[1.5, 0.5]`
 
-#### Layer 2: Using Output from Layer 1
+#### Feed-Forward Network 1 (FFNN1):
+##### Transformation of Attention Outputs:
+Each vector output from MHA1 is independently processed by the feed-forward network:
+- Example transformation for "Jane": Linear transformation and ReLU activation applied to `[1.5, 0.5]`, assuming hypothetical transformations, resulting in `[1.35, 0.8]`.
 
-##### Inputs to Layer 2:
-New embeddings from Layer 1:
-- "Jane" -> `[1.5, 0.5]`
-- "visits" -> `[0.1, 0.9]` (assuming transformation in Layer 1)
-- "Paris" -> `[1.2, 1.2]` (assuming transformation in Layer 1)
+### Layer 2 Processing:
 
-##### Repeat Self-Attention for Layer 2:
-Compute K, Q, V for each word again, using the new embeddings for simplicity.
+#### Multi-Head Attention 2 (MHA2):
+Inputs to MHA2 are the outputs from FFNN1:
+- New vectors:
+  - "Jane" -> `[1.35, 0.8]`
+  - "visits" -> `[0.1, 0.9]`
+  - "Paris" -> `[1.2, 1.2]`
 
-**Compute attention scores from "Jane" in Layer 2:**
-- Score to "Jane" = `[1.5, 0.5]` · `[1.5, 0.5]` = 2.5
-- Score to "visits" = `[1.5, 0.5]` · `[0.1, 0.9]` = 0.6
-- Score to "Paris" = `[1.5, 0.5]` · `[1.2, 1.2]` = 2.4
+##### Compute Queries, Keys, and Values for Layer 2
+Assume similar transformations for K, Q, V as in the first layer:
+- For each token:
+  - K2, Q2, V2 = Transformation of the corresponding outputs from FFNN1 (assuming simple linear transformations for illustration).
 
-**Softmax Scores for Layer 2:**
-- Calculated and normalized, assume `[0.4, 0.1, 0.5]`
+- **Transformations:**
+  - K2, Q2, V2 for "Jane" = `[1.35, 0.8]`
+  - K2, Q2, V2 for "visits" = `[0.1, 0.9]`
+  - K2, Q2, V2 for "Paris" = `[1.2, 1.2]`
 
-**Output for Position 1 in Layer 2:**
-- Output = `0.4*[1.5, 0.5] + 0.1*[0.1, 0.9] + 0.5*[1.2, 1.2]` = `[1.35, 0.8]`
+##### Compute Attention Scores
+Using dot products (ignoring scaling for simplicity):
+- From "Jane":
+  - Score to "Jane" = `[1.35, 0.8]` · `[1.35, 0.8]` = 1.8225 + 0.64 = 2.4625
+  - Score to "visits" = `[1.35, 0.8]` · `[0.1, 0.9]` = 0.135 + 0.72 = 0.855
+  - Score to "Paris" = `[1.35, 0.8]` · `[1.2, 1.2]` = 1.62 + 0.96 = 2.58
 
-#### Conclusion:
-In this example, we can see how each position attends to all positions in the previous layer. The numbers change as each layer processes its inputs, which are the outputs (transformed representations) from the previous layer. This is a fundamental aspect of how transformers can model complex dependencies, by allowing each position to dynamically consider the entire input from the previous layer through the attention mechanism.
+##### Softmax to Normalize:
+- Softmax scores = `[0.45, 0.1, 0.45]` (simplified calculation for example)
+
+##### Output for Position 1 using Vectors:
+- Output for "Jane" = `0.45*[1.35, 0.8] + 0.1*[0.1, 0.9] + 0.45*[1.2, 1.2]` = `[1.1025, 0.99]`
+
+#### Feed-Forward Network 2 (FFNN2):
+##### Transformation of Attention Outputs from MHA2:
+Each vector output from MHA2 is independently processed by the feed-forward network:
+- For "Jane" from MHA2, let's apply a hypothetical linear transformation followed by a ReLU:
+  - First Linear Layer: New vector = `1.5 * [1.1025, 0.99] + bias = [1.65375, 1.485] + [0.1, 0.1] = [1.75375, 1.585]`
+  - ReLU Activation: `[1.75375, 1.585]` (no change since values are positive)
+  - Second Linear Transformation: Assuming scaling down, `[0.8 * 1.75375, 0.8 * 1.585] + bias = [1.403, 1.268] + [-0.1, -0.1] = [1.303, 1.168]`
+
+##### Final Output for "Jane":
+- Final vector for "Jane" after FFNN2 = `[1.303, 1.168]`
+
+### Conclusion:
+In Layer 2, each position again attends to all positions in the input from FFNN1 through the multi-headed attention mechanism, creating new intermediate representations. These are then independently processed by the feed-forward network to produce the final outputs for each position. This example details how transformations at each step of the layer can dynamically influence the overall processing and outputs of the transformer model, emphasizing the complex dependencies modeled by transformers.
+
 
 
 ## Transformer Architecture Overview
