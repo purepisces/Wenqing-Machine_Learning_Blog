@@ -48,7 +48,11 @@ Now that your input is represented as numbers, you can pass it to the embedding 
 >
 > A "dense vector" refers to a type of vector in computational mathematics where most or all of the elements are non-zero. This is in contrast to "sparse vectors," where the majority of the elements are zero.
 > 
-> The term "embedding space" refers to the high-dimensional space where vectors representing words, phrases, or other types of data are mapped in a machine learning model. In the context of natural language processing (NLP), embedding space is particularly significant as it is where words are represented as vectors, with each dimension of the vector capturing different aspects of the word's meaning, usage, or context.
+> The term "embedding space" refers to the high-dimensional space where vectors representing words, phrases, or other types of data are mapped in a machine learning model. In the context of natural language processing (NLP), embedding space is particularly significant as it is where words are represented as vectors, with each dimension of the vector capturing different aspects of the word's meaning, usage, or context. The purpose of embedding is to capture semantic meaning of features; for example, similar features will be close to each other in the embedding vector space.
+> 
+> Refined Embeddings: Through training, the embeddings are modified to capture relevant aspects of words as they pertain to the specific task. For example, in a sentiment analysis task, words that frequently appear in positive contexts may have their embeddings adjusted to cluster closer to other positive sentiment words.
+>
+> Co-occurrence: Words that frequently appear in similar contexts (e.g., "coffee" and "tea") will influence each other's embedding updates during training. If both words contribute to similar prediction outcomes, their gradients will push their embeddings to become more similar.
 
 
 Looking back at the sample sequence, you can see that in this simple case each word has been matched to a token ID and each token is mapped into a vector. In the original transformer paper, the vector size was actually 512, so much bigger than we can fit onto this image.
