@@ -188,6 +188,10 @@ In transformer models, the input sequence of tokens is processed through several
 
 This training process ensures that both embeddings and encodings evolve to optimally perform the specific tasks for which the transformer is designed.
 
+> Note: Embeddings(Static Representations): Embeddings provide a static, pre-contextual representation of data, typically words in the case of text. Each word is mapped to a vector that captures some semantic and syntactic properties of the word based on the corpus the embeddings were trained on. However, these embeddings do not change based on the words around them in a specific instance of data.
+> 
+> Encodings (Dynamic and Contextual): Encodings are the result of processing embeddings through one or more layers of a neural network, such as the layers in a transformer model. These layers use mechanisms like self-attention to dynamically adjust how each word's vector should be influenced by the other words in its current context.
+
 # Generating text with transformers
 
 ## Overall Prediction Process Example
