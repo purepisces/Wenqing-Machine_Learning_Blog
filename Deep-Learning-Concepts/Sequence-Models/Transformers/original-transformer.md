@@ -25,6 +25,75 @@ In this stylized example, you can see that the word "book" is strongly connected
 
 <img src="stylized_example.png" alt="stylized_example" width="400" height="300"/>
 
+### Numerical Example of Self-Attention in Transformers
+
+Let's break down a numerical example of the self-attention mechanism across two layers of a transformer model. We'll use a simple three-word sentence and work through the calculations in detail.
+
+#### Example Sentence:
+"Jane visits Paris"
+
+#### Positions:
+- Position 1: "Jane"
+- Position 2: "visits"
+- Position 3: "Paris"
+
+#### Initial Setup:
+Assume each word is initially embedded into a 2-dimensional vector:
+
+- "Jane" -> `[1, 0]`
+- "visits" -> `[0, 1]`
+- "Paris" -> `[1, 1]`
+
+#### Layer 1: Self-Attention Calculations
+
+##### Step 1: Compute Queries, Keys, and Values
+Suppose every word uses the same simple transformation for keys and queries (for illustration):
+- Keys (K), Queries (Q), and Values (V) are the same as the input embeddings for simplicity.
+
+**K, Q, V for each word:**
+- K1, Q1, V1 = `[1, 0]` (for "Jane")
+- K2, Q2, V2 = `[0, 1]` (for "visits")
+- K3, Q3, V3 = `[1, 1]` (for "Paris")
+
+##### Step 2: Compute Attention Scores
+Using dot products for simplicity (ignoring scaling):
+
+**Attention scores from "Jane" (Position 1) to all words:**
+- Score to "Jane" = `[1, 0]` · `[1, 0]` = 1
+- Score to "visits" = `[1, 0]` · `[0, 1]` = 0
+- Score to "Paris" = `[1, 0]` · `[1, 1]` = 1
+
+**Softmax to normalize (simplified calculation for illustration):**
+- Softmax scores = `[0.5, 0, 0.5]` (softmax computed for illustration purposes)
+
+**Output for Position 1 using Vectors:**
+- Output for "Jane" = `0.5*[1, 0] + 0*[0, 1] + 0.5*[1, 1]` = `[1.5, 0.5]`
+
+#### Layer 2: Using Output from Layer 1
+
+##### Inputs to Layer 2:
+New embeddings from Layer 1:
+- "Jane" -> `[1.5, 0.5]`
+- "visits" -> `[0.1, 0.9]` (assuming transformation in Layer 1)
+- "Paris" -> `[1.2, 1.2]` (assuming transformation in Layer 1)
+
+##### Repeat Self-Attention for Layer 2:
+Compute K, Q, V for each word again, using the new embeddings for simplicity.
+
+**Compute attention scores from "Jane" in Layer 2:**
+- Score to "Jane" = `[1.5, 0.5]` · `[1.5, 0.5]` = 2.5
+- Score to "visits" = `[1.5, 0.5]` · `[0.1, 0.9]` = 0.6
+- Score to "Paris" = `[1.5, 0.5]` · `[1.2, 1.2]` = 2.4
+
+**Softmax Scores for Layer 2:**
+- Calculated and normalized, assume `[0.4, 0.1, 0.5]`
+
+**Output for Position 1 in Layer 2:**
+- Output = `0.4*[1.5, 0.5] + 0.1*[0.1, 0.9] + 0.5*[1.2, 1.2]` = `[1.35, 0.8]`
+
+#### Conclusion:
+In this example, we can see how each position attends to all positions in the previous layer. The numbers change as each layer processes its inputs, which are the outputs (transformed representations) from the previous layer. This is a fundamental aspect of how transformers can model complex dependencies, by allowing each position to dynamically consider the entire input from the previous layer through the attention mechanism.
+
 
 ## Transformer Architecture Overview
 
