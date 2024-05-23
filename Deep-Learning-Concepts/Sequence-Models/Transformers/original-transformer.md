@@ -125,7 +125,7 @@ In Layer 2, each position again attends to all positions in the input from FFNN1
 
 
 
-> Note: Can Layer 2 Have a Different Number of Heads Than Layer 1?
+> Can Layer 2 Have a Different Number of Heads Than Layer 1?
 > Yes, it is possible: Architecture Flexibility: Transformer architectures can be designed with different numbers of heads in each MHA component across different layers.
 >
 > Simultaneity: All heads in a given layer (e.g., all 6 heads in Layer 1) process their inputs in parallel. This means that head 1, head 2, head 3, etc., are all performing their attention calculations at the same time.
