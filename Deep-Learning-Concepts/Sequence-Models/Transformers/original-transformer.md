@@ -299,6 +299,8 @@ Let's summarize what you've seen so far. The complete transformer architecture c
 <img src="encoder_decoder.png" alt="encoder_decoder" width="400" height="300"/>
 
 
+> Note: Each step of the decoding uses the same encoder output but may focus on different parts of it depending on the current state and needs of the decoder.
+> 
 
 ## Variation Architecture
 
