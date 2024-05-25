@@ -57,6 +57,13 @@
     - [Confusion Matrix](Foundational-Concepts-in-Machine-Learning/Model-Evaluation/confusion-matrix.md)
     - [Precision, Recall and F1 score](Foundational-Concepts-in-Machine-Learning/Model-Evaluation/precision-recall-f1score.md)
   - **Online Metrics**
+ 
+- **Training Pipeline**
+  - [Training Pipeline Overview](Foundational-Concepts-in-Machine-Learning/Training-Pipeline/training-pipeline-overview.md)
+  - [Data Partitioning](Foundational-Concepts-in-Machine-Learning/Training-Pipeline/data-partitioning.md)
+  - [Handle Imbalance Class Distribution](Foundational-Concepts-in-Machine-Learning/Training-Pipeline/handling-imbalance.md)
+  - [Choose the Right Loss Function](Foundational-Concepts-in-Machine-Learning/Training-Pipeline/choosing-loss-function.md)
+  - [Retraining Requirements](Foundational-Concepts-in-Machine-Learning/Training-Pipeline/retraining-requirements.md)
 
 - **Linear Regression**
   - [Overview](Foundational-Concepts-in-Machine-Learning/Linear-Regression/linear-regression.md)
