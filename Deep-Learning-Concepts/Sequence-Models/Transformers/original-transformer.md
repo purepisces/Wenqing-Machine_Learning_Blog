@@ -216,12 +216,133 @@ Once you've summed the input tokens and the positional encodings, you pass the r
 
 <img src="self-attention.png" alt="self-attention" width="400" height="300"/> <img src="multi_headed_self_attention.png" alt="multi_headed_self_attention" width="400" height="300"/> <img src="learn_different.png" alt="learn_different" width="400" height="300"/>
 
+
+```pyton3
+class ScaledDotProductAttention(torch.nn.Module):
+    ''' Scaled Dot-Product Attention '''
+
+    def __init__(self, temperature, attn_dropout=0.1):
+        super().__init__()
+        self.temperature    = temperature                       # Scaling factor for the dot product
+        self.dropout        = torch.nn.Dropout(attn_dropout)    # Dropout layer for attention weights
+        self.softmax        = torch.nn.Softmax(dim=2)           # Softmax layer along the attention dimension
+
+    def forward(self, q, k, v, mask=None):
+
+        # Calculate the dot product between queries and keys.
+        attn = torch.bmm(q, k.transpose(1, 2))
+
+        # Scale the dot product by the temperature.
+        attn = attn / self.temperature
+
+        if mask is not None:
+            # Apply the mask by setting masked positions to a large negative value.
+            # This ensures they have a softmax score close to zero.
+            mask_value = -1e+30 if attn.dtype == torch.float32 else -1e+4
+            attn = attn.masked_fill(mask, mask_value)
+
+        # Apply softmax to obtain attention weights.
+        attn    = self.softmax(attn)
+
+        # Apply dropout to the attention weights.
+        attn    = self.dropout(attn)
+
+        # Compute the weighted sum of values based on the attention weights.
+        output  = torch.bmm(attn, v)
+
+        return output, attn # Return the attention output and the attention weights.
+
+class MultiHeadAttention(torch.nn.Module):
+    ''' Multi-Head Attention Module '''
+
+    def __init__(self, n_head, d_model, dropout=0.1):
+        super().__init__()
+
+        self.n_head = n_head # Number of attention heads
+        self.d_k    = d_model // n_head
+        self.d_v    = d_model // n_head
+
+
+        # Linear layers for projecting the input query, key, and value to multiple heads
+        self.w_qs   = torch.nn.Linear(d_model, n_head * self.d_k)
+        self.w_ks   = torch.nn.Linear(d_model, n_head * self.d_k)
+        self.w_vs   = torch.nn.Linear(d_model, n_head * self.d_v)
+
+        torch.nn.init.normal_(self.w_qs.weight, mean=0, std=np.sqrt(2.0 / (d_model + self.d_k)))
+        torch.nn.init.normal_(self.w_ks.weight, mean=0, std=np.sqrt(2.0 / (d_model + self.d_k)))
+        torch.nn.init.normal_(self.w_vs.weight, mean=0, std=np.sqrt(2.0 / (d_model + self.d_v)))
+
+        # Initialize the weights of the linear layers
+        self.attention = ScaledDotProductAttention(
+            temperature=np.power(self.d_k, 0.5), attn_dropout=dropout)
+
+        # Final linear layer to project the concatenated outputs of the attention heads back to the model dimension
+        self.fc = torch.nn.Linear(n_head * self.d_v, d_model)
+
+        torch.nn.init.xavier_normal_(self.fc.weight)
+
+        self.dropout = torch.nn.Dropout(dropout)
+
+    def forward(self, q, k, v, mask=None):
+
+        # following key, value, query standard computation
+        d_k, d_v, n_head    = self.d_k, self.d_v, self.n_head
+        sz_b, len_q, _      = q.size()
+        sz_b, len_k, _      = k.size()
+        sz_b, len_v, _      = v.size()
+
+        # Project the input query, key, and value to multiple heads
+        q = self.w_qs(q).view(sz_b, len_q, n_head, d_k)
+        k = self.w_ks(k).view(sz_b, len_k, n_head, d_k)
+        v = self.w_vs(v).view(sz_b, len_v, n_head, d_v)
+
+        # Rearrange the dimensions to group the heads together for parallel processing
+        q = q.permute(2, 0, 1, 3).contiguous().view(-1, len_q, d_k) # (n*b) x lq x dk
+        k = k.permute(2, 0, 1, 3).contiguous().view(-1, len_k, d_k) # (n*b) x lk x dk
+        v = v.permute(2, 0, 1, 3).contiguous().view(-1, len_v, d_v) # (n*b) x lv x dv
+
+        # Repeat the mask for each attention head if a mask is provided
+        if mask is not None:
+            mask = mask.repeat(n_head, 1, 1)
+
+        # Apply scaled dot-product attention to the projected query, key, and value
+        output, attn    = self.attention(q, k, v, mask=mask)
+
+        # Rearrange the output back to the original order and concatenate the heads
+        output          = output.view(n_head, sz_b, len_q, d_v)
+        output          = output.permute(1, 2, 0, 3).contiguous().view(sz_b, len_q, -1) # b x lq x (n*dv)
+
+        output          = self.dropout(self.fc(output))
+
+        return output, attn
+```
 ## Feed-Forward Network and Output
 
 Now that all of the attention weights have been applied to your input data, the output is processed through a fully connected feed-forward network. The output of this layer is a vector of logits proportional to the probability score for each and every token in the tokenizer dictionary. You can then pass these logits to a final softmax layer where they are normalized into a probability score for each word. This output includes a probability for every single word in the vocabulary, so there's likely to be thousands of scores here. One single token will have a score higher than the rest. This is the most likely predicted token. There are a number of methods that you can use to vary the final selection from this vector of probabilities.
 
 <img src="feed_forward.png" alt="feed_forward" width="400" height="300"/> <img src="vector_probabilities.png" alt="vector_probabilities" width="400" height="300"/> <img src="final_transformers.png" alt="final_transformers" width="400" height="300"/>
 
+```python3
+class FeedForward(torch.nn.Module):
+    ''' Projection Layer (Fully Connected Layers) '''
+
+    def __init__(self, d_model, d_ff=2048, dropout=0.1):
+        super().__init__()
+
+        self.linear_1   = torch.nn.Linear(d_model, d_ff)
+        self.dropout    = torch.nn.Dropout(dropout)
+        self.linear_2   = torch.nn.Linear(d_ff, d_model)
+
+    def forward(self, x):
+
+        # Apply the first linear layer, GeLU activation, and then dropout
+        x = self.dropout(torch.nn.functional.gelu(self.linear_1(x)))
+
+         # Apply the second linear layer to project the dimension back to d_model
+        x = self.linear_2(x)
+
+        return x
+```
 
 ## Simultaneous Training of Embeddings and Encodings in Transformers
 
