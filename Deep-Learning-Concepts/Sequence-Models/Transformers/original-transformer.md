@@ -179,6 +179,35 @@ As you add token vectors into the base of the encoder or the decoder, you also a
 
 <img src="positional_encoding.png" alt="positional_encoding" width="400" height="300"/> <img src="add_positional_encoding.png" alt="add_positional_encoding" width="400" height="300"/>
 
+```python3
+class PositionalEncoding(torch.nn.Module):
+    ''' Position Encoding from Attention Is All You Need Paper '''
+
+    def __init__(self, d_model, max_len=5000):
+        super().__init__()
+
+        # Initialize a tensor to hold the positional encodings
+        pe          = torch.zeros(max_len, d_model)
+
+        # Create a tensor representing the positions (0 to max_len-1)
+        position    = torch.arange(0, max_len, dtype=torch.float).unsqueeze(1)
+
+        # Calculate the division term for the sine and cosine functions
+        # This term creates a series of values that decrease geometrically, used to generate varying frequencies for positional encodings
+        div_term    = torch.exp(torch.arange(0, d_model, 2).float() * (-math.log(10000.0) / d_model))
+
+        # Compute the positional encodings using sine and cosine functions
+        pe[:, 0::2] = torch.sin(position * div_term)
+        pe[:, 1::2] = torch.cos(position * div_term)
+
+        # Reshape the positional encodings tensor and make it a buffer
+        pe = pe.unsqueeze(0)
+        self.register_buffer("pe", pe)
+
+    def forward(self, x):
+      return x + self.pe[:, :x.size(1)]
+```
+
 
 ## Self-Attention and Multi-Head Attention
 
@@ -319,6 +348,7 @@ Finally, decoder-only models are some of the most commonly used today. Again, as
 
 ## Reference:
 - Generative AI with large language models coursera
+- CMU 11785 Introduction to deep learning
 
 
 
