@@ -217,7 +217,7 @@ Once you've summed the input tokens and the positional encodings, you pass the r
 <img src="self-attention.png" alt="self-attention" width="400" height="300"/> <img src="multi_headed_self_attention.png" alt="multi_headed_self_attention" width="400" height="300"/> <img src="learn_different.png" alt="learn_different" width="400" height="300"/>
 
 
-```pyton3
+```python3
 class ScaledDotProductAttention(torch.nn.Module):
     ''' Scaled Dot-Product Attention '''
 
