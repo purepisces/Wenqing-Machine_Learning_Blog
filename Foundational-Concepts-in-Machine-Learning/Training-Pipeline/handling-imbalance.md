@@ -95,7 +95,6 @@ The increased loss for misclassifications during training encourages the model t
 ```python3
 import pandas as pd
 from sklearn.utils import resample
-
 # Create a sample dataset
 data = {
     'feature1': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
@@ -114,27 +113,28 @@ spam = dataset[dataset['label'] == 1]
 spam_oversampled = resample(spam, replace=True, n_samples=len(non_spam), random_state=42)
 
 # Combine the majority class with the oversampled minority class
-balanced_dataset = pd.concat([non_spam, spam_oversampled])
+oversampled_dataset = pd.concat([non_spam, spam_oversampled])
 
-# Verify the new distribution
-print(balanced_dataset['label'].value_counts())
-print(balanced_dataset)
-
-
+# Verify the new distribution after oversampling
+print("Oversampled dataset class distribution:")
+print(oversampled_dataset['label'].value_counts())
+print(oversampled_dataset)
 
 # Undersample the majority class
 non_spam_undersampled = resample(non_spam, replace=False, n_samples=len(spam), random_state=42)
 
 # Combine the undersampled majority class with the minority class
-new_balanced_dataset = pd.concat([non_spam_undersampled, spam])
+undersampled_dataset = pd.concat([non_spam_undersampled, spam])
 
-# Verify the new distribution
-print(new_balanced_dataset['label'].value_counts())
-print(new_balanced_dataset)
+# Verify the new distribution after undersampling
+print("\nUndersampled dataset class distribution:")
+print(undersampled_dataset['label'].value_counts())
+print(undersampled_dataset)
 ```
 Printing Result:
 
 ```
+Oversampled dataset class distribution:
 label
 0    14
 1    14
@@ -168,6 +168,8 @@ Name: count, dtype: int64
 16        17        18      1
 19        20        21      1
 18        19        20      1
+
+Undersampled dataset class distribution:
 label
 0    6
 1    6
