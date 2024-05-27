@@ -96,6 +96,20 @@ The increased loss for misclassifications during training encourages the model t
 
 Resample the non-spam class at a certain rate to reduce the imbalance in the training set. It’s important to have validation data and test data intact (no resampling).
 
+### Types of Naive Resampling
+
+Oversampling the Minority Class: This involves duplicating examples from the minority class to increase their frequency in the training dataset.
+
+Undersampling the Majority Class: This involves randomly removing examples from the majority class to decrease their frequency in the training dataset.
+
+### Important Considerations
+
+Validation and Test Data Integrity: It’s crucial to keep the validation and test data intact, without any resampling, to ensure that the performance metrics reflect the model's ability to generalize to unseen data. Resampling should only be applied to the training data.
+
+Risk of Overfitting (in Oversampling): Oversampling can lead to overfitting, as the model may memorize duplicated instances from the minority class.
+
+Loss of Information (in Undersampling): Undersampling can result in the loss of valuable information from the majority class, which might degrade the model's performance.
+
 ```python3
 import pandas as pd
 from sklearn.utils import resample
