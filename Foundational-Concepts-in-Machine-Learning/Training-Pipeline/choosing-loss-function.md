@@ -76,3 +76,14 @@ Binary cross-entropy penalizes predictions based on their confidence and correct
 - **High confidence incorrect predictions** (e.g., Example 3 and Example 4) yield high BCE. This heavy penalty encourages the model to avoid making confident but incorrect predictions.
 - **Low confidence predictions** (e.g., Example 5) yield moderate BCE, reflecting the model's uncertainty.
 
+## SMAPE
+
+The SMAPE formula is given by:
+$$\text{SMAPE} = \frac{100\%}{n} \sum_{t=1}^{n} \frac{|F_t - A_t|}{\left( \frac{|A_t| + |F_t|}{2} \right)}$$
+
+Where:
+
+- $n$ = number of data points
+- $A_t$ = actual value at time $t$
+- $F_t$ = forecasted (predicted) value at time $t$
+
