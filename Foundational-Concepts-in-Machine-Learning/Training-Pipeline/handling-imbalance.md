@@ -82,4 +82,4 @@ In these examples, you can see:
 - When the model correctly classifies an email, the loss is relatively low.
 - When the model misclassifies an email, the loss is higher, especially for the spam class due to the higher weight.
 
-The increased loss for misclassifications during training encourages the model to adjust its parameters to reduce these high losses in future iterations, leading to better overall performance, particularly for the minority class (spam).
+The increased loss for misclassifications during training encourages the model to adjust its parameters to reduce these high losses in future iterations, leading to better overall performance, particularly for the minority class (spam). When the loss is higher for misclassified spam emails, it signals the model to focus more on correctly predicting spam emails during training. 
