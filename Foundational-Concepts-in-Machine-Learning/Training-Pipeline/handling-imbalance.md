@@ -2,7 +2,9 @@
 
 In ML use cases like Fraud Detection, Click Prediction, or Spam Detection, it’s common to have imbalance labels. There are few strategies to handle them, i.e, you can use any of these strategies depend on your use case.
 
-## Use class weights in loss function: For example, in a spam detection problem where non-spam data has 95% data compare to other spam data which has only 5%. We want to penalize more in the non-spam class. In this case, we can modify the entropy loss function using weight.
+## Use class weights in loss function: 
+
+For example, in a spam detection problem where non-spam data has 95% data compare to other spam data which has only 5%. We want to penalize more in the non-spam class. In this case, we can modify the entropy loss function using weight.
 
   ```python3
   //w0 is weight for class 0, 
@@ -90,7 +92,9 @@ The increased loss for misclassifications during training encourages the model t
 > True Positive (TP): An email that is actually spam and the model correctly identifies it as spam. True Negative (TN): An email that is actually not spam (ham) and the model correctly identifies it as not spam. False Positive (FP): An email that is actually not spam (ham) but the model incorrectly identifies it as spam. False Negative (FN): An email that is actually spam but the model incorrectly identifies it as not spam.
 
 
-## Use naive resampling: Resample the non-spam class at a certain rate to reduce the imbalance in the training set. It’s important to have validation data and test data intact (no resampling).
+## Use naive resampling: 
+
+Resample the non-spam class at a certain rate to reduce the imbalance in the training set. It’s important to have validation data and test data intact (no resampling).
 
 ```python3
 import pandas as pd
