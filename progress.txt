@@ -26,3 +26,4 @@
 26.Loss_Functions.md✅已发csdn,未发知乎
 27.sgd.md✅已发csdn,未发知乎
 28.one-hot-encoding.md✅
+29.handling-imbalance.md✅ need further formatting
