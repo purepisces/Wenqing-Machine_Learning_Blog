@@ -211,6 +211,12 @@ Name: count, dtype: int64
 
 The Synthetic Minority Oversampling Technique (SMOTE) consists of synthesizing elements for the minority class, based on those that already exist. It works by randomly picking a point from the minority class and computing the k-nearest neighbors for that point. The synthetic points are added between the chosen point and its neighbors. For practical reasons, SMOTE is not as widely used as other methods.
 
-<img src="SMOTE.png" alt="mean_std" width="400" height="300"/>
+<img src="SMOTE.png" alt="mean_std" width="600" height="200"/>
+
+
+## Reference:
+- Machine Learning System Design from educative
+
+
 
 
