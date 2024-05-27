@@ -115,7 +115,7 @@
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Loss_Functions.md)
   - [MSE_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/MSE_Loss.md)
   - [Cross_Entropy_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Cross_Entropy_Loss.md)
-    - [Log_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Log_Loss.md)
+    - [Normalized Cross Entropy(Log_Loss)](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Log_Loss.md) 
     - [Binary_Cross_Entropy_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Binary_Cross_Entropy_Loss.md)
   - [MAPE](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/MAPE.md)
   - [SMAPE](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/SMAPE.md)
