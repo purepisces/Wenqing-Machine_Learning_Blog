@@ -186,6 +186,10 @@ Where:
 - $y$ is the actual value.
 - $\alpha$ is the quantile to be estimated (e.g., 0.5 for the median).
 
+When $\hat{y} > y$ (overestimation), the term $\alpha(\hat{y} - y)$ is positive, and $(1 - \alpha)(y - \hat{y})$ is negative.  
+When $\hat{y} < y$ (underestimation), the term $\alpha(\hat{y} - y)$ is negative, and $(1 - \alpha)(y - \hat{y})$ is positive.  
+The function takes the maximum of these two values, so depending on the value of $\alpha$, it will penalize overestimations or underestimations more heavily.
+
 Quantile Loss helps in providing a more comprehensive picture of the distribution of errors, which is especially useful in applications like demand forecasting where understanding the range of possible outcomes is crucial.
 
 ### Overestimation Example Calculation
@@ -229,3 +233,16 @@ In the underestimation example:
 - The loss value is $2.5$, reflecting a lighter penalty for underestimating with $\alpha = 0.75$.
 
 Since $\alpha = 0.75$, the Quantile Loss function penalizes overestimations more heavily, making it useful in scenarios where overestimations are costlier than underestimations.
+
+
+### Explanation with $\alpha = 0.75$
+
+In the given example with $\alpha = 0.75$:
+
+For overestimations ($\hat{y} > y$):
+$$\alpha(\hat{y} - y) = 0.75(\hat{y} - y)$$
+
+For underestimations ($\hat{y} < y$):
+$$(1 - \alpha)(y - \hat{y}) = 0.25(y - \hat{y})$$
+
+The higher value of $\alpha$ (0.75) means that the term associated with overestimations (0.75 times the error) will be larger compared to the term for underestimations (0.25 times the error) for the same magnitude of error.
