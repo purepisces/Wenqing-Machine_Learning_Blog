@@ -73,7 +73,57 @@ Binary cross-entropy penalizes predictions based on their confidence and correct
 - **High confidence incorrect predictions** (e.g., Example 3 and Example 4) yield high BCE. This heavy penalty encourages the model to avoid making confident but incorrect predictions.
 - **Low confidence predictions** (e.g., Example 5) yield moderate BCE, reflecting the model's uncertainty.
 
-## SMAPE
+## MAPE and SMAPE
+
+### Example Data
+Let's consider a small dataset of actual and forecasted values:
+
+| Time ($t$) | Actual Value ($A_t$) | Forecast Value ($F_t$) |
+|------------|----------------------|------------------------|
+| 1          | 100                  | 90                     |
+| 2          | 150                  | 160                    |
+| 3          | 200                  | 195                    |
+| 4          | 50                   | 60                     |
+| 5          | 80                   | 70                     |
+
+### MAPE Calculation
+
+The MAPE formula is given by:
+$$\text{MAPE} = \frac{100\%}{n} \sum_{t=1}^{n} \left| \frac{A_t - F_t}{A_t} \right|$$
+
+Where:
+
+- $n$ = number of data points
+- $A_t$ = actual value at time $t$
+- $F_t$ = forecasted (predicted) value at time $t$
+  
+For each time period $t$:
+
+1. Calculate the absolute percentage error:
+   $$\left| \frac{A_t - F_t}{A_t} \right|$$
+2. Multiply by 100 to convert it to a percentage.
+
+Let's calculate the absolute percentage errors for each time period:
+
+For $t = 1$:
+$$\left| \frac{100 - 90}{100} \right| \times 100 = 10\%$$
+
+For $t = 2$:
+$$\left| \frac{150 - 160}{150} \right| \times 100 = \left| \frac{-10}{150} \right| \times 100 \approx 6.67\%$$
+
+For $t = 3$:
+$$\left| \frac{200 - 195}{200} \right| \times 100 = 2.5\%$$
+
+For $t = 4$:
+$$\left| \frac{50 - 60}{50} \right| \times 100 = 20\%$$
+
+For $t = 5$:
+$$\left| \frac{80 - 70}{80} \right| \times 100 = 12.5\%$$
+
+Now, calculate the mean of these percentage errors:
+$$\text{MAPE} = \frac{1}{5} (10 + 6.67 + 2.5 + 20 + 12.5) = \frac{1}{5} \times 51.67 \approx 10.33\%$$
+
+### SMAPE Calculation
 
 The SMAPE formula is given by:
 $$\text{SMAPE} = \frac{100\%}{n} \sum_{t=1}^{n} \frac{|F_t - A_t|}{\left( \frac{|A_t| + |F_t|}{2} \right)}$$
@@ -83,4 +133,40 @@ Where:
 - $n$ = number of data points
 - $A_t$ = actual value at time $t$
 - $F_t$ = forecasted (predicted) value at time $t$
+  
+For each time period $t$:
+
+1. Calculate the absolute error:
+   $$|F_t - A_t|$$
+2. Calculate the average of the actual and forecast values:
+   $$\left( \frac{|A_t| + |F_t|}{2} \right)$$
+3. Divide the absolute error by the average:
+   $$\frac{|F_t - A_t|}{\left( \frac{|A_t| + |F_t|}{2} \right)}$$
+4. Multiply by 100 to convert it to a percentage.
+
+Let's calculate the SMAPE for each time period:
+
+For $t = 1$:
+$$\left| \frac{90 - 100}{\left( \frac{100 + 90}{2} \right)} \right| \times 100 = \left| \frac{10}{95} \right| \times 100 \approx 10.53\%$$
+
+For $t = 2$:
+$$\left| \frac{160 - 150}{\left( \frac{150 + 160}{2} \right)} \right| \times 100 = \left| \frac{10}{155} \right| \times 100 \approx 6.45\%$$
+
+For $t = 3$:
+$$\left| \frac{195 - 200}{\left( \frac{200 + 195}{2} \right)} \right| \times 100 = \left| \frac{5}{197.5} \right| \times 100 \approx 2.53\%$$
+
+For $t = 4$:
+$$\left| \frac{60 - 50}{\left( \frac{50 + 60}{2} \right)} \right| \times 100 = \left| \frac{10}{55} \right| \times 100 \approx 18.18\%$$
+
+For $t = 5$:
+$$\left| \frac{70 - 80}{\left( \frac{80 + 70}{2} \right)} \right| \times 100 = \left| \frac{10}{75} \right| \times 100 \approx 13.33\%$$
+
+Now, calculate the mean of these percentages:
+$$\text{SMAPE} = \frac{1}{5} (10.53 + 6.45 + 2.53 + 18.18 + 13.33) = \frac{1}{5} \times 51.02 \approx 10.20\%$$
+
+### Comparison
+- **MAPE**: 10.33%
+- **SMAPE**: 10.20%
+
+Both MAPE and SMAPE provide similar results in this example, but they handle extreme values differently. In general, SMAPE tends to be more stable when actual values are very small or when there are significant outliers in the data.
 
