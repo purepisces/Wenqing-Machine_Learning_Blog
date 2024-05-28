@@ -86,10 +86,10 @@ Let's consider a small dataset of actual and forecasted values:
 | 4          | 50                   | 60                     |
 | 5          | 80                   | 70                     |
 
-### MAPE Calculation
+### MAPE(Mean Absolute Percentage Error) Calculation
 
 The MAPE formula is given by:
-$$\text{MAPE} = \frac{100\%}{n} \sum_{t=1}^{n} \left| \frac{A_t - F_t}{A_t} \right|$$
+$$\text{MAPE} = \frac{1}{n} \sum_{t=1}^{n} \left| \frac{A_t - F_t}{A_t} \right|$$
 
 Where:
 
@@ -123,9 +123,10 @@ $$\left| \frac{80 - 70}{80} \right| \times 100 = 12.5\%$$
 Now, calculate the mean of these percentage errors:
 $$\text{MAPE} = \frac{1}{5} (10 + 6.67 + 2.5 + 20 + 12.5) = \frac{1}{5} \times 51.67 \approx 10.33\%$$
 
-### SMAPE Calculation
+### SMAPE(Symmetric Absolute Percentage Error) Calculation
 
 The SMAPE formula is given by:
+
 $$\text{SMAPE} = \frac{100\%}{n} \sum_{t=1}^{n} \frac{|F_t - A_t|}{\left( \frac{|A_t| + |F_t|}{2} \right)}$$
 
 Where:
