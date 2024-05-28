@@ -208,24 +208,24 @@ Given:
 
 Given:
 - The actual value $y = 100$
-- The predicted value \( \hat{y} = 90 \)
-- The quantile \( \alpha = 0.75 \)
+- The predicted value $\hat{y} = 90$
+- The quantile $\alpha = 0.75$
 
 #### Step-by-Step Calculation
 
 1. Calculate the two terms inside the max function:
-   \[ \alpha(\hat{y} - y) = 0.75 \times (90 - 100) = 0.75 \times (-10) = -7.5 \]
-   \[ (1 - \alpha)(y - \hat{y}) = 0.25 \times (100 - 90) = 0.25 \times 10 = 2.5 \]
+   $$\alpha(\hat{y} - y) = 0.75 \times (90 - 100) = 0.75 \times (-10) = -7.5$$
+   $$(1 - \alpha)(y - \hat{y}) = 0.25 \times (100 - 90) = 0.25 \times 10 = 2.5$$
 
 2. Take the maximum of the two calculated terms:
-   \[ L(\hat{y}, y) = \max(-7.5, 2.5) = 2.5 \]
+   $L(\hat{y}, y) = \max(-7.5, 2.5) = 2.5$
 
 ### Interpretation
 
 In the overestimation example:
-- The loss value is \(7.5\), reflecting a heavier penalty for overestimating with \(\alpha = 0.75\).
+- The loss value is $7.5$, reflecting a heavier penalty for overestimating with $\alpha = 0.75$.
 
 In the underestimation example:
-- The loss value is \(2.5\), reflecting a lighter penalty for underestimating with \(\alpha = 0.75\).
+- The loss value is $2.5$, reflecting a lighter penalty for underestimating with $\alpha = 0.75$.
 
-Since \(\alpha = 0.75\), the Quantile Loss function penalizes overestimations more heavily, making it useful in scenarios where overestimations are costlier than underestimations.
+Since $\alpha = 0.75$, the Quantile Loss function penalizes overestimations more heavily, making it useful in scenarios where overestimations are costlier than underestimations.
