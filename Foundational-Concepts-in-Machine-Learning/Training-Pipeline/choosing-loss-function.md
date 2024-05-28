@@ -171,3 +171,19 @@ $$\text{SMAPE} = \frac{1}{5} (10.53 + 6.45 + 2.53 + 18.18 + 13.33) = \frac{1}{5}
 
 Both MAPE and SMAPE provide similar results in this example, but they handle extreme values differently. In general, SMAPE tends to be more stable when actual values are very small or when there are significant outliers in the data.
 
+## Quantile Loss
+
+Some of the problems that involve forecasting include Marketplace forecasting, Hardware capacity planning, and Marketing.
+
+For the regression problem, DoorDash used Quantile Loss to forecast Food Delivery demand.
+
+The Quantile Loss is given by:
+
+$$ L(\hat{y}, y) = \max(\alpha(\hat{y} - y), (1 - \alpha)(y - \hat{y})) $$
+
+Where:
+- $\hat{y}$ is the predicted value.
+- $y$ is the actual value.
+- $\alpha$ is the quantile to be estimated (e.g., 0.5 for the median).
+
+Quantile Loss helps in providing a more comprehensive picture of the distribution of errors, which is especially useful in applications like demand forecasting where understanding the range of possible outcomes is crucial.
