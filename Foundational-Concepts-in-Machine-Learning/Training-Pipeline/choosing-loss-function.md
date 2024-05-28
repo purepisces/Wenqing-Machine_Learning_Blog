@@ -1,4 +1,4 @@
-# Chossing loss function
+# Choosing Loss Functions
 
 Binary Classification: Involves discrete classes and often probabilistic outputs. Metrics like binary cross-entropy are suited for handling probabilities and penalizing incorrect classifications. Binary cross-entropy is used because it penalizes incorrect predictions more heavily and works well with probabilistic outputs.
 
