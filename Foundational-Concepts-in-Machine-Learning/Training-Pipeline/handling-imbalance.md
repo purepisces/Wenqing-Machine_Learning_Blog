@@ -151,7 +151,7 @@ print(undersampled_dataset)
 ```
 Printing Result:
 
-```
+```python3
 Oversampled dataset class distribution:
 label
 0    14
