@@ -173,4 +173,4 @@
   - [Overview](embedding.md)
 
 ## Machine Learning System Design
-- [Video Recommendation](Machine-Learning-System-Design/Video_Recommendation.md)
+- [Video Recommendation](Machine-Learning-System-Design/video_recommendation.md)
