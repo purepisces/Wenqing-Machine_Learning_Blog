@@ -120,6 +120,7 @@
   - [MAPE](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/MAPE.md)
   - [SMAPE](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/SMAPE.md)
   - [Quantile_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Quantile_Loss.md)
+  - [Ranking_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Ranking_Loss.md)
 - **Optimization Algorithms**
   - [Overview](optimization-overview.md)
   - [Gradient Descent](Foundational-Concepts-in-Machine-Learning/Optimization-Algorithms/gradient-descent.md)
