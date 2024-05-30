@@ -7,6 +7,8 @@ The goal is to build a video recommendation system for YouTube users to maximize
 
 - Increase user engagement.
 - Introduce users to new and diverse content.
+  
+insert video recommendation png
 
 ### 2. Metrics Design and Requirements
 
