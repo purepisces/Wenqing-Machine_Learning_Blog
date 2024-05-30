@@ -69,7 +69,7 @@ Each user has a list of video watches (videos, minutes_watched).
 
 #### Training Data
 
-For generating training data, we can make a user-video watch space. We can start by selecting a period of data like last month, last 6 months, etc. This should find a balance between training time and model accuracy.
+User-video watch space: Use data from a selected period (e.g., last month, last 6 months) to balance training time and model accuracy.
 
 #### Model
 
