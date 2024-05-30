@@ -6,8 +6,9 @@ The goal is to build a video recommendation system for YouTube users to maximize
 
 - Increase user engagement.
 - Introduce users to new and diverse content.
-  
-insert video recommendation png
+
+<img src="video_recommendation_system.png" alt="video_recommendation_system" width="400" height="300"/>
+
 
 ## 2. Metrics Design and Requirements
 
@@ -51,7 +52,8 @@ The recommendation system should ensure a balance between providing relevant con
 
 ## 3. Multi-stage Models
 
-insert architecture_diagram_for_the_video_recommendation_system.png
+<img src="architecture_diagram_for_the_video_recommendation_system.png" alt="architecture_diagram_for_the_video_recommendation_system" width="400" height="300"/>
+
 
 The architecture of the video recommendation system is divided into two main stages: **Candidate Generation** and **Ranking**. This two-stage approach helps in scaling the system efficiently and effectively.
 
@@ -110,5 +112,4 @@ At the beginning, it’s important that we started with a simple model, as we ca
 
 - The loss function can be cross-entropy loss.
 
-![Model prediction](path/to/model_prediction.png)
-
+<img src="model_prediction.png" alt="model_prediction" width="400" height="300"/>
