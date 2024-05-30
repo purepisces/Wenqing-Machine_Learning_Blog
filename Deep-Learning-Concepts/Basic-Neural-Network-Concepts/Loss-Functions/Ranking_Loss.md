@@ -21,7 +21,7 @@ For each pair of items (i, j):
 
 $$\text{Ranking Loss} = \frac{1}{|I|} \sum_{(i,j) \in I} \mathbb{1}(s_i < s_j)$$
 
-where \(I\) is the set of all relevant-irrelevant pairs, $s_i$ and $s_j$ are the scores predicted by the model for items $i$ and $j$, respectively, and \(\mathbb{1}\) is the indicator function that equals 1 if $s_i < s_j$ and 0 otherwise.
+where $I$ is the set of all relevant-irrelevant pairs, $s_i$ and $s_j$ are the scores predicted by the model for items $i$ and $j$, respectively, and $\mathbb{1}$ is the indicator function that equals 1 if $s_i < s_j$ and 0 otherwise.
 
 ## Examples
 
