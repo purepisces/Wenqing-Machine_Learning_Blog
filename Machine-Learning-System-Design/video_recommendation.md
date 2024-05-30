@@ -113,3 +113,91 @@ At the beginning, it’s important that we started with a simple model, as we ca
 - The loss function can be cross-entropy loss.
 
 <img src="model_prediction.png" alt="model_prediction" width="400" height="300"/>
+
+
+## 4. Calculation & Estimation
+
+### Assumptions
+For the sake of simplicity, we can make these assumptions:
+
+- Video views per month are 150 billion.
+- 10% of videos watched are from recommendations, a total of 15 billion videos.
+- On the homepage, a user sees 100 video recommendations.
+- On average, a user watches two videos out of 100 video recommendations.
+- If users do not click or watch some video within a given time frame, i.e., 10 minutes, then it is a missed recommendation.
+- The total number of users is 1.3 billion.
+
+### Data size
+For 1 month, we collected 15 billion positive labels and 750 billion negative labels. Generally, we can assume that for every data point we collect, we also collect hundreds of features. For simplicity, each row takes 500 bytes to store. In one month, we need 800 billion rows.
+
+Total size: `500 * 800 * 10^9 = 4 * 10^14` bytes = 0.4 Petabytes. To save costs, we can keep the last six months or one year of data in the data lake, and archive old data in cold storage.
+
+### Bandwidth
+Assume that every second we have to generate a recommendation request for 10 million users. Each request will generate ranks for 1k-10k videos.
+
+### Scale
+Support 1.3 billion users
+
+## 5. System Design
+
+### High-level System Design
+
+#### Database
+- **User Watched History**: Stores which videos are watched by a particular user over time.
+- **Search Query DB**: Stores historical queries that users have searched in the past.
+- **User/Video DB**: Stores a list of users and their profiles along with video metadata.
+- **User Historical Recommendations**: Stores past recommendations for a particular user.
+- **Resampling Data**: It’s part of the pipeline to help scale the training process by down-sampling negative samples.
+
+#### Feature Pipeline
+A pipeline program to generate all required features for training a model. It’s important for feature pipelines to provide high throughput, as we require this to retrain models multiple times. We can use Spark or Elastic MapReduce or Google DataProc.
+
+#### Model Repos
+Storage to store all models, using AWS S3 is a popular option. In practice, during inference, it’s desirable to be able to get the latest model near real-time. One common pattern for the inference component is to frequently pull the latest models from Model Repos based on timestamp.
+
+### Challenges
+
+#### Huge Data Size
+**Solution**: Pick 1 month or 6 months of recent data.
+
+#### Imbalanced Data
+**Solution**: Perform random negative down-sampling.
+
+#### High Availability
+- **Solution 1**: Use model-as-a-service, each model will run in Docker containers.
+- **Solution 2**: Use Kubernetes to auto-scale the number of pods.
+
+### System Flow
+
+1. User sends a video recommendation request to the Application Server.
+2. The Application Server requests video candidates from the Candidate Generation Model.
+3. Once it receives the candidates, it passes the candidate list to the Ranking Model to get the sorting order.
+4. The Ranking Model estimates the watch probability and returns the sorted list to the Application Server.
+5. The Application Server returns the top videos that the user should watch.
+
+### Scale the Design
+
+- Scale out (horizontal) multiple Application Servers and use Load Balancers to balance loads.
+- Scale out (horizontal) multiple Candidate Generation Services and Ranking Services.
+- It’s common to deploy these services in a Kubernetes Pod and take advantage of the Kubernetes Pod Autoscaler to scale out these services automatically.
+- Use Kube-proxy so the Candidate Generation Service can call Ranking Service directly, reducing latency even further.
+
+### Follow-up Questions
+
+#### How do we adapt to user behavior changing over time?
+1. Read more about Multi-arm bandit.
+2. Use the Bayesian Logistic Regression Model so we can update prior data.
+3. Use different loss functions to be less sensitive with click-through rates, etc.
+
+#### How do we handle the ranking model being under-explored?
+We can introduce randomization in the Ranking Service. For example, 2% of requests will get random candidates, and 98% will get sorted candidates from the Ranking Service.
+
+## 8. Summary
+We first learned to separate Recommendations into two services: Candidate Generation Service and Ranking Service.
+
+We also learned about using deep learning fully connected layers as a baseline model and how to handle feature engineering.
+
+To scale the system and reduce latency, we can use kube-flow so that the Candidate Generation Service can communicate with the Ranking Service directly.
+
+You can also learn more about how companies scale their design here.
+
