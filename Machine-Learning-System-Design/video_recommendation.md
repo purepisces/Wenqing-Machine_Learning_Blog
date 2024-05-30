@@ -73,11 +73,11 @@ For generating training data, we can make a user-video watch space. We can start
 
 #### Model
 
-The candidate generation can be done by Matrix factorization. The purpose of candidate generation is to generate “somewhat” relevant content to users based on their watched history. The candidate list needs to be big enough to capture potential matches for the model to perform well with desired latency.
+- The candidate generation can be done by Matrix factorization. The purpose of candidate generation is to generate “somewhat” relevant content to users based on their watched history. The candidate list needs to be big enough to capture potential matches for the model to perform well with desired latency.
 
-One solution is to use collaborative algorithms because the inference time is fast, and it can capture the similarity between user taste in the user-video space.
+- One solution is to use collaborative algorithms because the inference time is fast, and it can capture the similarity between user taste in the user-video space.
 
-In practice, for large scale system (Facebook, Google), we don’t use Collaborative Filtering and prefer low latency method to get candidate. One example is to leverage Inverted Index (commonly used in Lucene, Elastic Search). Another powerful technique can be found FAISS or Google ScaNN.
+> In practice, for large scale system (Facebook, Google), we don’t use Collaborative Filtering and prefer low latency method to get candidate. One example is to leverage Inverted Index (commonly used in Lucene, Elastic Search). Another powerful technique can be found FAISS or Google ScaNN.
 
 ### Ranking Model
 
@@ -102,13 +102,13 @@ We can use User Watched History data. Normally, the ratio between watched vs. no
 
 At the beginning, it’s important that we started with a simple model, as we can add complexity later.
 
-A fully connected neural network is simple yet powerful for representing non-linear relationships, and it can handle big data.
+- A fully connected neural network is simple yet powerful for representing non-linear relationships, and it can handle big data.
 
-We start with a fully connected neural network with sigmoid activation at the last layer. The reason for this is that the Sigmoid function returns value in the range [0, 1]; therefore it’s a natural fit for estimating probability.
+- We start with a fully connected neural network with sigmoid activation at the last layer. The reason for this is that the Sigmoid function returns value in the range [0, 1]; therefore it’s a natural fit for estimating probability.
 
-For deep learning architecture, we can use relu, (Rectified Linear Unit), as an activation function for hidden layers. It’s very effective in practice.
+> For deep learning architecture, we can use relu, (Rectified Linear Unit), as an activation function for hidden layers. It’s very effective in practice.
 
-The loss function can be cross-entropy loss.
+- The loss function can be cross-entropy loss.
 
 ![Model prediction](path/to/model_prediction.png)
 
