@@ -233,6 +233,3 @@ We can introduce randomization in the Ranking Service. For example, 2% of reques
 - We also learned about using deep learning fully connected layers as a baseline model and how to handle feature engineering.
 
 - To scale the system and reduce latency, we can use kube-flow so that the Candidate Generation Service can communicate with the Ranking Service directly.
-
-- You can also learn more about how companies scale their design here.
-
