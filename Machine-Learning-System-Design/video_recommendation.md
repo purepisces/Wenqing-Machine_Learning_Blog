@@ -142,6 +142,8 @@ For the sake of simplicity, we can make these assumptions:
 
 ### High-level System Design
 
+<img src="High_level_system_design.png" alt="High_level_system_design" width="400" height="300"/>
+
 - Database
   - **User Watched History**: Stores which videos are watched by a particular user over time.
   - **Search Query DB**: Stores historical queries that users have searched in the past. User/Video DB stores a list of users and their profiles along with video metadata.
