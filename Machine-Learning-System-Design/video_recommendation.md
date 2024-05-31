@@ -182,7 +182,7 @@ Let’s examine the flow of the system:
 
 3. Candidate Generation Service gets user metadata and videos from database.
 
-<img src="Flow3.png" alt="Flow3"width="400" height="250"/>
+<img src="Flow3.png" alt="Flow2" width="400" height="250"/>
 
 4. Candidate Generation Service returns list of video candidates to Application Server.
 
