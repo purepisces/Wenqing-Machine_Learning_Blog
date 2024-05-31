@@ -214,7 +214,7 @@ When a user requests a video recommendation, the Application Server requests Vid
 > It’s common to deploy these services in a Kubernetes Pod and take advantage of the Kubernetes Pod Autoscaler to scale out these services automatically.
 > In practice, we can also use Kube-proxy so the Candidate Generation Service can call Ranking Service directly, reducing latency even further.
 
-<img src="design_system_at_scale.png" alt="design_system_at_scale" width="400" height="250"/>
+<img src="design_system_at_scale.png" alt="design_system_at_scale" width="600" height="400"/>
 
 ## 7. Follow-up Questions
 
