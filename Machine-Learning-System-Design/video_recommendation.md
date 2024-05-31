@@ -173,20 +173,37 @@ Let’s examine the flow of the system:
 
 ### System Flow
 
-<img src="Flow1.png" alt="Flow1" width="400" height="300"/> <img src="Flow2.png" alt="Flow2" width="400" height="300"/> <img src="Flow3.png" alt="Flow3" width="400" height="300"/>
-
-<img src="Flow4.png" alt="Flow4" width="400" height="300"/> <img src="Flow5.png" alt="Flow5" width="400" height="300"/> <img src="Flow6.png" alt="Flow6" width="400" height="300"/>
-
-<img src="Flow7.png" alt="Flow7" width="400" height="300"/> <img src="Flow8.png" alt="Flow8" width="400" height="300"/>
-
 1. User sends video recommendation request to the Application Server.
+<img src="Flow1.png" alt="Flow1" width="400" height="250"/>
+
 2. Application Server sends recommendation request to Candidate Generation Service.
+
+<img src="Flow2.png" alt="Flow2" width="400" height="250"/>
+
 3. Candidate Generation Service gets user metadata and videos from database.
+
+<img src="Flow3.png" alt="Flow3"width="400" height="250"/>
+
 4. Candidate Generation Service returns list of video candidates to Application Server.
+
+
+<img src="Flow4.png" alt="Flow4" width="400" height="250"/>
+
 5. Application service sends list of candidates to Ranking Service to score.
+
+<img src="Flow5.png" alt="Flow5" width="400" height="250"/>
+
 6. Ranking Service gets user watched history and user search query history from databases.
+
+<img src="Flow6.png" alt="Flow6" width="400" height="250"/>
+
 7. Ranking Service scores each video candidates and returns the score to Application Server.
+
+<img src="Flow7.png" alt="Flow7" width="400" height="250"/>
+
 8. Application Server selects top 100 video candidates and return to user.
+
+<img src="Flow8.png" alt="Flow8" width="400" height="250"/>
 
 When a user requests a video recommendation, the Application Server requests Video candidates from the Candidate Generation Model. Once it receives the candidates, it then passes the candidate list to the ranking model to get the sorting order. The ranking model estimates the watch probability and returns the sorted list to the Application Server. The Application Server then returns the top videos that the user should watch.
 
