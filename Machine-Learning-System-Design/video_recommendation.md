@@ -65,6 +65,11 @@ We will explore the two stages in the section below.
 
 The candidate model will find the relevant videos based on user watch history and the type of videos the user has watched.
 
+> Watch History: Detailed Log: This includes a detailed log of all the videos a user has watched, the duration they watched each video, and the timestamp of each viewing.
+User Engagement: Information on how long the user watched the video (e.g., watched entirely, partially watched, skipped) can be crucial for understanding user preferences.
+> 
+> Type of Videos: Genres and Categories: This involves categorizing the videos based on their genres (e.g., comedy, drama, action), themes (e.g., travel, cooking, technology), or other relevant attributes. Content Characteristics: This includes the specific characteristics of videos that the user tends to prefer, such as length (short vs. long), format (vlogs, tutorials, reviews), language, or production quality. Metadata Tags: Utilizing metadata such as keywords, tags, and descriptions to understand the type of content the user prefers.
+
 #### Feature Engineering
 
 Each user has a list of video watches (videos, minutes_watched).
