@@ -259,6 +259,51 @@ We can introduce randomization in the Ranking Service. For example, 2% of reques
 
 
 ## Appendix
+That's a great question! Let's clarify why we use matrix factorization to generate the predicted ratings matrix (R') instead of directly using the original interaction matrix (R) for predictions.
+
+### Key Reasons for Using Matrix Factorization
+
+#### Sparsity of the Original Matrix:
+- The original interaction matrix (R) is usually very sparse. This means that most users have only watched or rated a small fraction of the total available videos. For example, in a large video streaming platform, a user might have watched only a few dozen videos out of millions available.
+- Matrix factorization helps to fill in these missing values by identifying patterns and similarities among users and items. This allows us to predict interactions for videos that a user hasn't watched yet.
+
+#### Latent Factors:
+- Matrix factorization decomposes the interaction matrix into latent factors that capture underlying patterns in user preferences and video characteristics. These latent factors can represent abstract concepts like a user's preference for certain genres or themes, which are not directly visible in the original data.
+- By learning these latent factors, the model can generalize and make more accurate predictions for unseen interactions.
+
+#### Dimensionality Reduction:
+- The original interaction matrix can be extremely large, with dimensions equal to the number of users multiplied by the number of videos. Matrix factorization reduces this to a lower-dimensional representation, making it computationally efficient to work with.
+
+#### Example with Sparse Matrix
+Let's revisit the simplified example:
+
+**Original Interaction Matrix (R):**
+
+|       | Video 1 | Video 2 | Video 3 |
+|-------|---------|---------|---------|
+| User 1 |    5    |    3    |    0    |
+| User 2 |    4    |    0    |    0    |
+| User 3 |    1    |    1    |    0    |
+
+Notice that many entries are zero, meaning those interactions are unknown.
+
+**Predicted Ratings Matrix (R') (After Matrix Factorization):**
+
+|       | Video 1 | Video 2 | Video 3 |
+|-------|---------|---------|---------|
+| User 1 |   4.8   |   3.1   |   2.0   |
+| User 2 |   4.1   |   2.5   |   1.7   |
+| User 3 |   1.2   |   1.1   |   0.9   |
+
+- **User 1 and Video 3**: In the original matrix (R), we don't have a rating for Video 3 by User 1. However, in the predicted matrix (R'), we have a predicted rating of 2.0, which indicates the estimated preference based on latent factors.
+- **Filling in the Gaps**: The predicted matrix provides ratings for all user-video pairs, including those not explicitly rated in the original matrix.
+
+#### Why Not Use R Directly?
+- **Incomplete Data**: The original matrix (R) lacks information for many user-video pairs. Using it directly would mean we can't make recommendations for videos a user hasn't interacted with.
+- **Discovery of Preferences**: Matrix factorization uncovers hidden patterns and preferences that aren't apparent from the sparse data alone.
+- **Generalization**: It allows the model to generalize from known interactions to predict unknown ones, improving recommendation quality and user experience.
+
+In summary, matrix factorization leverages the incomplete interaction data to generate a comprehensive set of predicted ratings, enabling the recommendation system to suggest relevant videos even for those a user hasn't previously watched.
 
 ### How Matrix Factorization Works
 
