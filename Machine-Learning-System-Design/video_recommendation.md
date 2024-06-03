@@ -65,10 +65,23 @@ We will explore the two stages in the section below.
 
 The candidate model will find the relevant videos based on user watch history and the type of videos the user has watched.
 
-> Watch History: Detailed Log: This includes a detailed log of all the videos a user has watched, the duration they watched each video, and the timestamp of each viewing.
-User Engagement: Information on how long the user watched the video (e.g., watched entirely, partially watched, skipped) can be crucial for understanding user preferences.
-> 
-> Type of Videos: Genres and Categories: This involves categorizing the videos based on their genres (e.g., comedy, drama, action), themes (e.g., travel, cooking, technology), or other relevant attributes. Content Characteristics: This includes the specific characteristics of videos that the user tends to prefer, such as length (short vs. long), format (vlogs, tutorials, reviews), language, or production quality. Metadata Tags: Utilizing metadata such as keywords, tags, and descriptions to understand the type of content the user prefers.
+
+> ### User Watch History
+> This term encompasses all the details about a user's interactions with videos on the platform. It includes:
+> - **List of Videos Watched**: The specific videos the user has watched.
+> - **Watch Duration**: How long the user watched each video.
+> - **Watch Frequency**: How often the user watches videos.
+> - **Watch Time**: The timestamps of when the user watched each video.
+> - **Watch Patterns**: Viewing patterns such as binge-watching or watching videos at specific times of the day or week.
+
+> ### The Type of Videos the User Has Watched
+> This term focuses more on the characteristics or categories of the videos the user has engaged with. It includes:
+> - **Genres**: Categories like comedy, drama, action, documentary, etc.
+> - **Topics**: Specific subjects or themes, such as cooking, technology, sports, etc.
+> - **Content Attributes**: Features like video length (short clips vs. full-length movies), language, production quality, and format (e.g., live streams, pre-recorded videos).
+> - **Metadata Tags**: Keywords associated with the videos that describe the content.
+
+
 
 #### Feature Engineering
 
