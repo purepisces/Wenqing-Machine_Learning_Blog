@@ -86,6 +86,11 @@ The candidate model will find the relevant videos based on user watch history an
 #### Feature Engineering
 
 Each user has a list of video watches (videos, minutes_watched).
+> Example:
+> - User A:
+>   - "Cooking Masterclass": 30 minutes
+>   - "Tech Reviews": 15 minutes
+>   - "Travel Vlog": 45 minutes
 
 #### Training Data
 
