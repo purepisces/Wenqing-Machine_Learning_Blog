@@ -101,6 +101,10 @@ User-video watch space: Use data from a selected period (e.g., last month, last 
 - The candidate generation can be done by Matrix factorization. The purpose of candidate generation is to generate “somewhat” relevant content to users based on their watched history. The candidate list needs to be big enough to capture potential matches for the model to perform well with desired latency.
 
 - One solution is to use collaborative algorithms because the inference time is fast, and it can capture the similarity between user taste in the user-video space.
+> Collaborative filtering is a broader category of algorithms that use user interactions (e.g., ratings, clicks) to make recommendations. It includes both user-based and item-based collaborative filtering. These algorithms calculate similarities between users or items to generate recommendations.
+> #### Types:
+> - **User-Based Collaborative Filtering**: Recommends items based on the preferences of similar users.
+> - **Item-Based Collaborative Filtering**: Recommends items similar to those that a user has previously liked.
 
 > In practice, for large scale system (Facebook, Google), we don’t use Collaborative Filtering and prefer low latency method to get candidate. One example is to leverage Inverted Index (commonly used in Lucene, Elastic Search). Another powerful technique can be found FAISS or Google ScaNN.
 
