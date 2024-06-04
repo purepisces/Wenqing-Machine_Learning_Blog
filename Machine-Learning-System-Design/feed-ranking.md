@@ -101,7 +101,7 @@ $$NCE =  \frac{-\frac{1}{N} \sum\limits_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(
 
 | Features                        | Feature Engineering                      | Description                                                                                       |
 |---------------------------------|------------------------------------------|---------------------------------------------------------------------------------------------------|
-| **User profile:** job title, industry, demographic, etc. | For low cardinality: Use one hot encoding. Higher cardinality: use Embedding. |                                                                                                   |
+| **User profile:** job title, industry, demographic, etc. | For low cardinality: Use one hot encoding. Higher cardinality: use Embedding. |    One-hot encode demographic since it has low cardinality (e.g., age groups). Embed job title and industry due to potentially high cardinality (many unique job titles and industries).                                                                                               |
 | **Connection strength between users** |                                          | Represented by the similarity between users. We can also use Embedding for users and measure the distance vector. |
 | **Age of activity**             |                 Considered as a continuous feature or a binning value depending on the sensitivity of the Click target.                         |   |
 | **Activity features:**  | Type of activity, hashtag, media, etc. Use Activity Embedding and measure the similarity between activity and user. |                                                                                                   |
