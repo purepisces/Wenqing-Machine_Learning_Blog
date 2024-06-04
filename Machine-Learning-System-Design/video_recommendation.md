@@ -513,3 +513,22 @@ Thus, the predicted rating for User 1 for Video 3 is 4.0. We can similarly predi
 Based on the predicted ratings, User 1 can be recommended Video 3 and Video 4, as these now have high predicted ratings.
 
 This collaborative filtering approach leverages the collective preferences of similar users to make recommendations, enhancing the user's experience by suggesting videos they are likely to enjoy based on their similarity to other users' tastes.
+
+
+## Pods Scale Example 
+
+Let's illustrate this with an example:
+
+### Initial State:
+- 10 Pods are handling the traffic.
+- Each Pod is experiencing 70% CPU usage during peak hours.
+
+### Scaling Event:
+- HPA detects that the average CPU usage is above the target threshold (e.g., 60%).
+- HPA scales the number of Pods from 10 to 20.
+
+### After Scaling:
+- The traffic is now distributed among 20 Pods.
+- Assuming the total traffic remains the same, each Pod now handles about half of its previous workload.
+- As a result, the CPU usage per Pod drops to approximately 35%.
+
