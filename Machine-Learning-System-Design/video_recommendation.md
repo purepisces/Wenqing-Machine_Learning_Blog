@@ -291,7 +291,7 @@ We can introduce randomization in the Ranking Service. For example, 2% of reques
 
 
 # Appendix
-That's a great question! Let's clarify why we use matrix factorization to generate the predicted ratings matrix (R') instead of directly using the original interaction matrix (R) for predictions.
+Let's clarify why we use matrix factorization to generate the predicted ratings matrix (R') instead of directly using the original interaction matrix (R) for predictions.
 
 ## Key Reasons for Using Matrix Factorization
 
