@@ -203,6 +203,8 @@ For the sake of simplicity, we can make these assumptions:
 - **Solution 1**: Use model-as-a-service, each model will run in Docker containers.
 - **Solution 2**: Use Kubernetes to auto-scale the number of pods.
 
+> A Pod is the smallest and simplest unit in the Kubernetes object model. It represents a single instance of a running process in your cluster. Pods are the fundamental building blocks of Kubernetes applications, each encapsulating one or more containers (usually Docker containers), along with shared storage/network resources and a specification for how to run the containers.
+
 Let’s examine the flow of the system:
 
 ### System Flow
