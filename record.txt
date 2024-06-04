@@ -49,6 +49,7 @@ Editor: https://stackedit.io/app#
 28.one-hot-encoding.md✅
 29.original_transformer.md 加一下代码部分更完善 encoder only decoder only and encoder-decoder可以概括的更详细一些 alson include interview questions about transformer
 30.handling-imbalance.md✅ need further formatting
+31.video_recommendation.md✅已发csdn,未发知乎
 
 
 
