@@ -105,6 +105,7 @@ User-video watch space: Use data from a selected period (e.g., last month, last 
 > #### Types:
 > - **User-Based Collaborative Filtering**: Recommends items based on the preferences of similar users.
 > - **Item-Based Collaborative Filtering**: Recommends items similar to those that a user has previously liked.
+> Matrix factorization is a technique used to uncover the latent features underlying the interactions between users and items. It’s commonly used in collaborative filtering to enhance the recommendation process by breaking down the user-item interaction matrix into lower-dimensional matrices.
 
 > In practice, for large scale system (Facebook, Google), we don’t use Collaborative Filtering and prefer low latency method to get candidate. One example is to leverage Inverted Index (commonly used in Lucene, Elastic Search). Another powerful technique can be found FAISS or Google ScaNN.
 
