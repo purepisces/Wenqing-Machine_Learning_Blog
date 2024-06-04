@@ -24,7 +24,7 @@ Intuitively, different activities have very different CTRs. This is important wh
 | **Informational** | Member or company shares article/picture/message          |
 | **Profile**    | Member updates profile, i.e., picture, job-change, etc.     |
 | **Opinion**    | Member likes or comments on articles, pictures, job-changes, etc. |
-| **Site-Specific** | Member endorses member, etc.                              |
+| **Site-Specific** | Activities unique to LinkedIn, Member endorses member, etc.                              |
 
 ## 2. Metrics Design and Requirements
 
