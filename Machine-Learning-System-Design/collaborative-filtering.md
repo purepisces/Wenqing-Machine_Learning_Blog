@@ -91,7 +91,3 @@ Thus, the predicted rating for User 1 for Video 3 is 4.0. We can similarly predi
 Based on the predicted ratings, User 1 can be recommended Video 3 and Video 4, as these now have high predicted ratings.
 
 This collaborative filtering approach leverages the collective preferences of similar users to make recommendations, enhancing the user's experience by suggesting videos they are likely to enjoy based on their similarity to other users' tastes.
-
-
-## Reference:
-- Machine learning System Design from educative
