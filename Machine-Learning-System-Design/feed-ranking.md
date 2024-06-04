@@ -31,7 +31,7 @@ On the LinkedIn feed, there are five major activity types:
 - **Click Through Rate (CTR)**: The number of clicks that a feed receives, divided by the number of times the feed is shown.
   - **Formula**: 
   
-    $$CTR = \frac{\text{number\_of\_clicks}}{\text{number\_of\_shown\_times}}$$
+    $$ CTR = \frac{\text{numberofclicks}}{\text{numberofshowntimes}}$$
 
 Maximizing CTR can be formalized as training a supervised binary classification model. For offline metrics, we normalize cross-entropy and AUC.
 
