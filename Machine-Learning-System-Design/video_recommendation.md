@@ -182,6 +182,11 @@ For the sake of simplicity, we can make these assumptions:
 
 - Feature Pipeline: A pipeline program to generate all required features for training a model. It’s important for feature pipelines to provide high throughput, as we require this to retrain models multiple times. We can use Spark or Elastic MapReduce or Google DataProc.
 
+> ### High Throughput vs. Bandwidth
+> **Throughput**: The amount of data processed or tasks completed per unit of time. It is a measure of how much work the system can perform over a specific period.
+> **Bandwidth**: The capacity of a network to transmit data per unit of time, usually measured in bits per second (bps). It is more about the maximum rate at which data can be transferred over a network.
+> While throughput and bandwidth are related concepts, they are not the same. Throughput measures the actual data processing capacity of the system, while bandwidth measures the potential data transfer rate of the network.
+
 - Model Repos: Storage to store all models, using AWS S3 is a popular option.
 
 > In practice, during inference, it’s desirable to be able to get the latest model near real-time. One common pattern for the inference component is to frequently pull the latest models from Model Repos based on timestamp.
