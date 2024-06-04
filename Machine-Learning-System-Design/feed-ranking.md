@@ -51,6 +51,7 @@ $$NCE =  \frac{-\frac{1}{N} \sum\limits_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(
 > AUC:
 >- Provides a comprehensive metric to evaluate the model's ability to distinguish between clicked and non-clicked items.
 >- Is particularly useful for imbalanced datasets where the number of clicks may be much smaller than the number of non-clicks.
+
 **Online Metrics**
 - For non-stationary data, offline metrics are not usually a good indicator of performance. Online metrics need to reflect the level of engagement from users once the model is deployed, i.e., Conversion rate (ratio of clicks with the number of feeds).
 
