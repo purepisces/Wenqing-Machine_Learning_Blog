@@ -39,8 +39,8 @@ On the LinkedIn feed, there are five major activity types:
 
 - **Normalizing Cross-Entropy (NCE)**: Helps the model be less sensitive to background CTR.
   - **Formula**:
-
-$$NCE = -\frac{1}{N} \sum_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(p_i) + \frac{1 - y_i}{2} \log(1 - p_i) \right) - \left( p \log(p) + (1 - p) \log(1 - p) \right)$$
+ 
+$$NCE =  \frac{-\frac{1}{N} \sum\limits_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(p_i) + \frac{1 - y_i}{2} \log(1 - p_i) \right)}{ - \left( p \log(p) + (1 - p) \log(1 - p) \right)}$$
 
 **Online Metrics**
 - For non-stationary data, offline metrics are not usually a good indicator of performance. Online metrics need to reflect the level of engagement from users once the model is deployed, i.e., Conversion rate (ratio of clicks with the number of feeds).
