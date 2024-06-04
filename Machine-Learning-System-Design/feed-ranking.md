@@ -15,7 +15,8 @@ On the LinkedIn feed, there are five major activity types:
 - Profile
 - Opinion
 - Site-Specific
-- Intuitively, different activities have very different CTRs. This is important when building models and generating training data.
+
+Intuitively, different activities have very different CTRs. This is important when building models and generating training data.
 
 | Category       | Example                                                     |
 | -------------- | ----------------------------------------------------------- |
