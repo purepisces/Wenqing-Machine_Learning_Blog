@@ -43,6 +43,20 @@ Intuitively, different activities have very different CTRs. This is important wh
  
 $$NCE =  \frac{-\frac{1}{N} \sum\limits_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(p_i) + \frac{1 - y_i}{2} \log(1 - p_i) \right)}{ - \left( p \log(p) + (1 - p) \log(1 - p) \right)}$$
 
+  >   **N**: Total number of samples.
+  > 
+  >   **$y_i$**: Actual label for the \( i \)-th sample. \( y_i \) is 1 if the item was clicked and 0 if it was not clicked.
+  > 
+  > **$p_i$**: Predicted probability of the \( i \)-th item being clicked.
+  > 
+  > #### Normalization Term:
+  > 
+  >$$- \left( p \log(p) + (1 - p) \log(1 - p) \right)$$
+  > 
+  >**$p$**: Background CTR (average probability of an item being clicked).
+  > 
+  >This term is the entropy of a Bernoulli distribution with mean $p$. It normalizes the cross-entropy loss to account for the inherent likelihood of clicks (background CTR).
+
 
 > Normalization of Cross-Entropy:
 >- Ensures that the model's performance is not disproportionately influenced by items with inherently high or low CTR.
