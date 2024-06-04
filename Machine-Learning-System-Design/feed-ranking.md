@@ -101,11 +101,22 @@ $$NCE =  \frac{-\frac{1}{N} \sum\limits_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(
 
 | Features                        | Feature Engineering                      | Description                                                                                       |
 |---------------------------------|------------------------------------------|---------------------------------------------------------------------------------------------------|
-| **User profile:** job title, industry, demographic, etc. | For low cardinality: Use one hot encoding. Higher cardinality: use Embedding. |    One-hot encode demographic since it has low cardinality (e.g., age groups). Embed job title and industry due to potentially high cardinality (many unique job titles and industries).                                                                                               |
+| **User profile:** job title, industry, demographic, etc. | For low cardinality: Use one hot encoding. Higher cardinality: use Embedding. |                                                                                                |
 | **Connection strength between users** |                                          | Represented by the similarity between users. We can also use Embedding for users and measure the distance vector. |
 | **Age of activity**             |                 Considered as a continuous feature or a binning value depending on the sensitivity of the Click target.                         |   |
 | **Activity features:**  | Type of activity, hashtag, media, etc. Use Activity Embedding and measure the similarity between activity and user. |                                                                                                   |
 | **Cross features**              | Combine multiple features.               |          |
+
+> **User profile:**: One-hot encode demographic since it has low cardinality (e.g., age groups). Embed job title and industry due to potentially high cardinality (many unique job titles and industries).
+> 
+> **Connection strength between users**: For instance, if User A frequently interacts with User B (liking posts, commenting, messaging), the connection strength is high.
+> 
+> **Age of activity**: For example, the age of an activity (e.g., a post or update) can be represented as the number of days since it was created. If click behavior is sensitive to how recent the activity is, this can be treated as a continuous variable. Alternatively, it can be binned into categories like "less than a day," "1-3 days," "4-7 days," etc., to simplify the model. Example: A post was created 2 days ago. Feature Engineering: 1. Treat age as a continuous feature: Age = 2 2. Alternatively, bin the age: Age bin = "1-3 days."
+>
+> **Activity features:**: For example, activities could include sharing an article, updating a profile picture, or liking a post. Each type of activity can be embedded in a vector space. If a user frequently engages with articles about "data science," the similarity between new data science-related activities and the user’s interests can be measured using these embeddings.
+>
+> **Cross features**: Cross features are combinations of multiple basic features to capture interactions between them. For instance, combining "user industry" and "activity type" to see if users in the technology industry prefer informational activities like article shares more than others.
+
 
 ### Training Data
 
