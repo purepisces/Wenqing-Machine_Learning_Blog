@@ -309,7 +309,7 @@ Notice that many entries are zero, meaning those interactions are unknown.
 
 In summary, matrix factorization leverages the incomplete interaction data to generate a comprehensive set of predicted ratings, enabling the recommendation system to suggest relevant videos even for those a user hasn't previously watched.
 
-### How Matrix Factorization Works
+### How Matrix Factorization with SGD Works
 
 #### Initialization:
 - Initially, the user and item matrices are filled with random values. These matrices represent latent factors for users and items. The dimensions of these matrices depend on the number of latent factors we choose to use.
@@ -399,5 +399,5 @@ Using the adjusted matrices, compute the predicted ratings for all user-video pa
 | User 3 |   1.2   |   1.1   |   0.9   |
 
 #### Conclusion
-Matrix factorization does not directly extract latent factors from video metadata. Instead, it learns latent factors through an iterative process that minimizes the difference between observed interactions and predicted interactions. These latent factors emerge from the patterns in the user-item interaction data, capturing abstract concepts that explain user preferences and item characteristics.
+Matrix factorization does not directly extract latent factors from video metadata. Instead, it learns latent factors through an iterative process that minimizes the difference between observed interactions and predicted interactions. These latent factors emerge from the patterns in the user-item interaction data, capturing abstract concepts that explain user preferences and item characteristics. While SVD and matrix factorization with SGD both aim to decompose the interaction matrix into latent factors, SVD is a direct decomposition method, whereas SGD is an iterative optimization technique. In practice, matrix factorization with SGD is often preferred for large-scale recommendation systems due to its scalability and efficiency in handling sparse data.
 
