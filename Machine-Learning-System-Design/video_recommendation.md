@@ -252,8 +252,8 @@ When a user requests a video recommendation, the Application Server requests Vid
 
 <img src="design_system_at_scale.png" alt="design_system_at_scale" width="600" height="400"/>
 
-> - **Horizontal Scaling(Scale Out)**: Adds more instances of a service. For example, instead of one server with 16GB of RAM, you might have four servers with 4GB of RAM each. Generally provides better fault tolerance since multiple instances mean that if one instance fails, others can take over.
-> - **Vertical Scaling(Scale Up)**: Increases the resources of a single instance. For example, upgrading a server from 8GB of RAM to 16GB of RAM. For fault tolerance, it can be more risky because if the single instance fails, there is no backup instance.
+> - **Horizontal Scaling(Scale Out)**: Adds more instances of a service. For example, instead of one server with 16GB of RAM, you might have four servers with 4GB of RAM each. Generally provides better fault tolerance since multiple instances mean that if one instance fails, others can take over. Can be more cost-effective in cloud environments because smaller instances might be cheaper than a single large instance.
+> - **Vertical Scaling(Scale Up)**: Increases the resources of a single instance. For example, upgrading a server from 8GB of RAM to 16GB of RAM. For fault tolerance, it can be more risky because if the single instance fails, there is no backup instance. Might reach a limit where adding more resources becomes very expensive or technically impractical.
 
 ## 7. Follow-up Questions
 
