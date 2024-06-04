@@ -174,7 +174,8 @@ For the sake of simplicity, we can make these assumptions:
 
 - Database
   - **User Watched History**: Stores which videos are watched by a particular user over time.
-  - **Search Query DB**: Stores historical queries that users have searched in the past. User/Video DB stores a list of users and their profiles along with video metadata.
+  - **Search Query DB**: Stores historical queries that users have searched in the past.
+  - **User/Video DB**: Stores a list of users and their profiles along with video metadata.
   - **User Historical Recommendations**: Stores past recommendations for a particular user.
 
 - Resampling Data: It’s part of the pipeline to help scale the training process by down-sampling negative samples.
