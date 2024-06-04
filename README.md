@@ -177,3 +177,5 @@
 - [Video Recommendation](Machine-Learning-System-Design/video_recommendation.md)
   - [Matrix Factorization](Machine-Learning-System-Design/matrix_factorization.md)
   - [Collaborative Filtering](Machine-Learning-System-Design/collaborative-filtering.md)
+- [Feed Ranking](Machine-Learning-System-Design/feed-ranking.md)
+
