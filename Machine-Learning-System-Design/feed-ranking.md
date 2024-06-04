@@ -6,7 +6,7 @@ Design a personalized LinkedIn feed to maximize long-term user engagement. One w
 
 > A "feed" in the context of social media platforms like LinkedIn refers to a continuously updated stream of content displayed to users. 
 
-<img src="LinkedIn_feed_ranking.png" alt="LinkedIn_feed_ranking" width="600" height="200"/>
+<img src="LinkedIn_feed_ranking.png" alt="LinkedIn_feed_ranking" width="600" height="300"/>
 
 On the LinkedIn feed, there are five major activity types:
 
