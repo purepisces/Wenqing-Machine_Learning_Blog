@@ -33,7 +33,7 @@ On the LinkedIn feed, there are five major activity types:
   
     $$ CTR = \frac{\text{numberofclicks}}{\text{numberofshowntimes}}$$
 
-Maximizing CTR can be formalized as training a supervised binary classification model. For offline metrics, we normalize cross-entropy and AUC.
+- Maximizing CTR can be formalized as training a supervised binary classification model. For offline metrics, we normalize cross-entropy and AUC.
 
 - **Normalizing Cross-Entropy (NCE)**: Helps the model be less sensitive to background CTR.
   - **Formula**:
