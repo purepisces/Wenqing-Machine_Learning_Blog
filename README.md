@@ -175,3 +175,5 @@
 
 ## Machine Learning System Design
 - [Video Recommendation](Machine-Learning-System-Design/video_recommendation.md)
+  - [Matrix Factorization](Machine-Learning-System-Design/matrix_factorization.md)
+  - [Collaborative Filtering](Machine-Learning-System-Design/collaborative-filtering.md)
