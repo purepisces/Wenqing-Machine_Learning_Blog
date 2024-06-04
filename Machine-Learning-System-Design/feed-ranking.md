@@ -43,6 +43,14 @@ Intuitively, different activities have very different CTRs. This is important wh
  
 $$NCE =  \frac{-\frac{1}{N} \sum\limits_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(p_i) + \frac{1 - y_i}{2} \log(1 - p_i) \right)}{ - \left( p \log(p) + (1 - p) \log(1 - p) \right)}$$
 
+
+> Normalization of Cross-Entropy:
+>- Ensures that the model's performance is not disproportionately influenced by items with inherently high or low CTR.
+>- Makes the model more robust and generalizable across different types of items.
+>  
+> AUC:
+>- Provides a comprehensive metric to evaluate the model's ability to distinguish between clicked and non-clicked items.
+>- Is particularly useful for imbalanced datasets where the number of clicks may be much smaller than the number of non-clicks.
 **Online Metrics**
 - For non-stationary data, offline metrics are not usually a good indicator of performance. Online metrics need to reflect the level of engagement from users once the model is deployed, i.e., Conversion rate (ratio of clicks with the number of feeds).
 
