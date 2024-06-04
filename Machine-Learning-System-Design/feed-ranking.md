@@ -8,11 +8,11 @@ Design a personalized LinkedIn feed to maximize long-term user engagement. One w
 
 On the LinkedIn feed, there are five major activity types:
 
-- **Connections**: Member connector follows member/company, member joins group
-- **Informational**: Member or company shares article/picture/message
-- **Profile**: Member updates profile, i.e., picture, job-change, etc.
-- **Opinion**: Member likes or comments on articles, pictures, job-changes, etc.
-- **Site-Specific**: Member endorses member, etc.
+- Connections
+- Informational
+- Profile
+- Opinion
+- Site-Specific
 - Intuitively, different activities have very different CTRs. This is important when building models and generating training data.
 
 | Category       | Example                                                     |
