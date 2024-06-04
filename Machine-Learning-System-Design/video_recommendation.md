@@ -262,6 +262,19 @@ When a user requests a video recommendation, the Application Server requests Vid
 2. Use the Bayesian Logistic Regression Model so we can update prior data.
 3. Use different loss functions to be less sensitive with click-through rates, etc.
 
+
+>**Multi-arm Bandit Algorithms**:
+>- **Explanation**: Multi-arm bandit algorithms are used to balance exploration and exploitation. They help in dynamically adjusting recommendations based on user interactions to maximize long-term rewards.
+>- **Example**: Imagine you have multiple video recommendations to choose from. A multi-arm bandit algorithm will help you explore different recommendations initially and then exploit the ones that perform best over time, continuously learning and adapting to changes in user preferences.
+
+>**Bayesian Logistic Regression Model**:
+>- **Explanation**: Bayesian logistic regression incorporates prior knowledge and updates this knowledge as new data arrives. This model is particularly useful for scenarios where user behavior might change, as it allows for continuous learning and updating.
+>- **Example**: Suppose you have prior data on user preferences. As new user interactions occur, the Bayesian logistic regression model updates the prior data, refining the recommendations to better match current user behavior.
+
+>**Different Loss Functions**:
+>- **Explanation**: Using different loss functions can help the model become less sensitive to certain metrics like click-through rates (CTR). This can be beneficial when trying to capture long-term user engagement rather than short-term clicks.
+>- **Example**: Instead of focusing solely on maximizing CTR, you might use a loss function that balances CTR with other metrics like watch time or user satisfaction, resulting in recommendations that are more aligned with long-term user interests.
+
 ### How do we handle the ranking model being under-explored?
 We can introduce randomization in the Ranking Service. For example, 2% of requests will get random candidates, and 98% will get sorted candidates from the Ranking Service.
 
