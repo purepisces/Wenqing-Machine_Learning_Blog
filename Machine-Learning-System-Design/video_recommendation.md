@@ -401,3 +401,15 @@ Using the adjusted matrices, compute the predicted ratings for all user-video pa
 #### Conclusion
 Matrix factorization does not directly extract latent factors from video metadata. Instead, it learns latent factors through an iterative process that minimizes the difference between observed interactions and predicted interactions. These latent factors emerge from the patterns in the user-item interaction data, capturing abstract concepts that explain user preferences and item characteristics. While SVD and matrix factorization with SGD both aim to decompose the interaction matrix into latent factors, SVD is a direct decomposition method, whereas SGD is an iterative optimization technique. In practice, matrix factorization with SGD is often preferred for large-scale recommendation systems due to its scalability and efficiency in handling sparse data.
 
+
+> #### Differences and Use Cases
+> ##### SVD:
+> - Provides an exact decomposition.
+> - Computationally intensive for very large datasets.
+> - Useful when an exact solution is needed and the dataset is manageable in size.
+> ##### Matrix Factorization with SGD:
+> - Provides an approximate solution through iterative optimization.
+> - More scalable and efficient for very large and sparse datasets.
+> - Commonly used in practical recommendation systems where the focus is on scalability and handling large datasets.
+
+
