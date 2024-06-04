@@ -444,23 +444,32 @@ $R_{U1} \cdot R_{U3} = 28$
 #### Step 3: Calculate the Magnitudes of the Vectors
 Calculate the magnitude of User 1's and User 3's ratings vectors.
 
-$\|R_{U1}\| = \sqrt{(5^2) + (4^2) + (3^2)}$
-$\|R_{U1}\| = \sqrt{25 + 16 + 9}$
-$\|R_{U1}\| = \sqrt{50}$
-$\|R_{U1}\| \approx 7.07$
+$$\|R_{U1}\| = \sqrt{(5^2) + (4^2) + (3^2)}$$
 
-$ \|R_{U3}\| = \sqrt{(4^2) + (2^2) + (0^2)} $
-$ \|R_{U3}\| = \sqrt{16 + 4 + 0} $
-$ \|R_{U3}\| = \sqrt{20} $
-$ \|R_{U3}\| \approx 4.47 $
+$$\|R_{U1}\| = \sqrt{25 + 16 + 9}$$
+
+$$\|R_{U1}\| = \sqrt{50}$$
+
+$$\|R_{U1}\| \approx 7.07$$
+
+$$\|R_{U3}\| = \sqrt{(4^2) + (2^2) + (0^2)}$$
+
+$$\|R_{U3}\| = \sqrt{16 + 4 + 0}$$
+
+$$\|R_{U3}\| = \sqrt{20}$$
+
+$$\|R_{U3}\| \approx 4.47$$
 
 #### Step 4: Calculate Cosine Similarity
 Using the dot product and magnitudes, calculate the cosine similarity.
 
-$ \text{similarity}(U1, U3) = \frac{R_{U1} \cdot R_{U3}}{\|R_{U1}\| \times \|R_{U3}\|} $
-$ \text{similarity}(U1, U3) = \frac{28}{7.07 \times 4.47} $
-$\text{similarity}(U1, U3) = \frac{28}{31.61} $
-$ \text{similarity}(U1, U3) \approx 0.89 $
+$$\text{similarity}(U1, U3) = \frac{R_{U1} \cdot R_{U3}}{\|R_{U1}\| \times \|R_{U3}\|}$$
+
+$$ \text{similarity}(U1, U3) = \frac{28}{7.07 \times 4.47}$$
+
+$$\text{similarity}(U1, U3) = \frac{28}{31.61}$$
+
+$$ \text{similarity}(U1, U3) \approx 0.89$$
 
 ### Conclusion
 The cosine similarity between User 1 and User 3 is approximately 0.89, indicating a high degree of similarity between their ratings for the common videos. This similarity score can be used in collaborative filtering algorithms to recommend videos to users based on the preferences of similar users.
@@ -469,9 +478,10 @@ The cosine similarity between User 1 and User 3 is approximately 0.89, indicatin
 Use the similarity scores to predict ratings for the missing items. For User 1, we need to predict ratings for Video 3 and Video 4.
 
 #### Weighted Sum Approach
-$$\hat{R}_{U1, V3} = \frac{\sum (\text{similarity}(U1, Ux) \cdot R_{Ux, V3})}{\sum \text{similarity}(U1, Ux)} $$
 
-Where $ Ux $ are the users similar to $U1$ who have rated $V3$.
+$$\hat{R}(U1, V3)= \frac{\sum (\text{similarity}(U1, Ux) \cdot R_{Ux, V3})}{\sum \text{similarity}(U1, Ux)}$$
+
+Where $Ux$ are the users similar to $U1$ who have rated $V3$.
 
 ### Example Calculation
 Assuming the similarity scores and user ratings, we calculate the predicted rating for User 1 for Video 3 using the ratings from similar users (User 2 and User 4).
