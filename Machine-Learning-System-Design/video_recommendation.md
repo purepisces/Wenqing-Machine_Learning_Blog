@@ -551,3 +551,5 @@ Let's illustrate this with an example:
 - Assuming the total traffic remains the same, each Pod now handles about half of its previous workload.
 - As a result, the CPU usage per Pod drops to approximately 35%.
 
+## Reference:
+- Machine learning System Design from educative
