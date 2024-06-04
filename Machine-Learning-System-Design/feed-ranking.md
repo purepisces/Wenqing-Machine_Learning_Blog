@@ -103,9 +103,9 @@ $$NCE =  \frac{-\frac{1}{N} \sum\limits_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(
 |---------------------------------|------------------------------------------|---------------------------------------------------------------------------------------------------|
 | **User profile:** job title, industry, demographic, etc. | For low cardinality: Use one hot encoding. Higher cardinality: use Embedding. |                                                                                                   |
 | **Connection strength between users** |                                          | Represented by the similarity between users. We can also use Embedding for users and measure the distance vector. |
-| **Age of activity**             |                                          | Considered as a continuous feature or a binning value depending on the sensitivity of the Click target.  |
-| **Activity features:** Type of activity, hashtag, media, etc. | Activity Embedding and measure the similarity between activity and user. |                                                                                                   |
-| **Cross features**              | Combine multiple features.               | See the example in the Machine Learning System Design Primer. Read about cross features.          |
+| **Age of activity**             |                 Considered as a continuous feature or a binning value depending on the sensitivity of the Click target.                         |   |
+| **Activity features:**  | Type of activity, hashtag, media, etc. Use Activity Embedding and measure the similarity between activity and user. |                                                                                                   |
+| **Cross features**              | Combine multiple features.               |          |
 
 ### Training Data
 
