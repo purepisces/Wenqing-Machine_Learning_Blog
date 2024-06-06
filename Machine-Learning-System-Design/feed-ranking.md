@@ -256,3 +256,6 @@ $$z = \theta_0 \times 1 + \theta_3 \times 3$$
 So, the computation simplifies to:
 
 $$z = \theta_0 + 3\theta_3$$
+
+## Reference:
+- Machine learning System Design from educative
