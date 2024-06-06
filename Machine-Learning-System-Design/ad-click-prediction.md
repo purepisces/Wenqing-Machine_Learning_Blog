@@ -18,6 +18,8 @@ Build a machine learning model to predict if an ad will be clicked.
 > - **Specialization:** Different stages can specialize in different aspects of the prediction task, improving overall performance.
 > - **Efficiency:** By progressively reducing the number of cases to be considered in each stage, the cascade can improve computational efficiency.
 
+> In the waterfall model, the publisher (e.g., The New York Times) would first try to sell the ad space directly to advertisers for a high CPM. If it fails, it would then pass the opportunity to ad networks like Google AdSense, Facebook Audience Network, etc., in sequence until the ad space is filled.
+
 
 ## 2. Metrics Design and Requirements
 
