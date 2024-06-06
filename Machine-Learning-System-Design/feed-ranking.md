@@ -157,7 +157,7 @@ We can also use deep learning in distributed settings. We can start with the ful
 
 ### Evaluation
 
-One approach is to split the data into training data and validation data. Another approach is to replay the evaluation to avoid biased offline evaluation. We use data until time $t$ for training the model. We use test data from time \( t+1 \) and reorder their ranking based on our model during inference. If there is an accurate click prediction at the correct position, then we record a match. The total match will be considered as total clicks.
+One approach is to split the data into training data and validation data. Another approach is to replay the evaluation to avoid biased offline evaluation. We use data until time $t$ for training the model. We use test data from time $t+1$ and reorder their ranking based on our model during inference. If there is an accurate click prediction at the correct position, then we record a match. The total match will be considered as total clicks.
 
 During evaluation, we will also evaluate how big our training data set should be, and how frequently we should retrain the model, among many other hyperparameters.
 
