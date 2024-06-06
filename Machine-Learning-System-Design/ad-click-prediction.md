@@ -13,6 +13,12 @@ Build a machine learning model to predict if an ad will be clicked.
   
 <img src="Waterfall_Revenue_Model.png" alt="Waterfall_Revenue_Model" width="600" height="300"/>
 
+> A cascade of classifiers involves multiple stages, each with its own classifier, where the output of one classifier becomes the input for the next. This can help in:
+> - **Filtering:** Early stages filter out the majority of negative cases (e.g., unlikely clicks), allowing subsequent stages to focus on harder-to-classify cases.
+> - **Specialization:** Different stages can specialize in different aspects of the prediction task, improving overall performance.
+> - **Efficiency:** By progressively reducing the number of cases to be considered in each stage, the cascade can improve computational efficiency.
+
+
 ## 2. Metrics Design and Requirements
 
 ### Metrics
@@ -21,13 +27,13 @@ During the training phase, we can focus on machine learning metrics instead of r
 
 #### Offline Metrics
 
-**Normalized Cross-Entropy (NCE):** NCE is the predictive log loss divided by the cross-entropy of the background CTR. This way NCE is insensitive to background CTR. This is the NCE formula:
+- **Normalized Cross-Entropy (NCE):** NCE is the predictive log loss divided by the cross-entropy of the background CTR. This way NCE is insensitive to background CTR. This is the NCE formula:
 
 $$ NCE = \frac{-\frac{1}{N} \sum\limits_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(p_i) + \frac{1 - y_i}{2} \log(1 - p_i) \right)}{- \left( p \log(p) + (1 - p) \log(1 - p) \right)} $$
 
 #### Online Metrics
 
-**Revenue Lift:** Percentage of revenue changes over a period of time. Upon deployment, a new model is deployed on a small percentage of traffic. The key decision is to balance between percentage traffic and the duration of the A/B testing phase.
+- **Revenue Lift:** Percentage of revenue changes over a period of time. Upon deployment, a new model is deployed on a small percentage of traffic. The key decision is to balance between percentage traffic and the duration of the A/B testing phase.
 
 ### Requirements
 
