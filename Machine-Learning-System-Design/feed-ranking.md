@@ -138,7 +138,21 @@ With the large volume of data, we need to use distributed training: Logistic Reg
 
 We can also use deep learning in distributed settings. We can start with the fully connected layers with the Sigmoid activation function applied to the final layer. Because the CTR is usually very small (less than 1%), we would need to resample the training data set to make the data less imbalanced. It’s important to leave the validation set and test set intact to have accurate estimations about model performance.
 
-> Logistic regression can handle sparse vectors efficiently because it only needs to compute the weighted sum for non-zero features. 
+> Logistic regression can handle sparse vectors efficiently because it only needs to compute the weighted sum for non-zero features.
+> ### Why Logistic Regression is a Linear Classifier
+> #### Linear Decision Boundary
+> ##### Linear Combination of Features
+> Logistic regression uses a linear combination of input features to make a prediction. This means that the relationship between the input features and the log-odds of the outcome is linear.
+> ##### Decision Boundary
+> The decision boundary, which separates different classes, is a straight line (or hyperplane in higher dimensions) in the feature space.
+>
+> **Apache Spark**: Spark is a powerful tool for big data processing and machine learning. It supports distributed computing, which means it can handle large datasets by distributing the data and computations across a cluster of machines. **Logistic Regression in Spark**: Spark's MLlib library includes implementations of logistic regression that can run in a distributed manner. This enables efficient training on very large datasets.
+>
+> **Alternating Direction Method of Multipliers(ADMM)**: This is an optimization algorithm used to solve complex problems by breaking them into smaller subproblems, which are easier to handle. Each subproblem can be solved independently, making ADMM suitable for distributed computing environments. **Application in Logistic Regression**: ADMM can be used to optimize the logistic regression model parameters in parallel across different machines, improving efficiency and scalability.
+
+
+insert multilayer_perceptron.png
+
 
 ### Evaluation
 
