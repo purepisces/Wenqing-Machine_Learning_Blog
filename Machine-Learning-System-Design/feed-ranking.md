@@ -169,7 +169,7 @@ During evaluation, we will also evaluate how big our training data set should be
 Let's assume a simple logistic regression model with the following weights ($\theta$) and input features ($x$):
 
 - **Weights**: $\theta = [\theta_0, \theta_1, \theta_2, \theta_3, \theta_4]$
-- **Feature Vector**: $$x = [1, 0, 0, 3, 0]$
+- **Feature Vector**: $$x = [1, 0, 0, 3, 0]$$
 
 Here, \$theta_0$ is the intercept term, and the other \$theta_i$ values are the weights for the features. The feature vector $x$ is sparse with many zero values.
 
