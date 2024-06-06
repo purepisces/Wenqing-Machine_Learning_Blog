@@ -38,8 +38,8 @@ While AUC is used to evaluate models, training models typically involve optimizi
   $$\text{Cross-Entropy Loss} = -\frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(p_i) + (1 - y_i) \log(1 - p_i) \right]$$
   
   where:
-  - $$y_i$$ is the actual label (1 for positive class, 0 for negative class).
-  - $$p_i$$ is the predicted probability of the positive class.
+  - $y_i$ is the actual label (1 for positive class, 0 for negative class).
+  - $p_i$ is the predicted probability of the positive class.
 
 ## Why AUC is Important
 
