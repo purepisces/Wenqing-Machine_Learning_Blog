@@ -138,9 +138,42 @@ With the large volume of data, we need to use distributed training: Logistic Reg
 
 We can also use deep learning in distributed settings. We can start with the fully connected layers with the Sigmoid activation function applied to the final layer. Because the CTR is usually very small (less than 1%), we would need to resample the training data set to make the data less imbalanced. It’s important to leave the validation set and test set intact to have accurate estimations about model performance.
 
+> Logistic regression can handle sparse vectors efficiently because it only needs to compute the weighted sum for non-zero features. 
+
 ### Evaluation
 
 One approach is to split the data into training data and validation data. Another approach is to replay the evaluation to avoid biased offline evaluation. We use data until time $t$ for training the model. We use test data from time \( t+1 \) and reorder their ranking based on our model during inference. If there is an accurate click prediction at the correct position, then we record a match. The total match will be considered as total clicks.
 
 During evaluation, we will also evaluate how big our training data set should be, and how frequently we should retrain the model, among many other hyperparameters.
+
+# Appendix
+
+## logistic regression numerical example
+
+Let's assume a simple logistic regression model with the following weights ($\theta$) and input features ($x$):
+
+- **Weights**: $\theta = [\theta_0, \theta_1, \theta_2, \theta_3, \theta_4]$
+- **Feature Vector**: $$x = [1, 0, 0, 3, 0]$
+
+Here, \$theta_0$ is the intercept term, and the other \$theta_i$ values are the weights for the features. The feature vector $x$ is sparse with many zero values.
+
+## Logistic Regression Calculation
+
+The logistic regression model computes the linear combination $z$ as follows:
+
+$$z = \theta_0 \times 1 + \theta_1 \times x_1 + \theta_2 \times x_2 + \theta_3 \times x_3 + \theta_4 \times x_4$$
+
+Substituting the values from our example:
+
+$$z = \theta_0 \times 1 + \theta_1 \times 0 + \theta_2 \times 0 + \theta_3 \times 3 + \theta_4 \times 0$$
+
+## Simplified Calculation
+
+Because any number multiplied by zero is zero, we can ignore the terms where the feature values are zero:
+
+$$z = \theta_0 \times 1 + \theta_3 \times 3$$
+
+So, the computation simplifies to:
+
+$$z = \theta_0 + 3\theta_3$$
 
