@@ -217,6 +217,9 @@ Let’s examine the flow of the system:
 - Scale out the Feed Service module as it represents both Retrieval Service and Ranking Service. This provides better visualization.
 - Scale out the Application Server and put the Load Balancer in front of the Application Server to balance load.
 
+<img src="Feed_Ranking_Service_at_scale.png" alt="Feed_Ranking_Service_at_scale" width="400" height="300"/>
+
+
 ## 7. Summary
 - We learned how to build Machine Learning models to rank feeds. The binary classification model with custom loss function helps the model be less sensitive to background click-through rate.
 - We learned how to create the process to generate training data for the Machine Learning Model.
