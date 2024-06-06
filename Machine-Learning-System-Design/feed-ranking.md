@@ -171,7 +171,7 @@ During evaluation, we will also evaluate how big our training data set should be
 ### Assumptions
 - 300 million monthly active users
 - On average, a user sees 40 activities per visit. Each user visits 10 times per month.
-- We have 12 * 10^10 or 120 billion observations/samples.
+- We have $12 * 10^{10}$ or 120 billion observations/samples.
 
 ### Data Size
 - Assume the click-through rate is about 1% for 1 month. We collected 1 billion positive labels and about 110 billion negative labels. This is a huge dataset.
