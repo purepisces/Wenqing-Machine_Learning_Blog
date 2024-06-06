@@ -33,6 +33,7 @@
   - [Joint Variability](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/joint-variability.md)
   - [Bessel’s Correction](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/bessels-correction.md)
   - [Degrees of Freedom](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/degrees-of-freedom.md)
+  - [Cardinality](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/cardinality.md)
   - **Probability Distributions**
     - [Cumulative Distribution Function (CDF)](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Probability-Distributions/cumulative-distribution-function.md)
     - [Standard Gaussian Distribution](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Probability-Distributions/standard-gaussian-distribution.md)
