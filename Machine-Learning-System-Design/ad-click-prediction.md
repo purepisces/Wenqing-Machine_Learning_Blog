@@ -4,11 +4,14 @@
 
 Build a machine learning model to predict if an ad will be clicked.
 
-For the sake of simplicity, we will not focus on the cascade of classifiers that is commonly used in AdTech.
+> For the sake of simplicity, we will not focus on the cascade of classifiers that is commonly used in AdTech.
 
-### Ads Recommendation System
+<img src="Ads_recommendation_system.png" alt="Ads_recommendation_system" width="600" height="300"/>
 
-Let’s understand the ad serving background before moving forward. The ad request goes through a waterfall model where publishers try to sell its inventory through direct sales with high CPM (Cost Per Million). If it is unable to do so, the publishers pass the impression to other networks until it is sold.
+
+- Let’s understand the ad serving background before moving forward. The ad request goes through a waterfall model where publishers try to sell its inventory through direct sales with high CPM (Cost Per Million). If it is unable to do so, the publishers pass the impression to other networks until it is sold.
+  
+<img src="Waterfall_Revenue_Model.png" alt="Waterfall_Revenue_Model" width="600" height="300"/>
 
 ## 2. Metrics Design and Requirements
 
