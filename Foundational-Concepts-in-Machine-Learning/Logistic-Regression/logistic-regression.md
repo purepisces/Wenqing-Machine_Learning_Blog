@@ -32,7 +32,7 @@ The cost function for logistic regression is the log-loss (also known as binary 
 
 $$J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} \left[ y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right]$$
 
-where \( m \) is the number of training examples, $ y $ is the actual label, and \( h_\theta(x) \) is the predicted probability.
+where $m$ is the number of training examples, $y$ is the actual label, and $h_\theta(x)$ is the predicted probability.
 
 ### Optimization
 The goal is to find the parameters $\theta$ that minimize the cost function $J(\theta)$. This is typically done using optimization algorithms such as gradient descent.
@@ -68,4 +68,33 @@ It is crucial to keep the validation and test sets intact (i.e., not resampled) 
 
 Logistic regression is a robust and efficient method for binary classification, particularly effective with sparse features and large datasets. With the ability to leverage distributed training frameworks like Apache Spark and optimization techniques like ADMM, logistic regression can scale to handle the demands of modern data science applications.
 
+
+# Logistic Regression and Log-Odds
+
+## Probability and Odds
+
+- **Probability (P)**: The likelihood that an event occurs.
+- **Odds**: The ratio of the probability that the event occurs to the probability that it does not occur.
+
+  $$\text{Odds} = \frac{P}{1 - P}$$
+  
+
+## Log-Odds (Logit)
+
+- The log-odds is the natural logarithm of the odds.
+  
+  $$\text{Log-Odds} = \log \left( \frac{P}{1 - P} \right)$$
+
+## Logistic Regression Model
+
+- In logistic regression, the log-odds of the probability of the event occurring (e.g., the probability of a click) is modeled as a linear combination of the input features.
+- The model equation is:
+  
+  $$\log \left( \frac{P}{1 - P} \right) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_n x_n$$
+  
+- Here, $$\theta_0 + \theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_n x_n$$ is the linear combination of features, often denoted as $z$.
+
+## Connecting \( z \) to Log-Odds
+
+- The term $$z = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_n x_n$$ represents the log-odds in the logistic regression model. Although $z$ itself does not contain a logarithm, it is the argument of the logistic function, which maps it to a probability.
 
