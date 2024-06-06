@@ -225,8 +225,6 @@ Let’s examine the flow of the system:
 - We learned how to create the process to generate training data for the Machine Learning Model.
 - We learned how to scale training and inference by scaling out the Application Server and Feed Services.
 
-You can also learn more about how companies scale their design here.
-
 
 # Appendix
 
