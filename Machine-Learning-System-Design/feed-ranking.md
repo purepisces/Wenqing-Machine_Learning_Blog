@@ -157,7 +157,7 @@ Let's assume a simple logistic regression model with the following weights ($\th
 
 Here, \$theta_0$ is the intercept term, and the other \$theta_i$ values are the weights for the features. The feature vector $x$ is sparse with many zero values.
 
-## Logistic Regression Calculation
+### Logistic Regression Calculation
 
 The logistic regression model computes the linear combination $z$ as follows:
 
@@ -167,7 +167,7 @@ Substituting the values from our example:
 
 $$z = \theta_0 \times 1 + \theta_1 \times 0 + \theta_2 \times 0 + \theta_3 \times 3 + \theta_4 \times 0$$
 
-## Simplified Calculation
+### Simplified Calculation
 
 Because any number multiplied by zero is zero, we can ignore the terms where the feature values are zero:
 
