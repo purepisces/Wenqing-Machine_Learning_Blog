@@ -53,13 +53,13 @@ Editor: https://stackedit.io/app#
 32.video_recommendation.md✅已发csdn,未发知乎
 
 
-
+auc
+logistic regression
 precision-recall-f1score.md
 Chain rule
 Cumulative Distribution Function (CDF)
 Standard Gaussian Distributio
 gelu
-logistic regression
 t-sne
 implicit function
 scalar function
