@@ -152,8 +152,7 @@ We can also use deep learning in distributed settings. We can start with the ful
 
 > Leaving the validation set and test set intact means that you should not modify these datasets when you are making changes to your training data, such as resampling to address class imbalance. Here's a more detailed explanation of what this means and why it is important:
 
-
-insert multilayer_perceptron.png
+<img src="multilayer_perceptron.png" alt="multilayer_perceptron" width="400" height="300"/>
 
 
 ### Evaluation
