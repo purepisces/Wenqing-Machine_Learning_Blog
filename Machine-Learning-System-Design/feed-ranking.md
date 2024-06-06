@@ -176,7 +176,7 @@ During evaluation, we will also evaluate how big our training data set should be
 ### Data Size
 - Assume the click-through rate is about 1% for 1 month. We collected 1 billion positive labels and about 110 billion negative labels. This is a huge dataset.
 - Generally, we can assume that for every data point, we collect hundreds of features. For simplicity, each row takes 500 bytes to store.
-- In one month, we need 120 billion rows. Total size: 500 * 120 * 10^9 = 60 * 10^12 bytes = 60 Terabytes. To save costs we can keep the last 6 months or 1 year of data in the data lake and archive old data in cold storage.
+- In one month, we need 120 billion rows. Total size: $500 * 120 * 10^{9} = 60 * 10^{12} bytes = 60$ Terabytes. To save costs we can keep the last 6 months or 1 year of data in the data lake and archive old data in cold storage.
 
 ### Scale
 - Supports 300 million users
