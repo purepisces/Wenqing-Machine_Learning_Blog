@@ -51,6 +51,16 @@ During the training phase, we can focus on machine learning metrics instead of r
 
 $$ NCE = \frac{-\frac{1}{N} \sum\limits_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(p_i) + \frac{1 - y_i}{2} \log(1 - p_i) \right)}{- \left( p \log(p) + (1 - p) \log(1 - p) \right)} $$
 
+  >   **N**: Total number of samples.
+  > 
+  >   **$y_i$**: Actual label for the $i$-th sample. $y_i$ is 1 if the item was clicked and 0 if it was not clicked.
+  > 
+  > **$p_i$**: Predicted probability of the $i$-th item being clicked.
+  > 
+  >**$p$**: Background CTR (average probability of an item being clicked).
+  >
+  > Background CTR refers to the average Click Through Rate (CTR) observed in the dataset or a specific subset of data. It reflects the inherent likelihood of clicks across all items without considering individual item characteristics. For example, if the overall CTR of the platform is 0.02, it means that, on average, 2% of all shown items are clicked.
+> 
 #### Online Metrics
 
 - **Revenue Lift:** Percentage of revenue changes over a period of time. Upon deployment, a new model is deployed on a small percentage of traffic. The key decision is to balance between percentage traffic and the duration of the A/B testing phase.
