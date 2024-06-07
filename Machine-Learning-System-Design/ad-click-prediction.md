@@ -83,11 +83,22 @@ $$ NCE = \frac{-\frac{1}{N} \sum\limits_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(
 >- **Small Percentage**: Minimizes risk but may take longer to gather statistically significant data.
 >- **Large Percentage**: Provides quicker results but increases the risk if the new model performs poorly.
 
->### Duration of A/B Testing:
+> ### Duration of A/B Testing:
 >- **Short Duration**: Faster decision-making but may not capture long-term user behavior changes.
 >- **Long Duration**: More comprehensive data but delays implementation of the new model if it performs well.
 
->  Balance between percentage traffic and the duration of the A/B testing phase: For example risk Tolerance: If you are more risk-averse, you might prefer a smaller percentage of traffic and a longer duration. If you are more comfortable with risk, you might choose a larger percentage of traffic for a shorter duration.
+> ### Balance between Percentage Traffic and the Duration of the A/B Testing Phase
+> #### Risk Tolerance:
+> - **More Risk-Averse**: You might prefer a smaller percentage of traffic and a longer duration.
+  > - Example: Allocating 10% of traffic to the test group and running the test for 4 weeks.
+> - **More Comfortable with Risk**: You might choose a larger percentage of traffic for a shorter duration.
+  > - Example: Allocating 50% of traffic to the test group and running the test for 1 week.
+> #### Need for Speed:
+> - **Quick Decision Needed**: You might accept the higher risk of using a larger percentage of traffic over a shorter period.
+  > - Example: Allocating 40% of traffic to the test group and running the test for 2 weeks.
+> - **Time Is Less of an Issue**: You can afford to run the test longer with a smaller percentage of traffic.
+  > - Example: Allocating 20% of traffic to the test group and running the test for 6 weeks.
+
 ### Requirements
 
 #### Training
