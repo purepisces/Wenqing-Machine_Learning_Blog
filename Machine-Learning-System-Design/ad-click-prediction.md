@@ -65,8 +65,12 @@ $$ NCE = \frac{-\frac{1}{N} \sum\limits_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(
 
 - **Revenue Lift:** Percentage of revenue changes over a period of time. Upon deployment, a new model is deployed on a small percentage of traffic. The key decision is to balance between percentage traffic and the duration of the A/B testing phase.
 
+> A/B Testing involves splitting the traffic into two groups:
+> - Control Group: Uses the existing model.
+> - Test Group: Uses the new model.
+
 > **Revenue Lift**: It is the percentage change in revenue over a period of time when a new model is deployed compared to the existing model or baseline performance.
-> ### Formula:
+> #### Formula:
 > **Revenue Lift**:
 >
 > $\text{Revenue Lift} = \frac{\text{Revenue test} - \text{Revenue control}}{\text{Revenue}_{\text{control}}} \times 100$ \%
