@@ -138,7 +138,7 @@ $$ NCE = \frac{-\frac{1}{N} \sum\limits_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(
 | Features                              | Feature Engineering              | Description                                            |
 |---------------------------------------|----------------------------------|--------------------------------------------------------|
 | **AdvertiserID**                      | Use Embedding or feature hashing | It’s easy to have millions of advertisers              |
-| **User’s historical behavior**        | Feature scaling, i.e., normalization | Number of clicks on ads over a period of time          |
+| **User’s historical behavior,i.e. Number of clicks on ads over a period of time**        | Feature scaling, i.e., normalization |          |
 | **Temporal: time_of_day, day_of_week**| One hot encoding                 |                                                        |
 | **Cross features**                    | Combine multiple features        | See example in the Machine Learning System Design Primer |
 
