@@ -45,9 +45,9 @@ $$NCE =  \frac{-\frac{1}{N} \sum\limits_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(
 
   >   **N**: Total number of samples.
   > 
-  >   **$y_i$**: Actual label for the \( i \)-th sample. \( y_i \) is 1 if the item was clicked and 0 if it was not clicked.
+  >   **$y_i$**: Actual label for the $i$-th sample. $y_i$ is 1 if the item was clicked and 0 if it was not clicked.
   > 
-  > **$p_i$**: Predicted probability of the \( i \)-th item being clicked.
+  > **$p_i$**: Predicted probability of the $i$-th item being clicked.
   > 
   > #### Normalization Term:
   > 
