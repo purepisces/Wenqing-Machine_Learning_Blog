@@ -22,10 +22,13 @@ Build a machine learning model to predict if an ad will be clicked.
 
 >**Publisher's Direct Sale**:
 > *Scenario*: The New York Times negotiates directly with Samsung for a banner ad on its homepage for a month at a high CPM.
+>
 > **Premium Ad Network**:
 > *Scenario*: An advertiser uses Google Marketing Platform to place ads on top-tier sites like ESPN, ensuring their ads appear on reputable, high-traffic sites.
+>
 > **Vertical Ad Network**:
 > *Scenario*: A travel agency uses Travel Ad Network to place ads specifically on travel-related websites, reaching an audience interested in travel.
+>
 > **Remnant Ad Network**:
 > *Scenario*: A smaller advertiser uses Google Ads to bid on leftover ad inventory across Google's network, allowing their ads to appear on various sites at a lower cost.
 
