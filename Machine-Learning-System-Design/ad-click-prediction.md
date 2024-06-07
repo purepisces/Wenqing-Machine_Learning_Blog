@@ -32,6 +32,12 @@ Build a machine learning model to predict if an ad will be clicked.
 > **Remnant Ad Network**:
 > *Scenario*: A smaller advertiser uses Google Ads to bid on leftover ad inventory across Google's network, allowing their ads to appear on various sites at a lower cost.
 
+> **Publisher**: A publisher is an entity (individual, organization, or company) that creates and owns content on which advertisements can be displayed. They provide the platform where ads are shown.
+> 
+> **Ad Network**: An ad network is a company that connects advertisers with publishers. It aggregates ad inventory from multiple publishers and sells it to advertisers, facilitating the buying and selling of ads.
+> 
+> **Impression**: An impression is a single instance of an ad being displayed on a web page, app, or any other digital medium. It is a metric used to measure how many times an ad is seen.
+
 
 ## 2. Metrics Design and Requirements
 
