@@ -107,6 +107,14 @@ $$ NCE = \frac{-\frac{1}{N} \sum\limits_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(
 - **Retraining frequency:** The ability to retrain models many times within one day to capture the data distribution shift in the production environment.
 - **Train/validation data split:** To simulate a production system, the training data and validation data is partitioned by time.
 
+> ### Partitioning by Time
+> The statement "Train/validation data split: To simulate a production system, the training data and validation data is partitioned by time" means that when dividing the data into training and validation sets, the split is done based on time rather than randomly.
+> 
+> Training Data: This set includes data from an earlier time period.
+> 
+> Validation Data: This set includes data from a later time period, following the training data period.
+> 
+> This approach ensures that the model is trained on past data and tested on future data, which is more representative of the production environment where the model will encounter new, unseen data.
 #### Inference
 
 - **Serving:** Low latency (50ms - 100ms) for ad prediction.
