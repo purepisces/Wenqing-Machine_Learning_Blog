@@ -87,6 +87,7 @@ $$ NCE = \frac{-\frac{1}{N} \sum\limits_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(
 >- **Short Duration**: Faster decision-making but may not capture long-term user behavior changes.
 >- **Long Duration**: More comprehensive data but delays implementation of the new model if it performs well.
 
+>  Balance between percentage traffic and the duration of the A/B testing phase: For example risk Tolerance: If you are more risk-averse, you might prefer a smaller percentage of traffic and a longer duration. If you are more comfortable with risk, you might choose a larger percentage of traffic for a shorter duration.
 ### Requirements
 
 #### Training
