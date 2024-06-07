@@ -169,9 +169,9 @@ During evaluation, we will also evaluate how big our training data set should be
 
 - Data: Historical ad click data includes [user, ads, click_or_not]. With an estimated 1% CTR, it has 1 billion clicked ads.
 - We can start with 1 month of data for training and validation. Within a month, we have:
-  \[
-  100 \times 10^{12} \times 500 = 5 \times 10^{16} \text{ bytes or 50 PB}
-  \]
+  
+  $$100 \times 10^{12} \times 500 = 5 \times 10^{16} \text{ bytes or 50 PB}$$
+  
 - One way to make it more manageable is to downsample the data, i.e., keep only 1%-10% or use 1 week of data for training data and use the next day for validation data.
 
 ### Scale
@@ -195,7 +195,7 @@ During evaluation, we will also evaluate how big our training data set should be
 1. User visits the homepage and sends an Ad request to the Candidate Generation Service. Candidate Generation Service generates a list of Ads Candidates and sends them to the Aggregator Service.
 2. The Aggregator Service splits the list of candidates and sends it to the Ad Ranking workers to score.
 3. Ad Ranking Service gets the latest model from Model Repos, gets the correct features from the Feature Store, produces ad scores, then returns the list of ads with scores to the Aggregator Service.
-4. The Aggregator Service selects top K ads (For example, k = 10, 100, etc.) and returns to upstream services.
+4. The Aggregator Service selects top $K$ ads (For example, k = 10, 100, etc.) and returns to upstream services.
 
 ## 6. Scale the Design
 
