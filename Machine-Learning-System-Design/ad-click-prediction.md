@@ -195,12 +195,7 @@ We can start to use data for training by selecting a period of data: last month,
 
 ### Data Size
 
-- Data: Historical ad click data includes [user, ads, click_or_not]. With an estimated 1% CTR, it has 1 billion clicked ads.
-- We can start with 1 month of data for training and validation. Within a month, we have:
-  
-  $$100 \times 10^{12} \times 500 = 5 \times 10^{16} \text{ bytes or 50 PB}$$
-  
-- One way to make it more manageable is to downsample the data, i.e., keep only 1%-10% or use 1 week of data for training data and use the next day for validation data.
+- Data: Historical ad click data includes [user, ads, click_or_not]. With an estimated 1% CTR, it has 1 billion clicked ads. We can start with 1 month of data for training and validation. Within a month, we have: $100 \times 10^{12} \times 500 = 5 \times 10^{16} \text{ bytes or 50 PB}$. One way to make it more manageable is to downsample the data, i.e., keep only 1%-10% or use 1 week of data for training data and use the next day for validation data.
 
 ### Scale
 
