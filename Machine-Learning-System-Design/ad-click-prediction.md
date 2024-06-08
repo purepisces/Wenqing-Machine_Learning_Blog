@@ -224,13 +224,12 @@ We can start to use data for training by selecting a period of data: last month,
 > **Scenario**: When a user visits a website, their interactions (like clicks, time spent, and navigation patterns) are logged. These logs are sent to a data lake for storage.
 
 > #### 2. Batch Data Prep
-> Batch Training Jobs refer to the process of periodically training machine learning models using a batch of data. These jobs are scheduled to run at specific intervals (e.g., daily, weekly, monthly) or can be triggered on-demand to update the model with new data. This ensures that the model remains current and accurate by learning from the latest available data.
-> 
 > **Purpose**: To extract, transform, and load (ETL) raw data into a format suitable for training.
 > **Example**: ETL jobs process the raw logs to extract features like user demographics, browsing history, and ad interactions, then transform this data into a structured format and load it into the Training Data Store.
 > **Scenario**: An ETL job might extract click timestamps, transform them to derive features like "time of day" or "day of week," and load these features into a relational database for further use.
 
 > #### 3. Batch Training Jobs
+> Batch Training Jobs refer to the process of periodically training machine learning models using a batch of data. These jobs are scheduled to run at specific intervals (e.g., daily, weekly, monthly) or can be triggered on-demand to update the model with new data. This ensures that the model remains current and accurate by learning from the latest available data.
 > **Purpose**: To schedule and run jobs that retrain machine learning models.
 > **Example**: Jobs that periodically retrain the ad click prediction model using the processed training data.
 > **Scenario**: A job runs every night at midnight to retrain the model using the latest week's worth of data, ensuring the model stays up-to-date with recent trends.
