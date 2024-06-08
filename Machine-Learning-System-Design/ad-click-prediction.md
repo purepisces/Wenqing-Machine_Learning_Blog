@@ -287,6 +287,9 @@ Given a latency requirement of 50ms-100ms for a large volume of Ad Candidates (5
 
 One common pattern is to have the Aggregator Service. It distributes the candidate list to multiple serving instances and collects results.
 
+> A Service Level Agreement (SLA) is a formal contract that outlines the expectations, standards, and responsibilities between a service provider and a customer. It includes performance metrics, uptime guarantees, support response times, responsibilities, penalties for non-compliance, and monitoring and reporting mechanisms.
+> 
+> An Aggregator Service is a software component or service designed to combine, manage, and coordinate data or tasks from multiple sources or services into a single, unified output. It is commonly used in distributed systems to distribute the workload across multiple services or components and then aggregate the results to provide a coherent response.
 ## 7. Follow-Up Questions
 
 | Question | Answer |
