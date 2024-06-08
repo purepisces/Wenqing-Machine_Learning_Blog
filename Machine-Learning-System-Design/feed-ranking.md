@@ -150,7 +150,7 @@ We can also use deep learning in distributed settings. We can start with the ful
 >
 > **Alternating Direction Method of Multipliers(ADMM)**: This is an optimization algorithm used to solve complex problems by breaking them into smaller subproblems, which are easier to handle. Each subproblem can be solved independently, making ADMM suitable for distributed computing environments. **Application in Logistic Regression**: ADMM can be used to optimize the logistic regression model parameters in parallel across different machines, improving efficiency and scalability.
 
-> Leaving the validation set and test set intact means that you should not modify these datasets when you are making changes to your training data, such as resampling to address class imbalance. Here's a more detailed explanation of what this means and why it is important:
+> Leaving the validation set and test set intact means that you should not modify these datasets when you are making changes to your training data, such as resampling to address class imbalance. 
 
 <img src="multilayer_perceptron.png" alt="multilayer_perceptron" width="400" height="300"/>
 
