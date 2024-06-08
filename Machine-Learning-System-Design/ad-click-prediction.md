@@ -142,6 +142,27 @@ $$ NCE = \frac{-\frac{1}{N} \sum\limits_{i=1}^{n} \left( \frac{1 + y_i}{2} \log(
 | **Temporal: time_of_day, day_of_week etc**| One hot encoding                 |                                                        |
 | **Cross features**                    | Combine multiple features        |  |
 
+> #### AdvertiserID
+> - **Feature Engineering**: Use Embedding or Feature Hashing
+>   - **Embedding**: This technique is often used in deep learning to convert categorical data (like AdvertiserID) into a continuous vector space. It helps capture relationships between different advertisers.
+>   - **Feature Hashing**: This method hashes the AdvertiserID into a fixed number of buckets (features), which reduces dimensionality and handles large numbers of categories efficiently.
+> - **Description**: The reason for using these techniques is that there can be millions of unique advertisers. Embedding or feature hashing helps manage this large number of categories in a computationally efficient way.
+
+> #### User’s Historical Behavior (e.g., number of clicks on ads over a period of time)
+> - **Feature Engineering**: Feature Scaling, i.e., Normalization
+>   - **Normalization**: This technique scales the features to a standard range, usually [0, 1] or [-1, 1]. It helps in improving the convergence of the learning algorithms.
+> - **Description**: User behavior data, such as the number of clicks, can have a wide range of values. Normalizing this data ensures that the model treats all features equally, improving training efficiency and model performance.
+
+> #### Temporal Features (e.g., time_of_day, day_of_week)
+> - **Feature Engineering**: One Hot Encoding
+>   - **One Hot Encoding**: This technique converts categorical data into a binary matrix. For instance, if there are 7 days in a week, each day will be represented as a binary vector of size 7, where only the index corresponding to the day is 1, and all others are 0.
+> - **Description**: Temporal features like time of day and day of week are categorical. One hot encoding helps the model understand these categorical values without assuming any ordinal relationship between them.
+
+> #### Cross Features
+> - **Feature Engineering**: Combine Multiple Features
+>   - **Cross Features**: This involves creating new features by combining two or more existing features. For example, combining “time_of_day” with “day_of_week” can create a more granular feature that captures patterns specific to certain times on certain days.
+> - **Description**: Combining multiple features can help the model capture more complex relationships and interactions between features, which can lead to better predictions.
+
 ### Training Data
 
 Before building any ML models we need to collect training data. The goal here is to collect data across different types of posts while simultaneously improving the user experience. As you recall from the previous lesson about the waterfall model, we can collect a lot of data about ad clicks. We can use this data for training the Ad Click model.
