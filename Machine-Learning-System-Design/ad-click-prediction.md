@@ -215,6 +215,26 @@ We can start to use data for training by selecting a period of data: last month,
 - **Stream Data Prep Pipeline:** Processes online features and stores features in key-value storage for low latency downstream processing.
 - **Model Serving:** Standalone service that loads different models and provides Ad Click probability.
 
+Let’s examine the flow of the system:
+
+1. Client sends an ad request to Application Server
+<img src="client_ad_request.png" alt="client_ad_request" width="600" height="400"/>
+
+2. Application Server sends ad request to Ads Candidate Generation service
+<img src="server_send_ad_request.png" alt="server_send_ad_request" width="600" height="400"/>
+
+3. Ads Candidate Generation Service generates ad candidates from database
+<img src="adcandidate_generation_service.png" alt="adcandidate_generation_service" width="600" height="400"/>
+
+4. Ads Candidate Generation Service sends ad ranking request to Ads Ranking service
+<img src="ad_send_rank_request.png" alt="Aad_send_rank_request" width="600" height="400"/>
+
+5. Ads Ranking service gets feature values from Feature Store, gets latest model
+<img src="adranking_get.png" alt="adranking_get" width="600" height="400"/>
+
+6. Ads Ranking service score ads and return ads with ranking to Ads Candidate Generation service. Ads Candidate Generation service return result to Application server and client.
+<img src="ad_return.png" alt="ad_return" width="600" height="400"/>
+
 ### Flow of the System
 
 1. User visits the homepage and sends an Ad request to the Candidate Generation Service. Candidate Generation Service generates a list of Ads Candidates and sends them to the Aggregator Service.
