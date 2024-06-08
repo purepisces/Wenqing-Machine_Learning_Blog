@@ -203,6 +203,8 @@ We can start to use data for training by selecting a period of data: last month,
 
 ## 5. High-Level Design
 
+<img src="AdClick_Prediction_high_level_design.png" alt="AdClick_Prediction_high_level_design" width="600" height="400"/>
+
 ### AdClick Prediction High-Level Design
 
 - **Data Lake:** Store data that is collected from multiple sources, i.e., logs data or event-driven data (Kafka).
