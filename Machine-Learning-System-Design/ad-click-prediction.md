@@ -215,6 +215,42 @@ We can start to use data for training by selecting a period of data: last month,
 - **Stream Data Prep Pipeline:** Processes online features and stores features in key-value storage for low latency downstream processing.
 - **Model Serving:** Standalone service that loads different models and provides Ad Click probability.
 
+
+> #### 1. Data Lake
+> **Purpose**: To store raw data collected from multiple sources.
+> **Example**: Logs from web servers, user interaction events captured via Kafka streams, and historical ad click data.
+> **Scenario**: When a user visits a website, their interactions (like clicks, time spent, and navigation patterns) are logged. These logs are sent to a data lake for storage.
+
+> #### 2. Batch Data Prep
+> **Purpose**: To extract, transform, and load (ETL) raw data into a format suitable for training.
+> **Example**: ETL jobs process the raw logs to extract features like user demographics, browsing history, and ad interactions, then transform this data into a structured format and load it into the Training Data Store.
+> **Scenario**: An ETL job might extract click timestamps, transform them to derive features like "time of day" or "day of week," and load these features into a relational database for further use.
+
+> #### 3. Batch Training Jobs
+> **Purpose**: To schedule and run jobs that retrain machine learning models.
+> **Example**: Jobs that periodically retrain the ad click prediction model using the processed training data.
+> **Scenario**: A job runs every night at midnight to retrain the model using the latest week's worth of data, ensuring the model stays up-to-date with recent trends.
+
+> #### 4. Model Store
+> **Purpose**: To store trained machine learning models in a distributed storage system.
+> **Example**: Using Amazon S3 to store different versions of trained models.
+> **Scenario**: After training, the new model version is saved to S3 with metadata indicating its training parameters and performance metrics.
+
+> #### 5. Ad Candidates
+> **Purpose**: To provide a set of ads from which the model selects the most relevant ones.
+> **Example**: A service that gathers potential ad candidates based on various criteria like campaign targets, user demographics, and previous ad performance.
+> **Scenario**: When a user visits a webpage, the upstream service provides a list of 10 ads that might be relevant to the user.
+
+> #### 6. Stream Data Prep Pipeline
+> **Purpose**: To process real-time data and prepare features for online model inference.
+> **Example**: A pipeline that processes user interactions in real-time and updates feature stores (like Redis) with the latest user data.
+> **Scenario**: As a user browses a website, their interactions (e.g., viewing specific categories, clicking on certain ads) are processed in real-time and stored in a key-value database for immediate access.
+
+> #### 7. Model Serving
+> **Purpose**: To serve the machine learning model and provide predictions in real-time.
+> **Example**: A standalone service that loads the trained model from the model store and provides ad click probability scores for given ad candidates.
+> **Scenario**: When a user visits a page, the model serving service takes the ad candidates and user features, loads the appropriate model, and returns the probability scores indicating the likelihood of each ad being clicked.
+
 Let’s examine the flow of the system:
 
 1. Client sends an ad request to Application Server
