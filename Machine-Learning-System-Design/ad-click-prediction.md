@@ -285,7 +285,7 @@ Let’s examine the flow of the system:
 
 Given a latency requirement of 50ms-100ms for a large volume of Ad Candidates (50k-100k), if we partition one serving instance per request, we might not achieve Service Level Agreement (SLA). For this, we scale out Model Serving and put Aggregator Service to spread the load for Model Serving components.
 
-One common pattern is to have the Aggregator Service. It distributes the candidate list to multiple serving instances and collects results. [Read more about it here](#).
+One common pattern is to have the Aggregator Service. It distributes the candidate list to multiple serving instances and collects results.
 
 ## 7. Follow-Up Questions
 
