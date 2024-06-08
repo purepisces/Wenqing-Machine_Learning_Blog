@@ -260,7 +260,6 @@ One common pattern is to have the Aggregator Service. It distributes the candida
 - We first learned to choose Normalize Entropy as the metric for the Ad Click Prediction Model.
 - We learned how to apply the Aggregator Service to achieve low latency and overcome imbalance workloads.
 - To scale the system and reduce latency, we can use Kubeflow so that Ad Generation services can directly communicate with Ad Ranking services.
-- We can also learn more about how companies scale their design [here](#).
 
 # Appendix
 
