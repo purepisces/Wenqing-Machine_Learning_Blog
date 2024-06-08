@@ -176,7 +176,7 @@ We can start to use data for training by selecting a period of data: last month,
 
 > Leaving the validation set and test set intact means that you should not modify these datasets when you are making changes to your training data, such as resampling to address class imbalance.
 
-<img src="DL_fully_connected_model.png" alt="DL_fully_connected_model" width="600" height="300"/>
+<img src="DL_fully_connected_model.png" alt="DL_fully_connected_model" width="600" height="450"/>
 
 #### Evaluation
 
