@@ -238,4 +238,63 @@ One common pattern is to have the Aggregator Service. It distributes the candida
 - To scale the system and reduce latency, we can use Kubeflow so that Ad Generation services can directly communicate with Ad Ranking services.
 - We can also learn more about how companies scale their design [here](#).
 
+# Appendix
+
+## User’s Historical Behavior (e.g., number of clicks on ads over a period of time)
+
+**Feature Engineering**: Feature Scaling (Normalization)
+
+Normalization is a technique used to scale the values of features to a standard range, usually [0, 1] or [-1, 1]. This process helps improve the convergence of learning algorithms by ensuring that all features contribute equally to the model's learning process.
+
+### Example
+
+Let's consider a scenario where we have user behavior data for the number of clicks on ads over a period of time. Here is an example dataset:
+
+| User ID | Clicks in Last Week |
+|---------|---------------------|
+| User 1  | 2                   |
+| User 2  | 50                  |
+| User 3  | 150                 |
+| User 4  | 20                  |
+| User 5  | 5                   |
+
+The number of clicks ranges from 2 to 150, which shows a wide variance. Directly feeding this data into a machine learning model might cause issues, as the model could become biased towards features with larger values.
+
+### Step-by-Step Normalization Process
+
+1. **Calculate Minimum and Maximum Values**:
+   - Minimum clicks: 2
+   - Maximum clicks: 150
+
+2. **Apply Normalization Formula**:
+   The normalization formula to scale a value $x$ to the range [0, 1] is:
+
+   $$x' = \frac{x - x_{\text{min}}}{x_{\text{max}} - x_{\text{min}}}$$
+
+   where $x'$ is the normalized value, $x$ is the original value, $x_{\text{min}}$ is the minimum value in the data, and $x_{\text{max}}$ is the maximum value in the data.
+
+3. **Normalize Each Value**:
+   - For User 1: $x' = \frac{2 - 2}{150 - 2} = \frac{0}{148} = 0.00$
+   - For User 2: $x' = \frac{50 - 2}{150 - 2} = \frac{48}{148} \approx 0.32$
+   - For User 3: $x' = \frac{150 - 2}{150 - 2} = \frac{148}{148} = 1.00$
+   - For User 4: $x' = \frac{20 - 2}{150 - 2} = \frac{18}{148} \approx 0.12$
+   - For User 5: $x' = \frac{5 - 2}{150 - 2} = \frac{3}{148} \approx 0.02$
+
+### Normalized Data
+
+| User ID | Clicks in Last Week | Normalized Clicks |
+|---------|---------------------|-------------------|
+| User 1  | 2                   | 0.00              |
+| User 2  | 50                  | 0.32              |
+| User 3  | 150                 | 1.00              |
+| User 4  | 20                  | 0.12              |
+| User 5  | 5                   | 0.02              |
+
+### Description
+
+- **Purpose**: Normalizing user behavior data such as the number of clicks ensures that all features are on a similar scale, preventing any single feature from disproportionately influencing the model.
+- **Improving Training Efficiency**: By scaling features to a standard range, normalization helps in improving the convergence rate of learning algorithms, leading to faster and more stable training.
+- **Enhancing Model Performance**: Models trained on normalized data generally perform better because the model treats all features equally, enabling it to learn more effectively from the data.
+
+In summary, normalization of user behavior data, such as the number of clicks on ads, scales the features to a standard range, improving training efficiency and model performance.
 
