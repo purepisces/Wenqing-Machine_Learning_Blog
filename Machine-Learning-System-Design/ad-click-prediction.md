@@ -169,15 +169,21 @@ Before building any ML models we need to collect training data. The goal here is
 
 We can start to use data for training by selecting a period of data: last month, last six months, etc. In practice, we want to find a balance between training time and model accuracy. We also downsample the negative data to handle the imbalanced data.
 
-### Model Selection
+### Model 
+#### Selection
 
-We can use deep learning in distributed settings. We can start with fully connected layers with the Sigmoid activation function applied to the final layer. Because the CTR is usually very small (less than 1%), we would need to resample the training data set to make the data less imbalanced. It’s important to leave the validation and test sets intact to have accurate estimations about model performance.
+- We can use deep learning in distributed settings. We can start with fully connected layers with the Sigmoid activation function applied to the final layer. Because the CTR is usually very small (less than 1%), we would need to resample the training data set to make the data less imbalanced. It’s important to leave the validation and test sets intact to have accurate estimations about model performance.
 
-### Evaluation
+> Leaving the validation set and test set intact means that you should not modify these datasets when you are making changes to your training data, such as resampling to address class imbalance.
 
-One approach is to split the data into training data and validation data. Another approach is to replay evaluation to avoid biased offline evaluation. Assume the training data we have up until time \( t \). We use test data from time \( t+1 \) and reorder their ranking based on our model during inference. If there is an accurate click prediction, we record a match. The total match will be considered as total clicks.
+<img src="DL_fully_connected_model.png" alt="DL_fully_connected_model" width="600" height="300"/>
 
-During evaluation, we will also evaluate how big our training data set should be and how frequently we need to retrain the model among many other hyperparameters.
+#### Evaluation
+
+- One approach is to split the data into training data and validation data. Another approach is to replay evaluation to avoid biased offline evaluation. Assume the training data we have up until time $t$. We use test data from time $t+1$ and reorder their ranking based on our model during inference. If there is an accurate click prediction, we record a match. The total match will be considered as total clicks.
+
+- During evaluation, we will also evaluate how big our training data set should be and how frequently we need to retrain the model among many other hyperparameters.
+
 
 ## 4. Calculation and Estimation
 
