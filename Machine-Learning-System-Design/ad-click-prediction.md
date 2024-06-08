@@ -184,6 +184,7 @@ We can start to use data for training by selecting a period of data: last month,
 
 - During evaluation, we will also evaluate how big our training data set should be and how frequently we need to retrain the model among many other hyperparameters.
 
+> Replay evaluation is a method used to evaluate a model's performance by simulating how it would perform in a real-world scenario using historical data. Use past data to evaluate the model, treating the historical interactions as if they were happening in real-time. By using historical data to simulate real-time predictions, replay evaluation provides a more accurate measure of how the model will perform in production.
 
 ## 4. Calculation and Estimation
 
