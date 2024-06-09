@@ -363,3 +363,6 @@ The number of clicks ranges from 2 to 150, which shows a wide variance. Directly
 
 In summary, normalization of user behavior data, such as the number of clicks on ads, scales the features to a standard range, improving training efficiency and model performance.
 
+## Reference:
+- Machine learning System Design from educative
+
