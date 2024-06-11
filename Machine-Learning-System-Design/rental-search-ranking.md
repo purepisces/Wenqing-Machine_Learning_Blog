@@ -101,7 +101,7 @@ $$\frac{1}{\log_2(6)} \approx 0.38685$$
 Summing these values:
 $$DCG_5 = 3 + 1.26186 + 1.5 + 0 + 0.38685 \approx 6.14871$$
 
-### Step 2: Calculate IDCG
+### Step 3: Calculate IDCG
 
 Using the formula for IDCG:
 $$IDCG_p = \sum_{i=1}^{p} \frac{2^{rel_i} - 1}{\log_2(i + 1)}$$
@@ -121,7 +121,7 @@ $$\frac{2^0 - 1}{\log_2(6)} = \frac{0}{2.58496} = 0$$
 Summing these values:
 $$IDCG_5 = 7 + 4.41651 + 1.5 + 0.43068 + 0 \approx 13.34719$$
 
-### Step 3: Calculate nDCG
+### Step 4: Calculate nDCG
 
 Finally, nDCG is the ratio of DCG to IDCG:
 $$nDCG_p = \frac{DCG_p}{IDCG_p}$$
@@ -129,14 +129,11 @@ $$nDCG_p = \frac{DCG_p}{IDCG_p}$$
 For our example:
 $$nDCG_5 = \frac{6.14871}{13.34719} \approx 0.4605$$
 
-### Summary of Correct Calculations
+### Summary
 
 - **DCG**: 6.14871
 - **IDCG**: 13.34719
 - **nDCG**: 0.4605
-
-This example correctly applies the formula for IDCG and provides the normalized discounted cumulative gain (nDCG) calculation.
-
 
 
 ## Example: Using Both Online Metrics: Conversion Rate and Revenue Lift
