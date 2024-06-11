@@ -34,6 +34,7 @@ The better approach would be to sort results based on the likelihood of booking.
   
 
 > DCG is calculated based on the predicted ranking of the results. The relevance scores used in the DCG calculation are the ground truth relevance scores corresponding to the predicted positions.
+
 > IDCG is calculated based on the ideal ranking of the results, which means sorting the results by the ground truth relevance scores in descending order. The relevance scores used in the IDCG calculation are also the ground truth relevance scores.
 
 **Online Metrics**
