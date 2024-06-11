@@ -54,6 +54,10 @@ The better approach would be to sort results based on the likelihood of booking.
 - **Imbalanced Data and Clear-cut Session:** An average user might do extensive research before deciding on a booking. As a result, the number of non-booking labels has a higher magnitude than booking labels.
 - **Train/Validation Data Split:** Split data by time to mimic production traffic. For example, select one specific date to split training and validation data. Use a few weeks of data before that date as training data and a few days of data after that date as validation data.
 
+> A clear-cut session is typically defined by a period of continuous user activity without significant breaks. The end of a session can be marked by a user's inactivity for a specific duration, logging out, or other criteria defined by the application.
+> 
+> Mimicking Production Traffic: When splitting data for training and validation, it is important to simulate real-world conditions as closely as possible. In the context of Airbnb's search ranking system, we want to ensure that the model is trained on past data and validated on future data to mimic how it would perform in production. By splitting data based on time, we ensure that the model is tested on data it has not seen before, similar to how it would encounter new user interactions in a live environment.
+
 **Inference**
 
 - **Serving:** Low latency (50ms - 100ms) for search ranking.
@@ -69,6 +73,32 @@ The better approach would be to sort results based on the likelihood of booking.
 | **Inference**| Latency from 50ms to 100ms                                        |
 |            | Ability to avoid under-predicting for new listings                  |
 
+## 3. Model
+### Feature Engineering
+- **Geolocation of listing (latitude/longitude):** Taking raw latitude and raw longitude features is very tough to model as feature distribution is not smooth. One way around this is to take a log of the distance from the center of the map for latitude and longitude separately.
+- **Favorite place:** Store user’s favorite neighborhood place in a 2-dimensional grid. For example, users add Pier 39 as their favorite place, we encode this place into a specific cell, then use embedding before training/serving.
+
+| Features                   | Feature Engineering                             | Description                                                                      |
+|----------------------------|-------------------------------------------------|----------------------------------------------------------------------------------|
+| **Listing ID**             | Listing ID embedding                            | See Embedding in Machine Learning Primer: Feature Selection and Feature engineering. |
+| **Listing feature**        | Number of bedrooms, list of amenities, listing city |                                                                                  |
+| **Location**               | Measure lat/long from the center of the user map, then normalize |                                           |
+| **Historical search query**| Text embedding                                  |                                                                                  |
+| **User associated features: age, gender** | Normalization or Standardization  |                                                                                  |
+| **Number of previous bookings** | Normalization or Standardization           |                                                                                  |
+| **Previous length of stays** | Normalization or Standardization              |                                                                                  |
+| **Time related features**  | Month, week of year, holiday, day of week, hour of day |                                                                                  |
+
+### Training Data
+- **Source:** User search history, view history, and bookings.
+- **Selection:** We can start by selecting a period of data: last month, last 6 months, etc., to find the balance between training time and model accuracy.
+- **Experimentation:** In practice, we decide the length of training data by running multiple experiments. Each experiment will pick a certain time period to train data. We then compare model accuracy and training time across different experimentations.
+
+### Model Architecture
+- **Input:** User data, search query, and Listing data.
+- **Output:** This is a binary classification model, i.e., user books a rental or not.
+- **Baseline:** We can start with deep learning with fully connected layers as a baseline. The model outputs a number within [0, 1] and presents the likelihood of booking.
+- **Improvement:** To further improve the model, we can also use other more modern network architectures, i.e., Variational AutoEncoder or Denoising AutoEncoder. Read more about [Variational Autoencoder](https://arxiv.org/abs/1312.6114).
 
 # Appendix
 
