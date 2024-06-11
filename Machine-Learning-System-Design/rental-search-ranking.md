@@ -85,20 +85,25 @@ Let’s take a practical example of implementing a new search ranking algorithm 
 #### Conversion Rate Calculation
 
 **Before Change:**
+
 $$\text{conversion rate}_{\text{before}} = \frac{1,000}{10,000} = 10\%$$
 
 **After Change:**
+
 $$\text{conversion rate}_{\text{after}} = \frac{1,200}{10,000} = 12\%$$
 
 #### Revenue Lift Calculation
 
 **Total Revenue Before Change:**
+
 $$\text{total revenue}_{\text{before}} = 1,000 \times \$200 = \$200,000$$
 
 **Total Revenue After Change:**
+
 $$\text{total revenue}_{\text{after}} = 1,200 \times \$220 = \$264,000$$
 
 **Revenue Lift:**
+
 $$\text{revenue lift} = \frac{\$264,000 - \$200,000}{\$200,000} \times 100\% = 32\%$$
 
 ### Summary
