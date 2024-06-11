@@ -37,6 +37,8 @@ The better approach would be to sort results based on the likelihood of booking.
 
 > IDCG is calculated based on the ideal ranking of the results, which means sorting the results by the ground truth relevance scores in descending order. The relevance scores used in the IDCG calculation are also the ground truth relevance scores.
 
+> nDCG is the ratio of DCG to IDCG and provides a normalized score to compare different ranking systems. The value of nDCG ranges between 0 and 1, where 1 indicates a perfect ranking.
+
 **Online Metrics**
 
 - **Conversion Rate and Revenue Lift:** This measures the number of bookings per number of search results in a user session.
