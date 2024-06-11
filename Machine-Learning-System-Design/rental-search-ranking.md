@@ -24,17 +24,17 @@ The better approach would be to sort results based on the likelihood of booking.
 
   where $rel_i$ stands for the relevance of the result at position $i$.
 
-- **Normalized Discounted Cumulative Gain (nDCG):**
+- **Ideal Discounted Cumulative Gain (IDCG):**
+  
+  $$IDCG_p = \sum_{i=1}^{|REL_p|} \frac{2^{rel_i} - 1}{\log_2(i + 1)}$$
 
+- **Normalized Discounted Cumulative Gain (nDCG):**
   
   $$nDCG_p = \frac{DCG_p}{IDCG_p}$$
   
 
-  - **Ideal Discounted Cumulative Gain (IDCG):**
-
-  
-  $$IDCG_p = \sum_{i=1}^{|REL_p|} \frac{2^{rel_i} - 1}{\log_2(i + 1)}$$
-  
+> DCG is calculated based on the predicted ranking of the results. The relevance scores used in the DCG calculation are the ground truth relevance scores corresponding to the predicted positions.
+> IDCG is calculated based on the ideal ranking of the results, which means sorting the results by the ground truth relevance scores in descending order. The relevance scores used in the IDCG calculation are also the ground truth relevance scores.
 
 **Online Metrics**
 
