@@ -186,12 +186,12 @@ The better approach would be to sort results based on the likelihood of booking.
 
 - 100 million monthly active users.
 - On average, users book rental homes 5 times per year. Users see about 30 rentals from the search result before booking.
-- There are \(5 \times 30 \times 10^8\) or 15 billion observations/samples per year or 1.25 billion samples per month.
+- There are $5 \times 30 \times 10^8$ or 15 billion observations/samples per year or 1.25 billion samples per month.
 
 ### Data Size
 
 - Assume there are hundreds of features per sample. For the sake of simplicity, each row takes 500 bytes to store.
-- Total data size: \(500 \times 1.25 \times 10^9\) bytes = 625 GB. To save costs, we can keep the last 6 months or 1 year of data in the data lake, and archive old data in cold storage.
+- Total data size: $500 \times 1.25 \times 10^9$ bytes = 625 GB. To save costs, we can keep the last 6 months or 1 year of data in the data lake, and archive old data in cold storage.
 
 ### Scale
 
