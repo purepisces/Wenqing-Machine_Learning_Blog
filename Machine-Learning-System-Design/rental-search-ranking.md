@@ -18,31 +18,31 @@ The better approach would be to sort results based on the likelihood of booking.
 
 - **Discounted Cumulative Gain (DCG):**
 
-  \[
-  DCG_p = \sum_{i=1}^{p} \frac{rel_i}{\log_2(i + 1)}
-  \]
+  
+  $$DCG_p = \sum_{i=1}^{p} \frac{rel_i}{\log_2(i + 1)}$$
+  
 
-  where \(rel_i\) stands for the relevance of the result at position \(i\).
+  where $rel_i$ stands for the relevance of the result at position $i$.
 
 - **Normalized Discounted Cumulative Gain (nDCG):**
 
-  \[
-  nDCG_p = \frac{DCG_p}{IDCG_p}
-  \]
+  
+  $$nDCG_p = \frac{DCG_p}{IDCG_p}$$
+  
 
   - **Ideal Discounted Cumulative Gain (IDCG):**
 
-  \[
-  IDCG_p = \sum_{i=1}^{|REL_p|} \frac{2^{rel_i} - 1}{\log_2(i + 1)}
-  \]
+  
+  $$IDCG_p = \sum_{i=1}^{|REL_p|} \frac{2^{rel_i} - 1}{\log_2(i + 1)}$$
+  
 
 **Online Metrics**
 
 - **Conversion Rate and Revenue Lift:** This measures the number of bookings per number of search results in a user session.
 
-  \[
-  conversion\_rate = \frac{number\_of\_bookings}{number\_of\_search\_results}
-  \]
+  
+  $$conversionrate = \frac{numberofbookings}{numberofsearchresults}$$
+
 
 ### Requirements
 
