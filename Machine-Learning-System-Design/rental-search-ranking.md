@@ -68,3 +68,40 @@ The better approach would be to sort results based on the likelihood of booking.
 |            | Ability to avoid under-predicting for new listings                  |
 
 
+# Appendix
+
+## Example: Using Both Online Metrics: Conversion Rate and Revenue Lift
+
+Let’s take a practical example of implementing a new search ranking algorithm and measure its impact using both conversion rate and revenue lift.
+
+#### Data Collection Before and After Change
+
+| Metric                    | Before Change | After Change |
+|---------------------------|---------------|--------------|
+| Number of Search Results  | 10,000        | 10,000       |
+| Number of Bookings        | 1,000         | 1,200        |
+| Average Revenue per Booking | \$200       | \$220        |
+
+#### Conversion Rate Calculation
+
+**Before Change:**
+$$\text{conversion rate}_{\text{before}} = \frac{1,000}{10,000} = 10\%$$
+
+**After Change:**
+$$\text{conversion rate}_{\text{after}} = \frac{1,200}{10,000} = 12\%$$
+
+#### Revenue Lift Calculation
+
+**Total Revenue Before Change:**
+$$\text{total revenue}_{\text{before}} = 1,000 \times \$200 = \$200,000$$
+
+**Total Revenue After Change:**
+$$\text{total revenue}_{\text{after}} = 1,200 \times \$220 = \$264,000$$
+
+**Revenue Lift:**
+$$\text{revenue lift} = \frac{\$264,000 - \$200,000}{\$200,000} \times 100\% = 32\%$$
+
+### Summary
+
+- **Conversion Rate** increased from 10% to 12%, indicating that more users are booking properties.
+- **Revenue Lift** increased by 32%, showing that the new algorithm not only resulted in more bookings but also increased the total revenue significantly.
