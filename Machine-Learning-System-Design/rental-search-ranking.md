@@ -175,6 +175,7 @@ The better approach would be to sort results based on the likelihood of booking.
 > **Search Query**: This includes the user's search preferences, which can be encoded using text embeddings. These embeddings capture the semantic meaning of the search terms used by the user.
 > 
 > **Listing Data**: This includes attributes of the listing such as listing ID, number of bedrooms, list of amenities, location (latitude and longitude), and other relevant features.
+> 
 >**Variational AutoEncoder (VAE)**: VAEs can be used for generating new data samples that resemble the training data. They are particularly useful for capturing the underlying distribution of the data. This can be beneficial for handling new listings with limited data.
 >
 >**Denoising AutoEncoder (DAE)**: DAEs are designed to reconstruct the original input from a corrupted version of it. This helps the model learn robust features that are less sensitive to noise in the data.
