@@ -27,6 +27,7 @@ The better approach would be to sort results based on the likelihood of booking.
 - **Ideal Discounted Cumulative Gain (IDCG):**
   
   $$IDCG_p = \sum_{i=1}^{|REL_p|} \frac{2^{rel_i} - 1}{\log_2(i + 1)}$$
+  - $|REL_p|$ represents the number of relevance scores considered for the top $p$ positions in the ideally sorted list. Essentially, it is the count of relevance scores in the ideal ranking list up to position $p$.
 
 - **Normalized Discounted Cumulative Gain (nDCG):**
   
