@@ -170,6 +170,14 @@ The better approach would be to sort results based on the likelihood of booking.
 - **Baseline:** We can start with deep learning with fully connected layers as a baseline. The model outputs a number within [0, 1] and presents the likelihood of booking.
 - **Improvement:** To further improve the model, we can also use other more modern network architectures, i.e., Variational AutoEncoder or Denoising AutoEncoder. Read more about [Variational Autoencoder](https://arxiv.org/abs/1312.6114).
 
+> **User Data**: This includes user-specific features such as age, gender, number of previous bookings, favorite places, and other relevant attributes.
+>
+> **Search Query**: This includes the user's search preferences, which can be encoded using text embeddings. These embeddings capture the semantic meaning of the search terms used by the user.
+> 
+> **Listing Data**: This includes attributes of the listing such as listing ID, number of bedrooms, list of amenities, location (latitude and longitude), and other relevant features.
+>**Variational AutoEncoder (VAE)**: VAEs can be used for generating new data samples that resemble the training data. They are particularly useful for capturing the underlying distribution of the data. This can be beneficial for handling new listings with limited data.
+>
+>**Denoising AutoEncoder (DAE)**: DAEs are designed to reconstruct the original input from a corrupted version of it. This helps the model learn robust features that are less sensitive to noise in the data.
 # Appendix
 
 ## Example: Offline Metrics
