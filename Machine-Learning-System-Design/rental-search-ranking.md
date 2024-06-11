@@ -99,7 +99,7 @@ The better approach would be to sort results based on the likelihood of booking.
 > **Description:** Each listing has a unique identifier. Using embeddings allows the model to learn a dense representation of listings, capturing similarities and patterns in booking behaviors.
 > 
 > **Example:** Listing ID 12345 might be represented by an embedding vector [0.1, -0.2, 0.5].
->
+
 > **Listing feature**
 >
 > **Feature Engineering:** Number of bedrooms, list of amenities, listing city
@@ -107,7 +107,7 @@ The better approach would be to sort results based on the likelihood of booking.
 > **Description:** These features describe the property itself, including the number of bedrooms, amenities (e.g., pool, Wi-Fi), and the city in which the listing is located.
 > 
 > **Example:** A listing might have 3 bedrooms, amenities like a pool and Wi-Fi, and be located in San Francisco.
->
+
 > **Location**
 >
 > **Feature Engineering:** Measure lat/long from the center of the user map, then normalize
@@ -115,7 +115,7 @@ The better approach would be to sort results based on the likelihood of booking.
 > **Description:** Instead of using raw latitude and longitude, measure the distance from a central point (e.g., city center) and normalize these values to make them more suitable for modeling.
 > 
 > **Example:** If the center of the map is (37.7749, -122.4194) and the listing is at (37.8044, -122.2711), calculate the distance and then normalize.
->
+
 > **Historical search query**
 >
 > **Feature Engineering:** Text embedding
@@ -123,7 +123,7 @@ The better approach would be to sort results based on the likelihood of booking.
 > **Description:** Convert text-based search queries into numerical vectors using text embeddings, which capture semantic meaning and relationships between words.
 > 
 > **Example:** The search query "2-bedroom apartment near downtown" might be embedded into a vector [0.25, 0.75, -0.1, ...].
->
+
 > **User associated features: age, gender**
 >
 > **Feature Engineering:** Normalization or Standardization
@@ -131,7 +131,7 @@ The better approach would be to sort results based on the likelihood of booking.
 > **Description:** Normalize or standardize user demographic features to ensure they are on a comparable scale with other features.
 > 
 > **Example:** Age 30 might be normalized to 0.3 if the age range is 0-100.
->
+
 > **Number of previous bookings**
 >
 > **Feature Engineering:** Normalization or Standardization
@@ -139,7 +139,7 @@ The better approach would be to sort results based on the likelihood of booking.
 > **Description:** Normalize or standardize the number of previous bookings a user has made to ensure consistency across users.
 > 
 > **Example:** If a user has made 5 previous bookings, this might be normalized to 0.05 if the maximum number of bookings is 100.
->
+
 > **Previous length of stays**
 >
 > **Feature Engineering:** Normalization or Standardization
@@ -147,7 +147,7 @@ The better approach would be to sort results based on the likelihood of booking.
 > **Description:** Normalize or standardize the length of previous stays to make it comparable across different users.
 > 
 > **Example:** If the previous stay was 7 days, this might be standardized to 0.07 if the maximum length of stay is 100 days.
->
+
 > **Time related features**
 >
 > **Feature Engineering:** Month, week of year, holiday, day of week, hour of day
