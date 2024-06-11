@@ -163,7 +163,7 @@ The better approach would be to sort results based on the likelihood of booking.
 
 ### Model Architecture
 
-<img src="DL_fully_connected_model.png" alt="DL_fully_connected_model" width="600" height="400"/>
+<img src="Airbnb_DL_fully_connected_model.png" alt="Airbnb_DL_fully_connected_model" width="600" height="400"/>
 
 - **Input:** User data, search query, and Listing data.
 - **Output:** This is a binary classification model, i.e., user books a rental or not.
