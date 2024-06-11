@@ -70,6 +70,75 @@ The better approach would be to sort results based on the likelihood of booking.
 
 # Appendix
 
+## Example: Offline Metrics
+
+### Step 1: Define Relevance Scores
+
+Assume we have a list of 5 search results with the following relevance scores (higher is better):
+| Position (i) | Listing ID | Relevance Score (rel_i) |
+|--------------|------------|-------------------------|
+| 1            | A          | 3                       |
+| 2            | B          | 2                       |
+| 3            | C          | 3                       |
+| 4            | D          | 0                       |
+| 5            | E          | 1                       |
+
+### Step 2: Calculate DCG
+
+Using the formula for DCG:
+$$DCG_p = \sum_{i=1}^{p} \frac{rel_i}{\log_2(i + 1)}$$
+
+For our 5 results:
+$$DCG_5 = \frac{3}{\log_2(1 + 1)} + \frac{2}{\log_2(2 + 1)} + \frac{3}{\log_2(3 + 1)} + \frac{0}{\log_2(4 + 1)} + \frac{1}{\log_2(5 + 1)}$$
+
+Calculating each term:
+$$\frac{3}{\log_2(2)} = 3$$
+$$\frac{2}{\log_2(3)} \approx 1.26186$$
+$$\frac{3}{\log_2(4)} = 1.5$$
+$$\frac{0}{\log_2(5)} = 0$$
+$$\frac{1}{\log_2(6)} \approx 0.38685$$
+
+Summing these values:
+$$DCG_5 = 3 + 1.26186 + 1.5 + 0 + 0.38685 \approx 6.14871$$
+
+### Step 2: Calculate IDCG
+
+Using the formula for IDCG:
+$$IDCG_p = \sum_{i=1}^{p} \frac{2^{rel_i} - 1}{\log_2(i + 1)}$$
+
+First, sort the relevance scores in descending order: [3, 3, 2, 1, 0]
+
+Using the sorted relevance scores, we calculate IDCG:
+$$IDCG_5 = \frac{2^3 - 1}{\log_2(1 + 1)} + \frac{2^3 - 1}{\log_2(2 + 1)} + \frac{2^2 - 1}{\log_2(3 + 1)} + \frac{2^1 - 1}{\log_2(4 + 1)} + \frac{2^0 - 1}{\log_2(5 + 1)}$$
+
+Calculating each term:
+$$\frac{2^3 - 1}{\log_2(2)} = \frac{7}{1} = 7$$
+$$\frac{2^3 - 1}{\log_2(3)} \approx \frac{7}{1.58496} \approx 4.41651$$
+$$\frac{2^2 - 1}{\log_2(4)} = \frac{3}{2} = 1.5$$
+$$\frac{2^1 - 1}{\log_2(5)} \approx \frac{1}{2.32193} \approx 0.43068$$
+$$\frac{2^0 - 1}{\log_2(6)} = \frac{0}{2.58496} = 0$$
+
+Summing these values:
+$$IDCG_5 = 7 + 4.41651 + 1.5 + 0.43068 + 0 \approx 13.34719$$
+
+### Step 3: Calculate nDCG
+
+Finally, nDCG is the ratio of DCG to IDCG:
+$$nDCG_p = \frac{DCG_p}{IDCG_p}$$
+
+For our example:
+$$nDCG_5 = \frac{6.14871}{13.34719} \approx 0.4605$$
+
+### Summary of Correct Calculations
+
+- **DCG**: 6.14871
+- **IDCG**: 13.34719
+- **nDCG**: 0.4605
+
+This example correctly applies the formula for IDCG and provides the normalized discounted cumulative gain (nDCG) calculation.
+
+
+
 ## Example: Using Both Online Metrics: Conversion Rate and Revenue Lift
 
 Let’s take a practical example of implementing a new search ranking algorithm and measure its impact using both conversion rate and revenue lift.
