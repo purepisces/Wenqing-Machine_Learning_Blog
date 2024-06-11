@@ -20,9 +20,8 @@ The better approach would be to sort results based on the likelihood of booking.
 
   
   $$DCG_p = \sum_{i=1}^{p} \frac{rel_i}{\log_2(i + 1)}$$
-  
-
-  where $rel_i$ stands for the relevance of the result at position $i$.
+  - $p$ is the position in the ranking list.
+  - $rel_i$ stands for the relevance of the result at position $i$.
 
 - **Ideal Discounted Cumulative Gain (IDCG):**
   
