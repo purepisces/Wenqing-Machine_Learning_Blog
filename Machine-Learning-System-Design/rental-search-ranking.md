@@ -95,6 +95,9 @@ The better approach would be to sort results based on the likelihood of booking.
 - **Experimentation:** In practice, we decide the length of training data by running multiple experiments. Each experiment will pick a certain time period to train data. We then compare model accuracy and training time across different experimentations.
 
 ### Model Architecture
+
+<img src="DL_fully_connected_model.png" alt="DL_fully_connected_model" width="600" height="300"/>
+
 - **Input:** User data, search query, and Listing data.
 - **Output:** This is a binary classification model, i.e., user books a rental or not.
 - **Baseline:** We can start with deep learning with fully connected layers as a baseline. The model outputs a number within [0, 1] and presents the likelihood of booking.
