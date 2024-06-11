@@ -80,7 +80,7 @@ The better approach would be to sort results based on the likelihood of booking.
 
 | Features                   | Feature Engineering                             | Description                                                                      |
 |----------------------------|-------------------------------------------------|----------------------------------------------------------------------------------|
-| **Listing ID**             | Listing ID embedding                            | See Embedding in Machine Learning Primer: Feature Selection and Feature engineering. |
+| **Listing ID**             | Listing ID embedding                            | |
 | **Listing feature**        | Number of bedrooms, list of amenities, listing city |                                                                                  |
 | **Location**               | Measure lat/long from the center of the user map, then normalize |                                           |
 | **Historical search query**| Text embedding                                  |                                                                                  |
