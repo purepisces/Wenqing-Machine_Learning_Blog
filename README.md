@@ -182,4 +182,5 @@
   - [Collaborative Filtering](Machine-Learning-System-Design/collaborative-filtering.md)
 - [Feed Ranking](Machine-Learning-System-Design/feed-ranking.md)
 - [Ad Click Prediction](Machine-Learning-System-Design/ad-click-prediction.md)
+- [Rental Search Ranking](Machine-Learning-System-Design/rental-search-ranking.md)
 
