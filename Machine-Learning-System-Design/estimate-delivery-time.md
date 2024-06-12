@@ -17,7 +17,7 @@ $$\text{DeliveryTime} = \text{PickupTime} + \text{PointtoPointTime} + \text{Drop
 ### Metrics
 
 **Offline Metrics:** Use Root Mean Squared Error (RMSE)
-$$\text{RMSE} = \sqrt{\frac{\sum_{k=1}^{n} (\text{predict} - y)^2}{n}}$$
+$$\text{RMSE} = \sqrt{\frac{\sum\limits_{k=1}^{n} (\text{predict} - y)^2}{n}}$$
 where,
 - $n$ is the total number of samples,
 - $\text{predict}$ is the estimated wait time,
