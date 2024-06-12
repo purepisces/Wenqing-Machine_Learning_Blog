@@ -247,6 +247,8 @@ We can also scale out Search Services and Ranking Services to handle millions of
 
 Finally, we need to log all candidates that we recommended as training data, so the Search Service needs to send logs to a cloud storage or send a message to a Kafka cluster.
 
+> Apache Kafka is a distributed streaming platform and messaging system designed for real-time data ingestion, processing, and distribution. It is not a storage system like Amazon S3 but rather a system for handling large streams of data in real-time.
+> 
 ## 7. Follow-Up Questions
 
 | Question                                                                                         | Answer                                                                                                                                                         |
