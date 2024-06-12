@@ -247,9 +247,19 @@ We can also scale out Search Services and Ranking Services to handle millions of
 
 Finally, we need to log all candidates that we recommended as training data, so the Search Service needs to send logs to a cloud storage or send a message to a Kafka cluster.
 
-> Apache Kafka is a distributed streaming platform and messaging system designed for real-time data ingestion, processing, and distribution. It is not a storage system like Amazon S3 but rather a system for handling large streams of data in real-time.
+> **Apache Kafka** is a distributed streaming platform and messaging system designed for real-time data ingestion, processing, and distribution. It is not a storage system like Amazon S3 but rather a system for handling large streams of data in real-time.
 
-> S3: A cloud storage service for storing and retrieving any amount of data at any time. It is used for long-term storage and can handle various types of data including logs, files, backups, and more.
+> **S3**: A cloud storage service for storing and retrieving any amount of data at any time. It is used for long-term storage and can handle various types of data including logs, files, backups, and more.
+
+> **Real-time data streaming** refers to the continuous and real-time transmission of data from various sources to a processing system that can handle, analyze, and act on the data immediately or with minimal delay. This process is essential for applications that require instant insights and responses to changing data.
+> 
+> A **distributed messaging system** is a software infrastructure that allows applications to communicate with each other asynchronously by exchanging messages. These systems are designed to work across multiple servers or nodes, providing scalability, fault tolerance, and reliability. They are essential for building scalable and resilient distributed applications.
+>
+> **Messages** are units of data that are sent from a producer (sender) to a consumer (receiver). A message can contain various types of data, such as text, JSON, binary data, etc.
+>
+> **Producers**: Applications or services that create and send messages to the messaging system.
+>
+> **Consumers**: Applications or services that receive and process messages from the messaging system.
 ## 7. Follow-Up Questions
 
 | Question                                                                                         | Answer                                                                                                                                                         |
@@ -257,6 +267,11 @@ Finally, we need to log all candidates that we recommended as training data, so 
 | **What are the cons of using ListingID embedding as features?**                                  | ListingIDs are limited with only millions of unique IDs, plus each listing has a limited number of bookings per year which might not be sufficient to train embedding. |
 | **Assuming there is a strong correlation between how long users spend on listings and the likelihood of booking, how would you redesign the network architecture?** | Train multiple output networks for two outputs: view_time and booking                                                                                         |
 | **How often do we need to retrain models?**                                                      | It depends, we need to have infrastructure in place to monitor the online metrics. When online metrics go down, we might want to trigger retraining the models. |
+
+
+> While there are millions of unique ListingIDs, each individual listing might only be booked a few times per year. This results in sparse data for each ListingID, making it challenging for the embedding to capture meaningful patterns. Sparse interactions mean the model has limited examples to learn the nuances of each ListingID's booking behavior.
+>
+> If we directly use view time as an input feature, we assume we already know how long a user will spend on the listing, which isn't the case in a real-time prediction scenario.
 
 ## 8. Summary
 
