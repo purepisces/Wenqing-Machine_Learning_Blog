@@ -199,7 +199,7 @@ The better approach would be to sort results based on the likelihood of booking.
 
 ## 5. High-Level Design
 
-<img src="Rental_Search_Ranking_high_level_design.png" alt="Rental_Search_Ranking_high_level_design" width="600" height="400"/>
+<img src="Rental_Search_Ranking_high_level_design.png" alt="Rental_Search_Ranking_high_level_design" width="600" height="450"/>
 
 **Feature Pipeline:** Processes online features and stores features in key-value storage for low latency, downstream processing.
 
