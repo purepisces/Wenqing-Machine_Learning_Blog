@@ -7,18 +7,18 @@ Build a model to estimate the total delivery time given order details, market co
 To keep it simple, we do not consider batching (group multiple orders at restaurants) in this exercise.
 
 ### Delivery Time Calculation
-\[ \text{DeliveryTime} = \text{PickupTime} + \text{Point\_to\_PointTime} + \text{Drop\_off\_Time} \]
+$$\text{DeliveryTime} = \text{PickupTime} + \text{Point\_to\_PointTime} + \text{Drop\_off\_Time}$$
 
 ## 2. Metrics Design and Requirements
 
 ### Metrics
 
 **Offline Metrics:** Use Root Mean Squared Error (RMSE)
-\[ \text{RMSE} = \sqrt{\frac{\sum_{k=1}^{n} (\text{predict} - y)^2}{n}} \]
+$$\text{RMSE} = \sqrt{\frac{\sum_{k=1}^{n} (\text{predict} - y)^2}{n}}$$
 where,
-- \( n \) is the total number of samples,
-- \( \text{predict} \) is the estimated wait time,
-- \( y \) is the actual wait time.
+- $n$ is the total number of samples,
+- $\text{predict}$ is the estimated wait time,
+- $y$ is the actual wait time.
 
 **Online Metrics:** Use A/B testing and monitor RMSE, customer engagement, customer retention, etc.
 
