@@ -183,4 +183,5 @@
 - [Feed Ranking](Machine-Learning-System-Design/feed-ranking.md)
 - [Ad Click Prediction](Machine-Learning-System-Design/ad-click-prediction.md)
 - [Rental Search Ranking](Machine-Learning-System-Design/rental-search-ranking.md)
+- [Estimate Delivery Time](Machine-Learning-System-Design/estimate-delivery-time.md)
 
