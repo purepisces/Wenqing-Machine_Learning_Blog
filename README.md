@@ -176,7 +176,7 @@
 - **Embedding** 
   - [Overview](embedding.md)
 
-## Machine Learning System Design
+## Machine Learning System Design Notes From Educative
 - [Video Recommendation](Machine-Learning-System-Design/video_recommendation.md)
   - [Matrix Factorization](Machine-Learning-System-Design/matrix_factorization.md)
   - [Collaborative Filtering](Machine-Learning-System-Design/collaborative-filtering.md)
