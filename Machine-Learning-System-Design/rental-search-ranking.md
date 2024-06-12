@@ -235,9 +235,11 @@ Let’s examine the flow of the system:
 
 As you can see, we started with a simple design, but this would not scale well for our demands, i.e., 150 million users and 1.25 billion searches per month. We will see how to scale the design in the next section.
 
+> **Indexing Database**: Indexes are created on one or more attributes of the data. For example, in a rental listings database, indexes might be created on attributes like city, price, number of bedrooms, and availability dates.
+
 ## 6. Scale the Design
 
-![Rental Search Ranking System Design at Scale](Rental_Search_ranking_system_design_at_scale.png)
+<img src="Rental_Search_ranking_system_design_at_scale.png" alt="Rental_Search_ranking_system_design_at_scale" width="600" height="450"/>
 
 To scale and serve millions of requests per second, we can start by scaling out Application Servers and use Load Balancers to distribute the load accordingly.
 
