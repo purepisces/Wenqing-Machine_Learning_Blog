@@ -3,7 +3,7 @@
 ## 1. Problem Statement
 Build a model to estimate the total delivery time given order details, market conditions, and traffic status.
 
-<img src="Food_Delivery_flow.png" alt="Food_Delivery_flow" width="600" height="300"/>
+<img src="Food_Delivery_flow.png" alt="Food_Delivery_flow" width="650" height="450"/>
 
 
 >To keep it simple, we do not consider batching (group multiple orders at restaurants) in this exercise.
