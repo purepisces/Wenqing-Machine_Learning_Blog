@@ -211,6 +211,20 @@ The better approach would be to sort results based on the likelihood of booking.
 
 Let’s examine the flow of the system:
 
+1. User searchs rentals and request Application Server for result
+<img src="rental_send_request_application_server.png" alt="rental_send_request_application_server" width="600" height="450"/>
+
+2. Application Server sends search request to Search Service
+<img src="Rental_server_send_request_search_service.png" alt=""Rental_server_send_request_search_service" width="600" height="450"/>
+
+3. Search Service gets rentals from database and sends rental rank request to Ranking Service
+<img src="Rental_Search_send_request_ranking_service.png" alt="Rental_Search_send_request_ranking_service" width="600" height="450"/>
+
+4. Ranking Service scores each rental results and returns the score to Search Service
+<img src="Rental_rank_return_search_service.png" alt="Rental_rank_return_search_service" width="600" height="450"/>
+
+5. Search Service returns rentals to Application Server and Application Server returns rentals to user
+<img src="Rental_final_return.png" alt="Rental_final_return" width="600" height="450"/>
 
 ### Flow of the System
 
