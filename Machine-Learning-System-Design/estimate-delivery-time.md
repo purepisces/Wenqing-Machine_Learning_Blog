@@ -6,8 +6,7 @@ Build a model to estimate the total delivery time given order details, market co
 <img src="Food_Delivery_flow.png" alt="Food_Delivery_flow" width="600" height="300"/>
 
 
-## Food Delivery Flow
-To keep it simple, we do not consider batching (group multiple orders at restaurants) in this exercise.
+>To keep it simple, we do not consider batching (group multiple orders at restaurants) in this exercise.
 
 ### Delivery Time Calculation
 $$\text{DeliveryTime} = \text{PickupTime} + \text{PointtoPointTime} + \text{DropoffTime}$$
