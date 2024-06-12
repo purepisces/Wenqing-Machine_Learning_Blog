@@ -7,7 +7,7 @@ Build a model to estimate the total delivery time given order details, market co
 To keep it simple, we do not consider batching (group multiple orders at restaurants) in this exercise.
 
 ### Delivery Time Calculation
-$$\text{DeliveryTime} = \text{PickupTime} + \text{Point\_to\_PointTime} + \text{Drop\_off\_Time}$$
+$$\text{DeliveryTime} = \text{PickupTime} + \text{PointtoPointTime} + \text{DropoffTime}$$
 
 ## 2. Metrics Design and Requirements
 
