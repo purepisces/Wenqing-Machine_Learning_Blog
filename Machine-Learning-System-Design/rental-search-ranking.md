@@ -199,13 +199,18 @@ The better approach would be to sort results based on the likelihood of booking.
 
 ## 5. High-Level Design
 
-![Rental Search Ranking High Level Design](Rental_Search_Ranking_high_level_design.png)
+<img src="Rental_Search_Ranking_high_level_design.png" alt="Rental_Search_Ranking_high_level_design" width="600" height="400"/>
 
 **Feature Pipeline:** Processes online features and stores features in key-value storage for low latency, downstream processing.
 
 **Feature Store:** A features values storage. During inference, we need low latency (<10ms) to access features before scoring. Examples of feature stores include MySQL Cluster, Redis, and DynamoDB.
 
 **Model Store:** A distributed storage, like S3, to store models.
+
+> A feature store is a specialized storage system designed to store and serve feature values with low latency. This is crucial during the inference phase of machine learning models, where quick access to precomputed features is necessary to ensure real-time predictions.
+
+Let’s examine the flow of the system:
+
 
 ### Flow of the System
 
