@@ -270,8 +270,10 @@ Finally, we need to log all candidates that we recommended as training data, so 
 
 
 > While there are millions of unique ListingIDs, each individual listing might only be booked a few times per year. This results in sparse data for each ListingID, making it challenging for the embedding to capture meaningful patterns. Sparse interactions mean the model has limited examples to learn the nuances of each ListingID's booking behavior.
->
+
 > If we directly use view time as an input feature, we assume we already know how long a user will spend on the listing, which isn't the case in a real-time prediction scenario.
+> 
+> Understanding the Correlation through Shared Learning: When both tasks (view time prediction and booking likelihood prediction) share the same base network, the model learns a shared representation of the input data. This shared representation captures the underlying patterns and features that are relevant to both tasks. Even though the final outputs are separate, the shared base network allows the model to understand and utilize the relationship between the two tasks.
 
 ## 8. Summary
 
@@ -388,3 +390,6 @@ $$\text{revenue lift} = \frac{\$264,000 - \$200,000}{\$200,000} \times 100\% = 3
 
 - **Conversion Rate** increased from 10% to 12%, indicating that more users are booking properties.
 - **Revenue Lift** increased by 32%, showing that the new algorithm not only resulted in more bookings but also increased the total revenue significantly.
+
+## Reference:
+- Machine learning System Design from educative
