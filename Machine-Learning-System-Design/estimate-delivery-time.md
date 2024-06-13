@@ -54,6 +54,16 @@ where,
 - The model should undergo retraining every few hours. Delivery operations are under a dynamic environment with many external factors: traffic, weather conditions, etc. So, it is important for the model to learn and adapt to the new environment. For example, on game day, traffic conditions can get worse in certain areas. Without a retrained model, the current model will consistently underestimate delivery time. Schedulers are responsible for retraining models many times throughout the day.
 - Balance between overestimation and underestimation. To help with this, retrain multiple times per day to adapt to market dynamics and traffic conditions.
 
+> **High Throughput**: In the context of machine learning, "high throughput" refers to the ability to process a large amount of data quickly and efficiently.
+> 
+>  To achieve high throughput, the training pipeline should be optimized for speed and efficiency. This involves using data storage and processing techniques that allow for rapid reading and writing of data. So we can consider using **Parquet Files** : Apache Parquet is a columnar storage file format designed for efficient data processing.
+> 
+>  Here's why using Parquet files can help achieve high throughput:
+> 
+> Parquet stores data in a columnar format, meaning that all the values for a particular column are stored together. This contrasts with row-based formats (like CSV), where each row's data is stored together. For many machine learning tasks, operations are performed on entire columns at once (e.g., calculating averages, normalizing data). Columnar storage allows these operations to be performed more efficiently.
+> 
+> Parquet files support various compression algorithms (e.g., Snappy, Gzip), which reduce the size of the data on disk.
+Speed: Smaller file sizes mean less data needs to be read from disk into memory, speeding up data loading times.
 #### Inference
 - For every delivery, the system needs to make real-time estimations as frequently as possible. For simplicity, we can assume we need to make 30 predictions per delivery.
 - Near real-time updates: any changes in status need to go through model scoring as fast as possible, i.e., the restaurant starts preparing meals, the driver starts driving to customers.
