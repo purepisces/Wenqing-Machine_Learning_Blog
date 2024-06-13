@@ -71,12 +71,73 @@ Speed: Smaller file sizes mean less data needs to be read from disk into memory,
 - Capture near real-time aggregated statistics, i.e., feature pipeline aggregates data from multiple sources (Kafka, database) to reduce latency.
 - Latency from 100ms to 200ms
 
+> A feature pipeline is a system that gathers raw data from different sources, processes it, and transforms it into features that can be used by the machine learning model for predictions.
+
 ### Summary
 | Type      | Desired goals                                                                                                                                       |
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Metrics   | Optimized for low RMSE. Estimation should be less than 10-15 minutes. If we overestimate, customers are less likely to make orders. Underestimation can cause customers upset. |
 | Training  | High throughput with the ability to retrain many times per day                                                                                      |
 | Inference | Latency from 100ms to 200ms                                                                                                                         |
+
+## 3. Model
+
+### Feature Engineering
+
+| Features             | Feature Engineering          | Description                                                                    |
+|----------------------|------------------------------|--------------------------------------------------------------------------------|
+| **Order features**   | subtotal, cuisine            |                                                                                |
+| **Item features**    | price and type               |                                                                                |
+| **Order type**       | group, catering              |                                                                                |
+| **Merchant details** |                              |                                                                                |
+| **Store ID**         | Store Embedding              |                                                                                |
+| **Realtime feature** | Number of orders, number of dashers, traffic, travel estimates | |
+| **Time feature**     | Time of day (lunch/dinner), day of week, weekend, holiday |                                           |
+| **Historical Aggregates** | Past X weeks average delivery time for: Store/City/market/TimeOfDay | |
+| **Similarity**       | Average parking times, variance in historical times |                                           |
+| **Latitude/longitude** | Measure estimated driving time between delivery of order (to consumer) & restaurants | |
+
+### Training Data
+
+We can use historical deliveries for the last 6 months as training data. Historical deliveries include delivery data and actual total delivery time, store data, order data, customer data, location, and parking data.
+
+### Model
+
+#### Gradient Boosted Decision Tree
+
+- Gradient Boosted Decision Tree Sample
+  <img src="Gradient Boosted Decision Tree sample.png" alt="Food_Delivery_flow" width="650" height="450"/>
+
+- How do Gradient Boosted Decision Trees work?
+
+1. **Calculate Baseline**: Given historical delivery data, the model first calculates the average delivery time. This value will be used as a baseline.
+
+2. **Measure Residual**: The model measures the residual (error) between prediction and actual delivery time.
+   \[
+   \text{Error} = \text{Actual Delivery Time} - \text{Estimated Delivery Time}
+   \]
+
+3. **Build Decision Tree**: Build the decision tree to predict the residuals. Each leaf will contain a prediction for residual values.
+
+4. **Predict Using All Trees**: Predict using all the trees. Construct predictions for delivery time using this formula:
+   \[
+   \text{Estimated Delivery Time} = \text{Average Delivery Time} + \text{learning rate} \times \text{residuals}
+   \]
+
+5. **Compute New Residuals**: Given the new estimated delivery time, compute the new residuals. Use these values to build new decision trees in step 3.
+
+6. **Repeat**: Repeat steps 3-5 until reaching the number of iterations defined in the hyperparameters.
+
+#### RMSE Optimization Issue
+
+One problem with optimizing RMSE is that it penalizes similarly between under-estimate prediction and over-estimate prediction. Consider the table below. Both models use boosted decision trees.
+
+| Actual | Model 1 Prediction | Model 1 Square Error | Model 2 Prediction | Model 2 Square Error |
+|--------|---------------------|----------------------|---------------------|----------------------|
+| 30     | 34                  | 16                   | 26                  | 16                   |
+| 35     | 37                  | 4                    | 33                  | 4                    |
+
+Although Model 1 and Model 2 have the same RMSE error, Model 1 overestimates delivery time, which prevents customers from making orders. Model 2 underestimates the delivery time and might cause customers to be unhappy.
 
 # Appendix 
 ## Offline Metric Example
