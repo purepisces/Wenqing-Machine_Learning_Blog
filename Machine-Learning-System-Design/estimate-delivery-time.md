@@ -6,7 +6,21 @@ Build a model to estimate the total delivery time given order details, market co
 <img src="Food_Delivery_flow.png" alt="Food_Delivery_flow" width="650" height="450"/>
 
 
->To keep it simple, we do not consider batching (group multiple orders at restaurants) in this exercise.
+To keep it simple, we do not consider batching (group multiple orders at restaurants) in this exercise.
+
+> In the context of building a model to estimate total delivery time, "market conditions" refer to the various external factors that can influence the delivery process.  Some examples of market conditions include:
+> 
+> Day of the Week: Delivery times may vary between weekdays and weekends.
+> 
+>Time of the Day: Delivery times can be influenced by whether it is peak dining hours (e.g., lunch or dinner time) or off-peak hours.
+> 
+>Weather Conditions: Adverse weather such as rain, snow, or extreme heat can slow down deliveries.
+> 
+>Special Events: Local events such as sports games, concerts, or festivals can cause increased traffic and longer delivery times.
+> 
+>Holidays: Delivery times might be longer during holidays due to higher order volumes and different traffic patterns.
+> 
+>Promotions and Discounts: Times when there are special promotions or discounts might lead to a higher volume of orders, affecting delivery times.
 
 ### Delivery Time Calculation
 $$\text{DeliveryTime} = \text{PickupTime} + \text{PointtoPointTime} + \text{DropoffTime}$$
