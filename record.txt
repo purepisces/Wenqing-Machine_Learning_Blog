@@ -54,7 +54,8 @@ Editor: https://stackedit.io/app#
 33.feed_ranking.md✅已发csdn,未发知乎, 很多都用的ml system design课程内容的言论
 
 
-
+decision tree (gradient boost decision tree)
+random forest
 auc
 logistic regression
 precision-recall-f1score.md
