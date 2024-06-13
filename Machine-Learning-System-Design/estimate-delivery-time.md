@@ -195,17 +195,17 @@ Let’s examine the flow of the system:
 
 1. User requests for Estimated Delivery Time
    
-<img src="User_requests_for_Estimated_Delivery_Time.png" alt="User_requests_for_Estimated_Delivery_Time" width="650" height="450"/>
+<img src="User_requests_for_Estimated_Delivery_Time.png" alt="User_requests_for_Estimated_Delivery_Time" width="600" height="300"/>
 
 2.
-<img src="Delivery_Time_2.png" alt="Delivery_Time_2" width="650" height="450"/>
+<img src="Delivery_Time_2.png" alt="Delivery_Time_2" width="600" height="300"/>
 
 3.
-<img src="Delivery_Time_3.png" alt="Delivery_Time_3" width="650" height="450"/>
+<img src="Delivery_Time_3.png" alt="Delivery_Time_3" width="600" height="350"/>
 
 4. Estimate Delivery Time service returns time estimation to Application Server. Application Server returns time estimation to user
    
-<img src="Delivery_Time_4.png" alt="Delivery_Time_4" width="650" height="450"/>
+<img src="Delivery_Time_4.png" alt="Delivery_Time_4" width="600" height="350"/>
 
 
 - There are three main types of users: Consumer/User, Deliver, and Restaurant.
