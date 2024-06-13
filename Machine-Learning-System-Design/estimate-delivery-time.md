@@ -272,5 +272,91 @@ $$\text{RMSE} = \sqrt{\frac{42}{5}} = \sqrt{8.4} \approx 2.9$$
 
 So, the RMSE in this case is approximately 2.9 minutes.
 
+
+
+### Explanation of Gradient Boosted Decision Trees with an Example
+
+Let's walk through each step of how Gradient Boosted Decision Trees (GBDT) work using a specific example. Suppose we have the following historical delivery data (in minutes):
+
+| Delivery | Actual Time (y) | Features (X) |
+|----------|------------------|--------------|
+| 1        | 30               | 10           |
+| 2        | 25               | 8            |
+| 3        | 40               | 12           |
+| 4        | 35               | 11           |
+| 5        | 20               | 7            |
+
+For simplicity, let's assume there's only one feature \( X \) representing some aggregated information about the order and traffic conditions.
+
+#### Step 1: Calculate Baseline
+First, we calculate the average delivery time across all historical data. This average serves as the initial prediction for all deliveries.
+
+$$ \text{Average Delivery Time} = \frac{30 + 25 + 40 + 35 + 20}{5} = 30 \text{ minutes} $$
+
+So, our initial prediction for all deliveries is 30 minutes.
+
+#### Step 2: Measure Residual
+Next, we calculate the residuals (errors) between the actual delivery times and the initial prediction.
+
+| Delivery | Actual Time (y) | Initial Prediction | Residual (Error) |
+|----------|------------------|--------------------|------------------|
+| 1        | 30               | 30                 | 0                |
+| 2        | 25               | 30                 | -5               |
+| 3        | 40               | 30                 | 10               |
+| 4        | 35               | 30                 | 5                |
+| 5        | 20               | 30                 | -10              |
+
+#### Step 3: Build Decision Tree
+We build a decision tree to predict the residuals using the feature \( X \).
+
+| Features (X) | Residual (Error) |
+|--------------|------------------|
+| 10           | 0                |
+| 8            | -5               |
+| 12           | 10               |
+| 11           | 5                |
+| 7            | -10              |
+
+Suppose the decision tree looks like this:
+
+       X <= 9.5
+      /      \
+    -7.5     X <= 11.5
+            /       \
+           7.5       5
+
+This tree splits the data into different regions and predicts the average residual in each region.
+
+#### Step 4: Predict Using All Trees
+The predictions are adjusted using the learning rate. Suppose our learning rate is 0.1. The updated predictions are:
+
+$$ \text{New Prediction} = \text{Initial Prediction} + \text{learning rate} \times \text{Residuals Prediction} $$
+
+Let's calculate the updated predictions:
+
+| Delivery | Initial Prediction | Residual Prediction | New Prediction |
+|----------|--------------------|---------------------|----------------|
+| 1        | 30                 | 7.5 (for \( X > 9.5 \))    | 30 + 0.1 * 7.5 = 30.75 |
+| 2        | 30                 | -7.5 (for \( X \leq 9.5 \))  | 30 + 0.1 * -7.5 = 29.25 |
+| 3        | 30                 | 7.5 (for \( X > 11.5 \))    | 30 + 0.1 * 7.5 = 30.75 |
+| 4        | 30                 | 7.5 (for \( 9.5 < X \leq 11.5 \))  | 30 + 0.1 * 7.5 = 30.75 |
+| 5        | 30                 | -7.5 (for \( X \leq 9.5 \))  | 30 + 0.1 * -7.5 = 29.25 |
+
+#### Step 5: Compute New Residuals
+We calculate the new residuals using the updated predictions.
+
+| Delivery | Actual Time (y) | New Prediction | New Residual (Error) |
+|----------|------------------|----------------|----------------------|
+| 1        | 30               | 30.75          | 30 - 30.75 = -0.75   |
+| 2        | 25               | 29.25          | 25 - 29.25 = -4.25   |
+| 3        | 40               | 30.75          | 40 - 30.75 = 9.25    |
+| 4        | 35               | 30.75          | 35 - 30.75 = 4.25    |
+| 5        | 20               | 29.25          | 20 - 29.25 = -9.25   |
+
+#### Step 6: Repeat
+We repeat steps 3-5 for a number of iterations defined in the hyperparameters. Each iteration builds a new decision tree to predict the new residuals and adjusts the predictions accordingly.
+
+By iteratively building decision trees to predict residuals and adjusting predictions, the GBDT model gradually improves its accuracy in estimating delivery times. The learning rate ensures that each tree makes small adjustments to avoid overfitting.
+
 ## Reference:
 - Machine learning System Design from educative
