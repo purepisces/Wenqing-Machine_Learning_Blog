@@ -271,3 +271,6 @@ Divide by the number of samples (n = 5) and take the square root:
 $$\text{RMSE} = \sqrt{\frac{42}{5}} = \sqrt{8.4} \approx 2.9$$
 
 So, the RMSE in this case is approximately 2.9 minutes.
+
+## Reference:
+- Machine learning System Design from educative
