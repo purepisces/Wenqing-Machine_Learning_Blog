@@ -336,11 +336,11 @@ Let's calculate the updated predictions:
 
 | Delivery | Initial Prediction | Residual Prediction | New Prediction |
 |----------|--------------------|---------------------|----------------|
-| 1        | 30                 | 7.5 (for \( X > 9.5 \))    | 30 + 0.1 * 7.5 = 30.75 |
-| 2        | 30                 | -7.5 (for \( X \leq 9.5 \))  | 30 + 0.1 * -7.5 = 29.25 |
-| 3        | 30                 | 7.5 (for \( X > 11.5 \))    | 30 + 0.1 * 7.5 = 30.75 |
-| 4        | 30                 | 7.5 (for \( 9.5 < X \leq 11.5 \))  | 30 + 0.1 * 7.5 = 30.75 |
-| 5        | 30                 | -7.5 (for \( X \leq 9.5 \))  | 30 + 0.1 * -7.5 = 29.25 |
+| 1        | 30                 | 7.5 (for $X > 9.5$)    | 30 + 0.1 * 7.5 = 30.75 |
+| 2        | 30                 | -7.5 (for $X \leq 9.5$)  | 30 + 0.1 * -7.5 = 29.25 |
+| 3        | 30                 | 7.5 (for $X > 11.5$)    | 30 + 0.1 * 7.5 = 30.75 |
+| 4        | 30                 | 7.5 (for $9.5 < X \leq 11.5$)  | 30 + 0.1 * 7.5 = 30.75 |
+| 5        | 30                 | -7.5 (for $X \leq 9.5$)  | 30 + 0.1 * -7.5 = 29.25 |
 
 #### Step 5: Compute New Residuals
 We calculate the new residuals using the updated predictions.
