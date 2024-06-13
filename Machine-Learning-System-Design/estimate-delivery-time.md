@@ -225,7 +225,7 @@ Let’s examine the flow of the system:
 
 - We leverage streaming process systems like Kafka to handle notifications as well as model predictions. Once our Machine Learning model completes its predictions, it sends them to Kafka so other services can get notifications right away.
 
-<img src="Delivery_scale_design.png" alt=""Delivery_scale_design" width="600" height="450"/>
+<img src="Delivery_scale_design.png" alt="Delivery_scale_design" width="600" height="350"/>
 
 ## 7. Follow Up Questions
 
