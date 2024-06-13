@@ -38,6 +38,15 @@ where,
 
 **Online Metrics:** Use A/B testing and monitor RMSE, customer engagement, customer retention, etc.
 
+
+> **RMSE** is a commonly used metric for regression problems, including estimating delivery times. RMSE measures the average magnitude of the error between predicted values and actual values.By taking the square root of MSE, RMSE converts the error back into the original units of the target variable. This means RMSE is in the same units as the delivery time (minutes), making it more interpretable. For example, an RMSE of 2.9 minutes directly tells us that, on average, the predictions are off by about 2.9 minutes.
+
+> **A/B Testing**: Split users into groups where one group uses the new delivery time estimation model and the other uses the existing model. Compare the outcomes between these groups.
+> 
+> **Customer Engagement**: Measure how customers interact with the app, such as checking delivery times, order frequency, and app usage duration.
+> 
+> **Customer Retention**: Track whether customers continue using the service over time, indicating satisfaction with the delivery experience.
+
 ### Requirements
 
 #### Training
@@ -59,3 +68,30 @@ where,
 | Training  | High throughput with the ability to retrain many times per day                                                                                      |
 | Inference | Latency from 100ms to 200ms                                                                                                                         |
 
+# Appendix 
+## Offline Metric Example
+
+Let's say we have 5 deliveries with the following actual and predicted delivery times (in minutes):
+
+| Delivery | Actual Time (y) | Predicted Time (predict) |
+|----------|------------------|--------------------------|
+| 1        | 30               | 32                       |
+| 2        | 25               | 28                       |
+| 3        | 40               | 36                       |
+| 4        | 35               | 38                       |
+| 5        | 20               | 22                       |
+
+First, calculate the squared differences:
+$$(32 - 30)^2 = 4$$
+$$(28 - 25)^2 = 9$$
+$$(36 - 40)^2 = 16$$
+$$(38 - 35)^2 = 9$$
+$$(22 - 20)^2 = 4$$
+
+Sum these squared differences:
+$$4 + 9 + 16 + 9 + 4 = 42$$
+
+Divide by the number of samples (n = 5) and take the square root:
+$$\text{RMSE} = \sqrt{\frac{42}{5}} = \sqrt{8.4} \approx 2.9$$
+
+So, the RMSE in this case is approximately 2.9 minutes.
