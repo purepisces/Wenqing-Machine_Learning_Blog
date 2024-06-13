@@ -231,7 +231,18 @@ Let’s examine the flow of the system:
 
 **Question** | **Answer**
 --- | ---
-What are the cons of using StoreID embedd
+What are the cons of using StoreID embedding as features? | We need to evaluate if using StoreID embedding is efficient in handling new stores.
+How often do we need to retrain models? | It depends, we need to have infrastructure in place to monitor the online metrics. When online metrics go down, we might want to trigger our models to retrain.
+
+> Cons: Handling New Stores: A significant challenge with StoreID embeddings is dealing with new stores that have no historical data. The model might not perform well for these new stores since their embeddings are not well-defined.
+>
+
+## 8. Summary
+
+- We learned to formulate estimated delivery times as a machine learning problem using Gradient Boosted Decision Trees.
+- We learned how to collect and use data to train models.
+- We learned how to use Kafka to handle logs and model predictions for near real-time predictions.
+
 
 # Appendix 
 ## Offline Metric Example
