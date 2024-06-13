@@ -86,9 +86,9 @@ Speed: Smaller file sizes mean less data needs to be read from disk into memory,
 
 | Features             | Feature Engineering          | Description                                                                    |
 |----------------------|------------------------------|--------------------------------------------------------------------------------|
-| **Order features**   | subtotal, cuisine            |                                                                                |
-| **Item features**    | price and type               |                                                                                |
-| **Order type**       | group, catering              |                                                                                |
+| **Order features**    |  subtotal, cuisine          |                                                                                |
+| **Item features**    |        price and type         |                                                                                |
+| **Order type**           |    group, catering        |                                                                                |
 | **Merchant details** |                              |                                                                                |
 | **Store ID**         | Store Embedding              |                                                                                |
 | **Realtime feature** | Number of orders, number of dashers, traffic, travel estimates | |
@@ -96,6 +96,27 @@ Speed: Smaller file sizes mean less data needs to be read from disk into memory,
 | **Historical Aggregates** | Past X weeks average delivery time for: Store/City/market/TimeOfDay | |
 | **Similarity**       | Average parking times, variance in historical times |                                           |
 | **Latitude/longitude** | Measure estimated driving time between delivery of order (to consumer) & restaurants | |
+
+
+> **Order features**: Features derived from the order details. For example, the total cost of the order (subtotal) and the type of cuisine (e.g., Italian, Chinese). These features can impact delivery times as different cuisines may have different preparation times. The **subtotal** is the sum of the prices of all items in the order. It does not include additional charges such as taxes, delivery fees, or tips.
+>
+> **Item features** : Features derived from individual items in the order. Item price and type (e.g., beverages, main course) can influence the overall preparation and packaging time.
+>
+> **Order type** : Identifies the type of order. Group orders and catering services typically take longer to prepare and deliver compared to individual orders.
+>
+>  **Merchant details**: Details about the merchant (restaurant) such as their historical performance, preparation speed, and popularity. These can affect delivery times.
+>
+>  **Store ID**: A numerical representation (embedding) of the store, capturing various characteristics and historical performance. This helps the model understand differences between stores.
+>
+> **Realtime feature**: Features that capture real-time conditions such as the current number of orders being processed, the number of delivery drivers (dashers) available, current traffic conditions, and travel time estimates. These are crucial for predicting delivery times accurately in real-time.
+> 
+> **Time feature** : Temporal features that indicate when the order was placed. Delivery times can vary significantly depending on whether it is during peak hours (lunch or dinner), on weekends, or during holidays.
+>
+> **Historical Aggregates**: Aggregated historical data such as the average delivery time over the past few weeks for specific stores, cities, markets, and times of day. This helps in understanding and predicting future delivery times based on past performance.
+> 
+> **Similarity** : Features that capture similarities in conditions such as average parking times at the delivery location and the variance in historical delivery times. These can indicate potential delays.
+> 
+> **Latitude/longitude**: Geospatial features that measure the distance and estimated driving time from the restaurant to the delivery location. This is critical for estimating travel times accurately.
 
 ### Training Data
 
@@ -106,23 +127,22 @@ We can use historical deliveries for the last 6 months as training data. Histori
 #### Gradient Boosted Decision Tree
 
 - Gradient Boosted Decision Tree Sample
-  <img src="Gradient Boosted Decision Tree sample.png" alt="Food_Delivery_flow" width="650" height="450"/>
+  <img src="Gradient_Boosted_Decision_Tree_sample.png" alt="Gradient_Boosted_Decision_Tree_sample" width="650" height="450"/>
 
 - How do Gradient Boosted Decision Trees work?
 
 1. **Calculate Baseline**: Given historical delivery data, the model first calculates the average delivery time. This value will be used as a baseline.
 
 2. **Measure Residual**: The model measures the residual (error) between prediction and actual delivery time.
-   \[
-   \text{Error} = \text{Actual Delivery Time} - \text{Estimated Delivery Time}
-   \]
+   
+   $$\text{Error} = \text{Actual Delivery Time} - \text{Estimated Delivery Time}$$
+   
 
 3. **Build Decision Tree**: Build the decision tree to predict the residuals. Each leaf will contain a prediction for residual values.
 
 4. **Predict Using All Trees**: Predict using all the trees. Construct predictions for delivery time using this formula:
-   \[
-   \text{Estimated Delivery Time} = \text{Average Delivery Time} + \text{learning rate} \times \text{residuals}
-   \]
+   
+   $$\text{Estimated Delivery Time} = \text{Average Delivery Time} + \text{learning rate} \times \text{residuals}$$
 
 5. **Compute New Residuals**: Given the new estimated delivery time, compute the new residuals. Use these values to build new decision trees in step 3.
 
