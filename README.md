@@ -24,6 +24,7 @@
   - [Margin of Error](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Margin-of-Error.md)
   - [Statistical Inference](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Statistical-Inference.md)
   - [Confidence Intervals](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Confidence-Intervals.md)
+  - [Expected Value](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Expected-Value.md)
   - [Statistical Power](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Statistical-Power.md)
   - [P-values](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/p-values.md)
   - [Statistical Significance](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/statistical-significance.md)
