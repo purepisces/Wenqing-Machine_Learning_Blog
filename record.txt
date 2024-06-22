@@ -53,7 +53,8 @@ Editor: https://stackedit.io/app#
 32.video_recommendation.md✅已发csdn,未发知乎
 33.feed_ranking.md✅已发csdn,未发知乎, 很多都用的ml system design课程内容的言论
 
-
+expected value
+exponential function
 decision tree (gradient boost decision tree)
 random forest
 regualization
