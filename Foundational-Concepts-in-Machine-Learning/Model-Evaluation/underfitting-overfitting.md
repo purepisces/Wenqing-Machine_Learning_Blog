@@ -77,6 +77,8 @@ Underfitting occurs when a model is too simple to capture the underlying structu
 - Add more features or engineer existing ones.
 - Reduce regularization parameters.
 
+> Reducing regularization parameters can help in addressing underfitting (high bias) because regularization techniques, like Lasso (L1 regularization) and Ridge (L2 regularization), add a penalty to the model's complexity. These penalties are designed to prevent overfitting by discouraging the model from becoming too complex. However, if the regularization parameters are too aggressive (i.e., the penalties are too strong), they can overly simplify the model, leading to underfitting.
+> 
 ## Overfitting (High Variance)
 
 ### Definition:
