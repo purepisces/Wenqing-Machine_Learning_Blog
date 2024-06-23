@@ -188,3 +188,7 @@
 
 ## Code Implementation
 - [Image Segmentation Task For CGG](Code-Implementation/CGG)
+
+## Machine Learning Interview Questions
+- [Interview Questions](Machine-Learning-Interview-Questions/interview-questions.md)
+
