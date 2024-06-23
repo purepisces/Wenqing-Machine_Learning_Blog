@@ -12,13 +12,13 @@ Bias refers to the assumptions made by a model to simplify the learning process.
 
 For instance, assuming the data is linear when it's actually quadratic introduces significant bias. A high bias model makes many assumptions, simplifying the model excessively and often leading to underfitting.
 
-![High Bias](straight_large_bias.png)
+![High Bias](straight_line_bias.png)
 
 ## Variance
 
 Variance measures the model's sensitivity to small fluctuations in the training dataset. A high variance model, such as a decision tree before adding constraints, is overly complex and captures noise along with the signal, often resulting in overfitting. A high variance model has too much sensitivity and it will definitely pick up any small differences in the data, so when work with small dataset, variance is a concern.
 
-![High Variance](squiggly_low_bias_high_variance.png)
+![High Variance](squiggly_line_variance.png)
 
 ## Bias-Variance Tradeoff
 There is a tradeoff between bias and variance. An overly simple model (high bias) may underfit, failing to capture important patterns. Conversely, an overly complex model (high variance) may overfit, capturing noise instead of the underlying pattern.
@@ -38,8 +38,6 @@ If we compare the sum of squares for the testing set:
 - The linear line wins on the testing set because it generalizes better to new data.
 
 The squiggly line has low bias because it is flexible and can adapt to the curve in the relationship between weight and height. However, it also has high variability, resulting in vastly different sums of squares for different datasets. This variability makes it difficult to predict how well the squiggly line will perform with future datasets; it might perform well sometimes but poorly at other times.
-
-![Low Bias, High Variance](squiggly_low_bias_high_variance.png)
 
 In contrast, the straight line has relatively high bias because it cannot capture the curve in the relationship between weight and height. However, it has relatively low variance, as the sums of squares are very similar across different datasets. Therefore, the straight line might not always provide great predictions, but it will consistently give good predictions.
 
