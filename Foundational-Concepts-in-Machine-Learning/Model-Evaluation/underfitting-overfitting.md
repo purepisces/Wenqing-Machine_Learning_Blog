@@ -1,3 +1,55 @@
+# Bias-Variance Tradeoff in Machine Learning
+
+Model predictions inevitably involve some error. The total prediction error can be broken down into three components: bias, variance, and irreducible error. The formula is:
+
+$$\text{Error} = \text{Bias}^2 + \text{Variance} + \text{Irreducible Error}$$
+
+Irreducible error, as the name suggests, cannot be reduced. It arises from noise inherent in the data. However, bias and variance are aspects we can control and manage.
+
+## Bias
+
+Bias refers to the assumptions made by a model to simplify the learning process. The inability of a model (e.g., linear regression) to capture the true relationship in the data results in bias.
+
+For instance, assuming the data is linear when it's actually quadratic introduces significant bias. A high bias model makes many assumptions, simplifying the model excessively and often leading to underfitting.
+
+![High Bias](straight_large_bias.png)
+
+## Variance
+
+Variance measures the model's sensitivity to small fluctuations in the training dataset. A high variance model, such as a decision tree before adding constraints, is overly complex and captures noise along with the signal, often resulting in overfitting. A high variance model has too much sensitivity and it will definitely pick up any small differences in the data, so when work with small dataset, variance is a concern.
+
+![High Variance](squiggly_low_bias_high_variance.png)
+
+## Bias-Variance Tradeoff
+There is a tradeoff between bias and variance. An overly simple model (high bias) may underfit, failing to capture important patterns. Conversely, an overly complex model (high variance) may overfit, capturing noise instead of the underlying pattern.
+
+### Training vs. Testing Error
+
+If we compare the sum of squares for the training set between a linear line and squiggly line:
+
+![Training Error](compare_train_sum_of_square.png)
+
+- The squiggly line wins on the training set because it can adapt to the data's nuances.
+
+If we compare the sum of squares for the testing set:
+
+![Testing Error](compare_test_sum_of_square.png)
+
+- The linear line wins on the testing set because it generalizes better to new data.
+
+The squiggly line has low bias because it is flexible and can adapt to the curve in the relationship between weight and height. However, it also has high variability, resulting in vastly different sums of squares for different datasets. This variability makes it difficult to predict how well the squiggly line will perform with future datasets; it might perform well sometimes but poorly at other times.
+
+![Low Bias, High Variance](squiggly_low_bias_high_variance.png)
+
+In contrast, the straight line has relatively high bias because it cannot capture the curve in the relationship between weight and height. However, it has relatively low variance, as the sums of squares are very similar across different datasets. Therefore, the straight line might not always provide great predictions, but it will consistently give good predictions.
+
+## Methods to Balance Bias and Variance
+
+Three commonly used methods to find the right balance are:
+- **Regularization:** Adding a penalty for complexity to the model.
+- **Boosting:** Combining weak learners to create a strong learner.
+- **Bagging:** Combining predictions from multiple models to reduce variance.
+
 # Underfitting (High Bias) & Overfitting (High Variance)
 
 In the context of machine learning and statistical modeling, understanding the balance between bias and variance is crucial for creating models that predict accurately and generalize well to unseen data. Underfitting and overfitting are two common challenges that occur at opposite ends of this spectrum.
@@ -52,21 +104,7 @@ Overfitting occurs when a model is too complex and starts to capture not only th
 
 Balancing bias and variance is key to creating models that are accurate and generalizable. A model that is too biased will miss important patterns, while a model with too much variance will be overly sensitive to fluctuations, potentially capturing noise rather than signal.
 
-## Visualization
 
-It's often helpful to visualize the effects of underfitting and overfitting:
-
-![Underfitting vs. Overfitting](underfitting_overfitting_graph.png)
-
-In the graph:
-- The green curve represents the true relationship in the data.
-- The blue line is an underfitted model, which is too simplistic.
-- The red curve is an overfitted model, which follows the training data too closely, including its noise.
-- The ideal model would closely follow the green curve without being overly sensitive to individual data points.
-
-## Conclusion
-
-Understanding the balance between bias and variance, and diagnosing signs of underfitting and overfitting, are essential skills in machine learning. With the right techniques and strategies, it's possible to create models that are both accurate and robust.
 
 ## References:
 - [Bias-Variance Tradeoff in Machine Learning](https://www.examplelink.com)
