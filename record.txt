@@ -59,6 +59,7 @@ decision tree (gradient boost decision tree)
 random forest
 regualization
 boosting
+bagging
 auc
 logistic regression
 precision-recall-f1score.md
