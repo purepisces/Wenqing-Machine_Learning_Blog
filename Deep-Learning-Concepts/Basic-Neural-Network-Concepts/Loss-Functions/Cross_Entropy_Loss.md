@@ -1,6 +1,6 @@
 # Cross-Entropy Loss
 
-Cross-entropy loss is one of the most commonly used loss function for probability-based classification problems. 
+Cross-entropy loss is one of the most commonly used loss function for probability-based classification problems. It is used to quantify the error or difference between the true distribution and a predicted distribution, which is crucial for training models in machine learning.
 
 ## Cross-Entropy Loss Forward Equation
 
