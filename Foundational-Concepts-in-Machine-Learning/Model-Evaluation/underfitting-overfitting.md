@@ -23,6 +23,12 @@ Variance measures the model's sensitivity to small fluctuations in the training 
 <img src="squiggly_line_variance.png" alt="squiggly_line_variance" width="600" height="400"/>
 
 High variance can lead to models that perform exceptionally well on training data but fail to generalize to new data.
+> **Before Adding Constraints**: Constraints are limitations or rules imposed on the decision tree to prevent it from becoming too complex. Common constraints include limiting the maximum depth of the tree, requiring a minimum number of samples per leaf, and limiting the number of features considered at each split.
+>
+> **Signal**: The true underlying patterns in the data that are consistent and meaningful.
+>
+> **Noise**: Random variations in the data that do not represent the underlying patterns and are not consistent across different datasets.
+> 
 
 ## Bias-Variance Tradeoff
 There is a tradeoff between bias and variance. An overly simple model (high bias) may underfit, failing to capture important patterns. Conversely, an overly complex model (high variance) may overfit, capturing noise instead of the underlying pattern.
