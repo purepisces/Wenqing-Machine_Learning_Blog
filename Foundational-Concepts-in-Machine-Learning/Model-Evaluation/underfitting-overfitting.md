@@ -1,4 +1,5 @@
-# Bias-Variance Tradeoff in Machine Learning
+# Underfitting (High Bias) & Overfitting (High Variance)
+In machine learning and statistical modeling, balancing bias and variance is crucial for creating models that predict accurately and generalize well to unseen data. Let's delve into these fundamental concepts and how they relate to underfitting and overfitting.
 
 Model predictions inevitably involve some error. The total prediction error can be broken down into three components: bias, variance, and irreducible error. The formula is:
 
@@ -14,14 +15,19 @@ For instance, assuming the data is linear when it's actually quadratic introduce
 
 ![High Bias](straight_line_bias.png)
 
+High bias can lead to models that underperform because they fail to capture the complexity of the data.
 ## Variance
 
-Variance measures the model's sensitivity to small fluctuations in the training dataset. A high variance model, such as a decision tree before adding constraints, is overly complex and captures noise along with the signal, often resulting in overfitting. A high variance model has too much sensitivity and it will definitely pick up any small differences in the data, so when work with small dataset, variance is a concern.
+Variance measures the model's sensitivity to small fluctuations in the training dataset. A high variance model, such as a decision tree before adding constraints, is overly complex and captures noise along with the signal, often resulting in overfitting. A high variance model has too much sensitivity and it will definitely pick up any small differences in the data, so when working with small datasets, variance is a concern.
 
 ![High Variance](squiggly_line_variance.png)
 
+High variance can lead to models that perform exceptionally well on training data but fail to generalize to new data.
+
 ## Bias-Variance Tradeoff
 There is a tradeoff between bias and variance. An overly simple model (high bias) may underfit, failing to capture important patterns. Conversely, an overly complex model (high variance) may overfit, capturing noise instead of the underlying pattern.
+
+Striking the right balance between bias and variance is essential for developing robust models that perform well on both training and unseen data.
 
 ### Training vs. Testing Error
 
@@ -48,9 +54,7 @@ Three commonly used methods to find the right balance are:
 - **Boosting:** Combining weak learners to create a strong learner.
 - **Bagging:** Combining predictions from multiple models to reduce variance.
 
-# Underfitting (High Bias) & Overfitting (High Variance)
 
-In the context of machine learning and statistical modeling, understanding the balance between bias and variance is crucial for creating models that predict accurately and generalize well to unseen data. Underfitting and overfitting are two common challenges that occur at opposite ends of this spectrum.
 
 ## Underfitting (High Bias)
 
@@ -102,7 +106,9 @@ Overfitting occurs when a model is too complex and starts to capture not only th
 
 Balancing bias and variance is key to creating models that are accurate and generalizable. A model that is too biased will miss important patterns, while a model with too much variance will be overly sensitive to fluctuations, potentially capturing noise rather than signal.
 
-
+Ultimately, the goal is to develop models that achieve the right balance, ensuring they are both accurate and capable of generalizing to new data.
 
 ## References:
-- [Bias-Variance Tradeoff in Machine Learning](https://www.examplelink.com)
+- [Watch the video on YouTube](https://www.youtube.com/watch?v=EuBBz3bI-aA)
+- [Watch the video on YouTube](https://www.youtube.com/watch?v=a6YH6EbM9xA)
+
