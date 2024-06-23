@@ -13,14 +13,14 @@ Bias refers to the assumptions made by a model to simplify the learning process.
 
 For instance, assuming the data is linear when it's actually quadratic introduces significant bias. A high bias model makes many assumptions, simplifying the model excessively and often leading to underfitting.
 
-![High Bias](straight_line_bias.png)
+<img src="straight_line_bias.png" alt="straight_line_bias" width="600" height="400"/>
 
 High bias can lead to models that underperform because they fail to capture the complexity of the data.
 ## Variance
 
 Variance measures the model's sensitivity to small fluctuations in the training dataset. A high variance model, such as a decision tree before adding constraints, is overly complex and captures noise along with the signal, often resulting in overfitting. A high variance model has too much sensitivity and it will definitely pick up any small differences in the data, so when working with small datasets, variance is a concern.
 
-![High Variance](squiggly_line_variance.png)
+<img src="squiggly_line_variance.png" alt="squiggly_line_variance" width="600" height="400"/>
 
 High variance can lead to models that perform exceptionally well on training data but fail to generalize to new data.
 
@@ -33,13 +33,13 @@ Striking the right balance between bias and variance is essential for developing
 
 If we compare the sum of squares for the training set between a linear line and squiggly line:
 
-![Training Error](compare_train_sum_of_square.png)
+<img src="compare_train_sum_of_square.png" alt="compare_train_sum_of_square" width="600" height="400"/>
 
 - The squiggly line wins on the training set because it can adapt to the data's nuances.
 
 If we compare the sum of squares for the testing set:
 
-![Testing Error](compare_test_sum_of_square.png)
+<img src="compare_test_sum_of_square.png" alt="compare_test_sum_of_square" width="600" height="400"/>
 
 - The linear line wins on the testing set because it generalizes better to new data.
 
@@ -53,8 +53,6 @@ Three commonly used methods to find the right balance are:
 - **Regularization:** Adding a penalty for complexity to the model.
 - **Boosting:** Combining weak learners to create a strong learner.
 - **Bagging:** Combining predictions from multiple models to reduce variance.
-
-
 
 ## Underfitting (High Bias)
 
