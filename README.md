@@ -86,6 +86,8 @@
     - [Standard Error of the Estimate](standard-error-estimate.md) 
 - **Logistic Regression**
   - [Overview](Foundational-Concepts-in-Machine-Learning/Logistic-Regression/logistic-regression.md)
+- **Decision Trees**
+  - [Overview](Foundational-Concepts-in-Machine-Learning/Decision-Trees/decision-trees.md)
 - **T-SNE**
   - [Overview](Foundational-Concepts-in-Machine-Learning/t-sne.md)
 - **Dimensionality Reduction**
