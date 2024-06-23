@@ -107,6 +107,6 @@ Balancing bias and variance is key to creating models that are accurate and gene
 Ultimately, the goal is to develop models that achieve the right balance, ensuring they are both accurate and capable of generalizing to new data.
 
 ## References:
-- [Watch the video on YouTube](https://www.youtube.com/watch?v=EuBBz3bI-aA)
-- [Watch the video on YouTube](https://www.youtube.com/watch?v=a6YH6EbM9xA)
+- [Watch the video1 on YouTube](https://www.youtube.com/watch?v=EuBBz3bI-aA)
+- [Watch the video2 on YouTube](https://www.youtube.com/watch?v=a6YH6EbM9xA)
 
