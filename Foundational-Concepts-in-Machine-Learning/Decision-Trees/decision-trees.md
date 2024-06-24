@@ -21,6 +21,17 @@ Lastly, these are called **leaf nodes** or just **leaves**. Leaves have arrows p
 
 <img src="leaf_node.png" alt="leaf_node" width="500" height="350"/>
 
+## Example 
+
+Now let's learn how to build a decision tree from raw data. This dataset includes information on whether or not someone loves popcorn, whether or not they love soda, their age, and whether or not they love "Cool as Ice." Our goal is to build a classification tree that predicts whether or not someone loves "Cool as Ice."
+
+The first step is to decide which feature (loves popcorn, loves soda, or age) should be the question we ask at the very top of the tree. To make this decision, we start by examining how well each feature predicts whether or not someone loves "Cool as Ice."
+
+To evaluate this, we start by looking at how well loves popcorn predicts whether or not someone loves cool as ice. We'll create a simple tree that only asks if someone loves popcorn. For example, if the first person in the dataset loves popcorn, they will go to the leaf on the left. Similarly, we create a simple tree that only asks if someone loves soda. We then run the data through the tree to see how well it predicts the outcome.
+
+<img src="raw_data.png" alt="raw_data" width="500" height="350"/>
+<img src="soda_little_tree.png" alt="soda_little_tree" width="500" height="350"/>
+
 ## Impurity
 Because these three leaves all contain a mixture of people who do and do not love "Cool as Ice," they are called **impure**.
 
