@@ -53,7 +53,7 @@ Editor: https://stackedit.io/app#
 32.video_recommendation.md✅已发csdn,未发知乎
 33.feed_ranking.md✅已发csdn,未发知乎, 很多都用的ml system design课程内容的言论
 34.underfitting-overfitting.md✅已发csdn
-
+35.decision-tree.md✅ add regression tree explanation in statquest youtube under it
 expected value
 exponential function
 decision tree (gradient boost decision tree)
