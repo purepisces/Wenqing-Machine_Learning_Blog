@@ -1,34 +1,34 @@
 # Decision Trees
 
 ## Overview
-In general, a decision tree makes a statement and then makes a decision based on whether or not that statement is true or false. When a decision tree classifies things into categories, it is called a classification tree. And when a decision tree predicts numeric values, it's called a regression tree.
 
-![Classification Tree](classification_tree.png)
-![Regression Tree](regression_tree.png)
+In general, a decision tree makes a statement and then makes a decision based on whether that statement is true or false. When a decision tree classifies things into categories, it is called a **classification tree**. When a decision tree predicts numeric values, it's called a **regression tree**.
 
+<img src="classification_tree.png" alt="classification_tree" width="500" height="350"/> <img src="regression_tree.png" alt="regression_tree" width="500" height="350"/>
 
 ## Root Node
-The very top of the tree is called the root node or just the root.
+The very top of the tree is called the **root node** or just the **root**.
 
-![Root Node](root_node.png)
+<img src="root_node.png" alt="root_node" width="500" height="350"/>
 
 ## Internal Nodes
-These are called internal nodes, or branches. Branches have arrows pointing to them, and they have arrows pointing away from them.
+These are called **internal nodes**, or **branches**. Branches have arrows pointing to them and from them.
 
-![Internal Node](internal_node.png)
+<img src="internal_node.png" alt="internal_node" width="500" height="350"/>
 
 ## Leaf Nodes
-Lastly, these are called leaf nodes or just leaves. Leaves have arrows pointing to them, but there are no arrows pointing away from them.
+Lastly, these are called **leaf nodes** or just **leaves**. Leaves have arrows pointing to them but not away from them.
 
-![Leaf Node](leaf_node.png)
+<img src="leaf_node.png" alt="leaf_node" width="500" height="350"/>
 
 ## Impurity
 Because these three leaves all contain a mixture of people who do and do not love "Cool as Ice," they are called **impure**.
 
-![Impure](impure.png)
+<img src="impure.png" alt="leaf_node" width="500" height="350"/>
+
 
 ## Gini Impurity
-There are several ways to quantify the impurity of the leaves. One of the most popular methods is called Gini impurity, but there are also fancy-sounding methods like entropy and information gain. However, numerically, the methods are all quite similar, so we will focus on Gini impurity since not only is it very popular, but I think it is the most straightforward.
+There are several ways to quantify the impurity of the leaves. One popular method is called **Gini impurity**. Other methods include **entropy** and **information gain**. Numerically, these methods are similar, so we will focus on Gini impurity due to its popularity and straightforward nature.
 
 ### Calculating Gini Impurity for "Loves Popcorn"
 To calculate the Gini impurity for "Loves Popcorn," we start by calculating the Gini impurity for the individual leaves.
@@ -54,23 +54,26 @@ $$
 = 0.405
 $$
 
-So, the Gini impurity for "Loves Popcorn" = 0.405
-![Gini Impurity for Popcorn](popcorn_gini_impurity.png)
+So, the Gini impurity for "Loves Popcorn" is 0.405.
+
+<img src="popcorn_gini_impurity.png" alt="popcorn_gini_impurity" width="500" height="350"/>
+
 
 
 ### Gini Impurity for "Loves Soda"
-Likewise, the Gini impurity for "Loves Soda" is 0.214
+Likewise, the Gini impurity for "Loves Soda" is 0.214.
 
-![Gini Impurity for Soda](soda_gini_impurity.png)
+<img src="soda_gini_impurity.png" alt="soda_gini_impurity" width="500" height="350"/>
+
 
 ### Calculating Gini Impurity for "Age"
-Now we need to calculate the Gini impurity for "Age." However, because "Age" contains numeric data, and not just yes/no values, calculating the Gini impurity is a little more involved.
+For numeric data like "Age," we sort the rows by age, from lowest value to highest value, then calculate the average age for adjacent people. We then calculate the Gini impurity for each average age.
 
-The first thing we do is sort the rows by age, from lowest value to highest value, then we calculate the average age for all adjacent people. Lastly, we calculate the Gini impurity values for each average age.
+<img src="age_gini_impurity.png" alt="age_gini_impurity" width="500" height="350"/>
 
-![Gini Impurity for Age](age_gini_impurity.png)
+For example, to calculate the Gini impurity for the first value, we use age < 9.5 at the root.
 
-For example, to calculate the Gini impurity for the first value, we put age < 9.5 in the root. 
+
 
 #### Gini impurity for left leaf:
 $$
@@ -79,54 +82,65 @@ $$
 = 0
 $$
 
-We got 0 and this makes sense because every single person in this leaf does not love "Cool as Ice," so there is no impurity.
+This makes sense because every person in this leaf does not love "Cool as Ice," so there is no impurity.
 
-![Impurity 0](impurity_0.png)
-
-
+<img src="impurity_0.png" alt="impurity_0" width="500" height="350"/>
 
 #### Gini impurity for right leaf:
-The Gini impurity for the right leaf is 0.5. Now we calculate the weighted average of the two impurities to get the total Gini impurity, which is 0.429.
+The Gini impurity for the right leaf is 0.5. Now we calculate the weighted average of the two impurities to get the total Gini impurity:
 
-![Impurity 0.429](429.png)
+$$
+\text{Total Gini impurity} = \left(\frac{1}{1+6}\right) \times 0 + \left(\frac{6}{1+6}\right) \times 0.5 \\
+= 0.429
+$$
 
-Likewise, we calculate the Gini impurities for all of the other candidate values and these two candidate thresholds, 15 and 44, are tied for the lowest impurity, 0.343. So we can pick either one. In this case, we'll pick 15.
+<img src="429.png" alt="429" width="500" height="350"/>
 
-![Tied Impurity](tied.png)
 
-However, remember that we are comparing Gini impurity values for age, "Loves Popcorn," and "Loves Soda" to decide which feature should be at the very top of the tree. Remember that the Gini impurities for them are 0.405, 0.214, and 0.343 separately. Since "Loves Soda" has the lowest Gini impurity, we put "Loves Soda" at the top of the tree.
+For other candidate values, the lowest impurity is 0.343, achieved with thresholds 15 and 44. We'll pick 15 for this example.
 
-![Soda Top](soda_top.png)
+<img src="tied.png" alt="tied" width="500" height="350"/>
 
-## Node on the Left
+Comparing Gini impurity values for age, "Loves Popcorn," and "Loves Soda" (0.343, 0.405, and 0.214, respectively), "Loves Soda" has the lowest Gini impurity, so it goes at the top of the tree.
+
+<img src="soda_top.png" alt="soda_top" width="500" height="350"/>
+
 Now let's focus on the node on the left. All 4 people that love soda are in this node, 3 of these people love "Cool as Ice" and 1 does not, so this node is impure. So let's see if we can reduce the impurity by splitting the people that love soda based on "Loves Popcorn" or age. We'll start by asking the 4 people that love soda if they also love popcorn. The total Gini impurity for this split is 0.25.
 
-![Loves Soda Whether Popcorn](love_soda_whether_popcorn.png)
 
-Now we test different age thresholds just like before, only this time we only consider the ages of people who love soda and age < 12.5 gives us the lowest impurity, 0 because both leaves have no impurity at all.
+<img src="love_soda_whether_popcorn.png" alt="love_soda_whether_popcorn" width="500" height="350"/>
 
-![Age 12.5](age12-5.png)
 
-Now because 0 is less than 0.25, we will use age < 12.5 to split this node into leaves.
+Now testing different age thresholds just like before, only this time we only consider the ages of people who love soda and age < 12.5 gives us the lowest impurity 0 because both leaves have no impurity at all.
 
-![Split by Age 12.5](split_by_age12_5.png)
+<img src="age12-5.png" alt="age12-5" width="500" height="350"/>
 
-And note that, the arrows point to the leaves because there is no reason to continue splitting these people into smaller groups.
+Since 0 is less than 0.25, we use age < 12.5 to split this node into leaves.
 
-![Leaves](leaves.png)
+<img src="split_by_age12_5.png" alt="split_by_age12_5" width="500" height="350"/>
+
+The arrows point to the leaves as no further splitting is needed.
+
+<img src="leaves.png" alt="leaves" width="500" height="350"/>
+
 
 ## Assigning Output Values
-Then there is just one last thing we need to do before we are done building this tree: we need to assign output values for each leaf. Generally speaking, the output of a leaf is whatever category that has the most votes. So for the leaf where the majority of the people love "Cool as Ice," the output value is "Loves Cool as Ice."
+The output of a leaf is the category with the most votes. For example, if most people in a leaf love "Cool as Ice," that is the output value.
 
-![Finish Building Tree](finish_build_tree.png)
+<img src="finish_build_tree.png" alt="finish_build_tree" width="500" height="350"/>
 
 ## Handling Overfitting
-Lastly, for some technical details, remember when we built this tree only one person in the original dataset made it to this leaf. Because so few people made it to this leaf, it's hard to have confidence that it will do a great job making predictions with future data. And it's possible that we have overfit the data.
+Lastly, remember when we built this tree, only one person in the original dataset made it to this leaf. Because so few people made it to this leaf, it's hard to have confidence that it will do a great job making predictions with future data. This indicates that we may have overfit the data.
 
-![One Person](one_person.png)
+<img src="one_person.png" alt="One Person" width="500" height="350"/>
 
-In practice, there are two main ways to deal with this problem: one method is called pruning. Alternatively, we can put limits on how trees grow, for example, by requiring 3 or more people per leaf. Now we end up with an impure leaf, but also a better sense of the accuracy of our prediction because we know that only 75% of the people in the leaf loved "Cool as Ice." Note even when a leaf is impure we still need an output value to make a classification, and since most of the people in this leaf love "Cool as Ice," that will be the output value.
+In practice, there are two main ways to address this problem:
+1. **Pruning**: This technique involves trimming the tree by removing nodes that provide little to no predictive power. For example, if we have a node that splits based on a feature but does not significantly reduce impurity, we can remove this node and merge its branches. This simplification helps improve the model's generalization to new data. Imagine a node that splits based on whether someone likes a very niche movie that most people haven't seen. If this split doesn't help in predicting the outcome, we can prune this node to prevent overfitting.
+2. **Setting Growth Limits**: We can limit how trees grow, for example, by requiring a minimum of 3 people per leaf. This results in an impure leaf, but it gives a better sense of the accuracy of our prediction. For instance, if only 75% of the people in the leaf loved "Cool as Ice," we still need an output value to make a classification. Since most of the people in this leaf love "Cool as Ice," that will be the output value.
 
-![75%](75.png)
+<img src="75.png" alt="75%" width="500" height="350"/>
 
-Also note, when we build a tree, we don't know in advance if it is better to require 3 people per leaf or some other number, so we test different values with something called cross-validation and pick the one that works best.
+Additionally, when building a tree, we don't know in advance the optimal number of people per leaf. Therefore, we test different values using a method called **cross-validation** and pick the one that works best.
+
+## Reference:
+- [Watch the video on YouTube](https://www.youtube.com/watch?v=_L39rN6gz7Y&t=903s)
