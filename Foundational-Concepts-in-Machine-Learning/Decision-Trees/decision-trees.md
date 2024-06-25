@@ -144,6 +144,9 @@ In practice, there are two main ways to address this problem:
 
 Additionally, when building a tree, we don't know in advance the optimal number of people per leaf. Therefore, we test different values using a method called **cross-validation** and pick the one that works best.
 ## Code Implementation:
+In the folloing code, we are using $\text{Information Gain} = \text{Entropy (Original Dataset)} - \text{Conditional Entropy (After Split)}$.
+
+But we can also use $\text{Information Gain} = \text{Gini Impurity (Original Dataset)} - \text{Gini Impurity (After Split)}$.
 - [Decision Tree](../../Code-Implementation/Decision-Tree)
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=_L39rN6gz7Y&t=903s)
