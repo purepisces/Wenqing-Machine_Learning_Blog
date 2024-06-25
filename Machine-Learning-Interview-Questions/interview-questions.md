@@ -11,4 +11,12 @@ In order to handle some missing or corrupted data, the easiest way is to just re
 
 ## Question 2
 
+**Explain Decision Tree Classification**
 
+A decision tree uses a tree structure to generate any regression or classification models. While the decision tree is developed, the datasets are split up into ever-smaller subsets in a tree-like manner with branches and nodes. Decision trees can handle both categorical and numerical data.
+
+## Question 3
+
+
+## Reference
+- https://www.turing.com/interview-questions/machine-learning
