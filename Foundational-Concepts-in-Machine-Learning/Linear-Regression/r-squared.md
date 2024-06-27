@@ -15,7 +15,9 @@
 1. **Initial Data Plotting**
    - Plot mouse weight (y-axis) against mouse IDs (x-axis).
    - Calculate and plot the mean weight.
-   - Calculate variance as the sum of squared differences from the mean. The variation of the data = sum(weight for mouse I - mean)^2. The difference between each data point is squared so that points below the mean don’t cancel out points above the mean.
+   - Calculate variance as the sum of squared differences from the mean.
+     $\text{The variation of the data} = \text{Sum(weight for mouse i } - \text{mean})^2$
+ The difference between each data point is squared so that points below the mean don’t cancel out points above the mean.
 
 
 <img src="variation-of-ID.png" alt="variation-of-ID" width="400" height="300"/>
