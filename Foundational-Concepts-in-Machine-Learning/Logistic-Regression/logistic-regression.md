@@ -98,3 +98,86 @@ Logistic regression is a robust and efficient method for binary classification, 
 
 - The term $$z = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_n x_n$$ represents the log-odds in the logistic regression model. Although $z$ itself does not contain a logarithm, it is the argument of the logistic function, which maps it to a probability.
 
+# The Gradient of the Cost Function in Logistic Regression
+
+The gradient of the cost function \( J(\theta) \) with respect to the parameters \( \theta \) in logistic regression is given by:
+
+\[ \frac{\partial J(\theta)}{\partial \theta} = x^{(i)} (h_\theta(x^{(i)}) - y^{(i)}) \]
+
+This formula arises from the process of deriving the gradient for the logistic regression cost function, which is based on the log-likelihood function for a binary classification problem.
+
+## Derivation
+
+Let's derive this step-by-step.
+
+### 1. Hypothesis Function
+
+In logistic regression, the hypothesis function \( h_\theta(x) \) is given by the sigmoid function applied to the linear combination of the input features:
+
+\[ h_\theta(x) = \sigma(\theta^T x) = \frac{1}{1 + e^{-\theta^T x}} \]
+
+### 2. Cost Function
+
+The cost function for logistic regression is the negative log-likelihood for the training data, which can be written as:
+
+\[ J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} \left[ y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] \]
+
+### 3. Simplifying the Cost Function
+
+For simplicity, we focus on the cost function for a single training example \((x^{(i)}, y^{(i)})\):
+
+\[ J(\theta) = -\left[ y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] \]
+
+### 4. Partial Derivative with Respect to \(\theta_j\)
+
+To find the gradient, we need to compute the partial derivative of \( J(\theta) \) with respect to each parameter \(\theta_j\). Let's denote \( z = \theta^T x^{(i)} \), so \( h_\theta(x^{(i)}) = \sigma(z) \).
+
+The partial derivative of \( J(\theta) \) with respect to \(\theta_j\) is:
+
+\[ \frac{\partial J(\theta)}{\partial \theta_j} = -\left[ \frac{\partial}{\partial \theta_j} y^{(i)} \log(h_\theta(x^{(i)})) + \frac{\partial}{\partial \theta_j} (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] \]
+
+Using the chain rule, we have:
+
+\[ \frac{\partial}{\partial \theta_j} h_\theta(x^{(i)}) = \frac{\partial}{\partial \theta_j} \sigma(z) = \sigma(z) (1 - \sigma(z)) \frac{\partial z}{\partial \theta_j} = h_\theta(x^{(i)}) (1 - h_\theta(x^{(i)})) x_j^{(i)} \]
+
+### 5. Derivative of Each Term
+
+Now, compute the partial derivatives of each term in the cost function:
+
+\[ \frac{\partial}{\partial \theta_j} y^{(i)} \log(h_\theta(x^{(i)})) = y^{(i)} \frac{1}{h_\theta(x^{(i)})} \frac{\partial h_\theta(x^{(i)})}{\partial \theta_j} = y^{(i)} \frac{1}{h_\theta(x^{(i)})} h_\theta(x^{(i)}) (1 - h_\theta(x^{(i)})) x_j^{(i)} = y^{(i)} (1 - h_\theta(x^{(i)})) x_j^{(i)} \]
+
+\[ \frac{\partial}{\partial \theta_j} (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) = (1 - y^{(i)}) \frac{1}{1 - h_\theta(x^{(i)})} \frac{\partial (1 - h_\theta(x^{(i)})}{\partial \theta_j} = (1 - y^{(i)}) \frac{1}{1 - h_\theta(x^{(i)})} (-h_\theta(x^{(i)})) x_j^{(i)} = - (1 - y^{(i)}) h_\theta(x^{(i)}) x_j^{(i)} \]
+
+### 6. Combine the Terms
+
+Combining these results:
+
+\[ \frac{\partial J(\theta)}{\partial \theta_j} = - \left[ y^{(i)} (1 - h_\theta(x^{(i)})) x_j^{(i)} + (1 - y^{(i)}) (- h_\theta(x^{(i)})) x_j^{(i)} \right] \]
+
+\[ \frac{\partial J(\theta)}{\partial \theta_j} = - \left[ y^{(i)} x_j^{(i)} - y^{(i)} h_\theta(x^{(i)})) x_j^{(i)} - (1 - y^{(i)}) h_\theta(x^{(i)})) x_j^{(i)} \right] \]
+
+\[ \frac{\partial J(\theta)}{\partial \theta_j} = - \left[ y^{(i)} x_j^{(i)} - y^{(i)} h_\theta(x^{(i)})) x_j^{(i)} - h_\theta(x^{(i)})) x_j^{(i)} + y^{(i)} h_\theta(x^{(i)})) x_j^{(i)} \right] \]
+
+\[ \frac{\partial J(\theta)}{\partial \theta_j} = - \left[ y^{(i)} x_j^{(i)} - h_\theta(x^{(i)})) x_j^{(i)} \right] \]
+
+\[ \frac{\partial J(\theta)}{\partial \theta_j} = x_j^{(i)} (h_\theta(x^{(i)})) - y^{(i)}) \]
+
+### Vector Form
+
+To express this in vector form for all parameters:
+
+\[ \nabla_\theta J(\theta) = x^{(i)} (h_\theta(x^{(i)}) - y^{(i)}) \]
+
+Where:
+- \( x^{(i)} \) is the feature vector for the i-th example.
+- \( h_\theta(x^{(i)}) \) is the predicted probability for the i-th example.
+- \( y^{(i)} \) is the actual label for the i-th example.
+
+### Summary
+
+The gradient of the cost function in logistic regression is:
+
+\[ \frac{\partial J(\theta)}{\partial \theta} = x^{(i)} (h_\theta(x^{(i)}) - y^{(i)}) \]
+
+This gradient tells us how to adjust the model parameters \( \theta \) to minimize the cost function, and it is the key component used in gradient descent optimization to train the logistic regression model.
+
