@@ -1,4 +1,4 @@
-### Understanding R Squared (R²)
+# Understanding R Squared (R²)
 
 #### What is Correlation (R)?
 - Correlation measures the strength of a relationship between two quantitative variables (e.g., weight and size).
