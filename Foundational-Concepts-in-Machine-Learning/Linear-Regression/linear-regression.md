@@ -88,8 +88,8 @@ So they ended up squaring each term. Squaring ensures that each term is positive
 Here is the equation that shows the total distance the data points have from the horizontal line. $(b-y_1)^2 + (b-y_2)^2+(b-y_3)^2+(b-y_4)^2+…+ = 24.62$, this is our measure of how well this line fits the data. It’s called the “sum of squared residual”, because the residuals are the differences between the real data and the line, and we are summing the square of these values.
 
 <img src="calculate_distance3.png" width="400" height="350" alt="calculate_distance3">
-To find that sweet spot, let’s start with the generic line equation, which is $$y = a * x+ b$$ , a is the slope of the line, and b is the y-intercept of the line. We want to find the optimal values for a and b so that we minimize the sum of squared residuals.
-In more general math terms, sum of squared residuals = $$((a * x_1+b)-y_1)^2+((a * x_2+b)-y_2)^2+…$$ which is calculating the distance between the line and the observed value.
+To find that sweet spot, let’s start with the generic line equation, which is $y = a * x+ b$ , a is the slope of the line, and b is the y-intercept of the line. We want to find the optimal values for a and b so that we minimize the sum of squared residuals.
+In more general math terms, sum of squared residuals = $((a * x_1+b)-y_1)^2+((a * x_2+b)-y_2)^2+…$ which is calculating the distance between the line and the observed value.
 
 <img src="SSR.png" width="400" height="350" alt="SSR">
 
@@ -105,13 +105,13 @@ We take the derivative of this function, the derivative tells us the slope of th
 Taking the derivatives of both the slope and the intercepts tells us where the optimal values are for the best fit.
 
 <img src="optimal_value.png" width="400" height="350" alt="optimal_value">
-No one ever solves this problem by hand, this is done on a computer. This is done on a computer, so for most people, it is not essential to know how to take these derivatives.
+No one ever solves this problem by hand, this is done on a computer. So for most people, it is not essential to know how to take these derivatives.
 
 Big important concept:
 We want to minimize the square of the distance between the observed values and the line.
 <img src="big_important_concept1.png" width="400" height="350" alt="big_important_concept1">
 
-We do this by taking the derivative and finding where it is equal to 0. The final line minimizes the sums of squares(it gives the “least squares”) between it and the real data. In this case, the line is defined by the following equation y = 0.77*x + 0.66.
+We do this by taking the derivative and finding where it is equal to 0. The final line minimizes the sums of squares(it gives the “least squares”) between it and the real data. In this case, the line is defined by the following equation $y = 0.77*x + 0.66$.
 <img src="big_important_concept2.png" width="400" height="350" alt="big_important_concept2">
 <img src="big_important_concept22.png" width="400" height="350" alt="big_important_concept22">
 
