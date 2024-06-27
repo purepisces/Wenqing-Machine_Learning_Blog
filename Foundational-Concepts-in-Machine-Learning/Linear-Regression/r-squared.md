@@ -1,16 +1,16 @@
 # Understanding R Squared (R²)
 
-#### What is Correlation (R)?
+### What is Correlation (R)?
 - Correlation measures the strength of a relationship between two quantitative variables (e.g., weight and size).
 - Values close to 1 or -1 indicate a strong relationship.
 - Values close to 0 suggest a weak or no relationship.
   
-#### Why R² Matters?
+### Why R² Matters?
 - R², is a metric of correlation. Like R, measures the strength of a relationship, but it's easier to interpret.
 - While R = 0.7 might not seem twice as strong as R = 0.5, R² = 0.7 is what it looks like, 1.4 times as good as R² = 0.5
 - R² provides an intuitive and straightforward calculation.
 
-#### Example: Mouse Weight Prediction
+### Example: Mouse Weight Prediction
 
 1. **Initial Data Plotting**
    - Plot mouse weight (y-axis) against mouse IDs (x-axis).
@@ -60,13 +60,13 @@ Another example, in this example we’re comparing two possibly uncorrelated var
 
 <img src="r-squared-6.png" alt="r-squared-6" width="400" height="300"/>
 
-#### Interpreting R²
+### Interpreting R²
 - Statistically significant R² = 0.9: 90% of the variation is explained by the relationship.
 - Statistically significant R² = 0.01: Only 1% of the variation is explained.
 
 Now when someone says, “The statistically significant R² was 0.9” you can think to yourself “Very good! The relationship between the two variables explains 90% of the variation in the data!” And when someone else says “ The statistically significant R² was 0.01…” You can think to yourself… “Dag! Who cares if that relationship is significant, it only accounts for 1% of the variation of the data. Something else must explain the remaining 99%.”
 
-#### Relation to R
+### Relation to R
 - R² is the square of R.
 - A high R (e.g., 0.9) squared gives a high R² (e.g., 0.81).
 - R² provides a clearer comparison and is easier to interpret (e.g., R² of 0.7² is twice as good as 0.5²).
@@ -85,7 +85,7 @@ Well, if we convert those numbers to R^2, we see that:
 R² = 0.7^2 = 0.5 50% of the original variation is explained
 R² = 0.5^2 = 0.25 25% of the original variation is explained
 With R², it is easy to see that the first correlation is twice as good as the second. 
-#### Key Points
+### Key Points
 - R² indicates the percentage of variation explained by the relationship.
 - R² does not indicate the direction of the correlation.
 - Square the value of R to get R² for easier interpretation.
