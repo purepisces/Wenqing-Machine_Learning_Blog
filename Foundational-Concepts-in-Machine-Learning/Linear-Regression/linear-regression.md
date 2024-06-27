@@ -134,6 +134,8 @@ Similarly, if the derivative of SSR with respect to $b$ is negative, increasing 
 
 In summary, a non-zero derivative at a point indicates that moving in the direction opposite to the sign of the derivative will decrease the function value (SSR in this case). In the context of linear regression, we need both derivatives (with respect to $a$ and $b$ to be zero to ensure we've found the minimum SSR, where the line best fits the data. 
 
-
+> If the derivative is positive, moving in the direction opposite to the sign of the derivative means decreasing the variable.
+If the derivative is negative, moving in the direction opposite to the sign of the derivative means increasing the variable.
+> 
 ## Reference:
 - [YouTube Video](https://www.youtube.com/watch?v=PaFPbb66DxQ)
