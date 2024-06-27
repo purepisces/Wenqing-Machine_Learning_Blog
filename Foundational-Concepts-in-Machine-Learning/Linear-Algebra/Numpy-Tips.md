@@ -95,7 +95,38 @@ $$
 > Note: In element-wise division, the two matrix must be the same shape.
 >
 
-# Notes
+# Vector Representations in NumPy
 In the context of NumPy and linear algebra, a 1-dimensional array does not explicitly represent either a row vector or a column vector. Instead, it is simply a sequence of numbers. The distinction between a row vector and a column vector becomes meaningful when dealing with 2-dimensional arrays (matrices).
 
+### 1-Dimensional Array in NumPy
 
+A 1-dimensional array in NumPy:
+
+- **Shape**: $(n,)$
+- **Example**: `[1, 2, 3]`
+
+### Row Vector vs. Column Vector
+
+**Row Vector**: A 2-dimensional array with a single row.
+
+- **Shape**: $(1, n)$
+- **Example**:
+
+$$
+\begin{pmatrix}
+1&2&3
+\end{pmatrix}
+$$
+
+**Column Vector**: A 2-dimensional array with a single column.
+
+- **Shape**: $(n, 1)$
+- **Example**:
+
+$$
+\begin{pmatrix}
+1\\
+2\\
+3
+\end{pmatrix}
+$$
