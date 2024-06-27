@@ -6,7 +6,7 @@
 - Values close to 0 suggest a weak or no relationship.
   
 ### Why R² Matters?
-- R², is a metric of correlation. Like R, measures the strength of a relationship, but it's easier to interpret.
+- R², is a metric of correlation like R, which measures the strength of a relationship, but it's easier to interpret.
 - While R = 0.7 might not seem twice as strong as R = 0.5, R² = 0.7 is what it looks like, 1.4 times as good as R² = 0.5
 - R² provides an intuitive and straightforward calculation.
 
