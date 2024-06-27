@@ -1,0 +1,109 @@
+import numpy as np
+import sys
+VECTOR_LEN = 300  # Length of globevec vector
+def load_data(input_file):
+    features_X = []
+    labels_y = []
+    with open(input_file, 'r') as f:
+        #read the first line from the file.
+        line = f.readline()
+        while line:
+            feature_vector = []
+            # Remove the newline character before looks like "1.000000\t-0.055609\t-0.059035\t-0.028827\n"after is "1.000000\t-0.055609\t-0.059035\t-0.028827"
+            line = line.strip('\n')
+            labels_y.append(float(line[0]))
+            single_X = line.split('\t')[1:]
+            for feature in single_X:
+                feature_vector.append(float(feature))
+            feature_vector.append(1.000000)
+            features_X.append(feature_vector)
+            line = f.readline()
+    #features_list [['-0.166666','0.6417',...1],['-0.2899','0.2039',...1],...]
+    #labels_list [1.0, 0.0, 0.0, 1.0, 1.0,1.0, 1.0, 0.0, 1.0, 1.0]
+    return features_X, labels_y
+
+def sigmoid(x):
+    """
+    Implementation of the sigmoid function.
+
+    Parameters:
+        x (str): Input np.ndarray.
+
+    Returns:
+        An np.ndarray after applying the sigmoid function element-wise to the
+        input.
+    """
+    e = np.exp(x)
+    return e / (1 + e)
+
+# h_\theta(x^{(i)}) = \sigma(\theta^T x^{(i)})
+# The gradient of the cost function for logistic regression: x^{(i)} (h_\theta(x^{(i)}) - y^{(i)})
+def dJ(theta, X, y, i):
+    #print("X[i]'s shape",np.array(X[i]).shape) X[i]'s shape (301,)
+    #print("theta's shape",theta.shape) theta's shape (301,)
+    return np.array(X[i]) * (-y[i] + sigmoid(np.matmul(np.array(X[i]), theta)))
+
+def train(theta, X, y, num_epoch, learning_rate):
+    for num_epoch in range(int(num_epoch)):
+        for i in range(len(X)):
+            theta -= float(learning_rate) * dJ(theta, X, y,i )
+    return theta
+
+def predict(update_theta, X):
+    y_pred = []
+    for i in range(len(X)):
+        if sigmoid(np.matmul(X[i], update_theta)) >= 0.5:
+            y_pred.append(1)
+        else:
+            y_pred.append(0)
+    return y_pred
+
+
+def compute_error(y_pred, y):
+    # TODO: Implement `compute_error` using vectorization
+    error = 0
+    for i in range(len(y_pred)):
+        if y_pred[i] != y[i]:
+            error += 1
+    return error/len(y_pred)
+
+
+def write_label_file(y_pred, label_file):
+    file = open(label_file, "w")
+    for i in range(len(y_pred)):
+        file.write("{}\n".format(y_pred[i]))
+    file.close()
+
+
+if __name__ == "__main__":
+    formatted_train_input = sys.argv[1]
+    formatted_validation_input = sys.argv[2]
+    formatted_test_input = sys.argv[3]
+    train_out = sys.argv[4]
+    test_out = sys.argv[5]
+    metrics_out = sys.argv[6]
+    num_epoch = sys.argv[7]
+    learning_rate = sys.argv[8]
+
+    train_features_x = load_data(formatted_train_input)[0]
+    train_labels_y = load_data(formatted_train_input)[1]
+    train_theta = np.zeros((VECTOR_LEN + 1,))
+    new_train_theta = train(train_theta, train_features_x, train_labels_y, num_epoch, learning_rate)
+    train_y_pred = predict(new_train_theta, train_features_x)
+    write_label_file(train_y_pred, train_out)
+    train_error = compute_error(train_y_pred, train_labels_y)
+
+
+    test_features_x = load_data(formatted_test_input)[0]
+    test_labels_y = load_data(formatted_test_input)[1]
+    test_y_pred = predict(new_train_theta, test_features_x)
+    write_label_file(test_y_pred, test_out)
+    test_error = compute_error(test_y_pred, test_labels_y)
+
+
+    file = open(metrics_out, "w")
+    file.write("error(train): {}\n".format(train_error))
+    file.write("error(test): {}\n".format(test_error))
+    file.close()
+
+    load_data(formatted_validation_input)
