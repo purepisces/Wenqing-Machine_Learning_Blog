@@ -8,7 +8,9 @@
 ### Why R² Matters?
 - R², is a metric of correlation like R, which measures the strength of a relationship, but it's easier to interpret.
 - While R = 0.7 might not seem twice as strong as R = 0.5, R² = 0.7 is what it looks like, 1.4 times as good as R² = 0.5
-- R² provides an intuitive and straightforward calculation.
+- R² provides an intuitive and straightforward calculation for understanding the proportion of variation explained by the relationship.
+
+> R² directly tells us the percentage of variation explained by the model, making it easier to understand how much of the outcome is accounted for by the predictor(s). For example, an R² of 0.49 means 49% of the variation is explained by the model, while an R² of 0.25 means 25% is explained.
 
 ### Example: Mouse Weight Prediction
 
@@ -17,13 +19,13 @@
    - Calculate and plot the mean weight.
    - Calculate variance as the sum of squared differences from the mean.
      $\text{The variation of the data} = \text{Sum(weight for mouse i } - \text{mean})^2$
- The difference between each data point is squared so that points below the mean don’t cancel out points above the mean.
+     The difference between each data point is squared so that points below the mean don’t cancel out points above the mean.
 
 
 <img src="variation-of-ID.png" alt="variation-of-ID" width="400" height="300"/>
 
 2. **Reordering Data by Size**
-   - Reorder mice by size without changing the mean and variance. The distances between the dots and the line have not changed(just their order).
+   - Reorder mice by size without changing the mean and variance. The distances between the dots and the line have not changed, just their order.
 
 <img src="variation-of-Size.png" alt="variation-of-Size" width="400" height="300"/>
 
@@ -36,27 +38,22 @@
 
 4. **Quantifying the Improvement with R²**
    - $R² = \frac{(Var(mean) - Var(line))}{Var(mean)}$
-   - Ranges from 0 to 1, with higher values indicating better predictions.
+       Ranges from 0 to 1, with higher values indicating better predictions.
 
 
- <img src="quantify-R-square.png" alt="quantify R square" width="400" height="300"/>
+ <img src="quantify-R-square.png" alt="quantify R square" width="350" height="300"/> <img src="Var(mean).png" alt="Var(mean)" width="320" height="300"/>  <img src="Var(line).png" alt="Var(line)" width="320" height="300"/>
 
-The equation is $R² = \frac{(Var(mean) - Var(line))}{Var(mean)}$
- 
- <img src="Var(mean).png" alt="Var(mean)" width="300" height="200"/>  <img src="Var(line).png" alt="Var(line)" width="300" height="200"/>
-
-
-R² range from 0 to 1, since the variation around the line will never be greater than the variation around the mean and it will never be less than 0. This division also makes r squared a percentage.
+R² ranges from 0 to 1 because the variation around the line will never be greater than the variation around the mean and will never be less than 0. This division also makes R² a percentage.
 
 5. **Examples**
    - High R² (e.g., 0.81) implies a strong relationship, like size and weight.
    - Low R² (e.g., 0.06) suggests a weak relationship, like sniffing time and weight.
 
-The result is 0.81 which means there is 81% less variation around the line than the mean or the size/weight relationship accounts for 81% of the total variation. This means that most of the variation in the data is explained by the size/weight relationship.
+An R² of 0.81 means there is 81% less variation around the line than the mean, or the size/weight relationship accounts for 81% of the total variation. This means that most of the variation in the data is explained by the size/weight relationship.
 
 <img src="example-r-squared.png" alt="example-r-squared" width="400" height="300"/>
 
-Another example, in this example we’re comparing two possibly uncorrelated variables on the y-axis we have mouse weight again, but on the x-axis we now have time spend sniffing a rock. Then by doing the math we see that R² = 6%. Thus there is only 6% less variation around the line than the mean or we can say that the sniff/weight relationship accounts for 6% of the total variation. This means that hardly any of the variation in the data is explained by the sniff/weight relationship.
+In another example, we’re comparing two possibly uncorrelated variables, which is comparing mouse weight and time spent sniffing a rock. We find R² = 0.06, thus there is only 6% less variation around the line than the mean or the sniff/weight relationship accounts for 6% of the total variation. This means only 6% of the variation is explained by this relationship. This means that hardly any of the variation in the data is explained by the sniff/weight relationship, indicating a very weak correlation.
 
 <img src="r-squared-6.png" alt="r-squared-6" width="400" height="300"/>
 
@@ -64,39 +61,38 @@ Another example, in this example we’re comparing two possibly uncorrelated var
 - Statistically significant R² = 0.9: 90% of the variation is explained by the relationship.
 - Statistically significant R² = 0.01: Only 1% of the variation is explained.
 
-Now when someone says, “The statistically significant R² was 0.9” you can think to yourself “Very good! The relationship between the two variables explains 90% of the variation in the data!” And when someone else says “ The statistically significant R² was 0.01…” You can think to yourself… “Dag! Who cares if that relationship is significant, it only accounts for 1% of the variation of the data. Something else must explain the remaining 99%.”
+When someone says, “The statistically significant R² was 0.9,” you can think, “Very good! The relationship between the two variables explains 90% of the variation in the data!” Conversely, if R² = 0.01, you can think, “Who cares if that relationship is significant, only 1% of the variation is explained; something else must explain the remaining 99%.”
+
+> Even if the statistical tests show that the relationship between the two variables is statistically significant, the practical importance of this relationship might be minimal if the R² value is very low. In other words, statistical significance does not necessarily imply that the relationship is meaningful or substantial in explaining the variation in the data.
 
 ### Relation to R
 - R² is the square of R.
 - A high R (e.g., 0.9) squared gives a high R² (e.g., 0.81).
 - R² provides a clearer comparison and is easier to interpret (e.g., R² of 0.7² is twice as good as 0.5²).
 
-Now, when someone says, “the statistically significant R(plain old R) was 0.9…” You can think to yourself… 
-“0.9 times 0.9 = 0.81. Very good! The relationship between the two variables explains 81% of the variation in the data!"
+When someone says, “The statistically significant R was 0.9,” you can think, “0.9 times 0.9 = 0.81. Very good! The relationship between the two variables explains 81% of the variation in the data!” For R = 0.5, you can think, “0.5 times 0.5 = 0.25. The relationship accounts for 25% of the variation in the data. That’s good if there are a million other things accounting for the remaining 75%, bad if there is only one thing.”
 
-And when someone else says…
-“The statistically significant R was 0.5…”
-You can think to yourself…
-“0.5 times 0.5 = 0.25. The relationship accounts for 25% of the variation in the data. That’s good if there are a million other things accounting for the remaining 75%, bad if there is only one thing.”
+R² is easier to interpret than plain old R. For example, R = 0.7 compared to R = 0.5:
+- R² = 0.7² = 0.49: 49% of the original variation is explained.
+- R² = 0.5² = 0.25: 25% of the original variation is explained.
 
-I like R² more than just plain old R because it is easier to interpret. Here’s an example for how much better is R = 0.7 than R = 0.5? 
+With R², it is clear that the first correlation is roughly twice as good as the second.
 
-Well, if we convert those numbers to R^2, we see that:
-R² = 0.7^2 = 0.5 50% of the original variation is explained
-R² = 0.5^2 = 0.25 25% of the original variation is explained
-With R², it is easy to see that the first correlation is twice as good as the second. 
+> The relationship between R and the proportion of variance explained is non-linear. A correlation of R = 0.7 does not mean it is 1.4 times better than R = 0.5.
+> 
+> Squaring the correlation coefficient (R) to get R² linearizes this relationship, making it more intuitive to compare the strengths.
+
 ### Key Points
 - R² indicates the percentage of variation explained by the relationship.
 - R² does not indicate the direction of the correlation.
 - Square the value of R to get R² for easier interpretation.
   
-That said R² does not indicate the direction of the correlation because squared numbers are never negative.
-If the direction of the correlation isn’t obvious, you can say, “ the two variables were positively(or negatively) correlated with R² = .…
+R² does not indicate the direction of the correlation because squared numbers are never negative. If the direction of the correlation isn’t obvious, you can say, “the two variables were positively (or negatively) correlated with R² = ...”
 
-R² main ideas
+### Main Ideas of R²
 
-R² is the percentage of variation explained by the relationship between two variables.
-If someone gives you a value for plain old R, square it!
+- R² is the percentage of variation explained by the relationship between two variables.
+- If someone gives you a value for R, square it to understand the percentage of variation explained.
 
 ## Reference:
 - [YouTube Video](https://www.youtube.com/watch?v=bMccdk8EdGo)
