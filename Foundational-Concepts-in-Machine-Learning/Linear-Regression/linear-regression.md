@@ -58,6 +58,11 @@ $\left[ \sum_i 2x_i (\alpha x_i + \beta - y_i), \ 2\sum_i (\alpha x_i + \beta - 
 
 After determining the values of $\alpha$ and $\beta$ from the image, we can insert them into the equation $g(x)$ to obtain the specific linear regression model.
 
+> The goal of linear regression is to find the optimal values of the parameters $\alpha$ and $\beta$ that minimize the SSE. To do this, we need to understand how changes in $\alpha$ and $\beta$ affect the SSE.
+
+> In linear regression, the objective is to find the best-fit parameters (coefficients) $\alpha$ and $\beta$ that minimize the sum of squared errors (SSE). This is why we take the partial derivatives with respect to $\alpha$ and $\beta$.
+
+
 ## Reference:
 - [YouTube Video 1](https://www.youtube.com/watch?v=CtsRRUddV2s)
 - [YouTube Video 2](https://www.youtube.com/watch?v=3dhcmeOTZ_Q&t=1s)
