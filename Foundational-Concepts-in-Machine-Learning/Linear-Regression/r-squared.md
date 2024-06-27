@@ -94,5 +94,78 @@ R² does not indicate the direction of the correlation because squared numbers a
 - R² is the percentage of variation explained by the relationship between two variables.
 - If someone gives you a value for R, square it to understand the percentage of variation explained.
 
+
+## Understanding Why Var(line) ≤ Var(mean)
+
+### Concepts of Variance and Linear Regression
+
+#### Variance Around the Mean (Var(mean))
+
+Variance measures the average squared deviation of each data point from the mean of the dataset. The formula for variance is:
+
+$$\text{Var(mean)} = \frac{1}{N} \sum_{i=1}^N (y_i - \bar{y})^2$$
+
+where $y_i$ are the data points, $\bar{y}$ is the mean, and $N$ is the number of data points.
+
+#### Variance Around the Fitted Line (Var(line))
+
+In linear regression, we fit a line to the data that minimizes the sum of the squared differences between the actual data points and the predicted values (i.e., the residuals). The formula for the variance around the fitted line (residual sum of squares) is:
+
+$$\text{Var(line)} = \frac{1}{N} \sum_{i=1}^N (y_i - \hat{y}_i)^2$$
+
+where $\hat{y}_i$ are the predicted values from the regression line.
+
+### Why Var(line) ≤ Var(mean)
+
+#### Linear Regression Minimizes Residuals
+
+The goal of linear regression is to find the line that minimizes the sum of squared residuals (differences between observed and predicted values). This process is known as the "least squares" method. By minimizing these residuals, the variance around the fitted line (Var(line)) is minimized compared to the variance around the mean (Var(mean)).
+
+#### Decomposition of Total Variance
+
+The total variance in the data (Var(mean)) can be decomposed into two parts: the variance explained by the regression model (explained variance) and the variance not explained by the model (residual variance). Mathematically:
+
+$$\text{Total Variance (Var(mean))} = \text{Explained Variance} + \text{Residual Variance (Var(line))}$$
+
+Since both explained variance and residual variance are non-negative, the residual variance (Var(line)) must be less than or equal to the total variance (Var(mean)).
+
+### Visual Intuition
+
+#### Variation Around the Mean
+
+If you consider the mean line (a horizontal line at the mean value of the dependent variable), the distances (squared differences) of each data point from this mean line are relatively large.
+
+#### Variation Around the Fitted Line
+
+When you fit a regression line, you adjust the line to be as close as possible to all data points, thus minimizing the squared differences (residuals). This reduces the overall distances compared to the mean line.
+
+### Formal Proof Using Statistical Properties
+
+#### Sum of Squares
+
+The total sum of squares (SST) measures the total variance in the dependent variable and is defined as:
+
+$$SST = \sum (y_i - \bar{y})^2$$
+
+The residual sum of squares (SSR) measures the variance not explained by the model:
+
+$$SSR = \sum (y_i - \hat{y}_i)^2$$
+
+#### Relationship
+
+The explained sum of squares (SSE) measures the variance explained by the model:
+
+$$SSE = \sum (\hat{y}_i - \bar{y})^2$$
+
+By definition:
+
+$$SST = SSE + SSR$$
+
+### Conclusion
+
+Since the linear regression model is designed to minimize the residual variance (SSR or Var(line)), it follows that the variance around the fitted line (Var(line)) will always be less than or equal to the variance around the mean (Var(mean)). This ensures that the fitted line provides a better or equal fit to the data compared to simply using the mean as a predictor.
+
+Thus, the improvement in fit provided by the regression model (as measured by R²) indicates how much of the total variance is explained by the model, with Var(line) being a crucial component in this comparison.
+
 ## Reference:
 - [YouTube Video](https://www.youtube.com/watch?v=bMccdk8EdGo)
