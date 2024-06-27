@@ -95,4 +95,7 @@ $$
 > Note: In element-wise division, the two matrix must be the same shape.
 >
 
+# Notes
+In the context of NumPy and linear algebra, a 1-dimensional array does not explicitly represent either a row vector or a column vector. Instead, it is simply a sequence of numbers. The distinction between a row vector and a column vector becomes meaningful when dealing with 2-dimensional arrays (matrices).
+
 
