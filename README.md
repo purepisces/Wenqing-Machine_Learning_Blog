@@ -192,6 +192,8 @@
 ## Code Implementation
 - [Image Segmentation Task For CGG](Code-Implementation/CGG)
 - [Decision Tree](Code-Implementation/Decision-Tree)
+- [Logistic Regresssion](Code-Implementation/Logistic-Regression)
+
 
 ## Machine Learning Interview Questions
 - [Interview Questions](Machine-Learning-Interview-Questions/interview-questions.md)
