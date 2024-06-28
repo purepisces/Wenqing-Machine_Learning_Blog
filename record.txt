@@ -26,7 +26,7 @@ Editor: https://stackedit.io/app#
 5.Linearity.md❌ need further improvement for why the product of the standard deviations of x and y is normalization? Which is correlated to correlation.
 6.p_values.md✅
 7.Correlation.md✅
-8.r-squared.md✅
+8.r-squared.md✅ 已发csdn
 9.statistical-significance.md✅
 10.Standard-Deviation-vs-Standard-Error.md✅
 11.Confidence-Intervals.md✅
@@ -54,6 +54,7 @@ Editor: https://stackedit.io/app#
 33.feed_ranking.md✅已发csdn,未发知乎, 很多都用的ml system design课程内容的言论
 34.underfitting-overfitting.md✅已发csdn
 35.decision-tree.md✅ add regression tree explanation in statquest youtube under it
+
 
 pruning 
 cross validation
