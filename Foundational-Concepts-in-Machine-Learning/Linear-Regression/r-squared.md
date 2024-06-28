@@ -167,5 +167,72 @@ Since the linear regression model is designed to minimize the residual variance 
 
 Thus, the improvement in fit provided by the regression model (as measured by R²) indicates how much of the total variance is explained by the model, with Var(line) being a crucial component in this comparison.
 
+## Example: Predicting Mouse Weight from Size
+
+Suppose we have data on 5 mice, where we measure their size (independent variable, X) and weight (dependent variable, Y). Here's the data:
+
+| Mouse ID | Size (X) | Weight (Y) |
+|----------|----------|------------|
+| 1        | 10       | 15         |
+| 2        | 20       | 25         |
+| 3        | 30       | 35         |
+| 4        | 40       | 45         |
+| 5        | 50       | 55         |
+
+### Step 1: Calculate the Mean of Y
+
+$$\bar{Y} = \frac{15 + 25 + 35 + 45 + 55}{5} = \frac{175}{5} = 35$$
+
+### Step 2: Calculate the Total Sum of Squares (SST)
+
+$$SST = \sum (Y_i - \bar{Y})^2 = (15 - 35)^2 + (25 - 35)^2 + (35 - 35)^2 + (45 - 35)^2 + (55 - 35)^2$$
+
+$$SST = (-20)^2 + (-10)^2 + 0^2 + 10^2 + 20^2 = 400 + 100 + 0 + 100 + 400 = 1000$$
+
+### Step 3: Calculate the Variance around the Mean (Var(mean))
+
+$$\text{Var(mean)} = \frac{SST}{N} = \frac{1000}{5} = 200$$
+
+### Step 4: Fit a Linear Regression Line
+
+Assume the fitted regression line is:
+
+$$\hat{Y} = 10 + 0.9X$$
+
+### Step 5: Calculate the Predicted Values (\(\hat{Y}\))
+
+| Mouse ID | Size (X) | Weight (Y) | Predicted Weight (\(\hat{Y}\)) |
+|----------|----------|------------|--------------------------------|
+| 1        | 10       | 15         | 10 + 0.9(10) = 19              |
+| 2        | 20       | 25         | 10 + 0.9(20) = 28              |
+| 3        | 30       | 35         | 10 + 0.9(30) = 37              |
+| 4        | 40       | 45         | 10 + 0.9(40) = 46              |
+| 5        | 50       | 55         | 10 + 0.9(50) = 55              |
+
+### Step 6: Calculate the Residual Sum of Squares (SSR)
+
+$$SSR = \sum (Y_i - \hat{Y})^2 = (15 - 19)^2 + (25 - 28)^2 + (35 - 37)^2 + (45 - 46)^2 + (55 - 55)^2$$
+
+$$SSR = (-4)^2 + (-3)^2 + (-2)^2 + (-1)^2 + 0^2 = 16 + 9 + 4 + 1 + 0 = 30$$
+
+### Step 7: Calculate the Variance around the Fitted Line (Var(line))
+
+$$\text{Var(line)} = \frac{SSR}{N} = \frac{30}{5} = 6$$
+
+### Step 8: Calculate R² using the Formula
+
+$$R^2 = \frac{\text{Var(mean)} - \text{Var(line)}}{\text{Var(mean)}}$$
+
+$$R^2 = \frac{200 - 6}{200} = \frac{194}{200} = 0.97$$
+
+### Interpretation
+
+- **R² Value**: The R² value is 0.97.
+- **Meaning**: This means that 97% of the variation in mouse weight can be explained by the mouse size. Only 3% of the variation is due to other factors not accounted for by the model.
+
+### Summary
+
+In this example, the high R² value (0.97) indicates a strong linear relationship between the size of the mice and their weight. This means our linear regression model does an excellent job explaining the variability in the weight of the mice based on their size.
+
 ## Reference:
 - [YouTube Video](https://www.youtube.com/watch?v=bMccdk8EdGo)
