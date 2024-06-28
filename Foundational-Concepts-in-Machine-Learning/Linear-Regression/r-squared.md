@@ -234,5 +234,90 @@ $$R^2 = \frac{200 - 6}{200} = \frac{194}{200} = 0.97$$
 
 In this example, the high R² value (0.97) indicates a strong linear relationship between the size of the mice and their weight. This means our linear regression model does an excellent job explaining the variability in the weight of the mice based on their size.
 
+
+## Proof that $SST = SSE + SSR$
+
+When an intercept is included in linear regression (sum of residuals is zero), we can show that:
+
+$$SST = SSE + SSR$$
+
+
+### Definitions
+
+- **Total Sum of Squares (SST)**:
+  
+  $$SST = \sum_{i=1}^{n} (y_i - \bar{y})^2$$
+ 
+
+- **Explained Sum of Squares (SSE)**:
+
+ $$ SSE =  \sum_{i=1}^{n} (\hat{y}_i - \bar{y})^2$$
+
+- **Residual Sum of Squares (SSR)**:
+  
+  $$SSR = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
+ 
+
+#### Expanding SST
+
+$$SST = \sum_{i=1}^{n} (y_i - \bar{y})^2$$
+
+Decompose $y_i - \bar{y}$ into $(y_i - \hat{y}_i) + (\hat{y}_i - \bar{y})$:
+
+$$SST = \sum_{i=1}^{n} (y_i - \hat{y}_i + \hat{y}_i - \bar{y})^2$$
+
+Expanding the right-hand side:
+
+$$SST = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 + \sum_{i=1}^{n} (\hat{y}_i - \bar{y})^2 + 2\sum_{i=1}^{n} (y_i - \hat{y}_i)(\hat{y}_i - \bar{y})$$
+
+Thus:
+
+$$SST = SSR + SSE + 2 \sum_{i=1}^{n} (y_i - \hat{y}_i)(\hat{y}_i - \bar{y})$$
+
+To prove the last part is equal to 0, we need to show:
+
+$$\sum_{i=1}^{n} (y_i - \hat{y}_i)(\hat{y}_i - \bar{y}) = 0$$
+
+Substitute $\hat{y}_i = \beta_0 + \beta_1 x_i$:
+
+$$\sum_{i=1}^{n} (y_i - \hat{y}_i)(\hat{y}_i - \bar{y}) = \sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i)(\beta_0 + \beta_1 x_i - \bar{y})$$
+
+This can be split into:
+
+$$(\beta_0 - \bar{y})\sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i) + \beta_1 \sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i)x_i$$
+
+#### Least Squares Regression
+
+In least squares regression, the sum of the squares of the residuals is minimized:
+
+$$SSR = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i)^2$$
+
+Taking the partial derivative of SSE with respect to $\beta_0$ and setting it to zero:
+
+$$\frac{\partial SSR}{\partial \beta_0} = \sum_{i=1}^{n} 2(y_i - \beta_0 - \beta_1 x_i) \cdot 1 = 0$$
+
+So:
+
+$$\sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i) = 0$$
+
+Taking the partial derivative of SSR with respect to $\beta_1$ and setting it to zero:
+
+
+$$\frac{\partial SSR}{\partial \beta_1} = \sum_{i=1}^{n} 2(y_i - \beta_0 - \beta_1 x_i) \cdot x_i = 0$$
+
+
+So:
+
+$$\sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i)x_i = 0$$
+
+Hence:
+
+$$\sum_{i=1}^{n} (y_i - \hat{y}_i)(\hat{y}_i - \bar{y}) = (\beta_0 - \bar{y})\sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i) + \beta_1 \sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i)x_i = 0$$
+
+Therefore:
+
+$$SST = SSR + SSE + 2 \sum_{i=1}^{n} (y_i - \hat{y}_i)(\hat{y}_i - \bar{y}) = SSE + SSR$$
+
+
 ## Reference:
 - [YouTube Video](https://www.youtube.com/watch?v=bMccdk8EdGo)
