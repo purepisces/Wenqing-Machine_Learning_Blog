@@ -316,7 +316,7 @@ $$\sum_{i=1}^{n} (y_i - \hat{y}_i)(\hat{y}_i - \bar{y}) = (\beta_0 - \bar{y})\su
 
 Therefore:
 
-$$SST = SSR + SSE + 2 \sum_{i=1}^{n} (y_i - \hat{y}_i)(\hat{y}_i - \bar{y}) = SSE + SSR$$
+$$SST = SSR + SSE + 2 \sum_{i=1}^{n} (y_i - \hat{y}_i)(\hat{y}_i - \bar{y}) = SSR + SSE$$
 
 
 ## Reference:
