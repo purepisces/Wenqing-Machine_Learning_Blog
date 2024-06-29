@@ -19,7 +19,9 @@ Where:
 ## Objective:
 Minimize the sum of the squared differences(residuals) between the observed and predicted values:
 
-Sum of squared errors (SSE): $\text{Min} \ \sum_i (\beta_0 + \beta_1 x_{i1} + ... + \beta_n x_{in} - y_i)^2$
+Sum of squared errors (SSE): 
+
+$$\text{Minimize} \ \sum_i (\beta_0 + \beta_1 x_{i1} + \ldots + \beta_n x_{in} - y_i)^2$$
 
 This SSE serves as the loss function that we aim to minimize in linear regression.
 
@@ -34,7 +36,7 @@ Consider a scenario where:
   
 Our objective is to find a function $g$ such that $y = g(x)$. Given a training dataset with values for both $x$ and $y$, our task is to determine this function $g$. This process of finding the right function $g$ is termed **regression**. 
 
-> Note: Regression: Now refers broadly to any method of modeling and analyzing several variables, when the focus is on the relationship between a dependent variable and one or more independent variables.
+> Note: Regression refers broadly to any method of modeling and analyzing several variables when the focus is on the relationship between a dependent variable and one or more independent variables.
 >
 
 For simplicity, we can assume that $g$ is a linear regression model:
@@ -54,9 +56,15 @@ The necessary condition for a minimum is setting the gradient to zero:
 
 $\left[ \sum_i 2x_i (\alpha x_i + \beta - y_i), \ 2\sum_i (\alpha x_i + \beta - y_i) \right] = 0$
 
+By calculating, we find that:
+
+$$\alpha = \frac{\sum_i x_i y_i - \sum_i x_i \sum_i y_i}{\sum_i x_i^2 - \left(\sum_i x_i\right)^2}$$
+
+$$\beta = \frac{1}{n} \sum_i y_i - \alpha \frac{1}{n} \sum_i x_i$$
+
 <img src="gradient.png" width="400" height="350" alt="gradient">
 
-After determining the values of $\alpha$ and $\beta$ from the image, we can insert them into the equation $g(x)$ to obtain the specific linear regression model.
+After determining the values of $\alpha$ and $\beta$, we can insert them into the equation $g(x)$ to obtain the specific linear regression model.
 
 > The goal of linear regression is to find the optimal values of the parameters $\alpha$ and $\beta$ that minimize the SSE. To do this, we need to understand how changes in $\alpha$ and $\beta$ affect the SSE.
 
