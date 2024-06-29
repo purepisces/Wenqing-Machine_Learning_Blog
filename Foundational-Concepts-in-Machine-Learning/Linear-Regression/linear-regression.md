@@ -168,6 +168,6 @@ Finally, we compared different models. On the left side, we have simple regressi
 <img src="compare_simple_complex_model.png" width="400" height="350" alt="compare_simple_complex_model">
 
 ## Reference:
-- [YouTube Video](https://www.youtube.com/watch?v=PaFPbb66DxQ)
-- [YouTube Video](https://www.youtube.com/watch?v=yIYKR4sgzI8&list=PLblh5JKOoLUKxzEP5HA2d-Li7IJkHfXSe)
+- [YouTube Video1](https://www.youtube.com/watch?v=PaFPbb66DxQ)
+- [YouTube Video2](https://www.youtube.com/watch?v=yIYKR4sgzI8&list=PLblh5JKOoLUKxzEP5HA2d-Li7IJkHfXSe)
 
