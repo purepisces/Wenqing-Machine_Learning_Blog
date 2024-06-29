@@ -136,6 +136,38 @@ In summary, a non-zero derivative at a point indicates that moving in the direct
 
 > If the derivative is positive, moving in the direction opposite to the sign of the derivative means decreasing the variable.
 If the derivative is negative, moving in the direction opposite to the sign of the derivative means increasing the variable.
-> 
+>
+
+
+## Small Review for Linear Regression
+
+We had some data on weight and size. By fitting a line to this data, we could achieve several objectives:
+1. **Calculate $R^2$**: This helps us determine if weight and size are correlated. Larger $R^2$ values imply a stronger correlation.
+2. **Calculate a p-value**: This tells us if the $R^2$ value is statistically significant.
+3. **Make predictions**: We can use the fitted line to predict size based on weight.
+
+<img src="with_this_line.png" width="400" height="350" alt="with_this_line">
+
+Using data to make predictions is a fundamental aspect of "machine learning," making linear regression a basic form of machine learning.
+
+We also discussed multiple regression. This involves predicting size using both weight and blood volume, or alternatively, modeling size based on weight and blood volume. Multiple regression extends the capabilities of simple linear regression by:
+1. **Calculating $R^2$**: Just like in simple regression, but considering multiple variables.
+2. **Calculating the p-value**: To assess the significance of the model.
+3. **Making predictions**: Predict size given weight and blood volume.
+
+This makes multiple regression a more advanced machine learning method.
+
+<img src="fancier_multiple_regression.png" width="400" height="350" alt="fancier_multiple_regression">
+
+We also explored using discrete measurements, such as genotype, to predict size.
+
+<img src="genotype_predict_size.png" width="400" height="350" alt="genotype_predict_size">
+
+Finally, we compared different models. On the left side, we have simple regression, which uses weight to predict size. We can compare these predictions to those from multiple regression, which uses both weight and blood volume. This comparison helps us determine if we need to measure both weight and blood volume to accurately predict size or if we can rely on weight alone.
+
+<img src="compare_simple_complex_model.png" width="400" height="350" alt="compare_simple_complex_model">
+
 ## Reference:
 - [YouTube Video](https://www.youtube.com/watch?v=PaFPbb66DxQ)
+- [YouTube Video](https://www.youtube.com/watch?v=yIYKR4sgzI8&list=PLblh5JKOoLUKxzEP5HA2d-Li7IJkHfXSe)
+
