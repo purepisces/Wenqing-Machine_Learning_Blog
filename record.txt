@@ -20,7 +20,7 @@ $$
 Editor: https://stackedit.io/app#
 
 1.ffnn.md✅已发csdn+知乎
-2.linear-regression.md✅
+2.linear-regression.md✅已发csdn
 3.variance&standarDeviation.md✅
 4.Covariance.md ❌ need further improvement for pca
 5.Linearity.md❌ need further improvement for why the product of the standard deviations of x and y is normalization? Which is correlated to correlation.
