@@ -2,7 +2,7 @@
 
 Logistic regression is similar to linear regression but predicts whether something is true or false, instead of predicting a continuous value like size. Instead of fitting a line to the data, logistic regression fits an "S" shaped "logistic function". This curve, which goes from 0 to 1, indicates the probability that an outcome occurs (e.g., a mouse is obese) based on predictor variables (e.g., weight).
 
-#### How Logistic Regression Works
+### How Logistic Regression Works
 
 - **Heavy Mouse**: High probability of being obese.
 - **Intermediate Mouse**: 50% chance of being obese.
@@ -12,7 +12,7 @@ Although logistic regression tells the probability that a mouse is obese or not,
 
 <img src="logistic_regression_mouse_obese.png" alt="logistic_regression_mouse_obese" width="400" height="300"/>
 
-#### Predictors in Logistic Regression
+### Predictors in Logistic Regression
 
 Logistic regression can work with both continuous data (e.g., weight, age) and discrete data (e.g., genotype, astrological sign). We can test to see if each variable is useful for predicting obesity. Unlike normal regression, we can’t easily compare complex models to simple models. Instead, we test to see if a variable’s effect on the prediction is significantly different from 0. If not, it means the variable is not helping the prediction. We use Wald's tests to determine this.
 
@@ -22,7 +22,7 @@ For example, if obesity is predicted by weight + genotype + age + astrological s
 
 Logistic regression’s ability to provide probabilities and classify new samples using continuous and discrete measurements makes it a popular machine learning method.
 
-#### Differences Between Linear and Logistic Regression
+### Differences Between Linear and Logistic Regression
 
 One major difference between linear regression and logistic regression is how the line is fit to the data:
 
@@ -46,7 +46,7 @@ Then, you:
 
 <img src="shift_select_maximum_likelihood.png" alt="shift_select_maximum_likelihood" width="400" height="300"/>
 
-#### Summary
+### Summary
 
 Logistic regression can be used to classify samples and can use different types of data (e.g., weight, genotype) for classification. It also helps assess which variables are useful for classification (e.g., in predicting obesity using weight, genotype, age, and astrological sign, the astrological sign might be "totes useless").
 
