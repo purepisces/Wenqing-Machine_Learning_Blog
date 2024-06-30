@@ -104,7 +104,7 @@ In many real-world applications, the feature space is sparse, meaning that most 
 ## Distributed Training
 
 ### Why Distributed Training?
-With large volumes of data, training a model on a single machine can be slow and impractical. Distributed training allows for parallel processing, making it possible to handle large datasets efficiently.
+With large volumes of data, training a model on a single machine can be slow and impractical. Distributed training allows for parallel processing, making it possible to handle large datasets efficiently. Thus with the large volume of data, we need to use distributed training: Logistic Regression in Spark or Alternating Direction Method of Multipliers.
 
 ### Apache Spark
 Apache Spark is a powerful tool for distributed data processing. It can be used to train logistic regression models in parallel across a cluster of machines.
@@ -112,11 +112,9 @@ Apache Spark is a powerful tool for distributed data processing. It can be used 
 ### Alternating Direction Method of Multipliers (ADMM)
 ADMM is an optimization technique that decomposes the problem into smaller subproblems that can be solved in parallel. This is particularly useful for distributed environments where coordination between machines is necessary.
 
-
 ## Conclusion
 
 Logistic regression is a robust and efficient method for binary classification, particularly effective with sparse features and large datasets. With the ability to leverage distributed training frameworks like Apache Spark and optimization techniques like ADMM, logistic regression can scale to handle the demands of modern data science applications.
-
 
 # Logistic Regression and Log-Odds
 
@@ -177,9 +175,9 @@ For simplicity, we focus on the cost function for a single training example $(x^
 
 $$J(\theta) = -\left[ y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right]$$
 
-### 4. Partial Derivative with Respect to \(\theta_j\)
+### 4. Partial Derivative with Respect to $\theta_j$
 
-To find the gradient, we need to compute the partial derivative of $J(\theta)$ with respect to each parameter $\theta_j$. Let's denote $z = \theta^T x^{(i)} \), so \( h_\theta(x^{(i)}) = \sigma(z)$.
+To find the gradient, we need to compute the partial derivative of $J(\theta)$ with respect to each parameter $\theta_j$. Let's denote $z = \theta^T x^{(i)}$, so $h_\theta(x^{(i)}) = \sigma(z)$.
 
 The partial derivative of $J(\theta)$ with respect to $\theta_j$ is:
 
@@ -209,7 +207,7 @@ $$\frac{\partial J(\theta)}{\partial \theta_j} = - \left[ y^{(i)} x_j^{(i)} - y^
 
 $$\frac{\partial J(\theta)}{\partial \theta_j} = - \left[ y^{(i)} x_j^{(i)} - h_\theta(x^{(i)})) x_j^{(i)} \right]$$
 
-$$\frac{\partial J(\theta)}{\partial \theta_j} = x_j^{(i)} (h_\theta(x^{(i)})) - y^{(i)})$$
+$$\frac{\partial J(\theta)}{\partial \theta_j} = x_j^{(i)} (h_\theta(x^{(i)}) - y^{(i)})$$
 
 ### Vector Form
 
