@@ -227,3 +227,16 @@ $$\frac{\partial J(\theta)}{\partial \theta} = x^{(i)} (h_\theta(x^{(i)}) - y^{(
 
 This gradient tells us how to adjust the model parameters $\theta$ to minimize the cost function, and it is the key component used in gradient descent optimization to train the logistic regression model.
 
+## Code Implementation
+```python
+def dJ(theta, X, y, i):
+    #print("X[i]'s shape",np.array(X[i]).shape) X[i]'s shape (301,)
+    #print("theta's shape",theta.shape) theta's shape (301,)
+    return np.array(X[i]) * (-y[i] + sigmoid(np.matmul(np.array(X[i]), theta)))
+
+def train(theta, X, y, num_epoch, learning_rate):
+    for num_epoch in range(int(num_epoch)):
+        for i in range(len(X)):
+            theta -= float(learning_rate) * dJ(theta, X, y,i )
+    return theta
+```
