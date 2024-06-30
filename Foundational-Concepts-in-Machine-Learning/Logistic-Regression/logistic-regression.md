@@ -230,8 +230,6 @@ This gradient tells us how to adjust the model parameters $\theta$ to minimize t
 ## Code Implementation
 ```python
 def dJ(theta, X, y, i):
-    #print("X[i]'s shape",np.array(X[i]).shape) X[i]'s shape (301,)
-    #print("theta's shape",theta.shape) theta's shape (301,)
     return np.array(X[i]) * (-y[i] + sigmoid(np.matmul(np.array(X[i]), theta)))
 
 def train(theta, X, y, num_epoch, learning_rate):
@@ -239,4 +237,19 @@ def train(theta, X, y, num_epoch, learning_rate):
         for i in range(len(X)):
             theta -= float(learning_rate) * dJ(theta, X, y,i )
     return theta
+
+def predict(update_theta, X):
+    y_pred = []
+    for i in range(len(X)):
+        if sigmoid(np.matmul(X[i], update_theta)) >= 0.5:
+            y_pred.append(1)
+        else:
+            y_pred.append(0)
+    return y_pred
 ```
+- [See full Code](../../Code-Implementation/Logistic-Regression)
+
+## Reference:
+- [Watch the video on YouTube](https://www.youtube.com/watch?v=yIYKR4sgzI8&list=PLblh5JKOoLUKxzEP5HA2d-Li7IJkHfXSe)
+- Machine Learning System Design by Alex Xu
+
