@@ -51,12 +51,6 @@ Then, you:
 Logistic regression can be used to classify samples and can use different types of data (e.g., weight, genotype) for classification. It also helps assess which variables are useful for classification (e.g., in predicting obesity using weight, genotype, age, and astrological sign, the astrological sign might be "totes useless").
 
 
-# Logistic Regression
-
-## Introduction
-
-Logistic regression is a statistical method for analyzing datasets in which there are one or more independent variables that determine an outcome. It estimates the probability that a given input point belongs to a particular class. Unlike linear regression which outputs continuous values, logistic regression outputs probabilities bounded between 0 and 1.
-
 ## Key Concepts
 
 ### Logistic Function
@@ -96,6 +90,17 @@ In many real-world applications, the feature space is sparse, meaning that most 
 - It can efficiently handle high-dimensional data.
 - The model complexity is linear in the number of features, making it computationally feasible.
 
+> When using logistic regression with sparse data, we typically use sparse matrix representations (like Compressed Sparse Row (CSR) or Compressed Sparse Column (CSC) formats) to store the input features.
+> These data structures are designed to store only the non-zero elements along with their indices, which significantly reduces memory usage compared to dense matrices.
+> Logistic regression involves matrix multiplications and other linear algebra operations. When the data is stored in sparse matrices, these operations can be optimized to ignore the zero elements,thus speeding up the computation.
+
+> Logistic regression is considered a sparse linear classifier when it uses regularization techniques, specifically L1 regularization (also known as Lasso regularization). This regularization technique can force some of the model's coefficients to be exactly zero, effectively ignoring certain features and leading to a sparse model.
+>
+> The model is linear because it models the log-odds as a linear combination of the input features.
+> $$\log \left( \frac{p}{1-p} \right) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \ldots + \beta_n x_n$$
+
+>"Computationally feasible" in the context of logistic regression means that:
+>The time and memory requirements for training and prediction grow linearly with the size of the data (number of features and samples).
 ## Distributed Training
 
 ### Why Distributed Training?
@@ -107,15 +112,6 @@ Apache Spark is a powerful tool for distributed data processing. It can be used 
 ### Alternating Direction Method of Multipliers (ADMM)
 ADMM is an optimization technique that decomposes the problem into smaller subproblems that can be solved in parallel. This is particularly useful for distributed environments where coordination between machines is necessary.
 
-## Practical Considerations
-
-### Handling Imbalanced Data
-In binary classification problems, the classes are often imbalanced. For instance, in click-through rate (CTR) prediction, the number of clicks (positive class) is usually much smaller than the number of non-clicks (negative class). To address this imbalance:
-- **Resampling**: Over-sample the minority class or under-sample the majority class in the training data.
-- **Class Weights**: Assign higher weights to the minority class during training.
-
-### Validation and Testing
-It is crucial to keep the validation and test sets intact (i.e., not resampled) to ensure that performance metrics accurately reflect the model's effectiveness in real-world scenarios.
 
 ## Conclusion
 
