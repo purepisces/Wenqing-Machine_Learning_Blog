@@ -116,9 +116,9 @@ ADMM is an optimization technique that decomposes the problem into smaller subpr
 
 Logistic regression is a robust and efficient method for binary classification, particularly effective with sparse features and large datasets. With the ability to leverage distributed training frameworks like Apache Spark and optimization techniques like ADMM, logistic regression can scale to handle the demands of modern data science applications.
 
-# Logistic Regression and Log-Odds
+## Logistic Regression and Log-Odds
 
-## Probability and Odds
+### Probability and Odds
 
 - **Probability (P)**: The likelihood that an event occurs.
 - **Odds**: The ratio of the probability that the event occurs to the probability that it does not occur.
@@ -126,13 +126,13 @@ Logistic regression is a robust and efficient method for binary classification, 
   $$\text{Odds} = \frac{P}{1 - P}$$
   
 
-## Log-Odds (Logit)
+### Log-Odds (Logit)
 
 - The log-odds is the natural logarithm of the odds.
   
   $$\text{Log-Odds} = \log \left( \frac{P}{1 - P} \right)$$
 
-## Logistic Regression Model
+### Logistic Regression Model
 
 - In logistic regression, the log-odds of the probability of the event occurring (e.g., the probability of a click) is modeled as a linear combination of the input features.
 - The model equation is:
@@ -141,11 +141,11 @@ Logistic regression is a robust and efficient method for binary classification, 
   
 - Here, $$\theta_0 + \theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_n x_n$$ is the linear combination of features, often denoted as $z$.
 
-## Connecting \( z \) to Log-Odds
+### Connecting \( z \) to Log-Odds
 
 - The term $$z = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_n x_n$$ represents the log-odds in the logistic regression model. Although $z$ itself does not contain a logarithm, it is the argument of the logistic function, which maps it to a probability.
 
-# The Gradient of the Cost Function in Logistic Regression
+## The Gradient of the Cost Function in Logistic Regression
 
 The gradient of the cost function $J(\theta)$ with respect to the parameters $\theta$ in logistic regression is given by:
 
@@ -153,29 +153,29 @@ $$\frac{\partial J(\theta)}{\partial \theta} = x^{(i)} (h_\theta(x^{(i)}) - y^{(
 
 This formula arises from the process of deriving the gradient for the logistic regression cost function, which is based on the log-likelihood function for a binary classification problem.
 
-## Derivation
+### Derivation
 
 Let's derive this step-by-step.
 
-### 1. Hypothesis Function
+#### 1. Hypothesis Function
 
 In logistic regression, the hypothesis function $h_\theta(x)$ is given by the sigmoid function applied to the linear combination of the input features:
 
 $$ h_\theta(x) = \sigma(\theta^T x) = \frac{1}{1 + e^{-\theta^T x}}$$
 
-### 2. Cost Function
+#### 2. Cost Function
 
 The cost function for logistic regression is the negative log-likelihood for the training data, which can be written as:
 
 $$J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} \left[ y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right]$$
 
-### 3. Simplifying the Cost Function
+#### 3. Simplifying the Cost Function
 
 For simplicity, we focus on the cost function for a single training example $(x^{(i)}, y^{(i)})$:
 
 $$J(\theta) = -\left[ y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right]$$
 
-### 4. Partial Derivative with Respect to $\theta_j$
+#### 4. Partial Derivative with Respect to $\theta_j$
 
 To find the gradient, we need to compute the partial derivative of $J(\theta)$ with respect to each parameter $\theta_j$. Let's denote $z = \theta^T x^{(i)}$, so $h_\theta(x^{(i)}) = \sigma(z)$.
 
@@ -186,7 +186,7 @@ $$\frac{\partial J(\theta)}{\partial \theta_j} = -\left[ \frac{\partial}{\partia
 Using the chain rule, we have:
 $$\frac{\partial}{\partial \theta_j} h_\theta(x^{(i)}) = \frac{\partial \sigma(z)}{\partial z} \cdot \frac{\partial z}{\partial \theta_j} = \sigma(z) (1 - \sigma(z)) \frac{\partial z}{\partial \theta_j} = h_\theta(x^{(i)}) (1 - h_\theta(x^{(i)})) x_j^{(i)}$$
 
-### 5. Derivative of Each Term
+#### 5. Derivative of Each Term
 
 Now, compute the partial derivatives of each term in the cost function:
 
@@ -194,7 +194,7 @@ $$\frac{\partial}{\partial \theta_j} y^{(i)} \log(h_\theta(x^{(i)})) = y^{(i)} \
 
 $$\frac{\partial}{\partial \theta_j} (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) = (1 - y^{(i)}) \frac{1}{1 - h_\theta(x^{(i)})} \frac{\partial (1 - h_\theta(x^{(i)})}{\partial \theta_j} = (1 - y^{(i)}) \frac{1}{1 - h_\theta(x^{(i)})} (-h_\theta(x^{(i)})) x_j^{(i)} = - (1 - y^{(i)}) h_\theta(x^{(i)}) x_j^{(i)}$$
 
-### 6. Combine the Terms
+#### 6. Combine the Terms
 
 Combining these results:
 
@@ -208,7 +208,7 @@ $$\frac{\partial J(\theta)}{\partial \theta_j} = - \left[ y^{(i)} x_j^{(i)} - h_
 
 $$\frac{\partial J(\theta)}{\partial \theta_j} = x_j^{(i)} (h_\theta(x^{(i)}) - y^{(i)})$$
 
-### Vector Form
+#### Vector Form
 
 To express this in vector form for all parameters:
 
@@ -219,7 +219,7 @@ Where:
 - $h_\theta(x^{(i)})$ is the predicted probability for the i-th example.
 - $y^{(i)}$ is the actual label for the i-th example.
 
-### Summary
+#### Summary
 
 The gradient of the cost function in logistic regression is:
 
