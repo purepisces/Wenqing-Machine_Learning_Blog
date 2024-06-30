@@ -184,8 +184,7 @@ The partial derivative of $J(\theta)$ with respect to $\theta_j$ is:
 $$\frac{\partial J(\theta)}{\partial \theta_j} = -\left[ \frac{\partial}{\partial \theta_j} y^{(i)} \log(h_\theta(x^{(i)})) + \frac{\partial}{\partial \theta_j} (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right]$$
 
 Using the chain rule, we have:
-
-$$\frac{\partial}{\partial \theta_j} h_\theta(x^{(i)}) = \frac{\partial}{\partial \theta_j} \sigma(z) = \sigma(z) (1 - \sigma(z)) \frac{\partial z}{\partial \theta_j} = h_\theta(x^{(i)}) (1 - h_\theta(x^{(i)})) x_j^{(i)}$$
+$$\frac{\partial}{\partial \theta_j} h_\theta(x^{(i)}) = \frac{\partial \sigma(z)}{\partial z} \cdot \frac{\partial z}{\partial \theta_j} = \sigma(z) (1 - \sigma(z)) \frac{\partial z}{\partial \theta_j} = h_\theta(x^{(i)}) (1 - h_\theta(x^{(i)})) x_j^{(i)}$$
 
 ### 5. Derivative of Each Term
 
