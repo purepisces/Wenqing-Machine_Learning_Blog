@@ -54,6 +54,7 @@ Editor: https://stackedit.io/app#
 33.feed_ranking.md✅已发csdn,未发知乎, 很多都用的ml system design课程内容的言论
 34.underfitting-overfitting.md✅已发csdn
 35.decision-tree.md✅ add regression tree explanation in statquest youtube under it
+36.logistic-regression.md✅已发csdn
 
 
 random forest
@@ -68,7 +69,6 @@ L1 Regularization
 boosting
 bagging
 auc
-logistic regression
 precision-recall-f1score.md
 Chain rule
 Cumulative Distribution Function (CDF)
