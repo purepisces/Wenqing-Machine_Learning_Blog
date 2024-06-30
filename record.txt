@@ -57,6 +57,7 @@ Editor: https://stackedit.io/app#
 
 
 random forest
+maximum likelihood
 pruning 
 cross validation
 expected value
@@ -77,6 +78,7 @@ t-sne
 implicit function
 scalar function
 Directional Derivative:
+Wald's test
 
 why gradient" refers to a vector that points in the direction of the greatest rate of increase  give specific example???
 why the product of the standard deviations of x and y is normalization?
