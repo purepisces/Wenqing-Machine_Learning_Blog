@@ -56,13 +56,14 @@ Editor: https://stackedit.io/app#
 35.decision-tree.md✅ add regression tree explanation in statquest youtube under it
 
 
+random forest
 pruning 
 cross validation
 expected value
 exponential function
 decision tree (gradient boost decision tree)
-random forest
 regualization
+L1 Regularization
 boosting
 bagging
 auc
