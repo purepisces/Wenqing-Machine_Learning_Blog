@@ -1,3 +1,56 @@
+# Logistic Regression Overview
+
+Logistic regression is similar to linear regression but predicts whether something is true or false, instead of predicting a continuous value like size. Instead of fitting a line to the data, logistic regression fits an "S" shaped "logistic function". This curve, which goes from 0 to 1, indicates the probability that an outcome occurs (e.g., a mouse is obese) based on predictor variables (e.g., weight).
+
+#### How Logistic Regression Works
+
+- **Heavy Mouse**: High probability of being obese.
+- **Intermediate Mouse**: 50% chance of being obese.
+- **Light Mouse**: Low probability of being obese.
+
+Although logistic regression tells the probability that a mouse is obese or not, it's usually used for classification. For example, if the probability of a mouse being obese is > 50%, we classify it as obese; otherwise, we classify it as "not obese".
+
+<img src="logistic_regression_mouse_obese.png" alt="logistic_regression_mouse_obese" width="400" height="300"/>
+
+#### Predictors in Logistic Regression
+
+Logistic regression can work with both continuous data (e.g., weight, age) and discrete data (e.g., genotype, astrological sign). We can test to see if each variable is useful for predicting obesity. Unlike normal regression, we can’t easily compare complex models to simple models. Instead, we test to see if a variable’s effect on the prediction is significantly different from 0. If not, it means the variable is not helping the prediction. We use Wald's tests to determine this.
+
+For example, if obesity is predicted by weight + genotype + age + astrological sign, and we find that the astrological sign is "totes useless" (statistical jargon for "not helping"), we can exclude it from the model to save time and resources.
+
+<img src="cant_easily_compare.png" alt="cant_easily_compare" width="400" height="300"/>
+
+Logistic regression’s ability to provide probabilities and classify new samples using continuous and discrete measurements makes it a popular machine learning method.
+
+#### Differences Between Linear and Logistic Regression
+
+One major difference between linear regression and logistic regression is how the line is fit to the data:
+
+- **Linear Regression**: Fits the line using "least squares", minimizing the sum of the squares of residuals. This method allows calculation of R² to compare models.
+- **Logistic Regression**: Uses "maximum likelihood". It does not have residuals, so it cannot use least squares or calculate R².
+
+In logistic regression, you:
+
+1. Pick a probability, scaled by weight, of observing an obese mouse.
+2. Use this to calculate the likelihood of observing a non-obese mouse of that weight.
+3. Then you calculate the likelihood of observing this mouse
+4. Repeat for all mice and multiply all these likelihoods together. This is the likelihood of the data given this curve.
+
+<img src="all_of_mice.png" alt="all_of_mice" width="400" height="300"/>
+
+Then, you:
+
+1. Shift the curve.
+2. Calculate the new likelihood of the data.
+3. Repeat this process until the curve with the maximum likelihood is found.
+
+<img src="shift_select_maximum_likelihood.png" alt="shift_select_maximum_likelihood" width="400" height="300"/>
+
+#### Summary
+
+Logistic regression can be used to classify samples and can use different types of data (e.g., weight, genotype) for classification. It also helps assess which variables are useful for classification (e.g., in predicting obesity using weight, genotype, age, and astrological sign, the astrological sign might be "totes useless").
+
+
 # Logistic Regression
 
 ## Introduction
