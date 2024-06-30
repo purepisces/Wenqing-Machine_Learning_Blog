@@ -147,7 +147,7 @@ Logistic regression is a robust and efficient method for binary classification, 
 
 # The Gradient of the Cost Function in Logistic Regression
 
-The gradient of the cost function \( J(\theta) \) with respect to the parameters $\theta$ in logistic regression is given by:
+The gradient of the cost function $J(\theta)$ with respect to the parameters $\theta$ in logistic regression is given by:
 
 $$\frac{\partial J(\theta)}{\partial \theta} = x^{(i)} (h_\theta(x^{(i)}) - y^{(i)})$$
 
