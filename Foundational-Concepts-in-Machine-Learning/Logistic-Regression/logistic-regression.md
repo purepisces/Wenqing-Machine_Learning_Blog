@@ -1,7 +1,3 @@
-# Logistic Regression Stat Quest
-
-
-
 # Logistic Regression
 
 ## Introduction
