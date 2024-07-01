@@ -261,4 +261,5 @@ def predict(update_theta, X):
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=yIYKR4sgzI8&list=PLblh5JKOoLUKxzEP5HA2d-Li7IJkHfXSe)
 - Machine Learning System Design by Alex Xu
+- https://www.turing.com/interview-questions/machine-learning
 
