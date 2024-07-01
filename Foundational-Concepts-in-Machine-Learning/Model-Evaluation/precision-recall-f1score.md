@@ -118,6 +118,16 @@ It should be clear by now that precision and recall alone have some severe short
 
 > While precision focuses on the correctness of positive predictions, recall focuses on the completeness of positive predictions.
 
+
+> ### The Trade-off Between Precision and Recall:
+> When you adjust the threshold for classifying an instance as positive, you affect both precision and recall, often in opposite ways:
+> #### Increasing Precision:
+> To increase precision, you might set a higher threshold for the model to classify a positive instance. This means the model becomes more conservative in labeling positives, leading to fewer false positives (FP). However, this conservatism also means it might miss some true positives (TP), which reduces recall.
+> *Example:* A model classifying emails as spam might be very conservative, only labeling an email as spam when it is very certain. This reduces the number of non-spam emails incorrectly marked as spam (high precision), but might miss some actual spam emails (lower recall).
+> #### Increasing Recall:
+> To increase recall, you might set a lower threshold for the model to classify a positive instance. This makes the model more liberal in labeling positives, leading to fewer false negatives (FN). However, this liberality increases the chances of labeling non-positives as positives, which reduces precision.
+> *Example:* The same email spam classifier might be more liberal in marking emails as spam, catching more actual spam emails (high recall), but also incorrectly marking more non-spam emails as spam (lower precision).
+
 Insert png
 
 ## F1 Score
