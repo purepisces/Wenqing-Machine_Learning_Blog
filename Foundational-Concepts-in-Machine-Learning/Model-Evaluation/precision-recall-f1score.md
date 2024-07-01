@@ -1,3 +1,134 @@
+# Version1 Classification Metrics of Predictive Systems
+
+## Introduction
+
+Let's talk about classification metrics of the predictive system and the intuitive explanations for precision, recall, and the F1 score. Whenever we design predictive systems, maybe a statistical model or a complicated neural network, we want to see how well it performs. We want to see exactly how good the outputs are and, not only that, we want to be able to compare them with other contemporaries or state-of-the-art systems to make a case for why ours is better.
+
+Formulating such a comparison is not straightforward. We have to ask the question of quality from multiple angles, which requires a good metric to quantify the quality of the outputs, make them directly comparable to other methods, and ensure input invariance. For input invariance, it means a dataset or model working on a specific type of data shouldn’t have a biased advantage over any other sort of problem.
+
+> Input invariance means that the metric should fairly evaluate performance regardless of the type of data or problem the model is addressing.
+
+Insert png
+
+## Basic Definitions
+
+Before we can get started with the metrics, we have to go over some very basic definitions of the categories that we can group the output into. 
+
+Say we have a system that makes a prediction about the class of an object, we say that a **positive case** is when the label or category is the one we’re interested in. 
+
+- **Example 1**: Detecting errors in a dataset. If we’re interested in measuring the performance of identifying the error case, we would class that as the positive case and normal operation as negative.
+- **Example 2**: Classifying items into four different categories of a, b, c, and d. If we want to measure the performance with regards to the class of say b, then in this case b is the positive one, and anything else (a, c, and d) are negative cases.
+
+The key point here is that all of our metrics are specific to the class we choose to define as being positive. This distinction becomes important and apparent as we explore the different metrics, especially for multi-class systems.
+
+
+> The positive case is critical because all the metrics we will discuss are specific to the class we choose to define as positive. This means the performance measures we calculate will depend on what we consider to be the positive case.
+> 
+> In multi-class systems (where there are more than two categories), defining the positive case becomes even more important and apparent. Each class can be evaluated as the positive case individually, which affects the resulting metrics.
+>
+
+Insert png
+
+## Prediction Categories
+
+Based on these definitions, we can further devise the predictions we make on some data into four useful groups:
+
+- **True Positive (TP)**: When a label is positive and we predict it to be positive.
+- **False Positive (FP)**: When a label is negative and we predict it to be positive.
+- **True Negative (TN)**: When a label is negative and we predict it to be negative.
+- **False Negative (FN)**: When a label is positive and we predict it to be negative.
+
+
+These values are usually expressed as the actual number of predictions that fall into each category or as a percentage with regards to all of the predictions that were made.
+
+> The counts of true positives, false positives, true negatives, and false negatives can be represented either as raw numbers or as percentages of the total number of predictions made by the system.
+>
+
+Insert png
+
+## Accuracy
+
+We'll begin with the most basic metric and formally define what accuracy is. Almost everyone should have a near-instinctual understanding of what this is. To measure the accuracy of our system, we count the number of right answers and express it as a portion of all the answers we gave. More formally, by our previous definitions, the accuracy of our system is given by the number of true positives and true negatives over the entire prediction set.
+
+$$\text{Accuracy} = \frac{\text{Total Correct Guesses}}{\text{Total Guesses}} = \frac{TP + TN}{TP + TN + FP + FN}$$
+
+Accuracy essentially tells us how many answers we got right out of all the guesses we’ve made, and notably, this is without any regard for whether the guesses were about positive or negative labels. But there’s a glaring issue with this straight-up accuracy in measuring performance, which becomes apparent when dealing with biased datasets.
+
+### Example of Bias
+
+Imagine we have a dataset where almost all of the labels are negative, and only say one percent of them are positive. If the model decides to only output negative predictions and makes zero positive guesses, it will still be counted as having a 99% accuracy score. This isn’t just a toy example. In scenarios like disease testing or predicting system faults, the normal cases will usually vastly outnumber any abnormal examples. Even datasets with milder biases can have their performance metrics skewed in this manner, just a little more subtly.
+
+
+> ### Skewing in Metrics
+> **Skewing**: Skewing refers to a distortion or misrepresentation in the performance metrics of a model. This can happen when the metric does not accurately reflect the true performance of the model, often due to an imbalanced dataset.
+> 
+> **Subtle Skewing**: In datasets with milder imbalances (where the distribution of positive and negative cases is not extremely skewed but still imbalanced), the distortion in the accuracy metric might not be immediately obvious. This subtle skewing means that the accuracy metric can still give a falsely optimistic view of the model's performance.
+> ### Mildly Imbalanced Dataset
+> In a mildly imbalanced dataset, the distortion in performance metrics like accuracy is not as immediately obvious as in a highly imbalanced scenario because the accuracy is still relatively high, but the imbalance is not extreme enough to make the distortion glaring.
+> #### Why It’s Not As Immediately Obvious
+> 1. **Relatively High Accuracy**: In the mildly imbalanced dataset, an 80% accuracy does not immediately signal a problem because it seems reasonably good.
+> 2. **Less Extreme Imbalance**: The imbalance is less extreme, so the accuracy metric does not appear as misleadingly high as in the highly imbalanced scenario.
+> 3. **Hidden Poor Performance**: The model's failure to identify positive cases is masked by the larger number of correctly identified negative cases, making the distortion in accuracy less noticeable at first glance.
+
+Insert png
+
+## Precision
+
+This is where a metric like precision comes into play. Precision is a measure of how well you’ve guessed the label that we’re interested in, namely the positive case. We calculate it by dividing the number of correct positive guesses by all the positive guesses we made. Formally, the true positive count over the true positive plus false positive count.
+
+$$\text{Precision} = \frac{\text{Correct Positive Guesses}}{\text{Total Positive Guesses}} = \frac{TP}{TP + FP}$$
+
+The goal of a system that optimizes for this metric is to make as few mistakes as possible when guessing the positive labels. Looking back at the example where a system would just guess negative for everything, we’ll see that the precision score penalizes the model with a score of zero because it has failed to guess any positive labels.
+
+### Limitations of Precision
+
+Precision still doesn’t paint the entire picture because it doesn’t take into account any of the negative labels. A model could achieve a high precision score by making very few positive predictions and being correct in those few cases. For example, if it only makes one positive prediction and that prediction is correct:
+
+\[
+\text{Precision} = \frac{1}{1} = 1 \text{ or } 100\%
+\]
+
+This high precision score is misleading because the model might not be making enough positive predictions to be useful in a real-world scenario.
+
+## Recall
+
+Now we have recall, which is like a counterpart to precision. It’s notably different in that it takes the negative labels into the equation. It asks how many positive labels you found out of the total number of positive labels that exist, almost directly countering the issue seen with precision. The equation for this comes down to the number of correctly predicted positive labels divided by the number of positives you got correct plus the number of positives you got wrong.
+
+\[
+\text{Recall} = \frac{\text{Correct Positive Guesses}}{\text{All Positive Labels}} = \frac{TP}{TP + FN}
+\]
+
+The goal of the system becomes to try and find every positive label there is to be found.
+
+### Limitations of Recall
+
+Recall still has a problem, which is skewing the score by being liberal with labeling anything as positive. In the extreme case, simply labeling everything as positive will result in no false negatives and thus a perfect recall score.
+
+## Balancing Precision and Recall
+
+It should be clear by now that precision and recall alone have some severe shortcomings, but they also complement each other. Cheating to get a recall of 100% will result in a precision of zero and vice versa. In this way, these two metrics balance each other, leading to the question of whether we can design a system that optimizes for both scores simultaneously. We want to incorporate both the quality and completeness of the predictions into a single score.
+
+> While precision focuses on the correctness of positive predictions, recall focuses on the completeness of positive predictions.
+
+## The F1 Score
+
+This is where the F1 score comes in. The F1 score is defined as the harmonic mean between precision and recall. The score essentially asks how good the quality of the predictions is and how completely we have predicted the labels from the dataset. Importantly, the F1 score doesn’t simply use an arithmetic average to combine the scores. In the cheating cases discussed earlier, where a model that just predicts negative for everything still gets awarded a 50% score by average, the harmonic mean weights the score towards the lower of the two component scores. This penalizes precision and recall disagreeing with each other too much and correctly reflects when either of them falls too close to the value of zero.
+
+\[
+\text{F1} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} = 2 \cdot \frac{TP}{2 \cdot TP + FP + FN}
+\]
+
+## Conclusion
+
+The F1 score is one of the most common metrics by which we compare our systems and, in most cases, serves as a good indicator of how healthy your model is performing. However, there are still some cases where it won’t be as adequate, especially when dealing with multi-class systems where the performance with regards to each different class is equally important. Additionally, this metric doesn’t include true negatives in its calculation because precision and recall respectively don’t include them.
+
+> Often, in binary classification problems, one class is of primary interest. This is typically the positive class, such as detecting fraud, identifying disease, or recognizing spam. Example: In disease detection, the primary concern is identifying cases of the disease (positive class). Missing a diseased case (false negative) is usually considered more critical than incorrectly identifying a healthy person as diseased (false positive).
+
+> In multi-class classification, there are more than two classes, and the performance on each class can be equally important. Example: In an image classification task with classes such as cats, dogs, and birds, misclassifying a cat as a dog is just as important as misclassifying a dog as a bird.
+
+
+
+# Version2 Precison, Recall and F1
 ## Precision
 
 **Definition**:
@@ -136,3 +267,8 @@ In this example, the system has high recall (50%) because it captures many relev
 - **High Recall, Low Precision**: The system is too inclusive, recommending many videos, capturing more relevant ones but also many irrelevant ones. This leads to high recall but low precision.
 
 In both cases, the imbalance between precision and recall results in a low F1 Score, highlighting the need for a better balance to achieve an optimal recommendation system.
+
+
+
+
+
