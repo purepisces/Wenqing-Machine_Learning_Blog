@@ -88,6 +88,8 @@ $$\text{Precision} = \frac{1}{1} = 1 \text{ or } 100 \ \text{percent}$$
 
 This high precision score is misleading because the model might not be making enough positive predictions to be useful in a real-world scenario.
 
+Insert png
+
 ## Recall
 
 Now we have recall, which is like a counterpart to precision. It’s notably different in that it takes the negative labels into the equation. It asks how many positive labels you found out of the total number of positive labels that exist, almost directly countering the issue seen with precision. The equation for this comes down to the number of correctly predicted positive labels divided by the number of positives you got correct plus the number of positives you got wrong.
@@ -100,17 +102,58 @@ The goal of the system becomes to try and find every positive label there is to 
 
 Recall still has a problem, which is skewing the score by being liberal with labeling anything as positive. In the extreme case, simply labeling everything as positive will result in no false negatives and thus a perfect recall score.
 
+$$ \text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}} = \frac{10}{10 + 0} = 1 \text{ or } 100 \ \text{percent}$$
+
+> ### Why Recall is a Counterpart to Precision
+> **Precision vs. Recall**:
+> - **Precision**: Precision measures how many of the predicted positive cases are actually positive. It focuses on the accuracy of the positive predictions.
+>  - **Recall**: Recall measures how many of the actual positive cases were correctly identified by the model. It focuses on the completeness of the positive predictions.
+>  Because precision and recall focus on different aspects of the model's performance, they are considered counterparts. Improving one can sometimes lead to a decrease in the other, hence they balance each other.
+
+Insert png
+
 ## Balancing Precision and Recall
 
-It should be clear by now that precision and recall alone have some severe shortcomings, but they also complement each other. Cheating to get a recall of 100% will result in a precision of zero and vice versa. In this way, these two metrics balance each other, leading to the question of whether we can design a system that optimizes for both scores simultaneously. We want to incorporate both the quality and completeness of the predictions into a single score.
+It should be clear by now that precision and recall alone have some severe shortcomings, but also the fact that one sort of prevents cheating of the other score. Cheating to get a recall of 100% will result in a precision of zero and vice versa. In this way, these two metrics sort of complement each other, leading to the question of whether we can design a system that optimizes for both scores simultaneously. We want to incorporate both the quality and completeness of the predictions into a single score.
 
 > While precision focuses on the correctness of positive predictions, recall focuses on the completeness of positive predictions.
 
-## The F1 Score
+Insert png
 
-This is where the F1 score comes in. The F1 score is defined as the harmonic mean between precision and recall. The score essentially asks how good the quality of the predictions is and how completely we have predicted the labels from the dataset. Importantly, the F1 score doesn’t simply use an arithmetic average to combine the scores. In the cheating cases discussed earlier, where a model that just predicts negative for everything still gets awarded a 50% score by average, the harmonic mean weights the score towards the lower of the two component scores. This penalizes precision and recall disagreeing with each other too much and correctly reflects when either of them falls too close to the value of zero.
+## F1 Score
+
+This is where the F1 score comes in. The F1 score is defined as the harmonic mean between precision and recall. The score essentially asks how good the quality of the predictions is and how completely we have predicted the labels from the dataset. Importantly, the F1 score doesn’t simply use an arithmetic average to combine the scores. In fact, this would be pretty detrimental to in the so-called cheating cases we discussed earlier. The harmonic mean weights the score towards the lower of the two component scores and this essentially penalizes precision and recall disagreeing with each other too much and correctly reflects when either of them falls too close to the value of zero. 
+
 
 $$\text{F1} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} = 2 \cdot \frac{TP}{2 \cdot TP + FP + FN}$$
+
+
+### Why F1 Score Not Use Arithmetic Average?
+
+Consider the following scenario:
+
+- **Dataset:** 10 positive cases and 90 negative cases
+- **Model Predictions:** Predicts everything as positive
+
+The resulting predictions are:
+- **True Positives (TP):** 10
+- **False Positives (FP):** 90
+- **True Negatives (TN):** 0
+- **False Negatives (FN):** 0
+
+Calculating precision and recall:
+- **Precision:** $\frac{TP}{TP + FP} = \frac{10}{10 + 90} = 0.1$
+- **Recall:** $\frac{TP}{TP + FN} = \frac{10}{10 + 0} = 1$
+
+The arithmetic average of precision and recall is:
+$$\frac{0.1 + 1}{2} = 0.55$$
+
+This result misleadingly suggests moderate performance. However, the F1 score, which is the harmonic mean of precision and recall, is calculated as:
+$$F1 = 2 \times \frac{0.1 \times 1}{0.1 + 1} \approx 0.18$$
+
+This demonstrates that the F1 score provides a more accurate reflection of the model's poor performance by penalizing extreme imbalances between precision and recall.
+
+insert png
 
 ## Conclusion
 
