@@ -51,6 +51,15 @@ Then, you:
 Logistic regression can be used to classify samples and can use different types of data (e.g., weight, genotype) for classification. It also helps assess which variables are useful for classification (e.g., in predicting obesity using weight, genotype, age, and astrological sign, the astrological sign might be "totes useless").
 
 
+### How is a logistic regression model evaluated?
+One of the best ways to evaluate a logistic regression model is to use a confusion matrix, which is a very specific table that is used to measure the overall performance of any algorithm.
+
+Using a confusion matrix, you can easily calculate the Accuracy Score, Precision, Recall, and F1 score. These can be extremely good indicators for your logistic regression model.
+
+If the recall of your model is low, then it means that your model has too many False Negatives. Similarly, if the precision of your model is low, it signifies that your model has too many False Positives. In order to select a model with a balanced precision and recall score, the F1 Score must be used.
+
+> While maximum likelihood is essential for training a logistic regression model, performance evaluation often involves additional metrics to assess how well the model generalizes to new, unseen data.
+
 ## Key Concepts
 
 ### Logistic Function
