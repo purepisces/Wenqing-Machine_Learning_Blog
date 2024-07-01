@@ -8,7 +8,7 @@ Formulating such a comparison is not straightforward. We have to ask the questio
 
 > Input invariance means that the metric should fairly evaluate performance regardless of the type of data or problem the model is addressing.
 
-Insert png
+<img src="measuring_performance.png" alt="measuring_performance" width="400" height="300"/>
 
 ## Basic Definitions
 
@@ -27,7 +27,7 @@ The key point here is that all of our metrics are specific to the class we choos
 > In multi-class systems (where there are more than two categories), defining the positive case becomes even more important and apparent. Each class can be evaluated as the positive case individually, which affects the resulting metrics.
 >
 
-Insert png
+<img src="basic_definitions.png" alt="basic_definitions" width="400" height="300"/>
 
 ## Prediction Categories
 
@@ -44,7 +44,7 @@ These values are usually expressed as the actual number of predictions that fall
 > The counts of true positives, false positives, true negatives, and false negatives can be represented either as raw numbers or as percentages of the total number of predictions made by the system.
 >
 
-Insert png
+<img src="prediction_categories.png" alt="prediction_categories" width="400" height="300"/>
 
 ## Accuracy
 
@@ -70,7 +70,7 @@ Imagine we have a dataset where almost all of the labels are negative, and only 
 > 2. **Less Extreme Imbalance**: The imbalance is less extreme, so the accuracy metric does not appear as misleadingly high as in the highly imbalanced scenario.
 > 3. **Hidden Poor Performance**: The model's failure to identify positive cases is masked by the larger number of correctly identified negative cases, making the distortion in accuracy less noticeable at first glance.
 
-Insert png
+<img src="accuracy_explanation.png" alt="accuracy_explanation" width="400" height="300"/>
 
 ## Precision
 
@@ -88,7 +88,7 @@ $$\text{Precision} = \frac{1}{1} = 1 \text{ or } 100 \ \text{percent}$$
 
 This high precision score is misleading because the model might not be making enough positive predictions to be useful in a real-world scenario.
 
-Insert png
+<img src="precision_explanation.png" alt="precision_explanation" width="400" height="300"/>
 
 ## Recall
 
@@ -110,7 +110,7 @@ $$ \text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}} = \frac{10}{10 + 0} =
 >  - **Recall**: Recall measures how many of the actual positive cases were correctly identified by the model. It focuses on the completeness of the positive predictions.
 >  Because precision and recall focus on different aspects of the model's performance, they are considered counterparts. Improving one can sometimes lead to a decrease in the other, hence they balance each other.
 
-Insert png
+<img src="recall_explanation.png" alt="recall_explanation" width="400" height="300"/>
 
 ## Balancing Precision and Recall
 
@@ -128,7 +128,7 @@ It should be clear by now that precision and recall alone have some severe short
 > To increase recall, you might set a lower threshold for the model to classify a positive instance. This makes the model more liberal in labeling positives, leading to fewer false negatives (FN). However, this liberality increases the chances of labeling non-positives as positives, which reduces precision.
 > *Example:* The same email spam classifier might be more liberal in marking emails as spam, catching more actual spam emails (high recall), but also incorrectly marking more non-spam emails as spam (lower precision).
 
-Insert png
+<img src="middle_ground.png" alt="middle_ground" width="400" height="300"/>
 
 ## F1 Score
 
@@ -163,7 +163,7 @@ $$F1 = 2 \times \frac{0.1 \times 1}{0.1 + 1} \approx 0.18$$
 
 This demonstrates that the F1 score provides a more accurate reflection of the model's poor performance by penalizing extreme imbalances between precision and recall.
 
-insert png
+<img src="F1score.png" alt="F1score" width="400" height="300"/>
 
 ## Conclusion
 
@@ -173,7 +173,7 @@ The F1 score is one of the most common metrics by which we compare our systems a
 
 > In multi-class classification, there are more than two classes, and the performance on each class can be equally important. Example: In an image classification task with classes such as cats, dogs, and birds, misclassifying a cat as a dog is just as important as misclassifying a dog as a bird.
 
-
+<img src="conclusion_classification_metric.png" alt="conclusion_classification_metric" width="400" height="300"/>
 
 # Version2 Precison, Recall and F1
 ## Precision
