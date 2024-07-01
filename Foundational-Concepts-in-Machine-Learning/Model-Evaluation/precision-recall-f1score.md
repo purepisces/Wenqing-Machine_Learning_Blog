@@ -84,9 +84,7 @@ The goal of a system that optimizes for this metric is to make as few mistakes a
 
 Precision still doesn’t paint the entire picture because it doesn’t take into account any of the negative labels. A model could achieve a high precision score by making very few positive predictions and being correct in those few cases. For example, if it only makes one positive prediction and that prediction is correct:
 
-\[
-\text{Precision} = \frac{1}{1} = 1 \text{ or } 100\%
-\]
+$$\text{Precision} = \frac{1}{1} = 1 \text{ or } 100 \ \text{percent}$$
 
 This high precision score is misleading because the model might not be making enough positive predictions to be useful in a real-world scenario.
 
@@ -94,9 +92,7 @@ This high precision score is misleading because the model might not be making en
 
 Now we have recall, which is like a counterpart to precision. It’s notably different in that it takes the negative labels into the equation. It asks how many positive labels you found out of the total number of positive labels that exist, almost directly countering the issue seen with precision. The equation for this comes down to the number of correctly predicted positive labels divided by the number of positives you got correct plus the number of positives you got wrong.
 
-\[
-\text{Recall} = \frac{\text{Correct Positive Guesses}}{\text{All Positive Labels}} = \frac{TP}{TP + FN}
-\]
+$$\text{Recall} = \frac{\text{Correct Positive Guesses}}{\text{All Positive Labels}} = \frac{TP}{TP + FN}$$
 
 The goal of the system becomes to try and find every positive label there is to be found.
 
@@ -114,9 +110,7 @@ It should be clear by now that precision and recall alone have some severe short
 
 This is where the F1 score comes in. The F1 score is defined as the harmonic mean between precision and recall. The score essentially asks how good the quality of the predictions is and how completely we have predicted the labels from the dataset. Importantly, the F1 score doesn’t simply use an arithmetic average to combine the scores. In the cheating cases discussed earlier, where a model that just predicts negative for everything still gets awarded a 50% score by average, the harmonic mean weights the score towards the lower of the two component scores. This penalizes precision and recall disagreeing with each other too much and correctly reflects when either of them falls too close to the value of zero.
 
-\[
-\text{F1} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} = 2 \cdot \frac{TP}{2 \cdot TP + FP + FN}
-\]
+$$\text{F1} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} = 2 \cdot \frac{TP}{2 \cdot TP + FP + FN}$$
 
 ## Conclusion
 
