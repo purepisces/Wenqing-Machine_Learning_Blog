@@ -175,6 +175,9 @@ The F1 score is one of the most common metrics by which we compare our systems a
 
 <img src="conclusion_classification_metric.png" alt="conclusion_classification_metric" width="400" height="300"/>
 
+## Reference:
+- [Watch the video on YouTube](https://www.youtube.com/watch?v=8d3JbbSj-I8)
+  
 # Version2 Precison, Recall and F1
 ## Precision
 
