@@ -1,4 +1,4 @@
-# Version1 Classification Metrics of Predictive Systems
+# Version1 Classification Metrics of Predictive Systems(Precision, Recall, & F1 Score)
 
 ## Introduction
 
