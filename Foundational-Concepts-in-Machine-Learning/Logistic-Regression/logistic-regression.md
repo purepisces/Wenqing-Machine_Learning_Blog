@@ -58,7 +58,7 @@ Using a confusion matrix, you can easily calculate the Accuracy Score, Precision
 
 If the recall of your model is low, then it means that your model has too many False Negatives. Similarly, if the precision of your model is low, it signifies that your model has too many False Positives. In order to select a model with a balanced precision and recall score, the F1 Score must be used.
 
-> While maximum likelihood is essential for training a logistic regression model, performance evaluation often involves additional metrics to assess how well the model generalizes to new, unseen data.
+> In logistic regression, maximum likelihood estimation (MLE) is used to estimate the model parameters (coefficients). The goal of MLE is to find the parameter values that maximize the likelihood of observing the given data. While MLE is crucial for training the model, evaluating its performance typically involves metrics such as accuracy, precision, recall, and F1 score. These metrics provide a comprehensive assessment of how well the model generalizes to new, unseen data.
 
 ## Key Concepts
 
