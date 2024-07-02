@@ -66,3 +66,4 @@ In summary, a confusion matrix shows what your machine learning algorithm did ri
 
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=Kdsp6soqA7o)
+- one of the image from https://www.youtube.com/watch?v=8d3JbbSj-I8
