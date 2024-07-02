@@ -55,6 +55,7 @@ Editor: https://stackedit.io/app#
 34.underfitting-overfitting.md✅已发csdn
 35.decision-tree.md✅ add regression tree explanation in statquest youtube under it
 36.logistic-regression.md✅已发csdn
+37.confusion-matrix.md✅已发csdn
 
 cross-validation
 random forest
