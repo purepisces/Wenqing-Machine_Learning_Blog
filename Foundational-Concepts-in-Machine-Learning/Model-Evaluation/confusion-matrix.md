@@ -56,9 +56,7 @@ The size of the confusion matrix depends on the number of prediction categories.
 - **4 categories**: 4x4 confusion matrix. 
 - **40 categories**: 40x40 confusion matrix.
 
-<img src="4_4_confusion_matrix.png" alt="4_4_confusion_matrix" width="400" height="300"/>
-
-<img src="40_40_confusion_matrix.png" alt="40_40_confusion_matrix" width="400" height="300"/>
+<img src="4_4_confusion_matrix.png" alt="4_4_confusion_matrix" width="400" height="300"/> <img src="40_40_confusion_matrix.png" alt="40_40_confusion_matrix" width="400" height="300"/>
 
 In summary, a confusion matrix shows what your machine learning algorithm did right and wrong.
 
