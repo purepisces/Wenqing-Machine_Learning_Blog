@@ -20,3 +20,4 @@ A decision tree uses a tree structure to generate any regression or classificati
 
 ## Reference
 - https://www.turing.com/interview-questions/machine-learning
+- nlp: https://intellipaat.com/blog/interview-question/nlp-interview-questions/
