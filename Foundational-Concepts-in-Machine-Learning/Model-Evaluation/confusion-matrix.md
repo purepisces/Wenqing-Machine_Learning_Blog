@@ -8,7 +8,8 @@ We could use logistic regression, k-nearest neighbours, a random forest, or othe
 
 The rows in a confusion matrix correspond to the machine learning algorithm's predictions, while the columns correspond to the known truth.   Since there are two categories, then for binary classification ("has heart disease" or "does not have heart disease"), the confusion matrix looks like this: The top left corner contains true positives (TP), correctly identified patients with heart disease. The true negatives (TN) are in the bottom right-hand corner; these are correctly identified patients without heart disease. The bottom left-hand corner contains false negatives (FN), patients with heart disease incorrectly identified as not having it. The top right-hand corner contains false positives (FP), patients without heart disease incorrectly identified as having it.
 
-<img src="medical_confusion_matrix.png" alt="medical_confusion_matrix" width="400" height="300"/>
+<img src="medical_confusion_matrix.png" alt="medical_confusion_matrix" width="400" height="300"/> <img src="confusion_matrix_pic.png" alt="confusion_matrix_pic" width="400" height="300"/>
+
 
 - **True Positives (TP)**: Correctly identified patients with heart disease.
 - **True Negatives (TN)**: Correctly identified patients without heart disease.
