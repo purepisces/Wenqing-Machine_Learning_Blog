@@ -58,6 +58,9 @@ Editor: https://stackedit.io/app#
 37.confusion-matrix.md✅已发csdn
 
 cross-validation
+XGBoost
+SVM 
+Gradient Boosting
 standard error
 random forest
 maximum likelihood
