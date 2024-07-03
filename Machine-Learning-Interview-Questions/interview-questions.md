@@ -17,6 +17,13 @@ A decision tree uses a tree structure to generate any regression or classificati
 
 ## Question 3
 
+**How is a logistic regression model evaluated?**
+
+One of the best ways to evaluate a logistic regression model is to use a confusion matrix, which is a very specific table that is used to measure the overall performance of any algorithm.
+
+Using a confusion matrix, you can easily calculate the Accuracy Score, Precision, Recall, and F1 score. These can be extremely good indicators for your logistic regression model.
+
+If the recall of your model is low, then it means that your model has too many False Negatives. Similarly, if the precision of your model is low, it signifies that your model has too many False Positives. In order to select a model with a balanced precision and recall score, the F1 Score must be used.
 
 ## Reference
 - https://www.turing.com/interview-questions/machine-learning
