@@ -80,7 +80,9 @@ implicit function
 scalar function
 Directional Derivative:
 Gaussian Noise
+interview questions 4 and 5
 Wald's test
+
 
 why gradient" refers to a vector that points in the direction of the greatest rate of increase  give specific example???
 why the product of the standard deviations of x and y is normalization?
