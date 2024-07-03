@@ -79,6 +79,7 @@ t-sne
 implicit function
 scalar function
 Directional Derivative:
+Gaussian Noise
 Wald's test
 
 why gradient" refers to a vector that points in the direction of the greatest rate of increase  give specific example???
