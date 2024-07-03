@@ -59,6 +59,19 @@ An encoder-decoder model is used to create an output sequence based on a given i
 
 Cross validation is a concept used to evaluate models’ performances to avoid overfitting. It is an easy method to compare the predictive capabilities of models and is best suitable when limited data is available.
 
+## Question 9
+
+**What are the types of Machine learning?**
+
+There are mainly three types of Machine Learning, viz:
+
+Reinforcement learning: It is about taking the best possible action to maximize reward in a particular scenario. It is used by various software and machines to find the best path it should take in a given situation.
+
+Supervised learning: Using labeled datasets to train algorithms to classify data easily for predicting accurate outcomes. Supervised algorithms are those that use labeled data to learn a mapping function from input variables to output variables.
+
+Unsupervised learning: It uses ML to analyze and cluster unlabeled datasets. Unsupervised algorithms learn from unlabeled data and discover hidden patterns and structures in the data.
+
+
 ## Reference
 - https://www.turing.com/interview-questions/machine-learning
 - nlp: https://intellipaat.com/blog/interview-question/nlp-interview-questions/
