@@ -25,7 +25,7 @@ Using a confusion matrix, you can easily calculate the Accuracy Score, Precision
 
 If the recall of your model is low, then it means that your model has too many False Negatives. Similarly, if the precision of your model is low, it signifies that your model has too many False Positives. In order to select a model with a balanced precision and recall score, the F1 Score must be used.
 
-## Question 4
+## 🌟 Question 4
 **To start Linear Regression, you would need to make some assumptions. What are those assumptions?**
 
 To start a Linear Regression model, there are some fundamental assumptions that you need to make:
@@ -35,12 +35,26 @@ To start a Linear Regression model, there are some fundamental assumptions that 
 - There should be a linear relationship
 - There should be no or almost no multicollinearity present
 
-## Question 5
+## 🌟 Question 5
 **What is multicollinearity and how will you handle it in your regression model?**
 
 If there is a correlation between the independent variables in a regression model, it is known as multicollinearity. Multicollinearity is an area of concern as independent variables should always be independent. When you fit the model and analyze the findings, a high degree of correlation between variables might present complications.
 
 There are various ways to check and handle the presence of multicollinearity in your regression model. One of them is to calculate the Variance Inflation Factor (VIF). If your model has a VIF of less than 4, there is no need to investigate the presence of multicollinearity. However, if your VIF is more than 4, an investigation is very much required, and if VIF is more than 10, there are serious concerns regarding multicollinearity, and you would need to correct your regression model.
+
+## 🌟 Question 6
+**Explain why the performance of XGBoost is better than that of SVM?**
+
+XGBoost is an ensemble approach that employs a large number of trees. This implies that when it repeats itself, it becomes better.
+
+If our data isn't linearly separable, SVM, being a linear separator, will need to use a Kernel to bring it to a point where it can be split. Due to there not being an ideal Kernel for every dataset, this can be limiting.
+
+## Question 7
+**Why is an encoder-decoder model used for NLP?**
+
+An encoder-decoder model is used to create an output sequence based on a given input sequence. The final state of the encoder is used as the initial state of the decoder, and this makes the encoder-decoder model extremely powerful. This also allows the decoder to access the information that is taken from the input sequence by the encoder.
+
+
 
 ## Reference
 - https://www.turing.com/interview-questions/machine-learning
