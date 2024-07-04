@@ -268,6 +268,13 @@ Dimension reduction is the reduction of variables put under consideration. It le
 PCA means Principal Component Analysis, and is mainly used for dimension reduction. It is a statistical technique used to reduce the dimensionality of large datasets while retaining as much information as possible. In other words, it identifies patterns and correlations among variables and summarizes them into a smaller set of uncorrelated variables called principal components.
 PCA is commonly used in data preprocessing and exploratory data analysis to simplify data visualization, identify outliers, and reduce noise in the data. It is also used in machine learning and pattern recognition applications to improve model performance by reducing the number of features used in the analysis.
 
+## 🌟 Question 27
+
+**What are the differences between stochastic gradient descent (SGD) and gradient descent (GD)?**
+
+Both of these gradients are algorithms used to ascertain the parameters that will minimize a loss function. However, in the case of GB, all training samples are evaluated for each set of parameters. On the contrary, for SGB, one training sample is always evaluated for a set of parameters.
+
+
 ## 🌟 Question 25
 
 **What is stemming?**
@@ -279,6 +286,19 @@ Stemming is a normalization technique that removes any affix joined to a word, l
 **What is Lemmatization?**
 
 This is a normalization technique that converts a word into a lemma form, or the root word, which is not the stem word. It is a process in which a word is reduced to its base form, but not similar to stemming; it considers the context of the word and produces a valid word. Lemmatization is quite difficult compared to stemming because it requires a lot more knowledge about the structure of a language; it's a much more intensive process than just trying to set up a heuristic stemming algorithm. Lemmatization is often used in natural language processing (NLP) applications to improve text analysis and feature extraction.
+
+##  Question 27
+
+**What is an Array?**
+
+An array is a collection of data elements of the same type, such as integers, strings, or floating-point numbers, stored in contiguous memory locations. Every component of an array is identified by an index that represents its position in the array.
+
+##  Question 27
+
+**What is a linked list?**
+
+This is an ordered collection of similar data type elements joined with pointers. It consists of several individual allocated nodes or a series of connected nodes. Each node contains data plus a pointer or the address of the next node in the list.
+
 
 ## Reference
 - https://www.turing.com/interview-questions/machine-learning
