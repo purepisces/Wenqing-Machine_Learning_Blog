@@ -113,43 +113,49 @@ Some areas it is applied include labeling data, fraud detection, and machine tra
 
 ## 🌟 Question 16
 
+**What is the Bayesian Network?**
+
+Bayesian network represents a graphical model between sets of variables. We say it probabilistic because these networks are built on a probability distribution and also use probability theory for prediction and anomaly detection. Bayesian networks are used in for reasoning, diagnostic, anomaly detection, prediction to list a few.
+
+## 🌟 Question 17
+
 **What is another name for a Bayesian Network?**
 
 Casual network, Belief Network, Bayes network, Bayes net, Belief Propagation Network, etc. are some of its other names. It is a probabilistic graphical model that showcases a set of variables and their conditional dependencies.
 
-## Question 17
+## Question 18
 
 **What is sensitivity?**
 
 This is the probability that the prediction outcome of the model is true when the value is positive. It can be described as the metric for evaluating a model’s ability to predict the true positives of each available category. Sensitivity = TP / TP+FN (i.e. True Positive/True Positive + False Negative)
 
-## Question 18
+## Question 19
 
 **What is specificity?**
 
 This is the probability the prediction of the model is negative when the actual value is negative. It can be termed as the model’s ability to foretell the true negative for each category available.. Specificity = TN / TN + FP (i.e. True Negative/True Negative + False Positive)
 
 
-## 🌟 Question 19
+## 🌟 Question 20
 
 **What techniques are used to find resemblance in the recommendation system?**
 
 Cosine and Pearson Correlation are techniques used to find resemblance in recommendation systems. Where the Pearson correlation coefficient is the covariance between two vectors divided by their standard deviation, Cosine, on the other hand, is used for measuring the similarity between two vectors.
 
-## 🌟 Question 20
+## 🌟 Question 21
 
 **What does the area under the ROC curve indicate?**
 
 ROC stands for Receiver Operating Characteristic. It measures the usefulness of a test where the larger the area, the more useful the test. These areas are used to compare the effectiveness of the tests. A higher AUC (area under the curve) generally indicates that the model is better at distinguishing between the positive and negative classes. AUC values range from 0 to 1, with a value of 0.5 indicating that the model is no better than random guessing, and a value of 1 indicating perfect classification.
 
 
-## 🌟 Question 21
+## 🌟 Question 22
 
 **What is clustering?**
 
 Clustering is a process of grouping sets of items into several groups. Items or objects must be similar within the cluster and different from other objects in other clusters. The goal of clustering is to identify patterns and similarities in the data that can be used to gain insights and make predictions. Different clustering algorithms use different methods to group data points based on their features and similarity measures, such as distance or density. Clustering is commonly used in various applications such as customer segmentation, image and text classification, anomaly detection, and recommendation systems.
 
-## 🌟 Question 22
+## 🌟 Question 23
 
 **List the differences between KNN and k-means clustering.**
 
