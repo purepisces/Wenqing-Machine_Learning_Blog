@@ -71,6 +71,53 @@ Supervised learning: Using labeled datasets to train algorithms to classify data
 
 Unsupervised learning: It uses ML to analyze and cluster unlabeled datasets. Unsupervised algorithms learn from unlabeled data and discover hidden patterns and structures in the data.
 
+## Question 10
+
+**What is Selection Bias?**
+
+Selection Bias is a statistical error that brings about a bias in the sampling portion of the experiment. This, in turn, causes more selection of the sampling portion than other groups, which brings about an inaccurate conclusion.
+
+## Question 11
+
+**What is the difference between correlation and causality?**
+
+Correlation is the relation of one action (A) to another action (B) when A does not necessarily lead to B, but Causality is the situation where one action (A) causes a result (B).
+
+## Question 12
+
+**What is the difference between Correlation and Covariance?**
+
+Correlation quantifies the relationship between two random variables with three values: 0,1 and -1.
+
+Covariance is the measure of how two different variables are related and how changes in one impact the other. 
+
+## Question 13
+
+**What are the differences between Type I error and Type II error?**
+| Type I               | Type II                  |
+|----------------------|--------------------------|
+| False positive       | False negative           |
+| This states that something has happened when it has not happened | This states that nothing has happened when it has actually happened |
+
+## Question 14
+
+**What is semi-supervised learning?**
+
+A semi-supervised learning happens when a small amount of labeled data is introduced to an algorithm. The algorithm then studies that data and uses it on unlabeled data. Semi-supervised learning combines the efficiency of unsupervised learning and the performance of supervised learning.
+w
+## Question 15
+
+**Where are semi-supervised learning applied?**
+
+Some areas it is applied include labeling data, fraud detection, and machine translation.
+
+## 🌟 Question 16
+
+**What is another name for a Bayesian Network?**
+
+Casual network, Belief Network, Bayes network, Bayes net, Belief Propagation Network, etc. are some of its other names. It is a probabilistic graphical model that showcases a set of variables and their conditional dependencies.
+
+
 
 ## Reference
 - https://www.turing.com/interview-questions/machine-learning
