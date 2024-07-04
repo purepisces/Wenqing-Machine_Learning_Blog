@@ -1,4 +1,7 @@
+**What is P-value?**
 
+
+P-value or probability value indicates the probability of obtaining the observed data or more extreme values by random chance. A small P-value suggests that the observed result is unlikely and that observed data is consistent with the null hypothesis and provides evidence to support the alternative hypothesis.
 
 ## Question 9
 
