@@ -96,6 +96,7 @@ implicit function
 scalar function
 Directional Derivative:
 Gaussian Noise
+probability mass function (PMF) and a probability density function (PDF)
 interview questions 4 and 5
 Wald's test
 
