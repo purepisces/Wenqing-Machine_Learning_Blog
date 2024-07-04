@@ -59,7 +59,8 @@ Editor: https://stackedit.io/app#
 
 
 
-
+bayer's theorem
+naive bayes
 cross-validation
 Bayesian Network
 XGBoost
