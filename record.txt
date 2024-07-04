@@ -79,7 +79,7 @@ regualization
 L1 Regularization
 boosting
 bagging
-auc
+auc and roc curve
 precision-recall-f1score.md
 Chain rule
 Cumulative Distribution Function (CDF)
