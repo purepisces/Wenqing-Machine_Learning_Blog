@@ -142,6 +142,26 @@ Cosine and Pearson Correlation are techniques used to find resemblance in recomm
 
 ROC stands for Receiver Operating Characteristic. It measures the usefulness of a test where the larger the area, the more useful the test. These areas are used to compare the effectiveness of the tests. A higher AUC (area under the curve) generally indicates that the model is better at distinguishing between the positive and negative classes. AUC values range from 0 to 1, with a value of 0.5 indicating that the model is no better than random guessing, and a value of 1 indicating perfect classification.
 
+
+## 🌟 Question 21
+
+**What is clustering?**
+
+Clustering is a process of grouping sets of items into several groups. Items or objects must be similar within the cluster and different from other objects in other clusters. The goal of clustering is to identify patterns and similarities in the data that can be used to gain insights and make predictions. Different clustering algorithms use different methods to group data points based on their features and similarity measures, such as distance or density. Clustering is commonly used in various applications such as customer segmentation, image and text classification, anomaly detection, and recommendation systems.
+
+## 🌟 Question 22
+
+**List the differences between KNN and k-means clustering.**
+
+| KNN                                | K-means clustering                    |
+|------------------------------------|---------------------------------------|
+| Useful for classification and regression | Used for clustering                    |
+| This is a supervised technique     | This is an unsupervised technique     |
+
+
+
+
+
 ## Reference
 - https://www.turing.com/interview-questions/machine-learning
 - nlp: https://intellipaat.com/blog/interview-question/nlp-interview-questions/
