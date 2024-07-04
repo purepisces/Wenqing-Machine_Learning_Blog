@@ -43,6 +43,12 @@ If there is a correlation between the independent variables in a regression mode
 There are various ways to check and handle the presence of multicollinearity in your regression model. One of them is to calculate the Variance Inflation Factor (VIF). If your model has a VIF of less than 4, there is no need to investigate the presence of multicollinearity. However, if your VIF is more than 4, an investigation is very much required, and if VIF is more than 10, there are serious concerns regarding multicollinearity, and you would need to correct your regression model.
 
 ## 🌟 Question 6
+
+**What are support vectors in SVM (Support Vector Machine)?**
+
+Support vectors are the data points in a dataset that are closest to the hyperplane (the line that separates the classes in the dataset) and are used to build the classifier.
+
+## 🌟 Question 6
 **Explain why the performance of XGBoost is better than that of SVM?**
 
 XGBoost is an ensemble approach that employs a large number of trees. This implies that when it repeats itself, it becomes better.
@@ -111,6 +117,12 @@ w
 
 Some areas it is applied include labeling data, fraud detection, and machine translation.
 
+## Question 15
+
+**What is ensemble learning?**
+
+Ensemble learning is a method that merges multiple machine learning models to create various powerful models. The aim is to provide better performance by combining models rather than sticking to a single model.
+
 ## 🌟 Question 16
 
 **What is the Bayesian Network?**
@@ -164,9 +176,36 @@ Clustering is a process of grouping sets of items into several groups. Items or 
 | Useful for classification and regression | Used for clustering                    |
 | This is a supervised technique     | This is an unsupervised technique     |
 
+## 🌟 Question 24
 
+**What is the time series?**
 
+Time series is a particular sequence of data observations in successive order collected over a period. It usually does not need any maximum or minimum time input. It basically forecasts target values based solely on a known history of target values. It is used to predict time-based predictions such as signal processing, engineering domain- communications and control systems, and weather forecasting models.
 
+## 🌟 Question 25
+
+**What is stemming?**
+
+Stemming is a normalization technique that removes any affix joined to a word, leaving it in its base state. It makes text easier to process. It is commonly used in information retrieval, an important step in text pre-processing and text mining applications. Stemming can be used in various NLP tasks such as text classification, information retrieval, and text summarization.
+
+## 🌟 Question 26
+
+**What is Lemmatization?**
+
+This is a normalization technique that converts a word into a lemma form, or the root word, which is not the stem word. It is a process in which a word is reduced to its base form, but not similar to stemming; it considers the context of the word and produces a valid word. Lemmatization is quite difficult compared to stemming because it requires a lot more knowledge about the structure of a language; it's a much more intensive process than just trying to set up a heuristic stemming algorithm. Lemmatization is often used in natural language processing (NLP) applications to improve text analysis and feature extraction.
+
+## Question 27
+
+**What is an Outlier?**
+
+An outlier is an observation that is significantly different from the other observations in the dataset and can be considered as an error that should be avoided in data analysis. However, they also give insight into special cases in our data at certain times.
+
+## 🌟 Question 27
+
+**What is a PCA?**
+
+PCA means Principal Component Analysis, and is mainly used for dimension reduction. It is a statistical technique used to reduce the dimensionality of large datasets while retaining as much information as possible. In other words, it identifies patterns and correlations among variables and summarizes them into a smaller set of uncorrelated variables called principal components.
+PCA is commonly used in data preprocessing and exploratory data analysis to simplify data visualization, identify outliers, and reduce noise in the data. It is also used in machine learning and pattern recognition applications to improve model performance by reducing the number of features used in the analysis.
 
 ## Reference
 - https://www.turing.com/interview-questions/machine-learning
