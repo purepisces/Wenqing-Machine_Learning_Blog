@@ -61,6 +61,7 @@ Editor: https://stackedit.io/app#
 
 bayer's theorem
 naive bayes
+**Cosine** and **Pearson Correlation** are techniques used to find resemblance in recommendation systems. 
 cross-validation
 Bayesian Network
 XGBoost
