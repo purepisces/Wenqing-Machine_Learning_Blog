@@ -119,10 +119,28 @@ Casual network, Belief Network, Bayes network, Bayes net, Belief Propagation Net
 
 ## Question 17
 
+**What is sensitivity?**
+
+This is the probability that the prediction outcome of the model is true when the value is positive. It can be described as the metric for evaluating a model’s ability to predict the true positives of each available category. Sensitivity = TP / TP+FN (i.e. True Positive/True Positive + False Negative)
+
+## Question 18
+
 **What is specificity?**
 
 This is the probability the prediction of the model is negative when the actual value is negative. It can be termed as the model’s ability to foretell the true negative for each category available.. Specificity = TN / TN + FP (i.e. True Negative/True Negative + False Positive)
 
+
+## 🌟 Question 19
+
+**What techniques are used to find resemblance in the recommendation system?**
+
+Cosine and Pearson Correlation are techniques used to find resemblance in recommendation systems. Where the Pearson correlation coefficient is the covariance between two vectors divided by their standard deviation, Cosine, on the other hand, is used for measuring the similarity between two vectors.
+
+## 🌟 Question 20
+
+**What does the area under the ROC curve indicate?**
+
+ROC stands for Receiver Operating Characteristic. It measures the usefulness of a test where the larger the area, the more useful the test. These areas are used to compare the effectiveness of the tests. A higher AUC (area under the curve) generally indicates that the model is better at distinguishing between the positive and negative classes. AUC values range from 0 to 1, with a value of 0.5 indicating that the model is no better than random guessing, and a value of 1 indicating perfect classification.
 
 ## Reference
 - https://www.turing.com/interview-questions/machine-learning
