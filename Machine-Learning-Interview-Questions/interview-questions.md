@@ -31,6 +31,12 @@ Support Vector Machines (SVM): It is used to create the best line or decision bo
 
 Probabilistic networks: They are graphical models of interactions among a set of variables, where the variables are represented as nodes of a graph and the interaction as directed edges between the vertices. It allows a compact description of complex stochastic relationships among several random variables.
 
+## Question 
+
+**What is a neural network?**
+
+Much like a human brain, the neural network is a network of different neurons connected in a way that helps information flow from one neuron to the other. It is a function that maps input to desired output with a given set of inputs. Structurally, it is organized into an input layer, an output layer, and one or more hidden layers.
+
 ## Question 1
 
 **You have come across some missing data in your dataset. How will you handle it?**
