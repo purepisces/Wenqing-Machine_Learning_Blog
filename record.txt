@@ -57,7 +57,11 @@ Editor: https://stackedit.io/app#
 36.logistic-regression.md✅已发csdn
 37.confusion-matrix.md✅已发csdn
 
+
+
+
 cross-validation
+Bayesian Network
 XGBoost
 SVM 
 Gradient Boosting
