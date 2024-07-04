@@ -117,6 +117,11 @@ Some areas it is applied include labeling data, fraud detection, and machine tra
 
 Casual network, Belief Network, Bayes network, Bayes net, Belief Propagation Network, etc. are some of its other names. It is a probabilistic graphical model that showcases a set of variables and their conditional dependencies.
 
+## Question 17
+
+**What is specificity?**
+
+This is the probability the prediction of the model is negative when the actual value is negative. It can be termed as the model’s ability to foretell the true negative for each category available.. Specificity = TN / TN + FP (i.e. True Negative/True Negative + False Positive)
 
 
 ## Reference
