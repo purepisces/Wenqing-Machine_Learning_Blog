@@ -60,6 +60,7 @@ Editor: https://stackedit.io/app#
 
 
 PCA
+SGD
 bayer's theorem
 naive bayes
 Bayesian Network
