@@ -81,6 +81,7 @@ exponential function
 decision tree (gradient boost decision tree)
 regualization
 L1 Regularization
+L2 Regularization
 boosting
 bagging
 auc and roc curve
