@@ -1,5 +1,18 @@
 ## Question 1
 
+**What is L1 and L2 regularization?**
+**What is cuda kernel? and deep learning system related project question**
+**why kernel size is odd number**
+**what's the difference between llm and neural network, pros and cons**
+**recommendation system project go through**
+
+
+
+
+
+
+## Question 1
+
 **What is P-value?**
 
 
