@@ -5,6 +5,13 @@
 **why kernel size is odd number**
 **what's the difference between llm and neural network, pros and cons**
 **recommendation system project go through**
+**transformer related**
+**prenorm postnorm**
+**each layer like BatchNorm LayerNorm**
+** why for attention score it will divide by sqrt d**
+
+
+
 
 
 
