@@ -290,6 +290,51 @@ class CrossEntropyLoss:
         dLdA = (self.softmax - self.Y) / self.A.shape[0]
         return dLdA
 ```
+# Appendix
+## Another way for writing the equation
+
+**Equation for All Training Examples**:
+$$H(Y, P) = -\sum_{i=1}^k Y_i \log(P_i) = H(Y, \sigma(z)) = -\sum_{i=1}^k Y_i \log(\sigma(z)_i)$$
+
+**Equation for One Training Example**:
+$$H(Y, \sigma(z)) = -\log(\sigma(z)_y) = -\log\left( \frac{\exp(z_y)}{\sum_{j=1}^k \exp(z_j)} \right)$$
+
+
+**Equation for One Training Example**:
+ $H(Y, \sigma(z)) = -z_y + \log\left( \sum_{j=1}^k \exp(z_j) \right)$
+
+#### Softmax Function
+
+The softmax function converts logits (raw scores) into probabilities. For a vector of logits $z$ of length $k$, the softmax function $\sigma(z)$ is defined as:
+
+$$\sigma(z)_i = \frac{\exp(z_i)}{\sum_{j=1}^k \exp(z_j)}$$
+
+for $i = 1, \ldots, k$.
+
+#### Cross-Entropy Loss
+
+The cross-entropy loss measures the difference between the true labels and the predicted probabilities. For a true label vector $Y$ (one-hot encoded) and a predicted probability vector $P$ (output of the softmax function), the cross-entropy loss $H(Y, P)$ is defined as:
+
+$$H(Y, P) = -\sum_{i=1}^k Y_i \log(P_i)$$
+
+#### Connection Between Softmax and Cross-Entropy
+
+When using the softmax function as the final layer in a neural network for multi-class classification, the predicted probability vector $P$ is given by:
+
+$$P_i = \sigma(z) i = \frac{\exp(z_i)}{\sum_{j=1}^k \exp(z_j)}$$
+
+The cross-entropy loss then becomes:
+
+$$H(Y, \sigma(z)) = -\sum_{i=1}^k Y_i \log(\sigma(z)_i)$$
+
+For a single training example where the true class is $y$, $Y$ is a one-hot encoded vector where $Y_y = 1$ and $Y_i = 0$ for $i \neq y$. Thus, the cross-entropy loss simplifies to:
+
+$$H(Y, \sigma(z)) = -\log(\sigma(z)_y) = -\log\left( \frac{\exp(z_y)}{\sum_{j=1}^k \exp(z_j)} \right)$$
+
+Using properties of logarithms, this can be rewritten as:
+
+$$H(Y, \sigma(z)) = -\left( \log(\exp(z_y)) - \log\left( \sum_{j=1}^k \exp(z_j) \right) \right)$$
+$$H(Y, \sigma(z)) = -z_y + \log\left( \sum_{j=1}^k \exp(z_j) \right)$$
 
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=rf4WF-5y8uY)
