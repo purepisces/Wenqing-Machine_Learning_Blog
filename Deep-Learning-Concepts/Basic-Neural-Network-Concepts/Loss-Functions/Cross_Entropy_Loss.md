@@ -321,7 +321,7 @@ $$H(Y, P) = -\sum_{i=1}^k Y_i \log(P_i)$$
 
 When using the softmax function as the final layer in a neural network for multi-class classification, the predicted probability vector $P$ is given by:
 
-$$P_i = \sigma(z) i = \frac{\exp(z_i)}{\sum_{j=1}^k \exp(z_j)}$$
+$$P_i = \sigma(z) i = \frac{\exp(z_i)}{\sum\limits_{j=1}^k \exp(z_j)}$$
 
 The cross-entropy loss then becomes:
 
@@ -329,12 +329,12 @@ $$H(Y, \sigma(z)) = -\sum_{i=1}^k Y_i \log(\sigma(z)_i)$$
 
 For a single training example where the true class is $y$, $Y$ is a one-hot encoded vector where $Y_y = 1$ and $Y_i = 0$ for $i \neq y$. Thus, the cross-entropy loss simplifies to:
 
-$$H(Y, \sigma(z)) = -\log(\sigma(z)_y) = -\log\left( \frac{\exp(z_y)}{\sum_{j=1}^k \exp(z_j)} \right)$$
+$$H(Y, \sigma(z)) = -\log(\sigma(z)y) = -\log\left( \frac{\exp(z_y)}{\sum\limits_{j=1}^k \exp(z_j)} \right)$$
 
 Using properties of logarithms, this can be rewritten as:
 
-$$H(Y, \sigma(z)) = -\left( \log(\exp(z_y)) - \log\left( \sum_{j=1}^k \exp(z_j) \right) \right)$$
-$$H(Y, \sigma(z)) = -z_y + \log\left( \sum_{j=1}^k \exp(z_j) \right)$$
+$$H(Y, \sigma(z)) = -\left( \log(\exp(z_y)) - \log\left( \sum\limits_{j=1}^k \exp(z_j) \right) \right)$$
+$$H(Y, \sigma(z)) = -z_y + \log\left( \sum\limits_{j=1}^k \exp(z_j) \right)$$
 
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=rf4WF-5y8uY)
