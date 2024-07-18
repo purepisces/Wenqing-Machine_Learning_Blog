@@ -294,14 +294,17 @@ class CrossEntropyLoss:
 ## Another way for writing the equation
 
 **Equation for All Training Examples**:
-$$H(Y, P) = -\sum_{i=1}^k Y_i \log(P_i) = H(Y, \sigma(z)) = -\sum_{i=1}^k Y_i \log(\sigma(z)_i)$$
+
+$$H(Y, P) = -\sum_{i=1}^k Y_i \log(P_i) = H(Y, \sigma(z)) = -\sum\limits_{i=1}^k Y_i \log(\sigma(z)_i)$$
 
 **Equation for One Training Example**:
-$$H(Y, \sigma(z)) = -\log(\sigma(z)y) = -\log\left( \frac{\exp(z_y)}{\sum_{j=1}^k \exp(z_j)} \right)$$
+
+$$H(Y, \sigma(z)) = -\log(\sigma(z)y) = -\log\left( \frac{\exp(z_y)}{\sum\limits_{j=1}^k \exp(z_j)} \right)$$
 
 
 **Equation for One Training Example**:
- $H(Y, \sigma(z)) = -z_y + \log\left( \sum_{j=1}^k \exp(z_j) \right)$
+
+ $H(Y, \sigma(z)) = -z_y + \log\left( \sum\limits_{j=1}^k \exp(z_j) \right)$
 
 #### Softmax Function
 
