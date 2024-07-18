@@ -387,6 +387,14 @@ This equation highlights how the output $Z$ from one layer, after undergoing tra
 > $$dLdZ = dLdA \odot \frac{\partial A}{\partial Z}$$
 > In the case of vector activation function, $dLdZ$ is computed as: For each input vector $Z^{(i)}$ of size $1 \times C$ and its corresponding output vector $A^{(i)}$ (also $1 \times C$ within the batch, the Jacobian matrix $J^{(i)}$ must be computed individually. This matrix holds dimensions $C \times C$. Consequently, the gradient $dLdZ^{(i)}$ for each sample in the batch is determined by:
 > $$dLdZ^{(i)} = dLdA^{(i)} \cdot J^{(i)}$$
-> 
+
+
+# Appendix 
+Sigmoid Function vs Softmax Function:
+
+**Sigmoid**: Suitable for binary classification, where you need to output a single probability score for the positive class.
+
+**Softmax**: Suitable for multi-class classification, where you need to output a probability distribution over multiple classes.
+
 ## Reference:
 - CMU_11785_Introduction_To_Deep_Learning
