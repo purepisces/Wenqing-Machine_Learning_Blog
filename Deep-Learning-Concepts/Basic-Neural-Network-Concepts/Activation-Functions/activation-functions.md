@@ -390,11 +390,75 @@ This equation highlights how the output $Z$ from one layer, after undergoing tra
 
 
 # Appendix 
-Sigmoid Function vs Softmax Function:
+
+## Sigmoid Function vs Softmax Function:
 
 **Sigmoid**: Suitable for binary classification, where you need to output a single probability score for the positive class.
 
 **Softmax**: Suitable for multi-class classification, where you need to output a probability distribution over multiple classes.
+
+### Sigmoid Function
+
+- **Context**: Binary classification.
+- **Purpose**: Converts a single logit into a probability.
+- **Operation**: Takes a single logit (a raw score from the model) and maps it to a value between 0 and 1, which can be interpreted as a probability.
+
+#### Mathematical Operation
+
+Given a logit $z$:
+
+$$\sigma(z) = \frac{1}{1 + \exp(-z)}$$
+
+- **Input**: A single logit value (scalar).
+- **Output**: A single probability value between 0 and 1.
+
+#### Example
+
+```python
+import numpy as np
+
+def sigmoid(z):
+    return 1 / (1 + np.exp(-z))
+
+logit = 2.0
+probability = sigmoid(logit)
+print(probability)  # Output: 0.8807970779778823
+```
+### Softmax Function
+
+- **Context**: Multi-class classification.
+- **Purpose**: Converts a vector of logits into a probability distribution.
+- **Operation**: Takes a vector of logits (raw scores from the model) and maps them to a probability distribution over multiple classes, where the sum of probabilities is 1.
+
+#### Mathematical Operation
+
+Given a vector of logits $z$:
+
+$$\sigma(z)_i = \frac{\exp(z_i)}{\sum_{j=1}^k \exp(z_j)}$$
+
+for $i = 1, \ldots, k$.
+
+- **Input**: A vector of logits.
+- **Output**: A vector of probabilities that sum to 1.
+
+#### Example
+```python
+import numpy as np
+
+def softmax(z):
+    exp_z = np.exp(z)
+    return exp_z / np.sum(exp_z, axis=0)
+
+logits = np.array([2.0, 1.0, 0.1])
+probabilities = softmax(logits)
+print(probabilities)  # Output: [0.65900114 0.24243297 0.09856589]
+```
+### Summary
+
+Both sigmoid and softmax functions operate on logits, but they are used in different scenarios:
+
+- **Sigmoid Function**: Used in binary classification to map a single logit to a probability between 0 and 1.
+- **Softmax Function**: Used in multi-class classification to map a vector of logits to a probability distribution over multiple classes.
 
 ## Reference:
 - CMU_11785_Introduction_To_Deep_Learning
