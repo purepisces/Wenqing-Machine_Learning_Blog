@@ -297,7 +297,7 @@ class CrossEntropyLoss:
 $$H(Y, P) = -\sum_{i=1}^k Y_i \log(P_i) = H(Y, \sigma(z)) = -\sum_{i=1}^k Y_i \log(\sigma(z)_i)$$
 
 **Equation for One Training Example**:
-$$H(Y, \sigma(z)) = -\log(\sigma(z)_y) = -\log\left( \frac{\exp(z_y)}{\sum_{j=1}^k \exp(z_j)} \right)$$
+$$H(Y, \sigma(z)) = -\log(\sigma(z)y) = -\log\left( \frac{\exp(z_y)}{\sum_{j=1}^k \exp(z_j)} \right)$$
 
 
 **Equation for One Training Example**:
@@ -307,7 +307,7 @@ $$H(Y, \sigma(z)) = -\log(\sigma(z)_y) = -\log\left( \frac{\exp(z_y)}{\sum_{j=1}
 
 The softmax function converts logits (raw scores) into probabilities. For a vector of logits $z$ of length $k$, the softmax function $\sigma(z)$ is defined as:
 
-$$\sigma(z)_i = \frac{\exp(z_i)}{\sum_{j=1}^k \exp(z_j)}$$
+$$\sigma(z)i = \frac{\exp(z_i)}{\sum\limits_{j=1}^k \exp(z_j)}$$
 
 for $i = 1, \ldots, k$.
 
