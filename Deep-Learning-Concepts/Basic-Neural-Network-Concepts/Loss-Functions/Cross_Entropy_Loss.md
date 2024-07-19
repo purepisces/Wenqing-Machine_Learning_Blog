@@ -36,7 +36,7 @@ x_3
 >#### Weight Matrix ($\Theta$): shape $3 \times 2$
 >The weight matrix $\Theta$ has dimensions $n \times k$, where $n$ is the number of features in the input (3 in this case), and $k$ is the number of classes. Each column of $\Theta$ corresponds to the weights associated with a particular class. In this example, $\Theta$ has dimensions $3 \times 2$, meaning we are working with a 2-class classification problem.
 >#### Logits ($z $): shape $2 \times 1$
->When we multiply the feature vector $x$ by the weight matrix $\Theta$, we are computing the weighted sum of the features for each class. The result, $z$, is a vector of logits, where each element represents the score for a particular class before applying the softmax function. When the score (logit) for a particular class is high, it means that the model is more confident that the input example belongs to that class.
+>When we multiply the feature vector $x$ by the weight matrix $\Theta$, we are computing the weighted sum of the features for each class. The result, $z$, is a vector of logits, where each element represents the score for a particular class before applying the softmax function. When the score (logit) for a particular class is high, it means that the model is more confident that the input example belongs to that class. **A high logit for a particular class indicates that the input features, when weighted by the corresponding weights for that class, result in a large value. This suggests that the model "believes" the input is likely to belong to that class, prior to normalization by the softmax function.**
 
 ## Cross-Entropy Loss Forward Equation
 
