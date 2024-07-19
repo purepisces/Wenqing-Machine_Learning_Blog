@@ -1,4 +1,4 @@
-# Cross-Entropy Loss
+# Cross-Entropy Loss(Classification Tasks)
 
 Cross-entropy loss is one of the most commonly used loss function for probability-based **classification problems**. It is used to quantify the error or difference between the true distribution(often represented by the one-hot encoded label $y$ in classification tasks) and a predicted distribution(the output of the softmax function), which is crucial for training models in machine learning.
 
