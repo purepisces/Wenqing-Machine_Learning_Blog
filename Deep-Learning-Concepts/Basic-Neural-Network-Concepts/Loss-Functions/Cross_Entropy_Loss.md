@@ -14,15 +14,16 @@ $$\ell(y, \sigma(z)) = -\log(\sigma(z)_c)$$
 
 This means that we are penalizing the model based on the probability it assigns to the true class. If the model assigns a high probability to the true class, the loss will be low. Conversely, if the model assigns a low probability to the true class, the loss will be high.
 
-> ### Shape of Logits z
-> $z = \Theta^T x$
-> #### Feature Vector (𝑥)
-> The input vector 𝑥 represents the features of a single training example. In your case, 𝑥 has 3 values, which means each training example is represented by 3 features.
-> #### Weight Matrix (Θ)
-> The weight matrix Θ has dimensions 𝑛×𝑘, where 𝑛 is the number of features in the input (3 in this case), and 𝑘 is the number of classes. Each column of Θ corresponds to the weights associated with a particular class. In your example, Θ has dimensions 3×2, meaning we are working with a 2-class classification problem.
-> #### Logits (𝑧)
-> When we multiply the feature vector 𝑥 by the weight matrix Θ, we are computing the weighted sum of the features for each class. The result, 𝑧, is a vector of logits, where each element represents the score for a particular class before applying the softmax function.
 
+>### Shape of Logits \( z \)
+>$$z = \Theta^T x$$
+>#### Example:
+>#### Feature Vector ($x$): shape $3 \times 1$
+>The input vector $x$ represents the features of a single training example. In this case, $x$ has 3 values, which means each training example is represented by 3 features.
+>#### Weight Matrix ($\Theta$): shape $3 \times 2$
+>The weight matrix $\Theta$ has dimensions $n \times k$, where $n$ is the number of features in the input (3 in this case), and $k$ is the number of classes. Each column of $\Theta$ corresponds to the weights associated with a particular class. In this example, $\Theta$ has dimensions $3 \times 2$, meaning we are working with a 2-class classification problem.
+>#### Logits ($z $): shape $2 \times 1$
+>When we multiply the feature vector $x$ by the weight matrix $\Theta$, we are computing the weighted sum of the features for each class. The result, $z$, is a vector of logits, where each element represents the score for a particular class before applying the softmax function.
 
 ## Cross-Entropy Loss Forward Equation
 
