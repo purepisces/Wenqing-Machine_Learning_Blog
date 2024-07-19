@@ -268,6 +268,7 @@ Based on the calculations:
 These results give us the predicted probabilities for each class using the softmax function, the individual cross-entropy losses for each sample, the overall mean cross-entropy loss for the batch, and the gradients required for the backward pass. The negative values in the gradients indicate the direction in which we should adjust our model's parameters to reduce the loss, while the positive values suggest the opposite.
 
 ## Code
+CMU_Introduction_to_deep_learning:
 ```python
 class CrossEntropyLoss:
     def softmax(self, x):
@@ -291,7 +292,7 @@ class CrossEntropyLoss:
         dLdA = (self.softmax - self.Y) / self.A.shape[0]
         return dLdA
 ```
-
+CMU_Deep_Learning_System:
 ```python
 def softmax_loss(Z, y):
     """ Return softmax loss.  Note that for the purposes of this assignment,
@@ -374,3 +375,5 @@ $$H(Y, \sigma(z)) = -z_y + \log\left( \sum\limits_{j=1}^k \exp(z_j) \right)$$
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=rf4WF-5y8uY)
 - CMU_11785_Introduction_To_Deep_Learning
+- CMU_Deep_Learning_System
+
