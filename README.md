@@ -119,16 +119,20 @@
 - **Neural Network Models**
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Models/neural-network-models.md)
   - [MLP](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Models/MLP.md)
+
 - **Loss Functions**
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Loss_Functions.md)
-  - [MSE_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/MSE_Loss.md)
-  - [Cross_Entropy_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Cross_Entropy_Loss.md)
-    - [Binary_Cross_Entropy_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Binary_Cross_Entropy_Loss.md)
-    - [Normalized Cross Entropy](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Normalized_Cross_Entropy.md) 
-  - [MAPE](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/MAPE.md)
-  - [SMAPE](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/SMAPE.md)
-  - [Quantile_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Quantile_Loss.md)
-  - [Ranking_Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Ranking_Loss.md)
+  - Classification Tasks:
+    - [Cross Entropy Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Cross_Entropy_Loss.md)
+      - [Binary Cross Entropy Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Binary_Cross_Entropy_Loss.md)
+      - [Normalized Cross Entropy](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Normalized_Cross_Entropy.md)
+    - [Ranking Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Ranking_Loss.md)
+  - Regression Tasks:
+    - [MSE Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/MSE_Loss.md)
+    - [MAPE](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/MAPE.md)
+    - [SMAPE](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/SMAPE.md)
+    - [Quantile Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Quantile_Loss.md)
+
 - **Optimization Algorithms**
   - [Overview](optimization-overview.md)
   - [Gradient Descent](Foundational-Concepts-in-Machine-Learning/Optimization-Algorithms/gradient-descent.md)
