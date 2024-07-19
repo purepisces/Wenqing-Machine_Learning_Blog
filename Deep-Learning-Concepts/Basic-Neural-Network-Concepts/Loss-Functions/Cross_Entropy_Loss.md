@@ -16,11 +16,11 @@ This means that we are penalizing the model based on the probability it assigns 
 
 > ### Shape of Logits z
 > $z = \Theta^T x$
-> ### Feature Vector (𝑥)
+> #### Feature Vector (𝑥)
 > The input vector 𝑥 represents the features of a single training example. In your case, 𝑥 has 3 values, which means each training example is represented by 3 features.
-> ### Weight Matrix (Θ)
+> #### Weight Matrix (Θ)
 > The weight matrix Θ has dimensions 𝑛×𝑘, where 𝑛 is the number of features in the input (3 in this case), and 𝑘 is the number of classes. Each column of Θ corresponds to the weights associated with a particular class. In your example, Θ has dimensions 3×2, meaning we are working with a 2-class classification problem.
-> ### Logits (𝑧)
+> #### Logits (𝑧)
 > When we multiply the feature vector 𝑥 by the weight matrix Θ, we are computing the weighted sum of the features for each class. The result, 𝑧, is a vector of logits, where each element represents the score for a particular class before applying the softmax function.
 
 
