@@ -267,6 +267,7 @@ Based on the calculations:
 
 These results give us the predicted probabilities for each class using the softmax function, the individual cross-entropy losses for each sample, the overall mean cross-entropy loss for the batch, and the gradients required for the backward pass. The negative values in the gradients indicate the direction in which we should adjust our model's parameters to reduce the loss, while the positive values suggest the opposite.
 
+## Code
 ```python
 class CrossEntropyLoss:
     def softmax(self, x):
@@ -289,6 +290,37 @@ class CrossEntropyLoss:
         # This gradient also includes the averaging over the batch
         dLdA = (self.softmax - self.Y) / self.A.shape[0]
         return dLdA
+```
+
+```python
+def softmax_loss(Z, y):
+    """ Return softmax loss.  Note that for the purposes of this assignment,
+    you don't need to worry about "nicely" scaling the numerical properties
+    of the log-sum-exp computation, but can just compute this directly.
+
+    Args:
+        Z (np.ndarray[np.float32]): 2D numpy array of shape
+            (batch_size, num_classes), containing the logit predictions for
+            each class.
+        y (np.ndarray[np.uint8]): 1D numpy array of shape (batch_size, )
+            containing the true label of each example.
+
+    Returns:
+        Average softmax loss over the sample.
+    """
+    ### BEGIN YOUR CODE
+    # Formula for one training sample: \begin{equation} \ell_{\mathrm{softmax}}(z, y) = \log\sum_{i=1}^k \exp z_i - z_y. \end{equation}
+    
+    # Compute the log of the sum of exponentials of logits for each sample
+    log_sum_exp = np.log(np.sum(np.exp(Z), axis = 1))
+    # Extract the logits corresponding to the true class for each sample
+    # np.arange(Z.shape[0]) generates array [0, 1, 2, ..., batch_size-1]
+    # Z[np.arange(Z.shape[0]), y] = Z[[row_indices], [col_indices]]
+    # This selects the logits Z[i, y[i]] for each i which is each row
+    correct_class_logits = Z[np.arange(Z.shape[0]), y]
+    losses = log_sum_exp - correct_class_logits
+    return np.mean(losses)
+    ### END YOUR CODE
 ```
 # Appendix
 ## Another way for writing the equation
