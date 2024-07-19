@@ -261,22 +261,27 @@ $$\sigma(A_2) = \left[\frac{e^{0.1}}{e^{0.1} + e^{2.0} + e^{1.9}}, \frac{e^{2.0}
 ### 2. Compute Cross-Entropy Loss
 
 Next, we compute the cross-entropy loss for each sample. The loss for a single sample is given by:
+
 $$H(A_i, Y_i) = -\sum_{c=1}^{C} Y_{ic} \log(\sigma(A_{ic}))$$
 
 For Sample 1:
+
 $$H(A_1, Y_1) = -[0 \times \log(\sigma(A_{11})) + 1 \times \log(\sigma(A_{12})) + 0 \times \log(\sigma(A_{13}))]$$
 
 For Sample 2:
+
 $$H(A_2, Y_2) = -[1 \times \log(\sigma(A_{21})) + 0 \times \log(\sigma(A_{22})) + 0 \times \log(\sigma(A_{23}))]$$
 
 ### 3. Calculate Mean Cross-Entropy Loss
 
 Finally, we calculate the mean of these losses to get the mean cross-entropy loss for the batch:
+
 $$\text{meancrossentropyloss} = \frac{H(A_1, Y_1) + H(A_2, Y_2)}{2}$$
 
 ### 4. Cross-Entropy Loss Backward
 
 For backpropagation, the gradient of the cross-entropy loss with respect to the raw model outputs before applying softmax is given by:
+
 $$\frac{\partial \text{Loss}}{\partial A} = \frac{\sigma(A) - Y}{N}$$
 
 For each sample in the batch, we compute:
