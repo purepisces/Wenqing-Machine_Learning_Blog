@@ -17,6 +17,19 @@ This means that we are penalizing the model based on the probability it assigns 
 
 >### Shape of Logits \( z \)
 >$$z = \Theta^T x$$
+
+>$$z = \Theta^T x = \begin{pmatrix}
+\Theta_{11} &amp; \Theta_{21} &amp; \Theta_{31} \\
+\Theta_{12} &amp; \Theta_{22} &amp; \Theta_{32}
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{pmatrix} = \begin{pmatrix}
+\Theta_{11} x_1 + \Theta_{21} x_2 + \Theta_{31} x_3 \\
+\Theta_{12} x_1 + \Theta_{22} x_2 + \Theta_{32} x_3
+\end{pmatrix}$$
 >#### Example:
 >#### Feature Vector ($x$): shape $3 \times 1$
 >The input vector $x$ represents the features of a single training example. In this case, $x$ has 3 values, which means each training example is represented by 3 features.
