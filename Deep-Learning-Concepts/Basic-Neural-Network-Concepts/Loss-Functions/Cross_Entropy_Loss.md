@@ -2,6 +2,18 @@
 
 Cross-entropy loss is one of the most commonly used loss function for probability-based classification problems. It is used to quantify the error or difference between the true distribution(represented by the one-hot encoded label $y$) and a predicted distribution(the output of the softmax function), which is crucial for training models in machine learning.
 
+Intuition:
+
+The cross-entropy loss for a single example is defined as:
+
+$$\ell(y, \sigma(z)) = -\sum_{i=1}^k y_i \log(\sigma(z)_i)$$
+
+Since $y$ is one-hot encoded, only the term corresponding to the true class $y$ is non-zero. If the true class is $c$, then:
+
+$$\ell(y, \sigma(z)) = -\log(\sigma(z)_c)$$
+
+This means that we are penalizing the model based on the probability it assigns to the true class. If the model assigns a high probability to the true class, the loss will be low. Conversely, if the model assigns a low probability to the true class, the loss will be high.
+
 ## Cross-Entropy Loss Forward Equation
 
 Firstly, we use softmax function to transform the raw model outputs $A$ into a probability distribution consisting of $C$ classes proportional to the exponentials of the input numbers.
