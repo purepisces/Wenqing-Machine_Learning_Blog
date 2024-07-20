@@ -573,3 +573,76 @@ $$\nabla_\Theta \ell_{\mathrm{softmax}}(X \Theta, y) = \frac{1}{m} X^T (Z - I_y)
 - **Matrix Multiplication**:
   $X^T (Z - I_y)$ computes the sum of outer products $x_i (z_i - e_{y_i})^T$ for all examples in the batch.
   Dividing by $m$ gives the average gradient.
+
+## Training MNIST with softmax regression
+
+Although it's not a part of the tests, now that you have written this code, you can also try training a full MNIST linear classifier using SGD.  For this you can use the `train_softmax()` function in the `src/simple_ml.py` file (we have already written this function for you, so you don't need to write it yourself, though you can take a look to see what it's doing).  
+
+You can see how this works using the following code.  For reference, as seen below, our implementation runs in ~3 seconds on Colab, and achieves 7.97% error.
+
+```python
+def loss_err(h,y):
+    """ Helper funciton to compute both loss and error"""
+    # h: (np.ndarray[np.float32]): 2D numpy array of shape (batch_size x num_classes), containing the logit predictions for each class.
+    return softmax_loss(h,y), np.mean(h.argmax(axis=1) != y)
+
+
+def train_softmax(X_tr, y_tr, X_te, y_te, epochs=10, slr=0.5, batch=100,
+                  cpp=False):
+    """ Example function to fully train a softmax regression classifier """
+    # X_tr.shape[1]: the number of features in the training data
+    # y_tr.max()+1 : the number of classes
+    # weight matrix theta's shape (number of features x number of classes)
+    theta = np.zeros((X_tr.shape[1], y_tr.max()+1), dtype=np.float32)
+    print("| Epoch | Train Loss | Train Err | Test Loss | Test Err |")
+    for epoch in range(epochs):
+        if not cpp:
+            softmax_regression_epoch(X_tr, y_tr, theta, lr=lr, batch=batch)
+        else:
+            softmax_regression_epoch_cpp(X_tr, y_tr, theta, lr=lr, batch=batch)
+        # Computes the loss and error for the entire training dataset
+        # X_tr @ theta ((num_examples x number of features)@(number of features x number of classes)) = (num_examples x num_classes)
+        train_loss, train_err = loss_err(X_tr @ theta, y_tr)
+        test_loss, test_err = loss_err(X_te @ theta, y_te)
+        print("|  {:>4} |    {:.5f} |   {:.5f} |   {:.5f} |  {:.5f} |"\
+              .format(epoch, train_loss, train_err, test_loss, test_err))
+```
+
+
+### Explain np.mean(h.argmax(axis=1) != y)
+```python
+import numpy as np
+
+# Predicted logits for 5 samples and 3 classes
+h = np.array([[0.2, 0.5, 0.3],
+              [0.1, 0.3, 0.6],
+              [0.7, 0.2, 0.1],
+              [0.4, 0.4, 0.2],
+              [0.1, 0.6, 0.3]])
+
+# True class labels
+y = np.array([1, 2, 0, 1, 2])
+
+# Predicted classes
+predicted_classes = h.argmax(axis=1)
+print("Predicted classes:", predicted_classes)
+# Output: [1 2 0 0 1]
+
+# Comparison of predicted classes with true classes
+comparison = predicted_classes != y
+print("Comparison (predicted != true):", comparison)
+# Output: [False False False  True  True]
+
+# Calculate the mean (classification error rate)
+error_rate = np.mean(comparison)
+print("Error rate:", error_rate)
+# Output: 0.4 since (0 + 0 + 0 + 1 + 1) / 5 = 2 / 5 = 0.4
+```
+
+## Code Implementation:
+- [Softmax Regression](../../Code-Implementation/Softmax-Regression)
+  
+## Reference:
+- CMU 10714 Deep Learning Systems
+
+
