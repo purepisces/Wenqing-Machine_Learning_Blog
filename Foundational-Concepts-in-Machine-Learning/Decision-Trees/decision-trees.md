@@ -150,3 +150,4 @@ But we can also use $\text{Information Gain} = \text{Gini Impurity (Original Dat
 - [Decision Tree](../../Code-Implementation/Decision-Tree)
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=_L39rN6gz7Y&t=903s)
+- CMU Introduction To Machine Learning
