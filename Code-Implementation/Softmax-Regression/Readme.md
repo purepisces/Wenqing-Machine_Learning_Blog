@@ -1,5 +1,10 @@
 The code is from CMU 10714(Deep Learning System)'s homework, and I have attached the homework description with code related.
 
+It implemented softmax regression which using softmax(aka cross entropy) loss on the MNIST dataset.
+
+## Homework Description
+- hw0.iqynb from question 2 to question 4
+
 ## How to run the code
 Training softmax regression:
 ```python
