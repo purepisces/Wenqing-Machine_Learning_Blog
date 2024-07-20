@@ -1,3 +1,5 @@
+The code is from CMU 10714(Deep Learning System)'s homework, and I have attached the homework description with code related.
+
 ## How to run the code
 Training softmax regression:
 ```python
