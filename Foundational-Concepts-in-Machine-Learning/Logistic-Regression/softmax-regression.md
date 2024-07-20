@@ -36,7 +36,7 @@ Softmax regression, also known as multinomial logistic regression, is a generali
 
 In summary, softmax regression is a type of logistic regression tailored for multiclass classification tasks. It uses the softmax function to predict the probabilities of each class, allowing for the classification of instances into multiple categories.
 
-## Question3: Softmax(a.k.a. cross-entropy) loss:
+## Softmax(a.k.a. cross-entropy) loss:
 
 Implement the softmax (a.k.a. cross-entropy) loss as defined in `softmax_loss()` function in `src/simple_ml.py`.  Recall (hopefully this is review, but we'll also cover it in lecture on 9/1), that for a multi-class output that can take on values $y \in \{1,\ldots,k\}$, the softmax loss takes as input a vector of logits $z \in \mathbb{R}^k$, the true class $y \in \{1,\ldots,k\}$ returns a loss defined by
 
@@ -153,7 +153,7 @@ $$H(Y, \sigma(z)) = -\left( \log(\exp(z_y)) - \log\left( \sum\limits_{j=1}^k \ex
 
 $$H(Y, \sigma(z)) = -z_y + \log\left( \sum\limits_{j=1}^k \exp(z_j) \right)$$
 
-## Question 4: Stochastic gradient descent for softmax regression
+## Stochastic gradient descent for softmax regression
 
 In this question you will implement stochastic gradient descent (SGD) for (linear) softmax regression.  In other words, as discussed in lecture on 9/1, we will consider a hypothesis function that makes $n$-dimensional inputs to $k$-dimensional logits via the function
 
