@@ -639,6 +639,60 @@ print("Error rate:", error_rate)
 # Output: 0.4 since (0 + 0 + 0 + 1 + 1) / 5 = 2 / 5 = 0.4
 ```
 
+## Softmax Regression as a Linear Classifier
+
+Let's work through a specific example to illustrate why softmax regression (multinomial logistic regression) is considered a linear classifier. We'll use a simple 2D dataset for easy visualization.
+
+### Example Setup
+Suppose we have a dataset with two features $X_1$ and $X_2$ and three classes (A, B, and C). Let's denote the input feature vector as $\mathbf{x} = [X_1, X_2]$.
+
+### Softmax Regression Model
+
+#### Linear Transformation
+We have a weight matrix $\Theta$ of shape $(2, 3)$, where each column corresponds to the weights for one of the three classes.
+
+Let's assume:
+$$\Theta = \begin{bmatrix}
+\theta_{11} & \theta_{12} & \theta_{13} \\
+\theta_{21} & \theta_{22} & \theta_{23}
+\end{bmatrix}$$
+
+#### Logit Calculation
+The logits for each class are computed as:
+$$Z = \mathbf{x} \Theta = [X_1, X_2] \begin{bmatrix}
+\theta_{11} & \theta_{12} & \theta_{13} \\
+\theta_{21} & \theta_{22} & \theta_{23}
+\end{bmatrix} = [Z_1, Z_2, Z_3]$$
+where:
+$$Z_1 = \theta_{11} X_1 + \theta_{21} X_2$$
+
+$$Z_2 = \theta_{12} X_1 + \theta_{22} X_2$$
+
+$$Z_3 = \theta_{13} X_1 + \theta_{23} X_2$$
+
+#### Softmax Function
+The softmax function converts these logits into probabilities:
+
+$$P(y=i \mid \mathbf{x}) = \frac{e^{Z_i}}{e^{Z_1} + e^{Z_2} + e^{Z_3}}$$
+
+### Decision Boundaries
+The decision boundaries are where the classifier is indifferent between two classes. For example:
+
+- The boundary between class A and class B is where $Z_1 = Z_2$:
+  
+  $$\theta_{11} X_1 + \theta_{21} X_2 = \theta_{12} X_1 + \theta_{22} X_2$$
+  
+  Rearranging, we get:
+  $$ (\theta_{11} - \theta_{12}) X_1 + (\theta_{21} - \theta_{22}) X_2 = 0$$
+  
+  This is a linear equation representing a line in the $X_1$-$X_2$ plane.
+
+- Similarly, the boundary between class B and class C is:
+  $$ (\theta_{12} - \theta_{13}) X_1 + (\theta_{22} - \theta_{23}) X_2 = 0$$
+
+- The boundary between class A and class C is:
+  $$ (\theta_{11} - \theta_{13}) X_1 + (\theta_{21} - \theta_{23}) X_2 = 0$$
+
 ## Code Implementation:
 - [Softmax Regression](../../Code-Implementation/Softmax-Regression)
   
