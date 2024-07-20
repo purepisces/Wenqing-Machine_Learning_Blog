@@ -10,13 +10,13 @@ Softmax regression, also known as multinomial logistic regression, is a generali
 
 - **Softmax Function**: The core of softmax regression is the softmax function, which is used to convert raw prediction scores (logits) into probabilities. The softmax function is defined as follows:
 
-  $$\sigma(\mathbf{z})_i = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}$$
+  $$\sigma(\mathbf{z})i = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}$$
 
   where $\mathbf{z}$ is the input vector of raw scores (logits), $K$ is the number of classes, and $\sigma(\mathbf{z})_i$ is the probability that the input belongs to class $i$.
 
 - **Loss Function**: The loss function used in softmax regression is the cross-entropy loss, which measures the performance of a classification model whose output is a probability value between 0 and 1. The cross-entropy loss for a single sample is given by:
 
-  $$ \ell_{\mathrm{softmax}}(\mathbf{z}, y) = -\log(\sigma(\mathbf{z})_y) $$
+  $$\ell_{\mathrm{softmax}}(\mathbf{z}, y) = -\log(\sigma(\mathbf{z})_y)$$
 
   where $y$ is the true class label.
 
