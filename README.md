@@ -199,6 +199,7 @@
 - [Image Segmentation Task For CGG](Code-Implementation/CGG)
 - [Decision Tree](Code-Implementation/Decision-Tree)
 - [Logistic Regresssion](Code-Implementation/Logistic-Regression)
+- [Softmax Regresssion](Code-Implementation/Softmax-Regression)
 
 
 ## Machine Learning Interview Questions
