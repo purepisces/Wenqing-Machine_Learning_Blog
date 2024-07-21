@@ -267,8 +267,8 @@ Let's start by deriving the gradient of the softmax loss itself: for vector $h \
 $$\frac{\partial \ell_{ce}(h, y)}{\partial h_i} = \frac{\partial}{\partial h_i} \left( -h_y + \log \sum_{j=1}^k \exp h_j \right) = -1 (i = y) + \frac{\exp h_i}{\sum_{j=1}^k \exp h_j}$$
 
 So, in vector form: 
-$$\nabla_h \ell_{ce}(h, y) = z - e_y, \text{ where } z = \text{softmax}(h)$$
 
+$$\nabla_h \ell_{ce}(h, y) = z - e_y, \text{ where } z = \text{softmax}(h)$$
 
 So how do we compute the gradient $\nabla_{\theta} \ell_{ce} (\theta^T x, y)$?
 
