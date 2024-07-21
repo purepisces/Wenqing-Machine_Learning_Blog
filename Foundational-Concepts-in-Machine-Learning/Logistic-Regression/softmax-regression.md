@@ -2,6 +2,8 @@
 
 Softmax regression, also known as multinomial logistic regression, is a generalization of logistic regression for multiclass classification problems. While logistic regression is used for binary classification, softmax regression is used when there are more than two classes.
 
+Refer to slides : - [CMU 10714 Softmax-Regression PDF](Code-Implementation/Softmax-Regression/softmax_regression.pdf) 
+
 ### Key Points of Softmax Regression:
 
 - **Multiclass Classification**: Softmax regression is used when the dependent variable can take on more than two categories. For instance, classifying digits (0-9) in the MNIST dataset.
