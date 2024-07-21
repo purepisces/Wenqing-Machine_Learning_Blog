@@ -104,7 +104,18 @@ print("Correct class logits:", correct_class_logits)
 # Output: [2.0, 2.1, 0.3]
 ```
 
-### Math Prove
+### Math Prove CMU 10714 For Loss function #2: softmax / cross-entropy loss
+
+Let's convert the hypothesis function to a "probability" by exponentiating and normalizing its entries (to make them all positive and sum to one)
+
+$$z_i = p(\text{label} = i) = \frac{\exp(h_i(x))}{\sum_{j=1}^k \exp(h_j(x))} \Longleftrightarrow z \equiv \text{softmax}(h(x))$$
+
+Then let's define a loss to be the (negative) log probability of the true class: this is called softmax or cross-entropy loss
+
+$$\ell_{ce}(h(x), y) = - \log p(\text{label} = y) = - h_y(x) + \log \sum_{j=1}^k \exp(h_j(x))$$
+
+
+### Math Prove By Myself
 
 **Equation for All Training Examples**:
 
@@ -245,7 +256,46 @@ def softmax_regression_epoch(X, y, theta, lr = 0.1, batch=100):
    
     ### END YOUR CODE
 ```
-### Math Prove(Gradient of the Softmax Loss with Respect to Parameters)
+
+### Math Prove CMU 10714 For The gradient of the softmax objective
+
+So, how do we compute the gradient for the softmax objective?
+$$\nabla_{\theta} \ell_{ce}(\theta^T x, y) = ? $$
+
+Let's start by deriving the gradient of the softmax loss itself: for vector $h \in \mathbb{R}^k$
+
+$$\frac{\partial \ell_{ce}(h, y)}{\partial h_i} = \frac{\partial}{\partial h_i} \left( -h_y + \log \sum_{j=1}^k \exp h_j \right) = -1 \{i = y\} + \frac{\exp h_i}{\sum_{j=1}^k \exp h_j}$$
+
+So, in vector form: 
+$$\nabla_h \ell_{ce}(h, y) = z - e_y, \text{ where } z = \text{softmax}(h)$$
+
+
+So how do we compute the gradient $\nabla_{\theta} \ell_{ce} (\theta^T x, y)$?
+
+- The chain rule of multivariate calculus ... but the dimensions of all the matrices and vectors get pretty cumbersome
+
+**Approach #1 (a.k.a. the right way)**: Use matrix differential calculus, Jacobians, Kronecker products, and vectorization
+
+**Approach #2 (a.k.a. the hacky quick way that everyone actually does)**: Pretend everything is a scalar, use the typical chain rule, and then rearrange / transpose matrices/vectors to make the sizes work 😱 (and check your answer numerically)
+
+**The slide I'm embarrassed to include...**
+
+Let's compute the "derivative" of the loss:
+
+$$\frac{\partial}{\partial \theta} \ell_{ce} (\theta^T x, y) = \frac{\partial \ell_{ce} (\theta^T x, y)}{\partial \theta^T x} \frac{\partial \theta^T x}{\partial \theta} = (z - e_y)(x), \text{ where } z = \text{softmax}(\theta^T x)$$
+
+where $(z - e_y) (k\text{-dimensional}), (x) (n\text{-dimensional})$
+
+So to make the dimensions work...
+
+$$\nabla_{\theta} \ell_{ce} (\theta^T x, y) \in \mathbb{R}^{n \times k} = x (z - e_y)^T$$
+
+Same process works if we use "matrix batch" form of the loss
+
+$$\nabla_{\theta} \ell_{ce} (X \theta, y) \in \mathbb{R}^{n \times k} = X^T (Z - I_y), \quad Z = \text{softmax}(X \theta)$$
+
+
+### Math Prove By Myself(Gradient of the Softmax Loss with Respect to Parameters)
 
 #### Softmax Function and Loss
 Given logits $z$ and the true label $y$, the softmax function and the corresponding loss function are defined as follows:
