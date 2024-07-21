@@ -130,3 +130,99 @@ $$
 3
 \end{pmatrix}
 $$
+
+--------------------------------------
+
+## Using `keepdims=True` in `np.sum`
+
+The `keepdims=True` parameter in the `np.sum` function ensures that the dimensions of the output are the same as the input, except for the reduced dimensions which are kept as singleton dimensions (dimensions with size 1). This helps in maintaining the original number of dimensions in the array, making it easier to perform element-wise operations with broadcasting.
+
+### Explanation with Example
+
+Let's revisit the example with logits and go through the step-by-step calculation with `keepdims=True` and without it.
+
+#### Example Input
+
+```python
+logits = np.array([
+    [1.0, 2.0, 3.0],
+    [1.0, 3.0, 2.0]
+])
+```
+
+#### Step-by-Step Calculation
+
+**Exponentiation:**
+
+```python
+exp_logits = np.exp(logits)
+# exp_logits will be:
+# [[ 2.71828183  7.3890561  20.08553692]
+#  [ 2.71828183 20.08553692  7.3890561 ]]
+```
+**Sum of Exponentiated Logits with `keepdims=False` (default behavior):**
+```python
+sum_exp_logits = np.sum(exp_logits, axis=1)
+# sum_exp_logits will be:
+# [30.19287485 30.19287485]
+# shape: (2,)
+```
+Here, the dimension along axis 1 is removed, and the result is a 1D array with shape `(2,)`.
+
+**Sum of Exponentiated Logits with `keepdims=True`:**
+```python
+sum_exp_logits = np.sum(exp_logits, axis=1, keepdims=True)
+# sum_exp_logits will be:
+# [[30.19287485]
+#  [30.19287485]]
+# shape: (2, 1)
+```
+In this case, the dimension along axis 1 is kept as a singleton dimension, so the result is a 2D array with shape `(2, 1)`. This retention of dimensions helps maintain compatibility for subsequent operations that involve broadcasting.
+
+### Why Use `keepdims=True`?
+
+Using `keepdims=True` is particularly useful for maintaining the correct shape for broadcasting. When performing operations like element-wise division, the shapes of the operands need to be compatible. By keeping the dimensions, we ensure that the resulting array can be broadcast correctly with the original array.
+
+Example:  `exp_logits` (shape `(2, 3)`) divided by `sum_exp_logits` (shape `(2, 1)`) performs element-wise division with broadcasting, resulting in `probabilities` with shape `(2, 3)` due to keepdims=True.
+
+```python
+import numpy as np
+
+# Example logits with shape (2, 3)
+logits = np.array([
+    [1.0, 2.0, 3.0],
+    [1.0, 3.0, 2.0]
+])
+
+# Compute the exponentials of the logits
+exp_logits = np.exp(logits)
+print("exp_logits:\n", exp_logits)
+print("Shape of exp_logits:", exp_logits.shape)
+
+# Sum the exponentials along axis 1 with keepdims=True
+sum_exp_logits = np.sum(exp_logits, axis=1, keepdims=True)
+print("\nsum_exp_logits:\n", sum_exp_logits)
+print("Shape of sum_exp_logits:", sum_exp_logits.shape)
+
+# Compute the probabilities by dividing exp_logits by sum_exp_logits
+probabilities = exp_logits / sum_exp_logits
+print("\nprobabilities:\n", probabilities)
+print("Shape of probabilities:", probabilities.shape)
+```
+Output
+```
+exp_logits:
+ [[ 2.71828183  7.3890561  20.08553692]
+ [ 2.71828183 20.08553692  7.3890561 ]]
+Shape of exp_logits: (2, 3)
+
+sum_exp_logits:
+ [[30.19287485]
+ [30.19287485]]
+Shape of sum_exp_logits: (2, 1)
+
+probabilities:
+ [[0.09003057 0.24472847 0.66524096]
+ [0.09003057 0.66524096 0.24472847]]
+Shape of probabilities: (2, 3)
+```
