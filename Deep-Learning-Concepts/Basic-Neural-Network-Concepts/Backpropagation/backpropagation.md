@@ -22,7 +22,7 @@ The gradients with respect to the activations $Z_i$ are intermediate steps in th
 #### Gradients with Respect to Weights $W_i$
 The ultimate goal is to compute the gradients of the loss with respect to the weights $W_i$, denoted as $\frac{\partial \ell}{\partial W_i}$. These gradients tell us how to adjust the weights to minimize the loss.
 
-Refer to slides - [CMU 10714 Manual-Neural-Nets PDF](../../../Code-Implementation/Softmax-Regression/manual_neural_nets.pdf)
+Refer to slides - [CMU 10714 Manual-Neural-Nets PDF](manual_neural_nets.pdf)
 
 ## Example to illustrate backpropagation from CMU Deep Learning Systems hw0 question 5: SGD for a two-layer neural network
 
