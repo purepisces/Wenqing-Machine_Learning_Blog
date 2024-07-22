@@ -56,6 +56,7 @@ Editor: https://stackedit.io/app#
 35.decision-tree.md✅ add regression tree explanation in statquest youtube under it
 36.logistic-regression.md✅已发csdn
 37.confusion-matrix.md✅已发csdn
+38.softmax-regression.md✅已发csdn
 
 
 
