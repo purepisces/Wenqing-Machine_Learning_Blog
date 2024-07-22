@@ -1,4 +1,31 @@
-# Backpropagation
+# Version 1 Backpropagation 
+Backpropagation is the algorithm used to calculate the gradient of the loss function with respect to each parameter (weight) in a neural network. It allows the network to update these weights in a way that minimizes the loss function, enabling the network to learn from the data.
+
+### Backpropagation Overview
+
+#### Forward Pass:
+- Input data passes through the network, and the output is calculated.
+- Activations and intermediate values (such as $Z_i$) are stored for use in the backward pass.
+
+#### Backward Pass:
+- The loss is computed using the output of the network and the true labels.
+- Gradients of the loss with respect to each parameter are calculated using the chain rule of calculus.
+- These gradients are used to update the parameters (weights) using an optimization algorithm like gradient descent.
+
+### Backpropagation with Respect to $Z_i$ and $W_i$
+
+In backpropagation, we need to calculate gradients with respect to both the activations $Z_i$ and the weights $W_i$. Here’s how this is done:
+
+#### Gradients with Respect to Activations $Z_i$
+The gradients with respect to the activations $Z_i$ are intermediate steps in the backpropagation process. They are used to calculate the gradients with respect to the weights. Specifically, for layer $i$, we compute $\frac{\partial \ell}{\partial Z_i}$, which represents how the loss changes with respect to the activations of that layer.
+
+#### Gradients with Respect to Weights $W_i$
+The ultimate goal is to compute the gradients of the loss with respect to the weights $W_i$, denoted as $\frac{\partial \ell}{\partial W_i}$. These gradients tell us how to adjust the weights to minimize the loss.
+
+
+
+
+# Version 2 Backpropagation 
 
 In our previous discussion, we delved into how a neural network can fit a complex model to data, such as determining the effectiveness of various drug dosages against a virus. We saw that while low and high dosages were ineffective, a medium dosage proved beneficial. The neural network achieved this by adjusting a basic activation function into a "green squiggle" that matched our data points through manipulation of weights and biases.
 
