@@ -1,4 +1,4 @@
-The code is from CMU 10714(Deep Learning System)'s homework, and I have attached the homework description(**hw0.iqynb** and **manual_neural_nets.pdf**). Also, can refer to my DeepLearningSystem repository for whole description. Also can refer to **🌟🌟🌟Wenqing machine learning blog's backpropagation.md and ffnn.md🌟🌟🌟**.
+The code is from CMU 10714(Deep Learning System)'s homework, and I have attached the homework description(**hw0.iqynb** and **manual_neural_nets.pdf**). Also, can refer to my **DeepLearningSystem repository** for whole description. Also can refer to **🌟🌟🌟Wenqing machine learning blog's backpropagation.md and ffnn.md🌟🌟🌟**.
 
 It implemented softmax regression which using softmax(aka cross entropy) loss on the MNIST dataset.
 
