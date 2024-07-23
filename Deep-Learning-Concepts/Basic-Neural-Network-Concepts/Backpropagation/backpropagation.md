@@ -212,6 +212,8 @@ Each layer needs to be able to multiply the "incoming backward" gradient $G_{i+1
 This process can be generalized to arbitrary computation graphs: this is exactly the process of automatic differentiation we will discuss in the next lecture.
 
 ### Code Implementation(pay attention to backpropagation)
+- [a simple two-layer neural network](../../../Code-Implementation/Simple-Two-Layer-Neural-Network)
+
 ```python
 def nn_epoch(X, y, W1, W2, lr = 0.1, batch=100):
     """ Run a single epoch of SGD for a two-layer neural network defined by the
