@@ -145,6 +145,8 @@ $$\sigma'(x) = \begin{cases}
 
 ### Backpropagation "in general"
 
+> 🌟🌟🌟🌟🌟🌟 In the slides explanation, the  neural network is Z1->W1->Z2->W2->Z3, however, in the assignment, the neural network is X->W1->Z1->W2->Z2. So the formula will be index different, but the logic is same. For example in assignment, $G_1 \in \mathbb{R}^{m \times d}  = \mathrm{1}\{Z_1 > 0\} \circ (G_2 W_2^T)$, but in slides $G_i$ is $G_{i+1}W_i$.
+
 There is a method to this madness ... consider our fully-connected network:
 
 $$ Z_{i+1} = \sigma_i(Z_i W_i), \quad i = 1, \ldots, L $$
