@@ -57,6 +57,10 @@ Considering two adjacent layers in a network:
   Total Parameters((weights + biases):
   $N \times M (weights) + M (biases) = N \times M + M$(since Each neuron in layer $L$ get a different bias)
 
+## Code Implementation
+```python
+
+
 ## Reference:
 - [Watch the video on YouTube](https://youtube.com/watch?v=jTzJ9zjC8nU)
 
