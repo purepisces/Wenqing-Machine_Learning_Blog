@@ -1,4 +1,4 @@
-The code is from CMU 10714(Deep Learning System)'s homework, and I have attached the homework description(**hw0.iqynb** and **softmax_regression.pdf**). Also, can refer to my DeepLearningSystem repository for whole description. Also can refer to **machine learning blog's softmax-regression.md**.
+The code is from CMU 10714(Deep Learning System)'s homework, and I have attached the homework description(**hw0.iqynb** and **softmax_regression.pdf**). Also, can refer to my DeepLearningSystem repository for whole description. Also can refer to **🌟🌟🌟machine learning blog's softmax-regression.md🌟🌟🌟**.
 
 It implemented softmax regression which using softmax(aka cross entropy) loss on the MNIST dataset.
 
