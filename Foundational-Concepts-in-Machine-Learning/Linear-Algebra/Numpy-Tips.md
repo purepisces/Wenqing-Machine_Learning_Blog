@@ -258,3 +258,6 @@ With setting the seed to 0:
 With setting the seed to 0 again:
 [1.76405235 0.40015721 0.97873798 2.2408932  1.86755799]
 ```
+> Uniform Distribution (np.random.rand): Suitable for generating values with equal probability, useful for tasks requiring random sampling from a specific range.
+>
+> Normal Distribution (np.random.randn): Suitable for tasks requiring values that follow a bell curve, especially beneficial for initializing neural network weights due to its properties that help in better training dynamics.
