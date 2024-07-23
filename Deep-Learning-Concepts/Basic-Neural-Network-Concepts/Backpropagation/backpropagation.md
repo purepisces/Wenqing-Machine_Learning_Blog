@@ -63,8 +63,6 @@ $$\begin{equation}
 \end{split}
 \end{equation}$$
 
-  
-
 **Note:** If the details of these precise equations seem a bit cryptic to you (prior to the 9/8 lecture), don't worry too much. These _are_ just the standard backpropagation equations for a two-layer ReLU network: the $Z_1$ term just computes the "forward" pass while the $G_2$ and $G_1$ terms denote the backward pass. But the precise form of the updates can vary depending upon the notation you've used for neural networks, the precise ways you formulate the losses, if you've derived these previously in matrix form, etc. If the notation seems like it might be familiar from when you've seen deep networks in the past, and makes more sense after the 9/8 lecture, that is more than sufficient in terms of background (after all, the whole _point_ of deep learning systems, to some extent, is that we don't need to bother with these manual calculations). But if these entire concepts are _completely_ foreign to you, then it may be better to take a separate course on ML and neural networks prior to this course, or at least be aware that there will be substantial catch-up work to do for the course.
 
 ### Neural networks in machine learning
@@ -246,7 +244,7 @@ def nn_epoch(X, y, W1, W2, lr = 0.1, batch=100):
         X_batch = X[start:end]
         y_batch = y[start:end]
 
-        # Forward pass
+        # Forward pass: Compute Z1 and Z2 (the output logits)
         Z1 = np.maximum(0, X_batch @ W1)  # ReLU activation
         Z2 = Z1 @ W2
 
@@ -258,18 +256,18 @@ def nn_epoch(X, y, W1, W2, lr = 0.1, batch=100):
         I_y = np.zeros((len(y_batch), num_classes))
         I_y[np.arange(len(y_batch)), y_batch] = 1
 
-        # Compute the gradients
+        # Backward pass: Compute gradients G2 and G1
         G2 = probs - I_y
         G1 = (Z1 > 0).astype(np.float32) * (G2 @ W2.T)
-
+        # Compute the gradients for W1 and W2
         grad_W1 = X_batch.T @ G1 / batch
         grad_W2 = Z1.T @ G2 / batch
 
-        # Update the weights
+        # Perform the gradient descent step(Update the weights)
         W1 -= lr * grad_W1
         W2 -= lr * grad_W2
     ### END YOUR CODE
-   ```
+```
 
 
 # Version 2 Backpropagation 
