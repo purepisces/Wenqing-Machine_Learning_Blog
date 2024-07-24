@@ -261,3 +261,66 @@ With setting the seed to 0 again:
 > Uniform Distribution (np.random.rand): Suitable for generating values with equal probability, useful for tasks requiring random sampling from a specific range.
 >
 > Normal Distribution (np.random.randn): Suitable for tasks requiring values that follow a bell curve, especially beneficial for initializing neural network weights due to its properties that help in better training dynamics. Symmetry Breaking: If all weights are initialized to the same value (or from a uniform distribution that doesn't spread well), neurons in the same layer might learn the same features, making the network less expressive. Normally distributed weights help break symmetry and ensure that neurons learn diverse features.
+-----------------------------------
+### Understanding Axes in NumPy
+In NumPy, the term "axis" refers to the different dimensions of an array. Understanding axes is crucial for performing operations like summing, slicing, and reshaping arrays.
+#### 1D Arrays
+
+For a 1D array, there is only one axis:
+
+-   **Axis 0**: The only axis, representing the elements of the array.
+```python
+a = np.array([1, 2, 3, 4])
+# Axis 0: [1, 2, 3, 4]
+```
+#### 2D Arrays
+
+For a 2D array (matrix), there are two axes:
+
+-   **Axis 0**: The axis that runs vertically downwards (along the rows).
+-   **Axis 1**: The axis that runs horizontally across (along the columns).
+```python
+a = np.array([[1, 2, 3], 
+              [4, 5, 6]])
+
+# Axis 0 (rows):
+# [1, 2, 3]
+# [4, 5, 6]
+
+# Axis 1 (columns):
+# [1, 4]
+# [2, 5]
+# [3, 6]
+```
+#### 3D Arrays
+
+For a 3D array (tensor), there are three axes:
+
+-   **Axis 0**: The axis that runs along the depth (slices).
+-   **Axis 1**: The axis that runs along the height (rows).
+-   **Axis 2**: The axis that runs along the width (columns).
+
+Example:
+```python
+a = np.array([[[1, 2, 3], 
+               [4, 5, 6]],
+
+              [[7, 8, 9], 
+               [10, 11, 12]]])
+
+# Axis 0 (depth):
+# Slices along axis 0 will give us the 2D arrays (layers) at each depth level:
+# [[1, 2, 3], [4, 5, 6]]
+# [[7, 8, 9], [10, 11, 12]]
+
+# Axis 1 (Rows):
+# Slices along axis 1 will give us rows from each 2D array (layer):
+# [[1, 2, 3], [7, 8, 9]]
+# [[4, 5, 6], [10, 11, 12]]
+
+# Axis 2 (Columns):
+# Slices along axis 2 will give us columns from each row in each 2D array (layer):
+# [[1, 4], [7, 10]]
+# [[2, 5], [8, 11]]
+# [[3, 6], [9, 12]]
+```
