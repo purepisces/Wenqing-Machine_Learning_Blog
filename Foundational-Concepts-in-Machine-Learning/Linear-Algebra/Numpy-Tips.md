@@ -277,6 +277,7 @@ For a 1D array, there is only one axis:
 -   **Axis 0**: The only axis, representing the elements of the array.
 ```python
 a = np.array([1, 2, 3, 4])
+#a.shape: (4,)
 # Axis 0: [1, 2, 3, 4]
 ```
 #### 2D Arrays
@@ -288,7 +289,7 @@ For a 2D array (matrix), there are two axes:
 ```python
 a = np.array([[1, 2, 3], 
               [4, 5, 6]])
-
+# a.shape: (2, 3)
 # Axis 0 (rows):
 # [1, 2, 3]
 # [4, 5, 6]
@@ -313,7 +314,7 @@ a = np.array([[[1, 2, 3],
 
               [[7, 8, 9], 
                [10, 11, 12]]])
-
+# a.shape: (2, 2, 3)
 # Axis 0 (depth):
 # Slices along axis 0 will give us the 2D arrays (layers) at each depth level:
 # [[1, 2, 3], [4, 5, 6]]
