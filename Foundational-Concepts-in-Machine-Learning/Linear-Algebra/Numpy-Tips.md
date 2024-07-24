@@ -264,6 +264,12 @@ With setting the seed to 0 again:
 -----------------------------------
 ### Understanding Axes in NumPy
 In NumPy, the term "axis" refers to the different dimensions of an array. Understanding axes is crucial for performing operations like summing, slicing, and reshaping arrays.
+
+> A shape of `(3, 2, 3)` represents a 3D array. The three numbers in the shape tuple indicate the dimensions of the array:
+> -   The first dimension (axis 0) has a size of 3.
+> -   The second dimension (axis 1) has a size of 2.
+> -   The third dimension (axis 2) has a size of 3.
+
 #### 1D Arrays
 
 For a 1D array, there is only one axis:
