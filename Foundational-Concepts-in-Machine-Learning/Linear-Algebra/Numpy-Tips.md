@@ -1,6 +1,5 @@
 # Numpy Tips:
 
-
 - **Element-wise Multiplication**: Use $A * B$ for element-wise multiplication, denoted as $A \odot B$.
   
   **Example**: Given two matrices
@@ -538,25 +537,39 @@ If you have the following `ndarray`:
 The transposition would result in:
 
 -   **Result**: `np.array([[1, 4], [2, 5], [3, 6]])`
-- 
+  
 ```python
 class Transpose(TensorOp):
     def __init__(self, axes: Optional[tuple] = None):
         self.axes = axes
 
     def compute(self, a):
-    self.axis = array_api.arange(a.ndim)
-    if self.axes is None:
-	    self.axis[-1], self.axis[-2] = self.axis[-2], self.axis[-1]
-	else:
-        self.axis[self.axes[0]], self.axis[self.axes[1]] = self.axes[1], self.axes[0]
-	return array_api.transpose(a, self.axis)
+	### BEGIN YOUR SOLUTION
+        # reverses the order of two axes (axis1, axis2), defaults to the last two axes (1 input, `axes` - tuple)
+        if self.axes is None:
+            # Default to swapping the last two axes
+            return array_api.swapaxes(a, -1, -2)
+        else:
+            # Swap the specified axes
+            return array_api.swapaxes(a, self.axes[0], self.axes[1])
+        ### END YOUR SOLUTION
 ```
 
-
-> `self.axis = array_api.arange(a.ndim)` is creating an array of indices representing the axes of the input array `a`.
+> If we use `array_api.arange(a.ndim)`, it is creating an array of indices representing the axes of the input array `a`.
 > -   If `a` is a 2D array (`a.ndim` is `2`), `self.axis` will be `array([0, 1])`.
 > -   If `a` is a 3D array (`a.ndim` is `3`), `self.axis` will be `array([0, 1, 2])`.
+>```python
+> def compute(self, a):
+> 	### BEGIN YOUR SOLUTION
+> 	# reverses the order of two axes (axis1, axis2), defaults to the last two axes (1 input, `axes` - tuple)
+>	self.axis = array_api.arange(a.ndim)
+>	if self.axes is None:
+>		self.axis[-1], self.axis[-2] = self.axis[-2], self.axis[-1]
+>	else:
+>		self.axis[self.axes[0]], self.axis[self.axes[1]] = self.axes[1], self.axes[0]
+>	return array_api.transpose(a, self.axis)
+>	### END YOUR SOLUTION
+>```
 > 
 > Given the requirement that `Transpose` should reverse the order of two axes (axis1, axis2), defaulting to the last two axes, the implementation can be simplified to handle exactly this case. The `axes` parameter should either be `None` (default case) or a tuple of two integers specifying which axes to swap.
 > 
