@@ -1,3 +1,4 @@
+
 # Cross-Entropy Loss (Classification Tasks)
 
 Cross-entropy loss is one of the most commonly used loss functions for probability-based **classification problems**. It quantifies the difference between the true distribution (often represented by the one-hot encoded label $y$ in classification tasks) and the predicted distribution (the output of the softmax function). This loss function is crucial for training models in machine learning, as it effectively measures how well the model's predictions match the true labels.
@@ -379,6 +380,14 @@ $$H(Y, \sigma(z)) = -\log(\sigma(z)y) = -\log\left( \frac{\exp(z_y)}{\sum\limits
 **Simplified Equation for One Training Example**:
 
 $$H(Y, \sigma(z)) = -z_y + \log\left( \sum\limits_{j=1}^k \exp(z_j) \right)$$
+
+This equation can be rewritten using the LogSumExp trick for numerical stability:
+
+$$H(Y, \sigma(z)) = -z_y + \text{LogSumExp}(z)$$
+
+Where:
+
+$$\text{LogSumExp}(z) = \log \left(\sum_{j=1}^k \exp \left(z_j - \max(z)\right)\right) + \max(z)$$
 
 #### Softmax Function
 
