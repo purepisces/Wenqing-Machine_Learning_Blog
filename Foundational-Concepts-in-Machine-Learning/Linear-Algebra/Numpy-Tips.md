@@ -331,6 +331,98 @@ a = np.array([[[1, 2, 3],
 # [[3, 6], [9, 12]]
 ```
 -----------------------------------
+## Understanding reduction operation
+A **reduction operation** in the context of data processing and computational frameworks like NumPy, TensorFlow, or PyTorch refers to an operation that reduces the number of elements in an array or tensor by performing some form of aggregation. This aggregation is typically done along specific dimensions (axes) of the data.
+
+Here are some common examples of reduction operations:
+
+1.  **Sum (`np.sum`)**:
+    
+    -   Adds up all the elements in an array or along a specified axis.
+    -   Example: Summing the elements in a matrix to get a single number (scalar) or a reduced matrix.
+
+2.  **Maximum (`np.max`)**:
+	-   Finds the maximum value among all the elements in an array or along a specified axis.
+	-   Example: Finding the maximum value in each row or column of a matrix.
+
+#### Explain `axis` in NumPy
+
+The `axis` parameter in NumPy specifies the dimension along which an operation is performed. The key is to remember that:
+
+-   **`axis=0`**: Operations are performed **down the rows** (i.e., along columns).
+-   **`axis=1`**: Operations are performed **across the columns** (i.e., along rows).
+
+**Example with `np.max`**
+Given the array `Z`:
+```python
+Z = np.array([[1, 2, 3],
+              [4, 5, 6]])  # Shape: (2, 3)
+```
+This is a 2D array (matrix) with 2 rows and 3 columns.
+
+#### Case 1: `np.max(Z, axis=0)`
+
+-   **Operation**: Find the maximum along `axis=0` (which means across rows, down each column).
+-   **Result**: You get the maximum value in each column.
+```python
+max_axis0 = np.max(Z, axis=0)
+# max_axis0 = [4, 5, 6]
+# Shape: (3,)
+```
+Here, `axis=0` corresponds to reducing the rows, so the operation is applied across rows, resulting in one value per column.
+
+#### Case 2: `np.max(Z, axis=1)`
+
+-   **Operation**: Find the maximum along `axis=1` (which means across columns, for each row).
+-   **Result**: You get the maximum value in each row.
+```python
+max_axis1 = np.max(Z, axis=1)
+# max_axis1 = [3, 6]
+# Shape: (2,)
+```
+Here, `axis=1` corresponds to reducing the columns, so the operation is applied across columns within each row, resulting in one value per row.
+
+**Example with `np.sum`**
+Given the array `Z`:
+```python
+import numpy as np
+
+Z = np.array([[1, 2, 3],
+              [4, 5, 6]])  # Shape: (2, 3)
+```
+This is a 2D array (matrix) with 2 rows and 3 columns.
+
+#### Case 1: `np.sum(Z, axis=0)`
+
+-   **Operation**: Sum along `axis=0` (which means across rows, down each column).
+-   **Result**: You get the sum of the elements in each column.
+```python
+sum_axis0 = np.sum(Z, axis=0)
+# sum_axis0 = [5, 7, 9]
+# Shape: (3,)
+```
+- Explanation:
+	- For the first column: $1 + 4 = 5$
+ 	- For the second column: $2 + 5 = 7$
+  	- For the third column: $3 + 6 = 9$
+Here, `axis=0` corresponds to reducing the rows, so the operation is applied across rows, resulting in one value per column.
+
+#### Case 2: `np.sum(Z, axis=1)`
+
+-   **Operation**: Sum along `axis=1` (which means across columns, for each row).
+-   **Result**: You get the sum of the elements in each row.
+```python
+sum_axis1 = np.sum(Z, axis=1)
+# sum_axis1 = [6, 15]
+# Shape: (2,)
+```
+- Explanation:
+	- For the first row: $1 + 2 + 3 = 6$
+ 	- For the second row: $4 + 5 + 6 = 15$
+Here, `axis=1` corresponds to reducing the columns, so the operation is applied across columns within each row, resulting in one value per row.
+
+
+-----------------------------------------------------
 ### `PowerScalar`: raise input to an integer (scalar) power
 **Example**
 
