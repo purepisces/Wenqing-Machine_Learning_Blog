@@ -116,7 +116,7 @@
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Backpropagation/backpropagation.md)
 - **Neural Network Layers**
   - [Linear Layer](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/Linear-Layer.md)
-  - [Other Layers...]
+  - [Residual Connection](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/Residual-Connection.md)
 - **Neural Network Models**
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Models/neural-network-models.md)
   - [MLP](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Models/MLP.md)
