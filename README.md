@@ -147,7 +147,13 @@
     - [AdaGrad](adagrad.md)
 - **Regularization**
   - [Overview](regularization-overview.md)
-  - [Batch Normalization](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Regularization/Batch-Normalization.md)
+  - [L1 Regularization](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Regularization/L1-Regularization.md)
+  - [L2 Regularization](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Regularization/L2-Regularization.md)
+  - [Dropout](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Regularization/Dropout.md)
+  - [Early Stopping](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Regularization/Early-Stopping.md)
+- **Normalization**
+  - [Batch Normalization](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Normalization/Batch-Normalization.md)
+  - [Layer Normalization](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Normalization/Layer-Normalization.md)
 
 ### Sequence Models
 - [Overview](sequence-models-overview.md)
