@@ -117,6 +117,14 @@
 - **Neural Network Layers**
   - [Linear Layer](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/Linear-Layer.md)
   - [Residual Connection](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/Residual-Connection.md)
+  - [ReLU Activation](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/ReLU.md)
+  - [Flatten Layer](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/Flatten.md)
+  - [Batch Normalization (BatchNorm1d)](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/BatchNorm1d.md)
+  - [Layer Normalization (LayerNorm1d)](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/LayerNorm1d.md)
+  - [Dropout](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/Dropout.md)
+  - [Identity Layer](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/Identity.md)
+  - [Sequential Layer](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/Sequential.md)
+
 - **Neural Network Models**
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Models/neural-network-models.md)
   - [MLP](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Models/MLP.md)
