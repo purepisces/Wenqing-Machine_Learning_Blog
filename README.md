@@ -120,6 +120,7 @@
 - **Neural Network Models**
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Models/neural-network-models.md)
   - [MLP](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Models/MLP.md)
+  - [ResNet](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Models/ResNet.md)
 
 - **Loss Functions**
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Loss_Functions.md)
