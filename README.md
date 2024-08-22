@@ -150,6 +150,7 @@
   - [Stochastic Gradient Descent (SGD)](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Optimizers/SGD.md)
   - [Stochastic Gradient Descent with momentum (SGD with momentum)](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Optimizers/SGD-with-momentum.md)
   - [Mini-Batch Gradient Descent](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Optimizers/SGD.md)
+  - [Adam](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Optimizers/Adam.md)
   - **Advanced Optimization Algorithms**
     - [Momentum](momentum.md)
     - [Adam](adam.md)
