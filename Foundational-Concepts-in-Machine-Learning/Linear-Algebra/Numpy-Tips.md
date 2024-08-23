@@ -719,3 +719,105 @@ print(np.broadcast_to(c, new_shape))
 -   **Leading Dimensions**: `1` (original) vs. `3` (target) – these are compatible because 1 can be expanded to 3.
 
 Since the trailing dimensions do not match and are not compatible, broadcasting cannot proceed.
+
+-----------------------------------------------------
+
+## np.arrange
+`np.arange` is a function in NumPy that generates an array containing a sequence of numbers. It is similar to Python's built-in `range()` function but returns a NumPy array instead of a list. This function is useful for creating arrays with regularly spaced values.
+
+```python
+import numpy as np
+
+# Generate an array from 0 to 9
+array = np.arange(10)
+print(array)
+# [0 1 2 3 4 5 6 7 8 9]=
+
+# Generate an array from 5 to 14
+array = np.arange(5, 15)
+print(array)
+# [ 5  6  7  8  9 10 11 12 13 14]
+
+# Generate an array from 0 to 9 with a step of 2
+array = np.arange(0, 10, 2)
+print(array)
+# [0 2 4 6 8]
+
+# Generate an array from 10 down to 1 (exclusive) with a step of -1
+array = np.arange(10, 0, -1)
+print(array)
+# [10 9 8 7 6 5 4 3 2 1]
+
+# Generate an array of floats from 0 to 9
+array = np.arange(10, dtype=float)
+print(array)
+# [0. 1. 2. 3. 4. 5. 6. 7. 8. 9.]
+```
+
+## Explanation of np.array_split
+
+`np.array_split` is a function in NumPy that splits an array into multiple sub-arrays. It is particularly useful when you want to divide an array into a specified number of sub-arrays or when you want to split an array at specific points. The key feature of `np.array_split` is that it can handle cases where the array cannot be evenly divided, ensuring that each sub-array is as equal in size as possible.
+
+### Basic Syntax:
+```python
+np.array_split(ary, indices_or_sections, axis=0)
+```
+-   **`ary`**: The array you want to split.
+-   **`indices_or_sections`**: This can be an integer or a list/array of indices:
+    -   **Integer**: If it's an integer `N`, the array is split into `N` sub-arrays of (nearly) equal size.
+    -   **List/Array of Indices**: If it's a list or array, it specifies the points at which to split the array. The array will be split at these indices.
+-   **`axis`**: The axis along which to split the array. The default is `0` (splitting along rows).
+
+### Examples:
+
+#### 1. Split an Array into a Specific Number of Sub-arrays:
+```python
+import numpy as np
+
+array = np.arange(10)
+# Split the array into 3 sub-arrays
+sub_arrays = np.array_split(array, 3)
+
+print(sub_arrays)
+```
+- **Output**:
+```python
+[array([0, 1, 2, 3]), array([4, 5, 6]), array([7, 8, 9])]
+```
+- **Explanation**: The array `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]` is split into 3 sub-arrays. Since 10 elements can't be evenly split into 3 parts, the first sub-array has 4 elements, and the other two have 3 elements each.
+#### 2. Split an Array at Specific Indices:
+```python
+import numpy as np
+
+array = np.arange(10)
+# Split the array at indices 3 and 7
+sub_arrays = np.array_split(array, [3, 7])
+
+print(sub_arrays)
+```
+- **Output**:
+```python
+[array([0, 1, 2]), array([3, 4, 5, 6]), array([7, 8, 9])]
+```
+-   **Explanation**: The array is split at index `3` and `7`, resulting in three sub-arrays: `[0, 1, 2]`, `[3, 4, 5, 6]`, and `[7, 8, 9]`.
+
+#### 3. Handling Uneven Splits:
+```python
+import numpy as np
+
+array = np.arange(9)
+# Attempt to split the array into 4 equal sub-arrays
+sub_arrays = np.array_split(array, 4)
+
+print(sub_arrays)
+```
+- **Output**:
+```python
+[array([0, 1, 2]), array([3, 4]), array([5, 6]), array([7, 8])]
+```
+-   **Explanation**: Since the array has 9 elements and cannot be split evenly into 4 parts, `np.array_split` ensures that the sub-arrays are as equal in size as possible.                                           
+ 
+-----------------------------------------------------
+
+
+
