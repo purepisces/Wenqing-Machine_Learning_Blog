@@ -754,7 +754,7 @@ print(array)
 # [0. 1. 2. 3. 4. 5. 6. 7. 8. 9.]
 ```
 
-## Explanation of np.array_split
+## np.array_split
 
 `np.array_split` is a function in NumPy that splits an array into multiple sub-arrays. It is particularly useful when you want to divide an array into a specified number of sub-arrays or when you want to split an array at specific points. The key feature of `np.array_split` is that it can handle cases where the array cannot be evenly divided, ensuring that each sub-array is as equal in size as possible.
 
