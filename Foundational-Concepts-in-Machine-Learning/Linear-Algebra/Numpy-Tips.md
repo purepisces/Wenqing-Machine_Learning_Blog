@@ -682,6 +682,7 @@ class Transpose(TensorOp):
   
 -   **Trailing Dimensions**: The dimensions at the end of the shape tuple. These are compared first when determining broadcasting compatibility.
 -   **Leading Dimensions**: The dimensions at the beginning of the shape tuple. These are compared after the trailing dimensions when determining broadcasting compatibility.
+
 **Example1: Can Broadcasting**
 ```python
 import numpy as np
@@ -710,9 +711,14 @@ print(np.broadcast_to(c, new_shape))
 import numpy as np
 c = np.array([1, 2, 3])
 print(c.shape) #(3,)
-new_shape = (2,3)
+new_shape = (3,2)
 print(np.broadcast_to(c, new_shape))
 ```
+1.  **Original Shape**: `(3,)`
+    
+    -   This shape has only one dimension: `3`. For broadcasting purposes, it can be treated as `(1, 3)`.
+2.  **Target Shape**: `(3, 2)`
+
 **Comparison**
 
 -   **Trailing Dimensions**: `3` (original) vs. `2` (target) – these are not compatible because they are not equal and neither is 1.
