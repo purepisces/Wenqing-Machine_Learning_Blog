@@ -1,6 +1,6 @@
 # Activation Functions
 
-I use relu.md to illstrate the main idea behind activation functions [ReLU](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Activation-Functions/relu.md).
+I use relu.md to illstrate the main idea behind activation functions [ReLU](relu.md).
 
 ### Overview
 
