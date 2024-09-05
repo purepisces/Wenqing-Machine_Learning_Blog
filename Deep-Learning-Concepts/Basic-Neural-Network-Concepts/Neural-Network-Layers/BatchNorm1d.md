@@ -262,3 +262,5 @@ Where:
 -   **Mean and Variance Calculation**:
     -   **LayerNorm**: Calculates the mean and variance across the features of a single example.
     -   **BatchNorm**: Calculates the mean and variance across the batch for each feature.
+## Reference
+- CMU Deep Learning System
