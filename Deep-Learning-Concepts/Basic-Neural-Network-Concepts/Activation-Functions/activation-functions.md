@@ -237,7 +237,7 @@ $$Z = \begin{pmatrix} Z^{(1)} & Z^{(2)} \end{pmatrix}
 1 & 2 & 3 \\
 2 & 2 & 1
 \end{pmatrix}$$
-$$
+
 
 #### Applying Softmax Activation
 
@@ -252,7 +252,7 @@ $$A = \begin{pmatrix} A^{(1)} & A^{(2)} \end{pmatrix}
 0.09 & 0.24 & 0.67 \\
 0.42 & 0.42 & 0.16
 \end{pmatrix}$$
-$$
+
 
 #### Jacobian Matrix for Softmax
 
@@ -290,13 +290,13 @@ $$j \neq k$$
 
 
 
-$$J^{(1)}_{12} = J^{(1)}_{21} = -0.09 \times 0.24 = -0.0216$$
+$$J^{(1)}{12} = J^{(1)}_{21} = -0.09 \times 0.24 = -0.0216$$
 
 
-$$J^{(1)}_{13} = J^{(1)}_{31} = -0.09 \times 0.67 = -0.0603$$
+$$J^{(1)}{13} = J^{(1)}_{31} = -0.09 \times 0.67 = -0.0603$$
 
 
-$$J^{(1)}_{23} = J^{(1)}_{32} = -0.24 \times 0.67 = -0.1608$$
+$$J^{(1)}{23} = J^{(1)}_{32} = -0.24 \times 0.67 = -0.1608$$
 
 So, $J^{(1)}$ is
 
@@ -315,7 +315,9 @@ $$J^{(2)} = \begin{pmatrix}
 \end{pmatrix}$$
 
 Computing the Gradient $dLdZ^{(i)}$
+
 Let's assume we have the gradient of the loss with respect to the activation output dLdA for our batch as:
+
 $$dLdA= \begin{pmatrix}
 0.1 & -0.2 & 0.1 \\
 -0.1 & 0.3 & -0.2
