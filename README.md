@@ -166,6 +166,10 @@
   - [Batch Normalization](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Normalization/Batch-Normalization.md)
   - [Layer Normalization](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Normalization/Layer-Normalization.md)
 
+### Hardware and Parallel Processing
+- [CPU vs GPU Performance](Deep-Learning-Concepts/Hardware/CPU-vs-GPU.md)
+- [CUDA Kernels and GPU Parallelism](Deep-Learning-Concepts/Hardware/GPU-Parallelism-CUDA.md)
+
 ### Sequence Models
 - [Overview](sequence-models-overview.md)
 - **Language Model Evaluation Metrics**
