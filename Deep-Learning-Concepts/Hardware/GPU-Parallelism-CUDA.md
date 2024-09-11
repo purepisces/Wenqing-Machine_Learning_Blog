@@ -1,3 +1,5 @@
+## Explain grid, block and thread
+
 ### Explain parallelized manner 
 
 **Code Implementation**
