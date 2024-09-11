@@ -1,5 +1,7 @@
 ## Explain grid, block and thread
 
+<img src="CUDA_Grid.png" alt="CUDA_Grid" width="600" height="500"/>
+
 ### Explain parallelized manner 
 
 **Code Implementation**
