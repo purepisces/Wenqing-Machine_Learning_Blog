@@ -99,6 +99,9 @@ In the **parallelized manner** on a GPU, you might launch 1,000 threads, each re
 
 In this kernel, **parallelized manner** means that instead of copying data sequentially (one element at a time), many threads are used to process multiple elements simultaneously. This enables the GPU to leverage its highly parallel architecture, allowing for much faster data transfers and computations.
 
+## Reference
+
+- CUDA_Grid.png from https://www.microway.com/hpc-tech-tips/cuda-parallel-thread-management/
 
 
 
