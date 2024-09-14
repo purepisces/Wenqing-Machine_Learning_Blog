@@ -131,6 +131,50 @@ $$
 $$
 
 --------------------------------------
+## Understanding Axes in NumPy Arrays with Examples
+
+```python
+import numpy as np
+A = np.array([[1, 2, 3],
+              [4, 5, 6]])
+```
+-   The **first axis (axis 0)** refers to the **rows** of the array.
+-   The **second axis (axis 1)** refers to the **columns** of the array.
+
+Let's break it down:
+
+### **Axis 0 (First Axis)**: Rows
+
+-   The elements along axis 0 are the **rows** of the array. Each row is treated as a distinct element along axis 0.
+    -   The first element (along axis 0) is the row `[1, 2, 3]`.
+    -   The second element (along axis 0) is the row `[4, 5, 6]`.
+
+So, the elements in axis 0 are:
+```css
+[1, 2, 3]  # First row
+[4, 5, 6]  # Second row
+```
+### **Axis 1 (Second Axis)**: Columns
+
+-   The elements along axis 1 are the **columns** of the array. Each column is treated as a distinct element along axis 1.
+    -   The first element (along axis 1) is the column `[1, 4]`.
+    -   The second element (along axis 1) is the column `[2, 5]`.
+    -   The third element (along axis 1) is the column `[3, 6]`.
+
+So, the elements in axis 1 are:
+```css
+[1, 4]  # First column
+[2, 5]  # Second column
+[3, 6]  # Third column
+```
+### Conclusion:
+
+-   **Axis 0 (rows)**: `[1, 2, 3]`, `[4, 5, 6]`
+-   **Axis 1 (columns)**: `[1, 4]`, `[2, 5]`, `[3, 6]`
+
+Each axis refers to a different way of slicing through the NumPy array: axis 0 slices through rows, and axis 1 slices through columns.
+
+--------------------------------------
 
 ## Using `keepdims=True` in `np.sum`
 
