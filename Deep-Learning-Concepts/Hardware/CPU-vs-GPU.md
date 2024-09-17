@@ -64,3 +64,5 @@ Time 1: A[0] + B[0] -> C[0]
          A[7] + B[7] -> C[7] (all happen at the same time)
 ```
 On a **CPU**, tasks are typically performed one at a time in sequence, while on a **GPU**, tasks can be broken down into smaller units of work (such as array element addition) and performed in parallel across many threads, significantly speeding up the process. This parallelism is what gives GPUs their massive performance advantage in handling large datasets.
+
+## Reference
