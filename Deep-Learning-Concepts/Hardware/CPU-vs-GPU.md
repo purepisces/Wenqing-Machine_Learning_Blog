@@ -65,4 +65,12 @@ Time 1: A[0] + B[0] -> C[0]
 ```
 On a **CPU**, tasks are typically performed one at a time in sequence, while on a **GPU**, tasks can be broken down into smaller units of work (such as array element addition) and performed in parallel across many threads, significantly speeding up the process. This parallelism is what gives GPUs their massive performance advantage in handling large datasets.
 
+### Tensor vs numpy 
+NumPy Limitation: NumPy arrays are designed for CPU computations and do not natively support GPU acceleration.
+Tensor: CUDA Support: PyTorch tensors can be allocated on GPUs using CUDA (Compute Unified Device Architecture), allowing for accelerated computations. 
+
+Dynamic Computation Graphs: PyTorch constructs dynamic computation graphs at runtime. Tensors keep track of the operations performed on them, enabling backpropagation.
+
+NumPy Limitation: NumPy operations are not recorded in a computation graph, so they cannot be used directly for automatic differentiation in deep learning models.
+
 ## Reference
