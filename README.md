@@ -170,6 +170,21 @@
 - [CPU vs GPU Performance](Deep-Learning-Concepts/Hardware/CPU-vs-GPU.md)
 - [CUDA Kernels and GPU Parallelism](Deep-Learning-Concepts/Hardware/GPU-Parallelism-CUDA.md)
 
+### Advanced Neural Network Architectures
+- **Convolutional Neural Networks (CNN)**
+  - [Overview of CNNs](Deep-Learning-Concepts/Advanced-Neural-Network-Architectures/CNN/Overview.md)
+  - [Convolutional Layers](Deep-Learning-Concepts/Advanced-Neural-Network-Architectures/CNN/Convolutional-Layers.md)
+  - [Pooling Layers](Deep-Learning-Concepts/Advanced-Neural-Network-Architectures/CNN/Pooling-Layers.md)
+  - [Stride and Padding](Deep-Learning-Concepts/Advanced-Neural-Network-Architectures/CNN/Stride-and-Padding.md)
+  - [CNN Architectures (e.g., LeNet, AlexNet)](Deep-Learning-Concepts/Advanced-Neural-Network-Architectures/CNN/CNN-Architectures.md)
+  
+- **Recurrent Neural Networks (RNN)**
+  - [Overview of RNNs](Deep-Learning-Concepts/Advanced-Neural-Network-Architectures/RNN/Overview.md)
+  - [LSTM (Long Short-Term Memory)](Deep-Learning-Concepts/Advanced-Neural-Network-Architectures/RNN/LSTM.md)
+  
+- **Transformer Networks**
+  - [Overview of Transformers](Deep-Learning-Concepts/Advanced-Neural-Network-Architectures/Transformers/Overview.md)
+
 ### Sequence Models
 - [Overview](sequence-models-overview.md)
 - **Language Model Evaluation Metrics**
