@@ -39,10 +39,13 @@
   - [Cardinality](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/cardinality.md)
   - [Entropy](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/entropy.md)
   - **Probability Distributions**
+    - [Uniform Distribution](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Probability-Distributions/uniform-distribution.md)
+    - [Normal Distribution](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Probability-Distributions/normal-distribution.md)
     - [Cumulative Distribution Function (CDF)](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Probability-Distributions/cumulative-distribution-function.md)
     - [Standard Gaussian Distribution](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Probability-Distributions/standard-gaussian-distribution.md)
     - [Bernoulli Distribution](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Probability-Distributions/bernoulli-distribution.md)
     - [Binomial Distribution](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Probability-Distributions/binomial-distribution.md)
+    
    
 - **Feature Engineering**
   - [Overview of Feature Engineering](Foundational-Concepts-in-Machine-Learning/Feature-Engineering/overview-feature-engineering.md)
