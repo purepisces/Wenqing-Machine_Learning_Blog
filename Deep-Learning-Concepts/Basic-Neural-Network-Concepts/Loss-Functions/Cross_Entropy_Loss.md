@@ -104,7 +104,7 @@ $$\begin{align*}
 When $k\neq c$, the derivative involves the softmax function for a different class, and the result is:
 
 $$\begin{align*}
-\frac{\partial \log(\sigma(A_{ik}))}{\partial A_{ic}} &= \frac{\partial \log(\sigma(A_{ik}))}{\partial \sigma(A_{ic})} \cdot \frac{\partial \sigma(A_{ic})}{\partial A_{ic}} \\
+\frac{\partial \log(\sigma(A_{ik}))}{\partial A_{ic}} &= \frac{\partial \log(\sigma(A_{ik}))}{\partial \sigma(A_{ik})} \cdot \frac{\partial \sigma(A_{ik})}{\partial A_{ic}} \\
 &= \frac{1}{\sigma(A_{ik})} \cdot -\sigma(A_{ik}) \cdot \sigma(A_{ic}) \\
 &= -\sigma(A_{ic})
 \end{align*}$$
