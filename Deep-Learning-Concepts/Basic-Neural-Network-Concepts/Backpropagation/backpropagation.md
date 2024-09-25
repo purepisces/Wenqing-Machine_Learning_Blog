@@ -1,3 +1,4 @@
+## Add Exploding and Vanishing Gradients problem
 # Version 1 Backpropagation 
 Backpropagation is the algorithm used to calculate the gradient of the loss function with respect to each parameter (weight) in a neural network. It allows the network to update these weights in a way that minimizes the loss function, enabling the network to learn from the data.
 
