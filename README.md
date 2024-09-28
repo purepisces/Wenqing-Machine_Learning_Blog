@@ -245,7 +245,7 @@
 ## NLP
 - [Text-Classification](NLP/Text-Classification.md)
 - [Corpus](NLP/Corpus.md)
-- 
+- [Text-Normalization](NLP/Text-Normalization.md)
 
 
 ## Machine Learning Interview Questions
