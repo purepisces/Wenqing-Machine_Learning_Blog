@@ -45,6 +45,7 @@ Natural Language Processing (NLP) includes a wide range of tasks involving under
 
 In NLP, a [corpus](https://www.geeksforgeeks.org/nlp-wordlist-corpus) is a huge collection of texts or documents. It is a structured dataset that acts as a sample of a specific language, domain, or issue. A corpus can include a variety of texts, including books, essays, web pages, and social media posts. Corpora are frequently developed and curated for specific research or NLP objectives. They serve as a foundation for developing language models, undertaking linguistic analysis, and gaining insights into language usage and patterns.
 
+
 ## Question 5
 
 **What do you mean by text augmentation in NLP and what are the different text augmentation techniques in NLP?**
@@ -61,6 +62,100 @@ Different text augmentation techniques in NLP include:
 6.  ****Character-level Augmentation:**** Modifying individual characters in the text, such as adding noise, misspellings, or character substitutions, to simulate real-world variations.
 7.  ****Text Paraphrasing:**** Rewriting sentences or phrases using different words and sentence structures while preserving the original meaning.
 8.  ****Rule-based Generation:**** Applying linguistic rules to generate new data instances, such as using grammatical templates or syntactic transformations.
+
+### Example 
+**1. Synonym Replacement**
+
+In this technique, words in a sentence are replaced with their synonyms to introduce variation while keeping the meaning intact.
+
+**Original Sentence**:  
+"The quick brown fox jumps over the lazy dog."
+
+**Synonym Replacement**:  
+"The fast brown fox leaps over the lazy dog."
+
+**2. Random Insertion**
+
+This method involves randomly inserting words that are semantically relevant into the sentence.
+
+**Original Sentence**:  
+"The quick brown fox jumps over the lazy dog."
+
+**Random Insertion**:  
+"The quick brown fox jumps swiftly over the lazy dog."
+
+**3. Random Deletion**
+
+Random words are deleted from the sentence to simulate incomplete or noisy data.
+
+**Original Sentence**:  
+"The quick brown fox jumps over the lazy dog."
+
+**Random Deletion**:  
+"Quick brown fox jumps over dog."
+
+**4. Word Swapping**
+
+In word swapping, words are swapped within a sentence to create different sentence structures without changing the overall meaning.
+
+**Original Sentence**:  
+"The quick brown fox jumps over the lazy dog."
+
+**Word Swapping**:  
+"Over the lazy dog, the quick brown fox jumps."
+
+**5. Back Translation**
+
+A sentence is translated into another language and then translated back into the original language, resulting in slightly different phrasing.
+
+**Original Sentence (English)**:  
+"The quick brown fox jumps over the lazy dog."
+
+**Translated to French**:  
+"Le renard brun rapide saute par-dessus le chien paresseux."
+
+**Back to English**:  
+"The fast brown fox leaps over the lazy dog."
+
+ **6. Random Masking**
+
+In this technique, random words in a sentence are replaced by a special token, similar to the technique used in models like BERT.
+
+**Original Sentence**:  
+"The quick brown fox jumps over the lazy dog."
+
+**Random Masking**:  
+"The quick [MASK] fox jumps over the [MASK] dog."
+
+**7. Character-level Augmentation**
+
+At the character level, random modifications are made to individual characters to simulate typos or real-world text variations.
+
+**Original Sentence**:  
+"The quick brown fox jumps over the lazy dog."
+
+**Character-level Augmentation**:  
+"The quick bronw fox jmups over the lazy dog."
+
+**8. Text Paraphrasing**
+
+Paraphrasing changes the sentence structure and wording while keeping the same meaning.
+
+**Original Sentence**:  
+"The quick brown fox jumps over the lazy dog."
+
+**Paraphrased Text**:  
+"A fast, brown fox leaps across the lazy dog."
+
+**9. Rule-based Generation**
+
+This involves applying specific linguistic rules to create new text. For example, you can change verb tenses or rearrange sentence structures.
+
+**Original Sentence**:  
+"The quick brown fox jumps over the lazy dog."
+
+**Rule-based Generation (change tense)**:  
+"The quick brown fox jumped over the lazy dog."
 
 
 
