@@ -39,6 +39,12 @@ Natural Language Processing (NLP) includes a wide range of tasks involving under
 -   [Text Generation](https://www.geeksforgeeks.org/text-generation-using-recurrent-long-short-term-memory-network)
 -   [Speech Recognition](https://www.geeksforgeeks.org/text-generation-using-recurrent-long-short-term-memory-network)
 
+## Question 4
+
+**What do you mean by Corpus in NLP?**
+
+In NLP, a [corpus](https://www.geeksforgeeks.org/nlp-wordlist-corpus) is a huge collection of texts or documents. It is a structured dataset that acts as a sample of a specific language, domain, or issue. A corpus can include a variety of texts, including books, essays, web pages, and social media posts. Corpora are frequently developed and curated for specific research or NLP objectives. They serve as a foundation for developing language models, undertaking linguistic analysis, and gaining insights into language usage and patterns.
+
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
 
