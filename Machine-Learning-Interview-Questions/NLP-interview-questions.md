@@ -20,12 +20,24 @@ The complexity and variety of human language create numerous difficult problems 
 - Data Limitations and Bias: The availability of high-quality labelled data for training NLP models can be limited, especially for specific areas or languages. Furthermore, biases in training data might impair model performance and fairness, necessitating careful consideration and mitigation.
 - Real-world Understanding: NLP models often fail to understand real-world knowledge and common sense, which humans are born with. Capturing and implementing this knowledge into NLP systems is a continuous problem.
 
-## 🌟 Question 20
 
-**What techniques are used to find resemblance in the recommendation system?**
+## 🌟 Question 3
 
-Cosine and Pearson Correlation are techniques used to find resemblance in recommendation systems. Where the Pearson correlation coefficient is the covariance between two vectors divided by their standard deviation, Cosine, on the other hand, is used for measuring the similarity between two vectors.
+**What are the different tasks in NLP?**
 
+Natural Language Processing (NLP) includes a wide range of tasks involving understanding, processing, and creation of human language. Some of the most important tasks in NLP are as follows:
+
+-   [Text Classification](https://www.geeksforgeeks.org/classification-of-text-documents-using-the-approach-of-naive-bayes)
+-   [Named Entity Recognition (NER)](https://www.geeksforgeeks.org/python-named-entity-recognition-ner-using-spacy)
+-   [Part-of-Speech Tagging (POS)](https://www.geeksforgeeks.org/nlp-part-of-speech-default-tagging)
+-   [Sentiment Analysis](https://www.geeksforgeeks.org/what-is-sentiment-analysis)
+-   [Language Modeling](https://www.geeksforgeeks.org/videos/what-is-language-modelling-in-nlp)
+-   [Machine Translation](https://www.geeksforgeeks.org/machine-translation-of-languages-in-artificial-intelligence)
+-   [Chatbots](https://www.geeksforgeeks.org/battle-of-ai-chatbots-which-chatbot-will-rule-the-present-and-future)
+-   [Text Summarization](https://www.geeksforgeeks.org/python-extractive-text-summarization-using-gensim)
+-   [Information Extraction](https://www.geeksforgeeks.org/difference-between-information-retrieval-and-information-extraction)
+-   [Text Generation](https://www.geeksforgeeks.org/text-generation-using-recurrent-long-short-term-memory-network)
+-   [Speech Recognition](https://www.geeksforgeeks.org/text-generation-using-recurrent-long-short-term-memory-network)
 
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
