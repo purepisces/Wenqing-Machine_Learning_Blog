@@ -45,6 +45,26 @@ Natural Language Processing (NLP) includes a wide range of tasks involving under
 
 In NLP, a [corpus](https://www.geeksforgeeks.org/nlp-wordlist-corpus) is a huge collection of texts or documents. It is a structured dataset that acts as a sample of a specific language, domain, or issue. A corpus can include a variety of texts, including books, essays, web pages, and social media posts. Corpora are frequently developed and curated for specific research or NLP objectives. They serve as a foundation for developing language models, undertaking linguistic analysis, and gaining insights into language usage and patterns.
 
+## Question 5
+
+**What do you mean by text augmentation in NLP and what are the different text augmentation techniques in NLP?**
+
+[Text augmentation](https://www.geeksforgeeks.org/text-augmentation-techniques-in-nlp) in NLP refers to the process that generates new or modified textual data from existing data in order to increase the diversity and quantity of training samples. Text augmentation techniques apply numerous alterations to the original text while keeping the underlying meaning.
+
+Different text augmentation techniques in NLP include:
+
+1.  ****Synonym Replacement:**** Replacing words in the text with their synonyms to introduce variation while maintaining semantic similarity.
+2.  ****Random Insertion/Deletion:**** Randomly inserting or deleting words in the text to simulate noisy or incomplete data and enhance model robustness.
+3.  ****Word Swapping:**** Exchanging the positions of words within a sentence to generate alternative sentence structures.
+4.  ****Back translation:**** Translating the text into another language and then translating it back to the original language to introduce diverse phrasing and sentence constructions.
+5.  ****Random Masking:**** Masking or replacing random words in the text with a special token, akin to the approach used in masked language models like BERT.
+6.  ****Character-level Augmentation:**** Modifying individual characters in the text, such as adding noise, misspellings, or character substitutions, to simulate real-world variations.
+7.  ****Text Paraphrasing:**** Rewriting sentences or phrases using different words and sentence structures while preserving the original meaning.
+8.  ****Rule-based Generation:**** Applying linguistic rules to generate new data instances, such as using grammatical templates or syntactic transformations.
+
+
+
+
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
 
