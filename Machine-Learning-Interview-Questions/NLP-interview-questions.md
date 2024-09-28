@@ -276,6 +276,20 @@ The goal of text normalization is to make text more uniform and easier to proces
 -   ****Date and Time Normalization****: Standardizing date and time formats to a consistent representation.
 
 
+
+## Question8
+
+**What is tokenization in NLP?**
+
+[Tokenization](https://www.geeksforgeeks.org/tokenization-using-spacy-library) is the process of breaking down text or string into smaller units called tokens. These tokens can be words, characters, or subwords depending on the specific applications. It is the fundamental step in many natural language processing tasks such as sentiment analysis, machine translation, and text generation. etc.
+
+Some of the most common ways of tokenization are as follows:
+
+-   ****Sentence tokenization:**** In Sentence tokenizations, the text is broken down into individual sentences. This is one of the fundamental steps of tokenization.
+-   ****Word tokenization:**** In word tokenization, the text is simply broken down into words. This is one of the most common types of tokenization. It is typically done by splitting the text into spaces or punctuation marks.
+-   ****Subword tokenization:**** In subword tokenization, the text is broken down into subwords, which are the smaller part of words. Sometimes words are formed with more than one word, for example, Subword i.e Sub+ word, Here sub, and words have different meanings. When these two words are joined together, they form the new word “subword”, which means “a smaller unit of a word”. This is often done for tasks that require an understanding of the morphology of the text, such as stemming or lemmatization.
+-   ****Char-label tokenization:**** In Char-label tokenization, the text is broken down into individual characters. This is often used for tasks that require a more granular understanding of the text such as text generation, machine translations, etc.
+
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
 
