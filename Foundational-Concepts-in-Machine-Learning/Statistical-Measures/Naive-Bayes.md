@@ -206,3 +206,41 @@ Where:
 
 This allows you to refine your predictions and better classify new data based on evidence.
 
+
+### Great question! Let me clarify why **P(discount|spam)** is called the **likelihood** and not the **prior probability** or **posterior probability**.
+
+#### Why It's Likelihood:
+In Bayes' Theorem:
+
+\[
+P(C|F) = \frac{P(F|C) \times P(C)}{P(F)}
+\]
+
+- **P(C|F)**: **Posterior probability** — the probability of class \(C\) (e.g., spam) given the feature \(F\) (e.g., the word "discount").
+- **P(F|C)**: **Likelihood** — the probability of observing the feature \(F\) (e.g., the word "discount") given that the class \(C\) (e.g., spam) is true.
+- **P(C)**: **Prior probability** — the probability of class \(C\) (spam) before seeing the feature \(F\) (before considering any evidence).
+- **P(F)**: **Evidence** — the total probability of the feature \(F\) (the word "discount") appearing in any email, regardless of the class.
+
+#### Explanation of Why **P(discount|spam)** is Likelihood:
+- **Likelihood**: \(P(F|C)\) represents how likely we are to see the feature \(F\) (the word "discount") if we already know that the email is spam (class \(C\)).
+  - In this case, **P(discount|spam)** is asking, "What is the probability that the word 'discount' will appear given that the email is spam?"
+  - This is called the **likelihood** because it reflects how likely a particular feature (e.g., "discount") is **under a certain condition** (spam).
+  - **P(discount|spam) = 40%** means that **40% of spam emails contain the word "discount"**.
+
+#### Why It's Not Prior or Posterior Probability:
+
+- **Prior Probability**: The prior probability **P(spam)** is our belief about the class (spam) **before observing any feature** (the word "discount"). It reflects the overall rate of spam emails, without considering any specific feature.
+  - Example: **P(spam) = 0.30** means that, based on historical data, **30% of all emails** are spam, regardless of whether or not they contain the word "discount".
+  - This is a **class-level probability** that doesn't depend on features like the word "discount".
+
+- **Posterior Probability**: The posterior probability **P(spam|discount)** is what we calculate using Bayes' Theorem — it tells us the probability that an email is spam **after** we have observed that the email contains the word "discount."
+  - Example: **P(spam|discount) = 77.4%** means that, after seeing the word "discount" in an email, we now believe that there is a **77.4% chance** that the email is spam.
+  - This is a **class-level probability updated by evidence** (the feature "discount").
+
+#### Summary:
+- **P(discount|spam)** is called the **likelihood** because it tells us how likely we are to observe the feature (word "discount") given the class (spam).
+- The **prior probability** is the overall probability of spam **before seeing any features**.
+- The **posterior probability** is the probability of spam **after** we observe that the word "discount" appears.
+
+In short, **likelihood** focuses on the probability of features **given the class**, while **prior and posterior probabilities** focus on the probability of the class itself.
+
