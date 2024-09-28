@@ -157,6 +157,109 @@ This involves applying specific linguistic rules to create new text. For example
 **Rule-based Generation (change tense)**:  
 "The quick brown fox jumped over the lazy dog."
 
+## Question 6
+
+**What are some common pre-processing techniques used in NLP?**
+
+[Natural Language Processing (NLP)](https://www.geeksforgeeks.org/natural-language-processing-nlp-pipeline) preprocessing refers to the set of processes and techniques used to prepare raw text input for analysis, modelling, or any other NLP tasks. The purpose of preprocessing is to clean and change text data so that it may be processed or analyzed later.
+
+Preprocessing in NLP typically involves a series of steps, which may include:
+
+-   [Tokenization](https://www.geeksforgeeks.org/tokenize-text-using-nltk-python)
+-   [Stop Word Removal](https://www.geeksforgeeks.org/removing-stop-words-nltk-python)
+-   [Text Normalization](https://www.geeksforgeeks.org/normalizing-textual-data-with-python)
+    -   Lowercasing
+    -   Lemmatization
+    -   Stemming
+    -   Date and Time Normalization
+-   [Removal of Special Characters and Punctuation](https://www.geeksforgeeks.org/removing-punctuations-given-string)
+-   [Removing HTML Tags or Markup](https://www.geeksforgeeks.org/program-to-remove-html-tags-from-a-given-string)
+-   [Spell Correction](https://www.geeksforgeeks.org/correcting-words-using-nltk-in-python)
+-   [Sentence Segmentation](https://www.geeksforgeeks.org/python-perform-sentence-segmentation-using-spacy)
+
+
+1. **Tokenization**
+
+Tokenization is the process of breaking down a sentence or document into individual words or phrases, known as tokens. This helps in analyzing the text at a more granular level.
+
+**Example**:  
+Original Text: "The quick brown fox jumps over the lazy dog."  
+After Tokenization: `["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]`
+
+2. **Stop Word Removal**
+
+Stop words are common words (such as "the", "is", "in", "at") that do not carry significant meaning and are removed to focus on the important words.
+
+**Example**:  
+Original Text: "The quick brown fox jumps over the lazy dog."  
+After Stop Word Removal: `["quick", "brown", "fox", "jumps", "lazy", "dog"]`
+
+3. **Text Normalization**
+
+Text normalization involves converting text into a standard format. This process includes several steps:
+
+-   **Lowercasing**: Converting all text to lowercase to ensure uniformity.
+    
+    **Example**:  
+    Original Text: "The QUICK Brown Fox."  
+    After Lowercasing: `"the quick brown fox"`
+    
+-   **Lemmatization**: Reducing words to their base form (lemma) while maintaining the context.
+    
+    **Example**:  
+    Original Word: "running"  
+    After Lemmatization: `"run"`
+    Original Word: "better"
+    After Lemmatization: `"good"`
+    
+-   **Stemming**: Reducing words to their root form, often leading to truncation.
+    
+    **Example**:  
+    Original Word: "running"  
+    After Stemming: `"run"`
+    Original Word: "studies"
+    After Stemming: `"studi"`
+ In the second example, stemming produced `"studi"`, which is not a valid word.
+    
+-   **Date and Time Normalization**: Converting dates and times into a consistent format.
+    
+    **Example**:  
+    Original Text: "I was born on 20th June, 1995."  
+    After Date Normalization: `"I was born on [DATE]."`
+    
+
+4. **Removal of Special Characters and Punctuation**
+
+Special characters and punctuation marks are usually removed as they do not carry significant meaning in most NLP tasks.
+
+**Example**:  
+Original Text: "Hello! How are you doing today?"  
+After Removal of Special Characters: `"Hello How are you doing today"`
+
+5. **Removing HTML Tags or Markup**
+
+When working with web-scraped data, removing HTML tags is essential to extract clean text for analysis.
+
+**Example**:  
+Original Text: "<p>This is a paragraph.</p>"  
+After Removing HTML Tags: `"This is a paragraph."`
+
+6. **Spell Correction**
+
+This involves correcting spelling mistakes in the text.
+
+**Example**:  
+Original Text: "The quik brown fox jmps over the lazi dog."  
+After Spell Correction: `"The quick brown fox jumps over the lazy dog."`
+
+7. **Sentence Segmentation**
+
+Sentence segmentation is the process of dividing text into individual sentences.
+
+**Example**:  
+Original Text: "The quick brown fox jumps. It is very agile."  
+After Sentence Segmentation:  
+`["The quick brown fox jumps.", "It is very agile."]`
 
 
 
