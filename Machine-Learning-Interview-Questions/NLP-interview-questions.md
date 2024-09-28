@@ -371,6 +371,16 @@ print(entities)
 ```
 Here, NLTK identifies "Apple" as an **organization** and "New York" as a **geopolitical entity (GPE)**.
 
+## Questoin 10
+
+**What is stemming in NLP, and how is it different from lemmatization?**
+
+Stemming and lemmatization are two commonly used word normalization techniques in NLP, which aim to reduce the words to their base or root word. Both have similar goals but have different approaches.
+
+In [stemming](https://www.geeksforgeeks.org/python-stemming-words-with-nltk), the word suffixes are removed using the heuristic or pattern-based rules regardless of the context of the parts of speech. The resulting stems may not always be actual dictionary words. Stemming algorithms are generally simpler and faster compared to lemmatization, making them suitable for certain applications with time or resource constraints.
+
+In [lemmatization](https://www.geeksforgeeks.org/python-lemmatization-with-nltk), The root form of the word known as lemma, is determined by considering the word’s context and parts of speech. It uses linguistic knowledge and databases (e.g., wordnet) to transform words into their root form. In this case, the output lemma is a valid word as per the dictionary. For example, lemmatizing “running” and “runner” would result in “run.” Lemmatization provides better interpretability and can be more accurate for tasks that require meaningful word representations.
+
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
 
