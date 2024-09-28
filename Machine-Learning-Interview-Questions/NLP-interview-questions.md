@@ -277,7 +277,7 @@ The goal of text normalization is to make text more uniform and easier to proces
 
 
 
-## Question8
+## Question 8
 
 **What is tokenization in NLP?**
 
@@ -289,6 +289,87 @@ Some of the most common ways of tokenization are as follows:
 -   ****Word tokenization:**** In word tokenization, the text is simply broken down into words. This is one of the most common types of tokenization. It is typically done by splitting the text into spaces or punctuation marks.
 -   ****Subword tokenization:**** In subword tokenization, the text is broken down into subwords, which are the smaller part of words. Sometimes words are formed with more than one word, for example, Subword i.e Sub+ word, Here sub, and words have different meanings. When these two words are joined together, they form the new word “subword”, which means “a smaller unit of a word”. This is often done for tasks that require an understanding of the morphology of the text, such as stemming or lemmatization.
 -   ****Char-label tokenization:**** In Char-label tokenization, the text is broken down into individual characters. This is often used for tasks that require a more granular understanding of the text such as text generation, machine translations, etc.
+
+
+## Question 9
+
+**What is NLTK and How it’s helpful in NLP?**
+
+[NLTK](https://www.geeksforgeeks.org/python-nltk-tokenize-regexp) stands for Natural Language Processing Toolkit. It is a suite of libraries and programs written in Python Language for symbolic and statistical natural language processing. It offers tokenization, stemming, lemmatization, POS tagging, Named Entity Recognization, parsing, semantic reasoning, and classification.
+
+NLTK is a popular NLP library for Python. It is easy to use and has a wide range of features. It is also open-source, which means that it is free to use and modify.
+
+### Key Features of NLTK:
+
+1.  **Tokenization**: NLTK allows you to break down text into smaller units, such as sentences or words.
+2.  **Stemming**: It provides stemmers like the Porter Stemmer to reduce words to their root form.
+3.  **Lemmatization**: NLTK offers tools to reduce words to their dictionary form, accounting for context.
+4.  **POS Tagging**: NLTK can assign part-of-speech (POS) tags to words in a sentence, such as noun, verb, adjective, etc.
+5.  **Named Entity Recognition (NER)**: NLTK can recognize proper nouns and categorize them as organizations, people, or locations.
+6.  **Parsing**: It allows for syntactic parsing of sentences to understand sentence structure.
+7.  **Classification**: NLTK provides tools to classify text into categories (e.g., spam or non-spam).
+8.  **Text Corpora**: NLTK includes many well-known corpora (collections of text data) such as the Brown Corpus, Gutenberg Corpus, and WordNet for word relations.
+
+### Example of NLTK in Action:
+
+#### 1. **Tokenization Example**:
+
+```python
+import nltk
+nltk.download('punkt')  # Download necessary data
+from nltk.tokenize import word_tokenize
+
+text = "Natural Language Processing with NLTK is easy."
+tokens = word_tokenize(text)
+print(tokens)
+```
+
+**Output**:
+```css
+['Natural', 'Language', 'Processing', 'with', 'NLTK', 'is', 'easy', '.']
+```
+#### 2.**POS Tagging Example**:
+```python
+nltk.download('averaged_perceptron_tagger')
+from nltk import pos_tag
+
+tokens = word_tokenize("NLTK helps in processing text.")
+tagged = pos_tag(tokens)
+print(tagged)
+```
+**Output**:
+```css
+[('NLTK', 'NNP'), ('helps', 'VBZ'), ('in', 'IN'), ('processing', 'VBG'), ('text', 'NN'), ('.', '.')]
+```
+Here, NLTK has tagged each word with its corresponding part of speech (e.g., NNP for proper noun, VBZ for verb).
+
+#### 3. **Named Entity Recognition Example**:
+```python
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
+from nltk import ne_chunk
+
+sentence = "Apple is looking at buying a startup in New York."
+tokens = word_tokenize(sentence)
+tagged = pos_tag(tokens)
+entities = ne_chunk(tagged)
+print(entities)
+```
+**Output**:
+```css
+(S
+  (ORGANIZATION Apple/NNP)
+  is/VBZ
+  looking/VBG
+  at/IN
+  buying/VBG
+  a/DT
+  startup/NN
+  in/IN
+  (GPE New/NNP York/NNP)
+  ./.)
+```
+Here, NLTK identifies "Apple" as an **organization** and "New York" as a **geopolitical entity (GPE)**.
 
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
