@@ -261,6 +261,19 @@ Original Text: "The quick brown fox jumps. It is very agile."
 After Sentence Segmentation:  
 `["The quick brown fox jumps.", "It is very agile."]`
 
+## Question 7
+**What is text normalization in NLP?**
+
+Text normalization, also known as text standardization, is the process of transforming text data into a standardized or normalized form It involves applying a variety of techniques to ensure consistency, reduce variations, and simplify the representation of textual information.
+
+The goal of text normalization is to make text more uniform and easier to process in Natural Language Processing (NLP) tasks. Some common techniques used in text normalization include:
+
+-   ****Lowercasing****: Converting all text to lowercase to treat words with the same characters as identical and avoid duplication.
+-   ****Lemmatization****: Converting words to their base or dictionary form, known as lemmas. For example, converting “running” to “run” or “better” to “good.”
+-   ****Stemming****: Reducing words to their root form by removing suffixes or prefixes. For example, converting “playing” to “play” or “cats” to “cat.”
+-   ****Abbreviation Expansion****: Expanding abbreviations or acronyms to their full forms. For example, converting “NLP” to “Natural Language Processing.”
+-   ****Numerical Normalization****: Converting numerical digits to their written form or normalizing numerical representations. For example, converting “100” to “one hundred” or normalizing dates.
+-   ****Date and Time Normalization****: Standardizing date and time formats to a consistent representation.
 
 
 ## Reference
