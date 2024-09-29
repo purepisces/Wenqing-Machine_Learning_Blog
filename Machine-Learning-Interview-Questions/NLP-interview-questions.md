@@ -758,6 +758,69 @@ The **Bag of N-grams** model extends the BoW model by incorporating sequences of
 
 The TF-IDF score is calculated by multiplying the term frequency (TF) and inverse document frequency (IDF) values for each term in a document. The resulting score indicates the term’s importance in the document and corpus. Terms that appear frequently in a document but are uncommon in the corpus will have high TF-IDF scores, suggesting their importance in that specific document.
 
+## Question 19
+
+**Explain the concept of cosine similarity and its importance in NLP.**
+
+The similarity between two vectors in a multi-dimensional space is measured using the cosine similarity metric. To determine how similar or unlike the vectors are to one another, it calculates the cosine of the angle between them.
+
+In natural language processing (NLP), [Cosine similarity](https://www.geeksforgeeks.org/cosine-similarity) is used to compare two vectors that represent text. The degree of similarity is calculated using the cosine of the angle between the document vectors. To compute the cosine similarity between two text document vectors, we often used the following procedures:
+
+-   Text Representation: Convert text documents into numerical vectors using approaches like bag-of-words, TF-IDF (Term Frequency-Inverse Document Frequency), or word embeddings like Word2Vec or GloVe.
+-   Vector Normalization: Normalize the document vectors to unit length. This normalization step ensures that the length or magnitude of the vectors does not affect the cosine similarity calculation.
+-   Cosine Similarity Calculation: Take the dot product of the normalised vectors and divide it by the product of the magnitudes of the vectors to obtain the cosine similarity.
+
+Mathematically, the cosine similarity between two document vectors, **a** and **b** , can be expressed as:
+
+$$\text{Cosine Similarity}(\vec{a}, \vec{b}) = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}| |\vec{b}|}$$
+
+Here,
+
+-   $\vec{a} \cdot \vec{b}$ is the dot product of vectors a and b
+-   |a| and |b| represent the Euclidean norms (magnitudes) of vectors a and b, respectively.
+
+The resulting cosine similarity score ranges from -1 to 1, where 1 represents the highest similarity, 0 represents no similarity, and -1 represents the maximum dissimilarity between the documents.
+
+
+### Example: Cosine Similarity in Action
+
+Let's consider two small text documents:
+
+-   **Document 1**: "I love apples."
+-   **Document 2**: "I love mangoes."
+
+#### Step 1: Text Representation (Bag of Words)
+
+First, convert these documents into vectors using the **Bag of Words** method. The vocabulary based on these two documents is: ["I", "love", "apples", "mangoes"].
+
+-   Document 1: **"I love apples"** → [1, 1, 1, 0]
+-   Document 2: **"I love mangoes"** → [1, 1, 0, 1]
+
+Here, each dimension represents a word in the vocabulary, and the value is the count of the word's occurrence in the document.
+
+#### Step 2: Cosine Similarity Calculation
+
+Now, we calculate the cosine similarity between the two vectors **[1, 1, 1, 0]** (Document 1) and **[1, 1, 0, 1]** (Document 2).
+
+1.  **Dot Product**:
+
+$$\vec{a} \cdot \vec{b} = (1 \times 1) + (1 \times 1) + (1 \times 0) + (0 \times 1) = 1 + 1 + 0 + 0 = 2$$
+
+
+2.  **Magnitude of Vector a (Document 1)**:
+$$|\vec{a}| = \sqrt{(1^2 + 1^2 + 1^2 + 0^2)} = \sqrt{3} \approx 1.732$$
+
+3.  **Magnitude of Vector b (Document 2)**:
+$$|\vec{b}| = \sqrt{(1^2 + 1^2 + 0^2 + 1^2)} = \sqrt{3} \approx 1.732$$
+
+4.  **Cosine Similarity**:
+$$\text{Cosine Similarity}(\vec{a}, \vec{b}) = \frac{2}{1.732 \times 1.732} = \frac{2}{3} \approx 0.6667$$
+
+#### Result:
+
+The cosine similarity between **Document 1** ("I love apples") and **Document 2** ("I love mangoes") is **0.6667**, which indicates a moderate level of similarity. This makes sense because both documents share two words ("I" and "love"), but differ in their fruit choice.
+
+
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
 
