@@ -381,6 +381,72 @@ In [stemming](https://www.geeksforgeeks.org/python-stemming-words-with-nltk), th
 
 In [lemmatization](https://www.geeksforgeeks.org/python-lemmatization-with-nltk), The root form of the word known as lemma, is determined by considering the word’s context and parts of speech. It uses linguistic knowledge and databases (e.g., wordnet) to transform words into their root form. In this case, the output lemma is a valid word as per the dictionary. For example, lemmatizing “running” and “runner” would result in “run.” Lemmatization provides better interpretability and can be more accurate for tasks that require meaningful word representations.
 
+
+## Question 11
+
+**How does part-of-speech tagging work in NLP?**
+
+[Part-of-speech tagging](https://www.geeksforgeeks.org/part-speech-tagging-stop-words-using-nltk-python) is the process of assigning a part-of-speech tag to each word in a sentence. The POS tags represent the syntactic information about the words and their roles within the sentence.
+
+There are three main approaches for POS tagging:
+
+-   ****Rule-based POS tagging:**** It uses a set of handcrafted rules to determine the part of speech based on morphological, syntactic, and contextual patterns for each word in a sentence. For example, words ending with ‘-ing’ are likely to be a verb.
+-   ****Statistical POS tagging:**** The statistical model like Hidden Markov Model (HMMs) or Conditional Random Fields (CRFs) are trained on a large corpus of already tagged text. The model learns the probability of word sequences with their corresponding POS tags, and it can be further used for assigning each word to a most likely POS tag based on the context in which the word appears.
+-   ****Neural network POS tagging:**** The neural network-based model like RNN, LSTM, Bi-directional RNN, and transformer have given promising results in POS tagging by learning the patterns and representations of words and their context.
+
+
+Part-of-speech (POS) tagging is the process of labeling each word in a sentence with its corresponding part of speech, such as noun, verb, adjective, etc. This helps machines understand the syntactic role of each word in context. There are three main approaches to POS tagging: rule-based, statistical, and neural network-based methods.
+
+### Example Sentence:
+
+_"The quick brown fox jumps over the lazy dog."_
+
+#### 1. **Rule-based POS Tagging:**
+
+Rule-based POS tagging uses hand-crafted linguistic rules to assign tags based on word patterns and context. For example:
+
+-   "The" is identified as a determiner because it commonly precedes nouns.
+-   Words ending with "-ing" or "-ed" are often tagged as verbs.
+-   "Quick" is tagged as an adjective because it modifies "fox."
+
+In the sentence:
+
+-   **The** (determiner)
+-   **quick** (adjective)
+-   **brown** (adjective)
+-   **fox** (noun)
+-   **jumps** (verb)
+-   **over** (preposition)
+-   **the** (determiner)
+-   **lazy** (adjective)
+-   **dog** (noun)
+
+The rules here identify parts of speech based on word structure and position in the sentence.
+
+#### 2. **Statistical POS Tagging:**
+
+Statistical methods, such as Hidden Markov Models (HMMs) or Conditional Random Fields (CRFs), use a probabilistic model that has been trained on large datasets. The model looks at the likelihood of a word being a specific POS tag based on its context. For example, the word "fox" is more likely to be a noun if it follows an adjective like "quick."
+
+For the sentence:
+
+-   The statistical model might predict "jumps" is a verb because the likelihood of seeing a verb after the noun "fox" is high, based on training data.
+
+#### 3. **Neural Network POS Tagging:**
+
+Neural networks, especially models like Recurrent Neural Networks (RNNs), Long Short-Term Memory (LSTM), or Transformers, have achieved state-of-the-art results in POS tagging. These models can capture long-term dependencies in a sentence, understanding both the word itself and its context within the entire sentence.
+
+For example, a Bi-directional LSTM might:
+
+-   Look at the word "jumps" and analyze not just the preceding words ("fox") but also the following words ("over") to make a more accurate prediction that "jumps" is a verb.
+
+Neural models can also handle ambiguous words better. For example, "fox" could be either a noun or a verb, but based on context, neural models predict it as a noun in this case.
+
+### Summary of Example:
+
+-   **Rule-based:** Relies on fixed linguistic patterns (e.g., suffixes or word order).
+-   **Statistical:** Predicts based on the likelihood of word sequences from previously tagged data.
+-   **Neural networks:** Understands the deeper context of a word's role in the sentence using advanced machine learning techniques.
+
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
 
