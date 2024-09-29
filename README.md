@@ -39,6 +39,7 @@
   - [Cardinality](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/cardinality.md)
   - [Entropy](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/entropy.md)
   - [Naive Bayes](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Naive-Bayes.md)
+  - [Hidden Markov Models (HMMs)](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/HMMs.md)
   - **Probability Distributions**
     - [Uniform Distribution](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Probability-Distributions/uniform-distribution.md)
     - [Normal Distribution](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Probability-Distributions/normal-distribution.md)
