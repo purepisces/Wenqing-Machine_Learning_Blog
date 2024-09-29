@@ -747,6 +747,17 @@ In the bigram model, you capture that **"I love"** and **"love apples"** are con
 
 The **Bag of N-grams** model extends the BoW model by incorporating sequences of words (n-grams), allowing it to capture some word order and context, which can be crucial for tasks like text classification, machine translation, and sentiment analysis.
 
+## Question 18
+
+**What is the term frequency-inverse document frequency (TF-IDF)?**
+
+[Term frequency-inverse document frequency (TF-IDF)](https://www.geeksforgeeks.org/understanding-tf-idf-term-frequency-inverse-document-frequency) is a classical text representation technique in NLP that uses a statistical measure to evaluate the importance of a word in a document relative to a corpus of documents. It is a combination of two terms: term frequency (TF) and inverse document frequency (IDF).
+
+-   ****Term Frequency (TF):**** Term frequency measures how frequently a word appears in a document. it is the ratio of the number of occurrences of a term or word (t ) in a given document (d) to the total number of terms in a given document (d). A higher term frequency indicates that a word is more important within a specific document.
+-   ****Inverse Document Frequency (IDF):**** Inverse document frequency measures the rarity or uniqueness of a term across the entire corpus. It is calculated by taking the logarithm of the ratio of the total number of documents in the corpus to the number of documents containing the term. it down the weight of the terms, which frequently occur in the corpus, and up the weight of rare terms.
+
+The TF-IDF score is calculated by multiplying the term frequency (TF) and inverse document frequency (IDF) values for each term in a document. The resulting score indicates the term’s importance in the document and corpus. Terms that appear frequently in a document but are uncommon in the corpus will have high TF-IDF scores, suggesting their importance in that specific document.
+
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
 
