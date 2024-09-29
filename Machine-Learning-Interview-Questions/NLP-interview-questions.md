@@ -477,7 +477,79 @@ NER uses similar techniques as Part-of-Speech (POS) tagging, but instead of tagg
 2.  **Statistical NER**: Similar to POS tagging, statistical methods like Hidden Markov Models (HMMs) or Conditional Random Fields (CRFs) are trained on large datasets where entities are already labeled. The model learns the probability of a word belonging to a certain entity type based on its context and can predict entity tags in unseen text. For instance, it might learn that "Barack" followed by "Obama" is likely a person’s name.
     
 3.  **Neural Network-based NER**: More recent methods use deep learning techniques like Recurrent Neural Networks (RNNs), Long Short-Term Memory (LSTM), or Transformer models like BERT. These models can capture complex patterns and long-range dependencies in the text. For example, a neural network model could use the broader context of "President" to correctly identify "United States" as a location or entity even if it's used in a less obvious form.
-    
+
+
+## Question 13
+**What is parsing in NLP?**
+
+In NLP, [parsing](https://www.geeksforgeeks.org/difference-between-top-down-parsing-and-bottom-up-parsing) is defined as the process of determining the underlying structure of a sentence by breaking it down into constituent parts and determining the syntactic relationships between them according to formal grammar rules. The purpose of parsing is to understand the syntactic structure of a sentence, which allows for deeper learning of its meaning and encourages different downstream NLP tasks such as semantic analysis, information extraction, question answering, and machine translation. it is also known as syntax analysis or syntactic parsing.
+
+The formal grammar rules used in parsing are typically based on Chomsky’s hierarchy. The simplest grammar in the Chomsky hierarchy is regular grammar, which can be used to describe the syntax of simple sentences. More complex grammar, such as context-free grammar and context-sensitive grammar, can be used to describe the syntax of more complex sentences.
+
+
+### 14. What are the different types of parsing in NLP?
+
+In natural language processing (NLP), there are several types of parsing algorithms used to analyze the grammatical structure of sentences. Here are some of the main types of parsing algorithms:
+
+-   [****Constituency Parsing****](https://www.geeksforgeeks.org/constituency-parsing-and-dependency-parsing): Constituency parsing in NLP tries to figure out a sentence’s hierarchical structure by breaking it into constituents based on a particular grammar. It generates valid constituent structures using context-free grammar. The parse tree that results represents the structure of the sentence, with the root node representing the complete sentence and internal nodes representing phrases. Constituency parsing techniques like as CKY, Earley, and chart parsing are often used for parsing. This approach is appropriate for tasks that need a thorough comprehension of sentence structure, such as semantic analysis and machine translation. When a complete understanding of sentence structure is required, constituency parsing, a classic parsing approach, is applied.
+-   [****Dependency Parsing****](https://www.geeksforgeeks.org/constituency-parsing-and-dependency-parsing)****:**** In NLP, dependency parsing identifies grammatical relationships between words in a sentence. It represents the sentence as a directed graph, with dependencies shown as labelled arcs. The graph emphasises subject-verb, noun-modifier, and object-preposition relationships. The head of a dependence governs the syntactic properties of another word. Dependency parsing, as opposed to constituency parsing, is helpful for languages with flexible word order. It allows for the explicit illustration of word-to-word relationships, resulting in a clear representation of grammatical structure.
+-   [****Top-down parsing:****](https://www.geeksforgeeks.org/difference-between-top-down-parsing-and-bottom-up-parsing) Top-down parsing starts at the root of the parse tree and iteratively breaks down the sentence into smaller and smaller parts until it reaches the leaves. This is a more natural technique for parsing sentences. However, because it requires a more complicated language, it may be more difficult to implement.
+-   [****Bottom-up parsing:****](https://www.geeksforgeeks.org/difference-between-top-down-parsing-and-bottom-up-parsing) Bottom-up parsing starts with the leaves of the parse tree and recursively builds up the tree from smaller and smaller constituents until it reaches the root. Although this method of parsing requires simpler grammar, it is frequently simpler to implement, even when it is less understandable.
+
+
+### Example:
+
+Consider the sentence:  
+_"The quick brown fox jumps over the lazy dog."_
+
+-   **Parsing** this sentence involves identifying the syntactic components (constituents), such as the **subject** ("The quick brown fox"), **verb** ("jumps"), and **prepositional phrase** ("over the lazy dog").
+-   The parse tree would show the hierarchical structure where "The quick brown fox" is the **noun phrase**, "jumps" is the **verb**, and "over the lazy dog" is a **prepositional phrase** that modifies the verb.
+
+### Types of Parsing in NLP
+
+#### 1. **Constituency Parsing**:
+
+Constituency parsing focuses on dividing a sentence into **constituents** (phrases or sub-phrases) based on a formal grammar, often using context-free grammar (CFG). The goal is to build a **parse tree** that represents the sentence structure with nodes for each phrase and subphrase.
+
+-   **Example:** For the sentence _"The cat sits on the mat,"_ constituency parsing breaks it down into:
+    -   "The cat" (Noun Phrase)
+    -   "sits" (Verb Phrase)
+    -   "on the mat" (Prepositional Phrase)
+
+The parse tree would start from the sentence at the root, with branches representing the **Noun Phrase (NP)** and **Verb Phrase (VP)**.
+
+#### 2. **Dependency Parsing**:
+
+Dependency parsing analyzes the **dependencies** between words in a sentence. It represents the sentence as a **directed graph**, where the nodes are words and the edges represent grammatical relationships, such as **subject-verb** or **verb-object**.
+
+-   **Example:** For the sentence _"The cat chased the mouse,"_ dependency parsing would show:
+    -   "cat" as the **subject** of the verb "chased"
+    -   "mouse" as the **object** of the verb "chased"
+
+The dependency graph shows how each word depends on others (e.g., the verb "chased" governs both "cat" and "mouse").
+
+#### 3. **Top-down Parsing**:
+
+In top-down parsing, the parsing process starts at the **root of the parse tree** (representing the whole sentence) and progressively breaks the sentence into smaller parts (phrases or words) according to grammar rules, moving down toward the leaves (individual words).
+
+-   **Example:** For the sentence _"She ate an apple,"_ the top-down parser would start by dividing it into a **Noun Phrase (She)** and **Verb Phrase (ate an apple)**. It would then further divide the verb phrase into a verb ("ate") and an object ("an apple").
+
+#### 4. **Bottom-up Parsing**:
+
+In bottom-up parsing, the parser starts at the **leaves** (the individual words of the sentence) and attempts to combine them into larger constituents until the entire sentence is covered and the root of the tree is formed.
+
+-   **Example:** For the sentence _"They watch movies,"_ the bottom-up parser would start with the individual words:
+    -   "They" (Pronoun)
+    -   "watch" (Verb)
+    -   "movies" (Noun)
+
+It then gradually combines these into phrases (e.g., "watch movies" as a verb phrase), eventually reaching the full parse tree that represents the sentence.
+
+### Comparing Top-down and Bottom-up Parsing:
+
+-   **Top-down parsing** breaks the sentence from the root into smaller components, which makes it more intuitive but can struggle with ambiguous or complex grammars.
+-   **Bottom-up parsing** builds the tree from individual words, making it easier to implement but potentially less intuitive when trying to understand the entire sentence structure.
+
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
 
