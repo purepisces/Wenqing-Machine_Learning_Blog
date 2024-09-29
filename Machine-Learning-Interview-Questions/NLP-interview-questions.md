@@ -550,6 +550,56 @@ It then gradually combines these into phrases (e.g., "watch movies" as a verb ph
 -   **Top-down parsing** breaks the sentence from the root into smaller components, which makes it more intuitive but can struggle with ambiguous or complex grammars.
 -   **Bottom-up parsing** builds the tree from individual words, making it easier to implement but potentially less intuitive when trying to understand the entire sentence structure.
 
+
+## Question 15
+
+**What do you mean by vector space in NLP?**
+
+In natural language processing (NLP), A [vector space](https://www.geeksforgeeks.org/web-information-retrieval-vector-space-model) is a mathematical vector where words or documents are represented by numerical vectors form. The word or document’s specific features or attributes are represented by one of the dimensions of the vector. Vector space models are used to convert text into numerical representations that machine learning algorithms can understand.
+
+Vector spaces are generated using techniques such as word embeddings, bag-of-words, and term frequency-inverse document frequency (TF-IDF). These methods allow for the conversion of textual data into dense or sparse vectors in a high-dimensional space. Each dimension of the vector may indicate a different feature, such as the presence or absence of a word, word frequency, semantic meaning, or contextual information.
+
+
+### Example 1: Bag-of-Words Model
+
+Let's take the following three simple sentences:
+
+1.  **"I love cats"**
+2.  **"I love dogs"**
+3.  **"Cats are great"**
+
+In the **bag-of-words (BoW)** model, we create a vector space where each unique word in the corpus (all sentences combined) is represented as a dimension. For these sentences, the unique words are: `["I", "love", "cats", "dogs", "are", "great"]`. This gives us a 6-dimensional vector space.
+
+Now, we can represent each sentence as a vector:
+
+-   Sentence 1: "I love cats" → `[1, 1, 1, 0, 0, 0]` (1 for the words "I", "love", and "cats" being present, and 0 for others).
+-   Sentence 2: "I love dogs" → `[1, 1, 0, 1, 0, 0]` (1 for the words "I", "love", and "dogs", 0 for others).
+-   Sentence 3: "Cats are great" → `[0, 0, 1, 0, 1, 1]` (1 for the words "cats", "are", and "great", 0 for others).
+
+In this vector space, each sentence is represented as a 6-dimensional vector, where the dimensions correspond to the words in the corpus.
+
+### Example 2: Word Embeddings
+
+In **word embeddings** (e.g., Word2Vec or GloVe), the words are represented as vectors in a continuous, high-dimensional vector space. These vectors capture semantic meaning, and similar words will have vectors that are close to each other in this space.
+
+For example, the words **"king"**, **"queen"**, **"man"**, and **"woman"** might be represented in a vector space where:
+
+-   The vector for **"king"** could be `[0.6, 0.2, 0.8]`.
+-   The vector for **"queen"** could be `[0.6, 0.2, 0.7]`.
+-   The vector for **"man"** might be `[0.4, 0.1, 0.9]`.
+-   The vector for **"woman"** might be `[0.4, 0.1, 0.8]`.
+
+The closeness of these vectors (in terms of cosine similarity) tells us that **"king"** and **"queen"** are semantically related, as are **"man"** and **"woman"**.
+
+### Example 3: TF-IDF
+
+The **TF-IDF (Term Frequency-Inverse Document Frequency)** method represents words in a vector space by assigning higher weights to words that are frequent in a specific document but less frequent across the whole corpus.
+
+For instance, in a document about "machine learning," common words like "machine" and "learning" will have high term frequencies in the document but low frequencies in the entire corpus (because they are specific to this topic), thus having higher TF-IDF scores.
+
+In the TF-IDF vector space, each document will be represented by a vector where each dimension corresponds to a word, and the value of the dimension is the **TF-IDF score** of that word in the document.
+
+
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
 
