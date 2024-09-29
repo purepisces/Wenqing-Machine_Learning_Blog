@@ -244,9 +244,11 @@
 
 
 ## NLP
-- [Text-Classification](NLP/Text-Classification.md)
+- [Text Classification](NLP/Text-Classification.md)
 - [Corpus](NLP/Corpus.md)
-- [Text-Normalization](NLP/Text-Normalization.md)
+- [Text Normalization](NLP/Text-Normalization.md)
+- [Support Vector Machines (SVM)](NLP/SVM.md)
+- [Naive Bayes](NLP/Naive-Bayes.md)
 
 
 ## Machine Learning Interview Questions
