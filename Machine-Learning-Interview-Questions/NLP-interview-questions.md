@@ -447,6 +447,37 @@ Neural models can also handle ambiguous words better. For example, "fox" could b
 -   **Statistical:** Predicts based on the likelihood of word sequences from previously tagged data.
 -   **Neural networks:** Understands the deeper context of a word's role in the sentence using advanced machine learning techniques.
 
+
+## Question 12
+
+**What is named entity recognition in NLP?**
+
+[Named Entity Recognization (NER)](https://www.geeksforgeeks.org/named-entity-recognition) is a task in natural language processing that is used to identify and classify the named entity in text. Named entity refers to real-world objects or concepts, such as persons, organizations, locations, dates, etc. NER is one of the challenging tasks in NLP because there are many different types of named entities, and they can be referred to in many different ways. The goal of NER is to extract and classify these named entities in order to offer structured data about the entities referenced in a given text.
+
+The approach followed for Named Entity Recognization (NER) is the same as the POS tagging. The data used while training in NER is tagged with persons, organizations, locations, and dates.
+
+### Example:
+
+For the sentence:  
+_"Barack Obama was born in Hawaii on August 4, 1961, and became the President of the United States."_
+
+NER would identify:
+
+-   **"Barack Obama"** as a **Person**,
+-   **"Hawaii"** as a **Location**,
+-   **"August 4, 1961"** as a **Date**, and
+-   **"President of the United States"** as an **Organization** or title.
+
+### How NER Works:
+
+NER uses similar techniques as Part-of-Speech (POS) tagging, but instead of tagging grammatical roles, it focuses on identifying named entities. There are three main approaches for NER:
+
+1.  **Rule-based NER**: Uses manually crafted rules such as regular expressions or linguistic patterns to identify entities. For example, names may start with a capital letter, or dates might follow certain formats (e.g., "DD-MM-YYYY"). This approach lacks flexibility for unseen cases but works well for highly structured data.
+    
+2.  **Statistical NER**: Similar to POS tagging, statistical methods like Hidden Markov Models (HMMs) or Conditional Random Fields (CRFs) are trained on large datasets where entities are already labeled. The model learns the probability of a word belonging to a certain entity type based on its context and can predict entity tags in unseen text. For instance, it might learn that "Barack" followed by "Obama" is likely a person’s name.
+    
+3.  **Neural Network-based NER**: More recent methods use deep learning techniques like Recurrent Neural Networks (RNNs), Long Short-Term Memory (LSTM), or Transformer models like BERT. These models can capture complex patterns and long-range dependencies in the text. For example, a neural network model could use the broader context of "President" to correctly identify "United States" as a location or entity even if it's used in a less obvious form.
+    
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
 
