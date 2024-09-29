@@ -820,6 +820,75 @@ $$\text{Cosine Similarity}(\vec{a}, \vec{b}) = \frac{2}{1.732 \times 1.732} = \f
 
 The cosine similarity between **Document 1** ("I love apples") and **Document 2** ("I love mangoes") is **0.6667**, which indicates a moderate level of similarity. This makes sense because both documents share two words ("I" and "love"), but differ in their fruit choice.
 
+## Question 20
+
+**What are the differences between rule-based, statistical-based and neural-based approaches in NLP?**
+
+[Natural language processing (NLP)](https://www.geeksforgeeks.org/natural-language-processing-nlp-pipeline) uses three distinct approaches to tackle language understanding and processing tasks: rule-based, statistical-based, and neural-based.
+
+1.  ****Rule-based Approach:**** Rule-based systems rely on predefined sets of linguistic rules and patterns to analyze and process language.
+    -   Linguistic Rules are manually crafted rules by human experts to define patterns or grammar structures.
+    -   The knowledge in rule-based systems is explicitly encoded in the rules, which may cover syntactic, semantic, or domain-specific information.
+    -   Rule-based systems offer high interpretability as the rules are explicitly defined and understandable by human experts.
+    -   These systems often require manual intervention and rule modifications to handle new language variations or domains.
+2.  ****Statistical-based Approach:**** Statistical-based systems utilize statistical algorithms and models to learn patterns and structures from large datasets.
+    -   By examining the data’s statistical patterns and relationships, these systems learn from training data.
+    -   Statistical models are more versatile than rule-based systems because they can train on relevant data from various topics and languages.
+3.  ****Neural-based Approach:**** Neural-based systems employ deep learning models, such as neural networks, to learn representations and patterns directly from raw text data.
+    -   Neural networks learn hierarchical representations of the input text, which enable them to capture complex language features and semantics.
+    -   Without explicit rule-making or feature engineering, these systems learn directly from data.
+    -   By training on huge and diverse datasets, neural networks are very versatile and can perform a wide range of NLP tasks.
+    -   In many NLP tasks, neural-based models have attained state-of-the-art performance, outperforming classic rule-based or statistical-based techniques.
+
+
+#### Example of Rule-based Approach:
+
+A rule-based system for identifying dates in text may use a regular expression like `DD-MM-YYYY` to extract dates. For instance, given the sentence **"My birthday is on 10-12-1995."**, the system will recognize **"10-12-1995"** as a date using predefined patterns.
+
+#### Limitation:
+
+If the date format changes to **"10th of December, 1995"**, the system may fail unless a new rule is added to handle this variation.
+
+#### Example of Statistical-based Approach:
+
+A **Hidden Markov Model (HMM)** used for Part-of-Speech (POS) tagging may learn that in a sentence like **"The cat sits"**, the word **"cat"** is likely to be a noun based on its context and probability distribution.
+
+#### Limitation:
+
+Statistical-based approaches may struggle when there is insufficient data or when encountering rare language patterns not seen in training data.
+
+#### Example of Neural-based Approach::
+
+A **Transformer-based model** like BERT can be used to solve multiple NLP tasks, such as **question answering**. If asked **"What is the capital of France?"**, the model will likely output **"Paris"** by learning semantic relationships and contextual clues from vast amounts of text data.
+
+#### Limitation:
+
+Neural models require large datasets and significant computational power for training. They can also be opaque, making it hard to interpret their decisions.
+
+
+### Comparison with Examples:
+
+| **Aspect**            | **Rule-based Approach**                | **Statistical-based Approach**        | **Neural-based Approach**             |
+|-----------------------|----------------------------------------|---------------------------------------|---------------------------------------|
+| **Method**            | Manually defined linguistic rules      | Learns from statistical patterns      | Learns representations with deep learning |
+| **Data Requirement**  | Requires less data                     | Needs moderate amounts of data        | Requires large datasets               |
+| **Interpretability**  | Highly interpretable                   | Moderate, probabilistic explanations  | Hard to interpret, "black-box" models |
+| **Flexibility**       | Not adaptable to new domains/languages | Adaptable with enough data            | Highly adaptable but data-hungry      |
+| **Example Task**      | Rule-based POS tagging (predefined rules) | POS tagging with HMM (probabilistic tagging) | POS tagging with BERT (contextual tagging) |
+
+### Example:
+Consider the task of **Part-of-Speech (POS) tagging** for the sentence: **"I am learning NLP."**
+
+- **Rule-based approach**: Manually defined grammar rules identify **"I"** as a pronoun, **"am"** as a verb, **"learning"** as a verb, and **"NLP"** as a noun based on syntax rules.
+  
+- **Statistical-based approach**: A probabilistic model like an **HMM** assigns POS tags based on learned word patterns and their likelihood of occurring together.
+  
+- **Neural-based approach**: A model like **BERT** understands the context and automatically tags **"I"** as a pronoun, **"am"** as a verb, **"learning"** as a verb, and **"NLP"** as a noun based on deep contextual embeddings.
+
+### Summary:
+- **Rule-based systems** use predefined linguistic rules but struggle with new language patterns.
+- **Statistical-based models** rely on probabilistic learning from data and handle more variation but require significant data.
+- **Neural-based models** learn representations and patterns from raw text data, often achieving the best performance, but they require large datasets and computational power.
 
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
