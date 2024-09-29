@@ -599,6 +599,153 @@ For instance, in a document about "machine learning," common words like "machine
 
 In the TF-IDF vector space, each document will be represented by a vector where each dimension corresponds to a word, and the value of the dimension is the **TF-IDF score** of that word in the document.
 
+## Question 16
+**What is the bag-of-words model?**
+
+[Bag of Words](https://www.geeksforgeeks.org/bag-of-words-bow-model-in-nlp) is a classical text representation technique in NLP that describes the occurrence of words within a document or not. It just keeps track of word counts and ignores the grammatical details and the word order.
+
+Each document is transformed as a numerical vector, where each dimension corresponds to a unique word in the vocabulary. The value in each dimension of the vector represents the frequency, occurrence, or other measure of importance of that word in the document.
+
+Let's consider two simple text documents:  
+Document 1: "I love apples."  
+Document 2: "I love mangoes too."  
+  
+Step 1: Tokenization  
+Document 1 tokens: ["I", "love", "apples"]  
+Document 2 tokens: ["I", "love", "mangoes", "too"]  
+  
+Step 2: Vocabulary Creation by collecting all unique words across the documents  
+Vocabulary: ["I", "love", "apples", "mangoes", "too"]  
+The vocabulary has five unique words, so each document vector will have five dimensions.  
+  
+Step 3: Vectorization  
+Create numerical vectors for each document based on the vocabulary.  
+For Document 1:  
+- The dimension corresponding to "I" has a value of 1.  
+- The dimension corresponding to "love" has a value of 1.  
+- The dimension corresponding to "apples" has a value of 1.  
+- The dimensions corresponding to "mangoes" and "too" have values of 0 since they do not appear in Document 1.  
+Document 1 vector: [1, 1, 1, 0, 0]  
+  
+For Document 2:  
+- The dimension corresponding to "I" has a value of 1.  
+- The dimension corresponding to "love" has a value of 1.  
+- The dimension corresponding to "mangoes" has a value of 1.  
+- The dimension corresponding to "apples" has a value of 0 since it does not appear in Document 2.  
+- The dimension corresponding to "too" has a value of 1.  
+Document 2 vector: [1, 1, 0, 1, 1]  
+
+The value in each dimension represents the occurrence or frequency of the corresponding word in the document. The BoW representation allows us to compare and analyze the documents based on their word frequencies.
+
+## Question 17
+
+**Define the Bag of N-grams model in NLP.**
+
+The [Bag of n-grams](https://www.geeksforgeeks.org/n-gram-language-modelling-with-nltk) model is a modification of the standard bag-of-words (BoW) model in NLP. Instead of taking individual words to be the fundamental units of representation, the Bag of n-grams model considers contiguous sequences of n words, known as n-grams, to be the fundamental units of representation.
+
+The Bag of n-grams model divides the text into n-grams, which can represent consecutive words or characters depending on the value of n. These n-grams are subsequently considered as features or tokens, similar to individual words in the BoW model.
+
+The steps for creating a bag-of-n-grams model are as follows:
+
+-   The text is split or tokenized into individual words or characters.
+-   The tokenized text is used to construct N-grams of size n (sequences of n consecutive words or characters). If n is set to 1 known as uni-gram i.e. same as a bag of words, 2 i.e. bi-grams, and 3 i.e. tri-gram.
+-   A vocabulary is built by collecting all unique n-grams across the entire corpus.
+-   Similarly to the BoW approach, each document is represented as a numerical vector. The vector’s dimensions correspond to the vocabulary’s unique n-grams, and the value in each dimension denotes the frequency or occurrence of that n-gram in the document.
+
+
+### Explain
+The **Bag of N-grams** model is an extension of the **Bag of Words (BoW)** model in Natural Language Processing (NLP), where instead of looking at individual words, it considers **contiguous sequences of 'n' words** (called **n-grams**) as the fundamental unit of representation. This allows the model to capture word **sequences** or **context**, which the standard BoW model ignores.
+
+### Key Difference:
+
+-   In the **Bag of Words (BoW)** model, each word is treated independently.
+-   In the **Bag of N-grams** model, sequences of words (e.g., pairs or triples of consecutive words) are considered, helping capture some level of word order or phrase-level information.
+
+### How the Bag of N-grams Model Works:
+
+1.  **Tokenization**: The text is broken into individual tokens (words or characters).
+2.  **N-grams Formation**: The tokenized text is grouped into **n-grams**, which are sequences of **n consecutive tokens** (words). The value of **n** determines the size of the n-gram:
+    -   **Unigram (n = 1)**: Single words (same as Bag of Words).
+    -   **Bigram (n = 2)**: Pairs of consecutive words.
+    -   **Trigram (n = 3)**: Triples of consecutive words.
+3.  **Vocabulary Creation**: A vocabulary of all unique n-grams is created across the entire corpus.
+4.  **Vectorization**: Each document is represented as a vector where the dimensions correspond to the unique n-grams, and the values represent the frequency or occurrence of those n-grams in the document.
+
+### Example:
+
+Let’s consider two simple documents:
+
+**Document 1**: "I love apples"  
+**Document 2**: "I love mangoes too"
+
+#### Step 1: Tokenization
+
+Both documents are tokenized into individual words:
+
+-   Document 1 tokens: ["I", "love", "apples"]
+-   Document 2 tokens: ["I", "love", "mangoes", "too"]
+
+#### Step 2: N-grams Formation
+
+Let’s create **bigrams** (n = 2) for both documents:
+
+-   **Document 1 Bigrams**:
+    -   "I love"
+    -   "love apples"
+-   **Document 2 Bigrams**:
+    -   "I love"
+    -   "love mangoes"
+    -   "mangoes too"
+
+#### Step 3: Vocabulary Creation
+
+The vocabulary is created by gathering all the unique bigrams from both documents:
+
+-   **Vocabulary**: ["I love", "love apples", "love mangoes", "mangoes too"]
+
+#### Step 4: Vectorization
+
+Now, we create vectors for each document based on the frequency of these bigrams in each document.
+
+-   **Document 1 Vector**:
+    
+    -   "I love" appears 1 time → 1
+    -   "love apples" appears 1 time → 1
+    -   "love mangoes" appears 0 times → 0
+    -   "mangoes too" appears 0 times → 0  
+        **Vector**: [1, 1, 0, 0]
+-   **Document 2 Vector**:
+    
+    -   "I love" appears 1 time → 1
+    -   "love apples" appears 0 times → 0
+    -   "love mangoes" appears 1 time → 1
+    -   "mangoes too" appears 1 time → 1  
+        **Vector**: [1, 0, 1, 1]
+
+### Why Use N-grams?
+
+-   **Capturing Word Sequences**: Unlike BoW, which ignores word order, **N-grams** can capture word order and local context. For instance, "I love" vs. "love I" are treated as different bigrams, preserving some context.
+-   **Short Phrases**: N-grams can capture commonly occurring phrases like "New York" or "machine learning," which might be missed by individual word representations.
+-   **Balance Between Complexity and Context**: Unigrams lose context, and higher-order n-grams (like trigrams or 4-grams) can become computationally expensive. **Bigrams** or **trigrams** provide a balance between context and simplicity.
+
+### Example Comparison (Unigram vs. Bigram):
+
+For Document 1 ("I love apples"):
+
+-   **Unigram (n=1) representation (Bag of Words)**:  
+    Vocabulary: ["I", "love", "apples", "mangoes", "too"]  
+    Document vector: [1, 1, 1, 0, 0] (word occurrences)
+    
+-   **Bigram (n=2) representation (Bag of N-grams)**:  
+    Vocabulary: ["I love", "love apples", "love mangoes", "mangoes too"]  
+    Document vector: [1, 1, 0, 0] (bigram occurrences)
+    
+
+In the bigram model, you capture that **"I love"** and **"love apples"** are consecutive, which gives more information about the structure of the sentence.
+
+### Summary:
+
+The **Bag of N-grams** model extends the BoW model by incorporating sequences of words (n-grams), allowing it to capture some word order and context, which can be crucial for tasks like text classification, machine translation, and sentiment analysis.
 
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
