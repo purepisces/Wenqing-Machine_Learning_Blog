@@ -1302,6 +1302,38 @@ Fine-tuning a pre-trained language model on domain-specific or task-specific dat
 Suppose a pre-trained model was trained on general text data and now needs to work with medical terminology (e.g., **"angioplasty"** or **"tachycardia"**). Fine-tuning the model on a medical corpus will expose it to these OOV terms, enabling it to better handle domain-specific language.
 
 
+## Question 29
+
+**What is the difference between a word-level and character-level language model?**
+
+The main difference between a word-level and a character-level language model is how text is represented. A character-level language model represents text as a sequence of characters, whereas a word-level language model represents text as a sequence of words.
+
+Word-level language models are often easier to interpret and more efficient to train. They are, however, less accurate than character-level language models because they cannot capture the intricacies of the text that are stored in the character order. Character-level language models are more accurate than word-level language models, but they are more complex to train and interpret. They are also more sensitive to noise in the text, as a slight alteration in a character can have a large impact on the meaning of the text.
+
+The key differences between word-level and character-level language models are:
+
+
+|                    | **Word-level**                                          | **Character-level**                                     |
+|----------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+| **Text representation**          | Sequence of words                                      | Sequence of characters                                 |
+| **Interpretability**             | Easier to interpret                                    | More difficult to interpret                            |
+| **Sensitivity to noise**         | Less sensitive                                         | More sensitive                                         |
+| **Vocabulary**                   | Fixed vocabulary of words                              | No predefined vocabulary                               |
+| **Out-of-vocabulary (OOV) handling** | Struggles with OOV words                              | Naturally handles OOV words                            |
+| **Generalization**               | Captures semantic relationships between words          | Better at handling morphological details               |
+| **Training complexity**          | Smaller input/output space, less computationally intensive | Larger input/output space, more computationally intensive |
+| **Applications**                 | Well-suited for tasks requiring word-level understanding | Suitable for tasks requiring fine-grained details or morphological variations |
+
+
+
+## Question 30
+
+**What is word sense disambiguation?**
+
+The task of determining which sense of a word is intended in a given context is known as [word sense disambiguation (WSD)](https://www.geeksforgeeks.org/word-sense-disambiguation-in-natural-language-processing). This is a challenging task because many words have several meanings that can only be determined by considering the context in which the word is used.
+
+For example, the word “bank” can be used to refer to a variety of things, including “a financial institution,” “a riverbank,” and “a slope.” The term “bank” in the sentence “I went to the bank to deposit my money” should be understood to mean “a financial institution.” This is so because the sentence’s context implies that the speaker is on their way to a location where they can deposit money.
+
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
 
