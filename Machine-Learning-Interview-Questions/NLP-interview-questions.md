@@ -1069,7 +1069,25 @@ Two of the most commonly used algorithms for topic modelling are:
     -   The two resulting matrices describe the topics and how they relate to both the documents and the words.
     
     For example, if NMF is applied to a collection of articles, it will produce a list of topics, each associated with specific words. One topic might focus on "neural networks" with words like "neuron," "RNN," and "activation."
+
+
+## Question 25
+
+**What is the GPT?**
+
+[GPT](https://www.geeksforgeeks.org/gpt-4-vs-gpt-3) stands for “Generative Pre-trained Transformer”. It refers to a collection of large language models created by OpenAI. It is trained on a massive dataset of text and code, which allows it to generate text, generate code, translate languages, and write many types of creative content, as well as answer questions in an informative manner. The GPT series includes various models, the most well-known and commonly utilised of which are the GPT-2 and GPT-3.
+
+GPT models are built on the Transformer architecture, which allows them to efficiently capture long-term dependencies and contextual information in text. These models are pre-trained on a large corpus of text data from the internet, which enables them to learn the underlying patterns and structures of language.
+
+### Explain
+#### Key Features of GPT:
+1.  **Pre-training**: The model is first pre-trained on a massive corpus of publicly available text data, such as books, articles, and websites. This allows GPT to learn the underlying patterns, structures, and knowledge in language.
     
+2.  **Generative**: Once trained, GPT can generate text that looks like it was written by a human. Given an initial prompt or starting sentence, GPT continues writing, producing full paragraphs, stories, essays, or responses.
+    
+3.  **Transformer Architecture**: GPT leverages the **Transformer model**, which uses self-attention mechanisms to understand context and dependencies between words. This allows GPT to excel at tasks that require a deep understanding of context and structure, such as text completion and translation.
+    
+4.  **Fine-tuning**: While GPT is pre-trained on general text data, it can be fine-tuned on specific tasks (e.g., customer service, medical questions) to adapt to specialized use cases.
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
 
