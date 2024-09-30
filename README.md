@@ -249,6 +249,7 @@
 - [Text Normalization](NLP/Text-Normalization.md)
 - [Support Vector Machines (SVM)](NLP/SVM.md)
 - [Naive Bayes](NLP/Naive-Bayes.md)
+- [Conditional Random Fields (CRFs)](NLP/CRFs.md)
 
 
 ## Machine Learning Interview Questions
