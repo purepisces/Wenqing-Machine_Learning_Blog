@@ -1088,6 +1088,220 @@ GPT models are built on the Transformer architecture, which allows them to effic
 3.  **Transformer Architecture**: GPT leverages the **Transformer model**, which uses self-attention mechanisms to understand context and dependencies between words. This allows GPT to excel at tasks that require a deep understanding of context and structure, such as text completion and translation.
     
 4.  **Fine-tuning**: While GPT is pre-trained on general text data, it can be fine-tuned on specific tasks (e.g., customer service, medical questions) to adapt to specialized use cases.
+
+
+## Question 26
+
+**What are word embeddings in NLP?**
+
+[Word embeddings](https://www.geeksforgeeks.org/word-embeddings-in-nlp) in NLP are defined as the dense, low-dimensional vector representations of words that capture semantic and contextual information about words in a language. It is trained using big text corpora through unsupervised or supervised methods to represent words in a numerical format that can be processed by machine learning models.
+
+The main goal of Word embeddings is to capture relationships and similarities between words by representing them as dense vectors in a continuous vector space. These vector representations are acquired using the distributional hypothesis, which states that words with similar meanings tend to occur in similar contexts. Some of the popular pre-trained word embeddings are Word2Vec, GloVe (Global Vectors for Word Representation), or FastText. The advantages of word embedding over the traditional text vectorization technique are as follows:
+
+-   It can capture the Semantic Similarity between the words
+-   It is capable of capturing syntactic links between words. Vector operations such as “king” – “man” + “woman” may produce a vector similar to the vector for “queen,” capturing the gender analogy.
+-   Compared to one-shot encoding, it has reduced the dimensionality of word representations. Instead of high-dimensional sparse vectors, word embeddings typically have a fixed length and represent words as dense vectors.
+-   It can be generalized to represent words that they have not been trained on i.e. out-of-vocabulary words. This is done by using the learned word associations to place new words in the vector space near words that they are semantically or syntactically similar to.
+
+### Example of Word Embeddings
+
+Let’s take an example to illustrate how word embeddings capture relationships between words.
+
+Assume we have the following words: **king**, **queen**, **man**, and **woman**. Using word embeddings, these words can be represented as vectors in a high-dimensional space, like this:
+
+-   **king** → [0.5, 0.8, -0.1, ...]
+-   **queen** → [0.4, 0.9, -0.2, ...]
+-   **man** → [0.2, 0.7, 0.1, ...]
+-   **woman** → [0.3, 0.6, 0.0, ...]
+
+One of the key advantages of word embeddings is that **vector operations** on these embeddings can capture relationships. For example, the vector difference between **king** and **man** can be similar to the vector difference between **queen** and **woman**:
+
+$$\text{king} - \text{man} + \text{woman} \approx \text{queen}$$
+
+This operation shows that the model understands the relationship between gender and royalty, capturing analogies like **"king is to man as queen is to woman"**.
+
+
+## 🌟 Question 27
+
+**What are the various algorithms used for training word embeddings?**
+
+There are various approaches that are typically used for training word embeddings, which are dense vector representations of words in a continuous vector space. Some of the popular word embedding algorithms are as follows:
+
+-   [****Word2Vec****](https://www.geeksforgeeks.org/python-word-embedding-using-word2vec): Word2vec is a common approach for generating vector representations of words that reflect their meaning and relationships. Word2vec learns embeddings using a shallow neural network and follows two approaches: CBOW and Skip-gram
+    -   CBOW (Continuous Bag-of-Words) predicts a target word based on its context words.
+    -   Skip-gram predicts context words given a target word.
+-   ****GloVe****: GloVe (Global Vectors for Word Representation) is a word embedding model that is similar to Word2vec. GloVe, on the other hand, uses objective function that constructs a co-occurrence matrix based on the statistics of word co-occurrences in a large corpus. The co-occurrence matrix is a square matrix where each entry represents the number of times two words co-occur in a window of a certain size. GloVe then performs matrix factorization on the co-occurrence matrix. Matrix factorization is a technique for finding a low-dimensional representation of a high-dimensional matrix. In the case of GloVe, the low-dimensional representation is a vector representation for each word in the corpus. The word embeddings are learned by minimizing a loss function that measures the difference between the predicted co-occurrence probabilities and the actual co-occurrence probabilities. This makes GloVe more robust to noise and less sensitive to the order of words in a sentence.
+-   [****FastText****](https://www.geeksforgeeks.org/fasttext-working-and-implementation): FastText is a Word2vec extension that includes subword information. It represents words as bags of character n-grams, allowing it to handle out-of-vocabulary terms and capture morphological information. During training, FastText considers subword information as well as word context..
+-   [****ELMo****](https://www.geeksforgeeks.org/overview-of-word-embedding-using-embeddings-from-language-models-elmo): ELMo is a deeply contextualised word embedding model that generates context-dependent word representations. It generates word embeddings that capture both semantic and syntactic information based on the context of the word using bidirectional language models.
+-   [****BERT****](https://www.geeksforgeeks.org/explanation-of-bert-model-nlp): A transformer-based model called BERT (Bidirectional Encoder Representations from Transformers) learns contextualised word embeddings. BERT is trained on a large corpus by anticipating masked terms inside a sentence and gaining knowledge about the bidirectional context. The generated embeddings achieve state-of-the-art performance in many NLP tasks and capture extensive contextual information.
+
+
+### Explain 
+### 1. Word2Vec
+**Word2Vec** is one of the most widely used algorithms for generating word embeddings. It uses a shallow neural network to learn vector representations of words by considering the context in which words appear. Word2Vec has two main approaches:
+
+- **CBOW (Continuous Bag of Words)**:
+  - CBOW predicts the target word based on the context words surrounding it.
+  - **Example**: Given the context words "**The __ is running,**" the model predicts the missing word "**dog**."
+  
+- **Skip-gram**:
+  - Skip-gram predicts the context words given the target word.
+  - **Example**: Given the target word "**dog**," the model predicts the context words "**The**" and "**running**."
+
+The resulting embeddings from Word2Vec capture the semantic relationships between words. For example, the model might learn that words like "**king**" and "**queen**" have similar relationships to "**man**" and "**woman**."
+
+**Example**:  
+Suppose the model is trained on the sentence:
+
+- "**The dog chased the ball.**"
+
+With **CBOW**, the model might learn the relationship between "**dog**" and the context words "**chased**" and "**ball**." With **Skip-gram**, the model would predict "**chased**" and "**ball**" given the word "**dog**."
+
+### 2. GloVe (Global Vectors for Word Representation)
+**GloVe** is another popular algorithm for generating word embeddings, but it approaches the problem differently from Word2Vec. GloVe focuses on the global word co-occurrence statistics in the corpus.
+
+- GloVe builds a **co-occurrence matrix** where each entry represents how frequently two words co-occur within a specific window size in the text.
+- It then performs **matrix factorization** on this co-occurrence matrix to obtain word embeddings.
+
+This approach captures the relationships between words by learning from the overall distribution of words in the corpus, rather than relying on the local context of words like Word2Vec.
+
+**Example**:  
+Consider a corpus where the word "**cat**" frequently co-occurs with "**pet**" and "**animal**." GloVe learns embeddings where "**cat**," "**pet**," and "**animal**" are represented close together in the vector space.
+
+**Co-occurrence matrix**:
+
+|         | cat | pet | animal |
+|---------|-----|-----|--------|
+| **cat** | 10  | 5   | 7      |
+| **pet** | 5   | 10  | 8      |
+| **animal** | 7 | 8  | 10     |
+
+After matrix factorization, the words "**cat**," "**pet**," and "**animal**" will have similar embeddings, representing their shared meaning.
+
+### 3. FastText
+**FastText** is an extension of Word2Vec developed by Facebook, which improves upon the handling of **out-of-vocabulary (OOV)** words by incorporating subword information.
+
+- FastText breaks down words into **n-grams** (subword units), which allows it to generate embeddings for words that weren't seen during training by composing them from subwords.
+- This is useful for morphologically rich languages, where words may take many forms due to conjugation or inflection.
+
+**Example**:  
+Suppose the word "**unbelievable**" is not present in the training corpus. FastText can break this word into subwords like:
+
+- "**un-**", "**believe**", "**-able**"
+
+FastText uses the embeddings of these subwords to construct a vector for "**unbelievable**," placing it near similar words like "**amazing**" and "**incredible**" in the embedding space, even if the word itself was never seen in the corpus.
+
+### 4. ELMo (Embeddings from Language Models)
+**ELMo** generates **contextualized word embeddings**, meaning that the word embeddings are dependent on the **context** in which the word appears. Unlike Word2Vec and GloVe, which generate a single static embedding for each word, ELMo generates different embeddings for a word based on the sentence.
+
+- ELMo uses **bidirectional language models (bi-LSTMs)** to capture both semantic and syntactic information from the entire sentence.
+
+**Example**:  
+Consider the word "**bank**" in two different sentences:
+
+1. "**I deposited money in the bank.**"
+2. "**I sat by the river bank.**"
+
+ELMo generates different embeddings for "**bank**" in these two sentences based on the context. In sentence 1, "**bank**" refers to a financial institution, while in sentence 2, it refers to the side of a river.
+
+### 5. BERT (Bidirectional Encoder Representations from Transformers)
+**BERT** is a **transformer-based** model that generates **deeply contextualized word embeddings**. BERT learns word embeddings by processing the entire sentence in **both directions** (left-to-right and right-to-left), capturing a word's meaning based on its **bidirectional context**.
+
+- BERT is trained using a **masked language model (MLM)**, where certain words in a sentence are masked, and the model learns to predict the masked words by understanding the context.
+- BERT embeddings are state-of-the-art for many NLP tasks, such as **text classification**, **question answering**, and **named entity recognition**.
+
+**Example**:  
+Consider the sentence:
+
+- "**The teacher taught the students.**"
+
+If BERT is asked to predict the word "**taught**" from the masked sentence "**The teacher [MASK] the students,**" it learns a representation of "**taught**" by considering the bidirectional context of both "**The teacher**" and "**the students**." This allows BERT to understand the precise meaning of the word in context.
+
+### Summary of Algorithms:
+
+| **Algorithm** | **Key Approach** | **Context Dependency** | **Example Use Case**                      |
+|---------------|------------------|------------------------|-------------------------------------------|
+| **Word2Vec**  | Neural network-based, CBOW & Skip-gram | Static (same embedding for all contexts) | Text classification, sentiment analysis  |
+| **GloVe**     | Co-occurrence matrix and matrix factorization | Static | Information retrieval, topic modeling     |
+| **FastText**  | Subword-based (n-grams) | Static | Handling OOV words, morphologically rich languages |
+| **ELMo**      | Bi-LSTM-based contextualized embeddings | Contextual (varies by sentence) | Named entity recognition, machine translation |
+| **BERT**      | Transformer-based bidirectional embeddings | Deeply contextual (varies by sentence) | Question answering, text summarization  |
+
+Each algorithm offers different advantages depending on the task, data, and whether **contextual understanding** or **out-of-vocabulary handling** is required. Models like **BERT** and **ELMo** capture deep contextual information, while models like **Word2Vec**, **GloVe**, and **FastText** are more efficient for general word embeddings.
+
+
+## Question 28
+
+**How to handle out-of-vocabulary (OOV) words in NLP?**
+
+OOV words are words that are missing in a language model’s vocabulary or the training data it was trained on. Here are a few approaches to handling OOV words in NLP:
+
+1.  ****Character-level models:**** Character-level models can be used in place of word-level representations. In this method, words are broken down into individual characters, and the model learns representations based on character sequences. As a result, the model can handle OOV words since it can generalize from known character patterns.
+2.  ****Subword tokenization:**** Byte-Pair Encoding (BPE) and WordPiece are two subword tokenization algorithms that divide words into smaller subword units based on their frequency in the training data. This method enables the model to handle OOV words by representing them as a combination of subwords that it comes across during training.
+3.  ****Unknown token:**** Use a special token, frequently referred to as an “unknown” token or “UNK,” to represent any OOV term that appears during inference. Every time the model comes across an OOV term, it replaces it with the unidentified token and keeps processing. The model is still able to generate relevant output even though this technique doesn’t explicitly define the meaning of the OOV word.
+4.  ****External knowledge:**** When dealing with OOV terms, using external knowledge resources, like a knowledge graph or an external dictionary, can be helpful. We need to try to look up a word’s definition or relevant information in the external knowledge source when we come across an OOV word.
+5.  ****Fine-tuning:**** We can fine-tune using the pre-trained language model with domain-specific or task-specific data that includes OOV words. By incorporating OOV words in the fine-tuning process, we expose the model to these words and increase its capacity to handle them.
+
+### Explain 
+### 1. **Character-Level Models**
+
+**Character-level models** break down words into individual characters, allowing the model to learn representations based on character sequences instead of whole words. This enables the model to generalize to OOV words since it processes each word as a sequence of characters, regardless of whether it has seen the word before.
+
+#### Example:
+
+Suppose the word **“supercalifragilisticexpialidocious”** is an OOV word. A character-level model would process it as a sequence of characters:
+
+-   `["s", "u", "p", "e", "r", "c", "a", ...]`
+
+Even though this word wasn't part of the training data, the model can learn patterns and relationships between individual characters and generate an embedding based on the character sequence, allowing it to handle long or unfamiliar words.
+
+### 2. **Subword Tokenization**
+
+**Subword tokenization** algorithms like **Byte-Pair Encoding (BPE)** and **WordPiece** split words into smaller subword units based on their frequency in the training data. This technique enables the model to handle OOV words by breaking them down into familiar subword pieces and recombining them during inference.
+
+#### Example:
+
+Consider the OOV word **“unbelievable.”**
+
+-   **BPE** might break it into subwords like: `["un", "believe", "able"]`.
+
+Even if the full word **“unbelievable”** wasn’t seen during training, the subwords **“un”**, **“believe”**, and **“able”** were likely seen, allowing the model to handle the word by combining these subwords to infer its meaning.
+
+-   Similarly, **WordPiece** would break the word into familiar subword units like: `["un", "##believable"]`.
+
+### 3. **Unknown Token (UNK)**
+
+In cases where a model encounters an OOV word, it can replace the word with a special **unknown token (UNK)**. This approach does not attempt to learn a representation for the OOV word itself, but instead uses the **UNK token** as a placeholder during processing.
+
+#### Example:
+
+If the model encounters an OOV word like **"quizzaciously"**, it will replace it with an **UNK token** during inference, and the sentence may become:
+
+-   "**The student answered UNK.**"
+
+While this approach is simple, it doesn't capture the semantics of the OOV word and may reduce the model's overall performance in tasks that require precise understanding of specific words.
+
+### 4. **External Knowledge**
+
+In some cases, **external knowledge sources** such as dictionaries, knowledge graphs, or APIs can be used to look up the meaning or context of an OOV word, providing the model with additional information to handle unfamiliar terms.
+
+#### Example:
+
+If the model encounters the OOV word **“CRISPR”** (a term in genetic engineering), the model could query an external knowledge graph or dictionary to retrieve the definition:
+
+-   **"CRISPR: A gene-editing technology that allows for precise, targeted changes to the genome."**
+
+By incorporating this external knowledge, the model can handle domain-specific terms like **“CRISPR”** even if it wasn't part of the training corpus.
+
+### 5. **Fine-tuning on Domain-Specific Data**
+
+Fine-tuning a pre-trained language model on domain-specific or task-specific data that contains OOV words can improve the model's ability to handle new terms. By exposing the model to these words during fine-tuning, the model adapts to handle these OOV terms in future tasks.
+
+#### Example:
+
+Suppose a pre-trained model was trained on general text data and now needs to work with medical terminology (e.g., **"angioplasty"** or **"tachycardia"**). Fine-tuning the model on a medical corpus will expose it to these OOV terms, enabling it to better handle domain-specific language.
+
+
 ## Reference
 - https://www.geeksforgeeks.org/nlp-interview-questions/
 
