@@ -901,7 +901,7 @@ In general, sentences are often treated as sequences of words or tokens. Each wo
 
 By considering sentences as sequences, NLP models can capture the contextual information and dependencies between words, enabling tasks such as part-of-speech tagging, named entity recognition, sentiment analysis, machine translation, and more.
 
-## Question 22
+## 🌟 Question 22
 
 **What are the various types of machine learning algorithms used in NLP?**
 
