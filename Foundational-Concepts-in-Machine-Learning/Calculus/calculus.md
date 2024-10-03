@@ -152,6 +152,10 @@ To find how the transformed intensity sss changes with respect to the original i
 dsdr=(L−1)pr(r)\frac{ds}{dr} = (L - 1) p_r(r)drds​=(L−1)pr​(r)
 
 This is how Leibniz’s rule is applied in this transformation, and it leads directly to the expression that relates dsdsds and drdrdr, which is crucial for determining how intensities in the image are redistributed.
+
+
+
+\int w \, dw = \frac{w^2}{2}
 ___
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=cSkrV-FnGo8)
