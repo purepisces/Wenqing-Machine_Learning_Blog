@@ -96,6 +96,21 @@ In the case of the function $y = x^2$, gradient descent involves updating the x 
     - Therefore, the displacement vector $\vec{d}$ from A to B is $\vec{d} = [3, 4]$.
 
   - Interpretation: The vector $\vec{d} = [3, 4]$ represents the direct path from Point A to Point B, regardless of the path actually taken to get from A to B. The magnitude of this vector, which is the straight-line distance between A and B, can be calculated using the Pythagorean theorem: $|\vec{d}| = \sqrt{3^2 + 4^2} = 5$ units.
- 
+
+___
+
+### **Definite Integral:**
+
+A **definite integral** represents the accumulation (or total sum) of a quantity, often visualized as the **area under a curve** of a function between two points. It gives the total value of the function between a specific lower limit and upper limit.
+
+The definite integral of a function f(x)f(x)f(x) from aaa to bbb is written as:
+
+∫abf(x) dx\int_{a}^{b} f(x) \, dx∫ab​f(x)dx
+
+-   **f(x)f(x)f(x)** is the function being integrated, called the **integrand**.
+-   **aaa** is the lower limit of integration.
+-   **bbb** is the upper limit of integration.
+-   The symbol dxdxdx tells us that we are integrating with respect to xxx.
+___
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=cSkrV-FnGo8)
