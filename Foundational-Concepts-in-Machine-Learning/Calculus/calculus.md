@@ -111,6 +111,47 @@ The definite integral of a function f(x)f(x)f(x) from aaa to bbb is written as:
 -   **aaa** is the lower limit of integration.
 -   **bbb** is the upper limit of integration.
 -   The symbol dxdxdx tells us that we are integrating with respect to xxx.
+
+
+Leibniz's rule in calculus, specifically for definite integrals with variable upper limits, tells us how to differentiate an integral where the upper limit is a variable. The rule states:
+
+**If you have an integral of the form:**
+
+F(x)=∫axf(t) dtF(x) = \int_{a}^{x} f(t) \, dtF(x)=∫ax​f(t)dt
+
+where aaa is constant, and the upper limit of integration is xxx, then:
+
+ddx(∫axf(t) dt)=f(x)\frac{d}{dx} \left( \int_{a}^{x} f(t) \, dt \right) = f(x)dxd​(∫ax​f(t)dt)=f(x)
+
+### Explanation:
+
+-   **f(t)f(t)f(t)** is the integrand, which is a function of ttt.
+-   aaa is the lower limit of the integral, which is constant.
+-   xxx is the upper limit of integration, which is variable and depends on xxx.
+-   **The derivative of this integral with respect to xxx** is just the function f(t)f(t)f(t) evaluated at t=xt = xt=x. This result comes from the **Fundamental Theorem of Calculus**, which connects differentiation and integration.
+
+
+### Example:
+
+If you have:
+
+T(r)=∫0rpr(w) dwT(r) = \int_0^r p_r(w) \, dwT(r)=∫0r​pr​(w)dw
+
+Then, by Leibniz's rule:
+
+ddrT(r)=pr(r)\frac{d}{dr} T(r) = p_r(r)drd​T(r)=pr​(r)
+
+### How This Applies to Your Problem:
+
+In your scenario, you're transforming the intensity values of an image using the cumulative distribution function (CDF), represented as:
+
+s=T(r)=(L−1)∫0rpr(w) dws = T(r) = (L - 1) \int_0^r p_r(w) \, dws=T(r)=(L−1)∫0r​pr​(w)dw
+
+To find how the transformed intensity sss changes with respect to the original intensity rrr, you differentiate this expression with respect to rrr. Using **Leibniz's rule**, the derivative of this integral with respect to rrr is simply the integrand pr(r)p_r(r)pr​(r) evaluated at rrr:
+
+dsdr=(L−1)pr(r)\frac{ds}{dr} = (L - 1) p_r(r)drds​=(L−1)pr​(r)
+
+This is how Leibniz’s rule is applied in this transformation, and it leads directly to the expression that relates dsdsds and drdrdr, which is crucial for determining how intensities in the image are redistributed.
 ___
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=cSkrV-FnGo8)
