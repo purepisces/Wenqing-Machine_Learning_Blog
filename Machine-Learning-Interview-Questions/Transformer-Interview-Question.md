@@ -4,6 +4,18 @@ prenorm postnorm
 
 what is the attention matrix's size
 
+what is q, k and v? and what's their dimension? is each word or token has a q, k and v? 
+
+encoder, decoder part
+
+how to fine tune a model
+
+if using an already trained embedding then how to train it?
+
+what is langchain
+
+what is stable diffusion
+
 transformer using in image
 
 1. What is the principle of Transformer (Significant difference from other model architecture like CNN or RNN)?
