@@ -2,6 +2,8 @@
 
 prenorm postnorm
 
+what is the attention matrix's size
+
 transformer using in image
 
 1. What is the principle of Transformer (Significant difference from other model architecture like CNN or RNN)?
