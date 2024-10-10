@@ -133,4 +133,6 @@ In **Pre-Norm**, the sequence of operations is as follows:
 ___
 question: why we use layernorm but batchnorm
 
+In a Transformer, LayerNorm is applied to each word's feature vector, rather than normalizing the entire sentence.
+
 
