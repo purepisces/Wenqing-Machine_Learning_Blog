@@ -18,7 +18,10 @@ what is stable diffusion
 
 transformer using in image
 
-1. What is the principle of Transformer (Significant difference from other model architecture like CNN or RNN)?
+
+## Question 1
+
+**What is the principle of Transformer (Significant difference from other model architecture like CNN or RNN)?**
 
 The significant difference between the Transformer model and other architectures like RNNs and CNNs lies in its use of self-attention mechanisms instead of recurrence or convolution. This allows the Transformer to process all input tokens simultaneously, enabling parallelization, handling long-range dependencies more effectively, and improving efficiency for large datasets. Additionally, the Transformer does not rely on the sequential order of data, which makes it more scalable and faster for training large models, particularly in NLP tasks.
 
