@@ -1222,3 +1222,252 @@ Now, this normalized vector has a **mean of 0** and a **standard deviation of 1*
 -   **New Mean**: 0.46+0.93+(−1.39)3=0\frac{0.46 + 0.93 + (-1.39)}{3} = 030.46+0.93+(−1.39)​=0
 -   **New Variance**: (0.46−0)2+(0.93−0)2+(−1.39−0)23=1\frac{(0.46 - 0)^2 + (0.93 - 0)^2 + (-1.39 - 0)^2}{3} = 13(0.46−0)2+(0.93−0)2+(−1.39−0)2​=1
 ___
+🌟🌟🌟
+
+In **Post-Norm**, the sequence of operations is as follows:
+
+1.  The input is processed by a sub-layer (e.g., self-attention or feed-forward network).
+2.  The **residual connection** adds the original input to the sub-layer's output.
+3.  **Layer normalization** is applied **after** the residual connection.
+
+In **Pre-Norm**, the sequence of operations is as follows:
+
+1.  Layer normalization is applied to the input first.
+2.  The normalized input is then processed by a sub-layer (e.g., self-attention or feed-forward network).
+3.  The residual connection adds the original input to the sub-layer's output.
+
+___
+🌟🌟🌟
+### Example of LayerNorm Applied to Each Token:
+Suppose we have **3 tokens**, and each token has **3 features**:
+
+| Token   | Feature 1 | Feature 2 | Feature 3 |
+|---------|-----------|-----------|-----------|
+| Token 1 | 1.0       | 2.0       | -1.0      |
+| Token 2 | 3.0       | 1.0       | 0.5       |
+| Token 3 | 2.0       | -1.0      | 1.5       |
+
+
+### Step 1: Compute the Mean and Variance for Each Token (across features)
+In **LayerNorm**, the **mean** and **variance** are computed for **each token's features**, instead of across the entire batch.
+
+#### Token 1:
+- **Mean**: 
+  \[
+  \text{Mean}_1 = \frac{1.0 + 2.0 + (-1.0)}{3} = \frac{2.0}{3} \approx 0.67
+  \]
+- **Variance**: 
+  \[
+  \text{Variance}_1 = \frac{(1.0 - 0.67)^2 + (2.0 - 0.67)^2 + (-1.0 - 0.67)^2}{3}
+  \]
+  \[
+  = \frac{(0.33)^2 + (1.33)^2 + (-1.67)^2}{3} = \frac{0.11 + 1.77 + 2.79}{3} \approx 1.56
+  \]
+
+#### Token 2:
+- **Mean**:
+  \[
+  \text{Mean}_2 = \frac{3.0 + 1.0 + 0.5}{3} = \frac{4.5}{3} = 1.5
+  \]
+- **Variance**: 
+  \[
+  \text{Variance}_2 = \frac{(3.0 - 1.5)^2 + (1.0 - 1.5)^2 + (0.5 - 1.5)^2}{3}
+  \]
+  \[
+  = \frac{(1.5)^2 + (-0.5)^2 + (-1.0)^2}{3} = \frac{2.25 + 0.25 + 1.0}{3} = \frac{3.5}{3} \approx 1.17
+  \]
+
+#### Token 3:
+- **Mean**:
+  \[
+  \text{Mean}_3 = \frac{2.0 + (-1.0) + 1.5}{3} = \frac{2.5}{3} \approx 0.83
+  \]
+- **Variance**: 
+  \[
+  \text{Variance}_3 = \frac{(2.0 - 0.83)^2 + (-1.0 - 0.83)^2 + (1.5 - 0.83)^2}{3}
+  \]
+  \[
+  = \frac{(1.17)^2 + (-1.83)^2 + (0.67)^2}{3} = \frac{1.37 + 3.35 + 0.45}{3} \approx 1.72
+  \]
+
+### Step 2: Normalize Each Token's Features Using the Computed Mean and Variance
+In **LayerNorm**, normalization is done **across the features of each individual token**, rather than across the batch.
+
+#### Token 1 (Mean = 0.67, Variance = 1.56, Standard Deviation ≈ 1.25):
+\[
+\text{Standard Deviation}_1 = \sqrt{1.56} \approx 1.25
+\]
+- **Feature 1**: 
+  \[
+  \frac{1.0 - 0.67}{1.25} \approx 0.27
+  \]
+- **Feature 2**: 
+  \[
+  \frac{2.0 - 0.67}{1.25} \approx 1.07
+  \]
+- **Feature 3**: 
+  \[
+  \frac{-1.0 - 0.67}{1.25} \approx -1.33
+  \]
+
+#### Normalized Token 1:
+\[
+\text{Normalized Token 1} = [0.27, 1.07, -1.33]
+\]
+
+#### Token 2 (Mean = 1.5, Variance = 1.17, Standard Deviation ≈ 1.08):
+\[
+\text{Standard Deviation}_2 = \sqrt{1.17} \approx 1.08
+\]
+- **Feature 1**: 
+  \[
+  \frac{3.0 - 1.5}{1.08} \approx 1.39
+  \]
+- **Feature 2**: 
+  \[
+  \frac{1.0 - 1.5}{1.08} \approx -0.46
+  \]
+- **Feature 3**: 
+  \[
+  \frac{0.5 - 1.5}{1.08} \approx -0.93
+  \]
+
+#### Normalized Token 2:
+\[
+\text{Normalized Token 2} = [1.39, -0.46, -0.93]
+\]
+
+#### Token 3 (Mean = 0.83, Variance = 1.72, Standard Deviation ≈ 1.31):
+\[
+\text{Standard Deviation}_3 = \sqrt{1.72} \approx 1.31
+\]
+- **Feature 1**: 
+  \[
+  \frac{2.0 - 0.83}{1.31} \approx 0.89
+  \]
+- **Feature 2**: 
+  \[
+  \frac{-1.0 - 0.83}{1.31} \approx -1.39
+  \]
+- **Feature 3**: 
+  \[
+  \frac{1.5 - 0.83}{1.31} \approx 0.51
+  \]
+
+#### Normalized Token 3:
+\[
+\text{Normalized Token 3} = [0.89, -1.39, 0.51]
+\]
+
+### Step 3: (Optional) Scaling and Shifting
+After normalization, **LayerNorm** can apply a learned scaling factor (γ) and a bias (β) to each normalized feature to allow the model to learn the optimal feature representation.
+
+### Final Normalized Tokens:
+- **Token 1**: \([0.27, 1.07, -1.33]\)
+- **Token 2**: \([1.39, -0.46, -0.93]\)
+- **Token 3**: \([0.89, -1.39, 0.51]\)
+
+### Example of BatchNorm Applied to a Batch of Tokens:
+Suppose we have a batch of 3 sequences (tokens) with 3 features each:
+
+| Token   | Feature 1 | Feature 2 | Feature 3 |
+|---------|-----------|-----------|-----------|
+| Token 1 | 1.0       | 2.0       | -1.0      |
+| Token 2 | 3.0       | 1.0       | 0.5       |
+| Token 3 | 2.0       | -1.0      | 1.5       |
+
+
+### Step 1: Compute the Mean and Variance for Each Feature Across the Batch
+
+- **Mean for each feature across the batch**:
+
+  - **Feature 1**:
+    \[
+    \text{Mean}_1 = \frac{1.0 + 3.0 + 2.0}{3} = \frac{6.0}{3} = 2.0
+    \]
+    
+  - **Feature 2**:
+    \[
+    \text{Mean}_2 = \frac{2.0 + 1.0 + (-1.0)}{3} = \frac{2.0}{3} \approx 0.67
+    \]
+    
+  - **Feature 3**:
+    \[
+    \text{Mean}_3 = \frac{-1.0 + 0.5 + 1.5}{3} = \frac{1.0}{3} \approx 0.33
+    \]
+
+- **Variance for each feature across the batch**:
+
+  - **Feature 1**:
+    \[
+    \text{Variance}_1 = \frac{(1.0 - 2.0)^2 + (3.0 - 2.0)^2 + (2.0 - 2.0)^2}{3} = \frac{1.0 + 1.0 + 0.0}{3} = \frac{2.0}{3} \approx 0.67
+    \]
+    
+  - **Feature 2**:
+    \[
+    \text{Variance}_2 = \frac{(2.0 - 0.67)^2 + (1.0 - 0.67)^2 + (-1.0 - 0.67)^2}{3} \approx 1.56
+    \]
+    
+  - **Feature 3**:
+    \[
+    \text{Variance}_3 = \frac{(-1.0 - 0.33)^2 + (0.5 - 0.33)^2 + (1.5 - 0.33)^2}{3} \approx 1.11
+    \]
+
+
+### Step 2: Normalize Each Feature Using the Batch Statistics
+
+Next, each token's feature is normalized by subtracting the mean and dividing by the standard deviation (square root of the variance):
+
+#### **Token 1**:
+- **Feature 1**: 
+  \[
+  \frac{1.0 - 2.0}{\sqrt{0.67}} \approx -1.22
+  \]
+- **Feature 2**: 
+  \[
+  \frac{2.0 - 0.67}{\sqrt{1.56}} \approx 1.06
+  \]
+- **Feature 3**: 
+  \[
+  \frac{-1.0 - 0.33}{\sqrt{1.11}} \approx -1.26
+  \]
+
+#### **Token 2**:
+- **Feature 1**: 
+  \[
+  \frac{3.0 - 2.0}{\sqrt{0.67}} \approx 1.22
+  \]
+- **Feature 2**: 
+  \[
+  \frac{1.0 - 0.67}{\sqrt{1.56}} \approx 0.27
+  \]
+- **Feature 3**: 
+  \[
+  \frac{0.5 - 0.33}{\sqrt{1.11}} \approx 0.16
+  \]
+
+#### **Token 3**:
+- **Feature 1**: 
+  \[
+  \frac{2.0 - 2.0}{\sqrt{0.67}} = 0.0
+  \]
+- **Feature 2**: 
+  \[
+  \frac{-1.0 - 0.67}{\sqrt{1.56}} \approx -1.33
+  \]
+- **Feature 3**: 
+  \[
+  \frac{1.5 - 0.33}{\sqrt{1.11}} \approx 1.10
+  \]
+
+
+### Step 3: (Optional) Scaling and Shifting
+
+After normalization, **BatchNorm** may apply a learned scaling factor (γ) and a bias (β) to allow the model to learn the optimal representation for each feature.
+
+### **Key Differences Between LayerNorm and BatchNorm**:
+
+1.  **BatchNorm** normalizes **across the batch** (computing statistics across all tokens in the batch for each feature).
+2.  **LayerNorm** normalizes **within each token's features** (computing statistics across the features of each token independently), making it better suited for Transformers and sequence models where token-level independence is crucial.
+
+By normalizing across the features of each token independently, **LayerNorm** ensures that each token's representation is processed consistently, without being influenced by other tokens in the batch, which is essential for models like Transformers that process sequences.
