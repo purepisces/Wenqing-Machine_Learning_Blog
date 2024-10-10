@@ -115,3 +115,18 @@ answer not sure:
 
 In a Transformer model, each token in the input sequence is associated with three vectors: Query (Q), Key (K), and Value (V). The query vector represents the token's request for information (which tokens it should attend to), the key vector represents how important each token is to the current query, and the value vector contains the actual information passed between tokens. These vectors are created by applying learned linear transformations to the token embeddings. Each token has its own Q and K vectors with a dimensionality of $d_k$​, and a V vector with a dimensionality of $d_v$​. In the case of multi-head attention, the total embedding dimension $d_{\text{embedding}}$​ is divided by the number of heads hhh, so each head operates with Q, K, and V vectors of dimensions $d_{\text{embedding}} / h$.
 ___
+question: what is prenorm and postnorm?
+
+answer not sure:
+
+In **Post-Norm**, the sequence of operations is as follows:
+
+1.  The input is processed by a sub-layer (e.g., self-attention or feed-forward network).
+2.  The **residual connection** adds the original input to the sub-layer's output.
+3.  **Layer normalization** is applied **after** the residual connection.
+
+In **Pre-Norm**, the sequence of operations is as follows:
+
+5.  Layer normalization is applied to the input first.
+6.  The normalized input is then processed by a sub-layer (e.g., self-attention or feed-forward network).
+7.  The residual connection adds the original input to the sub-layer's output.
