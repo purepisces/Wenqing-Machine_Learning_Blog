@@ -131,3 +131,6 @@ In **Pre-Norm**, the sequence of operations is as follows:
 2.  The normalized input is then processed by a sub-layer (e.g., self-attention or feed-forward network).
 3.  The residual connection adds the original input to the sub-layer's output.
 ___
+question: why we use layernorm but batchnorm
+
+
