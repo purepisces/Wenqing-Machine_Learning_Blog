@@ -127,6 +127,7 @@ In **Post-Norm**, the sequence of operations is as follows:
 
 In **Pre-Norm**, the sequence of operations is as follows:
 
-5.  Layer normalization is applied to the input first.
-6.  The normalized input is then processed by a sub-layer (e.g., self-attention or feed-forward network).
-7.  The residual connection adds the original input to the sub-layer's output.
+1.  Layer normalization is applied to the input first.
+2.  The normalized input is then processed by a sub-layer (e.g., self-attention or feed-forward network).
+3.  The residual connection adds the original input to the sub-layer's output.
+___
