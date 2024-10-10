@@ -1,5 +1,7 @@
 2transformer相关问题包括怎么算注意力（公式维度等）transformer层的结构（多头残差normFFN）ViT几种结构的参数
 
+why we use layernorm but batchnorm
+
 prenorm postnorm
 
 what is q, k and v? and what's their dimension? is each word or token has a q, k and v? 
