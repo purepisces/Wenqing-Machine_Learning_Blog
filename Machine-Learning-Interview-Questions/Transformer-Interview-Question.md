@@ -2,8 +2,6 @@
 
 prenorm postnorm
 
-what is the attention matrix's size
-
 what is q, k and v? and what's their dimension? is each word or token has a q, k and v? 
 
 encoder, decoder part
@@ -103,4 +101,14 @@ The Transformer model is a deep learning architecture designed for sequence-to-s
 
 Wenqing
 1. Why is the attention score divided by sqrt d? （the same as Q4）
+___
+Question The attention matrix's size 
 
+In a Transformer model, the attention matrix's size is n×n, where n is the length of the input sequence (i.e., the number of tokens). Each element in this matrix represents the attention score between two tokens in the sequence, computed by taking the dot product of the query and key vectors for those tokens. These raw scores are then scaled and passed through a softmax function, converting them into attention weights (probabilities) that sum to 1 across each row. Thus, the attention matrix contains the weights that indicate how much each token should focus on every other token in the sequence.
+___
+
+question: what is q, k and v? and what's their dimension? is each word or token has a q, k and v? 
+
+answer not sure:
+
+In a Transformer model, each token in the input sequence is associated with three vectors: Query (Q), Key (K), and Value (V). The query vector represents the token's request for information (which tokens it should attend to), the key vector represents how important each token is to the current query, and the value vector contains the actual information passed between tokens. These vectors are created by applying learned linear transformations to the token embeddings. Each token has its own Q and K vectors with a dimensionality of $d_k$​, and a V vector with a dimensionality of $d_v$​. In the case of multi-head attention, the total embedding dimension dembeddingd_{\text{embedding}}dembedding​ is divided by the number of heads hhh, so each head operates with Q, K, and V vectors of dimensions $d_{\text{embedding}} / h$.
