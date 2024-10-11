@@ -1,3 +1,5 @@
+need to look at fine tune: https://nbviewer.org/github/DrRuin/Lightweight-Fine-Tuning/blob/main/Lightweight-Fine-Tuning.ipynb
+
 ## Question 1
 
 **What is NLP?**
