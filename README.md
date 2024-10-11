@@ -98,7 +98,7 @@
 - **Decision Trees**
   - [Overview](Foundational-Concepts-in-Machine-Learning/Decision-Trees/decision-trees.md)
 - **Support Vector Machines (SVM)**
-  - [Overview](Foundational-Concepts-in-Machine-Learning/Support-Vector-Machines-/SVM.md)
+  - [Overview](Foundational-Concepts-in-Machine-Learning/Support-Vector-Machines/SVM.md)
 - **T-SNE**
   - [Overview](Foundational-Concepts-in-Machine-Learning/t-sne.md)
 - **Dimensionality Reduction**
