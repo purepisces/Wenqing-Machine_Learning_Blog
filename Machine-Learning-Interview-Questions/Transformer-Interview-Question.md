@@ -210,3 +210,7 @@ question: why we use layernorm but batchnorm
 In a Transformer, LayerNorm is applied to each word's feature vector, rather than normalizing the entire sentence.
 
 
+___
+During **training**, the Transformer predicts all tokens in the target sequence (second token, third token, etc.) in **parallel**—**not one after another** like traditional models such as RNNs.
+
+During **inference**, the Transformer model generates tokens **one after another**, in a **sequential** manner. This process is different from training, where predictions for all tokens are computed in parallel.
