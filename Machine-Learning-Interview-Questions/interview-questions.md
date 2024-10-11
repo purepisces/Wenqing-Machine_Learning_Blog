@@ -8,6 +8,7 @@
 **transformer related**
 **prenorm postnorm**
 **each layer like BatchNorm LayerNorm**
+**What is stable diffusition, and is different for maybe transfoemer?**
 ** why for attention score it will divide by sqrt d**
 
 
