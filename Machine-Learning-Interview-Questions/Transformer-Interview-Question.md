@@ -188,6 +188,31 @@ question: what is q, k and v? and what's their dimension? is each word or token 
 answer not sure:
 
 In a Transformer model, each token in the input sequence is associated with three vectors: Query (Q), Key (K), and Value (V). The query vector represents the token's request for information (which tokens it should attend to), the key vector represents how important each token is to the current query, and the value vector contains the actual information passed between tokens. These vectors are created by applying learned linear transformations to the token embeddings. Each token has its own Q and K vectors with a dimensionality of $d_k$​, and a V vector with a dimensionality of $d_v$​. In the case of multi-head attention, the total embedding dimension $d_{\text{embedding}}$​ is divided by the number of heads hhh, so each head operates with Q, K, and V vectors of dimensions $d_{\text{embedding}} / h$.
+
+
+ **Input dimension**: (Embedding Size $(n_{tokens}, d_{model})$)
+
+-   $n_{tokens}$​: Number of tokens in the input sequence.
+-   $d_{model}$​: The dimensionality of each token’s embedding (e.g., 512 or 1024 in typical Transformer implementations).
+
+**$W_Q$**, **$W_K$​**, and **$W_V$​**: These are linear transformation matrices that map the input embeddings into the query, key, and value vectors, respectively.
+
+Dimensions of each weight matrix:
+
+-   $W_Q \in \mathbb{R}^{d_{model} \times d_k}$
+-   $W_K \in \mathbb{R}^{d_{model} \times d_k}$
+-   $W_V \in \mathbb{R}^{d_{model} \times d_v}$
+
+Here:
+
+-   $d_k$​: The dimension of the query and key vectors.
+-   $d_v$​: The dimension of the value vectors.
+
+After the input embeddings are multiplied by the weight matrices $W_Q$, $W_K$​, and $W_V$​, the resulting **query (Q)**, **key (K)**, and **value (V)** vectors have the following dimensions:
+
+-   **Query (Q) dimension**: $(n_{tokens}, d_k)$
+-   **Key (K) dimension**: $(n_{tokens}, d_k)$
+-   **Value (V) dimension**: $n_{tokens}, d_v)$
 ___
 question: what is prenorm and postnorm?
 
