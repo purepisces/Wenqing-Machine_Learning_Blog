@@ -9,6 +9,9 @@
 **prenorm postnorm**
 **each layer like BatchNorm LayerNorm**
 **What is stable diffusition, and is different for maybe transfoemer?**
+**What is diffustion model?**
+**What is lora?**
+
 ** why for attention score it will divide by sqrt d**
 
 
