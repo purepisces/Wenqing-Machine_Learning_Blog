@@ -260,3 +260,8 @@
 - [NLP Interview Questions](Machine-Learning-Interview-Questions/NLP-interview-questions.md)
 - [Transformer Interview Questions](Machine-Learning-Interview-Questions/Transformer-Interview-Question.md)
 - [Machine Learning System Design Interview Questions](Machine-Learning-Interview-Questions/System-Design-Interview-Question.md)
+
+## Other
+- [Object-Relational Mapping (ORM)](Other/ORM.md)
+
+
