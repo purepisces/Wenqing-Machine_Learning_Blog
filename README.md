@@ -239,6 +239,13 @@
 - [Rental Search Ranking](Machine-Learning-System-Design/rental-search-ranking.md)
 - [Estimate Delivery Time](Machine-Learning-System-Design/estimate-delivery-time.md)
 
+## Deployment and DevOps Tools
+
+- **Docker**
+  - [Overview of Docker](Deployment-and-DevOps-Tools/Docker/overview-docker.md)
+  - [Setting up Docker for Machine Learning Projects](Deployment-and-DevOps-Tools/Docker/setup-docker-ml-projects.md)
+  - [Docker Commands and Usage](Deployment-and-DevOps-Tools/Docker/docker-commands.md)
+
 ## Code Implementation
 - [Image Segmentation Task For CGG](Code-Implementation/CGG)
 - [Decision Tree](Code-Implementation/Decision-Tree)
@@ -261,6 +268,7 @@
 - [NLP Interview Questions](Machine-Learning-Interview-Questions/NLP-interview-questions.md)
 - [Transformer Interview Questions](Machine-Learning-Interview-Questions/Transformer-Interview-Question.md)
 - [Machine Learning System Design Interview Questions](Machine-Learning-Interview-Questions/System-Design-Interview-Question.md)
+
 
 ## Other
 - [Object-Relational Mapping (ORM)](Other/ORM.md)
