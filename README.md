@@ -269,6 +269,9 @@
 - [Transformer Interview Questions](Machine-Learning-Interview-Questions/Transformer-Interview-Question.md)
 - [Machine Learning System Design Interview Questions](Machine-Learning-Interview-Questions/System-Design-Interview-Question.md)
 
+## Recommendation System
+- [NMF (Non-Negative Matrix Factorization)](Recommendation-System/nmf.md)
+
 
 ## Other
 - [Object-Relational Mapping (ORM)](Other/ORM.md)
