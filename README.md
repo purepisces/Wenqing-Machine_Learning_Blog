@@ -271,8 +271,8 @@
 
 ## Recommendation System
 - [NMF (Non-Negative Matrix Factorization)](Recommendation-System/nmf.md)
-- [Content-Based Filtering](Recommendation-System/Content-Based-Filtering.md)]
-- [Collaborative Filtering](Recommendation-System/Collaborative-Filtering.md)]
+- [Content-Based Filtering](Recommendation-System/Content-Based-Filtering.md)
+- [Collaborative Filtering](Recommendation-System/Collaborative-Filtering.md)
 
 
 ## Other
