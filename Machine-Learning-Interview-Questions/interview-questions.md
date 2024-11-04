@@ -32,7 +32,7 @@ https://docs.google.com/document/u/1/d/1Zjyc4v1fYPI4t-0M31P1tJr0zW55VkFKu7YWJoBh
 
 P-value or probability value indicates the probability of obtaining the observed data or more extreme values by random chance. A small P-value suggests that the observed result is unlikely and that observed data is consistent with the null hypothesis and provides evidence to support the alternative hypothesis.
 
-## Question 9
+## Question 2
 
 **What are the types of Machine learning?**
 
@@ -44,7 +44,7 @@ Supervised learning: Using labeled datasets to train algorithms to classify data
 
 Unsupervised learning: It uses ML to analyze and cluster unlabeled datasets. Unsupervised algorithms learn from unlabeled data and discover hidden patterns and structures in the data.
 
-## Question 1
+## Question 3
 
 **What are five popular algorithms used in Machine Learning?**
 
@@ -58,7 +58,7 @@ Support Vector Machines (SVM): It is used to create the best line or decision bo
 
 Probabilistic networks: They are graphical models of interactions among a set of variables, where the variables are represented as nodes of a graph and the interaction as directed edges between the vertices. It allows a compact description of complex stochastic relationships among several random variables.
 
-## Question 
+## Question 4
 
 **What is a neural network?**
 
