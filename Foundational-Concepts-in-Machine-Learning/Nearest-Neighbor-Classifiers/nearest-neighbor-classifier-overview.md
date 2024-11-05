@@ -8,7 +8,7 @@ The Nearest Neighbor Classifier, while rarely used in practical applications tod
 
 One widely used image classification dataset for introductory tasks is CIFAR-10, which contains 60,000 images, each 32x32 pixels, categorized into 10 classes (e.g., "airplane," "automobile," "bird," etc.). This dataset is divided into a training set of 50,000 images and a test set of 10,000 images. Below is an example showing 10 images from each class:
 
-<img src="CIFAR-10.jpg" alt="CIFAR-10" width="400" height="300"/>
+<img src="CIFAR-10.jpg" alt="CIFAR-10" width="900" height="400"/>
 
 *Left: Sample images from CIFAR-10. Right: Each test image with its top 10 nearest training set images (based on pixel-wise differences).*
 
@@ -22,7 +22,7 @@ $$d_1 (I_1, I_2) = \sum_{p} \left| I^p_1 - I^p_2 \right|$$
 
 In this approach, identical images yield a distance of zero, while dissimilar images have a larger distance. This method can be visualized as follows:
 
-<img src="pixel-wise differences.jpeg" alt="pixel-wise differences" width="400" height="300"/>
+<img src="pixel-wise differences.jpeg" alt="pixel-wise differences" width="800" height="250"/>
 
 
 *An illustration of pixel-wise differences using L1 distance for a single color channel.*
