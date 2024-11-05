@@ -29,3 +29,4 @@
 29.original_transformer.md 加一下代码部分更完善 encoder only decoder only and encoder-decoder可以概括的更详细一些 alson include interview questions about transformer
 30.handling-imbalance.md✅ need further formatting
 31.precision-recall-f1score.md✅已发csdn,未发知乎
+32.nearest-neighbor-classifier-overview.md✅ 可以加一下代码部分在code implementation部分使其更完善
