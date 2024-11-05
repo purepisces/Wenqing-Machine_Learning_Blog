@@ -19,7 +19,10 @@
 
 
 
+## Question 1
+**What is cross validation?**
 
+Cross validation is a concept used to evaluate models’ performances to avoid overfitting. It is an easy method to compare the predictive capabilities of models and is best suitable when limited data is available.
 
 
 
@@ -149,10 +152,7 @@ If our data isn't linearly separable, SVM, being a linear separator, will need t
 
 An encoder-decoder model is used to create an output sequence based on a given input sequence. The final state of the encoder is used as the initial state of the decoder, and this makes the encoder-decoder model extremely powerful. This also allows the decoder to access the information that is taken from the input sequence by the encoder.
 
-## Question 8
-**What is cross validation?**
 
-Cross validation is a concept used to evaluate models’ performances to avoid overfitting. It is an easy method to compare the predictive capabilities of models and is best suitable when limited data is available.
 
 
 
