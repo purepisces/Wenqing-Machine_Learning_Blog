@@ -261,14 +261,6 @@
 - [Naive Bayes](NLP/Naive-Bayes.md)
 - [Conditional Random Fields (CRFs)](NLP/CRFs.md)
 
-
-## Machine Learning Interview Questions
-- [Useful Link](Machine-Learning-Interview-Questions/link.md)
-- [Interview Questions](Machine-Learning-Interview-Questions/interview-questions.md)
-- [NLP Interview Questions](Machine-Learning-Interview-Questions/NLP-interview-questions.md)
-- [Transformer Interview Questions](Machine-Learning-Interview-Questions/Transformer-Interview-Question.md)
-- [Machine Learning System Design Interview Questions](Machine-Learning-Interview-Questions/System-Design-Interview-Question.md)
-
 ## Recommendation System
 - [NMF (Non-Negative Matrix Factorization)](Recommendation-System/nmf.md)
 - [Content-Based Filtering](Recommendation-System/Content-Based-Filtering.md)
@@ -277,5 +269,12 @@
 
 ## Other
 - [Object-Relational Mapping (ORM)](Other/ORM.md)
+
+## Machine Learning Interview Questions
+- [Useful Link](Machine-Learning-Interview-Questions/link.md)
+- [Interview Questions](Machine-Learning-Interview-Questions/interview-questions.md)
+- [NLP Interview Questions](Machine-Learning-Interview-Questions/NLP-interview-questions.md)
+- [Transformer Interview Questions](Machine-Learning-Interview-Questions/Transformer-Interview-Question.md)
+- [Machine Learning System Design Interview Questions](Machine-Learning-Interview-Questions/System-Design-Interview-Question.md)
 
 
