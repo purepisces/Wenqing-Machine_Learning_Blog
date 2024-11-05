@@ -6,6 +6,8 @@ Relying on just the nearest data point to make a prediction may not always yield
 
 The following example shows the difference between a 1-NN (Nearest Neighbor) and a 5-NN classifier. Here, 2-dimensional points are assigned to one of three classes (red, blue, or green). The colored regions represent the **decision boundaries** created by the classifier using L2 distance. White regions indicate ambiguous classifications, where class votes are tied.
 
+<img src="5-NN classifier.jpeg.jpeg" alt="5-NN classifier" width="800" height="250"/>
+
 Notice that with a 1-NN classifier, outlier points (like a green point surrounded by blue points) can create isolated "islands" of potentially incorrect classifications. In contrast, the 5-NN classifier smooths over these irregularities, leading to better **generalization** on unseen test data (not shown here). The gray regions in the 5-NN example arise from tied votes among neighbors (e.g., 2 red, 2 blue, and 1 green neighbor).
 
 ### Choosing the Right k Value
