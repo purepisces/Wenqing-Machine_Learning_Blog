@@ -103,7 +103,12 @@
   - [Overview](Foundational-Concepts-in-Machine-Learning/t-sne.md)
 - **Dimensionality Reduction**
   - [Principal Component Analysis (PCA)](Foundational-Concepts-in-Machine-Learning/Dimensionality-Reduction/pca.md)
-
+- **Nearest Neighbor Classifiers** 
+	- [Nearest Neighbor Classifier Overview](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/nearest-neighbor-classifier-overview.md) 
+	- **k-Nearest Neighbor (kNN) Classifier** 
+		- [Overview](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-overview.md) 
+		- [kNN for Classification](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-classification.md) 
+		- [kNN for Regression](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-regression.md) 
 ## Deep Learning Concepts
 
 ### Basic Neural Network Concepts
