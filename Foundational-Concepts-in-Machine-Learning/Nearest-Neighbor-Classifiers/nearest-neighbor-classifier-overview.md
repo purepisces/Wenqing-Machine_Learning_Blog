@@ -16,7 +16,7 @@ In this example, given 50,000 training images (5,000 per class), the Nearest Nei
 
 ## Image Comparison Using L1 Distance
 
-For the Nearest Neighbor Classifier, a simple method to compare two images is pixel-wise comparison. Representing images as vectors (e.g., \(I_1\) and \(I_2\)), we can calculate the **L1 distance** by summing the absolute differences across all pixels:
+For the Nearest Neighbor Classifier, a simple method to compare two images is pixel-wise comparison. Representing images as vectors (e.g., $I_1$ and $I_2$), we can calculate the **L1 distance** by summing the absolute differences across all pixels:
 
 $$d_1 (I_1, I_2) = \sum_{p} \left| I^p_1 - I^p_2 \right|$$
 
