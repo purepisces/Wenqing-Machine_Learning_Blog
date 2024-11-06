@@ -1,3 +1,5 @@
+Before reading it, make sure have go through the content in [nearest-neighbor-classifier](Wenqing-Machine_Learning_Blog/Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/nearest-neighbor-classifier-overview.md).
+
 # k-Nearest Neighbor Classifier
 
 Relying on just the nearest data point to make a prediction may not always yield the best results. A more effective approach is often the **k-Nearest Neighbor (k-NN) Classifier**. In this method, instead of finding only the closest point in the training set, we find the **k closest points** and use them to "vote" on the label for the test point. When *k = 1*, this approach simplifies to the standard Nearest Neighbor classifier. However, higher values of **k** provide a smoothing effect that makes the classifier less sensitive to outliers.
