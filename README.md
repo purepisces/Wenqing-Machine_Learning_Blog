@@ -58,7 +58,14 @@
 
 - **Feature Selection**
   - [Overview of Feature Selection](Foundational-Concepts-in-Machine-Learning/Feature-Selection/overview-feature-selection.md)
-  
+
+- **Data Preprocessing**
+  - [Overview of Data Preprocessing](Foundational-Concepts-in-Machine-Learning/Data-Preprocessing/overview-data-preprocessing.md)
+  - [Data Normalization](Foundational-Concepts-in-Machine-Learning/Data-Preprocessing/data-normalization.md)
+  - [Data Standardization](Foundational-Concepts-in-Machine-Learning/Data-Preprocessing/data-standardization.md)
+  - [Missing Data Handling](Foundational-Concepts-in-Machine-Learning/Data-Preprocessing/missing-data-handling.md)
+  - [Data Augmentation](Foundational-Concepts-in-Machine-Learning/Data-Preprocessing/data-augmentation.md)
+    
 - **Model Evaluation**
   - [Model_Eval](Foundational-Concepts-in-Machine-Learning/Model-Evaluation/Model_Eval.md)
   - **Offline Metrics**
