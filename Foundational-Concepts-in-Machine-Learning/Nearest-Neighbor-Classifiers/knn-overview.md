@@ -138,6 +138,18 @@ In this visualization, you’ll notice that images with similar backgrounds or c
 
 Ideally, we would like all images within a particular category (e.g., all dogs, all cats) to form distinct clusters based on their content, not on irrelevant features like background or color. However, achieving this kind of clustering requires going beyond simple pixel comparisons. Advanced methods, such as convolutional neural networks (CNNs), learn feature representations that capture the actual content of images, making them more effective for image classification.
 
+### Summary
+
+To summarize:
+-   We introduced the challenge of **Image Classification**, where the goal is to categorize a set of labeled images and predict the categories of new, unlabeled test images, then assess the accuracy of those predictions.
+-   We explored a basic approach using the **Nearest Neighbor classifier**. This method involves several hyperparameters (like the choice of $k$ or the distance metric) without a straightforward way to determine their optimal values.
+-   To set these hyperparameters properly, we split our training data into a training set and a **validation set** (acting as a "fake test set"). By testing different hyperparameter values on this validation set, we identify the ones that yield the best performance.
+-   When data is limited, we discussed **cross-validation** as a technique to improve the reliability of hyperparameter estimates by reducing noise.
+-   After identifying the best hyperparameters, we fix them and conduct a single **evaluation** on the actual test set.
+-   Using Nearest Neighbor on the CIFAR-10 dataset, we achieve approximately 40% accuracy. While the method is simple and easy to implement, it requires storing the entire training set and is computationally expensive at test time.
+-   We noted that using L1 or L2 distances on raw pixel data is not adequate, as these distances tend to capture background and color patterns rather than the true semantic content of images.
+
+In upcoming lectures, we’ll explore methods to address these limitations, ultimately achieving higher accuracies (up to 90%), eliminating the need to store the training set after learning, and enabling test image evaluation in under a millisecond.
 
 
 ## Reference:
