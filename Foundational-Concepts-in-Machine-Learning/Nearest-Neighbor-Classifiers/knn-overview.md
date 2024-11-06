@@ -106,6 +106,39 @@ Cross-validation is often computationally expensive, so in practice, many prefer
 
 > **Typical data splits**: First, a training and test set are defined. The training set is then divided into multiple folds (for example, 5 folds). Folds 1-4 are used as the training set, while one fold (e.g., fold 5, highlighted in yellow) serves as the validation fold for tuning hyperparameters. Cross-validation further extends this by rotating through each fold, allowing each one to serve as the validation fold in turn, a process known as 5-fold cross-validation. Once the model is fully trained and the optimal hyperparameters are selected, it is evaluated a single time on the test set (shown in red) for final performance measurement.
 
+### Pros and Cons of the Nearest Neighbor Classifier
+
+One advantage of the Nearest Neighbor (NN) classifier is its simplicity and ease of implementation. Additionally, this method requires no training time. The classifier only needs to store and possibly index the training data, making it ready for predictions immediately. However, this simplicity comes with a drawback: the **computational cost is high at test time**. To classify a new test example, the NN classifier must compare it to every single training example, which can be slow and inefficient, especially for large datasets. This is generally undesirable in practical applications, where test-time efficiency is often more critical than training-time efficiency.
+
+In contrast, methods like deep neural networks shift this trade-off, with high computational costs during training but very low costs at test time. This is more practical since once a neural network is trained, it can classify new examples quickly and efficiently.
+
+**Approximate Nearest Neighbor (ANN)** algorithms and libraries (such as [FLANN](https://github.com/mariusmuja/flann)) have been developed to address this issue. These algorithms enable a trade-off between the accuracy of nearest neighbor retrieval and the space/time complexity of the retrieval process. They typically rely on a preprocessing or indexing step, such as building a k-d tree or running the k-means algorithm.
+
+The Nearest Neighbor classifier can sometimes be effective, particularly with low-dimensional data, but it struggles with high-dimensional data like images. A major issue is that images are composed of many pixels, making them high-dimensional objects. In such cases, **pixel-based distance measures (e.g., L2 distance) become unintuitive and are very different from perceptual similarities**.
+
+For example, consider the image below:
+
+insert img
+
+Here, we have an original image of a face on the left, followed by three altered versions. Each altered image is at the same L2 pixel distance from the original, meaning they are "equally far" away in terms of raw pixel values. However, perceptually, they appear very different:
+
+- The **shifted** version is a slight spatial displacement, which doesn’t change much visually but can result in a large pixel distance.
+- The **messed up** version has parts of the face blocked out, making it visually quite different from the original, though it’s at the same L2 distance.
+- The **darkened** version preserves the structure and features of the face but is darker, also showing the same L2 distance.
+
+This demonstrates how pixel-based distances can fail to capture meaningful, perceptual similarity in high-dimensional data like images. The distances don’t align with our intuitive sense of similarity. Clearly, the pixel-wise distance does not correspond at all to perceptual or semantic similarity.
+
+### Pixel-Based Distance Limitations Visualized with t-SNE
+
+To further illustrate this limitation, we can use **t-SNE**, a visualization technique to take the CIFAR-10 images and embed them in two dimensions so that their (local) pairwise distances are best preserved. Below is a t-SNE visualization of CIFAR-10 images, where the images that appear closer together are similar in terms of L2 pixel distance:
+
+insert img
+
+In this visualization, you’ll notice that images with similar backgrounds or color distributions tend to be grouped together, even if they belong to different categories. For example, a dog on a white background might appear near a frog on a white background, despite them being different objects. This clustering happens because L2 distance, based on pixel values alone, is influenced more by color and background similarity than by the actual semantic content of the images.
+
+Ideally, we would like all images within a particular category (e.g., all dogs, all cats) to form distinct clusters based on their content, not on irrelevant features like background or color. However, achieving this kind of clustering requires going beyond simple pixel comparisons. Advanced methods, such as convolutional neural networks (CNNs), learn feature representations that capture the actual content of images, making them more effective for image classification.
+
+
 
 ## Reference:
 - https://cs231n.github.io/classification/
