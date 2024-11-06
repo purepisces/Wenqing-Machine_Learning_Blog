@@ -101,7 +101,7 @@ For each $k$ value, we train on 4 of the 5 folds and validate on the remaining f
 
 Cross-validation is often computationally expensive, so in practice, many prefer to use a single validation set rather than multiple folds. The training/validation split commonly ranges from 50%-90% of data for training, with the remaining data for validation. However, this depends on multiple factors: For example if the number of hyperparameters is large you may prefer to use bigger validation splits. If you’re working with a small dataset, cross-validation is generally safer for ensuring robust performance estimates. Common choices for cross-validation include 3-fold, 5-fold, or 10-fold.
 
-<img src="data splits.jpeg" alt="data splits" width="700" height="200"/>
+<img src="data splits.jpeg" alt="data splits" width="800" height="200"/>
 
 
 > **Typical data splits**:First, a training and test set are defined. The training set is then divided into multiple folds (for example, 5 folds). Folds 1-4 are used as the training set, while one fold (e.g., fold 5, highlighted in yellow) serves as the validation fold for tuning hyperparameters. Cross-validation further extends this by rotating through each fold, allowing each one to serve as the validation fold in turn, a process known as 5-fold cross-validation. Once the model is fully trained and the optimal hyperparameters are selected, it is evaluated a single time on the test set (shown in red) for final performance measurement.
