@@ -28,7 +28,12 @@ Cross-validation can help determine the optimal number of neighbors _k_ in k-NN:
 -   For each value of _k_, run cross-validation to evaluate the model’s accuracy.
 -   Plot the results to identify the _k_ that maximizes performance, ensuring better generalization.
 
-### Example: 5-Fold Cross-Validation Code
+#### Example of 5-Fold Cross-Validation
+
+For each $k$ value, we train on 4 of the 5 folds and validate on the remaining fold. This process is repeated 5 times (once for each fold), and the average accuracy across folds is recorded. The plot would show accuracy on the y-axis and $k$ values on the x-axis, with error bars representing the standard deviation. The peak of the trend line indicates the optimal value of $k$. In this case, cross-validation indicates that a value of approximately $k = 7$ performs best for this dataset, as shown by the peak in the plot. Increasing the number of folds typically makes the results to a smoother, less noisy curve.
+
+<img src="Cross-validation plot.png" alt="Cross-validation plot" width="500" height="400"/>
+
 ```python
 # Assume we have Xtr_rows, Ytr as our full training data
 # Xtr_rows: input data, Ytr: labels
@@ -69,11 +74,15 @@ This code snippet iterates over different _k_ values, evaluates each on a 5-fold
 
 ### Practical Considerations
 
-Cross-validation is computationally more expensive than a single validation split. When training data is limited, however, it’s invaluable for achieving robust hyperparameter estimates. **Common configurations include 3-fold, 5-fold, or 10-fold cross-validation**:
+Cross-validation is often computationally expensive, so in practice, many prefer to use a single validation set rather than multiple folds. The training/validation split commonly ranges from 50%-90% of data for training, with the remaining data for validation. However, this depends on multiple factors: For example if the number of hyperparameters is large you may prefer to use bigger validation splits. If you’re working with a small dataset, cross-validation is generally safer for ensuring robust performance estimates. Common choices for cross-validation include 3-fold, 5-fold, or 10-fold.
 
 -   **3-fold**: Useful for very limited data but can be less stable.
 -   **5-fold**: Provides a balance between stability and computational efficiency.
 -   **10-fold**: Offers smoother estimates and is often used for final model evaluation, though it requires more computation.
+
+<img src="data splits.jpeg" alt="data splits" width="800" height="200"/>
+
+> **Typical data splits**: First, a training and test set are defined. The training set is then divided into multiple folds (for example, 5 folds). Folds 1-4 are used as the training set, while one fold (e.g., fold 5, highlighted in yellow) serves as the validation fold for tuning hyperparameters. Cross-validation further extends this by rotating through each fold, allowing each one to serve as the validation fold in turn, a process known as 5-fold cross-validation. Once the model is fully trained and the optimal hyperparameters are selected, it is evaluated a single time on the test set (shown in red) for final performance measurement.
 
 ### Summary
 
