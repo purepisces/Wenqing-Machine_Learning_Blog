@@ -97,7 +97,7 @@ For each _k_ value, we train on 4 of the 5 folds and validate on the remaining f
 
 ### Practical Considerations
 
-Cross-validation is often computationally expensive, so in practice, many use a single validation set rather than multiple folds. The training/validation split commonly ranges between 50%-90% of data for training, with the rest for validation. If tuning multiple hyperparameters or dealing with a small dataset, cross-validation is generally safer. Common choices include 3-fold, 5-fold, or 10-fold cross-validation.
+Cross-validation is often computationally expensive, so in practice, many prefer to use a single validation set rather than multiple folds. The training/validation split commonly ranges from 50%-90% of data for training, with the remaining data for validation. When tuning multiple hyperparameters, a larger single validation split (e.g., 30%-40%) is usually preferred to balance computational efficiency and reliable validation. However, if you’re working with a small dataset, cross-validation is generally safer for ensuring robust performance estimates. Common choices for cross-validation include 3-fold, 5-fold, or 10-fold.
 
 > **Typical data splits**: With a training and test set provided, split the training data into folds. Use one fold for validation and the others for training. In the end, after tuning hyperparameters, evaluate once on the test set to measure final performance.
 
