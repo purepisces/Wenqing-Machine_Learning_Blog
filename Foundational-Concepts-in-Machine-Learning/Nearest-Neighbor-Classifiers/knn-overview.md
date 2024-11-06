@@ -118,7 +118,7 @@ The Nearest Neighbor classifier can sometimes be effective, particularly with lo
 
 For example, consider the image below:
 
-<img src="pixel-based distance.png" alt="pixel-based distance" width="800" height="300"/>
+<img src="pixel-based distance.png" alt="pixel-based distance" width="800" height="250"/>
 
 
 Here, we have an original image of a face on the left, followed by three altered versions. Each altered image is at the same L2 pixel distance from the original, meaning they are "equally far" away in terms of raw pixel values. However, perceptually, they appear very different:
