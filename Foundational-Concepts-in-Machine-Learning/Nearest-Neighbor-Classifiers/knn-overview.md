@@ -104,7 +104,7 @@ Cross-validation is often computationally expensive, so in practice, many prefer
 <img src="data splits.jpeg" alt="data splits" width="800" height="200"/>
 
 
-> **Typical data splits**:First, a training and test set are defined. The training set is then divided into multiple folds (for example, 5 folds). Folds 1-4 are used as the training set, while one fold (e.g., fold 5, highlighted in yellow) serves as the validation fold for tuning hyperparameters. Cross-validation further extends this by rotating through each fold, allowing each one to serve as the validation fold in turn, a process known as 5-fold cross-validation. Once the model is fully trained and the optimal hyperparameters are selected, it is evaluated a single time on the test set (shown in red) for final performance measurement.
+> **Typical data splits**: First, a training and test set are defined. The training set is then divided into multiple folds (for example, 5 folds). Folds 1-4 are used as the training set, while one fold (e.g., fold 5, highlighted in yellow) serves as the validation fold for tuning hyperparameters. Cross-validation further extends this by rotating through each fold, allowing each one to serve as the validation fold in turn, a process known as 5-fold cross-validation. Once the model is fully trained and the optimal hyperparameters are selected, it is evaluated a single time on the test set (shown in red) for final performance measurement.
 
 
 ## Reference:
