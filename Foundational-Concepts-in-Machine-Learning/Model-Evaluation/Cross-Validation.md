@@ -34,6 +34,7 @@ For each $k$ value, we train on 4 of the 5 folds and validate on the remaining f
 
 <img src="Cross-validation plot.png" alt="Cross-validation plot" width="500" height="400"/>
 
+**Example Code:**
 ```python
 # Assume we have Xtr_rows, Ytr as our full training data
 # Xtr_rows: input data, Ytr: labels
