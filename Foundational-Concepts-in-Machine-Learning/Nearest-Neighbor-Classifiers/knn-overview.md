@@ -152,5 +152,21 @@ To summarize:
 In upcoming lectures, we’ll explore methods to address these limitations, ultimately achieving higher accuracies (up to 90%), eliminating the need to store the training set after learning, and enabling test image evaluation in under a millisecond.
 
 
+### Summary: Applying kNN in practice
+
+When applying the k-Nearest Neighbors (kNN) algorithm in practice (hopefully not on images, or perhaps as only a baseline), follow these steps:
+
+1.  **Data Preprocessing:** Normalize your features to achieve zero mean and unit variance. For image data, normalization is less critical since pixel distributions are typically uniform. However, we will explore data normalization in detail in later sections.
+    
+2.  **Dimensionality Reduction (if needed):** For very high-dimensional data, consider using techniques like Principal Component Analysis (PCA), Neighborhood Components Analysis (NCA), or Random Projections to reduce dimensionality before applying kNN.
+    
+3.  **Train-Validation Split:** Divide your training data randomly into training and validation sets, typically assigning 70-90% to training. If there are many hyperparameters, a larger validation set can provide better estimation.  If you are concerned about the size of your validation data, for a more robust evaluation, consider cross-validation with multiple folds if resources allow (the more folds the better, but more expensive).
+    
+4.  **Hyperparameter Tuning:** Train and assess the kNN classifier on the validation data (for all folds, if doing cross-validation) across different values of **k** and various distance metrics, such as L1 or L2 norms.
+    
+5.  **Efficient Retrieval (if needed):** If kNN is computationally intensive, use an Approximate Nearest Neighbor library (e.g., FLANN) to accelerate neighbor retrieval at a slight cost to accuracy.
+    
+6.  **Final Model Selection:** Take note of the hyperparameters that gave the best results. There is a question of whether you should use the full training set with the best hyperparameters, since the optimal hyperparameters might change if you were to fold the validation data into your training set (since the size of the data would be larger). In practice it is cleaner to not use the validation data in the final classifier and consider it to be burned on estimating the hyperparameters. Evaluate the best model on the test set. Report the test set accuracy and declare the result to be the performance of the kNN classifier on your data.
+
 ## Reference:
 - https://cs231n.github.io/classification/
