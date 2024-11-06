@@ -16,5 +16,64 @@ Notice that with a 1-NN classifier, outlier points (like a green point surrounde
 
 In practice, k-NN is almost always preferred over simple nearest neighbor classification. However, selecting the optimal value for *k* is crucial, as it affects the balance between sensitivity to noise (low *k*) and generalization ability (high *k*). We'll explore this selection process in the next section.
 
+### Validation Sets for Hyperparameter Tuning
+
+In k-nearest neighbor classification, we need to set the value of *k*, but what value works best? Additionally, we can choose from several distance metrics, such as the L1 or L2 norm, or even others like dot products. These choices are known as **hyperparameters**, which are settings we need to decide before training the model. Many machine learning algorithms rely on hyperparameters, but selecting the best values isn't always straightforward.
+
+A common approach is to try different values and observe what performs best. However, this must be done carefully. Specifically, **the test set should never be used to adjust hyperparameters**. The test set is meant to provide an unbiased evaluation of the model's final performance, so it should only be used once, at the very end. Tuning hyperparameters on the test set risks overfitting, where the model performs well on that specific test set but may not generalize to new data. By treating the test set as a one-time resource, we can ensure it accurately reflects the model’s ability to generalize.
+
+> **Only evaluate on the test set once, at the end of training.**
+
+To tune hyperparameters without touching the test set, we split our training set into two parts: a smaller **training set** and a **validation set**. For example, in the CIFAR-10 dataset, we might reserve 1,000 images from the 50,000 training images as a validation set, using the remaining 49,000 for training. This validation set serves as a "fake test set" to help us choose the best hyperparameters.
+
+#### Example Code for Hyperparameter Tuning with Validation Set
+
+```python
+# assume we have Xtr_rows, Ytr, Xte_rows, Yte as before
+# recall Xtr_rows is 50,000 x 3072 matrix
+Xval_rows = Xtr_rows[:1000, :] # take first 1000 for validation
+Yval = Ytr[:1000]
+Xtr_rows = Xtr_rows[1000:, :] # keep last 49,000 for train
+Ytr = Ytr[1000:]
+
+# find hyperparameters that work best on the validation set
+validation_accuracies = []
+for k in [1, 3, 5, 10, 20, 50, 100]:
+
+  # use a particular value of k and evaluation on validation data
+  nn = NearestNeighbor()
+  nn.train(Xtr_rows, Ytr)
+  # here we assume a modified NearestNeighbor class that can take a k as input
+  Yval_predict = nn.predict(Xval_rows, k = k)
+  acc = np.mean(Yval_predict == Yval)
+  print 'accuracy: %f' % (acc,)
+
+  # keep track of what works on the validation set
+  validation_accuracies.append((k, acc))
+```
+
+After running this code, we can plot the results to see which value of _k_ performs best on the validation set. Once the optimal value is found, we lock in that choice and evaluate the model on the actual test set only once.
+
+> **Tip**: Always split your training data into a training set and a validation set to tune hyperparameters, then evaluate on the test set a single time at the end.
+
+### Cross-Validation
+
+If the training data is limited, a single validation set might not give a reliable estimate. In such cases, **cross-validation** provides a more robust approach. In cross-validation, instead of creating a single validation set, we divide the training data into multiple **folds**. For example, in 5-fold cross-validation, we split the training data into 5 equal parts:
+
+1.  Train on 4 parts and validate on the remaining part.
+2.  Repeat this process so that each part serves as the validation set once.
+3.  Calculate the average performance across all folds to obtain a more stable estimate.
+
+#### Example of 5-Fold Cross-Validation
+
+For each _k_ value, we train on 4 of the 5 folds and validate on the remaining fold. This process is repeated 5 times (once for each fold), and the average accuracy across folds is recorded. The plot would show accuracy on the y-axis and _k_ values on the x-axis, with error bars representing the standard deviation. The peak of the trend line indicates the optimal value of _k_. Increasing the number of folds typically makes the results less noisy.
+
+### Practical Considerations
+
+Cross-validation is often computationally expensive, so in practice, many use a single validation set rather than multiple folds. The training/validation split commonly ranges between 50%-90% of data for training, with the rest for validation. If tuning multiple hyperparameters or dealing with a small dataset, cross-validation is generally safer. Common choices include 3-fold, 5-fold, or 10-fold cross-validation.
+
+> **Typical data splits**: With a training and test set provided, split the training data into folds. Use one fold for validation and the others for training. In the end, after tuning hyperparameters, evaluate once on the test set to measure final performance.
+
+
 ## Reference:
 - https://cs231n.github.io/classification/
