@@ -118,7 +118,8 @@ The Nearest Neighbor classifier can sometimes be effective, particularly with lo
 
 For example, consider the image below:
 
-insert img
+<img src="pixel-based distance.png" alt="pixel-based distance" width="800" height="200"/>
+
 
 Here, we have an original image of a face on the left, followed by three altered versions. Each altered image is at the same L2 pixel distance from the original, meaning they are "equally far" away in terms of raw pixel values. However, perceptually, they appear very different:
 
@@ -132,7 +133,7 @@ This demonstrates how pixel-based distances can fail to capture meaningful, perc
 
 To further illustrate this limitation, we can use **t-SNE**, a visualization technique to take the CIFAR-10 images and embed them in two dimensions so that their (local) pairwise distances are best preserved. Below is a t-SNE visualization of CIFAR-10 images, where the images that appear closer together are similar in terms of L2 pixel distance:
 
-insert img
+<img src="t-SNE-pixels_embed_cifar10.jpg" alt="t-SNE-pixels_embed_cifar10" width="800" height="200"/>
 
 In this visualization, you’ll notice that images with similar backgrounds or color distributions tend to be grouped together, even if they belong to different categories. For example, a dog on a white background might appear near a frog on a white background, despite them being different objects. This clustering happens because L2 distance, based on pixel values alone, is influenced more by color and background similarity than by the actual semantic content of the images.
 
