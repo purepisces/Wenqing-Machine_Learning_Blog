@@ -1,4 +1,4 @@
-Before reading it, make sure have go through the content in [nearest-neighbor-classifier](Wenqing-Machine_Learning_Blog/Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/nearest-neighbor-classifier-overview.md).
+Before reading it, make sure have go through the content in [nearest-neighbor-classifier](nearest-neighbor-classifier-overview.md).
 
 # k-Nearest Neighbor Classifier
 
