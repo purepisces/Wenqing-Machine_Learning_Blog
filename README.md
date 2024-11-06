@@ -89,10 +89,12 @@
 - **Nearest Neighbor Classifiers**
   - [Nearest Neighbor Classifier Overview](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/nearest-neighbor-classifier-overview.md)
   - **k-Nearest Neighbor (kNN) Classifier**
-    - [Overview](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-overview.md)
+    - [kNN Overview](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-overview.md)
     - [kNN for Classification](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-classification.md)
-    - [kNN for Regression](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-regression.md) 
-   
+    - [kNN for Regression](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-regression.md)
+- **Classification Methods**
+  - [Linear Classification](Foundational-Concepts-in-Machine-Learning/Classification-Methods/linear-classification.md)
+
 - **Linear Regression**
   - [Overview](Foundational-Concepts-in-Machine-Learning/Linear-Regression/linear-regression.md)
   - **Assumptions of Linear Regression**
