@@ -57,6 +57,8 @@ Editor: https://stackedit.io/app#
 36.logistic-regression.md✅已发csdn
 37.confusion-matrix.md✅已发csdn
 38.softmax-regression.md✅已发csdn
+39.knn-overview.md✅ 可以加一下https://cs231n.github.io/assignments2024/assignment1/的代码
+
 
 
 
