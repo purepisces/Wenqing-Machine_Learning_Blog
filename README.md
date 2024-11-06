@@ -69,6 +69,7 @@
 - **Model Evaluation**
   - [Model_Eval](Foundational-Concepts-in-Machine-Learning/Model-Evaluation/Model_Eval.md)
   - **Offline Metrics**
+    - [Cross-Validation](Foundational-Concepts-in-Machine-Learning/Model-Evaluation/Cross-Validation.md)
     - [Underfitting (High Bias) & Overfitting (High Variance)](Foundational-Concepts-in-Machine-Learning/Model-Evaluation/underfitting-overfitting.md)
     - [AUC (Area Under Curve)](Foundational-Concepts-in-Machine-Learning/Model-Evaluation/AUC.md)
     - [logloss](Foundational-Concepts-in-Machine-Learning/Model-Evaluation/logloss.md)
