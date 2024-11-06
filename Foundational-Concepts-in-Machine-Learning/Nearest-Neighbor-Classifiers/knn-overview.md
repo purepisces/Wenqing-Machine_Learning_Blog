@@ -56,6 +56,33 @@ After running this code, we can plot the results to see which value of _k_ perfo
 
 > **Tip**: Always split your training data into a training set and a validation set to tune hyperparameters, then evaluate on the test set a single time at the end.
 
+### Explanation of the Hyperparameter Tuning Process
+
+The code snippet above is part of the **hyperparameter tuning process**, which occurs **before the final model is trained and evaluated on the test set**.
+
+In this code, we're experimenting with different values of $k$ (the number of neighbors in the k-Nearest Neighbor classifier) to see which value works best on the validation set. This helps us determine the optimal $k$ value that will likely generalize well when we evaluate the model on the test set.
+
+#### Step-by-Step Workflow
+
+1.  **Split Data**:
+    
+    -   We start by splitting the original training set into a smaller training set (49,000 examples) and a validation set (1,000 examples).
+    -   The validation set acts as a "proxy test set" to help tune hyperparameters without touching the actual test set.
+2.  **Hyperparameter Tuning (Before Final Training)**:
+    
+    -   The code iterates over different values of $k$ (1, 3, 5, etc.).
+    -   For each kkk value, it trains the Nearest Neighbor model on the smaller training set and evaluates its performance on the validation set.
+    -   It calculates the accuracy for each kkk on the validation set and stores the results in `validation_accuracies`.
+3.  **Selecting the Best Hyperparameter**:
+    
+    -   Once all values of $k$ have been evaluated, we analyze `validation_accuracies` to select the best kkk based on the highest validation accuracy.
+4.  **Final Training and Evaluation**:
+    
+    -   After determining the optimal $k$, we train the model on the full training set (all 50,000 examples) using this selected $k$ value.
+    -   Finally, we evaluate the model only once on the test set to report the final performance.
+
+This code snippet is part of the **hyperparameter tuning phase**, a preliminary step before final model training and testing.
+
 ### Cross-Validation
 
 If the training data is limited, a single validation set might not give a reliable estimate. In such cases, **cross-validation** provides a more robust approach. In cross-validation, instead of creating a single validation set, we divide the training data into multiple **folds**. For example, in 5-fold cross-validation, we split the training data into 5 equal parts:
