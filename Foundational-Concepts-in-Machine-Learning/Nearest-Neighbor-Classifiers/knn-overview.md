@@ -93,7 +93,9 @@ If the training data is limited, a single validation set might not give a reliab
 
 #### Example of 5-Fold Cross-Validation
 
-For each _k_ value, we train on 4 of the 5 folds and validate on the remaining fold. This process is repeated 5 times (once for each fold), and the average accuracy across folds is recorded. The plot would show accuracy on the y-axis and _k_ values on the x-axis, with error bars representing the standard deviation. The peak of the trend line indicates the optimal value of _k_. Increasing the number of folds typically makes the results less noisy.
+For each $k$ value, we train on 4 of the 5 folds and validate on the remaining fold. This process is repeated 5 times (once for each fold), and the average accuracy across folds is recorded. The plot would show accuracy on the y-axis and $k$ values on the x-axis, with error bars representing the standard deviation. The peak of the trend line indicates the optimal value of $k$. In this case, cross-validation indicates that a value of approximately $k = 7$ performs best for this dataset, as shown by the peak in the plot. Increasing the number of folds typically makes the results to a smoother, less noisy curve.
+
+<img src="Cross-validation plot.png" alt="Cross-validation plot" width="500" height="400"/>
 
 ### Practical Considerations
 
