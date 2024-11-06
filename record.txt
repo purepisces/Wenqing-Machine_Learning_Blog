@@ -58,6 +58,7 @@ Editor: https://stackedit.io/app#
 37.confusion-matrix.md✅已发csdn
 38.softmax-regression.md✅已发csdn
 39.knn-overview.md✅ 可以加一下https://cs231n.github.io/assignments2024/assignment1/的代码
+40.Cross-Validation.md✅ 之后再检查一下
 
 
 
