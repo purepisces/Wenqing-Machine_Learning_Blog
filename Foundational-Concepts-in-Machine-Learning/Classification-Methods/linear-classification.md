@@ -83,3 +83,8 @@ Illustration of the bias trick. Performing matrix multiplication and then adding
 As a brief note, in the examples above, we used raw pixel values that range from [0...255]. In machine learning, it is standard practice to normalize input features (with each pixel treated as a feature). Specifically, it is important to **center the data** by subtracting the mean from each feature. For images, this means calculating a _mean image_ across all training images and subtracting it from each image, resulting in pixel values ranging from approximately [-127 ... 127]. Another common preprocessing step is to scale each input feature so that its values fall within the range [-1, 1]. While zero-mean centering is arguably the more critical step, we will explore its significance further as we understand the dynamics of gradient descent.
 
 ### Loss function
+
+
+
+## Reference:
+- [https://cs231n.github.io/classification/](https://cs231n.github.io/linear-classify/)
