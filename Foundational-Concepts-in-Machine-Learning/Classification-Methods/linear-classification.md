@@ -34,7 +34,8 @@ Key points:
 
 A linear classifier determines the score for each class by calculating a weighted sum of pixel values across all three color channels in an image. The classifier’s function can assign positive or negative significance to specific colors in certain areas based on the values of these weights. For example, for a "ship" class, a strong presence of blue pixels along the edges of an image might indicate water. In this case, the classifier could have positive weights in the blue channel (indicating that more blue boosts the likelihood of a ship) and negative weights in the red and green channels (indicating that red or green decreases the likelihood of a ship).
 ___
-insert img
+
+<img src="imagemap.jpg" alt="imagemap" width="700" height="300"/>
 
 This example illustrates how an image is mapped to class scores. For simplicity, we consider an image composed of just 4 monochrome pixels, and we have 3 classes represented as red (cat), green (dog), and blue (ship). Please note that the colors here denote the classes and are not related to RGB channels. We will flatten the image pixels into a column vector and perform matrix multiplication to calculate the scores for each class. It's important to point out that this specific weight matrix $W$ is not effective, as it assigns a very low score to the cat class despite the image being of a cat. In fact, this weight configuration suggests that the model is more inclined to classify it as a dog.
 ___
@@ -46,7 +47,8 @@ Since images can be represented as high-dimensional column vectors, we can think
 
 We defined the score of each class as a weighted sum of all image pixels, which means that each class score is a linear function over this space. Although we can't visualize a 3072-dimensional space, we can imagine compressing all these dimensions into two for visualization purposes. This allows us to conceptualize how the classifier operates.
 
-insert img
+<img src="pixelspace.jpeg" alt="pixelspace" width="400" height="300"/>
+
 
 A cartoon representation of image space, illustrating that each image is a point, and three classifiers are visualized. For instance, the red line for the car classifier indicates all points that receive a score of zero for the car class. The red arrow shows the direction of increasing scores, meaning all points to the right of the line have positive and linearly increasing scores, while those to the left have negative and linearly decreasing scores.
 ___
@@ -55,7 +57,8 @@ As previously mentioned, each row of the weight matrix $W$ represents a classifi
 
 **Interpretation of linear classifiers as template matching.** Another way to interpret the weights $W$ is to view each row as a _template_ (or _prototype_) for a class. The score for each class is then derived by comparing the corresponding template with the image using an _inner product_ (or _dot product_). In this context, the linear classifier performs template matching, with the templates learned from the data. This approach can be thought of as a variant of the Nearest Neighbor method, where instead of utilizing numerous training images, we rely on a single template per class (which is learned rather than drawn from the training set). In this case, the (negative) inner product serves as the distance metric instead of traditional L1 or L2 distances.
 ___
-insert img
+
+<img src="templates.jpg" alt="templates" width="700" height="100"/>
 
 Looking ahead: Example learned weights after training on CIFAR-10. For instance, the ship template prominently features blue pixels, indicating that this template will yield a high score when matched against images of ships in the ocean through the inner product. 
 ___
@@ -74,7 +77,7 @@ $$f(x_i, W) = W x_i$$
 
 In our CIFAR-10 example, $x_i$ now becomes a $3073 \times 1$ vector instead of $3072 \times 1$ (with the added dimension holding the constant $1$), and $W$ is now $10 \times 3073$ instead of $10 \times 3072$. The additional column in $W$ corresponds to the bias $b$. An illustration can help clarify this:
 
-insert img
+<img src="bias trick.jpeg" alt="bias trick" width="700" height="300"/>
 
 Illustration of the bias trick. Performing matrix multiplication and then adding a bias vector (left) is equivalent to adding a bias dimension with a constant value of 1 to all input vectors and extending the weight matrix by one column to include a bias column (right). By preprocessing our data to append ones to all vectors, we only need to learn a single weight matrix instead of managing two separate matrices for weights and biases. 
 
