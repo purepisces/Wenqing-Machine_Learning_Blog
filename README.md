@@ -283,7 +283,10 @@
 - [Content-Based Filtering](Recommendation-System/Content-Based-Filtering.md)
 - [Collaborative Filtering](Recommendation-System/Collaborative-Filtering.md)
 
-
+## Stanford CS231 Notes Module 1
+- [Nearest Neighbor Classifier Overview](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/nearest-neighbor-classifier-overview.md)
+- [kNN Overview](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-overview.md)
+- [Linear Classification](Foundational-Concepts-in-Machine-Learning/Classification-Methods/linear-classification.md)
 ## Other
 - [Object-Relational Mapping (ORM)](Other/ORM.md)
 
