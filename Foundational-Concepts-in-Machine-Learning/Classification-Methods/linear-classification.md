@@ -85,7 +85,11 @@ Illustration of the bias trick. Performing matrix multiplication and then adding
 
 As a brief note, in the examples above, we used raw pixel values that range from [0...255]. In machine learning, it is standard practice to normalize input features (with each pixel treated as a feature). Specifically, it is important to **center the data** by subtracting the mean from each feature. For images, this means calculating a _mean image_ across all training images and subtracting it from each image, resulting in pixel values ranging from approximately [-127 ... 127]. Another common preprocessing step is to scale each input feature so that its values fall within the range [-1, 1]. While zero-mean centering is arguably the more critical step, we will explore its significance further as we understand the dynamics of gradient descent.
 
+
 ### Loss function
+In the previous section, we introduced a function that maps pixel values to class scores, parameterized by a set of weights $W$. While we cannot control the given data $(x_i, y_i)$, we do have control over these weights. Our goal is to adjust these weights so that the predicted class scores align well with the actual labels in the training set.
+
+For instance, considering an image of a cat with scores for the classes "cat," "dog," and "ship," we observed that a certain set of weights performed poorly. Although the input depicted a cat, the resulting score for "cat" was very low (-96.8) compared to the other classes (437.9 for "dog" and 61.95 for "ship"). To quantify our dissatisfaction with misclassifications like this, we introduce a **loss function** (also known as the **cost function** or **objective**). This function will yield a high value if the model's predictions deviate significantly from the true labels, and a low value if the model performs well.
 
 
 
