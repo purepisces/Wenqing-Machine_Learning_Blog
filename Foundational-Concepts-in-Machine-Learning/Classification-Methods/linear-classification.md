@@ -30,7 +30,7 @@ Key points:
 
 > **Foreshadowing**: CNNs will build on this framework, mapping image pixels to scores with more complex functions and parameters.
 
-### Understanding a Linear Classifier
+### Interpreting a linear classifier
 
 A linear classifier determines the score for each class by calculating a weighted sum of pixel values across all three color channels in an image. The classifier’s function can assign positive or negative significance to specific colors in certain areas based on the values of these weights. For example, for a "ship" class, a strong presence of blue pixels along the edges of an image might indicate water. In this case, the classifier could have positive weights in the blue channel (indicating that more blue boosts the likelihood of a ship) and negative weights in the red and green channels (indicating that red or green decreases the likelihood of a ship).
 ___
@@ -40,7 +40,7 @@ This example illustrates how an image is mapped to class scores. For simplicity,
 ___
 
 
-### Analogy of Images as High-Dimensional Points
+**Analogy of Images as High-Dimensional Points**
 
 Since images can be represented as high-dimensional column vectors, we can think of each image as a point in a high-dimensional space. For example, in the CIFAR-10 dataset, each image is represented as a point in a 3072-dimensional space, corresponding to the 32x32x3 pixel dimensions. Consequently, the entire dataset can be viewed as a labeled set of these points.
 
@@ -62,7 +62,7 @@ ___
 
 Additionally, it's noteworthy that the horse template appears to include features from both left- and right-facing horses due to the dataset's diversity. This results in the linear classifier merging these variations into a single template. Similarly, the car classifier seems to combine several variations into a single template that must identify cars from all angles and colors. In this case, the template appears predominantly red, suggesting that red cars are more prevalent in the CIFAR-10 dataset. The linear classifier's simplicity makes it challenging to effectively differentiate between colors, a limitation that will be addressed in neural networks. Neural networks can create intermediate neurons in hidden layers to detect specific car types (e.g., green cars facing left, blue cars facing front) and subsequently combine these detections into a more precise car score through weighted sums.
 
-### The Bias Trick
+**The Bias Trick**
 
 Before we proceed, it's useful to mention a common technique for simplifying the representation of the parameters $W$ and $b$. Recall that we defined the score function as:
 
@@ -78,9 +78,8 @@ insert img
 
 Illustration of the bias trick. Performing matrix multiplication and then adding a bias vector (left) is equivalent to adding a bias dimension with a constant value of 1 to all input vectors and extending the weight matrix by one column to include a bias column (right). By preprocessing our data to append ones to all vectors, we only need to learn a single weight matrix instead of managing two separate matrices for weights and biases. 
 
-### Image Data Preprocessing
+**Image Data Preprocessing**
 
 As a brief note, in the examples above, we used raw pixel values that range from [0...255]. In machine learning, it is standard practice to normalize input features (with each pixel treated as a feature). Specifically, it is important to **center the data** by subtracting the mean from each feature. For images, this means calculating a _mean image_ across all training images and subtracting it from each image, resulting in pixel values ranging from approximately [-127 ... 127]. Another common preprocessing step is to scale each input feature so that its values fall within the range [-1, 1]. While zero-mean centering is arguably the more critical step, we will explore its significance further as we understand the dynamics of gradient descent.
 
-
-
+### Loss function
