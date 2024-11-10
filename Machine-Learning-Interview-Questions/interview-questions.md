@@ -15,6 +15,47 @@
 ** why for attention score it will divide by sqrt d**
 
 
+### C Language Compilation Process
+
+The C compilation process typically involves four stages:
+
+1.  **Preprocessing**: Handles directives like `#include` and `#define`.
+2.  **Compilation**: Translates the code into assembly language.
+3.  **Assembly**: Converts the assembly code into machine code.
+4.  **Linking**: Combines object files into a single executable.
+
+### Thread vs. Process
+
+-   **Process**: An independent program in execution with its own memory space.
+-   **Thread**: A subset of a process, sharing memory space with other threads within the same process.
+-   **Difference**: Threads have less overhead for context switching and share resources more readily, but processes are isolated, providing more robust memory protection.
+
+### GPU vs. CPU Differences
+
+-   **CPU**: Optimized for single-threaded performance with fewer cores.
+-   **GPU**: Contains thousands of smaller cores, optimized for parallel processing tasks (e.g., rendering graphics, deep learning).
+
+### CUDA Out of Memory Solutions
+
+1.  **Reduce Batch Size**: Lower memory demand.
+2.  **Model Optimization**: Use smaller models or pruning techniques.
+3.  **Gradient Accumulation**: Accumulate gradients over multiple batches.
+
+### MLP Forward and Backward Propagation
+
+1.  **Forward Propagation**:
+    -   Input is multiplied by weights, and bias is added.
+    -   Output is passed through an activation function.
+2.  **Backward Propagation**:
+    -   Error gradient is computed, weights are adjusted to minimize loss.
+
+### TensorFlow Topology
+
+TensorFlow constructs computation graphs to organize operations. It enables clear forward and backward computation paths, supporting both static and dynamic computation graphs.
+
+### Python Decorators
+
+A decorator in Python is a function that wraps another function, adding functionality. They’re useful for logging, timing, and access control, among other things.
 
 
 
