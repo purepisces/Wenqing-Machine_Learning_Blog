@@ -91,6 +91,48 @@ In the previous section, we introduced a function that maps pixel values to clas
 
 For instance, considering an image of a cat with scores for the classes "cat," "dog," and "ship," we observed that a certain set of weights performed poorly. Although the input depicted a cat, the resulting score for "cat" was very low (-96.8) compared to the other classes (437.9 for "dog" and 61.95 for "ship"). To quantify our dissatisfaction with misclassifications like this, we introduce a **loss function** (also known as the **cost function** or **objective**). This function will yield a high value if the model's predictions deviate significantly from the true labels, and a low value if the model performs well.
 
+#### Multiclass Support Vector Machine Loss
+
+In machine learning, various approaches define loss functions, which help quantify a model’s error on a dataset. A commonly used loss function is the **Multiclass Support Vector Machine (SVM) loss**. This loss function aims for the model to give the correct class of each example a score that exceeds all incorrect classes by a fixed margin, denoted as $\Delta$. Sometimes, it can be helpful to describe the loss function in human terms: the SVM “wants”for a certain outcome, where achieving this outcome results in a lower loss (which is good).
+
+> -   The **"certain outcome"** is the state where the correct class score is confidently higher than all incorrect class scores by the margin $\Delta$. Achieving this outcome yields a **lower loss**, guiding the SVM to improve its classification boundaries.
+
+To get more specific, suppose for the $i$-th example we have the image data $x_i$​ and label $y_i$, where $y_i$ identifies the correct class. The score function, which computes a vector of scores $f(x_i, W)$, assigns each class a score based on the model parameters $W$. We denote the score for the $j$-th class as $s_j = f(x_i, W)_j$. The Multiclass SVM loss for the $i$-th example is then calculated as:
+
+$$L_i = \sum_{j \neq y_i} \max(0, s_j - s_{y_i} + \Delta)$$
+
+**Example of Multiclass SVM Loss Calculation**
+
+Consider a case with three classes with scores $s = [13, -7, 11]$, and the true class is the first one (meaning $y_i = 0$). With a margin $\Delta = 10$, the loss function sums over all incorrect classes $(j \neq y_i)$, resulting in two terms:
+
+$$L_i = \max(0, -7 - 13 + 10) + \max(0, 11 - 13 + 10)$$
+
+The first term yields zero because the calculation gives a negative value, which is clamped to zero by the $\max(0, -)$ function. This zero result indicates that the correct class score (13) is already sufficiently higher than the incorrect class score (-7) by more than the margin $\Delta$. In contrast, the second term produces 8, as the difference between the correct and incorrect class scores (13 and 11, respectively) falls short of the desired margin by 8.
+
+Thus, the SVM loss accumulates penalties whenever the correct class score is not sufficiently higher than the scores of incorrect classes by at least $\Delta$.
+
+For linear score functions (e.g., $f(x_i; W) = W x_i$), we can also express the loss as:
+
+$$L_i = \sum_{j \neq y_i} \max(0, w_j^T x_i - w_{y_i}^T x_i + \Delta)$$
+
+where $w_j$​ is the $j$-th row of the weight matrix $W$, reshaped as a column. However, this will not necessarily be the case once we start to consider more complex forms of the score function $f$.
+
+**Terminology: Hinge Loss and Squared Hinge Loss**
+
+The $\max(0, -)$ function, which sets thresholds at zero, is often called **hinge loss**. Some implementations use **squared hinge loss** (also called L2-SVM), where $\max(0, -)^2$ penalizes violations of the margin more strongly, quadratically instead of linearly. The standard (unsquared) hinge loss is more widely used, though squared hinge loss may perform better on certain datasets. This decision is usually guided by **cross-validation**.
+
+> When comparing different loss functions during cross-validation, the **evaluation metric**(e.g. accuracy) should remain the same for each model, regardless of the loss function used. This ensures that the comparison is fair and that any observed differences in performance are due to the loss function rather than changes in the metric.
+
+> Loss functions help measure the error of predictions, providing a clear target for optimization on the training data.
+
+___
+
+<img src="margin.jpeg" alt="margin" width="700" height="200"/>
+
+
+The Multiclass Support Vector Machine (SVM) aims for the score of the correct class to be greater than the scores of all other classes by at least a margin of $\Delta$. If any incorrect class score falls within this margin (the "red region") or higher, a loss is incurred. Otherwise, the loss is zero. Our goal is to find the weights that satisfy this margin constraint for as many training examples as possible, thereby minimizing the total loss across the dataset.
+___
+
 
 
 ## Reference:
