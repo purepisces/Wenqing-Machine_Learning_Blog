@@ -1,4 +1,10 @@
-Before Reading this, check https://cs231n.github.io/classification/.
+**Before Reading This:**
+Please refer to the following resources for background knowledge:
+1. [CS231n Classification Overview](https://cs231n.github.io/classification/)
+2. Wenqing’s Machine Learning Blog:
+   - [Nearest Neighbor Classifier Overview](https://github.com/purepisces/Wenqing-Machine_Learning_Blog/blob/main/Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/nearest-neighbor-classifier-overview.md)
+   - [k-Nearest Neighbor Classifier Overview](https://github.com/purepisces/Wenqing-Machine_Learning_Blog/blob/main/Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-overview.md)
+
 # Linear Classification
 
 Previously, we explored Image Classification, which involves assigning a single label to an image from a predefined category set. We discussed the k-Nearest Neighbor (kNN) classifier, which labels images by comparing them to labeled examples in the training set. However, kNN has some drawbacks:
