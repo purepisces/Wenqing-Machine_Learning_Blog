@@ -127,7 +127,7 @@ The $\max(0, -)$ function, which sets thresholds at zero, is often called **hing
 
 ___
 
-<img src="margin.jpeg" alt="margin" width="700" height="200"/>
+<img src="margin.jpg" alt="margin" width="700" height="100"/>
 
 
 The Multiclass Support Vector Machine (SVM) aims for the score of the correct class to be greater than the scores of all other classes by at least a margin of $\Delta$. If any incorrect class score falls within this margin (the "red region") or higher, a loss is incurred. Otherwise, the loss is zero. Our goal is to find the weights that satisfy this margin constraint for as many training examples as possible, thereby minimizing the total loss across the dataset.
