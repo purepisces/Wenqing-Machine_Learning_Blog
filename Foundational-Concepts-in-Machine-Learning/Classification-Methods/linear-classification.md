@@ -1,3 +1,4 @@
+Before Reading this, check https://cs231n.github.io/classification/.
 # Linear Classification
 
 Previously, we explored Image Classification, which involves assigning a single label to an image from a predefined category set. We discussed the k-Nearest Neighbor (kNN) classifier, which labels images by comparing them to labeled examples in the training set. However, kNN has some drawbacks:
