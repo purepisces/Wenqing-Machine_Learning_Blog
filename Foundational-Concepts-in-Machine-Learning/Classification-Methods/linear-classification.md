@@ -139,6 +139,84 @@ ___
 
 The Multiclass Support Vector Machine (SVM) aims for the score of the correct class to be greater than the scores of all other classes by at least a margin of $\Delta$. If any incorrect class score falls within this margin (the "red region") or higher, a loss is incurred. Otherwise, the loss is zero. Our goal is to find the weights that satisfy this margin constraint for as many training examples as possible, thereby minimizing the total loss across the dataset.
 ___
+**Regularization**. When training a model, we might find a set of weights **W** that perfectly classifies every data point, achieving zero loss across all examples (i.e. all scores are so that all the margins are met, and $L_i = 0$ for all i). However, this solution is not necessarily optimal: scaling **W** by any positive factor (e.g., multiplying **W** by $\lambda$, where $\lambda > 1$) would also yield zero loss as it uniformly increases all score differences without altering the classification margins. For instance, if a correct class score exceeded the nearest incorrect class score by 15, doubling each element in **W** would result in a difference of 30, maintaining the loss at zero.
+
+This ambiguity in the weight selection can be addressed by introducing a **regularization penalty R(W)** to the loss function, encouraging the model to prefer certain weights over others. The most common form is the  squared **L2 norm**, which penalizes large weights by applying an element-wise quadratic penalty over all parameters:
+
+$$R(W) = \sum_k\sum_l W_{k,l}^2$$
+
+Here, each element of **W** is squared and summed. The regularization term, unlike the data loss, depends only on the weights and not on the data. By adding this penalty, the **full Multiclass Support Vector Machine (SVM) loss** is composed of two parts: the **data loss** (the average loss $L_i$ across all examples) and the **regularization loss**. Therefore, the complete Multiclass SVM loss is defined as:
+
+$$L =  \underbrace{ \frac{1}{N} \sum_i L_i }_\text{data loss} + \underbrace{ \lambda R(W) }_\text{regularization loss} $$
+
+or, fully expanded:
+
+$$L = \frac{1}{N} \sum_i \sum_{j\neq y_i} \left[ \max(0, f(x_i; W)_j - f(x_i; W)_{y_i} + \Delta) \right] + \lambda \sum_k\sum_l W_{k,l}^2$$
+
+In this expression, $N$ represents the total number of training examples, and $\lambda$ is a hyperparameter that controls the weight of the regularization penalty. There is no simple way of setting this hyperparameter , and it is usually set via cross-validation.
+
+Beyond the motivation discussed above, incorporating the regularization penalty brings several valuable properties, which we’ll revisit in later sections. For instance, adding the L2 penalty introduces the desirable **max margin** property in SVMs. For a deeper dive, you can refer to the [CS229 lecture notes](http://cs229.stanford.edu/notes/cs229-notes3.pdf).
+
+> max margin
+
+Regularization not only resolves the ambiguity in weight selection but also improves **generalization** by preventing any one dimension of the input from having an overly large influence. For instance, consider an input vector$x = [1,1,1,1]$ and two weight vectors $w_1 = [1,0,0,0]$ and $w_2 = [0.25,0.25,0.25,0.25]$ Both yield the same dot product with $x$ since $w_1^Tx = w_2^Tx = 1$, yet $w_1$​ has an L2 penalty of 1.0, while $w_2$​ has a lower penalty of 0.5. Intuitively, this is because the weights in $w_2$ are smaller and more diffuse. Since the L2 penalty prefers smaller and more diffuse weight vectors, the final classifier is encouraged to take into account all input dimensions to small amounts rather than a few input dimensions and very strongly. As we will see later in the class, this effect can improve the generalization performance of the classifiers on test images and lead to less *overfitting*.
+
+It is common to regularize weights **W** but not biases **b**, as weights are responsible for controlling input influence strength, whereas biases are not. However, in practice this often turns out to have a negligible effect.  Finally, it's important to note that, due to the regularization penalty, achieving a loss of exactly 0.0 across all examples is impossible, as this would require the unrealistic condition of $W = 0$.
+
+**Code**. Here is the loss function (without regularization) implemented in Python, in both unvectorized and half-vectorized form:
+
+```python
+def L_i(x, y, W):
+  """
+  unvectorized version. Compute the multiclass svm loss for a single example (x,y)
+  - x is a column vector representing an image (e.g. 3073 x 1 in CIFAR-10)
+    with an appended bias dimension in the 3073-rd position (i.e. bias trick)
+  - y is an integer giving index of correct class (e.g. between 0 and 9 in CIFAR-10)
+  - W is the weight matrix (e.g. 10 x 3073 in CIFAR-10)
+  """
+  delta = 1.0 # see notes about delta later in this section
+  scores = W.dot(x) # scores becomes of size 10 x 1, the scores for each class
+  correct_class_score = scores[y]
+  D = W.shape[0] # number of classes, e.g. 10
+  loss_i = 0.0
+  for j in range(D): # iterate over all wrong classes
+    if j == y:
+      # skip for the true class to only loop over incorrect classes
+      continue
+    # accumulate loss for the i-th example
+    loss_i += max(0, scores[j] - correct_class_score + delta)
+  return loss_i
+
+def L_i_vectorized(x, y, W):
+  """
+  A faster half-vectorized implementation. half-vectorized
+  refers to the fact that for a single example the implementation contains
+  no for loops, but there is still one loop over the examples (outside this function)
+  """
+  delta = 1.0
+  scores = W.dot(x)
+  # compute the margins for all classes in one vector operation
+  margins = np.maximum(0, scores - scores[y] + delta)
+  # on y-th position scores[y] - scores[y] canceled and gave delta. We want
+  # to ignore the y-th position and only consider margin on max wrong class
+  margins[y] = 0
+  loss_i = np.sum(margins)
+  return loss_i
+
+def L(X, y, W):
+  """
+  fully-vectorized implementation :
+  - X holds all the training examples as columns (e.g. 3073 x 50,000 in CIFAR-10)
+  - y is array of integers specifying correct class (e.g. 50,000-D array)
+  - W are weights (e.g. 10 x 3073)
+  """
+  # evaluate loss over all examples in X without using any for loops
+  # left as exercise to reader in the assignment
+```
+
+The key takeaway from this section is that the SVM loss provides a specific method for assessing how well the model's predictions on the training data align with the actual labels. Moreover, achieving accurate predictions on the training set corresponds to minimizing this loss.
+
+> Our next step is to develop a method to determine the weights that will minimize the loss.
 
 
 
