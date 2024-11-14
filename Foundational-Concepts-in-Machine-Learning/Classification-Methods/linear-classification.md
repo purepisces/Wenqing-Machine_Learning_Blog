@@ -156,9 +156,31 @@ $$L = \frac{1}{N} \sum_i \sum_{j\neq y_i} \left[ \max(0, f(x_i; W)_j - f(x_i; W)
 In this expression, $N$ represents the total number of training examples, and $\lambda$ is a hyperparameter that controls the weight of the regularization penalty. There is no simple way of setting this hyperparameter , and it is usually set via cross-validation.
 
 Beyond the motivation discussed above, incorporating the regularization penalty brings several valuable properties, which we’ll revisit in later sections. For instance, adding the L2 penalty introduces the desirable **max margin** property in SVMs. For a deeper dive, you can refer to the [CS229 lecture notes](http://cs229.stanford.edu/notes/cs229-notes3.pdf).
+___
 
-> max margin
+### Explain Support Vector Machines (SVMs) and the Max Margin Principle
 
+In SVMs, we aim to separate two classes with a hyperplane while maximizing the **margin**—the distance between the closest points of each class to this hyperplane.
+
+**1. Decision Boundary and Margins**
+
+The **decision boundary** (or separating hyperplane) is defined by: $w \cdot x + b = 0$ This hyperplane divides the two classes.
+
+To define the margin, we add two **marginal hyperplanes**:
+
+-   $w \cdot x + b = +1$: boundary of the positive class
+-   $w \cdot x + b = -1$: boundary of the negative class
+
+**2. Support Vectors and Constraints**
+
+The points on these marginal hyperplanes are called **support vectors**. We set the constraint: $w \cdot x_i + b = \pm 1$ for these points, ensuring they are closest to the decision boundary and define the margin.
+
+**3. Maximizing the Margin**
+
+The distance between the marginal hyperplanes is $\frac{2}{\|w\|}$. Maximizing this margin is equivalent to minimizing $\|w\|$.
+
+> $d = \frac{|c_1 - c_2|}{\|w\|} =  \frac{|1 - (-1)|}{\|w\|} = \frac{2}{\|w\|}$
+___
 Regularization not only resolves the ambiguity in weight selection but also improves **generalization** by preventing any one dimension of the input from having an overly large influence. For instance, consider an input vector $x = [1,1,1,1]$ and two weight vectors $w_1 = [1,0,0,0]$ and $w_2 = [0.25,0.25,0.25,0.25]$ Both yield the same dot product with $x$ since $w_1^Tx = w_2^Tx = 1$, yet $w_1$​ has an L2 penalty of 1.0, while $w_2$​ has a lower penalty of 0.5. Intuitively, this is because the weights in $w_2$ are smaller and more diffuse. Since the L2 penalty prefers smaller and more diffuse weight vectors, the final classifier is encouraged to take into account all input dimensions to small amounts rather than a few input dimensions and very strongly. As we will see later in the class, this effect can improve the generalization performance of the classifiers on test images and lead to less *overfitting*.
 
 It is common to regularize weights **W** but not biases **b**, as weights are responsible for controlling input influence strength, whereas biases are not. However, in practice this often turns out to have a negligible effect.  Finally, it's important to note that, due to the regularization penalty, achieving a loss of exactly 0.0 across all examples is impossible, as this would require the unrealistic condition of $W = 0$.
