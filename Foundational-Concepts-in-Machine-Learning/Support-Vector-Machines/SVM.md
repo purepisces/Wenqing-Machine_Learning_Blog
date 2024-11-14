@@ -39,6 +39,8 @@ These constraints ensure that:
 
 The **distance between the two marginal hyperplanes** $w \cdot x + b = +1$ and $w \cdot x + b = -1$ is $\frac{2}{\|w\|}$. By minimizing $\|w\|$, we maximize this margin. Hence, the SVM objective is to minimize $\frac{1}{2} \|w\|^2$ under the constraints $w \cdot x_i + b \geq 1$ for the positive class and $w \cdot x_i + b \leq -1$ for the negative class.
 
+> $d = \frac{|c_1 - c_2|}{\|w\|} =  \frac{|1 - (-1)|}{\|w\|} = \frac{2}{\|w\|}$
+
 ## Summary
 
 - The **decision boundary** is given by $w \cdot x + b = 0$.
