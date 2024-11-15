@@ -183,7 +183,7 @@
     - [RMSProp](RMSProp.md)
     - [AdaGrad](adagrad.md)
 - **Regularization**
-  - [Overview](regularization-overview.md)
+  - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Regularization/regularization-overview.md)
   - [L1 Regularization](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Regularization/L1-Regularization.md)
   - [L2 Regularization](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Regularization/L2-Regularization.md)
   - [Dropout](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Regularization/Dropout.md)
