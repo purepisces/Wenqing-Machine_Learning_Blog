@@ -18,14 +18,14 @@ Here, every element of the weight matrix **W** is squared and summed. The **regu
 
 <!-- $$L = \underbrace{\frac{1}{N} \sum_i L_i}_\text{data loss} + \underbrace{\lambda R(W)}_\text{regularization loss}$$ -->
 
-<img src="full-Multiclass-SVM-loss.png" alt="full-Multiclass-SVM-loss" width="400" height="130"/>
+<img src="full-Multiclass-SVM-loss.png" alt="full-Multiclass-SVM-loss" width="200" height="70"/>
 
 
 or, fully expanded:
 
 <!-- $$L = \frac{1}{N} \sum_i \sum_{j \neq y_i} \max(0, f(x_i; W)_j - f(x_i; W)_{y_i} + \Delta) + \lambda \sum_k \sum_l W_{k,l}^2$$ -->
 
-<img src="full-expanded-Multiclass-SVM-loss.png" alt="full-expanded-Multiclass-SVM-loss" width="900" height="130"/>
+<img src="full-expanded-Multiclass-SVM-loss.png" alt="full-expanded-Multiclass-SVM-loss" width="500" height="70"/>
 
 
 -   **Data Loss**: Measures how well the model predicts the correct labels.
