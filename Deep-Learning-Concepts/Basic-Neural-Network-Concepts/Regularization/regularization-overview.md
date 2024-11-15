@@ -1,3 +1,5 @@
+
+
 # Regularization Overview
 
 Regularization is a crucial concept in machine learning, introduced to address overfitting and improve the generalization of models. It modifies the loss function to include an additional term that penalizes complex or large weights, encouraging the model to learn simpler and more generalizable representations.
@@ -17,10 +19,14 @@ $$R(W) = \sum_k \sum_l W_{k,l}^2$$
 Here, every element of the weight matrix **W** is squared and summed. The **regularization loss** is added to the **data loss** (computed on the training dataset) to form the full Multiclass SVM loss:
 
 $$L = \underbrace{\frac{1}{N} \sum_i L_i}_\text{data loss} + \underbrace{\lambda R(W)}_\text{regularization loss}$$
+<img src="full-Multiclass-SVM-loss.png" alt="full-Multiclass-SVM-loss" width="400" height="200"/>
+
 
 or, fully expanded:
 
 $$L = \frac{1}{N} \sum_i \sum_{j \neq y_i} \max(0, f(x_i; W)_j - f(x_i; W)_{y_i} + \Delta) + \lambda \sum_k \sum_l W_{k,l}^2$$
+<img src="full-expanded-Multiclass-SVM-loss.png" alt="full-expanded-Multiclass-SVM-loss" width="700" height="200"/>
+
 
 -   **Data Loss**: Measures how well the model predicts the correct labels.
 -   **Regularization Loss**: Penalizes large weights to improve generalization.
