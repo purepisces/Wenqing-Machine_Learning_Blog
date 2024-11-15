@@ -61,6 +61,7 @@ Editor: https://stackedit.io/app#
 40.Cross-Validation.md✅ 之后再检查一下
 41.linear-classification.md✅
 42.regularization-overview.md✅
+43.SVM.md✅
 
 
 
