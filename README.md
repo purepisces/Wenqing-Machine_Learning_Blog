@@ -96,7 +96,7 @@
       - [kNN for Classification](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-classification.md)
       - [kNN for Regression](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-regression.md)
   - **Linear Classification**
-    - [Linear Classification Overview](Foundational-Concepts-in-Machine-Learning/Classification-Methods/Linear-Classification/linear-classification.md)
+    - [Linear Classification Overview](Foundational-Concepts-in-Machine-Learning/Classification-Methods/linear-classification.md)
     - **Support Vector Machine (SVM) Classifier**
       - [SVM Classifier Overview](Foundational-Concepts-in-Machine-Learning/Classification-Methods/Linear-Classification/SVM/svm-classifier-overview.md)
       - [Multiclass SVM Loss](Foundational-Concepts-in-Machine-Learning/Classification-Methods/Linear-Classification/SVM/multiclass-svm-loss.md)
