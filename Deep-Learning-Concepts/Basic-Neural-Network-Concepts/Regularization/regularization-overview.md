@@ -1,5 +1,3 @@
-
-
 # Regularization Overview
 
 Regularization is a crucial concept in machine learning, introduced to address overfitting and improve the generalization of models. It modifies the loss function to include an additional term that penalizes complex or large weights, encouraging the model to learn simpler and more generalizable representations.
@@ -98,3 +96,6 @@ def svm_loss(W, X, y, reg):
 ## Summary
 
 Regularization is a fundamental technique in machine learning that improves model generalization by discouraging large weights. By penalizing model complexity, regularization resolves weight ambiguity, prevents overfitting, and encourages simpler, more robust models. The tradeoff between data loss and regularization loss, controlled by the hyperparameter $\lambda$, ensures a balance between accuracy and generalization.
+
+## Reference:
+- [https://cs231n.github.io/classification/](https://cs231n.github.io/linear-classify/)
