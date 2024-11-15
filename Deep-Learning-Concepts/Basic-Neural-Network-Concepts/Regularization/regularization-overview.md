@@ -18,7 +18,7 @@ Here, every element of the weight matrix **W** is squared and summed. The **regu
 
 <!-- $$L = \underbrace{\frac{1}{N} \sum_i L_i}_\text{data loss} + \underbrace{\lambda R(W)}_\text{regularization loss}$$ -->
 
-<img src="full-Multiclass-SVM-loss.png" alt="full-Multiclass-SVM-loss" width="200" height="70"/>
+<img src="full-Multiclass-SVM-loss.png" alt="full-Multiclass-SVM-loss" width="250" height="80"/>
 
 
 or, fully expanded:
