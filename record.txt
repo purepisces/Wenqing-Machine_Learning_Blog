@@ -62,6 +62,10 @@ Editor: https://stackedit.io/app#
 41.linear-classification.md✅
 42.regularization-overview.md✅
 43.SVM.md✅
+44.svm-classifier-overview.md✅
+45.softmax-classifier-overview.md✅
+46.softmax-cross-entropy-loss.md✅
+47.multiclass-svm-loss.md✅
 
 
 
