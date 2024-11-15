@@ -146,6 +146,5 @@ def L(X, y, W):
 -   Regularization ($R(W)$) prevents overfitting and resolves weight ambiguity.
 -   The balance between data loss and regularization is controlled by $\lambda$.
 
-## References
-
--   [CS231n Classification Overview](https://cs231n.github.io/classification/)
+## Reference:
+- [https://cs231n.github.io/classification/](https://cs231n.github.io/linear-classify/)
