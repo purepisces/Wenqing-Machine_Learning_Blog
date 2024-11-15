@@ -59,6 +59,8 @@ Editor: https://stackedit.io/app#
 38.softmax-regression.md✅已发csdn
 39.knn-overview.md✅ 可以加一下https://cs231n.github.io/assignments2024/assignment1/的代码
 40.Cross-Validation.md✅ 之后再检查一下
+41.linear-classification.md✅
+42.regularization-overview.md✅
 
 
 
