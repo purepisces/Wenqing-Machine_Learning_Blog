@@ -258,6 +258,75 @@ $$L_i = C \max(0, 1 - y_i w^T x_i) + R(W)$$
 
 where $C$ controls the balance between data loss (classification errors) and regularization, and $y_i$ can be either -1 or 1. Interestingly, the multiclass SVM formulation we discuss here becomes equivalent to this binary SVM if we have only two classes. The difference is in the parameter usage: $C$ in binary SVM and $\lambda$ in multiclass SVM both control the same balance but in inverse ways, with the relationship $C \propto \frac{1}{\lambda}$​.
 
+### Softmax Classifier Overview
+
+The Softmax classifier is another popular approach for classification, similar to SVM but with a different loss function. If you’re familiar with **Logistic Regression** in binary classification, the Softmax classifier is its generalization to multiclass problems. Unlike the SVM, which treats the outputs $f(x_i,W)$ as (uncalibrated and possibly difficult to interpret) scores for each class, the Softmax classifier provides **normalized class probabilities** and has a probabilistic interpretation.
+
+#### Softmax Classifier Loss Function
+
+In the Softmax classifier:
+
+-   The scores $f(x_i; W) = W x_i$ are calculated the same way as in the SVM.
+    
+-   However, we interpret these scores as **unnormalized log probabilities** for each class. 
+	> If we have a probability **0.3**, its log-probability is **$\log(0.3) \approx -1.2$**.
+    
+-   Instead of using hinge loss (as in SVM), we use **cross-entropy loss**, defined as:
+    
+$$L_i = -\log\left(\frac{e^{f_{y_i}}}{ \sum_j e^{f_j} }\right) \hspace{0.5in} \text{or equivalently} \hspace{0.5in} L_i = -f_{y_i} + \log\sum_j e^{f_j}$$
+    
+where $f_{y_i}$ is the score for the correct class, and $f_j$ represents each class score in the vector of scores $f$. This loss function encourages the classifier to place as much probability mass on the correct class as possible. And as before, the full loss for the dataset is the mean of $L_i$ over all training examples together with a regularization term $R(W)$. 
+
+#### The Softmax Function
+
+The function:
+
+$$f_j(z) = \frac{e^{z_j}}{\sum_k e^{z_k}}$$
+
+is called the **softmax function**. It takes a vector of real values (scores) and converts it into a vector of values between 0 and 1 that sum to 1, representing **class probabilities**.
+
+**Information Theory View**
+
+The cross-entropy loss is based on the **cross-entropy** between the true distribution $p$ (which places all probability on the correct class) and the estimated distribution $q$ (the probabilities output by the Softmax classifier). The cross-entropy is:
+
+$$H(p,q) = - \sum_x p(x) \log q(x)$$
+
+Therefore, the Softmax classifier minimizes the cross-entropy between the predicted class probabilities$q = \frac{e^{f_{y_i}}}{\sum_j e^{f_j}}$ and the 'true' distribution, where all probability mass is concentrated on the correct class (i.e., $p = [0, \ldots, 1, \ldots, 0]$ with a single 1 at the yiy_iyi​-th position). Additionally, since cross-entropy can be expressed as a sum of entropy and the Kullback-Leibler (KL) divergence, $H(p, q) = H(p) + D_{KL}(p \| q)$, and the entropy of the delta function ppp is zero, this objective is equivalent to minimizing the KL divergence between the two distributions (a measure of their difference). Essentially, the cross-entropy objective seeks to place all probability mass on the correct answer in the predicted distribution.
+
+#### Probabilistic Interpretation
+
+The Softmax classifier’s probability for the correct label $y_i$ given the input $x_i$​ is:
+
+$$P(y_i \mid x_i; W) = \frac{e^{f_{y_i}}}{\sum_j e^{f_j} }$$
+
+which can be interpreted as the (normalized) probability assigned to the correct label $y_i$ given the image $x_i$ and parameterized by $W$. Here, we interpret the scores $f$ as unnormalized log probabilities. By exponentiating these scores, we obtain unnormalized probabilities, and the division performs the normalization so that the probabilities sum to 1. With this probabilistic interpretation, we are minimizing the **negative log likelihood** of the correct class, essentially performing **Maximum Likelihood Estimation (MLE)**.
+
+A nice feature of this view is that we can now also interpret the regularization term $R(W)$ in the full loss function as coming from a Gaussian prior over the weight matrix $W$, where instead of MLE we are performing the *Maximum a posteriori* (MAP) estimation. We mention these interpretations to help your intuitions, but the full details of this derivation are beyond the scope of this class.
+
+
+#### Practical Consideration: Numerical Stability
+
+When implementing the Softmax function in code, the intermediate terms $e^{f_{y_i}}$ and $\sum_j e^{f_j}$ can become very large due to the exponential calculations. Dividing such large numbers can lead to numerical instability, so it’s essential to apply a normalization trick. By multiplying both the numerator and denominator by a constant $C$ and incorporating it into the sum, we obtain the following mathematically equivalent expression:
+
+
+$$\frac{e^{f_{y_i}}}{\sum_j e^{f_j}}
+= \frac{Ce^{f_{y_i}}}{C\sum_j e^{f_j}}
+= \frac{e^{f_{y_i} + \log C}}{\sum_j e^{f_j + \log C}}$$
+
+
+We are free to select any value for $C$ without affecting the results, but choosing it wisely can enhance the numerical stability of the computation. A common approach is to set $\log C = -\max_j f_j$, effectively shifting the values in the vector $f$ so that the maximum value becomes zero. In code:
+
+```python
+f = np.array([123, 456, 789]) # example with 3 classes and each having large scores
+p = np.exp(f) / np.sum(np.exp(f)) # Bad: Numeric problem, potential blowup
+
+# instead: first shift the values of f so that the highest number is 0:
+f -= np.max(f) # f becomes [-666, -333, 0]
+p = np.exp(f) / np.sum(np.exp(f)) # safe to do, gives the correct answer
+```
+
+**Potentially confusing naming conventions**: The _SVM classifier_ specifically uses the _hinge loss_, also referred to as the _max-margin loss_. In contrast, the _Softmax classifier_ employs the _cross-entropy loss_. The Softmax classifier derives its name from the _softmax function_, which transforms raw class scores into normalized positive values that sum to one, enabling the application of cross-entropy loss. It’s worth noting that referring to the 'softmax loss' is technically incorrect, as softmax is merely the squashing function. However, this shorthand is commonly used in practice.
+
 
 ## Reference:
 - [https://cs231n.github.io/classification/](https://cs231n.github.io/linear-classify/)
