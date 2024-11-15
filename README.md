@@ -28,6 +28,7 @@
   - [Expected Value](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Expected-Value.md)
   - [Statistical Power](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/Statistical-Power.md)
   - [P-values](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/p-values.md)
+  - [KL divergence](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/KL-divergence.md)
   - [Statistical Significance](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/statistical-significance.md)
   - [Bias](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/bias.md)
   - [Variance&Standard Deviation](Foundational-Concepts-in-Machine-Learning/Statistical-Measures/variance&standarDeviation.md)
