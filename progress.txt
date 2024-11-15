@@ -34,3 +34,5 @@
 34.linear-classification.md✅
 35.SVM.md✅
 36.regularization-overview.md✅
+37.svm-classifier-overview.md✅
+38.softmax-classifier-overview.md✅
