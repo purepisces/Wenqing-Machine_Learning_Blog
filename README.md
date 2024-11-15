@@ -86,15 +86,24 @@
   - [Handle Imbalance Class Distribution](Foundational-Concepts-in-Machine-Learning/Training-Pipeline/handling-imbalance.md)
   - [Choose the Right Loss Function](Foundational-Concepts-in-Machine-Learning/Training-Pipeline/choosing-loss-function.md)
   - [Retraining Requirements](Foundational-Concepts-in-Machine-Learning/Training-Pipeline/retraining-requirements.md)
-
-- **Nearest Neighbor Classifiers**
-  - [Nearest Neighbor Classifier Overview](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/nearest-neighbor-classifier-overview.md)
-  - **k-Nearest Neighbor (kNN) Classifier**
-    - [kNN Overview](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-overview.md)
-    - [kNN for Classification](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-classification.md)
-    - [kNN for Regression](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-regression.md)
+ 
 - **Classification Methods**
-  - [Linear Classification](Foundational-Concepts-in-Machine-Learning/Classification-Methods/linear-classification.md)
+  - [Overview](Foundational-Concepts-in-Machine-Learning/Classification-Methods/classification-methods-overview.md)
+  - **Nearest Neighbor Classifiers**
+    - [Nearest Neighbor Classifier Overview](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/nearest-neighbor-classifier-overview.md)
+    - **k-Nearest Neighbor (kNN) Classifier**
+      - [kNN Overview](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-overview.md)
+      - [kNN for Classification](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-classification.md)
+      - [kNN for Regression](Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-regression.md)
+  - **Linear Classification**
+    - [Linear Classification Overview](Foundational-Concepts-in-Machine-Learning/Classification-Methods/Linear-Classification/linear-classification.md)
+    - **Support Vector Machine (SVM) Classifier**
+      - [SVM Classifier Overview](Foundational-Concepts-in-Machine-Learning/Classification-Methods/Linear-Classification/SVM/svm-classifier-overview.md)
+      - [Multiclass SVM Loss](Foundational-Concepts-in-Machine-Learning/Classification-Methods/Linear-Classification/SVM/multiclass-svm-loss.md)
+    - **Softmax Classifier**
+      - [Softmax Classifier Overview](Foundational-Concepts-in-Machine-Learning/Classification-Methods/Linear-Classification/Softmax/softmax-classifier-overview.md)
+      - [Softmax and Cross-Entropy Loss](Foundational-Concepts-in-Machine-Learning/Classification-Methods/Linear-Classification/Softmax/softmax-cross-entropy-loss.md)
+
 
 - **Linear Regression**
   - [Overview](Foundational-Concepts-in-Machine-Learning/Linear-Regression/linear-regression.md)
