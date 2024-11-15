@@ -27,7 +27,9 @@ In the Softmax classifier:
 ## **The Softmax Function**
 
 The Softmax function is defined as:  
-fj(z)=ezj∑kezkf_j(z) = \frac{e^{z_j}}{\sum_k e^{z_k}}fj​(z)=∑k​ezk​ezj​​  
+
+$$f_j(z) = \frac{e^{z_j}}{\sum_k e^{z_k}}$$
+
 It converts raw scores into probabilities between 0 and 1, ensuring they sum to 1. Each class probability reflects the model's confidence for that class.
 
 ### **Probabilistic Interpretation**
