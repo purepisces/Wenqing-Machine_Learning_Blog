@@ -14,7 +14,7 @@ The most common form of regularization is the squared **L2** norm, often referre
 
 $$R(W) = \sum_k \sum_l W_{k,l}^2$$
 
-Here, every element of the weight matrix **W** is squared and summed. The **regularization loss** is added to the **data loss** (computed on the training dataset) to form the full loss function:
+Here, every element of the weight matrix **W** is squared and summed. The **regularization loss** is added to the **data loss** (computed on the training dataset) to form the full Multiclass SVM loss:
 
 $$L = \underbrace{\frac{1}{N} \sum_i L_i}_\text{data loss} + \underbrace{\lambda R(W)}_\text{regularization loss}$$
 
@@ -90,7 +90,3 @@ def svm_loss(W, X, y, reg):
 ## Summary
 
 Regularization is a fundamental technique in machine learning that improves model generalization by discouraging large weights. By penalizing model complexity, regularization resolves weight ambiguity, prevents overfitting, and encourages simpler, more robust models. The tradeoff between data loss and regularization loss, controlled by the hyperparameter $\lambda$, ensures a balance between accuracy and generalization.
-
-## Reference:
-- [https://cs231n.github.io/classification/](https://cs231n.github.io/linear-classify/)
-- linear-classification.md in Machine Learning Blog
