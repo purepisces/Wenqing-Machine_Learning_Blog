@@ -112,6 +112,6 @@ $$L = \frac{1}{N} \sum_i \left( -f_{y_i} + \log\sum_j e^{f_j} \right) + \lambda 
 -   **Numerical Stability**: Achieved through normalization tricks during computation.
 
 The Softmax classifier provides a probabilistic approach to classification, balancing accuracy and interpretability.
-## References
 
--   [CS231n Classification Overview](https://cs231n.github.io/classification/)
+## Reference:
+- [https://cs231n.github.io/classification/](https://cs231n.github.io/linear-classify/)
