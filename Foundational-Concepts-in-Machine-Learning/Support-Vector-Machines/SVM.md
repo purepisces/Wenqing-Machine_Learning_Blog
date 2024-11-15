@@ -1,49 +1,104 @@
-# Support Vector Machines (SVMs) and the Max Margin Principle
+# Support Vector Machines (SVM)
 
-In the context of Support Vector Machines (SVMs), there are actually **three important planes**: the **decision boundary** (or separating hyperplane) and two **marginal hyperplanes** on either side of it. Let's clarify what each of these planes represents and why we impose the constraint $w \cdot x_i + b = \pm 1$ for points on the margin.
+Support Vector Machines (SVM) are a powerful tool in supervised learning, particularly for classification tasks. They aim to find a decision boundary that separates data points from different classes with the maximum margin. This section explores SVM concepts, loss functions, and the max-margin principle.
 
-## 1. The Decision Boundary (Separating Hyperplane)
 
-The decision boundary is the main hyperplane that separates the two classes. This hyperplane is defined by:
+## **Multiclass Support Vector Machine Loss**
 
-$$w \cdot x + b = 0$$
+In machine learning, a commonly used loss function for SVMs is the **Multiclass Support Vector Machine (SVM) loss**. This loss encourages the correct class score to exceed all incorrect class scores by at least a fixed margin, denoted as $\Delta$.
 
-This equation represents the set of points \( x \) where the classifier's output is zero, meaning it lies directly between the two classes.
+### **Definition**
 
-## 2. Marginal Hyperplanes: $w \cdot x + b = +1$ and $w \cdot x + b = -1$
+The Multiclass SVM loss for the $i$-th example is computed as:
 
-The SVM aims to not only find a hyperplane that separates the classes but also maximize the margin—the distance between the closest points from each class to the decision boundary.
+$$L_i = \sum_{j \neq y_i} \max(0, s_j - s_{y_i} + \Delta)$$
 
-To define this margin, we introduce two additional planes, called marginal hyperplanes:
+Where:
 
-- The hyperplane $w \cdot x + b = +1$ represents the set of points on the edge of one class.
-- The hyperplane $w \cdot x + b = -1$ represents the set of points on the edge of the other class.
+-   $s_j$ = predicted score for the $j$-th class.
+-   $s_{y_i}$ = predicted score for the correct class $y_i$.
+-   $\Delta$ = margin (commonly set to 1).
 
-These marginal hyperplanes are at equal distances from the decision boundary and define the width of the margin.
+### **Example Calculation**
 
-## 3. Constraints on Points (Support Vectors) on the Margin
+Suppose we have three classes with scores $s = [13, -7, 11]$, and the true class is the first one ($y_i = 0$). With $\Delta = 10$, the loss is calculated as:
 
-The points that lie **exactly on** these marginal hyperplanes are called **support vectors**. For these points $x_i$, we impose the constraint:
+$$L_i = \max(0, -7 - 13 + 10) + \max(0, 11 - 13 + 10)$$
 
-$$w \cdot x_i + b = \pm 1$$
+The first term evaluates to zero because it is negative, while the second term results in 8. Thus, the total loss is 8.
 
-This means:
-- If $x_i$ belongs to the positive class, it lies on the hyperplane $w \cdot x_i + b = +1$.
-- If $x_i$ belongs to the negative class, it lies on the hyperplane $w \cdot x_i + b = -1$.
+### **Hinge Loss and Squared Hinge Loss**
 
-These constraints ensure that:
-1. The support vectors (points closest to the decision boundary) lie precisely on the marginal hyperplanes, defining the boundary of the margin.
-2. All other points are either farther from the margin or correctly classified within the margin bounds.
+The $\max(0, -)$ function is called **hinge loss**. An alternative, **squared hinge loss**, penalizes margin violations quadratically:
 
-## 4. Why These Constraints Lead to the Max Margin
+-   Hinge loss: $\max(0, x)$
+-   Squared hinge loss: $\max(0, x)^2$
 
-The **distance between the two marginal hyperplanes** $w \cdot x + b = +1$ and $w \cdot x + b = -1$ is $\frac{2}{\|w\|}$. By minimizing $\|w\|$, we maximize this margin. Hence, the SVM objective is to minimize $\frac{1}{2} \|w\|^2$ under the constraints $w \cdot x_i + b \geq 1$ for the positive class and $w \cdot x_i + b \leq -1$ for the negative class.
+Both hinge loss types guide the model to improve its classification boundaries.
 
-> $d = \frac{|c_1 - c_2|}{\|w\|} =  \frac{|1 - (-1)|}{\|w\|} = \frac{2}{\|w\|}$
 
-## Summary
+## **The Max-Margin Principle**
 
-- The **decision boundary** is given by $w \cdot x + b = 0$.
-- The **marginal hyperplanes** are $w \cdot x + b = +1$ and $w \cdot x + b = -1$.
-- The **constraints** $w \cdot x_i + b = \pm 1$ ensure that the closest points (support vectors) are on the margins, defining the maximum-margin boundaries between classes.
+In SVMs, the goal is to find a hyperplane that maximizes the **margin**—the distance between the closest points from each class to the hyperplane.
 
+### **Key Concepts**
+
+1.  **Decision Boundary and Margins**  
+    The decision boundary is defined as:  
+    $w \cdot x + b = 0$
+    Two marginal hyperplanes are added for the positive and negative classes:
+    
+    -   $w \cdot x + b = +1$ (positive margin)
+    -   $w \cdot x + b = -1$ (negative margin)
+2.  **Support Vectors**  
+    Points on the marginal hyperplanes are called **support vectors**. These define the margin and satisfy the constraint:  
+    $w \cdot x_i + b = \pm 1$
+    
+3.  **Maximizing the Margin**  
+    The margin width is $\frac{2}{|w|}$, so maximizing the margin is equivalent to minimizing $|w|$.
+    > $d = \frac{|c_1 - c_2|}{\|w\|} =  \frac{|1 - (-1)|}{\|w\|} = \frac{2}{\|w\|}$
+
+    
+
+## **Regularization and the Full Loss**
+
+Regularization resolves ambiguity in weight selection and improves **generalization** by discouraging overly large weights. The most common regularization method is the **L2 penalty**, defined as:
+
+$$R(W) = \sum_k \sum_l W_{k,l}^2$$
+
+The full SVM loss is:
+
+$$L = \frac{1}{N} \sum_i \sum_{j\neq y_i} \left[ \max(0, f(x_i; W)_j - f(x_i; W)_{y_i} + \Delta) \right] + \lambda \sum_k\sum_l W_{k,l}^2$$
+
+Where:
+
+-   $N$ = number of training examples.
+-   $\lambda$ = regularization strength.
+
+
+## **Comparison: SVM vs. Softmax**
+
+SVM and Softmax classifiers differ in their loss functions and optimization goals:
+
+-   **SVM**: Focuses on margins between classes. Loss is zero once the margin is met.
+-   **Softmax**: Assigns probabilities to classes and continuously optimizes the likelihood of the correct class.
+
+Example:  
+For scores $[10, -2, 3]$ with $y_i = 0$:
+
+-   SVM enforces the margin condition ($10 > -2 + \Delta$, $10 > 3 + \Delta$).
+-   Softmax encourages increasing the probability for the correct class.
+
+
+## **Advantages of SVM**
+
+-   SVMs focus on the most challenging points (support vectors), making them robust for high-dimensional spaces.
+-   The use of regularization prevents overfitting and improves generalization.
+
+
+## **Summary**
+
+-   SVMs aim to separate classes with the maximum margin while minimizing a loss function.
+-   The **Multiclass SVM Loss** ensures that correct class scores exceed incorrect class scores by at least $\Delta$.
+-   Regularization enhances model generalization, balancing data loss and weight penalties.
+-   The SVM framework is efficient for both linear and kernelized classifiers.
