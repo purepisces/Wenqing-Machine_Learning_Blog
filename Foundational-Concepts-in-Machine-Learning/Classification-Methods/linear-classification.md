@@ -331,7 +331,8 @@ p = np.exp(f) / np.sum(np.exp(f)) # safe to do, gives the correct answer
 
 A picture might help clarify the distinction between the Softmax and SVM classifiers:
 
-insert img
+<img src="svmvssoftmax.png" alt="svmvssoftmax" width="600" height="350"/>
+
 
 An example illustrating the difference between the SVM and Softmax classifiers for a single data point: In both classifiers, the same score vector fff is computed (e.g., via matrix multiplication as shown in this section). However, the scores in fff are interpreted differently:
 
@@ -339,7 +340,44 @@ An example illustrating the difference between the SVM and Softmax classifiers f
 -   The Softmax classifier interprets the scores as (unnormalized) log probabilities for each class. Its loss function seeks to maximize the (normalized) log probability of the correct class (or equivalently, minimize the negative log probability).
 
 For this example, the SVM loss is 1.58, while the Softmax loss is 1.04 (using the natural logarithm, not base 2 or base 10). However, these values are not directly comparable; they are meaningful only when comparing losses within the same classifier using the same data.
-  
+
+**Softmax classifier provides "probabilities" for each class.** 
+
+The Softmax classifier provides interpretable "probabilities" for each class, unlike the SVM, which produces uncalibrated scores that are harder to interpret. For instance, given an image, the SVM might output scores like $[12.5,0.6,−23.0]$ for the classes "cat," "dog," and "ship," respectively. In contrast, the Softmax classifier would transform these scores into probabilities such as $[0.9,0.09,0.01]$, allowing us to interpret the model's confidence in each class.
+
+However, the term "probabilities" is placed in quotes because their sharpness (how peaky or diffuse they are) depends on the regularization strength $\lambda$, which controls the size of the weights $W$. For example, suppose the unnormalized log-probabilities are $[1, -2, 0]$. The Softmax function would compute:
+
+$$[1, -2, 0] \rightarrow [e^1, e^{-2}, e^0] = [2.71, 0.14, 1] \rightarrow [0.7, 0.04, 0.26]$$
+
+Here, the steps involve exponentiating the scores and normalizing them to sum to 1. If the regularization strength $\lambda$ were higher, the weights $W$ would be penalized more, leading to smaller logits. For example, if the weights were halved to $[0.5, -1, 0]$, the Softmax computation would yield:
+
+$$[0.5, -1, 0] \rightarrow [e^{0.5}, e^{-1}, e^0] = [1.65, 0.37, 1] \rightarrow [0.55, 0.12, 0.33]$$
+
+In this case, the probabilities become more diffuse, spreading across classes. With extremely strong regularization, where the weights approach very small values, the output probabilities would converge toward a uniform distribution (e.g., $[0.33, 0.33, 0.33]$ for three classes).
+
+Thus, the Softmax probabilities are better understood as **relative confidences**. Similar to the SVM, the ordering of the scores is meaningful, but the absolute probability values (or their differences) are influenced by regularization and are not strictly interpretable.
+
+**In practice, SVM and Softmax are usually comparable.** 
+
+The performance difference between SVM and Softmax classifiers is typically minor, and opinions on which is better often depend on the use case. One key distinction is that the SVM optimizes a more _local_ objective, which can be viewed as either an advantage or a limitation.
+
+For example, consider a case where the scores are $[10,−2,3]$ and the correct class is the first. An SVM with a margin of $\Delta = 1$ checks if the correct class score exceeds the other class scores by at least the margin. If this condition is met (e.g., $10 > -2+1$ and $10 > 3+1$), the loss is zero. The SVM does not concern itself with the specific values of the scores beyond this point, so it would treat $[10, -100, -100]$and $[10, 9, 9]$ as equivalent because both satisfy the margin.
+
+In contrast, the Softmax classifier always seeks to improve the separation between the correct and incorrect classes. For the same scores, $[10,−100,−100]$ would result in a much lower loss than $[10,9,9]$ because the latter assigns relatively higher probabilities to the incorrect classes. The Softmax classifier continuously adjusts its probabilities, aiming to make the correct class's probability higher and the incorrect classes' probabilities lower. This means Softmax is "never fully satisfied," as it always tries to optimize further.
+
+The SVM's focus on satisfying the margin without micromanaging scores can be seen as a benefit in certain situations. For instance, in a car classifier, the model may devote most of its effort to distinguishing between cars and trucks (a challenging distinction) without being distracted by frog examples, which it already classifies with low scores and that likely occupy a different part of the feature space. This targeted effort reflects the SVM's local optimization approach.
+
+### Summary
+
+To summarize:
+
+-   We introduced a **score function** that maps image pixels to class scores, implemented as a linear function involving weights (**W**) and biases (**b**).
+-   Unlike the kNN classifier, this **parametric approach** offers the advantage of discarding the training data after learning the parameters. Moreover, predicting a new test image is computationally efficient, requiring only a single matrix multiplication with **W**, rather than exhaustive comparisons with all training examples.
+-   We discussed the **bias trick**, which integrates the bias vector into the weight matrix for simplicity, allowing us to manage a single parameter matrix.
+-   We defined a **loss function** (we introduced two commonly used losses for linear classifiers: the **SVM** and the **Softmax**) that measures how compatible a given set of parameters is with respect to the ground truth labels in the training dataset. Both are designed such that accurate predictions correspond to a low loss value.
+
+In this section, we explored how to map images to class scores using parameterized models and evaluated predictions through loss functions. The next step is to determine the parameters that minimize this loss, a process known as _optimization_, which will be covered in the following section.
+
 
 ## Reference:
 - [https://cs231n.github.io/classification/](https://cs231n.github.io/linear-classify/)
