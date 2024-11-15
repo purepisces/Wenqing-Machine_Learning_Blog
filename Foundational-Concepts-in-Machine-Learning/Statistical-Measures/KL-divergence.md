@@ -1,0 +1,1 @@
+The **Kullback-Leibler (KL) divergence** is a measure of how one probability distribution diverges from a second, reference probability distribution. It quantifies the "distance" or difference between two distributions, but it’s important to note that it is not symmetric, so $D_{KL}(P \| Q) \neq D_{KL}(Q \| P)$.
