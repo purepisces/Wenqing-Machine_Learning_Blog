@@ -327,6 +327,19 @@ p = np.exp(f) / np.sum(np.exp(f)) # safe to do, gives the correct answer
 
 **Potentially confusing naming conventions**: The _SVM classifier_ specifically uses the _hinge loss_, also referred to as the _max-margin loss_. In contrast, the _Softmax classifier_ employs the _cross-entropy loss_. The Softmax classifier derives its name from the _softmax function_, which transforms raw class scores into normalized positive values that sum to one, enabling the application of cross-entropy loss. It’s worth noting that referring to the 'softmax loss' is technically incorrect, as softmax is merely the squashing function. However, this shorthand is commonly used in practice.
 
+### SVM vs. Softmax
+
+A picture might help clarify the distinction between the Softmax and SVM classifiers:
+
+insert img
+
+An example illustrating the difference between the SVM and Softmax classifiers for a single data point: In both classifiers, the same score vector fff is computed (e.g., via matrix multiplication as shown in this section). However, the scores in fff are interpreted differently:
+
+-   The SVM treats these scores as class scores and its loss function encourages the correct class (class 2, shown in blue) to have a score higher than the other classes by a specified margin.
+-   The Softmax classifier interprets the scores as (unnormalized) log probabilities for each class. Its loss function seeks to maximize the (normalized) log probability of the correct class (or equivalently, minimize the negative log probability).
+
+For this example, the SVM loss is 1.58, while the Softmax loss is 1.04 (using the natural logarithm, not base 2 or base 10). However, these values are not directly comparable; they are meaningful only when comparing losses within the same classifier using the same data.
+  
 
 ## Reference:
 - [https://cs231n.github.io/classification/](https://cs231n.github.io/linear-classify/)
