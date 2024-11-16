@@ -5,6 +5,20 @@ Please refer to the following resources for background knowledge:
    - [Nearest Neighbor Classifier Overview](https://github.com/purepisces/Wenqing-Machine_Learning_Blog/blob/main/Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/nearest-neighbor-classifier-overview.md)
    - [k-Nearest Neighbor Classifier Overview](https://github.com/purepisces/Wenqing-Machine_Learning_Blog/blob/main/Foundational-Concepts-in-Machine-Learning/Nearest-Neighbor-Classifiers/knn-overview.md)
 
+Table of Contents:
+
+- [Linear Classification](#linear-classification)
+  - [Parameterized mapping from images to label scores](#parameterized-mapping-from-images-to-label-scores)
+  - [Interpreting a linear classifier](#interpreting-a-linear-classifier)
+  - [Loss function](#loss-function)
+    - [Multiclass Support Vector Machine loss](#multiclass-support-vector-machine-loss)
+  - [Practical Considerations](#practical-considerations)
+  - [Softmax classifier](#softmax-classifier)
+  - [SVM vs. Softmax](#svm-vs-softmax)
+  - [Interactive web demo](#interactive-web-demo)
+  - [Summary](#summary)
+  - [Further Reading](#further-reading)
+
 # Linear Classification
 
 Previously, we explored Image Classification, which involves assigning a single label to an image from a predefined category set. We discussed the k-Nearest Neighbor (kNN) classifier, which labels images by comparing them to labeled examples in the training set. However, kNN has some drawbacks:
