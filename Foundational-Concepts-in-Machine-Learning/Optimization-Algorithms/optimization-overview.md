@@ -13,7 +13,6 @@ Table of Contents:
 - [Gradient descent](#gd)
 - [Summary](#summary)
 
-<a name='intro'></a>
 
 ### Introduction
 
