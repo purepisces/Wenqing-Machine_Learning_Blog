@@ -15,9 +15,7 @@ Table of Contents:
   - [Practical Considerations](#practical-considerations)
   - [Softmax classifier](#softmax-classifier)
   - [SVM vs. Softmax](#svm-vs-softmax)
-  - [Interactive web demo](#interactive-web-demo)
   - [Summary](#summary)
-  - [Further Reading](#further-reading)
 
 # Linear Classification
 
