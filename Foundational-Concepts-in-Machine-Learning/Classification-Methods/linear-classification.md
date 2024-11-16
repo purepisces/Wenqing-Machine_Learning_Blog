@@ -256,7 +256,7 @@ The key takeaway from this section is that the SVM loss provides a specific meth
 
 
 
-### Practical Considerations for Multiclass SVM
+### Practical Considerations
 
 **Setting the Margin Parameter ($\Delta$)**
 
@@ -272,7 +272,7 @@ $$L_i = C \max(0, 1 - y_i w^T x_i) + R(W)$$
 
 where $C$ controls the balance between data loss (classification errors) and regularization, and $y_i$ can be either -1 or 1. Interestingly, the multiclass SVM formulation we discuss here becomes equivalent to this binary SVM if we have only two classes. The difference is in the parameter usage: $C$ in binary SVM and $\lambda$ in multiclass SVM both control the same balance but in inverse ways, with the relationship $C \propto \frac{1}{\lambda}$​.
 
-### Softmax Classifier Overview
+### Softmax Classifier
 
 The Softmax classifier is another popular approach for classification, similar to SVM but with a different loss function. If you’re familiar with **Logistic Regression** in binary classification, the Softmax classifier is its generalization to multiclass problems. Unlike the SVM, which treats the outputs $f(x_i,W)$ as (uncalibrated and possibly difficult to interpret) scores for each class, the Softmax classifier provides **normalized class probabilities** and has a probabilistic interpretation.
 
