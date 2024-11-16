@@ -179,7 +179,7 @@
     - [Quantile Loss](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Loss-Functions/Quantile_Loss.md)
 
 - **Optimization Algorithms**
-  - [Overview](optimization-overview.md)
+  - [Overview](Foundational-Concepts-in-Machine-Learning/Optimization-Algorithms/optimization-overview.md)
   - [Convex Functions](Foundational-Concepts-in-Machine-Learning/Optimization-Algorithms/convex-functions.md)
   - [Gradient Descent](Foundational-Concepts-in-Machine-Learning/Optimization-Algorithms/gradient-descent.md)
   - [Batch Gradient Descent](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Optimizers/SGD.md)
