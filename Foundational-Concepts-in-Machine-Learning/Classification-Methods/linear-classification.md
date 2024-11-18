@@ -159,11 +159,14 @@ $$R(W) = \sum_k\sum_l W_{k,l}^2$$
 
 Here, each element of **W** is squared and summed. The regularization term, unlike the data loss, depends only on the weights and not on the data. By adding this penalty, the **full Multiclass Support Vector Machine (SVM) loss** is composed of two parts: the **data loss** (the average loss $L_i$ across all examples) and the **regularization loss**. Therefore, the complete Multiclass SVM loss is defined as:
 
-$$L =  \underbrace{ \frac{1}{N} \sum_i L_i }_\text{data loss} + \underbrace{ \lambda R(W) }_\text{regularization loss} $$
+<img src="full_svm_loss.png" alt="full_svm_loss" width="500" height="100"/>
+<!-- $$L =  \underbrace{ \frac{1}{N} \sum_i L_i }_\text{data loss} + \underbrace{ \lambda R(W) }_\text{regularization loss} $$ -->
 
 or, fully expanded:
 
-$$L = \frac{1}{N} \sum_i \sum_{j\neq y_i} \left[ \max(0, f(x_i; W)_j - f(x_i; W)_{y_i} + \Delta) \right] + \lambda \sum_k\sum_l W_{k,l}^2$$
+<img src="full_expanded_svm_loss.png" alt="full_expanded_svm_loss" width="700" height="100"/>
+<!-- $$L = \frac{1}{N} \sum_i \sum_{j\neq y_i} \left[ \max(0, f(x_i; W)_j - f(x_i; W)_{y_i} + \Delta) \right] + \lambda \sum_k\sum_l W_{k,l}^2$$ -->
+
 
 In this expression, $N$ represents the total number of training examples, and $\lambda$ is a hyperparameter that controls the weight of the regularization penalty. There is no simple way of setting this hyperparameter , and it is usually set via cross-validation.
 
