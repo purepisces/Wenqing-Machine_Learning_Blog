@@ -182,10 +182,9 @@
   - [Overview](Foundational-Concepts-in-Machine-Learning/Optimization-Algorithms/optimization-overview.md)
   - [Convex Functions](Foundational-Concepts-in-Machine-Learning/Optimization-Algorithms/convex-functions.md)
   - [Gradient Descent](Foundational-Concepts-in-Machine-Learning/Optimization-Algorithms/gradient-descent.md)
-  - [Batch Gradient Descent](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Optimizers/SGD.md)
+  - [Mini-Batch Gradient Descent](Foundational-Concepts-in-Machine-Learning/Optimization-Algorithms/mini-batch-gradient-descent.md)
   - [Stochastic Gradient Descent (SGD)](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Optimizers/SGD.md)
   - [Stochastic Gradient Descent with momentum (SGD with momentum)](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Optimizers/SGD-with-momentum.md)
-  - [Mini-Batch Gradient Descent](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Optimizers/SGD.md)
   - [Adam](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Optimizers/Adam.md)
   - **Advanced Optimization Algorithms**
     - [Momentum](momentum.md)
