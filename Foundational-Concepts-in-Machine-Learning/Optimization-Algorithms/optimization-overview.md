@@ -38,7 +38,7 @@ One way to achieve this is by generating a random weight matrix $W$, which repre
 
 ___
 
-<img src="svm_loss_landscape.png" alt="svm_loss_landscape" width="700" height="300"/>
+<img src="svm_loss_landscape.png" alt="svm_loss_landscape" width="900" height="300"/>
 
 
 The loss function landscape for the Multiclass SVM (without regularization) is shown for a single example (left, middle) and for a hundred examples (right) in CIFAR-10. On the left, the one-dimensional loss is visualized by varying only $a$. The middle and right plots show two-dimensional loss slices, with blue representing low loss and red representing high loss. Notice the piecewise-linear structure of the loss function. For multiple examples, the losses are averaged, resulting in the bowl-like shape on the right, which combines many piecewise-linear structures like the one in the middle.
@@ -63,7 +63,7 @@ L = & (L_0 + L_1 + L_2)/3
 Each data point ($x_i$) and weight vector ($w_j$) is a scalar value because the examples are 1-dimensional. Looking at, for instance, $w_0$, some terms above are linear functions of $w_0$ and each is clamped at zero. We can visualize this as follows:
 ___
 
-<img src="1-dimensional_data_loss.png" alt="1-dimensional_data_loss" width="700" height="300"/>
+<img src="1-dimensional_data_loss.png" alt="1-dimensional_data_loss" width="700" height="200"/>
 
 A 1-dimensional representation of the data loss, where the x-axis represents a single weight, and the y-axis shows the loss value. The total data loss is composed of multiple terms, each of which is either independent of the specific weight or a linear function of it, clamped to zero when inactive. The full SVM data loss extends this piecewise-linear structure to a 30,730-dimensional space.
 
@@ -280,7 +280,7 @@ for step_size_log in [-10, -9, -8, -7, -6, -5,-4,-3,-2,-1]:
 
 **Effect of step size**. The gradient indicates the direction of the steepest increase in the function, but it doesn't specify how far we should move along this direction. Determining the step size (often referred to as the _learning rate_) is a critical and often challenging hyperparameter to set when training a neural network. In our analogy of descending a hill while blindfolded, we can feel the slope beneath our feet pointing in a certain direction, but the optimal step length remains uncertain. Taking small, cautious steps may lead to steady but slow progress (analogous to a small step size). On the other hand, taking large, confident strides might aim for faster descent but risks overshooting the target. As shown in the code example, larger step sizes can sometimes lead to higher losses due to "overstepping."
 ___
-<img src="stepsize.jpg" alt="stepsize" width="400" height="300"/>
+<img src="stepsize.jpg" alt="stepsize" width="280" height="250"/>
 
  Visualizing the effect of step size. Starting at a specific point $W$, we compute the gradient's negative (represented by the white arrow), which indicates the direction of steepest loss reduction. Taking small steps in this direction ensures consistent but slow progress, while larger steps may achieve faster progress but come with greater risk. As the step size increases, we may eventually overshoot the minimum, causing the loss to worsen. The step size, also known as the **learning rate**, is a crucial hyperparameter that requires careful tuning to optimize performance effectively.
 ___
@@ -345,7 +345,7 @@ The size of the mini-batch is a hyperparameter that is rarely tuned through cros
 
 ### Summary
 ___
-<img src="dataflow.jpeg" alt="dataflow" width="700" height="300"/>
+<img src="dataflow.jpeg" alt="dataflow" width="500" height="200"/>
 
 Summary of the information flow. The dataset of $(x, y)$ pairs is fixed and provided as input. The weights, initialized as random values, are adjustable. During the **forward pass**, the score function computes class scores, stored in the vector **f**. The loss function consists of two components:
 
