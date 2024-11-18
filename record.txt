@@ -67,6 +67,7 @@ Editor: https://stackedit.io/app#
 45.softmax-classifier-overview.md✅
 46.softmax-cross-entropy-loss.md✅
 47.multiclass-svm-loss.md✅
+48.optimization-overview.md✅
 
 
 
