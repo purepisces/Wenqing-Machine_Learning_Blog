@@ -38,3 +38,4 @@
 38.softmax-classifier-overview.md✅
 39.softmax-cross-entropy-loss.md✅
 40.multiclass-svm-loss.md✅
+41.optimization-overview.md✅
