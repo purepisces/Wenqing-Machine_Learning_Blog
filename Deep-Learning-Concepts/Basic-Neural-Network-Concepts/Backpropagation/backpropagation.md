@@ -1,5 +1,7 @@
 ## Add Exploding and Vanishing Gradients problem
 # Version 1 Backpropagation 
+
+# Version 2 Backpropagation 
 Backpropagation is the algorithm used to calculate the gradient of the loss function with respect to each parameter (weight) in a neural network. It allows the network to update these weights in a way that minimizes the loss function, enabling the network to learn from the data.
 
 ## Backpropagation Overview
@@ -273,7 +275,7 @@ def nn_epoch(X, y, W1, W2, lr = 0.1, batch=100):
 ```
 
 
-# Version 2 Backpropagation 
+# Version 3 Backpropagation 
 
 In our previous discussion, we delved into how a neural network can fit a complex model to data, such as determining the effectiveness of various drug dosages against a virus. We saw that while low and high dosages were ineffective, a medium dosage proved beneficial. The neural network achieved this by adjusting a basic activation function into a "green squiggle" that matched our data points through manipulation of weights and biases.
 
