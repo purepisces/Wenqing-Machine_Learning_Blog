@@ -294,11 +294,16 @@ Let's use the example of the SVM loss function for a single datapoint:
 
 $$L_i = \sum_{j\neq y_i} \left[ \max(0, w_j^Tx_i - w_{y_i}^Tx_i + \Delta) \right]$$
 
+
+> Alternatively, we can represent this loss using an indicator function: 
+> $L_i = \sum_{j \neq y_i} \mathbb{1}(w_j^T x_i - w_{y_i}^T x_i + \Delta > 0) \cdot (w_j^T x_i - w_{y_i}^T x_i + \Delta)$
+
 We can differentiate the function with respect to the weights. For example, taking the gradient with respect to $w_{y_i}$ we obtain:
 
 $$\nabla_{w_{y_i}} L_i = - \left( \sum_{j\neq y_i} \mathbb{1}(w_j^Tx_i - w_{y_i}^Tx_i + \Delta > 0) \right) x_i$$
 
 > **differentiate** means taking the **derivative**
+> Treat $\mathbb{1}(\text{condition})$ as a constant, so it stays as is during differentiation.
 
 Here, $\mathbb{1}$ is an indicator function that evaluates to 1 if the condition inside is true and 0 otherwise. In practical terms, this means counting the number of classes that fail to meet the desired margin (and thus contribute to the loss). The gradient with respect to $w_{y_i}$ is the data vector $x_i$​, scaled by this count.
 
