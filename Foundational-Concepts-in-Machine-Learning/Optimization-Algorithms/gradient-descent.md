@@ -330,12 +330,9 @@ One last thing, in out example, we only had three data points, so the math didnâ
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=sDv4f4s2SB8)
 
 # Second Version: Gradient Descent Explanation 
+Highly Recommend reading  [Calculus](Foundational-Concepts-in-Machine-Learning/Optimization-Algorithms/optimization-overview.md) for detail.
 
-## Overview
-
-Gradient Descent is a fundamental optimization algorithm used to minimize loss functions in machine learning. By iteratively adjusting model parameters in the direction of the steepest descent (negative gradient), we aim to reach the loss function's minimum.
-
-Gradient Descent serves as the backbone of neural network training, underpinning more advanced optimization techniques. This document explores its foundations, practical implementations, and variations.
+Gradient Descent is a fundamental optimization algorithm used to minimize loss functions in machine learning. By iteratively adjusting model parameters in the direction of the steepest descent (negative gradient), we aim to reach the loss function's minimum. Gradient Descent serves as the backbone of neural network training, underpinning more advanced optimization techniques. 
 
 ## Computing the Gradient
 
