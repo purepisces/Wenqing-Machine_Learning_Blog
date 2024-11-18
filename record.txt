@@ -1,4 +1,5 @@
 <img src="mean_std.png" alt="mean_std" width="400" height="300"/>
+<!-- $$L = \underbrace{\frac{1}{N} \sum_i L_i}_\text{data loss} + \underbrace{\lambda R(W)}_\text{regularization loss}$$ -->
 > Note: The output layer's neuron count often differs from the input layer. Each layer can have a distinct number of neurons, indicating its 'size' or capacity.
 >
 ## Reference:
