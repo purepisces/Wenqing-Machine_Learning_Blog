@@ -1,6 +1,6 @@
 If you are not familiar with some calculus concept, please refer to [Calculus](Foundational-Concepts-in-Machine-Learning/Calculus/calculus.md).
 
-# Gradient Descent Explanation
+# First Version: Gradient Descent Explanation 
 
 In the realms of statistics, machine learning, and data science, optimization plays a crucial role. Whether it's fitting a line in linear regression, adjusting the curve in logistic regression, or forming clusters in t-SNE, gradient descent emerges as a powerful tool to optimize various models.
 
@@ -329,3 +329,128 @@ One last thing, in out example, we only had three data points, so the math didnâ
 ## Reference:
 - [Watch the video on YouTube](https://www.youtube.com/watch?v=sDv4f4s2SB8)
 
+# Second Version: Gradient Descent Explanation 
+
+## Overview
+
+Gradient Descent is a fundamental optimization algorithm used to minimize loss functions in machine learning. By iteratively adjusting model parameters in the direction of the steepest descent (negative gradient), we aim to reach the loss function's minimum.
+
+Gradient Descent serves as the backbone of neural network training, underpinning more advanced optimization techniques. This document explores its foundations, practical implementations, and variations.
+
+## Computing the Gradient
+
+Before applying Gradient Descent, we need to compute the gradient of the loss function with respect to the parameters. There are two main approaches:
+
+### Numerical Gradient (Finite Differences)
+
+The **numerical gradient** approximates the gradient using the finite difference formula:
+
+$$\frac{\partial f}{\partial x_i} \approx \frac{f(x_1, \dots, x_i + h, \dots, x_n) - f(x_1, \dots, x_i, \dots, x_n)}{h}$$
+
+```python
+def eval_numerical_gradient(f, x):
+  """
+  a naive implementation of numerical gradient of f at x
+  - f should be a function that takes a single argument
+  - x is the point (numpy array) to evaluate the gradient at
+  """
+
+  fx = f(x) # evaluate function value at original point
+  grad = np.zeros(x.shape)
+  h = 0.00001
+
+  # iterate over all indexes in x
+  it = np.nditer(x, flags=['multi_index'], op_flags=['readwrite'])
+  while not it.finished:
+
+    # evaluate function at x+h
+    ix = it.multi_index
+    old_value = x[ix]
+    x[ix] = old_value + h # increment by h
+    fxh = f(x) # evalute f(x + h)
+    x[ix] = old_value # restore to previous value (very important!)
+
+    # compute the partial derivative
+    grad[ix] = (fxh - fx) / h # the slope
+    it.iternext() # step to next dimension
+
+  return grad
+```
+
+While straightforward, numerical gradients are computationally expensive and prone to truncation errors. For better accuracy, the **centered difference formula** can be used:
+
+$$\frac{f(x + h) - f(x - h)}{2h}$$
+
+This reduces truncation error, achieving second-order accuracy.
+
+### Analytical Gradient (Using Calculus)
+
+The **analytical gradient** leverages calculus to derive exact expressions for the gradient. For example, for the SVM loss:
+
+$$\nabla_{w_{y_i}} L_i = - \left( \sum_{j \neq y_i} \mathbb{1}(w_j^Tx_i - w_{y_i}^Tx_i + \Delta > 0) \right) x_i$$
+
+Here, the gradient is computed directly from the formula, making it efficient and precise. However, errors in implementation can occur, so **gradient checking** (comparing with numerical gradients) is often performed.
+
+### Vanilla Gradient Descent
+
+The basic Gradient Descent algorithm iteratively updates parameters as follows:
+
+$$w \gets w - \eta \nabla_w L$$
+
+Where:
+
+-   $w$ are the parameters (weights),
+-   $\eta$ is the learning rate,
+-   $\nabla_w L$ is the gradient of the loss $L$ with respect to $w$.
+
+Implementation:
+
+```python
+# Vanilla Gradient Descent
+
+while True:
+  weights_grad = evaluate_gradient(loss_fun, data, weights)
+  weights += - step_size * weights_grad # perform parameter update
+```
+
+### Mini-Batch Gradient Descent
+
+For large datasets, computing gradients over the entire dataset is inefficient. Instead, **mini-batches** are used to approximate the full gradient. This accelerates convergence and is commonly used in practice:
+
+```python
+# Vanilla Minibatch Gradient Descent
+
+while True:
+  data_batch = sample_training_data(data, 256) # sample 256 examples
+  weights_grad = evaluate_gradient(loss_fun, data_batch, weights)
+  weights += - step_size * weights_grad # perform parameter update
+```
+
+
+### Stochastic Gradient Descent (SGD)
+
+An extreme case of mini-batch Gradient Descent, **SGD** updates parameters using a single training example at a time. Though computationally less efficient than mini-batches, it often achieves good results with modern frameworks that optimize vectorized operations.
+
+
+### Learning Rate
+
+The **learning rate** ($\eta$) determines the step size for parameter updates. Its choice significantly impacts convergence:
+
+-   **Small $\eta$**: Slow but steady progress.
+-   **Large $\eta$**: Faster convergence but risks overshooting the minimum.
+
+Tuning the learning rate is critical and often done experimentally.
+
+### Practical Considerations
+
+1.  **Gradient Checking**: Compare the analytical gradient with the numerical gradient to ensure correctness.
+2.  **Batch Size**: Typically chosen based on memory constraints or standard values like 32, 64, or 128.
+3.  **Step Size**: Requires careful tuning to balance convergence speed and stability.
+
+
+### Summary
+
+Gradient Descent is a cornerstone of optimization in machine learning, enabling parameter updates by following the gradient of the loss function. Variants like mini-batch Gradient Descent and SGD adapt it to practical use cases. Mastery of Gradient Descent and its nuances is essential for training neural networks effectively.
+
+## Reference:
+- [https://cs231n.github.io/optimization-1/](https://cs231n.github.io/optimization-1/)
