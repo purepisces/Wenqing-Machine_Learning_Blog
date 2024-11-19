@@ -4,7 +4,7 @@
 **Before Reading This:**
 Please refer to the following resources for background knowledge:
 - Wenqing’s Machine Learning Blog:
-   - [Optimization Overview](https://github.com/purepisces/Wenqing-Machine_Learning_Blog/Foundational-Concepts-in-Machine-Learning/Optimization-Algorithms/optimization-overview.md)
+   - [Optimization Overview](https://github.com/purepisces/Wenqing-Machine_Learning_Blog/blob/main/Foundational-Concepts-in-Machine-Learning/Optimization-Algorithms/optimization-overview.md)
 
 # Version 2 Backpropagation 
 Backpropagation is the algorithm used to calculate the gradient of the loss function with respect to each parameter (weight) in a neural network. It allows the network to update these weights in a way that minimizes the loss function, enabling the network to learn from the data.
