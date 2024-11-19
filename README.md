@@ -239,7 +239,11 @@
   - **T5 (Text-to-Text Transfer Transformer)**
     - [Overview](T5.md)
 - [Model Comparisons: CNN vs. RNN vs. Transformer](model-comparison.md)
-  
+
+### Transfer Learning
+- [Overview](Deep-Learning-Concepts/Transfer-Learning/transfer-learning-overview.md)
+- [Fine Tuning](Deep-Learning-Concepts/Transfer-Learning/fine-tuning.md)
+
 ### Large Language Models
 - [Overview](Deep-Learning-Concepts/Large-Language-Models/large-language-models-overview.md)
 
@@ -287,6 +291,7 @@
 - [Support Vector Machines (SVM)](NLP/SVM.md)
 - [Naive Bayes](NLP/Naive-Bayes.md)
 - [Conditional Random Fields (CRFs)](NLP/CRFs.md)
+- [LangChain](NLP/LangChain.md)
 
 ## Recommendation System
 - [NMF (Non-Negative Matrix Factorization)](Recommendation-System/nmf.md)
