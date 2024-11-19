@@ -33,3 +33,10 @@ question = "What are the key features of LangChain?"
 result = chain.run({"document": document, "question": question})
 print(result["answer"])
 ```
+
+In **LangChain**, when you execute the chain using `chain.run(...)`, the result will contain the **final step's output**. Specifically:
+
+1.  The chain processes each step sequentially.
+2.  The output of each step is stored and used as input for subsequent steps (if needed).
+3.  The `run` method returns the output of the **last step** in the chain.
+
