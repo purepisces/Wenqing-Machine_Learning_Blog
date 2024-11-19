@@ -1,3 +1,5 @@
+Thing to do: Add subgradient
+___
 ## Derivative and Partial Derivative
 
 ### Derivative
