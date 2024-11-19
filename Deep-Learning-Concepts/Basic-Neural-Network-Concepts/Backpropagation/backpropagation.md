@@ -6,6 +6,19 @@ Please refer to the following resources for background knowledge:
 - Wenqing’s Machine Learning Blog:
    - [Optimization Overview](https://github.com/purepisces/Wenqing-Machine_Learning_Blog/blob/main/Foundational-Concepts-in-Machine-Learning/Optimization-Algorithms/optimization-overview.md)
 
+Table of Contents:
+
+- [Introduction](#intro)
+- [Simple expressions, interpreting the gradient](#grad)
+- [Compound expressions, chain rule, backpropagation](#backprop)
+- [Intuitive understanding of backpropagation](#intuitive)
+- [Modularity: Sigmoid example](#sigmoid)
+- [Backprop in practice: Staged computation](#staged)
+- [Patterns in backward flow](#patterns)
+- [Gradients for vectorized operations](#mat)
+- [Summary](#summary)
+
+
 # Version 2 Backpropagation 
 Backpropagation is the algorithm used to calculate the gradient of the loss function with respect to each parameter (weight) in a neural network. It allows the network to update these weights in a way that minimizes the loss function, enabling the network to learn from the data.
 
