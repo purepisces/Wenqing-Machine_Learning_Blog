@@ -18,6 +18,16 @@ Table of Contents:
 - [Gradients for vectorized operations](#mat)
 - [Summary](#summary)
 
+### Introduction
+
+**Motivation**. In this section we will develop expertise with an intuitive understanding of **🌟🌟🌟**backpropagation**, which is a way of computing gradients of expressions through recursive application of **chain rule**.** Understanding of this process and its subtleties is critical for you to understand, and effectively develop, design and debug neural networks.
+
+> **expressions** refer to mathematical functions or formulas that describe how certain variables are related to each other.
+> 
+> In the context of **backpropagation**, recursive application of the **chain rule** means that the gradients are computed one step at a time, layer by layer, moving backward through a computational graph, with each step depending on the result of the previous one.
+
+**Problem statement**. The core problem studied in this section is as follows: We are given some function $f(x)$ where $x$ is a vector of inputs and we are interested in computing the gradient of $f$ at $x$ (i.e. $\nabla f(x)$ ).
+
 
 # Version 2 Backpropagation 
 Backpropagation is the algorithm used to calculate the gradient of the loss function with respect to each parameter (weight) in a neural network. It allows the network to update these weights in a way that minimizes the loss function, enabling the network to learn from the data.
