@@ -28,7 +28,437 @@ Table of Contents:
 
 **Problem statement**. The core problem studied in this section is as follows: We are given some function $f(x)$ where $x$ is a vector of inputs and we are interested in computing the gradient of $f$ at $x$ (i.e. $\nabla f(x)$ ).
 
+**Motivation**. Recall that the primary reason we are interested in this problem is that in the specific case of neural networks, $f$ will correspond to the loss function ($L$), and $x$ includes both the training data and the neural network weights. For instance: The loss could be an SVM loss function and the inputs are both the training data $(x_i, y_i), i = 1, \ldots, N$ aand the weights and biases $W, b$. Note that (as is usually the case in Machine Learning) we think of the training data as given and fixed, and of the weights as variables we have control over.
+Hence, while backpropagation can calculate gradients with respect to the input data ($x_i$​), in practice, it is primarily used to compute gradients with respect to the parameters (e.g. $W, b$, facilitating their optimization. However, gradients on $x_i$ can also provide insights, such as visualizing and interpreting neural network behavior. Even if you're already familiar with deriving gradients using the chain rule, this section offers a unique perspective on backpropagation as a backward flow in real-valued computational circuits. Exploring these concepts may uncover valuable insights to deepen your understanding.
 
+
+### Simple expressions and interpretation of the gradient
+___
+Let’s begin with a simple example to develop the notation and conventions used for more complex expressions. Consider a simple function defined by the multiplication of two variables: $f(x, y) = x \cdot y$. Using basic calculus, we can compute the partial derivatives with respect for each input:
+
+$$f(x,y) = x y \hspace{0.5in} \rightarrow \hspace{0.5in} \frac{\partial f}{\partial x} = y \hspace{0.5in} \frac{\partial f}{\partial y} = x $$
+
+**Interpretation**. Keep in mind what the **🌟🌟🌟derivatives tell you: They indicate the rate of change of a function with respect to that variable surrounding an infinitesimally small region near a particular point**:
+
+$$\frac{df(x)}{dx} = \lim_{h\ \to 0} \frac{f(x + h) - f(x)}{h}$$
+
+A technical note is that the division sign on the left-hand side is, unlike the division sign on the right-hand side, not a division. Instead, this notation indicates that the operator $\frac{d}{dx}$ is being applied to the function $f$, and returns a different function (the derivative). 
+
+> -   The operator $\frac{d}{dx}$​ takes $f(x)$ as input and returns the derivative function $f'(x)$ as output. The notation $\frac{df(x)}{dx}$ is **equivalent** to $f'(x)$. Both represent the **derivative** of the function $f(x)$ with respect to $x$.
+>-   For example:
+ >     -   Input: $f(x) = x^2$
+>     -   Output: $f'(x) = 2x$
+
+A nice way to think about the expression above is that when $h$ is very small, then the function is well-approximated by a straight line, and the derivative is its slope. In other words, the derivative on each variable tells you the sensitivity of the whole expression on its value.
+> Any smooth function, no matter how curved, can appear linear if you "zoom in" close enough to a specific point.
+
+For example, if $x = 4, y = -3$ then $f(x,y) = -12$, and the partial derivative with respect to $x$, $\frac{\partial f}{\partial x} = -3$, shows that a tiny increase in $x$ would decrease the value of $f(x, y)$ by three times the change in $x$, due to the negative sign. This can be seen by rearranging the above equation ( $f(x + h) = f(x) + h \frac{df(x)}{dx}$ ). Analogously, since $\frac{\partial f}{\partial y} = 4$, we expect that increasing the value of $y$ by some very small amount $h$ would also increase the output of the function (due to the positive sign), and by $4h$.
+> The derivative on each variable tells you the sensitivity of the whole expression on its value.
+
+As mentioned, the gradient $\nabla f$ is the vector of partial derivatives, so we have that $\nabla f = [\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}] = [y, x]$. Even though the gradient is technically a vector, we will often use terms such as *"the gradient on x"* instead of the technically correct phrase *"the partial derivative on x"* for simplicity.
+
+We can also derive the derivatives for the addition operation:
+
+$$f(x,y) = x + y \hspace{0.5in} \rightarrow \hspace{0.5in} \frac{\partial f}{\partial x} = 1 \hspace{0.5in} \frac{\partial f}{\partial y} = 1$$
+
+that is, the derivative on both $x,y$ is one regardless of what the values of $x,y$ are. This makes sense, since increasing either $x,y$ would increase the output of $f$, and the rate of that increase would be independent of what the actual values of $x,y$ are (unlike the case of multiplication above). 
+
+> for $f(x, y) = x \cdot y$, the **rate of increase depends on the value of the other variable**.
+
+The last function we'll use quite a bit in the class is the *max* operation:
+
+$$f(x,y) = \max(x, y) \hspace{0.5in} \rightarrow \hspace{0.5in} \frac{\partial f}{\partial x} = \mathbb{1}(x >= y) \hspace{0.5in} \frac{\partial f}{\partial y} = \mathbb{1}(y >= x)$$
+
+where $\mathbb{1}(\text{condition})$ is the **indicator function**:
+
+-   $\mathbb{1}(x \geq y) = 1$ if $x \geq y$, and $0$ otherwise.
+-   $\mathbb{1}(y \geq x) = 1$ if $y \geq x$, and $0$ otherwise.
+
+That is, the (sub)gradient is 1 on the input that was larger and 0 on the other input. Intuitively, if the inputs are $x = 4,y = 2$, then the max is 4, and the function is not sensitive to the setting of $y$. That is, if we were to increase it by a tiny amount $h$, the function would keep outputting 4, and therefore the gradient is zero: there is no effect. Of course, if we were to change $y$ by a large amount (e.g. larger than 2), then the value of $f$ would change, but the derivatives tell us nothing about the effect of such large changes on the inputs of a function; They are only informative for tiny, infinitesimally small changes on the inputs, as indicated by the $\lim_{h \rightarrow 0}$ in its definition.
+
+> The **gradient** can still be applied to functions that are differentiable at some points but **not differentiable everywhere**. However, the gradient only exists at the specific points where the function is differentiable. At points where the function is **not differentiable**, the gradient does not exist.
+> 
+> The **subgradient** is specific to **convex functions**. It generalizes the concept of the gradient to allow for non-differentiable points in convex functions (e.g., kinks or corners). Subgradients are only defined for **convex functions** because the subgradient inequality relies on convexity.
+
+### Compound expressions with chain rule
+
+Let’s consider more complex expressions involving multiple composed functions, such as$f(x, y, z) = (x + y)z$. While this expression is still simple enough to differentiate directly, we’ll take a specific approach to it that helps build intuition for backpropagation. 
+This function can be broken into two parts:
+-   $q=x+y$
+-   $f = qz$
+
+We already know how to compute the derivatives of each part separately:
+
+-   For $f = qz$ the derivatives are $\frac{\partial f}{\partial q} = z$ and $\frac{\partial f}{\partial z} = q$.
+-   For $q = x + y$, the derivatives are $\frac{\partial q}{\partial x} = 1$ and $\frac{\partial q}{\partial y} = 1$.
+
+However, we’re not interested in the intermediate gradient $\frac{\partial f}{\partial q}$ itself. Instead, we care about the gradients of $f$ with respect to the inputs $x, y, z$. The **chain rule** provides the correct way to "chain" these gradients together, which involves multiplying them along the dependency paths. For instance, to compute $\frac{\partial f}{\partial x}$, we combine the gradients as: $\frac{\partial f}{\partial x} = \frac{\partial f}{\partial q} \cdot \frac{\partial q}{\partial x}.$ In practice, this is simply the multiplication of two numerical values: the gradient of $f$ with respect to $q$, and the gradient of $q$ with respect to $x$. Let’s work through an example to make this clear.
+
+```python
+# set some inputs
+x = -2; y = 5; z = -4
+
+# perform the forward pass
+q = x + y # q becomes 3
+f = q * z # f becomes -12
+
+# perform the backward pass (backpropagation) in reverse order:
+# first backprop through f = q * z
+dfdz = q # df/dz = q, so gradient on z becomes 3
+dfdq = z # df/dq = z, so gradient on q becomes -4
+dqdx = 1.0
+dqdy = 1.0
+# now backprop through q = x + y
+dfdx = dfdq * dqdx  # The multiplication here is the chain rule!
+dfdy = dfdq * dqdy  
+```
+We are left with the gradients in the variables `[dfdx, dfdy, dfdz]`, which represent how sensitive the output fff is to changes in the inputs $x, y, z$ This is a simple yet effective demonstration of backpropagation. Moving forward, we’ll adopt a more concise notation that omits the `df` prefix. For instance, we’ll write `dq` instead of `dfdq`, always assuming  that the gradient is computed on the final output.
+
+This entire computation can be effectively visualized using a **circuit diagram**:
+___
+insert img
+
+The real-valued **circuit** above provides a visual representation of the computation. During the **forward pass** (values shown in green), the circuit computes intermediate values and the final output, progressing from the inputs to the output. In the **backward pass** (gradients shown in red), backpropagation begins at the output and recursively  applies the chain rule to calculate gradients, propagating backward through the circuit to the inputs.  The gradients can be thought of as flowing backwards through the circuit.
+
+___
+
+### Intuitive understanding of backpropagation
+
+> Look at appendix part for a clear explanation 
+
+Backpropagation is inherently a localized process. Each gate in a circuit diagram receives inputs and can right away independently compute two things: 1) its output value and 2) the _local_ gradient of its output with respect to its inputs. Importantly, gates can perform these computations without needing any knowledge of the full circuit that they are embedded in. However, after the forward pass is complete, the gate will receive, during backpropagation, the gradient of its output with respect to the final output of the entire circuit. According to the chain rule, the gate then combines this gradient with its local gradients to calculate the gradients for all its inputs.
+
+> The gradient of a gate's output value on the final output of the entire circuit is provided by the **upstream gradient** during backpropagation
+> 
+> **Recursive Dependency:**
+>-   Each gate or layer relies on the gradient passed from the layer after it to compute its own gradient. This continues recursively until we reach the input layer, completing the backward pass.
+
+This extra multiplication (for each input) due to the chain rule can turn a single and relatively useless gate into a cog in a complex circuit such as an entire neural network. 
+> The **"extra multiplication"** refers to the step in backpropagation where the **local gradient** of a gate is multiplied by the **upstream gradient** from the next layer, as dictated by the **chain rule**.
+
+To build intuition, let’s revisit the example. The add gate received inputs $[-2, 5]$ and computed an output of $3$. Since the gate performs an addition operation, its local gradient with respect to both inputs is $+1$. The rest of the circuit computed the final output of $-12$. During the backward pass, where the chain rule is applied recursively throught the circuit, the add gate (an input to the multiply gate) is informed that the gradient of its output is $-4$. If we imagine the circuit as aiming to increase the final output (which can help with intuition), we can interpret this as the circuit "preferring" the add gate’s output to decrease (indicated by the negative sign), with a "force" of $4$. To continue the recurrence and to chain the gradient, the add gate multiplies this gradient ($-4$) with its local gradients ($1$) for each input, resulting in gradients of $1 * -4 = -4$ for both $x$ and $y$.
+
+This adjustment achieves the desired effect: if $x$ and $y$ decrease in response to their negative gradients, the add gate’s output will also decrease, causing the multiply gate’s output to increase.
+
+Backpropagation, therefore, can be thought of as gates "communicating" through gradient signals, indicating whether their outputs should increase or decrease (and by how much) to steer the final output closer to the desired value.
+
+### Modularity: Sigmoid example
+
+> -   A convex function can be differentiable or non-differentiable.
+>-   The set of differentiable functions includes both convex and non-convex functions.
+
+The gates we introduced above are relatively arbitrary.  Any kind of differentiable function can act as a gate, and we can either group multiple operations into a single gate or split a complex function into smaller gates for convenience. Lets look at another expression that illustrates this point:
+
+$$f(w,x) = \frac{1}{1+e^{-(w_0x_0 + w_1x_1 + w_2)}}$$
+
+as we will see later in the class, this expression describes a 2-dimensional neuron (with inputs **x** and weights **w**) that uses the *sigmoid activation* function. But for now lets think of this very simply as just a function from inputs *w,x* to a single number. 
+
+> A **2-dimensional neuron** refers to a basic computational unit in a neural network that operates on two inputs ($x_0, x_1$​) and applies a mathematical transformation to produce a single output. It is called "2-dimensional" because it processes **two input features**. **$x_0​$ and $x_1$​** represent **two features of a single data example**, not two separate data examples. Since a neuron processes a **single data example** at a time., and if $x_0$​ and $x_1$​ were two separate data examples, the neuron would need to process them independently, as each data example produces its own output. However, in this equation, $x_0$​ and $x_1$​ are **combined** in the weighted sum, indicating they belong to the same data example.
+
+The function is made up of multiple gates. In addition to the ones described already above (add, mul, max), there are four more:
+
+$$f(x) = \frac{1}{x} 
+\hspace{1in} \rightarrow \hspace{1in} 
+\frac{df}{dx} = -1/x^2 
+\\\\
+f_c(x) = c + x
+\hspace{1in} \rightarrow \hspace{1in} 
+\frac{df}{dx} = 1 
+\\\\
+f(x) = e^x
+\hspace{1in} \rightarrow \hspace{1in} 
+\frac{df}{dx} = e^x
+\\\\
+f_a(x) = ax
+\hspace{1in} \rightarrow \hspace{1in} 
+\frac{df}{dx} = a$$
+
+The functions $f_c(x)$ and $f_a(x)$ add a constant $c$ or scale by a constant $a$, respectively. While these are technically special cases of addition and multiplication, they are introduced as (new) unary gates here because the constants $c$ and $a$ do not require gradients. 
+> **Unary gates** are operations in a computational graph or a neural network that take a **single input** and produce a **single output**.
+
+The full circuit then looks as follows:
+
+insert img
+
+Example circuit for a 2D neuron with a sigmoid activation function. The inputs are [x0,x1] and the (learnable) weights of the neuron are [w0,w1,w2]. As we will see later, the neuron computes a dot product with the input and then its activation is softly squashed by the sigmoid function to be in range from 0 to 1.
+> see appendix part about explain neuron operations
+> The term "softly squashed" refers to the **smooth and gradual nature** of the sigmoid curve, the transition from 0 to 1 happens gradually, without sharp changes, making it "soft."
+___
+In the example above, we observe a long chain of function applications acting on the output of the dot product between **w** and **x**. The function that these operations implement is called the *sigmoid function* $\sigma(x)$.  Interestingly, the derivative of the sigmoid function with respect to its input can be greatly simplified through a clever step, which involves adding and subtracting 1 in the numerator during the derivation.
+
+$$\sigma(x) = \frac{1}{1+e^{-x}} \\\\
+\rightarrow \hspace{0.3in} \frac{d\sigma(x)}{dx} = \frac{e^{-x}}{(1+e^{-x})^2} = \left( \frac{1 + e^{-x} - 1}{1 + e^{-x}} \right) \left( \frac{1}{1+e^{-x}} \right) 
+= \left( 1 - \sigma(x) \right) \sigma(x)$$
+
+As we see, the gradient turns out to simplify and becomes surprisingly simple. For instance, when the sigmoid function receives an input of $1.0$ and computes the output 0.73 during the forward pass.  The derivation shows that the _local_ gradient is simply calculated as $(1 - 0.73) \cdot 0.73 \approx 0.2$, matching the circuit's previous computation (refer to the image above). However, this simplified expression allows the gradient to be computed more efficiently and with fewer numerical issues. As a result, in practical applications, it is advantageous to combine all these operations into a single computational gate for better efficiency and simplicity.
+
+> From the image, the operations to group into the sigmoid gate are:
+> -   **Negation** ($*-1$)
+> -   **Exponential** ($⁡\exp$)
+> -   **Addition** ($+1$)
+> -   **Reciprocal** ($1/x$)
+> These correspond to the computation of the sigmoid function $\sigma(z)$. Once grouped, these steps are represented as a single gate that computes $\sigma(z)$ and its gradient for backpropagation.
+
+Lets see the backprop for this neuron in code:
+
+```python
+w = [2,-3,-3] # assume some random weights and data
+x = [-1, -2]
+
+# forward pass
+dot = w[0]*x[0] + w[1]*x[1] + w[2]
+f = 1.0 / (1 + math.exp(-dot)) # sigmoid function
+
+# backward pass through the neuron (backpropagation)
+ddot = (1 - f) * f # gradient on dot variable, using the sigmoid gradient derivation
+dx = [w[0] * ddot, w[1] * ddot] # backprop into x
+dw = [x[0] * ddot, x[1] * ddot, 1.0 * ddot] # backprop into w
+# we're done! we have the gradients on the inputs to the circuit
+```
+
+**Implementation protip: staged backpropagation**. In practice, it's often helpful to break the forward pass into smaller, manageable stages that can be easily processed during backpropagation. For instance, in the example above, we introduced an intermediate variable `dot` to store the result of the dot product between `w` and `x`. During backward pass we then successively compute (in reverse order) the corresponding variables (e.g. `ddot`, and ultimately `dw, dx`) that hold the gradients of those variables.
+
+The key takeaway here is that the details of how the backpropagation is performed, and which parts of the forward function we think of as gates, is a matter of convenience. It helps to be aware of which parts of the expression have easy local gradients, so that they can be chained together with the least amount of code and effort. 
+
+### Backprop in practice: Staged computation
+
+Lets see this with another example. Suppose that we have a function of the form:
+
+$$f(x,y) = \frac{x + \sigma(y)}{\sigma(x) + (x+y)^2}$$
+
+
+To be clear, this function is completely useless and it's not clear why you would ever want to compute its gradient, except for the fact that it is a good example of backpropagation in practice. It's worth noting that directly differentiating with respect to $x$ or $y$ would lead to cumbersome and complex expressions. However, explicit differentiation is unnecessary—we don't need to have an explicit function written down that evaluates the gradient. Instead, we only have to know how to compute it. Below is an example of how to structure the forward pass for such a function:
+
+```python
+x = 3 # example values
+y = -4
+
+# forward pass
+sigy = 1.0 / (1 + math.exp(-y)) # sigmoid in numerator   #(1)
+num = x + sigy # numerator                               #(2)
+sigx = 1.0 / (1 + math.exp(-x)) # sigmoid in denominator #(3)
+xpy = x + y                                              #(4)
+xpysqr = xpy**2                                          #(5)
+den = sigx + xpysqr # denominator                        #(6)
+invden = 1.0 / den                                       #(7)
+f = num * invden # done!                                 #(8)
+```
+By the end of the forward pass, we have computed the desired output by breaking the computation into multiple intermediate variables (e.g., `sigy`, `num`, `sigx`, `xpy`, `xpysqr`, `den`, `invden`). Each intermediate variable corresponds to a simple operation for which the local gradient is well-known. Therefore, computing the backprop pass is easy: We'll go backwards and for every variable along the way in the forward pass (`sigy, num, sigx, xpy, xpysqr, den, invden`) we will have the same variable, but one that begins with a `d`, which will hold the gradient of the output of the circuit with respect to that variable. Additionally, note that every single piece in our backprop will involve computing the local gradient of that expression, and chaining it with the gradient on that expression with a multiplication. For each row, we also highlight which part of the forward pass it refers to:
+
+> We'll go backward through the computation, and for every intermediate variable, we compute its local gradient and combine it with the gradient flowing back from subsequent steps using multiplication. Each step in the backward pass directly corresponds to a part of the forward pass.
+
+```python
+# backprop f = num * invden
+dnum = invden # gradient on numerator                             #(8)
+dinvden = num                                                     #(8)
+# backprop invden = 1.0 / den 
+dden = (-1.0 / (den**2)) * dinvden                                #(7)
+# backprop den = sigx + xpysqr
+dsigx = (1) * dden                                                #(6)
+dxpysqr = (1) * dden                                              #(6)
+# backprop xpysqr = xpy**2
+dxpy = (2 * xpy) * dxpysqr                                        #(5)
+# backprop xpy = x + y
+dx = (1) * dxpy                                                   #(4)
+dy = (1) * dxpy                                                   #(4)
+# backprop sigx = 1.0 / (1 + math.exp(-x))
+dx += ((1 - sigx) * sigx) * dsigx # Notice += !! See notes below  #(3)
+# backprop num = x + sigy
+dx += (1) * dnum                                                  #(2)
+dsigy = (1) * dnum                                                #(2)
+# backprop sigy = 1.0 / (1 + math.exp(-y))
+dy += ((1 - sigy) * sigy) * dsigy                                 #(1)
+# done! phew
+```
+> For example, f = num * invden, in this backprop, will calculate each of its input dnum and dinvden,  and for num = x + sigy, the input is x and sigy, so calculate dx and dsigy.
+
+Notice a few things:
+**Cache forward pass variables**. During the backward pass, it is crucial to reuse the intermediate variables computed in the forward pass. Storing these variables, also known as caching. In practice you want to structure your code so that you cache these variables, and so that they are available during backpropagation. If this is too difficult, it is possible (but wasteful) to recompute them.
+
+**Gradients add up at forks**. In the forward pass, variables like $x$ and $y$ might contribute to multiple parts of the computation graph. When backpropagating, the gradients from these branches must be **added together** to get the total gradient. To achieve this, use `+=` instead of `=`, ensuring the gradient contributions are accumulated rather than overwritten. This follows the *multivariable chain rule* in Calculus, which states that if a variable branches out to different parts of the circuit, then the gradients that flow back to it will add.
+
+### Patterns in backward flow
+
+The backward flow of gradients in neural networks can often be interpreted intuitively, especially for the three most commonly used gates: **add**, **multiply**, and **max**, all have very simple interpretations in terms of how they act during backpropagation.  Consider the example circuit below:
+
+___
+insert img
+
+An example circuit demonstrating the intuition behind the operations that backpropagation performs during the backward pass in order to compute the gradients on the inputs. The sum operation evenly distributes the gradient across all its inputs. The max operation directs the gradient to the input with the highest value. Multiply gate takes the input activations, swaps them and multiplies by its incoming gradient.
+
+> **Input activations** refer to the inputs $x$ and $y$ provided to the multiply gate during the forward pass.
+> The multiply gate computes gradients for its inputs by swapping their values and scaling them by the incoming gradient.
+___
+
+Looking at the diagram above, we can observe the following:
+
+The **add gate** always takes the gradient on its output and distributes it equally to all of its inputs, regardless of their values during the forward pass. This happens because the local gradient of the add operation with respect to each input is $+1.0$. As a result, the gradients on all inputs are equal to the gradient at the output, because it will be multiplied by $1.0$, leaving them unchanged. In the example circuit, the add gate evenly routed the gradient of $2.00$ to both of its inputs, equally and unchanged.
+
+> **Everyday English**: Distribute equally = Split the total into equal portions. **Backpropagation Context**: Distribute equally = Assign the same value (not split) to each input.
+
+Unlike the add gate, which distributes the gradient unchanged to all its inputs, the **max gate** directs the gradient (unchanged) exclusively to the input with the highest value during the forward pass. The local gradient of the max gate is $1.0$ for the input with the maximum value and $0.0$ for all others. In the example circuit, the max gate routed the gradient of $2.00$ to the $z$ variable (which had a higher value than **w**), leaving the gradient on $w$ remains zero.
+
+The **multiply gate** is a little less easy to interpret. Its local gradients are the input values (swapped for each input), which are then multiplied by the gradient from its output as per the chain rule. In the example circuit, the gradient on $x$ is $-8.00$, calculated as $-4.00 \cdot 2.00$ (input $y$ multiplied by the output gradient).
+> The **output gradient** refers to the gradient of the loss $L$ with respect to the output of the multiply gate ($z$).
+
+*Unintuitive effects and their consequences*. When one input to the multiply gate is very small and the other is very large, then the multiply gate will do something slightly unintuitive: it will assign a relatively huge gradient to the small input and a tiny gradient to the large input. Note that in linear classifiers where the weights are dot producted $w^Tx_i$ (multiplied) with the inputs, this implies that the scale of the data has an effect on the magnitude of the gradient for the weights. For example, If all input values $x_i$ are scaled by a factor of $1000$ during preprocessing, the gradients of the weights will also increase by a factor of $1000$. To stabilize training, you’d have to lower the learning rate by that factor to compensate. This is why preprocessing matters a lot, sometimes in subtle ways! This highlights the importance of data preprocessing, such as normalization or standardization, to avoid unintended gradient scaling. Having an intuitive understanding of how gradients flow can help identify and resolve such issues during debugging.
+
+### Gradients for vectorized operations
+> looking at appendix part
+
+The above sections were concerned with single variables, but all concepts extend in a straight-forward manner to matrix and vector operations. However, extra care must be taken to account for the dimensions of the matrices and the need for transpose operations.
+
+**Matrix-Matrix multiply gradient**. Possibly the most tricky operation is the matrix-matrix multiplication (which generalizes all matrix-vector and vector-vector) multiply operations:
+
+```python
+# forward pass
+W = np.random.randn(5, 10)
+X = np.random.randn(10, 3)
+D = W.dot(X)
+
+# now suppose we had the gradient on D from above in the circuit
+dD = np.random.randn(*D.shape) # same shape as D
+dW = dD.dot(X.T) #.T gives the transpose of the matrix
+dX = W.T.dot(dD)
+```
+*Tip: use dimension analysis!* You don’t need to memorize the formulas for `dW` and `dX` because they can easily be re-derived using dimensional reasoning. For example, the gradient of the weights `dW` must have the same shape as `W` after computation. Additionally, it should involve the matrix multiplication of `X` and `dD`. This logic holds true even when both `X,W` are single numbers and not matrices. To ensure the dimensions align correctly, there is only one valid way to compute the gradient. For example, `X` is of size [10 x 3] and `dD` of size [5 x 3], so if we want `dW` and `W` has shape [5 x 10], then the only way of achieving this is with `dD.dot(X.T)`, as shown above.
+
+**Work with small, explicit examples**. Some people may find it difficult at first to derive the gradient updates for some vectorized expressions. Our recommendation is to explicitly write out a minimal vectorized example, derive the gradient on paper and then generalize the pattern to its efficient, vectorized form.
+
+Erik Learned-Miller has also written up a longer related document on taking matrix/vector derivatives which you might find helpful. [Find it here](http://cs231n.stanford.edu/vecDerivs.pdf).
+
+
+### Summary
+
+- We developed intuition for what the gradients mean, how they flow backwards in the circuit, and how they communicate which part of the circuit should increase or decrease and with what force to make the final output higher.
+> We built an understanding of gradients, how they flow backward through a computational graph, and how they indicate which parts of the circuit should adjust (and by how much) to increase the final output.
+>
+- We emphasized the importance of **staged computation** for practical implementations of backpropagation. It’s best to break a function into smaller modules where local gradients can be easily derived, and then combine them using the chain rule. Crucially, you almost never want to write out these expressions on paper and differentiate them symbolically in full, because you never need an explicit mathematical equation for the gradient of the input variables. Hence, decompose your expressions into stages such that you can differentiate every stage independently (the stages will be matrix vector multiplies, or max operations, or sum operations, etc.) and then backprop through the variables one step at a time. 
+
+> Instead, decompose the function into stages (e.g., matrix-vector multiplications, max operations, sum operations), compute gradients for each stage independently, and propagate the gradients back through the graph step by step.
+
+In the next section, we will start to define neural networks and use backpropagation to efficiently compute the gradient of a loss function with respect to the model's parameters. In other words, we're now ready to train neural nets, and the most conceptually difficult part of this class is behind us! ConvNets will then be a small step away.
+
+### Appendix
+
+#### 1. **Roles of Each Gate in Backpropagation**
+
+-   **Add Gate (at $q = x + y$)**:
+    
+    -   **Forward Pass**:
+        -   Computes and stores $q = x + y$(its output).
+    -   **Backward Pass**:
+        -   Stores its **local gradients**:
+            -   $\frac{\partial q}{\partial x} = 1$
+            -   $\frac{\partial q}{\partial y} = 1$
+        -   Receives $\frac{\partial f}{\partial q}$​ (upstream gradient from the multiply gate).
+        -   Computes $\frac{\partial f}{\partial x}$​ and $\frac{\partial f}{\partial y}$​ using: $\frac{\partial f}{\partial x} = \frac{\partial f}{\partial q} \cdot \frac{\partial q}{\partial x}, \quad \frac{\partial f}{\partial y} = \frac{\partial f}{\partial q} \cdot \frac{\partial q}{\partial y}.$
+        -   These values ($\frac{\partial f}{\partial x}$and$\frac{\partial f}{\partial y}$​) are sent back to their respective inputs.
+-   **Multiply Gate (at $f = q \cdot z$)**:
+    
+    -   **Forward Pass**:
+        -   Computes and stores $f = q \cdot z$ (its output).
+    -   **Backward Pass**:
+        -   Stores its **local gradients**:
+            -   $\frac{\partial f}{\partial q} = z$
+            -   $\frac{\partial f}{\partial z} = q$
+        -   Receives $\frac{\partial f}{\partial f} = 1$ (from the final output).
+        -   Computes $\frac{\partial f}{\partial q}$​ and $\frac{\partial f}{\partial z}$​ using: $\frac{\partial f}{\partial q} = \frac{\partial f}{\partial f} \cdot \frac{\partial f}{\partial q}, \quad \frac{\partial f}{\partial z} = \frac{\partial f}{\partial f} \cdot \frac{\partial f}{\partial z}.$
+        -   These values are sent back to the add gate ($q$) and input $z$, respectively.
+-   **Final Output Gate (at $f$)**:
+    
+    -   Does not need to store $\frac{\partial f}{\partial f}$​, as it is always $1$.
+    -   $\frac{\partial f}{\partial f}$ is simply used as the starting point of backpropagation.
+
+#### 2. **Where Are Gradients Stored?**
+
+-   **Local Gradients**:
+    
+    -   Each gate (e.g., the add gate and multiply gate) computes and stores its own local gradients (e.g., $\frac{\partial q}{\partial x}, \frac{\partial q}{\partial y}$​ in the add gate, or $\frac{\partial f}{\partial q}, \frac{\partial f}{\partial z}$​ in the multiply gate).
+-   **Upstream Gradients**:
+    
+    -   Each gate **receives** the gradient of its output with respect to the final output ($\frac{\partial f}{\partial q}$ for the add gate, or $\frac{\partial f}{\partial f} = 1$ for the multiply gate).
+    -   These are computed during backpropagation and passed from one gate to the next.
+-   **Final Gradient ($\frac{\partial f}{\partial f}$​)**:
+    
+    -   This is always $1$, and it does not need to be stored. It serves as the starting point for the backward pass.
+
+#### Another Example for Backward Pass:
+$$\frac{\partial f}{\partial b} = \frac{\partial f}{\partial q} \cdot \frac{\partial q}{\partial z} \cdot \frac{\partial z}{\partial b}.$$
+1.  **Gate $f$** starts backpropagation:
+    -   Computes $\frac{\partial f}{\partial q}$​ (local gradient) and sends it to **Gate $q$**.
+2.  **Gate $q$**:
+    -   Receives $\frac{\partial f}{\partial q}$​.
+    -   Computes $\frac{\partial f}{\partial z} = \frac{\partial f}{\partial q} \cdot \frac{\partial q}{\partial z}$.
+    -   Sends $\frac{\partial f}{\partial z}$ to **Gate $z$**.
+3.  **Gate $z$**:
+    -   Receives $\frac{\partial f}{\partial z}$.
+    -   Computes $\frac{\partial f}{\partial b} = \frac{\partial f}{\partial z} \cdot \frac{\partial z}{\partial b}$​.
+    -   Sends $\frac{\partial f}{\partial b}$​ to **Gate $b$**.
+
+### Explain neuron operations
+A **neuron** in a neural network typically performs **two main operations**:
+
+1.  **Computing the weighted sum** (or linear transformation):
+    
+   $$z = w_0x_0 + w_1x_1 + \dots + w_nx_n + b$$
+   -   This step combines the inputs ($x_i$) with their corresponding weights ($w_i$) and adds a bias term ($b$).
+    -   The result $z$ is called the **pre-activation** value.
+2.  **Applying an activation function**:
+    
+   $$f(z) = \sigma(z)$$
+   -   The activation function (e.g., **sigmoid**, ReLU, or tanh) transforms the weighted sum into the final output of the neuron.
+    -   This step introduces **non-linearity**, enabling the network to model complex relationships in the data.
+
+### Explain for vectorized operations
+```python
+# Non-vectorized (loop-based):
+result = []
+for i in range(len(a)):
+    result.append(a[i] + b[i])
+
+# Vectorized:
+result = a + b  # Done in one line, much faster
+```
+```python
+import numpy as np
+
+# Vectors
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+c = a + b  # Result: [5, 7, 9]
+
+# Matrices
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+C = A + B  # Result: [[6, 8], [10, 12]]
+```
+> Both **matrix operations** and **vector operations** are considered **vectorized operations**
+
+ **Examples of Vectorized Operations**
+
+#### **Vector Operations**
+
+1.  **Addition**:
+    
+    $$\mathbf{c} = \mathbf{a} + \mathbf{b}, \quad \text{where } \mathbf{a}, \mathbf{b} \in \mathbb{R}^n$$
+2.  **Dot Product**:
+    
+    $$s = \mathbf{a}^T \mathbf{b}, \quad \text{result is a scalar.}$$
+
+#### **Matrix Operations**
+
+1.  **Matrix-Vector Multiplication**:
+    
+   $$\mathbf{y} = \mathbf{A} \cdot \mathbf{x}, \quad \text{where } \mathbf{A} \in \mathbb{R}^{m \times n}, \mathbf{x} \in \mathbb{R}^n$$
+
+2.  **Matrix-Matrix Multiplication**:
+    
+   $$\mathbf{C} = \mathbf{A} \cdot \mathbf{B}, \quad \text{where } \mathbf{A} \in \mathbb{R}^{m \times n}, \mathbf{B} \in \mathbb{R}^{n \times p}$$
+
+## Reference:
+- [https://cs231n.github.io/optimization-2/](https://cs231n.github.io/optimization-2/)
+  
 # Version 2 Backpropagation 
 Backpropagation is the algorithm used to calculate the gradient of the loss function with respect to each parameter (weight) in a neural network. It allows the network to update these weights in a way that minimizes the loss function, enabling the network to learn from the data.
 
