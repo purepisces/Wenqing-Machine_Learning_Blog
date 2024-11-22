@@ -48,4 +48,46 @@ a_{11} & a_{21} \\
 a_{12} & a_{22} \\
 a_{13} & a_{23}
 \end{pmatrix}$$
+___
+### Dot Product
+**Mathematical Definition**
 
+For two vectors $\mathbf{a}$ and $\mathbf{b}$ of the same length $n$:
+
+$$\mathbf{a} = [a_1, a_2, \dots, a_n], \quad \mathbf{b} = [b_1, b_2, \dots, b_n]$$
+
+The dot product is defined as:
+
+$$\mathbf{a} \cdot \mathbf{b} = \sum_{i=1}^n a_i b_i$$
+
+
+**Example**
+
+Suppose:
+
+$$\mathbf{a} = [1, 2, 3], \quad \mathbf{b} = [4, 5, 6]$$
+
+The dot product is:
+
+$$\mathbf{a} \cdot \mathbf{b} = (1 \cdot 4) + (2 \cdot 5) + (3 \cdot 6) = 4 + 10 + 18 = 32$$
+
+Result: 32 (a scalar).
+
+**Geometric Interpretation**
+
+The dot product can also be interpreted geometrically. For two vectors $\mathbf{a}$ and $\mathbf{b}$:
+
+$$\mathbf{a} \cdot \mathbf{b} = \|\mathbf{a}\| \|\mathbf{b}\| \cos\theta$$
+
+where:
+
+-   $\|\mathbf{a}\|$ is the magnitude (length) of a\mathbf{a}a,
+-   $\|\mathbf{b}\|$ is the magnitude of b\mathbf{b}b,
+-   $\theta$ is the angle between the two vectors.
+
+**Implications of the Dot Product**:
+
+1.  **$\mathbf{a} \cdot \mathbf{b} > 0$**: The angle $\theta$ between the vectors is less than $90^\circ$ (acute).
+2.  **$\mathbf{a} \cdot \mathbf{b} < 0$**: The angle $\theta$ is greater than $90^\circ$ (obtuse).
+3.  **$\mathbf{a} \cdot \mathbf{b} = 0$**: The vectors are orthogonal (perpendicular).
+___
