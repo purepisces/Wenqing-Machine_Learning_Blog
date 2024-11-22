@@ -395,4 +395,4 @@ In this section, we explored how to map images to class scores using parameteriz
 
 
 ## Reference:
-- [https://cs231n.github.io/classification/](https://cs231n.github.io/linear-classify/)
+- [https://cs231n.github.io/optimization-2/](https://cs231n.github.io/optimization-2/)
