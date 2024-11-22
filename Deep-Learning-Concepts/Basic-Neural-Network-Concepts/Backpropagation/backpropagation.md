@@ -284,7 +284,7 @@ The backward flow of gradients in neural networks can often be interpreted intui
 
 ___
 
-<img src="intuition-backpropogation.png" alt="intuition-backpropogation" width="700" height="300"/>
+<img src="intuition-backpropogation.png" alt="intuition-backpropogation" width="400" height="250"/>
 
 An example circuit demonstrating the intuition behind the operations that backpropagation performs during the backward pass in order to compute the gradients on the inputs. The sum operation evenly distributes the gradient across all its inputs. The max operation directs the gradient to the input with the highest value. Multiply gate takes the input activations, swaps them and multiplies by its incoming gradient.
 
