@@ -116,7 +116,7 @@ We are left with the gradients in the variables `[dfdx, dfdy, dfdz]`, which repr
 
 This entire computation can be effectively visualized using a **circuit diagram**:
 ___
-insert img
+<img src="real-valued-circuit.png" alt="real-valued-circuit" width="600" height="300"/>
 
 The real-valued **circuit** above provides a visual representation of the computation. During the **forward pass** (values shown in green), the circuit computes intermediate values and the final output, progressing from the inputs to the output. In the **backward pass** (gradients shown in red), backpropagation begins at the output and recursively  applies the chain rule to calculate gradients, propagating backward through the circuit to the inputs.  The gradients can be thought of as flowing backwards through the circuit.
 
@@ -178,7 +178,8 @@ The functions $f_c(x)$ and $f_a(x)$ add a constant $c$ or scale by a constant $a
 
 The full circuit then looks as follows:
 
-insert img
+<img src="full-circuit.png" alt="full-circuit" width="700" height="300"/>
+
 
 Example circuit for a 2D neuron with a sigmoid activation function. The inputs are [x0,x1] and the (learnable) weights of the neuron are [w0,w1,w2]. As we will see later, the neuron computes a dot product with the input and then its activation is softly squashed by the sigmoid function to be in range from 0 to 1.
 > see appendix part about explain neuron operations
@@ -282,7 +283,8 @@ Notice a few things:
 The backward flow of gradients in neural networks can often be interpreted intuitively, especially for the three most commonly used gates: **add**, **multiply**, and **max**, all have very simple interpretations in terms of how they act during backpropagation.  Consider the example circuit below:
 
 ___
-insert img
+
+<img src="intuition-backpropogation.png" alt="intuition-backpropogation" width="700" height="300"/>
 
 An example circuit demonstrating the intuition behind the operations that backpropagation performs during the backward pass in order to compute the gradients on the inputs. The sum operation evenly distributes the gradient across all its inputs. The max operation directs the gradient to the input with the highest value. Multiply gate takes the input activations, swaps them and multiplies by its incoming gradient.
 
