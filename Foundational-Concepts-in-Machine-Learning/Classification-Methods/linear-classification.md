@@ -393,6 +393,6 @@ To summarize:
 
 In this section, we explored how to map images to class scores using parameterized models and evaluated predictions through loss functions. The next step is to determine the parameters that minimize this loss, a process known as _optimization_, which will be covered in the following section.
 
-
 ## Reference:
-- [https://cs231n.github.io/optimization-2/](https://cs231n.github.io/optimization-2/)
+- [https://cs231n.github.io/classification/](https://cs231n.github.io/linear-classify/)
+
