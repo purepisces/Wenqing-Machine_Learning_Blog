@@ -277,6 +277,11 @@
   - [Setting up Docker for Machine Learning Projects](Deployment-and-DevOps-Tools/Docker/setup-docker-ml-projects.md)
   - [Docker Commands and Usage](Deployment-and-DevOps-Tools/Docker/docker-commands.md)
 
+- **CI/CD**
+  - [Overview of CI/CD](Deployment-and-DevOps-Tools/CI-CD/overview-ci-cd.md)
+  - [Setting Up CI/CD for Machine Learning Projects](Deployment-and-DevOps-Tools/CI-CD/setup-ci-cd.md)
+  - [Best Practices for CI/CD in ML](Deployment-and-DevOps-Tools/CI-CD/best-practices.md)
+
 ## Code Implementation
 - [Image Segmentation Task For CGG](Code-Implementation/CGG)
 - [Decision Tree](Code-Implementation/Decision-Tree)
