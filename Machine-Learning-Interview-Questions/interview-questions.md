@@ -57,7 +57,12 @@ TensorFlow constructs computation graphs to organize operations. It enables clea
 
 A decorator in Python is a function that wraps another function, adding functionality. They’re useful for logging, timing, and access control, among other things.
 
+___
+**What is Regularization in ML??**
 
+Regularization is a technique used to prevent overfitting in ML models. Overfitting occurs when a model is too complex and fits the training data too closely, resulting in poor performance on new, unseen data. Regularization techniques add a penalty term to the model's objective function, which encourages the model to find simpler solutions by reducing the magnitude of the coefficients or parameters in the model. This reduces the model's ability to fit the noise in the training data, resulting in better generalization performance on new data. Some popular regularization techniques include L1 (lasso) and L2 (ridge) regularization, which differ in the way they penalize the coefficients.
+
+___
 
 
 ## Question 1
