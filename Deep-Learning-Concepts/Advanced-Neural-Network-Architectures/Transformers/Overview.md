@@ -1,4 +1,33 @@
+___
+Q = X W_Q, \quad K = X W_K, \quad V = X W_V what is the dimension for each?
 
+The equations represent the projection of the input XXX into query (QQQ), key (KKK), and value (VVV) spaces using the weight matrices WQW_QWQ​, WKW_KWK​, and WVW_VWV​. To understand the dimensions of QQQ, KKK, and VVV, we need to analyze the dimensions of the components:
+
+### Variables and Dimensions:
+
+-   XXX: The input matrix of shape (N,dmodel)(N, d_{\text{model}})(N,dmodel​), where:
+    
+    -   NNN is the batch size (number of input sequences or tokens).
+    -   dmodeld_{\text{model}}dmodel​ is the dimensionality of the model (the embedding size of the input).
+-   WQW_QWQ​, WKW_KWK​, WVW_VWV​: Weight matrices of shape (dmodel,dk)(d_{\text{model}}, d_k)(dmodel​,dk​), (dmodel,dk)(d_{\text{model}}, d_k)(dmodel​,dk​), and (dmodel,dv)(d_{\text{model}}, d_v)(dmodel​,dv​), respectively. These matrices project XXX into lower-dimensional spaces for queries, keys, and values:
+    
+    -   dkd_kdk​: The dimensionality of the query and key projections (typically a hyperparameter).
+    -   dvd_vdv​: The dimensionality of the value projections (can differ from dkd_kdk​).
+
+### Resulting Dimensions:
+
+-   Q=XWQQ = X W_QQ=XWQ​: (N,dmodel)×(dmodel,dk)=(N,dk)(N, d_{\text{model}}) \times (d_{\text{model}}, d_k) = (N, d_k)(N,dmodel​)×(dmodel​,dk​)=(N,dk​).
+-   K=XWKK = X W_KK=XWK​: (N,dmodel)×(dmodel,dk)=(N,dk)(N, d_{\text{model}}) \times (d_{\text{model}}, d_k) = (N, d_k)(N,dmodel​)×(dmodel​,dk​)=(N,dk​).
+-   V=XWVV = X W_VV=XWV​: (N,dmodel)×(dmodel,dv)=(N,dv)(N, d_{\text{model}}) \times (d_{\text{model}}, d_v) = (N, d_v)(N,dmodel​)×(dmodel​,dv​)=(N,dv​).
+
+### Summary:
+
+-   QQQ has shape (N,dk)(N, d_k)(N,dk​).
+-   KKK has shape (N,dk)(N, d_k)(N,dk​).
+-   VVV has shape (N,dv)(N, d_v)(N,dv​).
+
+These shapes are crucial for computing the attention mechanism, where the dot product attention computes scores between QQQ and KTK^TKT, followed by weighting VVV.
+___
 In GPT, there is **no cross-attention layer** because there is no encoder. The cross-attention layer is specifically used to attend to encoder outputs, which are not present in models like GPT that rely solely on the decoder for autoregressive generation. Therefore, GPT consists of **masked self-attention** and **feed-forward** layers only.
 
 Autoregressive generation refers to a process in which a model generates a sequence (such as text) one element (or token) at a time, where each token is predicted based on the previously generated tokens. The term autoregressive means that each step in the generation process depends on the outputs of the previous steps.
