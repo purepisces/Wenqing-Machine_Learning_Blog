@@ -79,18 +79,42 @@ Cross validation is a concept used to evaluate models’ performances to avoid 
 
 P-value or probability value indicates the probability of obtaining the observed data or more extreme values by random chance. A small P-value suggests that the observed result is unlikely and that observed data is consistent with the null hypothesis and provides evidence to support the alternative hypothesis.
 
-## Question 2
-
+___
 **What are the types of Machine learning?**
 
 There are mainly three types of Machine Learning, viz:
 
 Reinforcement learning: It is about taking the best possible action to maximize reward in a particular scenario. It is used by various software and machines to find the best path it should take in a given situation.
 
+>**Examples**:
+>-   Training a robot to navigate a maze:
+>     -   **Agent**: The robot.
+ >    -   **Environment**: The maze.
+>     -   **Actions**: Move up, down, left, or right.
+ >    -   **Reward**: Positive for reaching the goal; negative for hitting walls.
+> -   Playing video games: Agents learn strategies to win games (e.g., AlphaGo).
+
 Supervised learning: Using labeled datasets to train algorithms to classify data easily for predicting accurate outcomes. Supervised algorithms are those that use labeled data to learn a mapping function from input variables to output variables.
+
+>**Examples**:
+>-   **Classification**: Predicting if an email is spam or not (Spam Detection).
+>     -   Input: Email text and features (e.g., keywords, sender).
+>     -   Output: Label ("Spam" or "Not Spam").
+>-   **Regression**: Predicting house prices based on features like size, location, and age.
+>     -   Input: Features (size, location, age).
+>     -   Output: Continuous value (price).
+
 
 Unsupervised learning: It uses ML to analyze and cluster unlabeled datasets. Unsupervised algorithms learn from unlabeled data and discover hidden patterns and structures in the data.
 
+>**Examples**:
+>-   **Clustering**: Grouping customers with similar purchasing behaviors (Customer Segmentation).
+>     -   Input: Customer features (purchase history, age, location).
+>     -   Output: Clusters (e.g., high-spending, low-spending groups).
+>-   **Dimensionality Reduction**: Reducing the number of features in a dataset while retaining meaningful information.
+>     -   Example: Visualizing high-dimensional data in 2D (PCA, t-SNE).
+
+___
 ## Question 3
 
 **What are five popular algorithms used in Machine Learning?**
