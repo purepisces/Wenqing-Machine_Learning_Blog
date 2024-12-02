@@ -291,6 +291,7 @@
 
 ## NLP
 - [Text Classification](NLP/Text-Classification.md)
+- [Named-Entity-Recognition](NLP/Named-Entity-Recognition.md)
 - [Corpus](NLP/Corpus.md)
 - [Text Normalization](NLP/Text-Normalization.md)
 - [Support Vector Machines (SVM)](NLP/SVM.md)
