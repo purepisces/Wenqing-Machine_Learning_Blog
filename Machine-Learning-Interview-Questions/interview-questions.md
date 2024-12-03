@@ -80,6 +80,7 @@ Cross validation is a concept used to evaluate models’ performances to avoid 
 P-value or probability value indicates the probability of obtaining the observed data or more extreme values by random chance. A small P-value suggests that the observed result is unlikely and that observed data is consistent with the null hypothesis and provides evidence to support the alternative hypothesis.
 
 ___
+
 **What are the types of Machine learning?**
 
 There are mainly three types of Machine Learning, viz:
@@ -89,10 +90,10 @@ Reinforcement learning: It is about taking the best possible action to maximize 
 >**Examples**:
 >-   Training a robot to navigate a maze:
 >     -   **Agent**: The robot.
- >    -   **Environment**: The maze.
+ >     -   **Environment**: The maze.
 >     -   **Actions**: Move up, down, left, or right.
- >    -   **Reward**: Positive for reaching the goal; negative for hitting walls.
-> -   Playing video games: Agents learn strategies to win games (e.g., AlphaGo).
+ >     -   **Reward**: Positive for reaching the goal; negative for hitting walls.
+>  -   Playing video games: Agents learn strategies to win games (e.g., AlphaGo).
 
 Supervised learning: Using labeled datasets to train algorithms to classify data easily for predicting accurate outcomes. Supervised algorithms are those that use labeled data to learn a mapping function from input variables to output variables.
 
@@ -103,7 +104,6 @@ Supervised learning: Using labeled datasets to train algorithms to classify data
 >-   **Regression**: Predicting house prices based on features like size, location, and age.
 >     -   Input: Features (size, location, age).
 >     -   Output: Continuous value (price).
-
 
 Unsupervised learning: It uses ML to analyze and cluster unlabeled datasets. Unsupervised algorithms learn from unlabeled data and discover hidden patterns and structures in the data.
 
