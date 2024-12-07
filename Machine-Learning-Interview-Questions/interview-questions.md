@@ -58,6 +58,27 @@ TensorFlow constructs computation graphs to organize operations. It enables clea
 A decorator in Python is a function that wraps another function, adding functionality. They’re useful for logging, timing, and access control, among other things.
 
 ___
+**Logistic Regression** is a statistical and machine learning method used for **binary classification** problems, where the goal is to predict one of two possible outcomes (e.g., Yes/No, 0/1, True/False). Despite its name, logistic regression is a **classification algorithm**, not a regression algorithm.
+
+**Logistic (Sigmoid) Function:**
+
+-   Logistic regression uses the **sigmoid function** to map any input value to a probability between 0 and 1: 
+$$\sigma(z) = \frac{1}{1 + e^{-z}}$$​ where:
+    -   $z = w^T x + b$ (the linear combination of features, weights, and bias).
+___
+cross-validation
+
+For each regularization value (e.g., $\lambda = 0.1, 1, 10$), the model is trained **5 times** during cross-validation when using 5-fold cross-validation.
+
+**Purpose:** Training the model 5 times ensures that the evaluation considers how well the regularization value generalizes across different subsets of the data.
+___
+
+Evaluation Metrics for Classification vs Regression
+
+-   Use **F1 Score** for classification, especially in imbalanced datasets.
+-   Use **MAE, MSE, or RMSE** for regression, depending on whether you prioritize interpretability or sensitivity to large errors.
+
+___
 **What is Regularization in ML??**
 
 Regularization is a technique used to prevent overfitting in ML models. Overfitting occurs when a model is too complex and fits the training data too closely, resulting in poor performance on new, unseen data. Regularization techniques add a penalty term to the model's objective function, which encourages the model to find simpler solutions by reducing the magnitude of the coefficients or parameters in the model. This reduces the model's ability to fit the noise in the training data, resulting in better generalization performance on new data. Some popular regularization techniques include L1 (lasso) and L2 (ridge) regularization, which differ in the way they penalize the coefficients.
