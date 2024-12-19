@@ -303,6 +303,7 @@
 - [NMF (Non-Negative Matrix Factorization)](Recommendation-System/nmf.md)
 - [Content-Based Filtering](Recommendation-System/Content-Based-Filtering.md)
 - [Collaborative Filtering](Recommendation-System/Collaborative-Filtering.md)
+- [FAISS Index](Recommendation-System/FAISS-Index.md)
 
 ## Other
 - [Object-Relational Mapping (ORM)](Other/ORM.md)
