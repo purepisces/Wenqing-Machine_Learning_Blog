@@ -1,3 +1,5 @@
+Can also add this component: https://www.turing.com/kb/ultimate-guidebook-for-regularization-techniques-in-deep-learning
+___
 # Regularization Overview
 
 Regularization is a crucial concept in machine learning, introduced to address overfitting and improve the generalization of models. It modifies the loss function to include an additional term that penalizes complex or large weights, encouraging the model to learn simpler and more generalizable representations.
