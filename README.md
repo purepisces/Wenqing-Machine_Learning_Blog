@@ -219,6 +219,8 @@
   
 - **Transformer Networks**
   - [Overview of Transformers](Deep-Learning-Concepts/Advanced-Neural-Network-Architectures/Transformers/Overview.md)
+- **MoE**
+  - [sparsely-gated-MoE-top-k.md](Deep-Learning-Concepts/Advanced-Neural-Network-Architectures/MoE/sparsely-gated-MoE-top-k.md)
 
 ### Sequence Models
 - [Overview](sequence-models-overview.md)
