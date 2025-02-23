@@ -4,9 +4,6 @@
 
 
 ## Foundational Concepts in Machine Learning
-- **Jargon**
-  - [Batch Size](Foundational-Concepts-in-Machine-Learning/Jargon/batch-size.md)
-  - [Sequence Length](Foundational-Concepts-in-Machine-Learning/Jargon/sequence-length.md)
 - **Linear Algebra**
   - [Basic](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/Basic.md)
   - [Numpy Tips](Foundational-Concepts-in-Machine-Learning/Linear-Algebra/Numpy-Tips.md)
@@ -133,6 +130,9 @@
   - [Overview](Foundational-Concepts-in-Machine-Learning/t-sne.md)
 - **Dimensionality Reduction**
   - [Principal Component Analysis (PCA)](Foundational-Concepts-in-Machine-Learning/Dimensionality-Reduction/pca.md)
+- **Jargon**
+  - [Batch Size](Foundational-Concepts-in-Machine-Learning/Jargon/batch-size.md)
+  - [Sequence Length](Foundational-Concepts-in-Machine-Learning/Jargon/sequence-length.md)
  
 ## Deep Learning Concepts
 
