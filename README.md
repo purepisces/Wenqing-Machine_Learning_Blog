@@ -162,6 +162,7 @@
   - [Dropout](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/Dropout.md)
   - [Identity Layer](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/Identity.md)
   - [Sequential Layer](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/Sequential.md)
+  - [Embedding Layer](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Layers/Embedding.md)
 
 - **Neural Network Models**
   - [Overview](Deep-Learning-Concepts/Basic-Neural-Network-Concepts/Neural-Network-Models/neural-network-models.md)
