@@ -34,6 +34,52 @@ If you request **all layers’ hidden states**, you typically get a tuple/list:
   - includes embedding output (layer 0) + each Transformer layer output (layers 1..L)
 - each element has shape `[BS, SS, H]`
 
+
+## 一个最直观的例子：2 句话、每句 4 个 token、每个 token 用 3 维向量表示
+
+假设：
+
+-   **BS = 2**（这一批有 2 条句子）
+    
+-   **SS = 4**（每条句子我们统一 pad/截断成 4 个 token）
+    
+-   **H = 3**（为了好看懂，假设每个 token 的 hidden 向量只有 3 维；真实模型可能是 768/4096）
+    
+
+两条句子：
+
+1.  “I love cats” → token: `[I, love, cats, <pad>]`
+    
+2.  “You like dogs” → token: `[You, like, dogs, <pad>]`
+    
+
+现在每个 token 经过 embedding（以及前面几层）都会变成一个向量，比如：
+
+-   `I -> [0.2, -0.1, 0.9]`
+    
+-   `love -> [1.1, 0.0, -0.3]`
+    
+-   …
+    
+
+那 **hidden_states** 就是把这批所有 token 的向量装进一个三维数组：
+
+### hidden_states 的形状：`[BS, SS, H] = [2, 4, 3]`
+
+你可以把它想象成：
+
+-   第 1 维（BS）：选第几句话
+    
+-   第 2 维（SS）：选这句话里的第几个 token
+    
+-   第 3 维（H）：这个 token 的向量坐标
+
+比如：
+
+-   `hidden_states[0, 1, :]` = 第 0 条句子的第 1 个 token（“love”）的 3 维向量
+    
+-   `hidden_states[1, 2, :]` = 第 1 条句子的第 2 个 token（“dogs”）的 3 维向量
+
 ---
 
 ## 3. Where do hidden states come from in a Transformer?
