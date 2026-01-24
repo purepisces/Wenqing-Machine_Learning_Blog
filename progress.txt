@@ -39,3 +39,4 @@
 39.softmax-cross-entropy-loss.md✅
 40.multiclass-svm-loss.md✅
 41.optimization-overview.md✅
+42.hidden_states.md ❌gpt生成 需要改
