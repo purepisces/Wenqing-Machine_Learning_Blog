@@ -81,6 +81,77 @@ If you request **all layers’ hidden states**, you typically get a tuple/list:
 -   `hidden_states[1, 2, :]` = 第 1 条句子的第 2 个 token（“dogs”）的 3 维向量
 
 ---
+----------
+
+## 1）单个 token 的 hidden state
+
+最细粒度：某一层里、某个 token 的表示向量。
+
+-   记作：`h[b, s, :]`
+    
+-   形状：`[H]`
+    
+
+例子：  
+`hidden_states[0, 1, :]` = 第 0 条句子里第 1 个 token（比如 “love”）在某一层的向量。
+
+----------
+
+## 2）一个句子的 hidden states（注意常用复数）
+
+更常见：一句话里**所有 token 的 hidden state** 组成一个序列。
+
+-   形状：`[SS, H]`
+    
+
+也就是把每个 token 的 `[H]` 堆起来。
+
+----------
+
+## 3）整个 batch 的 hidden states（更常见）
+
+在代码里 `hidden_states` 这个变量通常就是指整个 batch：
+
+-   形状：`[BS, SS, H]`
+    
+
+里面包含了：
+
+-   BS 条句子
+    
+-   每条 SS 个 token
+    
+-   每个 token 一个 H 维向量
+    
+
+----------
+
+## 4）“一个句子的 hidden state”有时指句向量（sentence embedding）
+
+有些人确实会口头说“句子的 hidden state”，但严格讲那通常是从 token-level hidden states **汇聚**出来的句向量，比如：
+
+-   取 `[CLS]` 的向量（BERT 类）
+    
+-   mean pooling：对所有 token 向量做平均
+    
+-   last token pooling：取最后一个 token 向量（某些 decoder-only 用法）
+    
+
+这种句向量形状也是 `[H]`，但它不是“天然就有的单个 state”，而是从 `[SS, H]` 汇聚来的。
+
+----------
+
+### 一句话记法
+
+-   **token hidden state**：一个 token 的向量 `[H]`
+    
+-   **sentence hidden states**：一句话所有 token 的向量 `[SS, H]`
+    
+-   **batch hidden states**：一批句子 `[BS, SS, H]`
+    
+-   **sentence embedding**：从 token hidden states 聚合得到的 `[H]`（有时也被口头叫“句子的 hidden state”）
+
+----------
 
 ## 3. Where do hidden states come from in a Transformer?
 
