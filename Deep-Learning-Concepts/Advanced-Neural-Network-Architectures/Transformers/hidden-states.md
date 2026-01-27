@@ -1,4 +1,4 @@
-# GPT generated, need further validation Hidden States in Transformers (hidden-states.md)
+# ⚡️temperoray using GPT generated, need further validation⚡️ Hidden States in Transformers (hidden-states.md)
 
 Hidden states are the intermediate representations produced by a neural network as it processes an input. In Transformer-based models (BERT, GPT, T5, etc.), **hidden states are the per-token vectors emitted by each layer**. They are one of the most important concepts for understanding model internals, debugging, and building downstream applications (classification, retrieval, embedding, probing, etc.).
 
