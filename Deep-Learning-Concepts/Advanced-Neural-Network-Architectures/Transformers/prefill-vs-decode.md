@@ -1,3 +1,4 @@
+#⚡️GPT generated, need furture validation⚡️
 # Prefill vs Decode in Transformer-based Language Models
 
 Large Language Models (LLMs) such as GPT-style models generate text **autoregressively**:  
