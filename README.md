@@ -224,6 +224,7 @@
 - **Transformer Networks**
   - [Overview of Transformers](Deep-Learning-Concepts/Advanced-Neural-Network-Architectures/Transformers/Overview.md)
   - [Hidden States](Deep-Learning-Concepts/Advanced-Neural-Network-Architectures/Transformers/hidden-states.md)
+  - [Prefill vs Decode](Deep-Learning-Concepts/Advanced-Neural-Network-Architectures/Transformers/prefill-vs-decode.md)
 
 - **MoE**
   - [sparsely-gated-MoE-top-k.md](Deep-Learning-Concepts/Advanced-Neural-Network-Architectures/MoE/sparsely-gated-MoE-top-k.md)
