@@ -1,4 +1,5 @@
-# Need further refactor: MoE Block: Router → Dispatch → Expert MLP → Combine
+# ⚠️Need further refactor:⚠️
+# MoE Block: Router → Dispatch → Expert MLP → Combine
 
 This note explains the **Mixture-of-Experts (MoE) block** as it appears in modern large language models (e.g. Switch Transformer, Mixtral, Qwen MoE).  
 The goal is to bridge the gap between **high-level MoE concepts** and **actual block-level implementations** used in training and inference.
