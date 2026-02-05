@@ -228,6 +228,7 @@
 
 - **MoE**
   - [sparsely-gated-MoE-top-k.md](Deep-Learning-Concepts/Advanced-Neural-Network-Architectures/MoE/sparsely-gated-MoE-top-k.md)
+  - [moe-block.md](Deep-Learning-Concepts/Advanced-Neural-Network-Architectures/MoE/moe-block.md)
 
 ### Sequence Models
 - [Overview](sequence-models-overview.md)
