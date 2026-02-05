@@ -282,4 +282,167 @@ Understanding the MoE block at this level makes it much easier to:
 - Reason about performance trade-offs
 
 This block-level view is the foundation for scaling MoE models in practice.
+——————
+# MoE 里的 router / gate / top-k：一次性讲清（外卖例子版）
+
+## 一句话最重要结论
+
+> **router 和 gate 不是两个阶段，也不是两次计算。它们是“同一套数值”的不同叫法。**  
+> - **gate 输出 = router logits**  
+> - **softmax(router logits) = routing weights**  
+> - **top-k 只是筛选，不会重新算一套权重**
+
+---
+
+## 你最容易产生的误解（也最常见）
+
+很多人会下意识以为：
+
+```
+hidden_state
+   ↓
+router：算一遍权重（0.6, 0.25, …）
+   ↓
+gate：再算一遍权重（0.8, 0.2, …）
+```
+
+**这是不对的。**  
+正确流程里 **只有一次** “打分/路由” 的计算。
+
+---
+
+## 正确的真实流程（按代码变量名对齐）
+
+### Step 1：gate = router（同一件事）
+
+```python
+router_logits = self.gate(hidden_states)
+```
+
+- `self.gate` 是一个 `nn.Linear(hidden_size, num_experts)`
+- 输出叫 `router_logits`
+- **这一步就是 router 在“打分”**（只是 raw score / logits，还不是概率）
+
+举个 logits 的例子（随便举，不代表真实值）：
+
+```
+router_logits =
+[ 日料:  1.2
+  川菜:  3.4
+  汉堡: 2.6
+  甜品: 0.8 ]
+```
+
+---
+
+### Step 2：softmax（把 logits 变成概率）
+
+```python
+routing_weights = softmax(router_logits)
+```
+
+这一步只是数学变换，不是新模型。
+
+变成：
+
+```
+routing_weights =
+[ 日料:  0.10
+  川菜:  0.60
+  汉堡: 0.25
+  甜品: 0.05 ]
+```
+
+---
+
+### Step 3：Top-K（只筛选，不重算）
+
+```python
+routing_weights, router_indices = topk(routing_weights, k=2)
+```
+
+**关键点：**
+- ✅ 只挑出最大的 K 个
+- ❌ 不会重新计算权重
+- ❌ 不会把 (0.60, 0.25) 变成另一套完全不同的数
+
+结果就是：
+
+```
+选中专家：
+  川菜   0.60
+  汉堡   0.25
+```
+
+---
+
+### Step 4：可选 renorm（比例缩放，让和=1）
+
+如果你开启了：
+
+```python
+if norm_topk_prob:
+    routing_weights /= routing_weights.sum()
+```
+
+那么：
+
+```
+原来：
+川菜 0.60
+汉堡 0.25
+sum = 0.85
+
+归一化后：
+川菜 0.60 / 0.85 ≈ 0.70
+汉堡 0.25 / 0.85 ≈ 0.30
+```
+
+注意：
+- ✅ 排名没变
+- ✅ 相对大小没变
+- ✅ 只是为了加起来等于 1
+- ❌ 不是重新路由 / 不是重新算 gate
+
+---
+
+## 最终完整 mental model（再也不会混）
+
+```
+hidden_state
+   ↓
+gate (Linear)        ← 这一步也叫 router（职责名）
+   ↓
+router_logits
+   ↓
+softmax
+   ↓
+routing_weights
+   ↓
+top-k（筛选，不重算）
+   ↓
+（可选）renorm（比例缩放）
+```
+
+---
+
+## 为什么名字会让人误解？
+
+名字来源不同，强调点不同：
+
+| 名字 | 更像来自 | 强调什么 |
+|---|---|---|
+| gate | 神经网络术语 | 连续可学习的“门控/权重” |
+| router | MoE 系统结构术语 | 决定 token 走哪几条专家路径 |
+
+但在实现里：
+
+> **gate 是 router 的可学习核心。**  
+> router 是“职责名”，gate 是“实现名”。
+
+---
+
+## 用一句话永久记住
+
+> **router 不是一个额外模块；router 就是 gate 在做的事。**
 
