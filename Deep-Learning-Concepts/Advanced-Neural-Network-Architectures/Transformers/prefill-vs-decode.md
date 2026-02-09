@@ -616,3 +616,42 @@ Only the _execution mode_ and _inputs_ differ.
 
 你没有做两件事。  
 只是从不同角度给同一件事起了两个名字。
+
+## 🍿 再用生活例子解释
+
+### Prefill
+
+你读一整段小说（很多句）。
+
+### Decode
+
+你已经读完，现在开始一句一句往下写。
+
+你不会一次写 10 句。
+
+你一次写 1 句。
+
+----------
+
+## 🎯 所以核心原因是：
+
+> 在生成推理里，  
+> prefill 一次性处理多个 token，  
+> decode 每次只处理 1 个 token。
+
+因此：
+```
+sequence_length > 1  →  prefill / cache-gen
+sequence_length == 1 →  decode / token-gen
+```
+## ⚠️ 一个小补充（更严谨）
+
+理论上，如果有人强行在 decode 阶段一次喂多个 token，也是可能的。
+
+但在标准 autoregressive generation 中：
+
+> decode 阶段一定是 SS == 1。
+
+----------
+
+如果你愿意，我可以再帮你画一个“真实生成时间线图”，从 prompt → prefill → decode → decode → decode，串起来你就会完全通透。
