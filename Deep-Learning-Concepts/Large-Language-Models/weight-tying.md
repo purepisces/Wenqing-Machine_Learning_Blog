@@ -1,4 +1,4 @@
-# Using GPT generated
+# GPT generated, need furture validation
 # Weight Tying in Language Models
 
 ## Definition
