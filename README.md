@@ -257,6 +257,7 @@
 ### Large Language Models
 - [Overview](Deep-Learning-Concepts/Large-Language-Models/large-language-models-overview.md)
 - [Weight Tying](Deep-Learning-Concepts/Large-Language-Models/weight-tying.md)
+- [Quantization](Deep-Learning-Concepts/Large-Language-Models/quantization.md)
 
 ### Generative AI
 - **Overview**
